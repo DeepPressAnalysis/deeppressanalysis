@@ -31,6 +31,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
       padding: 24px 16px 40px;
+      -webkit-font-smoothing: antialiased;
     }
 
     .page {
@@ -38,10 +39,12 @@
       margin: 0 auto;
     }
 
+    /* ---------- HEADER ---------- */
+
     header {
       margin-bottom: 32px;
       border-radius: 16px;
-      padding: 20px 20px 18px;
+      padding: 22px 20px 20px;
       background:
         radial-gradient(circle at 0 0, rgba(34,211,238,0.18), transparent 60%),
         linear-gradient(to bottom, #020617, #050814);
@@ -51,19 +54,63 @@
 
     .header-top {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
+    /* Chrome double-highlight logo */
     .site-title {
       font-size: 26px;
       font-weight: 700;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       white-space: nowrap;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(
+        90deg,
+        #bfc5cc,
+        #ffffff,
+        #a4aab2,
+        #ffffff,
+        #bfc5cc
+      );
+      background-size: 250%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: chromeBase 4s linear infinite;
+    }
+
+    .site-title::after {
+      content: "Deep Press Analysis";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,0.9) 40%,
+        transparent 80%
+      );
+      background-size: 200%;
+      -webkit-background-clip: text;
+      color: transparent;
+      mix-blend-mode: screen;
+      animation: chromeHighlight 3.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes chromeBase {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    @keyframes chromeHighlight {
+      0%   { background-position: -50% 50%; opacity: 0; }
+      25%  { opacity: 1; }
+      50%  { background-position: 150% 50%; opacity: 0.4; }
+      100% { opacity: 0; }
     }
 
     .site-tagline {
@@ -71,46 +118,66 @@
       color: var(--muted);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     .social-buttons {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
+      margin-top: 10px;
     }
 
     .social-btn {
-      padding: 8px 12px;
+      padding: 7px 12px;
       font-size: 13px;
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.6);
-      background: rgba(15,23,42,0.9);
+      background: rgba(15,23,42,0.95);
       color: var(--text);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       cursor: pointer;
-      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
-    }
-
-    .social-btn span.icon {
-      font-size: 14px;
-      opacity: 0.85;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
     }
 
     .social-btn:hover {
       background: rgba(15,23,42,1);
       border-color: var(--accent-soft);
       transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.8);
+    }
+
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .icon-yt { background: #e11d48; }
+    .icon-tg { background: #0ea5e9; }
+    .icon-tt {
+      background: radial-gradient(circle at 30% 20%, #f97316, transparent 55%),
+                  #020617;
+      box-shadow: 0 0 8px rgba(248,250,252,0.25);
     }
 
     .header-note {
       font-size: 13px;
       color: var(--muted);
-      margin-top: 4px;
+      margin-top: 6px;
     }
+
+    /* ---------- CONTENT ---------- */
 
     main {
       display: flex;
@@ -142,6 +209,7 @@
 
     .article-block {
       border-top: 1px solid rgba(31,41,55,0.7);
+      overflow: hidden; /* для анимации */
     }
 
     .article-header {
@@ -149,8 +217,9 @@
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
-      padding: 8px 0;
+      padding: 10px 0;
       gap: 10px;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .article-title {
@@ -162,7 +231,7 @@
       font-size: 16px;
       color: var(--muted);
       flex-shrink: 0;
-      transition: transform 0.15s ease;
+      transition: transform 0.18s ease, color 0.18s ease;
     }
 
     .article-block.open .article-toggle {
@@ -170,15 +239,21 @@
       color: var(--accent);
     }
 
+    /* iOS-style accordion animation */
     .article-analysis {
       font-size: 14px;
       color: var(--muted);
-      padding: 0 0 8px 0;
-      display: none;
+      padding-bottom: 8px;
+      max-height: 0;
+      opacity: 0;
+      transition:
+        max-height 0.26s ease-out,
+        opacity 0.22s ease-out;
     }
 
     .article-block.open .article-analysis {
-      display: block;
+      max-height: 600px; /* достаточно много для текста */
+      opacity: 1;
     }
 
     footer {
@@ -208,6 +283,7 @@
       .site-title {
         font-size: 20px;
         letter-spacing: 0.18em;
+        white-space: normal;
       }
       header {
         padding: 16px 14px;
@@ -223,15 +299,17 @@
         <div class="site-title">Deep Press Analysis</div>
         <div class="site-tagline">Ежедневный разбор западной прессы</div>
       </div>
+
       <div class="social-buttons">
+        <!-- Поставь свои реальные ссылки вместо # -->
         <a class="social-btn" href="#" target="_blank" rel="noopener">
-          <span class="icon">▶️</span><span>YouTube</span>
+          <span class="social-icon icon-yt">YT</span><span>YouTube</span>
         </a>
         <a class="social-btn" href="#" target="_blank" rel="noopener">
-          <span class="icon">✈️</span><span>Telegram</span>
+          <span class="social-icon icon-tg">TG</span><span>Telegram</span>
         </a>
         <a class="social-btn" href="#" target="_blank" rel="noopener">
-          <span class="icon">🎵</span><span>TikTok</span>
+          <span class="social-icon icon-tt">TT</span><span>TikTok</span>
         </a>
       </div>
     </div>
@@ -243,7 +321,7 @@
   <main>
     <!-- New York Post -->
     <section class="outlet">
-      <h2>New York Post</h2>
+      <h2>NEW YORK POST</h2>
       <div class="outlet-sub">Краткий аналитический разбор ключевых материалов выпуска.</div>
 
       <div class="article-block">
@@ -299,7 +377,7 @@
 
     <!-- The Wall Street Journal -->
     <section class="outlet">
-      <h2>The Wall Street Journal</h2>
+      <h2>THE WALL STREET JOURNAL</h2>
       <div class="outlet-sub">Глобальная экономика, геополитика и рынки.</div>
 
       <div class="article-block">
@@ -353,7 +431,7 @@
       </div>
     </section>
 
-    <!-- Здесь можно добавить ещё газеты по тому же шаблону -->
+    <!-- здесь можно добавить ещё газеты по такому же шаблону -->
 
   </main>
 
@@ -371,10 +449,16 @@
 </div>
 
 <script>
+  // Плавный аккордеон по нажатию на заголовок статьи
   document.querySelectorAll('.article-header').forEach(function (header) {
     header.addEventListener('click', function () {
       var block = header.parentElement;
-      block.classList.toggle('open');
+      var wasOpen = block.classList.contains('open');
+      // закрываем остальные, если хочешь режим "один открытый" — раскомментируй:
+      // document.querySelectorAll('.article-block.open').forEach(function (b) {
+      //   if (b !== block) b.classList.remove('open');
+      // });
+      block.classList.toggle('open', !wasOpen);
     });
   });
 </script>
