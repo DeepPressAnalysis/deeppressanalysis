@@ -2,17 +2,19 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Deep Press Analysis — ежедневный разбор западной прессы</title>
+  <title>Deep Press Analysis — мировая пресса, экономика, рынки, геополитика, войны</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="Deep Press Analysis — ежедневный разбор западной прессы: мировые новости, экономика, геополитика, финансы и прогнозы. Анализ материалов ведущих западных изданий."
+    content="Deep Press Analysis — ежедневный разбор западной и мировой прессы: экономика и финансовые рынки, США и Европа, Россия и Китай, войны, санкции, нефть, газ, технологии и долгосрочные тренды. Краткий аналитический брифинг по материалам ведущих западных медиа."
   >
   <style>
     :root {
-      --bg: #050814;
-      --bg-card: #0b1020;
-      --border: #1f2937;
+      --bg: #020617;
+      --glass: rgba(15,23,42,0.72);
+      --glass-strong: rgba(15,23,42,0.9);
+      --border: rgba(148,163,184,0.35);
+      --border-strong: rgba(148,163,184,0.65);
       --text: #e5e7eb;
       --muted: #9ca3af;
       --accent: #22d3ee;
@@ -26,7 +28,9 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #020617 0, #050814 45%, #020617 100%);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
       color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
@@ -43,13 +47,17 @@
 
     header {
       margin-bottom: 32px;
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 22px 20px 20px;
       background:
-        radial-gradient(circle at 0 0, rgba(34,211,238,0.18), transparent 60%),
-        linear-gradient(to bottom, #020617, #050814);
-      border: 1px solid rgba(15,23,42,0.9);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.85);
+        radial-gradient(circle at 0 -40%, rgba(56,189,248,0.24), transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(59,130,246,0.2), transparent 55%),
+        linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow:
+        0 26px 60px rgba(0,0,0,0.95),
+        inset 0 0 0 0.5px rgba(255,255,255,0.04);
+      backdrop-filter: blur(26px);
     }
 
     .header-top {
@@ -57,7 +65,7 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     /* Chrome double-highlight logo */
@@ -133,21 +141,23 @@
       font-size: 13px;
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.6);
-      background: rgba(15,23,42,0.95);
+      background: rgba(15,23,42,0.96);
       color: var(--text);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       cursor: pointer;
-      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+      transition: background 0.15s ease, border-color 0.15s ease,
+                  transform 0.1s ease, box-shadow 0.15s ease;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.8);
     }
 
     .social-btn:hover {
       background: rgba(15,23,42,1);
       border-color: var(--accent-soft);
       transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(15,23,42,0.8);
+      box-shadow: 0 16px 32px rgba(15,23,42,0.95);
     }
 
     .social-icon {
@@ -174,7 +184,7 @@
     .header-note {
       font-size: 13px;
       color: var(--muted);
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     /* ---------- CONTENT ---------- */
@@ -182,15 +192,22 @@
     main {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 18px;
     }
 
     section.outlet {
-      background: var(--bg-card);
-      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        rgba(15,23,42,0.92),
+        rgba(15,23,42,0.84)
+      );
+      border-radius: 18px;
       border: 1px solid var(--border);
-      padding: 16px 16px 10px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+      padding: 16px 16px 14px;
+      box-shadow:
+        0 22px 50px rgba(0,0,0,0.9),
+        inset 0 0 0 0.5px rgba(255,255,255,0.03);
+      backdrop-filter: blur(26px);
     }
 
     section.outlet h2 {
@@ -207,9 +224,53 @@
       margin-bottom: 10px;
     }
 
-    .article-block {
-      border-top: 1px solid rgba(31,41,55,0.7);
-      overflow: hidden; /* для анимации */
+    .articles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Glassmorphism accordion card */
+    .article-card {
+      position: relative;
+      border-radius: 14px;
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.9), #020617);
+      border: 1px solid rgba(148,163,184,0.35);
+      overflow: hidden;
+      box-shadow:
+        0 14px 30px rgba(0,0,0,0.9),
+        inset 0 0 0 0.5px rgba(255,255,255,0.02);
+      backdrop-filter: blur(18px);
+      transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        border-color 0.16s ease,
+        background 0.16s ease;
+    }
+
+    .article-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56,189,248,0.3), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 20px 44px rgba(0,0,0,1),
+        0 0 24px rgba(56,189,248,0.2);
+      border-color: var(--border-strong);
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.96), #020617);
+    }
+
+    .article-card:hover::before {
+      opacity: 0.55;
     }
 
     .article-header {
@@ -217,52 +278,91 @@
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
-      padding: 10px 0;
+      padding: 12px 14px;
       gap: 10px;
       -webkit-tap-highlight-color: transparent;
+    }
+
+    .article-main {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .article-index {
+      font-size: 12px;
+      color: var(--accent-soft);
+      opacity: 0.85;
+      min-width: 18px;
+      flex-shrink: 0;
     }
 
     .article-title {
       font-weight: 600;
       font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .article-toggle {
-      font-size: 16px;
-      color: var(--muted);
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      transition: transform 0.18s ease, color 0.18s ease;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+      font-size: 12px;
+      transition:
+        transform 0.2s ease,
+        color 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
+      background: radial-gradient(circle at 30% 0, rgba(248,250,252,0.14), transparent 60%);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.8);
     }
 
-    .article-block.open .article-toggle {
+    .article-card.open .article-toggle {
       transform: rotate(90deg);
       color: var(--accent);
+      border-color: rgba(56,189,248,0.85);
+      background: radial-gradient(circle at 30% 0, rgba(56,189,248,0.35), transparent 60%);
+      box-shadow: 0 0 18px rgba(56,189,248,0.6);
     }
 
-    /* iOS-style accordion animation */
-    .article-analysis {
-      font-size: 14px;
-      color: var(--muted);
-      padding-bottom: 8px;
+    /* modern accordion body */
+    .article-body {
+      padding: 0 14px 12px;
       max-height: 0;
       opacity: 0;
+      font-size: 14px;
+      color: var(--muted);
       transition:
         max-height 0.26s ease-out,
         opacity 0.22s ease-out;
     }
 
-    .article-block.open .article-analysis {
-      max-height: 600px; /* достаточно много для текста */
+    .article-card.open .article-body {
+      max-height: 600px;
       opacity: 1;
     }
 
     footer {
       margin-top: 28px;
       padding: 16px 16px 18px;
-      border-radius: 12px;
+      border-radius: 16px;
       border: 1px solid var(--border);
-      background: #020617;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      background: rgba(15,23,42,0.96);
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.95),
+        inset 0 0 0 0.5px rgba(255,255,255,0.02);
+      backdrop-filter: blur(20px);
     }
 
     footer h2 {
@@ -288,6 +388,9 @@
       header {
         padding: 16px 14px;
       }
+      .article-title {
+        white-space: normal;
+      }
     }
   </style>
 </head>
@@ -297,7 +400,7 @@
     <div class="header-top">
       <div>
         <div class="site-title">Deep Press Analysis</div>
-        <div class="site-tagline">Ежедневный разбор западной прессы</div>
+        <div class="site-tagline">ЕЖЕДНЕВНЫЙ РАЗБОР МИРОВОЙ ПРЕССЫ</div>
       </div>
 
       <div class="social-buttons">
@@ -314,7 +417,7 @@
       </div>
     </div>
     <div class="header-note">
-      Один день. Несколько редакций. Единый аналитический брифинг.
+      Ежедневный разбор западной и мировой прессы: экономика, рынки, США, Европа, Россия, Китай, войны, санкции, нефть, газ, технологии и долгосрочные тренды.
     </div>
   </header>
 
@@ -322,55 +425,72 @@
     <!-- New York Post -->
     <section class="outlet">
       <h2>NEW YORK POST</h2>
-      <div class="outlet-sub">Краткий аналитический разбор ключевых материалов выпуска.</div>
+      <div class="outlet-sub">Миграция, городская политика, стоимость жизни и рынок труда.</div>
 
-      <div class="article-block">
-        <div class="article-header">
-          <div class="article-title">Feds: Tish James protecting 7,000 migrant thugs loose in NY</div>
-          <div class="article-toggle">▶</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Feds: Tish James protecting 7,000 migrant thugs loose in NY</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Федеральные власти требуют от генпрокурора Нью-Йорка выдать 7100 нелегальных мигрантов с уголовным прошлым для депортации, обвиняя местные "убежищные" законы в сокрытии преступников от ICE. Это усиливает давление на демократические институты штата, выгодное республиканцам для критики миграционной политики, но рискует обострить социальное напряжение и юридические конфликты между уровнями власти. В будущем такие споры могут привести к федеральным реформам миграционного законодательства, ограничивающим автономию штатов.
+          </div>
         </div>
-        <div class="article-analysis">
-          Федеральные власти требуют от генпрокурора Нью-Йорка выдать 7100 нелегальных мигрантов с уголовным прошлым для депортации, обвиняя местные "убежищные" законы в сокрытии преступников от ICE. Это усиливает давление на демократические институты штата, выгодное республиканцам для критики миграционной политики, но рискует обострить социальное напряжение и юридические конфликты между уровнями власти. В будущем такие споры могут привести к федеральным реформам миграционного законодательства, ограничивающим автономию штатов.
-        </div>
-      </div>
 
-      <div class="article-block">
-        <div class="article-header">
-          <div class="article-title">NY energy law green slimed</div>
-          <div class="article-toggle">▶</div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">NY energy law green slimed</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Закон о климате 2019 года привел к росту цен на электричество на 36% в Нью-Йорке, отставая от целей по возобновляемой энергии и вызывая задержки в запрете газовых плит. Политики, включая губернатора Хокул, замедляют реализацию из-за затрат, выгодное энергокомпаниям для повышения тарифов, но рискующее подорвать доверие к зеленой повестке. Это сигнализирует о сдвиге к прагматизму в энергополитике, где экономическая реальность может ослабить амбициозные климатические цели в США.
+          </div>
         </div>
-        <div class="article-analysis">
-          Закон о климате 2019 года привел к росту цен на электричество на 36% в Нью-Йорке, отставая от целей по возобновляемой энергии и вызывая задержки в запрете газовых плит. Политики, включая губернатора Хокул, замедляют реализацию из-за затрат, выгодное энергокомпаниям для повышения тарифов, но рискующее подорвать доверие к зеленой повестке. Это сигнализирует о сдвиге к прагматизму в энергополитике, где экономическая реальность может ослабить амбициозные климатические цели в США.
-        </div>
-      </div>
 
-      <div class="article-block">
-        <div class="article-header">
-          <div class="article-title">‘home’ prices? aaaaGh! ‘Alone’ spree today</div>
-          <div class="article-toggle">▶</div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">‘home’ prices? aaaaGh! ‘Alone’ spree today</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Инфляция за 33 года удвоила стоимость услуг в отеле Plaza из фильма "Home Alone 2", сделав аналогичный отдых в $8511 вместо $2109, на фоне роста безработицы и стагнации доходов. Это выгодно люксовым брендам, адаптирующимся к высоким ценам, но рискует снизить потребительские расходы в праздники. Тренд указывает на долгосрочное сжатие среднего класса, где инфляция усугубляет неравенство и меняет потребительские привычки.
+          </div>
         </div>
-        <div class="article-analysis">
-          Инфляция за 33 года удвоила стоимость услуг в отеле Plaza из фильма "Home Alone 2", сделав аналогичный отдых в $8511 вместо $2109, на фоне роста безработицы и стагнации доходов. Это выгодно люксовым брендам, адаптирующимся к высоким ценам, но рискует снизить потребительские расходы в праздники. Тренд указывает на долгосрочное сжатие среднего класса, где инфляция усугубляет неравенство и меняет потребительские привычки.
-        </div>
-      </div>
 
-      <div class="article-block">
-        <div class="article-header">
-          <div class="article-title">They can’t ‘afford’ it</div>
-          <div class="article-toggle">▶</div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">They can’t ‘afford’ it</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Владельцы доступного жилья в Нью-Йорке нуждаются в $1 млрд финансирования, чтобы избежать дефолтов из-за роста затрат и заморозки арендной платы под новой администрацией. Это выгодно некоммерческим организациям, лоббирующим субсидии, но рискует ухудшить условия для арендаторов и поднять цены на рынке. В перспективе такая динамика может привести к кризису жилья, усиливая миграцию населения и давление на бюджет штата.
+          </div>
         </div>
-        <div class="article-analysis">
-          Владельцы доступного жилья в Нью-Йорке нуждаются в $1 млрд финансирования, чтобы избежать дефолтов из-за роста затрат и заморозки арендной платы под новой администрацией. Это выгодно некоммерческим организациям, лоббирующим субсидии, но рискует ухудшить условия для арендаторов и поднять цены на рынке. В перспективе такая динамика может привести к кризису жилья, усиливая миграцию населения и давление на бюджет штата.
-        </div>
-      </div>
 
-      <div class="article-block">
-        <div class="article-header">
-          <div class="article-title">‘Zo’-ing on strike</div>
-          <div class="article-toggle">▶</div>
-        </div>
-        <div class="article-analysis">
-          Мэр-элект Мамдани поддержал забастовку работников Starbucks в Бруклине, связав ее с политикой доступности, на фоне $39 млн компенсации за нарушения графиков. Это укрепляет позиции профсоюзов и левых политиков, выгодное для повышения зарплат, но рискует повысить операционные затраты для ритейлеров. Тренд отражает рост влияния трудовых движений, потенциально ведущий к более жесткому регулированию рынка труда в городах.
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">‘Zo’-ing on strike</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Мэр-элект Мамдани поддержал забастовку работников Starbucks в Бруклине, связав ее с политикой доступности, на фоне $39 млн компенсации за нарушения графиков. Это укрепляет позиции профсоюзов и левых политиков, выгодное для повышения зарплат, но рискует повысить операционные затраты для ритейлеров. Тренд отражает рост влияния трудовых движений, потенциально ведущий к более жесткому регулированию рынка труда в городах.
+          </div>
         </div>
       </div>
     </section>
@@ -378,61 +498,75 @@
     <!-- The Wall Street Journal -->
     <section class="outlet">
       <h2>THE WALL STREET JOURNAL</h2>
-      <div class="outlet-sub">Глобальная экономика, геополитика и рынки.</div>
+      <div class="outlet-sub">Глобальная экономика, геополитика, войны и рынки капитала.</div>
 
-      <div class="article-block">
-        <div class="article-header">
-          <div class="article-title">Russia Dangles Business Ties To U.S. at Europe’s Expense</div>
-          <div class="article-toggle">▶</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Russia Dangles Business Ties To U.S. at Europe’s Expense</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Россия предлагает США экономическое партнерство, включая доступ к $300 млрд замороженных активов и совместные проекты в Арктике, для окончания войны в Украине, обходя европейских конкурентов. Это выгодно американскому бизнесу для новых рынков, но рискует ослабить трансатлантический альянс и усилить влияние Москвы в Европе. В будущем такая стратегия может переориентировать глобальные цепочки поставок, подрывая санкции и стимулируя прагматичный подход в геополитике.
+          </div>
         </div>
-        <div class="article-analysis">
-          Россия предлагает США экономическое партнерство, включая доступ к $300 млрд замороженных активов и совместные проекты в Арктике, для окончания войны в Украине, обходя европейских конкурентов. Это выгодно американскому бизнесу для новых рынков, но рискует ослабить трансатлантический альянс и усилить влияние Москвы в Европе. В будущем такая стратегия может переориентировать глобальные цепочки поставок, подрывая санкции и стимулируя прагматичный подход в геополитике.
-        </div>
-      </div>
 
-      <div class="article-block">
-        <div class="article-header">
-          <div class="article-title">U.S. and Ukraine Discuss Thorny Issues</div>
-          <div class="article-toggle">▶</div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">U.S. and Ukraine Discuss Thorny Issues</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            США и Украина обсуждают выборы, обмен территориями и гарантии безопасности для окончания войны, с визитом американских эмиссаров в Москву для продолжения. Это выгодно Трампу для дипломатического успеха, но рискует уступками Киеву, подрывая его суверенитет. Переговоры сигнализируют о сдвиге к компромиссам, потенциально стабилизирующим регион, но усиливая напряжение с союзниками НАТО.
+          </div>
         </div>
-        <div class="article-analysis">
-          США и Украина обсуждают выборы, обмен территориями и гарантии безопасности для окончания войны, с визитом американских эмиссаров в Москву для продолжения. Это выгодно Трампу для дипломатического успеха, но рискует уступками Киеву, подрывая его суверенитет. Переговоры сигнализируют о сдвиге к компромиссам, потенциально стабилизирующим регион, но усиливая напряжение с союзниками НАТО.
-        </div>
-      </div>
 
-      <div class="article-block">
-        <div class="article-header">
-          <div class="article-title">Retailers Feel a Chill From Gen Z Shoppers</div>
-          <div class="article-toggle">▶</div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Retailers Feel a Chill From Gen Z Shoppers</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Молодое поколение Z сокращает расходы на подарки из-за роста затрат на жилье и кредиты, в отличие от других групп, что бьет по ритейлерам. Это выгодно дискаунтерам и онлайн-платформам, адаптирующимся к бюджетным трендам, но рискует замедлить розничный рост. Тренд указывает на долгосрочное изменение потребления, где экономическая нестабильность формирует консервативные привычки и влияет на маркетинговые стратегии.
+          </div>
         </div>
-        <div class="article-analysis">
-          Молодое поколение Z сокращает расходы на подарки из-за роста затрат на жилье и кредиты, в отличие от других групп, что бьет по ритейлерам. Это выгодно дискаунтерам и онлайн-платформам, адаптирующимся к бюджетным трендам, но рискует замедлить розничный рост. Тренд указывает на долгосрочное изменение потребления, где экономическая нестабильность формирует консервативные привычки и влияет на маркетинговые стратегии.
-        </div>
-      </div>
 
-      <div class="article-block">
-        <div class="article-header">
-          <div class="article-title">Drug War Bolsters Defense Startups</div>
-          <div class="article-toggle">▶</div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">Drug War Bolsters Defense Startups</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Война с наркотиками Трампа стимулирует оборонные стартапы, предлагающие AI и дроны для операций против Венесуэлы и Мексики, с дополнительным финансированием в $165 млрд. Это выгодно техкомпаниям, диверсифицирующим от Китая, но рискует эскалацией конфликтов и обвинениями в нарушениях прав. В перспективе это может переориентировать оборонный бюджет на Западное полушарие, усиливая роль технологий в hemispheric security.
+          </div>
         </div>
-        <div class="article-analysis">
-          Война с наркотиками Трампа стимулирует оборонные стартапы, предлагающие AI и дроны для операций против Венесуэлы и Мексики, с дополнительным финансированием в $165 млрд. Это выгодно техкомпаниям, диверсифицирующим от Китая, но рискует эскалацией конфликтов и обвинениями в нарушениях прав. В перспективе это может переориентировать оборонный бюджет на Западное полушарие, усиливая роль технологий в hemispheric security.
-        </div>
-      </div>
 
-      <div class="article-block">
-        <div class="article-header">
-          <div class="article-title">U.S. Faces Shortage of Commercial Sailors</div>
-          <div class="article-toggle">▶</div>
-        </div>
-        <div class="article-analysis">
-          США сталкиваются с дефицитом моряков для коммерческого флота, несмотря на зарплаты свыше $200 тыс., что угрожает логистике и национальной безопасности. Это выгодно судоходным компаниям через бонусы, но рискует зависимостью от иностранных экипажей в кризисах. Тренд отражает сдвиг в рынке труда, где автоматизация и демография могут потребовать реформ образования, влияя на глобальные цепочки поставок.
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">U.S. Faces Shortage of Commercial Sailors</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            США сталкиваются с дефицитом моряков для коммерческого флота, несмотря на зарплаты свыше $200 тыс., что угрожает логистике и национальной безопасности. Это выгодно судоходным компаниям через бонусы, но рискует зависимостью от иностранных экипажей в кризисах. Тренд отражает сдвиг в рынке труда, где автоматизация и демография могут потребовать реформ образования, влияя на глобальные цепочки поставок.
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- здесь можно добавить ещё газеты по такому же шаблону -->
-
   </main>
 
   <footer>
@@ -449,16 +583,18 @@
 </div>
 
 <script>
-  // Плавный аккордеон по нажатию на заголовок статьи
+  // Glassmorphism accordion: плавное раскрытие карточек
   document.querySelectorAll('.article-header').forEach(function (header) {
     header.addEventListener('click', function () {
-      var block = header.parentElement;
-      var wasOpen = block.classList.contains('open');
-      // закрываем остальные, если хочешь режим "один открытый" — раскомментируй:
-      // document.querySelectorAll('.article-block.open').forEach(function (b) {
-      //   if (b !== block) b.classList.remove('open');
-      // });
-      block.classList.toggle('open', !wasOpen);
+      const card = header.parentElement;
+      const outlet = card.closest('.outlet');
+
+      // режим "одна открыта на блок" — можно отключить, если не нужно
+      outlet.querySelectorAll('.article-card.open').forEach(function (other) {
+        if (other !== card) other.classList.remove('open');
+      });
+
+      card.classList.toggle('open');
     });
   });
 </script>
