@@ -1,11 +1,33 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=/ru/">
-  <title>Deep Press Analysis</title>
+  <title>Redirecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Маппинг языков → папки
+    const LANG_MAP = {
+      "en": "/en/index.html",
+      "ru": "/ru/index.html",
+      "de": "/de/index.html",
+      "ar": "/ar/index.html",
+      "ua": "/ua/index.html"
+    };
+
+    // Определяем язык браузера
+    const userLang = navigator.language || navigator.userLanguage;
+    const langShort = userLang.split('-')[0].toLowerCase();
+
+    // Особый случай: если браузер отдаёт "uk" — считаем это UA
+    const normalizedLang = (langShort === "uk") ? "ua" : langShort;
+
+    // Редирект: если есть язык → туда, иначе → английский
+    const redirectTo = LANG_MAP[normalizedLang] || "/en/index.html";
+
+    window.location.replace(redirectTo);
+  </script>
 </head>
 <body>
-  <p>Переадресация на русскую версию сайта...</p>
+  <p style="color:#fff;font-family:system-ui">Redirecting...</p>
 </body>
 </html>
