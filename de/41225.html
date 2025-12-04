@@ -1,1 +1,1222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Deep Press Analysis — globaler Nachrichtenüberblick: Wirtschaft, Märkte, Geopolitik</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Deep Press Analysis — täglicher Digest der westlichen und globalen Presse: Wirtschaft und Finanzmärkte, die USA und Europa, Russland und China, Kriege, Sanktionen, Öl, Gas, Technologie und langfristige Trends. Kompakter analytischer Überblick auf Basis führender Medien."
+  >
+  <style>
+    :root {
+      --bg: #020617;
+      --glass: rgba(15,23,42,0.72);
+      --glass-strong: rgba(15,23,42,0.9);
+      --border: rgba(148,163,184,0.35);
+      --border-strong: rgba(148,163,184,0.7);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22d3ee;
+      --accent-soft: #38bdf8;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding: 20px 14px 40px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* ---------- LANGUAGE BAR ---------- */
+
+    .lang-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-bottom: 10px;
+      font-size: 11px;
+    }
+
+    .lang-pill {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.9);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      opacity: 0.9;
+      user-select: none;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .lang-pill.active {
+      border-color: var(--accent-soft);
+      color: #f9fafb;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.35), #020617);
+      box-shadow: 0 0 12px rgba(56,189,248,0.5);
+      opacity: 1;
+      cursor: default;
+    }
+
+    /* ---------- TOP BAR ---------- */
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 10px;
+    }
+
+    .top-bar-left {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      opacity: 0.9;
+    }
+
+    .top-bar-right {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.96);
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease,
+                  transform 0.1s ease, box-shadow 0.15s ease, opacity 0.12s ease;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.75);
+      opacity: 0.94;
+    }
+
+    .social-btn:hover {
+      background: rgba(15,23,42,1);
+      border-color: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.98);
+      opacity: 1;
+    }
+
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .social-label {
+      white-space: nowrap;
+    }
+
+    .icon-yt svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .icon-tg svg,
+    .icon-tt svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    header {
+      margin-bottom: 26px;
+      border-radius: 20px;
+      padding: 20px 20px 18px;
+      background:
+        radial-gradient(circle at 0 -40%, rgba(56,189,248,0.24), transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(59,130,246,0.2), transparent 55%),
+        linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow:
+        0 26px 60px rgba(0,0,0,0.95),
+        inset 0 0 0 0.5px rgba(255,255,255,0.04);
+      backdrop-filter: blur(26px);
+    }
+
+    .header-main {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    /* Chrome double-highlight logo */
+    .site-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(
+        90deg,
+        #bfc5cc,
+        #ffffff,
+        #a4aab2,
+        #ffffff,
+        #bfc5cc
+      );
+      background-size: 250%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: chromeBase 4s linear infinite;
+    }
+
+    .site-title::after {
+      content: "Deep Press Analysis";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,0.9) 40%,
+        transparent 80%
+      );
+      background-size: 200%;
+      -webkit-background-clip: text;
+      color: transparent;
+      mix-blend-mode: screen;
+      animation: chromeHighlight 3.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes chromeBase {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    @keyframes chromeHighlight {
+      0%   { background-position: -50% 50%; opacity: 0; }
+      25%  { opacity: 1; }
+      50%  { background-position: 150% 50%; opacity: 0.4; }
+      100% { opacity: 0; }
+    }
+
+    .site-tagline {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header-date {
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #e5e7eb;
+    }
+
+    .header-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .header-focus {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
+    .header-focus strong {
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    /* ---------- CONTENT ---------- */
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    section.outlet {
+      background: linear-gradient(
+        135deg,
+        rgba(15,23,42,0.94),
+        rgba(15,23,42,0.86)
+      );
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 16px 16px 14px;
+      box-shadow:
+        0 22px 50px rgba(0,0,0,0.9),
+        inset 0 0 0 0.5px rgba(255,255,255,0.03);
+      backdrop-filter: blur(26px);
+    }
+
+    section.outlet h2 {
+      font-size: 18px;
+      margin-bottom: 4px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: inline-block;
+      background: linear-gradient(
+        120deg,
+        #22d3ee,
+        #a855f7,
+        #f97316,
+        #22c55e,
+        #22d3ee
+      );
+      background-size: 260% 260%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: outletHue 6s linear infinite;
+      text-shadow: 0 0 18px rgba(15,23,42,0.8);
+    }
+
+    @keyframes outletHue {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    section.outlet .outlet-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .articles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Glassmorphism accordion card */
+
+    .article-card {
+      position: relative;
+      border-radius: 14px;
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.9), #020617);
+      border: 1px solid rgba(148,163,184,0.35);
+      overflow: hidden;
+      box-shadow:
+        0 14px 30px rgba(0,0,0,0.9),
+        inset 0 0 0 0.5px rgba(255,255,255,0.02);
+      backdrop-filter: blur(18px);
+      transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        border-color 0.16s ease,
+        background 0.16s ease;
+    }
+
+    .article-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56,189,248,0.3), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 20px 44px rgba(0,0,0,1),
+        0 0 24px rgba(56,189,248,0.2);
+      border-color: var(--border-strong);
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.96), #020617);
+    }
+
+    .article-card:hover::before {
+      opacity: 0.55;
+    }
+
+    .article-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 12px 14px;
+      gap: 10px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .article-main {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .article-index {
+      font-size: 12px;
+      color: var(--accent-soft);
+      opacity: 0.85;
+      min-width: 18px;
+      flex-shrink: 0;
+    }
+
+    .article-title {
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .article-toggle {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+      font-size: 12px;
+      transition:
+        transform 0.2s ease,
+        color 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
+      background: radial-gradient(circle at 30% 0, rgba(248,250,252,0.14), transparent 60%);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.8);
+    }
+
+    .article-card.open .article-toggle {
+      transform: rotate(90deg);
+      color: var(--accent);
+      border-color: rgba(56,189,248,0.85);
+      background: radial-gradient(circle at 30% 0, rgba(56,189,248,0.35), transparent 60%);
+      box-shadow: 0 0 18px rgba(56,189,248,0.6);
+    }
+
+    .article-body {
+      padding: 0 14px 12px;
+      max-height: 0;
+      opacity: 0;
+      font-size: 14px;
+      color: var(--muted);
+      transition:
+        max-height 0.26s ease-out,
+        opacity 0.22s ease-out;
+      overflow: hidden;
+    }
+
+    .article-card.open .article-body {
+      max-height: 800px;
+      opacity: 1;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      margin-top: 26px;
+      padding: 16px 16px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.96);
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.95),
+        inset 0 0 0 0.5px rgba(255,255,255,0.02);
+      backdrop-filter: blur(20px);
+    }
+
+    footer h2 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    footer p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 14px 10px 26px;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .site-title {
+        font-size: 20px;
+        letter-spacing: 0.18em;
+        white-space: normal;
+      }
+
+      header {
+        padding: 16px 14px;
+      }
+
+      .article-title {
+        white-space: normal;
+      }
+
+      .lang-bar {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- LANGUAGE BAR -->
+ <div class="lang-bar">
+  <a href="/ua/index.html" class="lang-pill">UA</a>
+  <a href="/en/index.html" class="lang-pill">EN</a>
+  <a href="/ar/index.html" class="lang-pill">AR</a>
+  <a href="/ru/index.html" class="lang-pill">RU</a>
+  <span class="lang-pill active">DE</span>
+</div>
+
+
+  <!-- TOP BAR WITH SOCIAL ICONS -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      DEEP PRESS ANALYSIS · TÄGLICHER GLOBALER PRESSEDIGEST
+    </div>
+    <div class="top-bar-right">
+      <!-- YouTube -->
+      <a class="social-btn" href="https://www.youtube.com/@DeepPressAnalysis" target="_blank" rel="noopener">
+        <span class="social-icon icon-yt">
+          <!-- YouTube logo -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <defs>
+              <linearGradient id="ytGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f97373"/>
+                <stop offset="60%" stop-color="#ef4444"/>
+                <stop offset="100%" stop-color="#b91c1c"/>
+              </linearGradient>
+            </defs>
+            <rect x="2.5" y="5" width="19" height="14" rx="4" ry="4" fill="url(#ytGrad)"/>
+            <polygon points="10,9 16,12 10,15" fill="#f9fafb"/>
+          </svg>
+        </span>
+        <span class="social-label">YouTube</span>
+      </a>
+
+      <!-- Telegram -->
+      <a class="social-btn" href="https://t.me/DeepPressAnalysis" target="_blank" rel="noopener">
+        <span class="social-icon icon-tg">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <defs>
+              <linearGradient id="tgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#0ea5e9"/>
+              </linearGradient>
+            </defs>
+            <rect x="1" y="1" width="22" height="22" rx="11" fill="url(#tgGrad)"/>
+            <path d="M7 12.5L16.5 7.5C16.9 7.3 17.3 7.6 17.1 8.1L14.6 16C14.4 16.6 13.7 16.8 13.3 16.3L11.4 14.1L9.6 15.7C9.3 15.9 8.9 15.8 8.8 15.4L7.2 13C6.9 12.5 6.7 12.1 7 12.5Z" fill="#f9fafb"/>
+          </svg>
+        </span>
+        <span class="social-label">Telegram</span>
+      </a>
+
+      <!-- TikTok -->
+      <a class="social-btn" href="https://www.tiktok.com/@deeppressanalysis" target="_blank" rel="noopener">
+        <span class="social-icon icon-tt">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <defs>
+              <radialGradient id="ttGrad1" cx="20%" cy="0%" r="80%">
+                <stop offset="0%" stop-color="#f97316"/>
+                <stop offset="100%" stop-color="#020617"/>
+              </radialGradient>
+              <radialGradient id="ttGrad2" cx="80%" cy="100%" r="100%">
+                <stop offset="0%" stop-color="#22d3ee"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+            </defs>
+            <rect x="1" y="1" width="22" height="22" rx="7" fill="#020617"/>
+            <circle cx="8" cy="8" r="10" fill="url(#ttGrad2)" opacity="0.7"/>
+            <circle cx="5" cy="4" r="9" fill="url(#ttGrad1)" opacity="0.9"/>
+            <path d="M13.5 7.5V13.2C13.5 14.6 12.4 15.7 11 15.7C9.6 15.7 8.5 14.6 8.5 13.2C8.5 11.9 9.5 10.8 10.8 10.7"
+                  stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 7.5C14.2 8.3 15.3 8.9 16.3 9"
+                  stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="social-label">TikTok</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header>
+    <div class="header-main">
+      <div class="site-title">Deep Press Analysis</div>
+      <div class="site-tagline">DAILY BRIEFING OF GLOBAL PRESS</div>
+      <div class="header-date">4 DECEMBER 2025</div>
+    </div>
+    <div class="header-note">
+      Täglicher Überblick über westliche und globale Medien: Wirtschaft, Märkte, USA, Europa, Russland, China,
+      Kriege, Sanktionen, Öl, Gas, Technologie und langfristige Trends.
+    </div>
+    <div class="header-focus">
+      <strong>Fokus:</strong> Geldpolitik, Energie, politische Krisen, Risikosignale für Investoren
+    </div>
+  </header>
+
+  <main>
+
+    <!-- FINANCIAL TIMES -->
+    <section class="outlet">
+      <h2>FINANCIAL TIMES</h2>
+      <div class="outlet-sub">Fed-Politik, russische Vermögenswerte, Indien, KI.</div>
+
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Investoren warnen US-Finanzministerium vor Trump-loyalem Fed-Chef</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Der Anleihemarkt schlägt Alarm wegen einer möglichen Ernennung von Kevin Hassett zum Vorsitzenden
+            des Federal Reserve Board. Investoren fürchten, dass ein Notenbankchef, der Donald Trump politisch
+            verpflichtet ist, die Zinsen aggressiv senken könnte, um die Agenda des Weißen Hauses zu bedienen
+            und Inflationsrisiken zu ignorieren. Das würde die Unabhängigkeit der Fed untergraben und könnte eine
+            Volatilität auslösen, die an die britische Schuldenkrise von 2022 erinnert. Die Episode zeigt, wie stark
+            sich die Spannungen zwischen klassischen Finanzinstitutionen und der neuen US-Regierung zuspitzen.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">EU plant Nutzung russischer Vermögenswerte zur Ukraine-Hilfe trotz Veto-Drohungen</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Brüssel schlägt einen Rechtsmechanismus vor, um eingefrorene russische Vermögenswerte als Basis
+            für einen Kredit an die Ukraine von bis zu &euro;210&nbsp;Mrd. zu nutzen. Geplant ist der Rückgriff
+            auf Notfallbefugnisse nach Artikel&nbsp;122 der EU-Verträge, sodass Entscheidungen ohne Einstimmigkeit
+            getroffen und das ungarische Veto faktisch ausgehebelt werden können. Damit würde ein Präzedenzfall
+            geschaffen, bei dem die Reserven der russischen Zentralbank de facto auf unbegrenzte Zeit eingefroren
+            blieben, bis Reparationen gezahlt sind. Ziel ist es, die langfristige Finanzstabilität Kiews zu sichern –
+            trotz juristischer Risiken für das europäische Finanzsystem.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Putin und Modi vertiefen Militär- und Handelsbeziehungen beim Gipfel in Neu-Delhi</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Wladimir Putins Besuch in Indien unterstreicht, dass die strategische Partnerschaft zwischen Moskau
+            und Neu-Delhi trotz westlichen Drucks und der Drohung mit US-Sekundärsanktionen intakt bleibt. Auf
+            der Tagesordnung stehen der Verkauf von Kampfjets, Luftabwehrsystemen und eine Ausweitung der
+            Zusammenarbeit in der Atomenergie. Indien balanciert weiter: Es kauft Rekordmengen an russischem Öl
+            und Rüstung, was wirtschaftlich attraktiv ist, aber in Washington für Verärgerung sorgt. Für Russland
+            ist Indien eine zentrale Lebensader, um internationale Isolation zu durchbrechen und Exporterlöse
+            langfristig zu sichern.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">KI-Entwickler Anthropic bereitet großes IPO vor – vor OpenAI an die Börse</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Anthropic, der Entwickler des Chatbots Claude, hat eine Kanzlei mandatiert, um einen Börsengang
+            vorzubereiten – mit dem Ziel, vor dem Hauptkonkurrenten OpenAI an den Markt zu gehen. Die private
+            Bewertung liegt über 40&nbsp;Mrd.&nbsp;US-Dollar und signalisiert, dass der Hype um generative KI weiter anhält.
+            Das Listing wird zum Test, ob öffentliche Märkte bereit sind, hoch bewertete, aber defizitäre Tech-Labore
+            zu finanzieren. Ein erfolgreiches IPO würde die Position von Anthropic als einen der zentralen Player
+            im globalen KI-Wettrennen festigen.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">Politische Krise in Israel wegen Gesetzesentwurf zur Einberufung Ultraorthodoxer</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Premierminister Benjamin Netanjahu steht vor einer möglichen Koalitionskrise aufgrund eines
+            Gesetzesentwurfs, der die Wehrpflicht für ultraorthodoxe Juden regeln soll. Vor dem Hintergrund
+            eines langen Gaza-Kriegs und Personalmangels in der Armee fordert die Öffentlichkeit ein Ende der
+            historischen Ausnahmeregelungen für Haredim – sehr zum Zorn der religiösen Parteien, die zu den
+            wichtigsten Verbündeten Netanjahus zählen. Die Auseinandersetzung legt einen tiefen gesellschaftlichen
+            Riss offen und gefährdet die Stabilität der Regierung in Kriegszeiten; ein tragfähiger Kompromiss
+            erscheint derzeit kaum erreichbar.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">6</div>
+              <div class="article-title">EU einigt sich auf vollständiges Verbot russischer Gasimporte bis 2027</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Die EU hat eine politische Einigung erzielt, alle Importe von russischem Gas – einschließlich LNG –
+            bis Herbst 2027 zu beenden. Der Beschluss, gefasst vor dem Hintergrund des anhaltenden Kriegs in der
+            Ukraine, sieht temporäre Ausnahmen für verwundbare Länder wie Ungarn und die Slowakei vor, falls
+            es zu Engpässen kommt. Damit wird die Neuausrichtung des europäischen Energiemarkts hin zu Lieferanten
+            wie den USA und Norwegen endgültig zementiert. Für Russland bedeutet dies den Verlust seines
+            wichtigsten historischen Absatzmarktes ohne realistische Aussicht auf schnellen Ersatz.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DAILY MAIL -->
+    <section class="outlet">
+      <h2>DAILY MAIL</h2>
+      <div class="outlet-sub">Gesundheit von Meghans Vater, digitale Überwachung, Labour-Aufstand, royale Diplomatie.</div>
+
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Thomas Markle auf Intensivstation: Vater der Herzogin kämpft nach OP um sein Leben</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Die Nachricht über den kritischen Zustand des 81-jährigen Thomas Markle auf den Philippinen rückt
+            die Entfremdung zwischen ihm und seiner Tochter Meghan erneut ins Rampenlicht. Das Ereignis erzeugt
+            massiven Mediendruck auf das Paar aus Sussex und schürt Erwartungen an eine öffentliche Reaktion oder
+            Geste der Versöhnung. Es macht deutlich, dass der persönliche Konflikt in der Königsfamilie ungelöst ist
+            und von den Boulevardmedien bei jeder dramatischen Wendung im Leben des Paares wieder aufgegriffen wird.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">Labour-Regierung plant massiven Einsatz von Gesichtserkennungskameras im ganzen Land</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Die Regierung von Keir Starmer will Systeme zur Gesichtserkennung in allen Polizeibezirken einführen –
+            Kritiker sprechen von einem Schritt in Richtung „Big Brother-Britannien“. Die Technologie erlaubt es,
+            Aufnahmen von Überwachungskameras nicht nur mit Polizeidaten, sondern auch mit Passbildern der Bürger
+            abzugleichen. Der Schritt markiert eine Verschiebung der Labour-Partei hin zu einer harten
+            „Law-and-Order“-Linie, trotz erheblicher Risiken für Bürgerrechte und Datenschutz.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Land-Labour-Abgeordnete planen Aufstand gegen Rives’ „Farmsteuer“</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Der interne Konflikt in der Labour-Partei spitzt sich zu: Abgeordnete aus ländlichen Wahlkreisen fürchten,
+            wegen einer unpopulären Erbschaftsteuer auf Bauernhöfe ihre Sitze zu verlieren. Der Versuch, Finanzministerin
+            Rachel Reeves zu stürzen, zeigt, wie fragil die Parteidisziplin wird, wenn wirtschaftlicher Unmut im
+            Kern der Wählerschaft wächst. Die Episode bedroht die Autorität der Regierung in der Steuer- und
+            Haushaltspolitik und sendet ein Signal mangelnder Geschlossenheit nach außen.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">Pädophiler Mitarbeiter einer Elite-Kita gesteht Aufnahmen sexueller Gewalt an Kindern</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Vincent Chan, Mitarbeiter der teuren Kindertagesstätte Bright Horizons, hat systematische Übergriffe
+            auf Kinder und die Erstellung von rund 25&nbsp;000 verbotenen Bildern gestanden. Der Fall legt gravierende
+            Lücken im Sicherheits- und Vetting-System offen – selbst im Premiumsegment der Kinderbetreuung.
+            Es ist mit einer Welle von Kontrollen in Kitas und deutlich verschärften Anforderungen an Hintergrundprüfungen
+            zu rechnen, insbesondere in Einrichtungen für wohlhabende Familien.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">Kate Middleton trägt seltene Tiara beim Staatsbankett zu Ehren des deutschen Präsidenten</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Dass die Prinzessin von Wales bei dem Staatsbankett für Präsident Steinmeier eine Tiara trägt, die seit
+            den 1930er Jahren nicht mehr in der Öffentlichkeit zu sehen war, ist ein bewusst gesetztes Symbol
+            königlicher „Soft Power“. Der Besuch dient der Stärkung der Beziehungen zum wichtigsten EU-Partner
+            im Post-Brexit-Zeitalter. Die Königsfamilie bestätigt damit ihre Rolle als zentraler diplomatischer
+            Aktivposten Großbritanniens in Zeiten innenpolitischer Turbulenzen.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">6</div>
+              <div class="article-title">Jenny Murray bringt Fußlähmung mit beliebten Schlankheitsspritzen in Verbindung</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Die bekannte Journalistin Jenny Murray erklärt öffentlich, dass sie ihre neurologischen Probleme
+            in den Füßen mit der Nutzung moderner Injektionspräparate zur Gewichtsreduktion in Verbindung bringt.
+            Ihre Geschichte befeuert die Debatte über Nebenwirkungen vermeintlicher „Wundermittel“ gegen Adipositas.
+            Das könnte die öffentliche Wahrnehmung der Sicherheit solcher Medikamente verändern und den Druck auf
+            Behörden erhöhen, strengere Studien und eine engere Regulierung zu verlangen.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THE GUARDIAN -->
+    <section class="outlet">
+      <h2>THE GUARDIAN</h2>
+      <div class="outlet-sub">NHS-Krise, russische Vermögenswerte für die Ukraine, Transrechte, Manöver der Rechten.</div>
+
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Leak enthüllt Mobbing-Kultur und Gefahr für Patienten im Krankenhaus von Blackpool</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Ein vertraulicher Bericht des Royal College of Physicians bestätigt systematisches Mobbing und Rassismus
+            im Blackpool Victoria Hospital – mit unmittelbaren Konsequenzen für die Patientensicherheit. Der Skandal
+            offenbart eine massive Führungskrise im NHS und das Unvermögen des Managements, Personal und Patienten
+            effektiv zu schützen. Der Druck auf Gesundheitsminister Wes Streeting wächst, echte Strukturreformen
+            vorzulegen statt bloßer Modernisierungsrhetorik.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">Brüssel will Gewinne eingefrorener russischer Vermögenswerte zur Ukraine-Finanzierung nutzen</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Die EU-Kommission hat einen Mechanismus entwickelt, um der Ukraine Kredite zu gewähren, die durch Erträge
+            aus eingefrorenen russischen Vermögenswerten besichert sind – und damit nationale Vetos zu umgehen.
+            Ziel ist die Sicherung einer verlässlichen Langfristfinanzierung für Kiew, während die US-Hilfe politisch
+            unsicher bleibt. Die Initiative schafft einen heiklen Präzedenzfall: die Nutzung staatlicher Vermögenswerte
+            eines sanktionierten Landes als Instrument eines langwierigen geopolitischen Konflikts.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Nigel Farage plant „Reverse Takeover“ der Konservativen Partei</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Nigel Farage, Anführer von Reform UK, erklärt offen, dass er die Wählerbasis und Parteistrukturen der
+            geschwächten Tories „schlucken“ will, statt ein Bündnis mit ihnen einzugehen. Dahinter steht eine
+            Langfriststrategie, das rechte Spektrum der britischen Politik unter einer populistischeren Agenda
+            neu zu ordnen. Für die Konservative Partei ist dies eine existenzielle Bedrohung – sie läuft Gefahr,
+            nur noch eine Hülle zu sein, wenn sie ihre traditionelle Kernwählerschaft nicht zurückgewinnt.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">Whistleblower: Außenministerium strich Warnungen vor „Völkermord“ im Sudan aus Berichten</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Mitarbeiter des Foreign Office sollen den Begriff „Genozid“ aus internen Vermerken zum Sudan entfernt
+            haben, um die Beziehungen zu den VAE nicht zu belasten, die eine Konfliktpartei unterstützen. Die Vorwürfe
+            unterminieren den moralischen Anspruch der britischen Diplomatie und deuten darauf hin, dass geopolitische
+            Interessen klar über Menschenrechten stehen. Der Skandal könnte das Verhältnis Londons zu
+            Menschenrechtsorganisationen belasten und das Bild Großbritanniens als Hüter des Völkerrechts beschädigen.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">Women’s Institute schließt trans Frauen von der Mitgliedschaft aus</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Die größte Frauenorganisation des Landes, das Women’s Institute, hat ihre Satzung geändert und die Mitgliedschaft
+            auf „biologische Frauen“ beschränkt – mit Verweis auf juristische Risiken und Schutzpflichten. Die Entscheidung
+            spiegelt eine Verschiebung in der Debatte über Gender und geschützte Ein-Geschlecht-Räume wider. Sie gilt als
+            Sieg des „genderkritischen“ Feminismus und als Rückschlag für die Inklusionsagenda vieler Trans-Aktivisten.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">6</div>
+              <div class="article-title">Gesundheitsministerium prüft starken Anstieg von ADHS- und Autismus-Diagnosen</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Gesundheitsminister Wes Streeting hat eine Untersuchung zum sprunghaften Anstieg von Diagnosen
+            neurodivergenter Störungen (wie ADHS und Autismus) und den damit verbundenen Leistungsansprüchen angeordnet.
+            Die Regierung sorgt sich um die wachsende Belastung des Sozialsystems und um mögliche Überdiagnosen
+            von Zuständen, die teilweise im Rahmen „normalen“ Verhaltens liegen könnten. Die Überprüfung könnte zu
+            strengeren Anspruchskriterien führen und heftige Reaktionen von Behindertenverbänden auslösen.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THE DAILY TELEGRAPH -->
+    <section class="outlet">
+      <h2>THE DAILY TELEGRAPH</h2>
+      <div class="outlet-sub">Überwachung der Bürger, chinesische Einflusspädagogik, Notaufnahme-Krise, Haushaltslecks.</div>
+
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Polizei erhält Zugriff auf Passbild-Datenbank für Gesichtserkennungssysteme</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Das Innenministerium will der Polizei erlauben, Bilder aus Überwachungskameras mit der Passbild-Datenbank
+            von 45&nbsp;Mio. Bürgern abzugleichen. Es handelt sich um einen fundamentalen Schritt in Richtung umfassender
+            biometrischer Überwachung, der die Grenze zwischen Privatsphäre und Strafverfolgung verwischt – auch für
+            gesetzestreue Bürger. Bürgerrechtsgruppen laufen Sturm, die Regierung verkauft den Plan dagegen als
+            technologischen Durchbruch im Kampf gegen Kriminalität und Unordnung.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">Mandarin-Programm vermittelt Schülern Pekings Linie: Taiwan ist Teil der VR China</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Lehrmaterialien im staatlich geförderten Mandarin Excellence Programme stellen Taiwan deutlich als
+            Teil der Volksrepublik China dar und spiegeln damit Pekings politische Position wider. Der Fall zeigt,
+            wie chinesische „Soft Power“ über Sprach- und Kulturprogramme in das britische Bildungssystem eindringen kann.
+            Der Skandal wird Forderungen verstärken, Partnerschaften mit staatsnahen chinesischen Institutionen zu
+            überprüfen und Lehrinhalte in Klassenzimmern strenger zu kontrollieren.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Notaufnahmen überlastet – Patienten kommen mit Schluckauf und Schnupfen in A&amp;E</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Neue Zahlen zeigen, dass die Notaufnahmen (A&amp;E) zunehmend von Patienten aufgesucht werden, die triviale
+            Beschwerden wie Schluckauf oder leichten Schnupfen behandeln lassen wollen. Das unterstreicht den de facto
+            Kollaps der hausärztlichen Versorgung: Wer keinen Termin bekommt, geht direkt ins Krankenhaus. Die Regierung
+            versucht, Apotheken stärker einzubinden, um den NHS vor dem Winter zu entlasten – eine kurzfristige
+            Symptombehandlung, die die tieferen Strukturprobleme im Gesundheitssystem jedoch nicht löst.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">Labour-Abgeordneter aus Fraktion ausgeschlossen – stimmte gegen „Farm-Erbschaftssteuer“</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Der Labour-Abgeordnete Marcus Campbell-Savours hat als einziger gegen die Parteilinie zur Erbschaftsteuer
+            auf landwirtschaftliche Betriebe gestimmt – und wurde prompt vom Fraktionszwang („whip“) entbunden.
+            Die harte Reaktion zeigt, wie nervös die Führung angesichts wachsender Unzufriedenheit in ländlichen
+            Wahlkreisen ist. An potenzielle weitere Rebellen wird ein klares Signal gesendet: Abweichungen bei
+            wirtschaftspolitischen Kernprojekten werden nicht toleriert.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">Finanzministerin Reeves leitet Untersuchung zu Haushaltslecks an die Presse ein</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Rachel Reeves ordnet eine interne Untersuchung an, um die Quellen von Leaks aufzuspüren, die die
+            Märkte vor der Haushaltsrede verunsichert haben. Damit will sie die Disziplin im Schatzamt wiederherstellen
+            und die Verantwortung für negative Marktreaktionen auf vermeintliche „Saboteure“ lenken. Der Vorgang
+            untergräbt jedoch das Vertrauen in die Professionalität des neuen Wirtschaftsteams und seine Fähigkeit,
+            die Markterwartungen kontrolliert zu steuern.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">6</div>
+              <div class="article-title">Außenministerium schuldig verspäteter Reaktion im Fall des tödlich verunglückten Harry Dunn</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Ein unabhängiger Bericht bestätigt, dass das Foreign Office im Fall des Teenagers Harry Dunn, der von der
+            Ehefrau eines US-Diplomaten tödlich angefahren wurde, viel zu langsam reagiert hat. Das Urteil zeigt,
+            dass die Pflege der Beziehungen zu Washington höher gewichtet wurde als der Einsatz für einen britischen
+            Staatsbürger. Die Empfehlungen verlangen eine Überarbeitung der Protokolle zum Umgang mit diplomatischer
+            Immunität, wenn schwere Straftaten und massiver öffentlicher Druck im Spiel sind.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DAILY EXPRESS -->
+    <section class="outlet">
+      <h2>DAILY EXPRESS</h2>
+      <div class="outlet-sub">Unternehmenssteuern, Konflikt mit Ärztegewerkschaften, royaler Besuch, Rechte von Gewaltopfern.</div>
+
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Kemi Badenoch wirft Starmer vor, Kleinunternehmen mit Steuern zu „zerstören“</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Die prominente konservative Politikerin Kemi Badenoch attackiert die Regierung wegen höherer Steuern
+            für das Gastgewerbe und bezeichnet Labours Kurs als „Mission zur Zerstörung der High Street“. Die
+            Konservativen inszenieren sich wieder als Schutzmacht von Kleinbetrieben und Unternehmern und nutzen
+            den Unmut des Geschäftslebens über den Haushalt der Labour-Regierung. Es ist eine zentrale Angriffslinie,
+            um die wirtschaftliche Glaubwürdigkeit bei der traditionellen Wählerschaft zurückzugewinnen.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">Gesundheitsminister beschimpft streikende Ärzte als „Heulsusen“ und „kleine Kriminelle“</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Wes Streeting verschärft den Ton gegenüber der Ärztegewerkschaft British Medical Association drastisch:
+            Er lehnt Zugeständnisse bei Löhnen ab und bezeichnet einige der Streikenden als „Whingers“ und „juvenile
+            delinquents“. Eine derart aggressive Sprache von einem Labour-Minister ist ungewöhnlich und soll zeigen,
+            dass die Regierung sich nicht von Gewerkschaften erpressen lässt. Der Kurs ist riskant: Er kann den
+            Streik brechen – oder den NHS im Winter in die Blockade führen und einen politischen Backlash auslösen.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Polizei weitet Gesichtserkennung aus – trotz Datenschutzbedenken der Bürgerrechtler</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Die Regierung treibt den Ausbau von Gesichtserkennungstechnologien voran und ignoriert Warnungen
+            von Bürgerrechtsorganisationen. Die Express präsentiert dies als notwendige und populäre Antwort auf
+            den Ruf nach mehr „Law and Order“. Die Debatte über Überwachung wird zum Kulturkampfthema zwischen
+            einem eher liberalen, urbanen Milieu, das Datenschutz priorisiert, und einem konservativen Lager, dem
+            Sicherheit wichtiger ist als abstrakte Bedenken um personenbezogene Daten.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">Neue Gesetze verbieten Anwälten, sexuelle Vergangenheit von Vergewaltigungsopfern auszunutzen</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Die Regierung bringt Reformen auf den Weg, die es Verteidigern verbieten sollen, die sexuelle
+            Vorgeschichte von Vergewaltigungsopfern in der Verhandlung gegen sie zu verwenden. Ziel ist es,
+            die Zahl der Verurteilungen wegen Sexualdelikten zu erhöhen, indem Betroffene vor aggressiven und
+            entwürdigenden Kreuzverhören geschützt werden. Die Maßnahmen reagieren auf langjährige Kritik an
+            der geringen Erfolgsquote der Justiz, stoßen aber bei einigen Juristen auf Bedenken, das Recht
+            auf umfassende Verteidigung könne eingeschränkt werden.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">Prinzessin von Wales als Star des Banketts mit dem deutschen Präsidenten gefeiert</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Das Boulevardblatt betont vor allem die glanzvolle Inszenierung des Staatsbesuchs und stellt die
+            Prinzessin von Wales als eigentliche Hauptfigur des Abends dar. Ihre Präsenz stärkt das Image der
+            Monarchie als stabiler, verbindender Faktor in Zeiten politischer Turbulenzen. Gleichzeitig ist
+            der erfolgreiche Besuch wichtig, um die Beziehungen zu Europas größter Volkswirtschaft nach dem
+            Brexit zu pflegen – ein weiteres Beispiel dafür, wie stark Großbritannien außenpolitisch auf die
+            „Soft Power“ der Royals setzt.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">6</div>
+              <div class="article-title">Hilfsorganisationen melden Rekordnachfrage nach Lebensmitteln bei Rentnern</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Der starke Anstieg älterer Menschen, die auf Tafeln und Lebensmittelspenden angewiesen sind, zeigt,
+            wie sehr die Lebenshaltungskostenkrise Rentner trifft. Für die Leserschaft der Express haben Geschichten
+            über arme Senioren, die sich ohne Wohltätigkeit kein Essen leisten können, enorme Sprengkraft.
+            Die Entwicklung ist eine direkte Anklage an die Regierung, die Winterzuschüsse für Heizkosten
+            gekürzt hat, und macht Altersarmut zu einem der politisch sensibelsten Themen der aktuellen
+            wirtschaftlichen Debatte.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h2>Über das Projekt</h2>
+    <p>
+      Deep Press Analysis ist ein täglicher analytischer Überblick über die westliche Presse: Weltpolitik,
+      Wirtschaft, Geopolitik, Finanzmärkte und Zukunftsszenarien. Das Projekt bündelt Schlüsselmaterial aus
+      Medien wie The New York Times, Bloomberg, The Economist, Politico, The Daily Telegraph, MoneyWeek,
+      Barron's, Daily Mail, The Independent, Financial Times, The Washington Post, Forbes, The Guardian
+      und anderen, damit Sie die Logik hinter den Ereignissen sehen – nicht nur die Schlagzeilen.
+      Klare Sprache. Tiefe Analyse. Fakten ohne Dekoration.
+    </p>
+
+    <p style="margin-top: 14px; font-size: 13px; color: var(--muted);">
+      <strong style="color: var(--accent-soft);">ARCHIV:</strong>
+      <a href="/de/31225.html" style="color: #e5e7eb; text-decoration: underline;">
+        3. Dezember 2025
+      </a>
+    </p>
+  </footer>
+</div>
+
+<script>
+  // Glassmorphism accordion: smooth expand / collapse
+  document.querySelectorAll('.article-header').forEach(function (header) {
+    header.addEventListener('click', function () {
+      const card = header.parentElement;
+      const outlet = card.closest('.outlet');
+
+      // Only one card open per outlet
+      outlet.querySelectorAll('.article-card.open').forEach(function (other) {
+        if (other !== card) other.classList.remove('open');
+      });
+
+      card.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
