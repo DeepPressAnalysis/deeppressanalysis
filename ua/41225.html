@@ -1,1 +1,1204 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Deep Press Analysis — глобальний новинний брифінг: економіка, ринки, геополітика</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Deep Press Analysis — щоденний дайджест західних і глобальних медіа: економіка та фінансові ринки, США та Європа, Росія та Китай, війни, санкції, нафта, газ, технології та довгострокові тренди. Компактний аналітичний огляд на основі провідних видань."
+  >
+  <style>
+    :root {
+      --bg: #020617;
+      --glass: rgba(15,23,42,0.72);
+      --glass-strong: rgba(15,23,42,0.9);
+      --border: rgba(148,163,184,0.35);
+      --border-strong: rgba(148,163,184,0.7);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22d3ee;
+      --accent-soft: #38bdf8;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding: 20px 14px 40px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* ---------- LANGUAGE BAR ---------- */
+
+    .lang-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-bottom: 10px;
+      font-size: 11px;
+    }
+
+    .lang-pill {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.9);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      opacity: 0.9;
+      user-select: none;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .lang-pill.active {
+      border-color: var(--accent-soft);
+      color: #f9fafb;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.35), #020617);
+      box-shadow: 0 0 12px rgba(56,189,248,0.5);
+      opacity: 1;
+      cursor: default;
+    }
+
+    /* ---------- TOP BAR ---------- */
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 10px;
+    }
+
+    .top-bar-left {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      opacity: 0.9;
+    }
+
+    .top-bar-right {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.96);
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease,
+                  transform 0.1s ease, box-shadow 0.15s ease, opacity 0.12s ease;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.75);
+      opacity: 0.94;
+    }
+
+    .social-btn:hover {
+      background: rgba(15,23,42,1);
+      border-color: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.98);
+      opacity: 1;
+    }
+
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .social-label {
+      white-space: nowrap;
+    }
+
+    .icon-yt svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .icon-tg svg,
+    .icon-tt svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    header {
+      margin-bottom: 26px;
+      border-radius: 20px;
+      padding: 20px 20px 18px;
+      background:
+        radial-gradient(circle at 0 -40%, rgba(56,189,248,0.24), transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(59,130,246,0.2), transparent 55%),
+        linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow:
+        0 26px 60px rgba(0,0,0,0.95),
+        inset 0 0 0 0.5px rgba(255,255,255,0.04);
+      backdrop-filter: blur(26px);
+    }
+
+    .header-main {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    /* Chrome double-highlight logo */
+    .site-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(
+        90deg,
+        #bfc5cc,
+        #ffffff,
+        #a4aab2,
+        #ffffff,
+        #bfc5cc
+      );
+      background-size: 250%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: chromeBase 4s linear infinite;
+    }
+
+    .site-title::after {
+      content: "Deep Press Analysis";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,0.9) 40%,
+        transparent 80%
+      );
+      background-size: 200%;
+      -webkit-background-clip: text;
+      color: transparent;
+      mix-blend-mode: screen;
+      animation: chromeHighlight 3.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes chromeBase {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    @keyframes chromeHighlight {
+      0%   { background-position: -50% 50%; opacity: 0; }
+      25%  { opacity: 1; }
+      50%  { background-position: 150% 50%; opacity: 0.4; }
+      100% { opacity: 0; }
+    }
+
+    .site-tagline {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header-date {
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #e5e7eb;
+    }
+
+    .header-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .header-focus {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
+    .header-focus strong {
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    /* ---------- CONTENT ---------- */
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    section.outlet {
+      background: linear-gradient(
+        135deg,
+        rgba(15,23,42,0.94),
+        rgba(15,23,42,0.86)
+      );
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 16px 16px 14px;
+      box-shadow:
+        0 22px 50px rgba(0,0,0,0.9),
+        inset 0 0 0 0.5px rgba(255,255,255,0.03);
+      backdrop-filter: blur(26px);
+    }
+
+    section.outlet h2 {
+      font-size: 18px;
+      margin-bottom: 4px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: inline-block;
+      background: linear-gradient(
+        120deg,
+        #22d3ee,
+        #a855f7,
+        #f97316,
+        #22c55e,
+        #22d3ee
+      );
+      background-size: 260% 260%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: outletHue 6s linear infinite;
+      text-shadow: 0 0 18px rgba(15,23,42,0.8);
+    }
+
+    @keyframes outletHue {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    section.outlet .outlet-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .articles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Glassmorphism accordion card */
+
+    .article-card {
+      position: relative;
+      border-radius: 14px;
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.9), #020617);
+      border: 1px solid rgba(148,163,184,0.35);
+      overflow: hidden;
+      box-shadow:
+        0 14px 30px rgba(0,0,0,0.9),
+        inset 0 0 0 0.5px rgba(255,255,255,0.02);
+      backdrop-filter: blur(18px);
+      transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        border-color 0.16s ease,
+        background 0.16s.ease;
+    }
+
+    .article-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56,189,248,0.3), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 20px 44px rgba(0,0,0,1),
+        0 0 24px rgba(56,189,248,0.2);
+      border-color: var(--border-strong);
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.96), #020617);
+    }
+
+    .article-card:hover::before {
+      opacity: 0.55;
+    }
+
+    .article-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 12px 14px;
+      gap: 10px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .article-main {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .article-index {
+      font-size: 12px;
+      color: var(--accent-soft);
+      opacity: 0.85;
+      min-width: 18px;
+      flex-shrink: 0;
+    }
+
+    .article-title {
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .article-toggle {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+      font-size: 12px;
+      transition:
+        transform 0.2s ease,
+        color 0.18s ease,
+        border-color 0.18s.ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease;
+      background: radial-gradient(circle at 30% 0, rgba(248,250,252,0.14), transparent 60%);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.8);
+    }
+
+    .article-card.open .article-toggle {
+      transform: rotate(90deg);
+      color: var(--accent);
+      border-color: rgba(56,189,248,0.85);
+      background: radial-gradient(circle at 30% 0, rgba(56,189,248,0.35), transparent 60%);
+      box-shadow: 0 0 18px rgba(56,189,248,0.6);
+    }
+
+    .article-body {
+      padding: 0 14px 12px;
+      max-height: 0;
+      opacity: 0;
+      font-size: 14px;
+      color: var(--muted);
+      transition:
+        max-height 0.26s ease-out,
+        opacity 0.22s ease-out;
+      overflow: hidden;
+    }
+
+    .article-card.open .article-body {
+      max-height: 800px;
+      opacity: 1;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      margin-top: 26px;
+      padding: 16px 16px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.96);
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.95),
+        inset 0 0 0 0.5px rgba(255,255,255,0.02);
+      backdrop-filter: blur(20px);
+    }
+
+    footer h2 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    footer p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 14px 10px 26px;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .site-title {
+        font-size: 20px;
+        letter-spacing: 0.18em;
+        white-space: normal;
+      }
+
+      header {
+        padding: 16px 14px;
+      }
+
+      .article-title {
+        white-space: normal;
+      }
+
+      .lang-bar {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <span class="lang-pill active">UA</span>
+  <a href="/en/index.html" class="lang-pill">EN</a>
+  <a href="/ar/index.html" class="lang-pill">AR</a>
+  <a href="/ru/index.html" class="lang-pill">RU</a>
+  <a href="/de/index.html" class="lang-pill">DE</a>
+</div>
+
+  <!-- TOP BAR WITH SOCIAL ICONS -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      DEEP PRESS ANALYSIS · DAILY GLOBAL PRESS BRIEFING
+    </div>
+    <div class="top-bar-right">
+      <!-- YouTube -->
+      <a class="social-btn" href="https://www.youtube.com/@DeepPressAnalysis" target="_blank" rel="noopener">
+        <span class="social-icon icon-yt">
+          <!-- YouTube logo -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <defs>
+              <linearGradient id="ytGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f97373"/>
+                <stop offset="60%" stop-color="#ef4444"/>
+                <stop offset="100%" stop-color="#b91c1c"/>
+              </linearGradient>
+            </defs>
+            <rect x="2.5" y="5" width="19" height="14" rx="4" ry="4" fill="url(#ytGrad)"/>
+            <polygon points="10,9 16,12 10,15" fill="#f9fafb"/>
+          </svg>
+        </span>
+        <span class="social-label">YouTube</span>
+      </a>
+
+      <!-- Telegram -->
+      <a class="social-btn" href="https://t.me/DeepPressAnalysis" target="_blank" rel="noopener">
+        <span class="social-icon icon-tg">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <defs>
+              <linearGradient id="tgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#0ea5e9"/>
+              </linearGradient>
+            </defs>
+            <rect x="1" y="1" width="22" height="22" rx="11" fill="url(#tgGrad)"/>
+            <path d="M7 12.5L16.5 7.5C16.9 7.3 17.3 7.6 17.1 8.1L14.6 16C14.4 16.6 13.7 16.8 13.3 16.3L11.4 14.1L9.6 15.7C9.3 15.9 8.9 15.8 8.8 15.4L7.2 13C6.9 12.5 6.7 12.1 7 12.5Z" fill="#f9fafb"/>
+          </svg>
+        </span>
+        <span class="social-label">Telegram</span>
+      </a>
+
+      <!-- TikTok -->
+      <a class="social-btn" href="https://www.tiktok.com/@deeppressanalysis" target="_blank" rel="noopener">
+        <span class="social-icon icon-tt">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <defs>
+              <radialGradient id="ttGrad1" cx="20%" cy="0%" r="80%">
+                <stop offset="0%" stop-color="#f97316"/>
+                <stop offset="100%" stop-color="#020617"/>
+              </radialGradient>
+              <radialGradient id="ttGrad2" cx="80%" cy="100%" r="100%">
+                <stop offset="0%" stop-color="#22d3ee"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+            </defs>
+            <rect x="1" y="1" width="22" height="22" rx="7" fill="#020617"/>
+            <circle cx="8" cy="8" r="10" fill="url(#ttGrad2)" opacity="0.7"/>
+            <circle cx="5" cy="4" r="9" fill="url(#ttGrad1)" opacity="0.9"/>
+            <path d="M13.5 7.5V13.2C13.5 14.6 12.4 15.7 11 15.7C9.6 15.7 8.5 14.6 8.5 13.2C8.5 11.9 9.5 10.8 10.8 10.7"
+                  stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 7.5C14.2 8.3 15.3 8.9 16.3 9"
+                  stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="social-label">TikTok</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header>
+    <div class="header-main">
+      <div class="site-title">Deep Press Analysis</div>
+      <div class="site-tagline">DAILY BRIEFING OF GLOBAL PRESS</div>
+      <div class="header-date">4 ГРУДНЯ 2025</div>
+    </div>
+    <div class="header-note">
+      Щоденний огляд західних та глобальних медіа: економіка, ринки, США, Європа, Росія, Китай,
+      війни, санкції, нафта, газ, технології та довгострокові тренди.
+    </div>
+    <div class="header-focus">
+      <strong>Фокус:</strong> грошово-кредитна політика, енергетика, політичні кризи, сигнали ризику для інвесторів
+    </div>
+  </header>
+
+  <main>
+
+    <!-- FINANCIAL TIMES -->
+    <section class="outlet">
+      <h2>FINANCIAL TIMES</h2>
+      <div class="outlet-sub">Політика ФРС, російські активи, Індія, штучний інтелект.</div>
+
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Інвестори застерігають Мінфін США від призначення лояльного до Трампа голови ФРС</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Облігаційний ринок подає сигнал тривоги через можливе призначення Кевіна Гассетта головою Федеральної
+            резервної системи. Інвестори побоюються, що очільник центробанку, політично зобов’язаний Дональду Трампу,
+            може агресивно знижувати ставки, аби підтримати курс Білого дому, ігноруючи інфляційні ризики. Це вдарить
+            по незалежності регулятора і здатне спровокувати волатильність, подібну до британської боргової кризи 2022&nbsp;року.
+            Ситуація демонструє, наскільки загострюється конфлікт між класичними фінансовими інститутами та новою
+            адміністрацією США.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">ЄС планує використати російські активи для допомоги Україні в обхід вето</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Брюссель запропонував юридичний механізм, який дозволить використати заморожені російські активи як базу
+            для кредиту Україні обсягом до &euro;210&nbsp;млрд. План передбачає застосування надзвичайних повноважень
+            за статтею&nbsp;122 договорів ЄС, що дає змогу ухвалювати рішення без одностайного голосування і нейтралізувати
+            вето Угорщини. Так створюється прецедент фактично безстрокового замороження резервів ЦБ РФ до виплати
+            репарацій. Крок має на меті забезпечити довгострокову фінансову стійкість Києва, попри юридичні ризики
+            для європейської фінансової системи.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Путін і Моді поглиблюють військову та торговельну співпрацю на саміті в Делі</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Візит Володимира Путіна до Індії підкреслює, що стратегічне партнерство між Москвою і Нью-Делі
+            зберігається попри тиск Заходу та загрозу вторинних санкцій США. У фокусі — продаж винищувачів, систем
+            ППО та розширення співпраці в ядерній енергетиці. Індія продовжує балансувати: закуповує рекордні обсяги
+            російської нафти й озброєнь, що економічно вигідно, але дратує Вашингтон. Для Росії це критично важливий
+            канал пом’якшення міжнародної ізоляції та збереження експортних доходів.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">Розробник ШІ Anthropic готує масштабне IPO, випереджаючи OpenAI</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Компанія Anthropic, творець чат-бота Claude, залучила юридичну фірму для підготовки до первинного
+            розміщення акцій і прагне вийти на біржу раніше за головного конкурента OpenAI. Оцінка компанії
+            на приватних раундах перевищує 40&nbsp;млрд&nbsp;доларів, що свідчить про збереження ажіотажу навколо генеративного
+            штучного інтелекту. IPO стане тестом готовності публічних ринків фінансувати збиткові, але швидкозростаючі
+            технологічні лабораторії. Успіх розміщення закріпить позиції Anthropic як одного з лідерів глобальної
+            ШІ-гонки.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">Політична криза в Ізраїлі через закон про призов ультраортодоксів</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Прем’єр-міністр Біньямін Нетаньяху стикається з ризиком розвалу коаліції через законопроєкт,
+            що регулює призов ультраортодоксальних євреїв до армії. На тлі затяжної війни в Газі та кадрового
+            дефіциту в ЦАХАЛ суспільство вимагає скасувати історичні пільги для харедім, що викликає запеклий
+            опір релігійних партій — ключових союзників прем’єра. Ситуація оголює глибокий соціальний розкол
+            і ставить під загрозу стабільність уряду у воєнний час; реальний компроміс наразі виглядає малоймовірним.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">6</div>
+              <div class="article-title">ЄС погодив повну заборону імпорту російського газу до 2027 року</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Євросоюз досяг політичної згоди щодо повної відмови від імпорту російського газу, включно з СПГ,
+            до осені 2027&nbsp;року. Рішення, ухвалене на тлі триваючої війни в Україні, передбачає тимчасові винятки
+            для вразливих країн, таких як Угорщина та Словаччина, у разі дефіциту поставок. Це остаточно
+            закріплює переорієнтацію європейського енергоринку на постачальників зі США та Норвегії. Для Росії
+            це означає втрату найбільшого історичного ринку збуту без реалістичної перспективи швидкого заміщення.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DAILY MAIL -->
+    <section class="outlet">
+      <h2>DAILY MAIL</h2>
+      <div class="outlet-sub">Здоров’я батька Меган Маркл, цифрове стеження, бунт лейбористів, королівська дипломатія.</div>
+
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Томас Маркл у реанімації: батько герцогині Сассекської бореться за життя після операції</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Новина про критичний стан 81-річного Томаса Маркла на Філіппінах знову актуалізує тему його
+            відчуження від доньки Меган. Подія створює потужний медійний тиск на подружжя Сассексів, формуючи
+            очікування публічної реакції або жесту примирення. Це підкреслює тривалий особистий кризис усередині
+            королівської родини, який таблоїди щоразу піднімають при будь-якому драматичному повороті у їхньому житті.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">Лейбористський уряд готує масове впровадження камер розпізнавання облич</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Уряд Кіра Стармера планує розгорнути системи розпізнавання облич у всіх поліцейських округах — критики
+            називають це шляхом до «Британії Великого Брата». Технологія дозволить поліції звіряти кадри з камер
+            спостереження не лише з власними базами, а й із паспортними фотографіями громадян. Рішення означає
+            зсув лейбористів у бік жорсткої політики правопорядку, попри суттєві ризики для громадянських свобод
+            і приватності.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Сільські депутати-лейбористи готують змову проти канцлера Рівз через «податок на ферми»</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Внутрішній розкол у Лейбористській партії посилюється: депутати від сільських округів побоюються
+            втратити мандати через непопулярний податок на спадщину для фермерських господарств. Намір усунути
+            канцлерку Рейчел Рівз свідчить про крихкість партійної дисципліни перед обличчям економічного невдоволення
+            виборців. Ситуація загрожує підірвати авторитет уряду в питаннях фіскальної політики та управління бюджетом.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">Педофіл з елітного дитсадка визнав провину у зйомці насильства над дітьми</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Вінсент Чан, співробітник дорогого дитячого садка Bright Horizons, визнав систематичне насильство
+            над дітьми та створення близько 25&nbsp;000 заборонених зображень. Випадок оголює провали системи перевірки
+            персоналу навіть у преміальному сегменті послуг. Очікується хвиля позапланових інспекцій у дошкільних
+            закладах і посилення вимог до безпеки та vetting-процедур у галузі догляду за дітьми.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">Кейт Міддлтон одягла рідкісну тіару на банкет на честь президента Німеччини</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Те, що принцеса Уельська під час державного банкету на честь президента Штайнмаєра обрала тіару,
+            яка не з’являлася на публіці з 1930-х років, — свідомий символічний жест «м’якої сили» монархії.
+            Візит покликаний зміцнити постбрекзитні зв’язки з ключовим партнером у ЄС. Королівська родина вкотре
+            демонструє свою роль головного дипломатичного інструмента Великої Британії на тлі політичної турбулентності.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">6</div>
+              <div class="article-title">Дженні Мюррей пов’язує параліч стоп із прийомом препаратів для схуднення</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Відома журналістка публічно заявляє, що пов’язує свої неврологічні проблеми зі стопами з використанням
+            популярних ін’єкційних препаратів для зниження ваги. Її історія підливає олії у дискусію про побічні ефекти
+            «модних» ліків від ожиріння. Це може вплинути на сприйняття безпечності таких засобів громадськістю і посилити
+            тиск на регуляторів щодо додаткових досліджень та жорсткішого контролю.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THE GUARDIAN -->
+    <section class="outlet">
+      <h2>THE GUARDIAN</h2>
+      <div class="outlet-sub">Криза NHS, активи РФ для України, права трансгендерних людей, маневри правих.</div>
+
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Витік звіту виявив культуру цькування та загрозу для пацієнтів у лікарні Блекпула</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Секретний звіт Королівського коледжу лікарів підтвердив систематичне приниження, расизм і булінг
+            у лікарні Blackpool Victoria, що безпосередньо шкодило безпеці пацієнтів. Скандал оголює глибоку
+            управлінську кризу в NHS і неспроможність керівництва захистити персонал і хворих. Тиск на міністра
+            охорони здоров’я Веса Стрітінга з вимогою реальних реформ, а не косметичних змін, суттєво зростає.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">Брюссель пропонує використати заморожені активи РФ для кредитування Києва</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Єврокомісія розробила механізм, за яким Україна зможе отримувати кредити під заставу прибутків
+            від заморожених російських активів — в обхід вето окремих держав. Мета — забезпечити Києву
+            передбачуване довгострокове фінансування на тлі політичної невизначеності щодо допомоги США.
+            Рішення створює юридично чутливий прецедент використання суверенних активів підсанкційної держави
+            як інструмента затяжного геополітичного конфлікту.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Найджел Фарадж планує «зворотнє поглинання» Консервативної партії</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Лідер Reform UK Найджел Фарадж відкрито заявляє, що прагне «поглинути» електорат і структуру
+            ослаблених торі, а не вступати з ними в союз. Йдеться про довгострокову стратегію переформатування
+            правого флангу британської політики під більш популістський порядок денний. Для Консервативної партії
+            це екзистенційна загроза: без радикального оновлення вона ризикує перетворитися на порожню оболонку
+            без власної бази підтримки.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">Інформатор: МЗС Британії прибрало попередження про геноцид у Судані зі звітів</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            За словами співробітників Форін-офісу, термін «геноцид» був свідомо вилучений з аналітичних записок
+            щодо Судану, аби не псувати відносини з ОАЕ, які підтримують одну зі сторін конфлікту. Це ставить під
+            удар моральний авторитет британської дипломатії і демонструє, що геополітичні інтереси мають пріоритет
+            над правами людини. Скандал здатен загострити відносини Лондона з правозахисними організаціями і
+            похитнути імідж країни як захисника міжнародного права.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">Жіночий інститут Великої Британії заборонив членство трансгендерним жінкам</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Найбільша жіноча організація країни — Women’s Institute — змінила статут і обмежила членство лише
+            «біологічними жінками», посилаючись на юридичні ризики та обов’язок захищати одностатеві простори.
+            Рішення відображає зсув у суспільній дискусії про гендер та охорону жіночих просторів. Це перемога
+            «гендер-критичного» фемінізму і серйозний удар по політиці інклюзивності, яку просували багато
+            транс-активістів та прогресивні НУО.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">6</div>
+              <div class="article-title">МОЗ розпочало перевірку через різке зростання діагнозів СДУГ та аутизму</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Міністр охорони здоров’я ВЕС Стрітінг ініціював розслідування причин стрибка діагнозів нейровідмінностей
+            (зокрема СДУГ та аутизму) і відповідного зростання виплат за непрацездатність. Уряд стурбований як
+            фінансовим навантаженням на систему соцзабезпечення, так і можливою гіпердіагностикою станів, які частково
+            можуть вкладатися в рамки «нормальної» поведінкової варіації. Результатом можуть стати жорсткіші критерії
+            доступу до допомоги та гострий конфлікт із пацієнтськими організаціями.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THE DAILY TELEGRAPH -->
+    <section class="outlet">
+      <h2>THE DAILY TELEGRAPH</h2>
+      <div class="outlet-sub">Стеження за громадянами, китайська пропаганда в школах, криза невідкладної допомоги, витоки бюджету.</div>
+
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Поліція отримає доступ до паспортної бази для системи розпізнавання облич</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Міністерство внутрішніх справ планує дозволити поліції звіряти зображення з камер спостереження
+            з паспортною базою даних 45&nbsp;млн громадян. Це фундаментальний зсув у бік тотального біометричного
+            стеження, який стирає межу між приватним життям і правоохоронною діяльністю — навіть для законослухняних
+            людей. Правозахисники різко критикують ініціативу, тоді як влада подає її як технологічний прорив
+            у боротьбі зі злочинністю.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">Шкільна програма китайської мови навчає британських дітей, що Тайвань — частина КНР</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Навчальні матеріали державної програми Mandarin Excellence Programme, що фінансується урядом,
+            відтворюють офіційну позицію Пекіна щодо Тайваню як невід’ємної частини КНР. Це свідчить про проникнення
+            китайської «м’якої сили» в британську систему освіти через мовні курси та культурні проєкти. Скандал
+            посилить вимоги переглянути співпрацю з інститутами, пов’язаними з китайською державою, і жорсткіше
+            контролювати зміст навчальних програм.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Відділення невідкладної допомоги перевантажені пацієнтами з гикавкою та нежитем</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Статистика показує, що відділення A&amp;E (невідкладної допомоги) масово використовуються пацієнтами
+            для лікування дрібних недугів — від гикавки до легкого нежитю. Це демонструє фактичний колапс системи
+            первинної ланки: не отримавши вчасного доступу до терапевта, люди їдуть прямо до лікарні. Влада намагається
+            перенаправити потік до аптек, щоб розвантажити NHS перед зимою, але це радше тактичний хід, який не вирішує
+            глибинні структурні проблеми охорони здоров’я.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">Депутата-лейбориста відсторонили від фракції за голосування проти «податку на ферми»</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Лейборист Маркус Кемпбелл-Сейворс став єдиним депутатом, який проголосував проти партійної лінії
+            щодо податку на спадщину для фермерських господарств, і внаслідок цього був позбавлений партійного
+            «whip’а» (членства у фракції). Жорстка реакція керівництва показує, наскільки нервово воно сприймає
+            зростання невдоволення в сільських округах. Це чіткий сигнал потенційним бунтівникам: відхилення
+            від економічної політики центру не буде толеруватися.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">Канцлер Рівз розпочала розслідування витоків інформації про бюджет у пресу</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Рейчел Рівз ініціювала внутрішнє розслідування, аби виявити джерела витоків, які дестабілізували ринки
+            напередодні оголошення бюджету. Так вона намагається відновити дисципліну в Казначействі і перекласти
+            відповідальність за негативну реакцію ринку на «саботажників» всередині відомства. Водночас історія
+            підточує довіру до професійності нової команди і її здатності керувати очікуваннями інвесторів.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">6</div>
+              <div class="article-title">МЗС Британії визнали винним у затримці реакції на загибель Гаррі Данна</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Незалежний звіт підтвердив, що Форін-офіс діяв надто повільно у справі підлітка Гаррі Данна, якого
+            насмерть збила дружина американського дипломата. Висновки показують, що дипломатичні відносини з США
+            фактично поставили вище за захист власного громадянина. Звіт вимагає переглянути протоколи поводження
+            з дипломатичним імунітетом у випадках тяжких злочинів і масового громадського обурення.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DAILY EXPRESS -->
+    <section class="outlet">
+      <h2>DAILY EXPRESS</h2>
+      <div class="outlet-sub">Податки на бізнес, конфлікт з профспілками лікарів, королівський візит, права жертв насильства.</div>
+
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Кемі Баденок звинувачує Стармера в «знищенні» малого бізнесу податками</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Помітна консервативна політикиня Кемі Баденок атакує уряд за підвищення податкових ставок для
+            готельно-ресторанного сектору, називаючи це «місією зі знищення хай-стріт». Консерватори позиціонують
+            себе як захисників підприємців і намагаються конвертувати невдоволення бізнесу бюджетом лейбористів
+            у політичний капітал. Це ключова лінія атаки, спрямована на відновлення економічної довіри традиційного
+            виборця правого центру.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">Міністр охорони здоров’я назвав страйкуючих лікарів «скигліями» та «малолітніми злочинцями»</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            ВЕС Стрітінг різко загострює риторику проти профспілки лікарів British Medical Association, відмовляючись
+            йти на поступки щодо зарплат і називаючи деяких страйкарів «whingers» та «juvenile delinquents».
+            Подібна агресивна мова з боку міністра-лейбориста нетипова і покликана показати, що уряд не дозволить
+            шантажувати себе профспілкам. Стратегія ризикована: вона може або зламати страйк, або завести NHS
+            у глухий кут якраз у зимовий пік навантаження і викликати потужний політичний відкат.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">Поліція розширює використання розпізнавання облич попри побоювання щодо приватності</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Уряд прискорює розгортання технологій розпізнавання облич і фактично ігнорує попередження правозахисників.
+            Daily Express подає це як необхідну та популярну відповідь на суспільний запит «закону і порядку».
+            Дискусія про спостереження перетворюється на культурну війну між більш ліберальним, урбаністичним
+            середовищем, яке ставить на перше місце захист даних, і консервативним електоратом, для якого безпека
+            важливіша за абстрактні ризики для приватності.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">Нові закони заборонять адвокатам використовувати сексуальне минуле жертв зґвалтування</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Уряд просуває реформу, що має заборонити захисникам у справах про сексуальне насильство використовувати
+            попереднє сексуальне життя жертв проти них у суді. Мета — підвищити частку обвинувальних вироків у таких
+            справах, захистивши постраждалих від агресивних та принизливих перехресних допитів. Це відповідь на хронічно
+            низьку ефективність судів, але частина юристів застерігає, що так можна необережно обмежити право обвинувачених
+            на повноцінний захист.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">Принцеса Уельська стала головною зіркою банкету з президентом Німеччини</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Таблоїд зосереджується на гламурному боці візиту і подає принцесу Уельську як справжню «зірку»
+            державного банкету. Її образ підсилює сприйняття монархії як стабілізуючої сили на тлі політичних
+            турбуленцій. Водночас успішний візит критично важливий для підтримання відносин з найбільшою економікою
+            Європи після Брекзиту — ще один приклад того, як Велика Британія зовнішньополітично спирається на
+            «м’яку силу» королівської родини.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">6</div>
+              <div class="article-title">Благодійні фонди фіксують рекордний попит на їжу серед пенсіонерів</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            Стрімке зростання кількості літніх людей, які змушені звертатися до продовольчих банків, показує,
+            наскільки глибоко криза вартості життя вдарила по пенсіонерах. Для аудиторії Express історії про
+            стареньких, які без благодійності не можуть купити їжу, мають величезний емоційний заряд. Ситуація
+            є прямим докором уряду, що скоротив зимові паливні виплати, і робить бідність серед літніх людей
+            одним із найчутливіших сюжетів поточної економічної дискусії.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h2>Про проєкт</h2>
+    <p>
+      Deep Press Analysis — це щоденний розбір західної преси: світові новини, економіка, геополітика,
+      фінансові ринки та сценарії майбутнього. Проєкт збирає ключові матеріали з The New York Times, Bloomberg,
+      The Economist, Politico, The Daily Telegraph, MoneyWeek, Barron's, Daily Mail, The Independent,
+      Financial Times, The Washington Post, Forbes, The Guardian та інших, щоб ви бачили логіку подій,
+      а не лише заголовки. Проста мова. Глибока аналітика. Максимум фактів.
+    </p>
+
+    <p style="margin-top: 14px; font-size: 13px; color: var(--muted);">
+      <strong style="color: var(--accent-soft);">АРХІВ:</strong>
+      <a href="/ua/31225.html" style="color: #e5e7eb; text-decoration: underline;">
+        3 грудня 2025
+      </a>
+    </p>
+  </footer>
+</div>
+
+<script>
+  // Glassmorphism accordion: smooth expand / collapse
+  document.querySelectorAll('.article-header').forEach(function (header) {
+    header.addEventListener('click', function () {
+      const card = header.parentElement;
+      const outlet = card.closest('.outlet');
+
+      // Only one card open per outlet
+      outlet.querySelectorAll('.article-card.open').forEach(function (other) {
+        if (other !== card) other.classList.remove('open');
+      });
+
+      card.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
