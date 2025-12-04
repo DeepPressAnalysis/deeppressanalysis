@@ -2,32 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting...</title>
+  <title>Deep Press Analysis — global news forensics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Basic SEO -->
+  <meta name="description" content="Deep Press Analysis — daily analytical briefing on global media: economy, financial markets, geopolitics, wars, sanctions and technology. Multi-language breakdowns of Western press narratives.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://deeppressanalysis.com/en/">
+
+  <!-- Hreflang Tags (Важно для SEO мультиязычных сайтов) -->
+  <!-- Указываем поисковикам, какой язык находится в какой папке -->
+  <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/en/" />
+  <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/" />
+  <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/" />
+  <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/" />
+  <!-- Обрати внимание: код языка ISO - 'uk', а папка у тебя - '/ua/' -->
+  <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/" />
+  <!-- x-default для всех остальных языков -->
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deeppressanalysis.com/">
+  <meta property="og:title" content="Deep Press Analysis — global news forensics">
+  <meta property="og:description" content="Daily deep-dive into Western and global media: economy, markets, geopolitics and information wars.">
+  <!-- ВАЖНО: Убедись, что картинка доступна по этому адресу -->
+  <meta property="og:image" content="https://deeppressanalysis.com/assets/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deep Press Analysis — global news forensics">
+  <meta name="twitter:description" content="Multi-language forensic analysis of global media narratives: FT, WSJ, NYT, The Guardian and more.">
+  <meta name="twitter:image" content="https://deeppressanalysis.com/assets/og-image.jpg">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Deep Press Analysis",
+    "url": "https://deeppressanalysis.com",
+    "logo": "https://deeppressanalysis.com/assets/logo.png",
+    "sameAs": [
+      "https://www.youtube.com/@DeepPressAnalysis",
+      "https://t.me/DeepPressAnalysis",
+      "https://www.tiktok.com/@DeepPressAnalysis"
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWBGOP5PTF"></script>
   <script>
-    // Маппинг языков → папки
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MWBGOP5PTF');
+  </script>
+
+  <!-- Language-based redirect script -->
+  <script>
+    // Маппинг языков → папки (используем чистые URL со слешем на конце)
     const LANG_MAP = {
-      "en": "/en/index.html",
-      "ru": "/ru/index.html",
-      "de": "/de/index.html",
-      "ar": "/ar/index.html",
-      "ua": "/ua/index.html"
+      "en": "/en/",
+      "ru": "/ru/",
+      "de": "/de/",
+      "ar": "/ar/",
+      "ua": "/ua/"
     };
 
-    // Определяем язык браузера
-    const userLang = navigator.language || navigator.userLanguage;
-    const langShort = userLang.split('-')[0].toLowerCase();
+    try {
+        // Определяем язык браузера
+        const userLang = navigator.language || navigator.userLanguage;
+        const langShort = userLang.split('-')[0].toLowerCase();
 
-    // Особый случай: если браузер отдаёт "uk" — считаем это UA
-    const normalizedLang = (langShort === "uk") ? "ua" : langShort;
+        // Нормализация: если браузер 'uk' (украинский), направляем в папку 'ua'
+        const normalizedLang = (langShort === "uk") ? "ua" : langShort;
 
-    // Редирект: если есть язык → туда, иначе → английский
-    const redirectTo = LANG_MAP[normalizedLang] || "/en/index.html";
+        // Определяем целевой путь. По умолчанию - английский.
+        const targetPath = LANG_MAP[normalizedLang] || "/en/";
 
-    window.location.replace(redirectTo);
+        // Выполняем редирект с заменой истории (кнопка "Назад" будет работать корректно)
+        window.location.replace(targetPath);
+        
+    } catch (e) {
+        // Если произошла ошибка JS, выводим в консоль. 
+        // Пользователь увидит HTML-меню ниже.
+        console.error("Language redirect failed:", e);
+    }
   </script>
 </head>
-<body>
-  <p style="color:#fff;font-family:system-ui">Redirecting...</p>
+
+<!-- Стилизованное тело страницы (Fallback) -->
+<body style="background:#020617; color:#e5e7eb; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0;">
+  <div style="text-align:center;">
+    <h1 style="font-size:1.5rem; font-weight:600; margin-bottom:0.5rem;">Deep Press Analysis</h1>
+    <p style="margin:0 0 0.25rem;">Redirecting to your language version…</p>
+    <p style="opacity:0.7; font-size:0.875rem;">If nothing happens, choose manually:</p>
+    
+    <!-- Ссылки обновлены на "чистые" пути (без index.html) -->
+    <p style="margin-top:0.5rem; font-size:0.875rem;">
+      <a href="/en/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">EN</a> ·
+      <a href="/ru/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">RU</a> ·
+      <a href="/de/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">DE</a> ·
+      <a href="/ar/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">AR</a> ·
+      <a href="/ua/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">UA</a>
+    </p>
+
+    <noscript>
+      <p style="margin-top:0.75rem; font-size:0.875rem; color:#f87171;">
+        JavaScript is disabled. Please use the links above to choose your language.
+      </p>
+    </noscript>
+  </div>
 </body>
 </html>
