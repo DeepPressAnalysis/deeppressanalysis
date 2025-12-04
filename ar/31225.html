@@ -1,1 +1,1008 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>Deep Press Analysis — موجز الأخبار العالمي: الاقتصاد، الأسواق، الجيوسياسة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Deep Press Analysis — موجز يومي للصحافة الغربية والعالمية: الاقتصاد والأسواق المالية، الولايات المتحدة وأوروبا، روسيا والصين، الحروب والعقوبات والنفط والغاز والتكنولوجيا والاتجاهات طويلة الأجل. موجز تحليلي مبسّط يعتمد على مواد أبرز وسائل الإعلام."
+  >
+  <style>
+    :root {
+      --bg: #020617;
+      --glass: rgba(15,23,42,0.72);
+      --glass-strong: rgba(15,23,42,0.9);
+      --border: rgba(148,163,184,0.35);
+      --border-strong: rgba(148,163,184,0.7);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22d3ee;
+      --accent-soft: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding: 20px 14px 40px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* ---------- LANGUAGE BAR ---------- */
+
+    .lang-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-bottom: 10px;
+      font-size: 11px;
+    }
+
+    .lang-pill {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.9);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      opacity: 0.9;
+      user-select: none;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .lang-pill.active {
+      border-color: var(--accent-soft);
+      color: #f9fafb;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.35), #020617);
+      box-shadow: 0 0 12px rgba(56,189,248,0.5);
+      opacity: 1;
+      cursor: default;
+    }
+
+    /* ---------- TOP BAR ---------- */
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 10px;
+    }
+
+    .top-bar-left {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      opacity: 0.9;
+    }
+
+    .top-bar-right {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.96);
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease,
+                  transform 0.1s ease, box-shadow 0.15s ease, opacity 0.12s.ease;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.75);
+      opacity: 0.94;
+    }
+
+    .social-btn:hover {
+      background: rgba(15,23,42,1);
+      border-color: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.98);
+      opacity: 1;
+    }
+
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .social-label {
+      white-space: nowrap;
+    }
+
+    .icon-yt svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .icon-tg svg,
+    .icon-tt svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    header {
+      margin-bottom: 26px;
+      border-radius: 20px;
+      padding: 20px 20px 18px;
+      background:
+        radial-gradient(circle at 0 -40%, rgba(56,189,248,0.24), transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(59,130,246,0.2), transparent 55%),
+        linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow:
+        0 26px 60px rgba(0,0,0,0.95),
+        inset 0 0 0 0.5px rgba(255,255,255,0.04);
+      backdrop-filter: blur(26px);
+    }
+
+    .header-main {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    /* Chrome double-highlight logo */
+    .site-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(
+        90deg,
+        #bfc5cc,
+        #ffffff,
+        #a4aab2,
+        #ffffff,
+        #bfc5cc
+      );
+      background-size: 250%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: chromeBase 4s linear infinite;
+    }
+
+    .site-title::after {
+      content: "Deep Press Analysis";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,0.9) 40%,
+        transparent 80%
+      );
+      background-size: 200%;
+      -webkit-background-clip: text;
+      color: transparent;
+      mix-blend-mode: screen;
+      animation: chromeHighlight 3.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes chromeBase {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    @keyframes chromeHighlight {
+      0%   { background-position: -50% 50%; opacity: 0; }
+      25%  { opacity: 1; }
+      50%  { background-position: 150% 50%; opacity: 0.4; }
+      100% { opacity: 0; }
+    }
+
+    .site-tagline {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header-date {
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #e5e7eb;
+    }
+
+    .header-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .header-focus {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
+    .header-focus strong {
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    /* ---------- CONTENT ---------- */
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    section.outlet {
+      background: linear-gradient(
+        135deg,
+        rgba(15,23,42,0.94),
+        rgba(15,23,42,0.86)
+      );
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 16px 16px 14px;
+      box-shadow:
+        0 22px 50px rgba(0,0,0,0.9),
+        inset 0 0 0 0.5px rgba(255,255,255,0.03);
+      backdrop-filter: blur(26px);
+    }
+
+    section.outlet h2 {
+      font-size: 18px;
+      margin-bottom: 4px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: inline-block;
+      background: linear-gradient(
+        120deg,
+        #22d3ee,
+        #a855f7,
+        #f97316,
+        #22c55e,
+        #22d3ee
+      );
+      background-size: 260% 260%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: outletHue 6s linear infinite;
+      text-shadow: 0 0 18px rgba(15,23,42,0.8);
+    }
+
+    @keyframes outletHue {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    section.outlet .outlet-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .articles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Glassmorphism accordion card */
+
+    .article-card {
+      position: relative;
+      border-radius: 14px;
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.9), #020617);
+      border: 1px solid rgba(148,163,184,0.35);
+      overflow: hidden;
+      box-shadow:
+        0 14px 30px rgba(0,0,0,0.9),
+        inset 0 0 0 0.5px rgba(255,255,255,0.02);
+      backdrop-filter: blur(18px);
+      transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        border-color 0.16s ease,
+        background 0.16s ease;
+    }
+
+    .article-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56,189,248,0.3), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 20px 44px rgba(0,0,0,1),
+        0 0 24px rgba(56,189,248,0.2);
+      border-color: var(--border-strong);
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.96), #020617);
+    }
+
+    .article-card:hover::before {
+      opacity: 0.55;
+    }
+
+    .article-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 12px 14px;
+      gap: 10px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .article-main {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .article-index {
+      font-size: 12px;
+      color: var(--accent-soft);
+      opacity: 0.85;
+      min-width: 18px;
+      flex-shrink: 0;
+    }
+
+    .article-title {
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .article-toggle {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+      font-size: 12px;
+      transition:
+        transform 0.2s ease,
+        color 0.18s.ease,
+        border-color 0.18s.ease,
+        background 0.18s.ease,
+        box-shadow 0.18s.ease;
+      background: radial-gradient(circle at 30% 0, rgba(248,250,252,0.14), transparent 60%);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.8);
+    }
+
+    .article-card.open .article-toggle {
+      transform: rotate(90deg);
+      color: var(--accent);
+      border-color: rgba(56,189,248,0.85);
+      background: radial-gradient(circle at 30% 0, rgba(56,189,248,0.35), transparent 60%);
+      box-shadow: 0 0 18px rgba(56,189,248,0.6);
+    }
+
+    .article-body {
+      padding: 0 14px 12px;
+      max-height: 0;
+      opacity: 0;
+      font-size: 14px;
+      color: var(--muted);
+      transition:
+        max-height 0.26s ease-out,
+        opacity 0.22s ease-out;
+      overflow: hidden;
+    }
+
+    .article-card.open .article-body {
+      max-height: 600px;
+      opacity: 1;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      margin-top: 26px;
+      padding: 16px 16px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.96);
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.95),
+        inset 0 0 0 0.5px rgba(255,255,255,0.02);
+      backdrop-filter: blur(20px);
+    }
+
+    footer h2 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    footer p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 14px 10px 26px;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .site-title {
+        font-size: 20px;
+        letter-spacing: 0.18em;
+        white-space: normal;
+      }
+
+      header {
+        padding: 16px 14px;
+      }
+
+      .article-title {
+        white-space: normal;
+      }
+
+      .lang-bar {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- LANGUAGE BAR -->
+  <div class="lang-bar">
+    <a href="/ua/index.html" class="lang-pill">UA</a>
+    <a href="/en/index.html" class="lang-pill">EN</a>
+    <span class="lang-pill active">AR</span>
+    <a href="/ru/index.html" class="lang-pill">RU</a>
+    <a href="/de/index.html" class="lang-pill">DE</a>
+  </div>
+
+  <!-- TOP BAR WITH SOCIAL ICONS -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      DEEP PRESS ANALYSIS · DAILY GLOBAL PRESS BRIEFING
+    </div>
+    <div class="top-bar-right">
+      <!-- YouTube -->
+      <a class="social-btn" href="https://www.youtube.com/@DeepPressAnalysis" target="_blank" rel="noopener">
+        <span class="social-icon icon-yt">
+          <!-- YouTube logo -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <defs>
+              <linearGradient id="ytGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f97373"/>
+                <stop offset="60%" stop-color="#ef4444"/>
+                <stop offset="100%" stop-color="#b91c1c"/>
+              </linearGradient>
+            </defs>
+            <rect x="2.5" y="5" width="19" height="14" rx="4" ry="4" fill="url(#ytGrad)"/>
+            <polygon points="10,9 16,12 10,15" fill="#f9fafb"/>
+          </svg>
+        </span>
+        <span class="social-label">YouTube</span>
+      </a>
+
+      <!-- Telegram -->
+      <a class="social-btn" href="https://t.me/DeepPressAnalysis" target="_blank" rel="noopener">
+        <span class="social-icon icon-tg">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <defs>
+              <linearGradient id="tgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#0ea5e9"/>
+              </linearGradient>
+            </defs>
+            <rect x="1" y="1" width="22" height="22" rx="11" fill="url(#tgGrad)"/>
+            <path d="M7 12.5L16.5 7.5C16.9 7.3 17.3 7.6 17.1 8.1L14.6 16C14.4 16.6 13.7 16.8 13.3 16.3L11.4 14.1L9.6 15.7C9.3 15.9 8.9 15.8 8.8 15.4L7.2 13C6.9 12.5 6.7 12.1 7 12.5Z" fill="#f9fafb"/>
+          </svg>
+        </span>
+        <span class="social-label">Telegram</span>
+      </a>
+
+      <!-- TikTok -->
+      <a class="social-btn" href="https://www.tiktok.com/@deeppressanalysis" target="_blank" rel="noopener">
+        <span class="social-icon icon-tt">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <defs>
+              <radialGradient id="ttGrad1" cx="20%" cy="0%" r="80%">
+                <stop offset="0%" stop-color="#f97316"/>
+                <stop offset="100%" stop-color="#020617"/>
+              </radialGradient>
+              <radialGradient id="ttGrad2" cx="80%" cy="100%" r="100%">
+                <stop offset="0%" stop-color="#22d3ee"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+            </defs>
+            <rect x="1" y="1" width="22" height="22" rx="7" fill="#020617"/>
+            <circle cx="8" cy="8" r="10" fill="url(#ttGrad2)" opacity="0.7"/>
+            <circle cx="5" cy="4" r="9" fill="url(#ttGrad1)" opacity="0.9"/>
+            <path d="M13.5 7.5V13.2C13.5 14.6 12.4 15.7 11 15.7C9.6 15.7 8.5 14.6 8.5 13.2C8.5 11.9 9.5 10.8 10.8 10.7"
+                  stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 7.5C14.2 8.3 15.3 8.9 16.3 9"
+                  stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="social-label">TikTok</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header>
+    <div class="header-main">
+      <div class="site-title">Deep Press Analysis</div>
+      <div class="site-tagline">مراجعة يومية للصحافة العالمية</div>
+      <div class="header-date">٣ ديسمبر ٢٠٢٥</div>
+    </div>
+    <div class="header-note">
+      موجز يومي للصحافة الغربية والعالمية: الاقتصاد، الأسواق، الولايات المتحدة، أوروبا، روسيا، الصين،
+      الحروب، العقوبات، النفط، الغاز، التكنولوجيا والاتجاهات طويلة الأجل.
+    </div>
+    <div class="header-focus">
+      <strong>التركيز:</strong> الأسواق، الجيوسياسة، أزمة المؤسسات، والاتجاهات بعيدة المدى
+    </div>
+  </header>
+
+  <main>
+
+    <!-- THE WASHINGTON POST -->
+    <section class="outlet">
+      <h2>THE WASHINGTON POST</h2>
+      <div class="outlet-sub">سياسة التجارة الأميركية، أوكرانيا، الأمن والصحة العامة.</div>
+
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">Costco تتحدّى تعريفات ترامب في المحكمة</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            لجوء شركة التجزئة الكبرى Costco إلى القضاء ضد الإدارة بسبب التعريفات يمثل تحدياً قانونياً ومالياً مباشراً
+            لسياسة التجارة الحالية في الولايات المتحدة. الدعوى لاسترداد الرسوم المدفوعة تُبرز العبء الكبير الذي تفرضه
+            التعريفات غير المتوقَّعة على الشركات الكبرى، وفي نهاية المطاف على المستهلكين. نجاح هذه القضية قد يخلق سابقة
+            قانونية تقيد صلاحيات السلطة التنفيذية في مجال التجارة، ما يضيف قدراً من الاستقرار لسلاسل الإمداد وتوقعات الأسواق.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">مبعوثو الولايات المتحدة يلتقون بوتين في مسعى سلام جديد بشأن أوكرانيا</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            لقاء مبعوثين أميركيين، من بينهم شخصيات مرتبطة بدونالد ترامب، مع فلاديمير بوتين يُشير إلى تفعيل قناة دبلوماسية
+            أميركية جديدة حول أوكرانيا. موسكو، رغم غياب الاختراق، تستفيد تكتيكياً من اختبار خط تفاوضي أقل رسمية،
+            ما قد يُضعف جبهة الغرب الموحّدة. وجود وسطاء غير رسميين يزيد قلق الحلفاء الأوروبيين من احتمال عقد صفقة
+            تتعارض مع مصالحهم المباشرة.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">توجيه الاتهام في حادثة إطلاق النار على الحرس الوطني في واشنطن</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            توجيه الاتهام في حادثة إطلاق النار على قوات الحرس الوطني في واشنطن، مع تفاصيل تشير إلى دوافع أيديولوجية
+            («الله أكبر!»)، يؤكد استمرار خطر العنف الداخلي المدفوع بالتطرف. الحادثة تُظهر هشاشة حتى المناطق المحمية
+            قرب مراكز المؤسسات الفدرالية، وتسلط الضوء على مشكلة التطرف والراديكالية. الاستجابة السريعة من النظام القضائي
+            تهدف إلى استعادة السيطرة المؤسسية وردع تهديدات أمنية مماثلة مستقبلاً.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">جدل حول إلغاء التطعيم الروتيني ضد التهاب الكبد B للمواليد</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            تصويت مستشاري CDC المعيّنين بشأن إلغاء التطعيم الشامل للمواليد ضد التهاب الكبد B يعكس درجة عالية من تسييس
+            مؤسسات الصحة العامة الأساسية في الولايات المتحدة. التشكيك في معيار علمي راسخ يخلق خطراً كبيراً على الصحة العامة
+            ويقوّض الثقة في CDC كجهة تنظيمية علمية مستقلة. هذا التطور جزء من مسار طويل الأمد يضعف البُنى الخبيرة في الدولة
+            تحت ضغط الأفكار والدوافع السياسية.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">ثمن التأخير في تقييد المواد البلاستيكية والكيماويات السامة</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            سنوات من التأخير في تنظيم وتقييد مواد كيميائية ضارة مثل الفثالات في البلاستيك، رغم توافر بيانات علمية مبكرة،
+            تمثل مثالاً على فشل تنظيمي بنيوي في الولايات المتحدة. الأضرار «الهائلة» التي لحقت بالصحة العامة تُظهر كيف يمكن
+            للمصالح الاقتصادية واللوبيات أن تعرقل إجراءات حماية السكان لعقود. هذه السابقة تكشف اتجاهاً عالمياً طويل الأجل:
+            التقليل المنهجي من شأن المخاطر التكنولوجية والبيئية وتجاهلها إلى أن تصبح النتائج واسعة وغير قابلة للعكس.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW YORK POST -->
+    <section class="outlet">
+      <h2>NEW YORK POST</h2>
+      <div class="outlet-sub">الجريمة في نيويورك، الجسد والدواء، ورأس المال القادم من الشرق الأوسط.</div>
+
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">جرائم العنف في نيويورك عند أدنى مستوى تاريخي: «لا تفسد الأمر يا زو!»</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            الوصول إلى أدنى مستويات تاريخية للجريمة في نيويورك يؤكد فعالية الاستراتيجية الحالية لأجهزة إنفاذ القانون.
+            التحذير العلني الموجّه إلى العمدة المنتخب زوهران مامداني، الذي تصفه الصحيفة بـ«الاشتراكي»، يعكس قلقاً سياسياً
+            عميقاً من أن تحوّلاً أيديولوجياً في السياسة الداخلية قد يقوّض مكاسب الأمن. هذا السرد يبرز مركزية ملف السلامة العامة
+            في الجدل السياسي، والفجوة الواسعة بين الأجندة الوسطية واليسارية في إدارة المدن الكبرى.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">الارتفاع المقلق لظاهرة «جسد Ozempic»</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            بروز ظاهرة «جسد Ozempic» – الجسد المُعاد تشكيله تحت تأثير أدوية التخسيس الشائعة – يعكس التأثير السريع للتقنيات
+            الحيوية الجديدة على معايير الجمال والصحة في المجتمع. الاستخدام الواسع لهذه الأدوية، بما في ذلك لأغراض تجميلية بحتة،
+            يخلق مشكلات اجتماعية ونفسية جديدة. هذا اتجاه طويل الأمد يشير إلى أن الابتكارات الدوائية أصبحت عاملاً رئيسياً
+            في إعادة تشكيل المعايير الثقافية ونظرتنا إلى الجسد.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">الصندوق السيادي السعودي يعزز سيطرته على الأصول الغربية</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            سعي الصندوق السيادي السعودي للحصول على سيطرة شبه كاملة على أصل كبير يأتي في إطار مسار جيو-اقتصادي أوسع.
+            صناديق الدول المصدّرة للنفط تستخدم رأسمالها بشكل هجومي من أجل التنويع وشراء أصول استراتيجية في الغرب.
+            هذا يعكس تحولاً مستمراً في ميزان النفوذ المالي العالمي، ويزيد من دور الفاعلين الجيوسياسيين في حوكمة الشركات الغربية.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- U.S. LOCAL POLICY & MIDDLE EAST -->
+    <section class="outlet">
+      <h2>الولايات المتحدة · السياسة الحضرية والشرق الأوسط</h2>
+      <div class="outlet-sub">اقتصاد العمل الحرّ، التنظيم المحلي والحروب الطويلة.</div>
+
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">المدينة تتولى تحديد معايير الحد الأدنى لأجور عمّال التوصيل</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            تصريح شركة Instacart بأن القواعد الجديدة للأجور تعني أن المدينة «تولت القيادة» في تحديد الحد الأدنى للأجور
+            يسلط الضوء على تصاعد الصراع التنظيمي بين المدن الكبرى ومنصات «اقتصاد العمل الحرّ». قيام البلديات بفرض معايير
+            للحد الأدنى للأجور يجبر شركات التكنولوجيا على تحمّل تكاليف العمالة التي كانت مُرحّلة سابقاً إلى العمال أنفسهم.
+            هذا يشير إلى اتجاه طويل الأمد نحو تدخل أقوى للحكومات المحلية في نموذج عمل عمالقة التكنولوجيا، مع تأثير مباشر
+            على هوامش ربحهم.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">حماس تتعهد بالقتال في غزة «لعدة أشهر» قادمة</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            إعلان حماس العلني عن امتلاك ما يكفي من الأسلحة والذخيرة لمواصلة القتال «لأشهر عديدة» هو رسالة استراتيجية
+            تستهدف تقويض الرهان على حل عسكري سريع. هذا التحذير يشير إلى احتمال كبير لتحوّل النزاع إلى حرب استنزاف طويلة،
+            ما يطيل أمد المخاطر الجيوسياسية في المنطقة. بالنسبة لأمن الشرق الأوسط، يعني ذلك بقاء مستوى عالٍ من التوتر
+            وعدم اليقين خلال الفترة المقبلة.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE GLOBE AND MAIL -->
+    <section class="outlet">
+      <h2>THE GLOBE AND MAIL</h2>
+      <div class="outlet-sub">كندا: الخصخصة، الهجرة، الطاقة والجيش.</div>
+
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">ألبرتا تُنهي مفاوضات إنشاء عيادات جراحية خاصة</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            قرار حكومة ألبرتا وقف المفاوضات حول عيادات جراحية خاصة بسبب تضارب المصالح يأتي كرد فعل على أزمة خطيرة
+            في منظومة المشتريات الحكومية ونزاهة المؤسسات. الحادثة تُظهر المخاطر السياسية والمالية الكبيرة المرتبطة
+            بخصخصة الخدمات العامة في غياب رقابة صارمة. التراجع عن هذه الصفقات يستهدف استعادة الثقة في المؤسسات الحكومية
+            والقيادة السياسية بعد فضيحة إقالة مسؤول بارز.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">خطة الهجرة «حصان طروادة» لترودو وتهديد سيادة كندا الرقمية</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            المقال يعبّر عن قلق عميق من أن سياسة الهجرة الجديدة قد تتحول إلى «حصان طروادة» يسمح لجهات أجنبية
+            بجمع بيانات حساسة عن طالبي العمل الكنديين. هذا يثير تساؤلات حادة حول الأمن السيبراني وتهديد السيادة الوطنية
+            الناتج عن دمج حلول تكنولوجية بمشاركة خارجية غير شفافة. القضية تبرز اتجاهاً طويل الأمد تصبح فيه السياسة التكنولوجية
+            جزءاً لا يتجزأ من منظومة الأمن القومي.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">مشاريع الغاز الطبيعي المسال في بريتيش كولومبيا تحت ضغط قواعد جديدة</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            تحذير قطاع الغاز الكندي من احتمال تأجيل القرار الاستثماري النهائي لمشروع ضخم للغاز الطبيعي المسال في بريتيش كولومبيا
+            يشير إلى تزايد عدم اليقين التنظيمي. القواعد الجديدة ترفع التكاليف وتزيد الغموض، ما يجعل الاستثمار في بنية الطاقة التحتية
+            الكبرى أقل جاذبية في كندا. التأخير قد يُضعف موقع كندا في سوق الطاقة العالمي لصالح منافسين آخرين.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">أعلى قائد عسكري في كندا يطالب بإصلاح القواعد بعد ارتفاع قضايا الاعتداء الجنسي في الجيش</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            دعوة القائد الأعلى للجيش الكندي إلى مراجعة عاجلة لقواعد الخدمة بعد ارتفاع حاد في حالات الاعتداء الجنسي
+            وسوء السلوك تشير إلى أزمة عميقة في الثقافة المؤسسية وأداء الهياكل الداخلية للقوات المسلحة. هذه الأزمة تقوّض
+            الجاهزية القتالية وثقة المجتمع في الجيش. الحاجة للإصلاح تعكس تحدياً طويل الأمد يتمثل في استئصال المشكلات البنيوية
+            من داخل المؤسسات الهرمية للدولة.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">«بريطانيا المرتبكة»: دولة تُدفع إلى هامش النظام العالمي المتعدد الأقطاب</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            توصيف بريطانيا بأنها «مرتبكة» و«تُزاح إلى الهامش» يعكس أزمة مستمرة في الهوية الجيوسياسية والاستراتيجية
+            للبلاد بعد بريكست. التحليل يشير إلى أن غموض الخط الخارجي يقلل من نفوذها ومصداقيتها لدى الحلفاء الرئيسيين في أوروبا
+            والولايات المتحدة. هذا يبرز اتجاهاً طويل الأمد تواجه فيه المملكة المتحدة صعوبات في تحديد دورها الجديد
+            داخل عالم متعدد الأقطاب.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE GUARDIAN -->
+    <section class="outlet">
+      <h2>THE GUARDIAN</h2>
+      <div class="outlet-sub">أوروبا، روسيا، المخاطر المناخية واستثمارات الشركات.</div>
+
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <div class="article-title">بوتين يعلن أن روسيا «مستعدة للحرب» مع أوروبا</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            تهديد فلاديمير بوتين باستعداد روسيا للحرب مع أوروبا، والذي صدر خلال محادثات مع مبعوثين أميركيين، هو مناورة
+            استراتيجية للضغط على الغرب. اتهام الدول الأوروبية بأنها «تمنع السلام» في أوكرانيا يهدف إلى خلق شرخ بين الولايات المتحدة
+            وحلفائها. هذا التصريح يرفع مستوى التوتر الجيوسياسي بشكل حاد ويبعث إشارة باستعداد موسكو لمواجهة سياسية وعسكرية
+            طويلة وشاملة مع الغرب.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <div class="article-title">«ظلم مُرّ»: لا عقوبات على أي ضابط في قضية كارثة هيلزبورو</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            قرار هيئة الرقابة على الشرطة بعدم معاقبة أي ضابط بعد تحقيق استمر 14 عاماً في كارثة هيلزبورو يمثل مثالاً صارخاً
+            على أزمة المساءلة المؤسسية في بريطانيا. النتيجة تُظهر عجزاً بنيوياً عن محاسبة الفاعلين الحكوميين النافذين
+            على الأخطاء الكارثية. هذا يقوّض ثقة الجمهور في الشرطة وآليات الرقابة، ويؤكد مشكلة مزمنة تتمثل في «حصانة» المؤسسات
+            من المساءلة الحقيقية.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <div class="article-title">إلزام صناديق التقاعد بالكشف عن خططها لمواجهة مخاطر المناخ</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            إلزام صناديق التقاعد في المملكة المتحدة بالكشف عن كيفية استعدادها لمخاطر المناخ يمثل تحولاً مهماً نحو إدماج
+            مخاطر ESG (البيئية والاجتماعية والحوكمة) في أسواق المال. الضغط التنظيمي يجبر المستثمرين على استيعاب المخاطر المناخية
+            طويلة الأجل داخل استراتيجياتهم. هذا يسرّع اتجاهاً عالمياً يُعاد فيه توجيه رأس المال نحو أصول أكثر استدامة مناخياً
+            ومتانة على المدى الطويل.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <div class="article-title">حريق هونغ كونغ والمعركة مع «المصالح الراسخة» في قطاع البناء</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            تعهّد رئيس السلطة التنفيذية في هونغ كونغ بتجاوز «المصالح الراسخة» بعد حريق مدمر أودى بحياة عدد كبير من الأشخاص
+            يكشف عن مشكلات عميقة في قطاع البناء والرقابة. الحصيلة المرتفعة للضحايا تشير إلى فشل بنيوي، غالباً مرتبط
+            بالاستحواذ التنظيمي والفساد. تنفيذ «التغييرات النظامية» التي تم التعهد بها سيكون اختباراً أساسياً لقدرة الحكومة
+            على وضع سلامة السكان فوق مصالح التكتلات الاقتصادية النافذة.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <div class="article-title">انخفاض استثمارات البحث والتطوير يضعف مستقبل بريطانيا التكنولوجي</div>
+            </div>
+            <div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">
+            تراجع استثمارات البحث والتطوير بين أكبر ألف شركة في المملكة المتحدة في ظل تباطؤ الاقتصاد يخلق خطراً على النمو
+            طويل الأجل وعلى القدرة التنافسية للبلاد. خفض الإنفاق على R&amp;D استجابةً للضغوط الاقتصادية هو رد فعل قصير الأمد
+            لكنه يُضعف القدرة التكنولوجية المستقبلية. هذا الاتجاه يشير إلى أن القطاع الخاص البريطاني قد يضحّي بالريادة
+            التكنولوجية بعيدة المدى من أجل إدارة مشكلاته المالية الآنية.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h2>عن المشروع</h2>
+    <p>
+      Deep Press Analysis — مراجعة يومية للصحافة الغربية: الأخبار العالمية، الاقتصاد، الجيوسياسة، المال والتوقعات.
+      يجمع هذا المشروع المواد الأساسية من صحف مثل The New York Times وBloomberg وThe Economist وPolitico وThe Daily Telegraph
+      وMoneyWeek وBarron's وDaily Mail وThe Independent وFinancial Times وThe Washington Post وForbes وThe Guardian وغيرها،
+      حتى ترى جوهر الأحداث لا العناوين فقط. لغة بسيطة. تحليل عميق. حقائق فقط.
+    </p>
+
+    <p style="margin-top: 14px; font-size: 13px; color: var(--muted); direction: rtl; text-align: right;">
+      <strong style="color: var(--accent-soft);">الأرشيف:</strong>
+      <a href="/ar/21225.html" style="color: #e5e7eb; text-decoration: underline;">
+        ٢ ديسمبر ٢٠٢٥
+      </a>
+    </p>
+  </footer>
+</div>
+
+<script>
+  // Glassmorphism accordion: فتح وإغلاق البطاقات بسلاسة
+  document.querySelectorAll('.article-header').forEach(function (header) {
+    header.addEventListener('click', function () {
+      const card = header.parentElement;
+      const outlet = card.closest('.outlet');
+
+      // بطاقة واحدة فقط مفتوحة داخل كل قسم
+      outlet.querySelectorAll('.article-card.open').forEach(function (other) {
+        if (other !== card) other.classList.remove('open');
+      });
+
+      card.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
