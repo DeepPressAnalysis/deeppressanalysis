@@ -228,7 +228,6 @@
       margin-bottom: 8px;
     }
 
-    /* SEO FIX: Змінено клас на h1, стилі збережено */
     h1.site-title {
       font-size: 26px;
       font-weight: 700;
@@ -249,7 +248,7 @@
       -webkit-background-clip: text;
       color: transparent;
       animation: chromeBase 4s linear infinite;
-      margin: 0; /* Скидання стандартних відступів h1 */
+      margin: 0;
     }
 
     h1.site-title::after {
@@ -439,7 +438,6 @@
       min-width: 0;
     }
 
-    /* SEO FIX: Якщо це не просто індекс, а частина заголовка, краще використовувати span */
     .article-index {
       font-size: 12px;
       color: var(--accent-soft);
@@ -448,7 +446,6 @@
       flex-shrink: 0;
     }
 
-    /* SEO FIX: Використовуємо h3 для заголовків статей всередині акордеону */
     h3.article-title {
       font-weight: 600;
       font-size: 14px;
@@ -498,7 +495,7 @@
         max-height 0.26s ease-out,
         opacity 0.22s ease-out;
       overflow: hidden;
-      white-space: pre-line; /* Щоб зберегти переноси рядків */
+      white-space: pre-line;
     }
 
     .article-card.open .article-body {
@@ -510,7 +507,7 @@
 
     footer {
       margin-top: 26px;
-      padding: 16px 16px 18px;
+      padding: 16px 16px 30px;
       border-radius: 16px;
       border: 1px solid var(--border);
       background: rgba(15,23,42,0.96);
@@ -529,6 +526,62 @@
     footer p {
       font-size: 14px;
       color: var(--muted);
+    }
+
+    /* ---------- CONTACT / EMAIL STYLES (UKRAINIAN VERSION) ---------- */
+
+    @keyframes red-aura-pulse {
+        0% {
+            filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3));
+        }
+        50% {
+            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 10px rgba(255, 0, 0, 0.4));
+        }
+        100% {
+            filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3));
+        }
+    }
+
+    .contact-section {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(148,163,184,0.15);
+        text-align: center;
+    }
+
+    .contact-label {
+        font-size: 11px; 
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #64748b; 
+        margin-bottom: 8px;
+        font-weight: 400; 
+    }
+
+    .metal-email {
+        display: inline-block;
+        font-size: 14px; /* Small font */
+        font-weight: 400; /* Regular weight */
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        
+        /* Metal Gradient */
+        background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 40%, #999999 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+
+        /* Aura Animation */
+        animation: red-aura-pulse 3s infinite alternate;
+        transition: transform 0.2s, filter 0.2s;
+    }
+
+    .metal-email:hover {
+        transform: scale(1.02);
+        filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.9)); 
+        animation: none;
+        cursor: pointer;
     }
 
     @media (max-width: 640px) {
@@ -684,7 +737,7 @@
           </div>
           <div class="article-body">
             [U.S. peace push stalls as Putin takes hard line against some proposals]
-            Дипломатичні зусилля команди Трампа (спецпосланець Віткофф та зять Кушнер) щодо врегулювання в Україні зіштовхнулися з жорсткими вимогами Москви, що стосуються територіальних поступок та гарантій безпеки. Незважаючи на інтенсивні переговори в Кремлі, сторони далекі від компромісу, що підтверджують заяви Путіна про неприйнятність низки американських пропозицій. Ситуація демонструє, що Росія має намір використати перехідний період у США для максимізації своїх переговорних позицій. Це свідчить про затяжний характер дипломатичного процесу та збереження геополітичних ризиків для ринків, що сподівалися на швидке вирішення конфлікту.
+            Дипломатичні зусилля команди Трампа (спецпосланець Віткофф та зять Кушнер) щодо врегулювання в Україні зіштовхнулися з жорсткими вимогами Москви, що стосуються територіальних поступок та гарантій безпеки. Незважаючи на інтенсивні переговори в Кремлі, сторони далеки від компромісу, що підтверджують заяви Путіна про неприйнятність низки американських пропозицій. Ситуація демонструє, що Росія має намір використати перехідний період у США для максимізації своїх переговорних позицій. Це свідчить про затяжний характер дипломатичного процесу та збереження геополітичних ризиків для ринків, що сподівалися на швидке вирішення конфлікту.
           </div>
         </div>
 
@@ -828,7 +881,7 @@
           </div>
           <div class="article-body">
             [Structure to Determine Winners Of Freddie, Fannie IPO]
-            Адміністрація Трампа готує масштабну приватизацію іпотечних гігантів Fannie Mae та Freddie Mac, що може стати найбільшим IPO в історії та принести казні мільярди. Ключове питання — структура угоди, від якої залежить, хто отримає прибуток: держава чи власники спекулятивних акцій (серед яких відомі хедж-фонди). Реалізація плану кардинально змінить ландшафт іпотечного ринку США, потенційно збільшивши вартість запозичень для домовласників. Ця подія стане головним драйвером для фінансового сектору найближчим часом.
+            Адміністрація Трампа готує масштабну приватизацію іпотечних гігантів Fannie Mae та Freddie Mac, що може стати найбільшим IPO в історії та принести казні мільярди. Ключеве питання — структура угоди, від якої залежить, хто отримає прибуток: держава чи власники спекулятивних акцій (серед яких відомі хедж-фонди). Реалізація плану кардинально змінить ландшафт іпотечного ринку США, потенційно збільшивши вартість запозичень для домовласників. Ця подія стане головним драйвером для фінансового сектору найближчим часом.
           </div>
         </div>
 
@@ -986,7 +1039,7 @@
           </div>
           <div class="article-body">
             [Putin 'astonishingly reckless' for ordering Novichok poisoning]
-            Офіційне розслідування у Великій Британії поклало особисту відповідальність за застосування хімічної зброї в Солсбері на Володимира Путіна, назвавши дії ГРУ «разюче безрозсудними». Цей висновок юридично закріплює статус Росії як держави-агресора у британському правовому полі та тягне за собою нові санкції проти російських спецслужб. Доповідь наголошує на провалі британських служб безпеки в оцінці ризиків для перебіжчиків, що вимагатиме перегляду протоколів захисту. Для відносин Лондона та Москви це означає фіксацію ворожості на десятиліття, виключаючи будь-яку нормалізацію за поточного російського режиму.
+            Офіційне розслідування у Великій Британії поклало особисту відповідальність за застосування хімічної зброї в Солсбері на Володимира Путіна, назвав дії ГРУ «разюче безрозсудними». Цей висновок юридично закріплює статус Росії як держави-агресора у британському правовому полі та тягне за собою нові санкції проти російських спецслужб. Доповідь наголошує на провалі британських служб безпеки в оцінці ризиків для перебіжчиків, що вимагатиме перегляду протоколів захисту. Для відносин Лондона та Москви це означає фіксацію ворожості на десятиліття, виключаючи будь-яку нормалізацію за поточного російського режиму.
           </div>
         </div>
 
@@ -1180,7 +1233,7 @@
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">4</div>
-              <h3 class="article-title">Вавилонська долина: Битва за ретороманську мову</h3>
+              <h3 class="article-title">Вавилонская долина: Битва за ретороманську мову</h3>
             </div>
             <div class="article-toggle">▶</div>
           </div>
@@ -1259,7 +1312,7 @@
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">4</div>
-              <h3 class="article-title">Нам може знадобитися четвертий закон термодинаміки</h3>
+              <h3 class="article-title">Нам може знадобитися четвертый закон термодинаміки</h3>
             </div>
             <div class="article-toggle">▶</div>
           </div>
@@ -1288,7 +1341,7 @@
 
     <section class="outlet">
       <h2>DAILY EXPRESS</h2>
-      <div class="outlet-sub">Грип та NHS, лейбористи та вибори, потяги до Німеччини, мігранти-кур'єри, електромобілі.</div>
+      <div class="outlet-sub">Грип та NHS, лейбористи та вибори, потяги до Німеччини, мігранти-курьеры, електромобілі.</div>
 
       <div class="articles-list">
 
@@ -1371,7 +1424,7 @@
     <h2>Про проект</h2>
     <p>
       Deep Press Analysis — це щоденний розбір західної преси: світові новини, економіка, геополітика,
-      фінанси та сценарії на майбутнє. Проект збирає ключові матеріали з The New York Times, Bloomberg,
+      фінанси та сценарии на майбутнє. Проект збирає ключові матеріали з The New York Times, Bloomberg,
       The Economist, Politico, The Daily Telegraph, MoneyWeek, Barron's, Daily Mail, The Independent,
       Financial Times, The Washington Post, Forbes, The Guardian та інших, щоб ви бачили логіку того, що відбувається,
       а не лише заголовки. Проста мова. Глибокий аналіз. Жодної води.
@@ -1390,10 +1443,18 @@
 
     <p style="margin-top: 14px; font-size: 13px; color: var(--muted);">
       <strong style="color: var(--accent-soft);">АРХІВ:</strong>
-      <a href="/ua/041225.html" style="color: #e5e7eb; text-decoration: underline;">
+      <a href="/ua/41225.html" style="color: #e5e7eb; text-decoration: underline;">
         4 грудня 2025
       </a>
     </p>
+
+    <div class="contact-section">
+      <div class="contact-label">КОНТАКТИ / EMAIL</div>
+      <a href="mailto:deeppressanalysis@protonmail.com" class="metal-email">
+          deeppressanalysis@protonmail.com
+      </a>
+    </div>
+
   </footer>
 </div>
 
