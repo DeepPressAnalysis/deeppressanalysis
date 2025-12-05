@@ -12,7 +12,6 @@
   <meta name="keywords" content="news, economy, geopolitics, press review, The Washington Post, WSJ, The Economist, Deep Press Analysis, markets">
 
   <link rel="canonical" href="https://deeppressanalysis.com/en/index.html">
-
   <link rel="icon" href="/favicon.ico">
 
   <meta property="og:type" content="website">
@@ -506,7 +505,7 @@
 
     footer {
       margin-top: 26px;
-      padding: 16px 16px 18px;
+      padding: 16px 16px 30px;
       border-radius: 16px;
       border: 1px solid var(--border);
       background: rgba(15,23,42,0.96);
@@ -525,6 +524,62 @@
     footer p {
       font-size: 14px;
       color: var(--muted);
+    }
+
+    /* ---------- CONTACT / EMAIL STYLES (UPDATED FOR SMALL/THIN TEXT) ---------- */
+
+    @keyframes red-aura-pulse {
+        0% {
+            filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3));
+        }
+        50% {
+            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 10px rgba(255, 0, 0, 0.4));
+        }
+        100% {
+            filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3));
+        }
+    }
+
+    .contact-section {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(148,163,184,0.15);
+        text-align: center;
+    }
+
+    .contact-label {
+        font-size: 11px; 
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #64748b; 
+        margin-bottom: 8px;
+        font-weight: 400; 
+    }
+
+    .metal-email {
+        display: inline-block;
+        font-size: 14px; /* Small font */
+        font-weight: 400; /* Regular weight */
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        
+        /* Metal Gradient */
+        background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 40%, #999999 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+
+        /* Aura Animation */
+        animation: red-aura-pulse 3s infinite alternate;
+        transition: transform 0.2s, filter 0.2s;
+    }
+
+    .metal-email:hover {
+        transform: scale(1.02);
+        filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.9)); 
+        animation: none;
+        cursor: pointer;
     }
 
     @media (max-width: 640px) {
@@ -1341,10 +1396,18 @@
 
     <p style="margin-top: 14px; font-size: 13px; color: var(--muted);">
       <strong style="color: var(--accent-soft);">ARCHIVE:</strong>
-      <a href="/ru/041225.html" style="color: #e5e7eb; text-decoration: underline;">
+      <a href="/en/041225.html" style="color: #e5e7eb; text-decoration: underline;">
         December 4, 2025
       </a>
     </p>
+
+    <div class="contact-section">
+      <div class="contact-label">Contact / Email</div>
+      <a href="mailto:deeppressanalysis@protonmail.com" class="metal-email">
+          deeppressanalysis@protonmail.com
+      </a>
+    </div>
+
   </footer>
 </div>
 
