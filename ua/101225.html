@@ -1,1 +1,964 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Deep Press Analysis — Огляд світової преси: 10 грудня 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <meta
+    name="description"
+    content="Deep Press Analysis — Щоденний брифінг західних та світових ЗМІ за 10 грудня 2025. Трамп, Європа, Економіка, ШІ, Війна. Аналітика NYT, FT, WSJ."
+  >
+  <meta name="keywords" content="новини, економіка, геополітика, огляд преси, Politico, NYT, WSJ, Венесуела, ШІ, фінанси, інвестиції">
+  <link rel="canonical" href="https://deeppressanalysis.com/ua/index.html">
+  <link rel="icon" href="/favicon.ico">
 
+  <style>
+    :root {
+      --bg: #020617;
+      --glass: rgba(15,23,42,0.72);
+      --border: rgba(148,163,184,0.35);
+      --border-strong: rgba(148,163,184,0.7);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22d3ee;
+      --accent-soft: #38bdf8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding: 20px 14px 40px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page { max-width: 980px; margin: 0 auto; }
+
+    /* ---------- LANGUAGE BAR ---------- */
+    .lang-bar {
+      display: flex; flex-wrap: wrap; justify-content: flex-end;
+      gap: 4px; margin-bottom: 10px; font-size: 11px;
+    }
+
+    .lang-pill {
+      padding: 3px 7px; border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4); background: rgba(15,23,42,0.9);
+      color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em;
+      text-decoration: none; display: inline-block; transition: all 0.2s;
+    }
+
+    .lang-pill:hover { border-color: var(--accent); color: var(--text); }
+
+    .lang-pill.active {
+      border-color: var(--accent-soft); color: #f9fafb;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.35), #020617);
+      box-shadow: 0 0 12px rgba(56,189,248,0.5); cursor: default;
+    }
+
+    /* ---------- TOP BAR (SOCIALS) ---------- */
+    .top-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 12px; gap: 10px;
+    }
+
+    .top-bar-left {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+      color: var(--muted); opacity: 0.9;
+    }
+
+    .top-bar-right { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+
+    .social-btn {
+      padding: 5px 10px; font-size: 12px; border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5); background: rgba(15,23,42,0.96);
+      color: var(--text); text-decoration: none; display: inline-flex;
+      align-items: center; gap: 6px; cursor: pointer; transition: all 0.15s ease;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.75); opacity: 0.94;
+    }
+
+    .social-btn:hover {
+      background: rgba(15,23,42,1); border-color: var(--accent-soft);
+      transform: translateY(-1px); box-shadow: 0 14px 30px rgba(15,23,42,0.98); opacity: 1;
+    }
+
+    .social-icon {
+      width: 18px; height: 18px; border-radius: 999px; display: inline-flex;
+      align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;
+    }
+    
+    .social-icon svg { display: block; width: 100%; height: 100%; }
+
+    /* ---------- HEADER ---------- */
+    header {
+      margin-bottom: 26px; border-radius: 20px; padding: 20px 20px 18px;
+      background: radial-gradient(circle at 0 -40%, rgba(56,189,248,0.24), transparent 60%),
+                  linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow: 0 26px 60px rgba(0,0,0,0.95), inset 0 0 0 0.5px rgba(255,255,255,0.04);
+      backdrop-filter: blur(26px);
+    }
+
+    .header-main { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+
+    h1.site-title {
+      font-size: 26px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      background: linear-gradient(90deg, #bfc5cc, #ffffff, #a4aab2, #ffffff);
+      background-size: 250%; -webkit-background-clip: text; color: transparent;
+      animation: chromeBase 4s linear infinite; margin: 0;
+    }
+
+    @keyframes chromeBase { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+    .site-tagline { font-size: 12px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+    .header-date { margin-top: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: #e5e7eb; }
+    .header-note { font-size: 13px; color: var(--muted); margin-top: 8px; }
+    .header-focus { margin-top: 6px; margin-bottom: 16px; font-size: 13px; color: #d1d5db; }
+    .header-focus strong { color: var(--accent-soft); font-weight: 600; }
+
+    /* Spotify Frame Wrapper */
+    .spotify-wrapper {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(148,163,184,0.2);
+      background: #000;
+    }
+
+    /* ---------- CONTENT ---------- */
+    main { display: flex; flex-direction: column; gap: 18px; }
+
+    section.outlet {
+      background: linear-gradient(135deg, rgba(15,23,42,0.94), rgba(15,23,42,0.86));
+      border-radius: 18px; border: 1px solid var(--border); padding: 16px 16px 14px;
+      box-shadow: 0 22px 50px rgba(0,0,0,0.9); backdrop-filter: blur(26px);
+    }
+
+    section.outlet h2 {
+      font-size: 18px; margin-bottom: 4px; letter-spacing: 0.14em; text-transform: uppercase; display: inline-block;
+      background: linear-gradient(120deg, #064e3b, #22c55e, #a7f3d0, #22c55e, #064e3b);
+      background-size: 200% auto; -webkit-background-clip: text; color: transparent;
+      animation: greenShimmer 4s linear infinite;
+      text-shadow: 0 0 15px rgba(34, 197, 94, 0.25);
+    }
+
+    @keyframes greenShimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+    .outlet-sub { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .articles-list { display: flex; flex-direction: column; gap: 8px; }
+
+    /* CARD STYLES */
+    .article-card {
+      position: relative; border-radius: 14px;
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.9), #020617);
+      border: 1px solid rgba(148,163,184,0.35); overflow: hidden;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.9), inset 0 0 0 0.5px rgba(255,255,255,0.02);
+      backdrop-filter: blur(18px); transition: all 0.16s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(0,0,0,1), 0 0 24px rgba(56,189,248,0.2);
+      border-color: var(--border-strong);
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.96), #020617);
+    }
+
+    .article-header {
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; padding: 12px 14px; gap: 10px; -webkit-tap-highlight-color: transparent;
+    }
+
+    .article-main { display: flex; align-items: baseline; gap: 8px; flex: 1; min-width: 0; }
+    .article-index { font-size: 12px; color: var(--accent-soft); opacity: 0.85; min-width: 18px; flex-shrink: 0; }
+    h3.article-title { font-weight: 600; font-size: 14px; white-space: normal; overflow: hidden; text-overflow: ellipsis; margin: 0; color: inherit; line-height: 1.3; }
+
+    .article-toggle {
+      width: 22px; height: 22px; border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+      border: 1px solid rgba(148,163,184,0.5); color: var(--muted); font-size: 12px;
+      background: radial-gradient(circle at 30% 0, rgba(248,250,252,0.14), transparent 60%);
+      transition: all 0.2s ease;
+    }
+
+    .article-card.open .article-toggle {
+      transform: rotate(90deg); color: var(--accent);
+      border-color: rgba(56,189,248,0.85);
+      background: radial-gradient(circle at 30% 0, rgba(56,189,248,0.35), transparent 60%);
+      box-shadow: 0 0 18px rgba(56,189,248,0.6);
+    }
+
+    .article-body {
+      padding: 0 14px 12px; max-height: 0; opacity: 0;
+      font-size: 14px; color: var(--muted);
+      transition: max-height 0.26s ease-out, opacity 0.22s ease-out;
+      overflow: hidden; white-space: pre-line;
+    }
+
+    .article-card.open .article-body { max-height: 800px; opacity: 1; }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      margin-top: 26px; padding: 16px 16px 30px; border-radius: 16px;
+      border: 1px solid var(--border); background: rgba(15,23,42,0.96);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.95); backdrop-filter: blur(20px);
+    }
+
+    footer h2 { font-size: 16px; margin-bottom: 8px; color: var(--accent); }
+    footer p { font-size: 14px; color: var(--muted); }
+
+    .contact-section {
+        margin-top: 30px; padding-top: 20px;
+        border-top: 1px solid rgba(148,163,184,0.15); text-align: center;
+    }
+    .contact-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b; margin-bottom: 8px; }
+    .metal-email {
+        display: inline-block; font-size: 14px; text-decoration: none; letter-spacing: 0.5px;
+        background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 40%, #999999 100%);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+        animation: red-aura-pulse 3s infinite alternate; transition: transform 0.2s, filter 0.2s;
+    }
+    .metal-email:hover { transform: scale(1.02); filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.9)); animation: none; cursor: pointer; }
+    
+    @keyframes red-aura-pulse {
+        0% { filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3)); }
+        50% { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.8)); }
+        100% { filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3)); }
+    }
+
+    @media (max-width: 640px) {
+      .top-bar { flex-direction: column; align-items: flex-start; }
+      .lang-bar { justify-content: flex-start; }
+      h1.site-title { font-size: 20px; letter-spacing: 0.18em; white-space: normal; }
+      header { padding: 16px 14px; }
+      h3.article-title { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="lang-bar">
+    <span class="lang-pill active">UA</span>
+    <a href="/en/index.html" class="lang-pill">EN</a>
+    <a href="/ar/index.html" class="lang-pill">AR</a>
+    <a href="/ru/index.html" class="lang-pill">RU</a>
+    <a href="/de/index.html" class="lang-pill">DE</a>
+  </div>
+
+  <div class="top-bar">
+    <div class="top-bar-left">
+      DEEP PRESS ANALYSIS · ЩОДЕННИЙ ОГЛЯД
+    </div>
+    <div class="top-bar-right">
+      <a class="social-btn" href="https://t.me/DeepPressAnalysis" target="_blank" rel="noopener">
+        <span class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <defs>
+              <linearGradient id="tgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#0ea5e9"/>
+              </linearGradient>
+            </defs>
+            <rect x="1" y="1" width="22" height="22" rx="11" fill="url(#tgGrad)"/>
+            <path d="M7 12.5L16.5 7.5C16.9 7.3 17.3 7.6 17.1 8.1L14.6 16C14.4 16.6 13.7 16.8 13.3 16.3L11.4 14.1L9.6 15.7C9.3 15.9 8.9 15.8 8.8 15.4L7.2 13C6.9 12.5 6.7 12.1 7 12.5Z" fill="#f9fafb"/>
+          </svg>
+        </span>
+        <span>Telegram</span>
+      </a>
+
+      <a class="social-btn" href="https://www.tiktok.com/@deeppressanalysis" target="_blank" rel="noopener">
+        <span class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <defs>
+              <radialGradient id="ttGrad1" cx="20%" cy="0%" r="80%">
+                <stop offset="0%" stop-color="#f97316"/>
+                <stop offset="100%" stop-color="#020617"/>
+              </radialGradient>
+              <radialGradient id="ttGrad2" cx="80%" cy="100%" r="100%">
+                <stop offset="0%" stop-color="#22d3ee"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+            </defs>
+            <rect x="1" y="1" width="22" height="22" rx="7" fill="#020617"/>
+            <circle cx="8" cy="8" r="10" fill="url(#ttGrad2)" opacity="0.7"/>
+            <circle cx="5" cy="4" r="9" fill="url(#ttGrad1)" opacity="0.9"/>
+            <path d="M13.5 7.5V13.2C13.5 14.6 12.4 15.7 11 15.7C9.6 15.7 8.5 14.6 8.5 13.2C8.5 11.9 9.5 10.8 10.8 10.7"
+                  stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 7.5C14.2 8.3 15.3 8.9 16.3 9"
+                  stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>TikTok</span>
+      </a>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-main">
+      <h1 class="site-title">Deep Press Analysis</h1>
+      <div class="site-tagline">ЩОДЕННИЙ ОГЛЯД СВІТОВОЇ ПРЕСИ</div>
+      <div class="header-date"><time datetime="2025-12-10">10 грудня 2025</time></div>
+    </div>
+    <div class="header-note">
+      Щоденний огляд західних та світових ЗМІ: економіка, ринки, США, Європа, Росія, Китай,
+      війни, санкції, нафта, газ, технології та довгострокові тренди.
+    </div>
+    <div class="header-focus">
+      <strong>У фокусі:</strong> Трамп і Європа, Наркотрафік Еквадору, Бульбашка ШІ, Ціни та Тарифи, Nvidia, Венесуела.
+    </div>
+
+    <div class="spotify-wrapper">
+        <iframe data-testid="embed-iframe"
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0"
+        width="100%" height="152"
+        frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="outlet">
+      <h2>THE NEW YORK TIMES</h2>
+      <div class="outlet-sub">Еквадор, Ринки ШІ, Тарифи, Instacart, Справа Комі.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Чому кокаїн поставив Еквадор на коліна (Why Cocaine Has Ecuador On Its Knees)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">У статті аналізується, як зміщення фокусу США на боротьбу з фентанілом ненавмисно сприяло розквіту кокаїнового наркотрафіку в Еквадорі. Поки Вашингтон був зайнятий внутрішньою опіоїдною кризою, мексиканські та албанські картелі перетворили колись мирний Еквадор на ключовий логістичний хаб. Це призвело до колапсу безпеки в країні, зростання насильства та втрати державою контролю над в'язницями та регіонами. Ситуація демонструє, як однобока політика безпеки великої держави може дестабілізувати цілі регіони, створюючи нові загрози на периферії.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Бульбашка ШІ? Фондовий ринок відмахується від цього (A.I. Bubble? Stock Market Pooh-Poohs It)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Ринок акцій продовжує зростати, ігноруючи попередження про перегрів сектору штучного інтелекту та аналогії з бульбашкою доткомів. Інвестори роблять ставку на те, що поточні високі оцінки технологічних гігантів виправдані реальним потенціалом зростання прибутку, незважаючи на величезні капітальні витрати на дата-центри. Однак скептики вказують на ризики: якщо монетизація ШІ сповільниться або не виправдає очікувань, корекція може бути болючою для всієї економіки. Це класичний приклад «ірраціонального оптимізму», який може маскувати системні ризики концентрації капіталу в одному секторі.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Ціновий бліцкриг змушує Трампа оборонятися (A Price Blitz Puts Trump On Defense)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Введення адміністрацією Трампа агресивних тарифів почало позначатися на споживчих цінах, що суперечить обіцянкам про повернення виробництва та зниження вартості життя. Білий дім змушений виправдовуватися і виділяти субсидії постраждалим секторам (наприклад, фермерам), намагаючись погасити політичний збиток грошима платників податків. Ситуація показує, що протекціонізм у короткостроковій перспективі б'є по гаманцях виборців швидше, ніж приносить структурні вигоди. Це створює ризики для політичної стійкості адміністрації, якщо інфляційний тиск продовжуватиме зростати.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Той самий продукт, той самий магазин, але в Instacart ціни можуть відрізнятися</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Дослідження виявило використання алгоритмів динамічного ціноутворення в сервісах доставки, де різні користувачі бачать різні ціни на одні й ті самі товари в той самий час. Технологічні платформи використовують дані про поведінку споживачів для максимізації прибутку, фактично вводячи приховану персоналізовану інфляцію. Це підриває довіру до ринкових механізмів і прозорості ціноутворення, перетворюючи повсякденні покупки на непрозорий аукціон. Тренд сигналізує про майбутнє рітейлу, де ціна товару більше не є фіксованою величиною, а залежить від платоспроможності конкретного клієнта.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Адміністрація Трампа бореться з перешкодами у новій справі проти Комі</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Мін'юст робить агресивні спроби відновити кримінальне переслідування колишнього директора ФБР Джеймса Комі, незважаючи на процесуальні невдачі та судові заборони на використання певних доказів. Це свідчить про триваючу політизацію правосуддя та використання державного апарату для зведення рахунків з політичними опонентами. Наполегливість прокуратури, незважаючи на слабкі юридичні позиції, говорить про пріоритет політичної лояльності над верховенством права в поточній адміністрації. Це створює небезпечний прецедент використання судової системи як інструменту політичної помсти.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE INDEPENDENT</h2>
+      <div class="outlet-sub">Трамп і Європа, MI5, NHS, Україна, TikTok.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Атака Трампа на «слабку та гниючу» Європу (Trump's attack on 'weak and decaying' Europe)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Президент США публічно розкритикував європейських лідерів, назвавши їх слабкими, а їхні країни — гниючими через міграційну політику та нездатність закінчити війну в Україні. Ця заява маркує глибокий ідеологічний розрив між Вашингтоном і традиційними європейськими союзниками, ставлячи під сумнів майбутнє трансатлантичного партнерства. Риторика Трампа посилює позиції євроскептиків і правих популістів усередині ЄС, підриваючи єдність блоку. Для Європи це сигнал про необхідність термінового набуття стратегічної автономії, оскільки надії на американське покровительство тануть.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Як MI5 закривала очі на «гротескні» тортури та вбивства (How MI5 turned blind eye to 'grotesque' torture and murder)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Розслідування розкрило, що британська розвідка роками покривала агента ІРА під кодовим ім'ям Stakeknife, який вчиняв жорстокі вбивства та катування. Скандал викриває моральну корозію спецслужб, які заради отримання інформації санкціонували тяжкі злочини, фактично ставлячи своїх агентів вище закону. Це завдає удару по репутації розвідувального співтовариства та піднімає питання про межі допустимого в боротьбі з тероризмом. Публікація звіту може призвести до нових юридичних позовів та вимог реформи нагляду за спецслужбами.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Допомога при пологах в NHS має бути покращена негайно</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Системна криза в британській системі охорони здоров'я (NHS) призвела до численних випадків смертей немовлят та травм матерів, яким можна було запобігти. Звіт вказує на хронічне недофінансування, дефіцит персоналу та культуру замовчування помилок як на корінні причини трагедій. Це свідчить про глибоку дисфункцію державного сектору послуг, де бюрократична інерція ставить під загрозу життя громадян. Ситуація вимагає не просто фінансових вливань, а докорінної перебудови управлінських процесів та культури відповідальності.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Європо, відсунь Трампа і переверни ситуацію з Путіним</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Аналітичний матеріал закликає європейських лідерів перехопити ініціативу в мирних перемовинах щодо України, відмовившись від посередництва США, яке сприймається як проросійське. Автор пропонує використовувати заморожені російські активи та жорсткі гарантії безпеки для примусу Москви до реального миру. Це відображає зростаюче розуміння в Європі, що інтереси США за Трампа більше не збігаються з інтересами безпеки континенту. Реалізація такого сценарію вимагатиме від ЄС безпрецедентної політичної волі та єдності.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Забудьте про дітей до 16, чи можемо ми заборонити TikTok для політиків?</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Стаття критикує спроби політиків, включаючи прем'єра Стармера, використовувати TikTok для залучення молоді, незважаючи на офіційні заборони додатка на урядових пристроях через загрозу безпеці. Це підкреслює лицемірство еліт, які ігнорують власні правила заради піару, і піднімає проблему впливу алгоритмів соцмереж на політичний дискурс. Погоня за "вірусністю" спрощує складні політичні питання і створює ризики маніпуляції громадською думкою з боку власників платформ.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>DAILY MAIL</h2>
+      <div class="outlet-sub">Оборона, Поліція, Україна, Депортація, Китай.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Глава ВМС критикує Рівз через оборонний бюджет (Head of Navy's Broadside at Reeves Over Defence Cash)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Перший морський лорд виступив з різкою критикою канцлера казначейства за відмову збільшити фінансування оборони на тлі зростаючої активності Росії в Північній Атлантиці. Військові попереджають, що Британія ризикує втратити контроль над стратегічно важливими морськими шляхами та підводною інфраструктурою (кабелями), що загрожує національній безпеці. Публічний конфлікт між військовим командуванням і урядом оголює гострий дефіцит ресурсів і неготовність Британії до сучасних геополітичних викликів. Це сигнал інвесторам про потенційні ризики для безпеки комунікацій та енергопостачання.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Дворівнева робота поліції на протестах — це реальність (Two-tier policing of protests is REAL)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Звіт аналітичного центру звинувачує поліцію Лондона в упередженості: жорстке ставлення до одних груп протестувальників і поблажливе до інших (наприклад, пропалестинських). Це підриває довіру суспільства до правоохоронної системи і створює відчуття безкарності для певних політичних груп. Політизація поліції веде до поляризації суспільства і зростання соціальної напруги, коли закон перестає сприйматися як єдиний для всіх. Ситуація загрожує подальшою дестабілізацією громадського порядку в столиці.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Британія готова передати Україні £8 млрд заморожених російських активів</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Лондон готується до передачі Києву заморожених коштів РФ, незважаючи на юридичні складнощі та побоювання інших європейських країн з приводу прецеденту. Цей крок спрямований на підтримку військових зусиль України в умовах невизначеності з допомогою США. Рішення може спровокувати дзеркальні заходи з боку Москви і прискорити фрагментацію світової фінансової системи, де зберігання резервів у західних юрисдикціях стає ризикованим для геополітичних противників Заходу.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Торі: Ми депортуватимемо злочинців з подвійним громадянством</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Консервативна опозиція пропонує радикальні заходи з позбавлення громадянства та депортації осіб з подвійним громадянством, засуджених за тяжкі злочини. Це відповідь на суспільний запит на жорсткість у міграційній політиці та провал попередніх спроб навести лад. Ініціатива сигналізує про зсув політичного спектру вправо та посилення риторики щодо мігрантів та натуралізованих громадян, що може посилити соціальне розшарування за етнічною ознакою.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Торговий профіцит Китаю перевищив 1 трильйон доларів (China Trade Surplus Eclipses $1 Trillion)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Незважаючи на торгові війни та тарифи Трампа, Китай демонструє рекордний торговий профіцит, що говорить про високу адаптивність його економіки та збереження залежності світу від китайського виробництва. Пекін успішно переорієнтує експорт на інші ринки (ЄС, Азія), обходячи американські обмеження. Це демонструє провал спроб Заходу ізолювати Китай економічно і підкреслює структурні дисбаланси у світовій торгівлі. Для ринків це сигнал про те, що «розрив» з Китаєм на практиці важко реалізувати.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE NEW YORK POST</h2>
+      <div class="outlet-sub">Instacart, Мадуро, Нью-Йорк, ЄС, Nvidia.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Instacart таємно стягував з різних людей різну плату за їжу</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Скандал з використанням ШІ для встановлення індивідуальних цін на продукти харчування залежно від профілю користувача. Це яскравий приклад того, як технології спостереження впроваджуються в побутове споживання, дозволяючи корпораціям отримувати надприбуток за рахунок непрозорості. Подібна практика («динамічне ціноутворення») у рітейлі товарів першої необхідності може викликати регуляторну реакцію і бойкот споживачів. Це також маркер зростаючої цифрової нерівності.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Дні Мадуро полічені: Трамп (Maduro's days are numbered: Trump)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Трамп заявив, що режим Мадуро у Венесуелі близький до падіння, і не виключив військового втручання. Це різка ескалація риторики, спрямована на мобілізацію латиноамериканського електорату в США і тиск на ліві режими в регіоні. Заява створює ризики нової гарячої точки в Латинській Америці і може призвести до зростання цін на нафту через нестабільність у видобувному регіоні. Також це сигнал про повернення до «Доктрини Монро» та активного втручання США у справи західної півкулі.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Юридичне шахрайство та роздуті штати = виплати в $96 млрд</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Звіт показує, що економіка Нью-Йорка втрачає колосальні суми через зловживання в судовій системі («tort tax») і шахрайські позови. Це знижує інвестиційну привабливість міста і підвищує вартість ведення бізнесу та страхування. Проблема посилюється політичною зв'язкою між юристами та місцевою владою, що блокують реформи. Для бізнесу це сигнал про високі операційні ризики та приховані витрати роботи в Нью-Йорку.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Трамп: Лідери ЄС «слабкі» (Trump: EU bigs 'weak')</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Продовження теми тиску на Європу: Трамп зневажливо відгукується про європейські еліти, вважаючи їх нездатними вирішувати внутрішні та зовнішні проблеми. Це не просто риторика, а ідеологічна підготовка до перегляду умов співпраці, включаючи торгові тарифи та витрати на оборону. Трамп робить ставку на розкол всередині ЄС, підтримуючи націоналістичні рухи та послаблюючи позиції Брюсселя. Це посилює геополітичну невизначеність для європейського бізнесу.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Падіння китайських чіпів: розглядається обмеження імпорту Nvidia</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Китай планує обмежити закупівлі чіпів Nvidia, навіть після того як Трамп дозволив їх експорт, щоб стимулювати власне виробництво. Це показує, що технологічна війна перейшла у фазу, де обидві сторони прагнуть до повної автономності, навіть на шкоду короткостроковій ефективності. Для Nvidia це ризик втрати ключового ринку, а для глобальної тех-індустрії — сигнал про подальше розділення технологічних стандартів і ланцюжків поставок.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE WASHINGTON POST</h2>
+      <div class="outlet-sub">Венесуела, Стратегія США, Студентські кредити, Клімат, Поліція ШІ.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Республіканці остерігаються ескалації у Венесуелі</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Навіть однопартійці Трампа висловлюють стурбованість його планами щодо військових ударів по території Венесуели під приводом боротьби з наркокартелями. Конгрес побоюється втягування США в новий нескінченний конфлікт без чіткої стратегії виходу. Використання військової сили проти суверенної держави без оголошення війни створює правові та дипломатичні ризики. Це також може дестабілізувати регіон і викликати нову хвилю міграції.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Нова стратегія США розлючує Європу (New U.S. strategy infuriates Europe)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Нова стратегія нацбезпеки США офіційно закріплює вороже ставлення до ЄС, ставлячи його в один ряд з конкурентами і звинувачуючи в «цивілізаційному стиранні». Це документальне оформлення розриву трансатлантичних зв'язків, яке шокувало європейських дипломатів. Документ стимулює Європу шукати альтернативні альянси та зміцнювати власну оборону. Для бізнесу це означає кінець епохи єдиного західного економічного простору.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Адміністрація уклала угоду про припинення програми Байдена з виплати студентських кредитів</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Адміністрація Трампа домовилася з республіканськими штатами про згортання програми SAVE, що залишить мільйони позичальників у невизначеності та збільшить їхнє фінансове навантаження. Це крок у рамках ідеологічної боротьби з «роздачею грошей» і спадщиною демократів, але він вдарить по купівельній спроможності молодого покоління. Економічно це може призвести до зростання прострочень за кредитами та зниження споживчого попиту.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">EPA видаляє згадки про антропогенну зміну клімату з веб-сайту</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Агентство з охорони довкілля (EPA) почало цензурувати наукові дані на своїх ресурсах, видаляючи інформацію про вплив людини на клімат. Це знаменує різкий розворот екологічної політики США в бік підтримки викопного палива та дерегуляції. Ігнорування кліматичного порядку денного ізолює США від глобальних зусиль з енергопереходу та створює ризики для американських компаній, що працюють на міжнародних ринках з жорсткими еко-стандартами.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Ви бачили цього (згенерованого ШІ) чоловіка? Поліція замінює фотороботи</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Поліція в Арізоні почала використовувати ШІ для створення фотореалістичних зображень підозрюваних замість традиційних ескізів. Експерти попереджають про ризики помилкових звинувачень і расових упереджень, вбудованих в алгоритми. Це приклад того, як впровадження неперевірених технологій у правоохоронну діяльність випереджає етичне та правове регулювання. Тренд на автоматизацію силових структур несе загрози громадянським свободам.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE WALL STREET JOURNAL</h2>
+      <div class="outlet-sub">Чіпи, ФРС, OpenAI, Азійський патруль, Техас.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Зсув Трампа щодо чіпів Nvidia посилює амбіції Китаю у сфері ШІ</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Рішення Трампа дозволити Nvidia експорт передових чіпів до Китаю (зі сплатою 25% податку до скарбниці США) є несподіваним поворотом у технологічній війні. З одного боку, це прагматична угода («гроші за технології»), з іншого — вона фактично озброює головного геополітичного суперника інструментами для розвитку ШІ. Критики вбачають у цьому загрозу нацбезпеці заради короткострокової економічної вигоди. Для ринку це сигнал про те, що ідеологія може поступатися місцем комерційним інтересам.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Зниження ставки, вища планка для наступного кроку</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">ФРС готується знизити ставку, незважаючи на внутрішні розбіжності та неоднозначні економічні дані. Джером Пауелл намагається знайти баланс між підтримкою ринку праці та контролем цін. Очікується, що після цього зниження ФРС візьме паузу, що може розчарувати ринки, які чекають агресивного пом'якшення. Це створює невизначеність для інвесторів на 2026 рік.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">OpenAI прагне скоригувати курс і відбитися від Google</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Сем Альтман оголосив «червоний код» в OpenAI, призупиняючи побічні проєкти заради покращення основного продукту — ChatGPT, щоб не програти конкуренцію Google. Це визнання того, що лідерство компанії не гарантоване, і ресурси розпорошувалися занадто широко. Внутрішній конфлікт між комерціалізацією та науковими дослідженнями загострюється. Для індустрії це знак, що гонка ШІ переходить у фазу жорсткої продуктової конкуренції.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Китайці патрулюють біля Японії (Chinese Fly Patrol Near Japan)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Спільне патрулювання стратегічних бомбардувальників Росії та Китаю поблизу Японії та Південної Кореї демонструє зміцнення військового альянсу Москви та Пекіна в Азії. Це прямий сигнал США та їхнім союзникам про готовність двох держав координувати сили для проєкції сили. Зростаюча мілітаризація регіону підвищує ризики випадкових зіткнень і змушує Японію та Корею нарощувати власні військові витрати.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Блок-схема навчальної програми Техасу озброїла професорів</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">В університетах Техасу вводяться жорсткі бюрократичні процедури перевірки навчальних матеріалів на предмет відповідності новим законам, що забороняють «woke» повістку. Це частина широкої кампанії консерваторів з повернення контролю над вищою освітою. Викладачі побоюються цензури та втрати академічних свобод, що може призвести до відтоку талантів. Ситуація ілюструє поглиблення культурних воєн, де освіта стає полем ідеологічної битви.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE TIMES UK</h2>
+      <div class="outlet-sub">Трамп, Лейбористи, Війна, Ковід, Соцмережі.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Трамп: Європа слабка і розкладається через імміграцію</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Президент США Дональд Трамп розкритикував європейських лідерів, назвавши їх слабкими, а континент — таким, що розкладається через політкоректність і неконтрольовану імміграцію. Його заяви посилюють ідеологічний розкол між США та ЄС, ставлячи під сумнів надійність трансатлантичного альянсу. Це може підштовхнути європейські країни до зміцнення власної оборони та більшої автономії, але також посилить позиції правих популістів усередині Європи.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Депутати кидають виклик партійному батогу, голосуючи за повернення в митний союз</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Група лейбористів проігнорувала вказівки керівництва і підтримала пропозицію про початок переговорів щодо повернення Великої Британії до митного союзу з ЄС. Це сигналізує про зростаюче невдоволення всередині партії економічною ціною Брекзиту і тиск на уряд Стармера переглянути червоні лінії у відносинах з Брюсселем. Хоча голосування не має обов'язкової сили, воно підкреслює політичну нестабільність.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Військовослужбовець британських збройних сил загинув на навчаннях в Україні</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Британський військовий загинув внаслідок нещасного випадку під час спостереження за випробуваннями нового оборонного обладнання в Україні. Інцидент підтверджує активну, хоча й непублічну, присутність британських фахівців у зоні конфлікту, що підвищує ризики прямої ескалації з Росією. Це також підкреслює глибину військової залученості Великої Британії в підтримку Києва.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Невдалі схеми Covid коштували £11 млрд</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Офіційний звіт виявив, що шахрайство і помилки в програмах підтримки під час пандемії коштували британським платникам податків майже 11 млрд фунтів. Це демонструє системні провали в управлінні державними фінансами в кризові періоди і створює довгострокове навантаження на бюджет. Спроби повернути кошти стикаються з труднощами, що посилює громадське невдоволення якістю держуправління.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Соціальні мережі дійсно скорочують тривалість концентрації уваги у дітей</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Дослідження показало прямий зв'язок між тривалим використанням соцмереж і зниженням уваги у дітей, що може пояснити зростання діагнозів РДУГ. Це підкріплює аргументи на користь жорсткого регулювання цифрових платформ для неповнолітніх, подібно до введеної в Австралії заборони. Тренд на обмеження доступу дітей до соцмереж може стати глобальним.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>DAILY EXPRESS</h2>
+      <div class="outlet-sub">Мігранти, Ціни, Діти, MI5, Допомога.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Криза з притулком коштує платникам податків £5 млрд на рік</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Національне аудиторське управління (NAO) повідомило, що нездатність депортувати прохачів притулку, яким було відмовлено, коштує бюджету мільярди фунтів щорічно. Системні збої та нереалістичні плани уряду призводять до того, що тисячі мігрантів залишаються в країні на утриманні платників податків. Це посилює тиск на уряд з вимогою посилити міграційну політику та прискорити депортації.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Прислухайтеся до побоювань з приводу цін на продукти, кажуть депутати Рівз</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Депутати попереджають канцлера Рейчел Рівз, що зміни в податку на спадщину для фермерів можуть призвести до зростання цін на продовольство. Це створює ризик додаткового інфляційного тиску на домогосподарства і загрожує продовольчій безпеці країни. Конфлікт між фіскальними цілями уряду та інтересами аграрного сектору може мати серйозні економічні та соціальні наслідки.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Британія «відстає» в питаннях безпеки дітей в інтернеті</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Колишні міністри та експерти закликають Велику Британію наслідувати приклад Австралії і заборонити соцмережі для дітей до 16 років. Вони стверджують, що поточне регулювання недостатнє для захисту дітей від шкідливого контенту. Це посилює дебати про необхідність більш жорсткого контролю над технологічними гігантами і може призвести до введення нових законодавчих обмежень.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">MI5 знала, що шпигун Stakeknife всередині ІРА вбивав</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Розслідування показало, що MI5 знала про злочини свого агента в ІРА, включаючи вбивства і тортури, але покривала його заради отримання розвідданих. Це підриває довіру до спецслужб і піднімає етичні питання про методи боротьби з тероризмом. Скандал може призвести до перегляду правил роботи з інформаторами та посилення нагляду за розвідувальною діяльністю.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">«Рахунок за допомогу у Великій Британії — це економічне самогубство»</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Лідер консерваторів Кемі Баденох назвала зростаючі витрати на соціальну допомогу «економічним самогубством» і закликала до перегляду критеріїв інвалідності. Вона стверджує, що система не пристосована до сучасного рівня діагностики захворювань і що це гальмує економічне зростання. Заява сигналізує про намір опозиції зробити реформу соціального забезпечення ключовою темою політичної боротьби.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE GUARDIAN UK</h2>
+      <div class="outlet-sub">Стармер, Права людини, Нерівність, Культура.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Прем'єр закликає Європу обмежити закони про права людини, щоб зупинити зростання популізму</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Кір Стармер закликає європейських лідерів переглянути інтерпретацію Європейської конвенції з прав людини (ЄКПЛ), щоб полегшити депортацію нелегальних мігрантів. Це спроба перехопити порядок денний у правих популістів, демонструючи, що мейнстрімні партії можуть контролювати кордони. Такий крок може призвести до ерозії міжнародних стандартів прав людини, але розглядається як необхідний для збереження політичної стабільності в Європі.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Трамп накидається на «гниючу» Європу (Trump lashes out at 'decaying' Europe)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Трамп продовжує атакувати європейських союзників, використовуючи расистську риторику і пророкуючи крах європейських країн через міграцію. Це не просто слова, а відображення нової стратегії нацбезпеки США, яка розглядає ЄС як конкурента і загрозу. Для Європи це екзистенційний виклик, що вимагає переосмислення своєї безпеки та економічної моделі в умовах ворожості з боку Вашингтона.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Сторожовий пес попереджає про «непередбачені наслідки» радикальних планів Махмуд щодо системи притулку</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Аудитори попереджають, що плани уряду щодо прискорення депортацій і посилення правил притулку можуть призвести до зростання бездомності та хаосу в системі. Відсутність надійних даних і ресурсів робить реалізацію реформ ризикованою. Це підкреслює складність вирішення міграційної кризи одними лише адміністративними заходами без урахування гуманітарних і соціальних наслідків.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Необхідні термінові заходи для боротьби з крайньою нерівністю у світі, йдеться у звіті</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Доповідь про світову нерівність показує, що крихітна частка надбагатих контролює величезні ресурси, в той час як мільярди живуть у бідності. Це створює ризики соціальної нестабільності та підриває демократичні інститути. Автори закликають до введення глобального податку на мільярдерів для фінансування освіти та охорони здоров'я, що може стати темою для міжнародних дебатів.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Ннена Калу стає першим лауреатом премії Тернера з особливостями навчання</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Перемога художниці з особливостями розвитку в престижній премії Тернера знаменує зрушення у світі мистецтва в бік інклюзивності. Це визнання цінності нейровідмінного мистецтва і руйнування бар'єрів між «аутсайдерами» і мейнстрімом. Подія підкреслює ширші соціальні зміни у сприйнятті інвалідності та таланту.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>FINANCIAL TIMES</h2>
+      <div class="outlet-sub">Нафта, Nvidia, Австралія, Японія, ESG.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Насувається «надлишок» на ринку нафти, оскільки зростання пропозиції б'є по цінах (Oil market 'glut' looms)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Trafigura прогнозує «супер-надлишок» нафти в наступному році через зростання видобутку (в тому числі в США) і уповільнення попиту в Китаї. Це призведе до зниження цін на енергоносії, що вигідно споживачам, але вдарить по доходах країн-експортерів і нафтових компаній. Для світової економіки це може стати дефляційним фактором, полегшуючи завдання центробанків зі зниження ставок.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Китай планує обмежити доступ до чіпів Nvidia H200, незважаючи на схвалення Трампа</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Пекін має намір обмежити закупівлі передових чіпів Nvidia, навіть після дозволу Трампа на їх експорт, щоб стимулювати власну напівпровідникову промисловість. Це показує, що технологічний суверенітет для Китаю важливіший за доступ до найкращих західних технологій. Це погана новина для Nvidia та інших західних техгігантів, що розраховують на китайський ринок, і ознака подальшого технологічного поділу світу.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Австралія забороняє соціальні мережі для дітей молодше 16 років</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Набрання чинності забороною на соцмережі для підлітків в Австралії створює глобальний прецедент регулювання цифрової сфери. Технологічні компанії змушені впроваджувати жорсткі заходи перевірки віку під загрозою величезних штрафів. Цей експеримент буде уважно вивчатися іншими країнами і може призвести до хвилі аналогічних законів по всьому світу, змінюючи ландшафт соціальних медіа.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Японія пережила удар американських тарифів, заявляє Банк Японії</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Глава Банку Японії заявив, що економіка країни адаптувалася до протекціонізму США, що відкриває шлях для підвищення відсоткових ставок. Це сигнал про нормалізацію грошово-кредитної політики в Японії після десятиліть ультрам'яких заходів. Зміцнення єни і зростання прибутковості японських облігацій можуть вплинути на глобальні потоки капіталу, оскільки японські інвестори можуть почати повертати кошти на батьківщину.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">ЄС згортає закон про стійкість ланцюжків поставок (EU scales back supply chain sustainability law)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Під тиском бізнесу і торгових партнерів (США, Катар) ЄС значно пом'якшив вимоги до компаній щодо контролю екологічних і соціальних стандартів у ланцюжках поставок. Це перемога корпоративного лобі і ознака того, що кліматичний порядок денний Європи стикається з економічними реаліями і геополітичним тиском. Для бізнесу це означає зниження регуляторного навантаження, але для екологів — відступ від амбітних цілей.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE DAILY TELEGRAPH</h2>
+      <div class="outlet-sub">Brexit, Податки, Голлівуд, Вода, Срібло.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Стармер зіткнувся з повстанням з приводу митного союзу (Starmer hit by customs union rebellion)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Голосування частини лейбористів за зближення з митним союзом ЄС показує, що питання Брекзиту далеке від закриття всередині правлячої партії. Економічні труднощі змушують політиків шукати шляхи відновлення торгових зв'язків з Європою, незважаючи на офіційну позицію лідера. Це створює політичний головний біль для Стармера і відкриває дебати про перегляд відносин з Брюсселем.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Чиновник Банку Англії суперечить канцлеру з приводу підвищення податків</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Член комітету з грошово-кредитної політики Кетрін Манн заявила, що підвищення податків у бюджеті призвело до скорочення найму, спростовуючи твердження канцлера. Це підтверджує побоювання бізнесу, що фіскальне навантаження гальмує ринок праці та економічне зростання. Конфлікт оцінок між урядом і ЦБ посилює невизначеність для інвесторів.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Країни Перської затоки влаштовують трампістський рейд на Голлівуд</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Суверенні фонди Саудівської Аравії, Катару та ОАЕ беруть участь у спробі поглинання медіагіганта Warner Bros через компанію Paramount. Це спроба монархій Близького Сходу придбати «м'яку силу» і вплив на глобальну культуру через контроль над однією з найбільших студій. Угода викликає питання про національну безпеку і культурний суверенітет США, особливо враховуючи політичні зв'язки учасників.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">South East Water втрачає більше 100 мільйонів літрів на день</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Криза водопостачання на південному сході Англії посилюється величезними витоками в мережах приватної компанії. Це приклад провалу приватизованої моделі комунальних послуг, де недостатнє інвестування в інфраструктуру призводить до дефіциту ресурсів для населення. Ситуація вимагає жорсткого регуляторного втручання і, можливо, перегляду структури власності в секторі.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Срібло вперше перевищило $60 на тлі надій на зниження ставки в США</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Ціна на срібло досягла історичного максимуму завдяки очікуванням пом'якшення політики ФРС і дефіциту пропозиції. Зростання попиту з боку промисловості (сонячні панелі, електроніка) та інвесторів штовхає ціни вгору. Це робить срібло привабливим активом, але також підвищує витрати для промислових споживачів металу.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>POLITICO</h2>
+      <div class="outlet-sub">Конгрес і Obamacare, Тарифи, Верховний суд, Хегсет, Імміграція.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Конгрес намагається об'єднатися навколо плану щодо Obamacare (Congress struggles to unite behind a plan for Obamacare)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Республіканці зіткнулися з жорстким дедлайном: 1 січня закінчуються розширені субсидії на медичне страхування, що загрожує різким стрибком премій для мільйонів виборців. Усередині GOP розкол: ідеологи вимагають згортання програми як «спадщини демократів», тоді як прагматики побоюються електоральної катастрофи перед проміжними виборами. Демократи стратегічно вичікують, пропонуючи «чисте» продовження на три роки, заганяючи опонентів у пастку відповідальності за зростання цін. Для ринків охорони здоров'я це створює зону високої регуляторної турбулентності.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Тарифи Трампа скоро вдарять по споживачах: час спливає (Only so long before Trump’s tariff costs hit consumers)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Великі рітейлери та імпортери вичерпали запаси товарів, закуплених до введення нових мит, і попереджають про неминуче зростання цін у першому кварталі 2026 року. Стратегія «згладжування цін» заради збереження частки ринку більше не працює; бізнес змушений перекладати витрати на кінцевого покупця. Економісти прогнозують, що інфляція витрат стане ключовим макроекономічним фактором року, підриваючи реальні доходи населення. Це створює політичний ризик для адміністрації Трампа.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Верховний суд, ймовірно, дозволить Трампу звільняти голів незалежних агентств</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Консервативна більшість суду готова переглянути прецедент 1935 року, що захищає керівників таких структур, як FTC і FCC, від звільнення без поважної причини. Це рішення фундаментально змінить баланс влади, перетворивши незалежних регуляторів на прямих підлеглих президента. Для корпоративного сектору це означає кінець ери технократичного регулювання і перехід до політично мотивованих рішень. Ризики для бізнесу зростають.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Конгрес використовує оборонний бюджет, щоб змусити Пентагон передати відео ударів</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Законодавці включили в проєкт NDAA жорстку вимогу до міністра оборони Піта Хегсета надати необроблені кадри ударів по човнах наркоторговців під загрозою урізання бюджету його офісу. Це пряма відповідь на підозри у приховуванні військових злочинів (наказ «убити всіх»), що свідчить про глибоку недовіру між Капітолієм і Пентагоном. Ситуація створює прецедент втручання законодавців в оперативні питання військового відомства.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Хоман захищає Трампа після того, як президент назвав сомалійську громаду «сміттям»</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">«Цар кордону» Том Хоман публічно підтримав атаки Трампа на сомалійську діаспору в Міннесоті, пов'язуючи її з шахрайством і тероризмом. Це знаменує перехід міграційної політики від контролю кордонів до тиску на вже легалізовані етнічні групи всередині країни. Подібна риторика спрямована на мобілізацію бази, але створює високі ризики соціальної дестабілізації в окремих штатах. Для бізнесу це сигнал про можливі проблеми з робочою силою.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE WEEK USA</h2>
+      <div class="outlet-sub">Венесуела, Хегсет, Імміграція, Освіта, Кіберзлочинність.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Трамп попереджає про неминучі удари по Венесуелі</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Вашингтон стягує військовий флот до берегів Венесуели, використовуючи риторику боротьби з наркотероризмом як привід для зміни режиму Мадуро. При цьому помилування Трампом екс-президента Гондурасу (засудженого наркоторговця) демонструє вибірковість правосуддя і політичне підґрунтя операції. Ризик переростання ситуації в повноцінний регіональний конфлікт високий, що може дестабілізувати ринки нафти. Геополітично це спроба США відновити жорсткий контроль над Латинською Америкою.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">«Убити всіх»: чи віддав Хегсет злочинний наказ? (‘Kill everybody’: Did Hegseth order a war crime?)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Деталі про наказ міністра оборони добити тих, хто вижив після перехоплення човна, ставлять адміністрацію перед вибором: захищати «свого» ціною репутації армії або допустити розслідування. Хегсет намагається перекласти відповідальність на підлеглих, що деморалізує офіцерський корпус. Цей кейс тестує межі міжнародної та внутрішньої безкарності нової влади США. Для союзників по НАТО це тривожний сигнал.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">США обмежують легальну імміграцію після стрілянини у Вашингтоні</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Інцидент зі стріляниною, влаштованою афганським біженцем, використано як привід для заморожування міграції з широкого списку «країн третього світу» і перегляду статусу афганців, що вже перебувають у США. Це колективне покарання вказує на відмову від індивідуального підходу на користь профілювання за національною ознакою. Рішення вдарить по ринку праці, посилюючи дефіцит кадрів у низькооплачуваних секторах.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Освіта: чому студенти не вміють рахувати (Education: Why students can’t do math)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Звіти фіксують катастрофічне падіння математичних компетенцій навіть у студентів елітних коледжів, що пов'язують з відмовою від стандартизованих тестів та інфляцією оцінок у школах. Це створює стратегічну загрозу для технологічного та інженерного лідерства США в десятирічній перспективі. Бізнес зіткнеться з необхідністю довчати випускників або збільшувати імпорт кваліфікованих кадрів. Криза STEM-освіти вимагає системних реформ.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Шахрайство «обробка свині» (Pig butchering scams)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Глобальна індустрія криптошахрайства, що базується в Південно-Східній Азії, досягла промислових масштабів зі збитками в 75 млрд доларів. Використання рабської праці та складних скриптів соціальної інженерії робить ці схеми вкрай ефективними проти західних споживачів. Це новий вид транснаціональної організованої злочинності, з яким традиційні правоохоронні органи не справляються. Для фінтеху і банків це означає неминуче посилення комплаєнсу.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE ATLANTIC</h2>
+      <div class="outlet-sub">РФК-молодший, Німеччина, Коледжі, Іран, Неоконсерватизм.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Найвпливовіша людина в науці (The Most Powerful Man in Science)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Призначення Роберта Ф. Кеннеді-молодшого (відомого антивакцинатора) главою HHS знаменує інституційний розрив з науковим консенсусом. Його плани перенаправити гранти від інфекційних хвороб до «хронічних» та альтернативної медицини загрожують руйнуванням системи громадської охорони здоров'я. Це створює ризики повернення забутих епідемій та зниження довіри до офіційної медицини. Для фармкомпаній настають часи високої регуляторної невизначеності.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Нова німецька військова машина (The New German War Machine)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Німеччина радикально переглядає свою оборонну доктрину, відмовляючись від десятиліть пацифізму на користь створення найпотужнішої сухопутної армії в Європі. Цей зсув продиктований як російською загрозою, так і розумінням ненадійності американських гарантій безпеки. Берлін готується взяти на себе роль основного гаранта стабільності на континенті. Для оборонної промисловості ЄС це означає довгостроковий бум замовлень.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Нація особливих умов (Accommodation Nation)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">В елітних вишах США спостерігається вибухове зростання кількості студентів, які отримують додатковий час на іспитах через діагнози на кшталт РДУГ або тривожності. Система, задумана для інклюзії, перетворилася на інструмент конкурентної переваги для забезпечених верств, здатних оплатити діагностику. Це підриває принципи меритократії та девальвує цінність дипломів. Роботодавці незабаром зіткнуться з поколінням, яке звикло до особливих умов.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Поверніть неоконів (Bring Back the Neocons)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Стаття Девіда Брукса аналізує кризу консерватизму і закликає до повернення неоконсервативної етики відповідальності та інституціоналізму як противаги популізму Трампа. Це маркер ідейного пошуку серед інтелектуальної еліти, яка намагається знайти альтернативу поточному хаосу. Однак політична база для такого повернення зараз відсутня. Текст відображає ностальгію істеблішменту за передбачуваною зовнішньою політикою.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Таємниця Мохаммада Таджика (The Mystery of Mohammad Tajik)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Історія іранського перебіжчика розкриває масштаби кібершпигунства та внутрішню вразливість іранського режиму. Кейс демонструє, як спецслужби використовують інсайдерів для розкриття цифрової інфраструктури супротивника. Це нагадування про те, що кібервійна ведеться не тільки кодом, а й людьми, і що авторитарні режими вразливі зсередини. Для корпорацій це урок важливості контррозвідки та захисту від інсайдерів.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>MIT SLOAN MANAGEMENT REVIEW</h2>
+      <div class="outlet-sub">Ради директорів і ШІ, Алгоритми, Сталий розвиток, Активізм.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Ради директорів, які розбираються в ШІ, забезпечують чудові результати</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Дослідження доводять пряму кореляцію між цифровою компетентністю ради директорів і ринковою ефективністю компанії. Розрив між лідерами та аутсайдерами тепер визначається не наявністю технологій, а здатністю топ-менеджменту розуміти стратегічні ризики та можливості генеративного ШІ. Компанії, де ради директорів залишаються «аналоговими», ризикують втратити ринок. Це сигнал для акціонерів вимагати оновлення складу рад директорів.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Небезпеки алгоритмічного ціноутворення (The Perils of Algorithmic Pricing)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Масове використання ПЗ для динамічного ціноутворення (особливо в нерухомості та готельному бізнесі) призводить до ненавмисної картельної змови. Регулятори США та ЄС починають кваліфікувати використання спільних алгоритмів як порушення антимонопольного законодавства. Бізнес стикається з новими юридичними ризиками: оптимізація прибутку через софт може обернутися багатомільярдними штрафами. Компаніям необхідно терміново проводити аудит своїх цінових інструментів.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Пастка «зеленого мовчання» (The Greenhushing Trap)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Компанії все частіше приховують свої кліматичні досягнення («greenhushing»), побоюючись звинувачень у «greenwashing» або політичних атак з боку анти-ESG сил. Аналіз показує, що така стратегія помилкова: відсутність публічності демотивує співробітників і позбавляє компанію лідерства в галузі. Мовчання сприймається не як нейтралітет, а як відсутність прогресу. Для успішної трансформації необхідна прозора комунікація.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Сили, що формують нерівномірний прогрес ШІ (The Forces That Shape Al's Uneven Progress)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Впровадження ШІ буксує в завданнях, що вимагають емпатії, довіри та складного судження, всупереч прогнозам про тотальну автоматизацію. Лідери повинні враховувати «фактори тертя» (регуляція, опір клієнтів, необхідність людського контролю) при плануванні інвестицій. Ідея про швидку заміну персоналу алгоритмами виявляється міфом у багатьох секторах. Стратегія повинна будуватися на гібридних моделях «людина + машина».</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Від співробітників-власників до екологічних чемпіонів</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Фірми з широкою участю співробітників в акціонерному капіталі (ESOP) показують кращі результати в сталому розвитку. Відчуття власності змушує персонал орієнтуватися на довгострокове виживання бізнесу, а не на квартальний прибуток, що збігається з цілями екології. Це вагомий аргумент для впровадження програм володіння акціями як інструменту підвищення ефективності та лояльності. Модель акціонерного капіталізму трансформується знизу.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE NEW YORKER</h2>
+      <div class="outlet-sub">Венесуела, Еміграція, Хегсет, Історія в'язниць, Культура.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Небезпечні води (Dangerous Waters)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Аналіз фіксації Трампа на Венесуелі показує, як боротьба з наркотрафіком використовується для виправдання військової ескалації, в той час як реальні зв'язки з наркокартелями (як у випадку з Гондурасом) ігноруються за наявності лояльності. Це свідчить про повну інструменталізацію зовнішньої політики на догоду особистим та ідеологічним цілям. Ризик нової війни в регіоні базується не на загрозі нацбезпеці, а на політичній примсі. Для інвесторів це фактор непередбачуваності в багатому на ресурси регіоні.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Як виїхати зі США (How to Leave the U.S.A.)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Феномен «політичної еміграції» зі США до Європи (зокрема, до Нідерландів) набирає обертів серед середнього класу. Люди тікають не від бідності, а від втрати віри в інститути, безпеку і демократичне майбутнє країни. Це симптом глибокого соціального розлому: Америка перестає бути магнітом і стає донором мігрантів. Економічно це загрожує витоком мізків і капіталу, якщо тренд стане масовим.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Розмови міста: Хегсет і військові злочини (The Talk of the Town: Hegseth/War Crimes)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Детальний розбір ситуації навколо міністра оборони Піта Хегсета підкреслює ерозію військових цінностей на самому верху. Готовність системи (включаючи Трампа) покривати можливі військові злочини заради збереження лояльного кадра руйнує дисципліну і міжнародний авторитет армії США. Це створює ризики того, що армія перетвориться на політичний інструмент, що діє поза правовим полем.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Тюремне ув'язнення в Стародавньому Середземномор'ї (Ancient Mediterranean Incarceration)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Історичне дослідження, що спростовує міф про гуманність давнини або новизну в'язниць. В'язниця як інструмент соціального контролю і придушення існувала завжди в ієрархічних суспільствах. У контексті сучасної політики масових депортацій і приватних в'язниць це нагадування про те, що каральні практики мають глибоке коріння і схильні до відтворення.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Помінятися місцями / Індустрія (Trading Places / Industry)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Культурний аналіз серіалу «Індустрія» як дзеркала сучасного фінансового капіталізму очима покоління Z. На відміну від фільмів 80-х (Волл-стріт), тут немає романтики успіху — тільки виживання в токсичному середовищі, де аморальність є умовою найму. Це відображає глибокий цинізм молоді по відношенню до корпоративних структур, що є довгостроковим викликом для HR-брендів великих банків і консалтингу.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h2>Про проєкт</h2>
+    <p>
+      Deep Press Analysis — це щоденний розбір західної преси: світові новини, економіка, геополітика,
+      фінанси та сценарії майбутнього. Проєкт агрегує ключові матеріали з FT, WSJ, The Times,
+      NYT, USA Today та інших, щоб ви бачили логіку подій, а не просто заголовки.
+    </p>
+
+    <p style="margin-top: 14px; font-size: 13px; color: var(--muted);">
+      <strong style="color: var(--accent-soft);">АРХІВ:</strong>
+      <a href="/ua/91225.html" style="color: #e5e7eb; text-decoration: underline;">
+        9 грудня 2025
+      </a>
+    </p>
+
+    <div class="contact-section">
+      <div class="contact-label">КОНТАКТИ / EMAIL</div>
+      <a href="mailto:deeppressanalysis@protonmail.com" class="metal-email">
+          deeppressanalysis@protonmail.com
+      </a>
+    </div>
+
+  </footer>
+</div>
+
+<script>
+  // Glassmorphism accordion: smooth open/close
+  document.querySelectorAll('.article-header').forEach(function (header) {
+    header.addEventListener('click', function () {
+      const card = header.parentElement;
+      const outlet = card.closest('.outlet');
+
+      // Only one item open per block
+      outlet.querySelectorAll('.article-card.open').forEach(function (other) {
+        if (other !== card) other.classList.remove('open');
+      });
+
+      card.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
