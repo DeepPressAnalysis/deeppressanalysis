@@ -1,1 +1,777 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Deep Press Analysis — Обзор мировой прессы: 11 декабря 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <meta
+    name="description"
+    content="Deep Press Analysis — ежедневный брифинг западных и мировых СМИ за 11 декабря 2025. ФРС, Трамп, Китай, Рынки, Технологии."
+  >
+
+  <style>
+    :root {
+      --bg: #020617;
+      --glass: rgba(15,23,42,0.72);
+      --border: rgba(148,163,184,0.35);
+      --border-strong: rgba(148,163,184,0.7);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22d3ee;
+      --accent-soft: #38bdf8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding: 20px 14px 40px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page { max-width: 980px; margin: 0 auto; }
+
+    /* ---------- LANGUAGE BAR ---------- */
+    .lang-bar {
+      display: flex; flex-wrap: wrap; justify-content: flex-end;
+      gap: 4px; margin-bottom: 10px; font-size: 11px;
+    }
+
+    .lang-pill {
+      padding: 3px 7px; border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4); background: rgba(15,23,42,0.9);
+      color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em;
+      text-decoration: none; display: inline-block; transition: all 0.2s;
+    }
+
+    .lang-pill:hover { border-color: var(--accent); color: var(--text); }
+
+    .lang-pill.active {
+      border-color: var(--accent-soft); color: #f9fafb;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.35), #020617);
+      box-shadow: 0 0 12px rgba(56,189,248,0.5); cursor: default;
+    }
+
+    /* ---------- TOP BAR (SOCIALS) ---------- */
+    .top-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 12px; gap: 10px;
+    }
+
+    .top-bar-left {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+      color: var(--muted); opacity: 0.9;
+    }
+
+    .top-bar-right { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+
+    .social-btn {
+      padding: 5px 10px; font-size: 12px; border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5); background: rgba(15,23,42,0.96);
+      color: var(--text); text-decoration: none; display: inline-flex;
+      align-items: center; gap: 6px; cursor: pointer; transition: all 0.15s ease;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.75); opacity: 0.94;
+    }
+
+    .social-btn:hover {
+      background: rgba(15,23,42,1); border-color: var(--accent-soft);
+      transform: translateY(-1px); box-shadow: 0 14px 30px rgba(15,23,42,0.98); opacity: 1;
+    }
+
+    .social-icon {
+      width: 18px; height: 18px; border-radius: 999px; display: inline-flex;
+      align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;
+    }
+    
+    .social-icon svg { display: block; width: 100%; height: 100%; }
+
+    /* ---------- HEADER ---------- */
+    header {
+      margin-bottom: 26px; border-radius: 20px; padding: 20px 20px 18px;
+      background: radial-gradient(circle at 0 -40%, rgba(56,189,248,0.24), transparent 60%),
+                  linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow: 0 26px 60px rgba(0,0,0,0.95), inset 0 0 0 0.5px rgba(255,255,255,0.04);
+      backdrop-filter: blur(26px);
+    }
+
+    .header-main { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+
+    h1.site-title {
+      font-size: 26px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      background: linear-gradient(90deg, #bfc5cc, #ffffff, #a4aab2, #ffffff);
+      background-size: 250%; -webkit-background-clip: text; color: transparent;
+      animation: chromeBase 4s linear infinite; margin: 0;
+    }
+
+    @keyframes chromeBase { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+    .site-tagline { font-size: 12px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+    .header-date { margin-top: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: #e5e7eb; }
+    .header-note { font-size: 13px; color: var(--muted); margin-top: 8px; }
+    .header-focus { margin-top: 6px; margin-bottom: 16px; font-size: 13px; color: #d1d5db; }
+    .header-focus strong { color: var(--accent-soft); font-weight: 600; }
+
+    /* Spotify Frame Wrapper */
+    .spotify-wrapper {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(148,163,184,0.2);
+      background: #000;
+    }
+
+    /* ---------- CONTENT ---------- */
+    main { display: flex; flex-direction: column; gap: 18px; }
+
+    section.outlet {
+      background: linear-gradient(135deg, rgba(15,23,42,0.94), rgba(15,23,42,0.86));
+      border-radius: 18px; border: 1px solid var(--border); padding: 16px 16px 14px;
+      box-shadow: 0 22px 50px rgba(0,0,0,0.9); backdrop-filter: blur(26px);
+    }
+
+    section.outlet h2 {
+      font-size: 18px; margin-bottom: 4px; letter-spacing: 0.14em; text-transform: uppercase; display: inline-block;
+      background: linear-gradient(120deg, #064e3b, #22c55e, #a7f3d0, #22c55e, #064e3b);
+      background-size: 200% auto; -webkit-background-clip: text; color: transparent;
+      animation: greenShimmer 4s linear infinite;
+      text-shadow: 0 0 15px rgba(34, 197, 94, 0.25);
+    }
+
+    @keyframes greenShimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+    .outlet-sub { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .articles-list { display: flex; flex-direction: column; gap: 8px; }
+
+    /* CARD STYLES */
+    .article-card {
+      position: relative; border-radius: 14px;
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.9), #020617);
+      border: 1px solid rgba(148,163,184,0.35); overflow: hidden;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.9), inset 0 0 0 0.5px rgba(255,255,255,0.02);
+      backdrop-filter: blur(18px); transition: all 0.16s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(0,0,0,1), 0 0 24px rgba(56,189,248,0.2);
+      border-color: var(--border-strong);
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.96), #020617);
+    }
+
+    .article-header {
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; padding: 12px 14px; gap: 10px; -webkit-tap-highlight-color: transparent;
+    }
+
+    .article-main { display: flex; align-items: baseline; gap: 8px; flex: 1; min-width: 0; }
+    .article-index { font-size: 12px; color: var(--accent-soft); opacity: 0.85; min-width: 18px; flex-shrink: 0; }
+    h3.article-title { font-weight: 600; font-size: 14px; white-space: normal; overflow: hidden; text-overflow: ellipsis; margin: 0; color: inherit; line-height: 1.3; }
+
+    .article-toggle {
+      width: 22px; height: 22px; border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+      border: 1px solid rgba(148,163,184,0.5); color: var(--muted); font-size: 12px;
+      background: radial-gradient(circle at 30% 0, rgba(248,250,252,0.14), transparent 60%);
+      transition: all 0.2s ease;
+    }
+
+    .article-card.open .article-toggle {
+      transform: rotate(90deg); color: var(--accent);
+      border-color: rgba(56,189,248,0.85);
+      background: radial-gradient(circle at 30% 0, rgba(56,189,248,0.35), transparent 60%);
+      box-shadow: 0 0 18px rgba(56,189,248,0.6);
+    }
+
+    .article-body {
+      padding: 0 14px 12px; max-height: 0; opacity: 0;
+      font-size: 14px; color: var(--muted);
+      transition: max-height 0.26s ease-out, opacity 0.22s ease-out;
+      overflow: hidden; white-space: pre-line;
+    }
+
+    .article-card.open .article-body { max-height: 800px; opacity: 1; }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      margin-top: 26px; padding: 16px 16px 30px; border-radius: 16px;
+      border: 1px solid var(--border); background: rgba(15,23,42,0.96);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.95); backdrop-filter: blur(20px);
+    }
+
+    footer h2 { font-size: 16px; margin-bottom: 8px; color: var(--accent); }
+    footer p { font-size: 14px; color: var(--muted); }
+
+    .contact-section {
+        margin-top: 30px; padding-top: 20px;
+        border-top: 1px solid rgba(148,163,184,0.15); text-align: center;
+    }
+    .contact-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b; margin-bottom: 8px; }
+    .metal-email {
+        display: inline-block; font-size: 14px; text-decoration: none; letter-spacing: 0.5px;
+        background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 40%, #999999 100%);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+        animation: red-aura-pulse 3s infinite alternate; transition: transform 0.2s, filter 0.2s;
+    }
+    .metal-email:hover { transform: scale(1.02); filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.9)); animation: none; cursor: pointer; }
+    
+    @keyframes red-aura-pulse {
+        0% { filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3)); }
+        50% { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.8)); }
+        100% { filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3)); }
+    }
+
+    @media (max-width: 640px) {
+      .top-bar { flex-direction: column; align-items: flex-start; }
+      .lang-bar { justify-content: flex-start; }
+      h1.site-title { font-size: 20px; letter-spacing: 0.18em; white-space: normal; }
+      header { padding: 16px 14px; }
+      h3.article-title { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="lang-bar">
+    <a href="/ua/index.html" class="lang-pill">UA</a>
+    <a href="/en/index.html" class="lang-pill">EN</a>
+    <a href="/ar/index.html" class="lang-pill">AR</a>
+    <span class="lang-pill active">RU</span>
+    <a href="/de/index.html" class="lang-pill">DE</a>
+  </div>
+
+  <div class="top-bar">
+    <div class="top-bar-left">
+      DEEP PRESS ANALYSIS · ЕЖЕДНЕВНЫЙ ОБЗОР
+    </div>
+    <div class="top-bar-right">
+      <a class="social-btn" href="https://t.me/DeepPressAnalysis" target="_blank" rel="noopener">
+        <span class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <defs>
+              <linearGradient id="tgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#0ea5e9"/>
+              </linearGradient>
+            </defs>
+            <rect x="1" y="1" width="22" height="22" rx="11" fill="url(#tgGrad)"/>
+            <path d="M7 12.5L16.5 7.5C16.9 7.3 17.3 7.6 17.1 8.1L14.6 16C14.4 16.6 13.7 16.8 13.3 16.3L11.4 14.1L9.6 15.7C9.3 15.9 8.9 15.8 8.8 15.4L7.2 13C6.9 12.5 6.7 12.1 7 12.5Z" fill="#f9fafb"/>
+          </svg>
+        </span>
+        <span>Telegram</span>
+      </a>
+
+      <a class="social-btn" href="https://www.tiktok.com/@deeppressanalysis" target="_blank" rel="noopener">
+        <span class="social-icon">
+          <svg viewBox="0 0 24 24">
+            <defs>
+              <radialGradient id="ttGrad1" cx="20%" cy="0%" r="80%">
+                <stop offset="0%" stop-color="#f97316"/>
+                <stop offset="100%" stop-color="#020617"/>
+              </radialGradient>
+              <radialGradient id="ttGrad2" cx="80%" cy="100%" r="100%">
+                <stop offset="0%" stop-color="#22d3ee"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+            </defs>
+            <rect x="1" y="1" width="22" height="22" rx="7" fill="#020617"/>
+            <circle cx="8" cy="8" r="10" fill="url(#ttGrad2)" opacity="0.7"/>
+            <circle cx="5" cy="4" r="9" fill="url(#ttGrad1)" opacity="0.9"/>
+            <path d="M13.5 7.5V13.2C13.5 14.6 12.4 15.7 11 15.7C9.6 15.7 8.5 14.6 8.5 13.2C8.5 11.9 9.5 10.8 10.8 10.7"
+                  stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 7.5C14.2 8.3 15.3 8.9 16.3 9"
+                  stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>TikTok</span>
+      </a>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-main">
+      <h1 class="site-title">Deep Press Analysis</h1>
+      <div class="site-tagline">ЕЖЕДНЕВНЫЙ ОБЗОР МИРОВОЙ ПРЕССЫ</div>
+      <div class="header-date"><time datetime="2025-12-11">11 декабря 2025</time></div>
+    </div>
+    <div class="header-note">
+      Ежедневный обзор западных и мировых СМИ: экономика, рынки, США, Европа, Россия, Китай,
+      войны, санкции, нефть, газ, технологии и долгосрочные тренды.
+    </div>
+    <div class="header-focus">
+      <strong>В фокусе:</strong> Ставки ФРС, Венесуэла, Космические дата-центры, Бюджет Британии, Китай и ИИ.
+    </div>
+
+    <div class="spotify-wrapper">
+        <iframe data-testid="embed-iframe"
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0"
+        width="100%" height="152"
+        frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="outlet">
+      <h2>THE WALL STREET JOURNAL</h2>
+      <div class="outlet-sub">ФРС, Oracle, Космос, Аудит, Рынки.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">ФРС снижает ставки и сигнализирует о паузе (Fed Cuts Rates, Signals a Pause)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Решение Федеральной резервной системы снизить ставки третий раз подряд при одновременном сигнале о возможной остановке цикла смягчения указывает на глубокий раскол внутри регулятора. Разногласия среди членов комитета (FOMC) свидетельствуют о высокой неопределенности: регулятор пытается балансировать между рисками рецессии и угрозой повторного разгона инфляции. Для рынков это означает конец периода предсказуемой монетарной поддержки и переход к режиму «зависимости от данных» (data-dependent), что неизбежно повысит волатильность активов. Заявление Пауэлла о том, что официальная статистика может переоценивать рост рабочих мест на 60 000 позиций ежемесячно, подрывает доверие к государственным макроданным. Это заставляет институциональных инвесторов хеджировать риски через альтернативные активы (золото, криптоактивы), опасаясь скрытой слабости экономики США. В долгосрочной перспективе признание неточности данных может потребовать пересмотра моделей риска крупнейшими банками.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Битва за орбитальные дата-центры: Blue Origin против SpaceX (Blue Origin and SpaceX are competing to take the data-center boom into space)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Перенос конкуренции между компаниями Безоса и Маска в сегмент орбитальных вычислений знаменует новый этап коммерциализации космоса: от доставки грузов к созданию инфраструктуры для ИИ. Размещение дата-центров на орбите решает проблемы охлаждения и энергопотребления на Земле, но создает новые риски в сфере кибербезопасности и управления космическим трафиком. Для инвесторов это сигнал о формировании нового рынка «космического облака», который станет критически важным для оборонного сектора и глобальной логистики. Успех этих проектов усилит технологическое доминирование США, оставляя Китай и ЕС в роли догоняющих в гонке за космическую цифровую суверенность. Однако милитаризация этих платформ неизбежна, что сделает их первоочередными целями в гипотетическом конфликте сверхдержав.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Oracle наращивает выручку и операционную прибыль (Oracle's revenue and operating income for the most...)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Сильные финансовые показатели Oracle подтверждают структурный сдвиг спроса в технологическом секторе от производителей чипов к поставщикам облачной инфраструктуры и программного обеспечения. Корпоративный сектор переходит от экспериментов с ИИ к его внедрению в операционные процессы, что обеспечивает долгосрочные контракты для легаси-игроков, сумевших адаптироваться. Рост операционной прибыли сигнализирует о том, что компания успешно перекладывает инфляционные издержки на клиентов, сохраняя маржинальность. Для рынка это индикатор устойчивости B2B-сегмента IT, даже на фоне потребительской неопределенности. Успех Oracle также подчеркивает важность суверенных облачных решений, на которые растет спрос со стороны правительств на фоне геополитической фрагментации.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Аудиторский надзор и качество проверок (Audit regulation is incredibly important / PCAOB)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Дискуссия вокруг Совета по надзору за бухгалтерским учетом (PCAOB) и его возможного слияния с SEC отражает борьбу за контроль над прозрачностью американских рынков капитала. Сохранение независимости регулятора критично для доверия иностранных инвесторов к финансовой отчетности компаний США. Попытки политического вмешательства или ослабления стандартов могут привести к системным рискам, аналогичным краху Enron, но в большем масштабе. Для корпоративного сектора ужесточение аудита означает рост административных издержек, но снижает стоимость привлечения капитала за счет премии за прозрачность. Институциональная устойчивость PCAOB — важный маркер для оценки регуляторного климата при новой администрации.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Рынки реагируют ростом на решение ФРС (Wall Street cheered the central bank's rate cut)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Позитивная реакция индексов S&P 500 и Dow Jones носит краткосрочный характер и основана на ликвидности, а не на фундаментальном улучшении экономики. Рост котировок вблизи исторических максимумов при одновременном сигнале ФРС о проблемах с данными по безработице создает риск формирования «пузыря надежд». Инвесторы игнорируют предупреждения о паузе в снижении ставок, делая ставку на то, что ФРС будет вынуждена спасать рынок при любой турбулентности (Fed put). Это поведение повышает уязвимость финансовой системы к внешним шокам, будь то геополитика или корпоративные дефолты. Расхождение между оптимизмом фондового рынка и осторожностью регулятора достигло критической точки.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE WASHINGTON POST</h2>
+      <div class="outlet-sub">Венесуэла, Санкции, Недвижимость, Климат.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">США захватывают танкер, усиливая давление на Венесуэлу (Boosting pressure on Venezuela, U.S. seizes oil tanker)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Физический захват танкера силами США знаменует переход от режима экономических санкций к прямому силовому вмешательству в морскую торговлю энергоносителями. Администрация Трампа использует этот шаг для демонстрации решимости контролировать нефтяные потоки в Западном полушарии и лишить режим Мадуро валютной выручки. Для глобального рынка судоходства это резкое повышение рисков: страховые премии для судов, работающих в «серых зонах», взлетят, что увеличит издержки теневого флота. Этот прецедент дает США карт-бланш на перехват любых грузов, которые Вашингтон сочтет «поддерживающими терроризм», размывая нормы международного морского права. Геополитически это прямой вызов Китаю и Ирану, которые являются основными покупателями венесуэльской нефти.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Лауреат Нобелевской премии мира Мачадо пропускает церемонию (Venezuelan Nobel Peace laureate Machado misses ceremony)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Отсутствие Мачадо на церемонии в Осло используется Западом как мощный инструмент информационной войны для делегитимизации правительства Мадуро. Нобелевский комитет фактически интегрируется в внешнеполитическую стратегию США и ЕС, закрепляя за венесуэльской оппозицией статус единственного законного представителя. Это создает дипломатическую ловушку для стран Латинской Америки, пытающихся сохранять нейтралитет: давление с требованием признать Мачадо будет нарастать. Для нефтяных компаний (Chevron, Repsol) это сигнал о том, что нормализация отношений с Каракасом откладывается на неопределенный срок. Инвестиции в венесуэльский сектор остаются токсичными, несмотря на глобальный дефицит тяжелой нефти.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Новая тактика в кампании против Мадуро (New tactic in campaign against Maduro)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Использование термина «наркотеррористы» и привлечение сил береговой охраны и ФБР указывает на криминализацию политического режима Венесуэлы в правовом поле США. Это позволяет Вашингтону применять инструменты борьбы с оргпреступностью вместо дипломатических протоколов, что упрощает конфискацию активов. Стратегия направлена на раскол венесуэльских элит: угроза личной уголовной ответственности должна побудить военных и чиновников к дезертирству. Однако такой подход рискует сплотить режим перед лицом внешней угрозы и толкнуть его к более тесному военному сотрудничеству с Россией. Для региональной безопасности это означает рост вероятности локальных военных инцидентов в Карибском бассейне.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Рынок недвижимости в округе Принс-Джордж (Prince George's County Sales Data)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Данные о продажах недвижимости в столичном регионе демонстрируют сохраняющийся ценовой разрыв и доступность жилья как ключевую социально-экономическую проблему. Стабильный спрос в пригородах Вашингтона, несмотря на высокие ставки, отражает концентрацию богатства вокруг федерального центра и лоббистских структур. Это косвенный индикатор того, что государственные расходы остаются главным драйвером локальной экономики, создавая «пузырь» благосостояния, оторванный от общенациональных трендов. Для инвесторов в недвижимость столичный регион остается защитным активом (safe haven), гарантированным бюджетными потоками США.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Погода и климатические риски (Partly sunny / Weather)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Прогнозы погоды становятся не просто бытовой информацией, а фактором экономической волатильности для аграрного и энергетического секторов. Упоминание погодных условий в контексте политических новостей подчеркивает растущее влияние климатических факторов на логистику и инфраструктуру Восточного побережья. Для страхового бизнеса учащение экстремальных погодных явлений означает необходимость пересмотра моделей оценки рисков. В долгосрочной перспективе климатическая уязвимость Вашингтона как прибрежного города становится фактором национальной безопасности.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE GUARDIAN UK</h2>
+      <div class="outlet-sub">Приватность, Китай, Бюджет, Спорт, Телеком.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Туристы в США столкнутся с проверками соцсетей (Visitors to US could have to reveal five years of social media activity)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Инициатива администрации Трампа по обязательному раскрытию соцсетей для въезжающих (включая граждан стран Visa Waiver) фактически демонтирует концепцию безвизового режима для западных союзников. Это создает колоссальные риски для конфиденциальности данных: бизнес-путешественники и журналисты могут стать объектом промышленного шпионажа или политического профайлинга на границе. Экономически это удар по туристической отрасли США (авиакомпании, отели), так как поток европейских туристов снизится из-за бюрократических барьеров и опасений за приватность. Политически это шаг к цифровому изоляционизму, который спровоцирует зеркальные меры со стороны ЕС и Великобритании. Глобально это нормализует практику цифрового досмотра, снижая стандарты прав человека.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Гонконгские изгнанники получают фейковые письма (Hong Kong exiles hit by explicit fake letters)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Кампания по дискредитации диссидентов в Великобритании через поддельные письма раскрывает тактику «транснациональных репрессий» Пекина. Китай использует методы психологического давления и социальной изоляции оппонентов за рубежом, тестируя границы суверенитета западных стран. Для Лондона это дипломатический вызов: неспособность защитить резидентов на своей территории демонстрирует слабость перед лицом китайского влияния. Это повышает риски для бизнеса, связанного с Китаем, так как любые связи могут быть токсичными. Ситуация требует ужесточения законодательства об иностранных агентах, что может осложнить академические и культурные обмены.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Ривз ищет «крота» из-за утечек бюджета (Reeves blames her chaotic Budget on 'inaccurate and damaging' leakers)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Охота на инсайдеров в Казначействе Великобритании обнажает глубокий управленческий кризис и отсутствие лояльности внутри госаппарата к новому лейбористскому правительству. Утечки чувствительной финансовой информации подрывают доверие рынков к бюджетной дисциплине Лондона, увеличивая стоимость заимствований (gilt yields). Политически это ослабляет позиции канцлера Ривз, выставляя её неспособной контролировать собственное ведомство. Для инвесторов это сигнал о сохраняющейся политической нестабильности и риске внезапных изменений налоговой политики. Внутренняя борьба в Уайтхолле отвлекает ресурсы от решения реальных экономических проблем стагнации.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Сиэтл примет «Матч гордости» во время ЧМ-2026 (Pride Match concept... during the 48-team tournament)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Решение провести матч в поддержку ЛГБТ во время Чемпионата мира в США — это стратегическое использование «мягкой силы» для противопоставления западных ценностей консерватизму ФИФА и стран Глобального Юга. Это создает потенциал для культурного конфликта с участниками из Ближнего Востока и Африки, политизируя спортивное мероприятие. Для спонсоров это палка о двух концах: возможность привлечь прогрессивную аудиторию, но риск бойкота на консервативных рынках. Организаторы пытаются заранее купировать критику в адрес прав человека, смещая фокус на инклюзивность. Это также инструмент внутреннего маркетинга для демократических штатов, позиционирующих себя как оплот либерализма.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Сим-карты и цифровая связь (Sim-only deals / 1p Mobile)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Агрессивная ценовая конкуренция на рынке мобильной связи Великобритании с акцентом на отсутствие роуминговых платежей в ЕС отражает попытку бизнеса нивелировать последствия Brexit для потребителей. Операторы используют «возврат к нормальности» (бесплатный роуминг) как ключевое конкурентное преимущество, играя на ностальгии по единому европейскому пространству. Это показывает, что экономические связи с континентом остаются приоритетом для потребительского рынка, вопреки политической риторике. Для телеком-сектора это война на истощение маржи ради захвата доли рынка. Долгосрочно это может привести к консолидации игроков из-за снижения прибыльности.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE I NEWSPAPER</h2>
+      <div class="outlet-sub">Брекзит, Энергетика, История, Здоровье, Общество.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Британия может вернуться в программу Erasmus (UK set to turn back clock on Brexit and rejoin EU's student exchange)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Секретные переговоры о возвращении в образовательную программу ЕС — первый реальный шаг к «мягкому» пересмотру итогов Brexit под прикрытием интересов молодежи. Правительство Стармера тестирует красные линии электората, начиная с наименее токсичной темы студенческих обменов, чтобы открыть дверь для более широкой интеграции. Для британских университетов это спасательный круг, восстанавливающий поток европейских студентов и грантовое финансирование, потерянное после 2020 года. Это создает прецедент для других секторов (химическая промышленность, финансы) требовать аналогичных исключений. Политически это риск для лейбористов быть обвиненными в предательстве Brexit, но экономическая логика диктует необходимость сближения.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Британия финансирует ископаемое топливо в Африке (Britain bankrolling fossil fuel projects in Africa)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Инвестиции UK Export Finance в нефтегазовые проекты Африки вскрывают лицемерие климатической повестки Запада: декларации о Net Zero не мешают прагматичному освоению ресурсов. Лондон стремится закрепиться на африканских рынках, конкурируя с Китаем и Россией, и энергетика — самый быстрый путь к влиянию. Для развивающихся стран это сигнал, что Запад готов закрывать глаза на экологию ради геополитики и доступа к ресурсам. Это подрывает доверие к международным климатическим саммитам, превращая их в дипломатический театр. Для инвесторов в традиционную энергетику это подтверждение того, что спрос на углеводороды будет поддерживаться государственными деньгами еще долго.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Путин копирует методичку Сталина (Putin is copying Stalin's playbook)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Историческая параллель, проводимая британской прессой, служит для идеологической мобилизации общества и обоснования долгосрочного конфликта с Россией. Фрейминг «нового сталинизма» упрощает для правительства объяснение необходимости роста оборонных расходов и снижения уровня жизни. Это также сигнал бизнесу о том, что санкционный режим и изоляция РФ — это навсегда, и возврата к status quo ante (как в 2013) не будет. Геополитически это цементирует раздел Европы на два враждебных лагеря. Риск заключается в упрощении сложной динамики российской политики до личности одного лидера.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Темный шоколад замедляет старение (Dark chocolate could slow the ageing process)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Популяризация научных исследований о продлении жизни через доступные продукты отражает тренд на «серебряную экономику» в стареющем обществе Британии. Медиа переключают внимание с кризиса системы здравоохранения (NHS) на индивидуальную ответственность за здоровье и профилактику. Для пищевой индустрии это открывает маркетинговые возможности для премиализации обычных товаров через приставку «anti-age». Инвесторам стоит обратить внимание на сектор функционального питания, который растет быстрее традиционного ритейла. Социально это попытка снизить тревожность населения по поводу старости на фоне проблем с пенсиями.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Крис Камара: «Я чувствую себя чудесно» (I can't walk or talk the same way - but I feel wonderful)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Публичное обсуждение жизни с инвалидностью известной фигуры меняет общественный дискурс об инклюзивности и качестве жизни. Это снижает стигматизацию проблем со здоровьем и повышает спрос на технологии ассистивной помощи и реабилитации. Медийный фокус смещается с «лечения любой ценой» на «достойную жизнь с ограничениями», что влияет на приоритеты социальной политики. Для страховых компаний и частной медицины это сигнал о росте рынка паллиативной и поддерживающей терапии. История также работает на сплочение общества через эмпатию, отвлекая от политических дрязг.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE INDEPENDENT</h2>
+      <div class="outlet-sub">Гражданство, США, Культура, Политика.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Расистская система лишения гражданства (Revealed: Britain's 'racist' system of stripping citizenship)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Доклад о том, что Великобритания лишает гражданства преимущественно небелых граждан, создает мощный репутационный риск для страны на международной арене. Это подрывает концепцию «Global Britain» и может осложнить отношения со странами Содружества. Юридическая возможность создания класса граждан «второго сорта» (dual nationals) вносит неопределенность для миллионов жителей, снижая привлекательность Британии для экспатов и инвесторов. Внутренне это усиливает социальное напряжение и недоверие меньшинств к государству. Для правовой системы это опасный прецедент использования административного ресурса в обход уголовного судопроизводства.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Туристы столкнутся с проверками соцсетей в США (Tourists face social media checks to enter Trump's America)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Повторение темы Guardian с акцентом на массовость влияния подчеркивает, что эта мера коснется не только «подозрительных личностей», но и обычных семей. Это вводит новый нетарифный барьер в трансатлантической торговле услугами. Британские медиа готовят общественное мнение к тому, что «Особые отношения» с США не гарантируют привилегий при новой администрации Трампа. Это может стимулировать переориентацию туристических потоков из Британии в Европу или Азию. Технологически это ставит вопрос о том, как алгоритмы США будут интерпретировать британский сленг или политический юмор, создавая риск ложных отказов во въезде.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Софи Кинселла умерла в 55 лет (Sophie Kinsella... dies at 55)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Уход автора бестселлеров, продавших 45 млн копий, — это событие не только культурное, но и экономическое для издательского бизнеса. Кинселла была символом успеха британского «чик-лита» (chick-lit) на глобальном рынке, мягкой силой, экспортирующей образ современной британки. Для издателей это потеря крупного актива, генерирующего стабильную прибыль. Внимание к её борьбе с раком мозга (глиобластома) привлечет финансирование в исследования этой болезни. Наследие писательницы продолжит приносить доход через переиздания и экранизации, оставаясь активом для правообладателей.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Ривз винит утечки в хаосе Бюджета (Reeves blames her chaotic Budget...)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Акцент Independent на поиске «крота» на Даунинг-стрит, 11 усиливает нарратив о дисфункциональности новой власти. Публичное перекладывание ответственности канцлером выглядит как слабость и попытка найти внешнего врага для оправдания рыночной турбулентности. Это сигнализирует бизнесу, что коммуникация экономической политики останется хаотичной. Риск для фунта стерлингов сохраняется, так как политические интриги превалируют над экономической логикой. Охота на ведьм внутри министерства может парализовать принятие решений.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Трамп и проверки на границе (Trump plan would also demand disclosure of relatives...)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Требование раскрывать данные о родственниках и биометрию создает базу данных глобального масштаба, связывающую людей по родственным, а не только правовым связям. Это инструмент тотального контроля диаспор, позволяющий США оказывать давление на людей через их семьи. Для правозащитных организаций это новый фронт борьбы за цифровую приватность. Экономически это создает дополнительные издержки комплаенса для авиакомпаний и туристических операторов, которые будут обязаны собирать эти данные. Это шаг к миру, где свобода передвижения полностью обусловлена прозрачностью личной жизни для спецслужб гегемона.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>USA TODAY</h2>
+      <div class="outlet-sub">Трамп, Зарплаты, Спорт, Кино, Погода.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Заявления Трампа о нарко-лодках не выдерживают критики (Trump's drug boat claims don't fly)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Анализ данных показывает, что Венесуэла не является основным транзитером наркотиков, что разоблачает риторику Трампа как предлог для милитаризации региона. Белый дом создает искусственный casus belli для усиления военно-морского присутствия у берегов Южной Америки. Игнорирование фактов в угоду политическому нарративу («Operation Southern Spear») повышает риск случайного военного столкновения. Для налогоплательщиков США это означает финансирование дорогостоящих операций с сомнительной эффективностью. Геополитически это попытка восстановить «Доктрину Монро» силовым путем, игнорируя реальные маршруты наркотрафика (через Тихий океан).</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Некоторые работники увидят рост минимальной зарплаты (Some workers will see rise in minimum wage)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Повышение минимальной оплаты труда в ряде штатов и городов с 2026 года усилит давление на операционную маржу ритейлеров и ресторанов быстрого питания. Бизнес ответит ускорением автоматизации (киоски самообслуживания, ИИ), что парадоксально может сократить количество рабочих мест для низкоквалифицированного персонала. С другой стороны, рост доходов низшего сегмента стимулирует потребление товаров первой необходимости. Разрыв в уровне минимальной зарплаты между штатами усилит внутреннюю миграцию рабочей силы. Для инвесторов это сигнал пересматривать модели доходности в трудоемких секторах (HoReCa, ритейл).</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Рейтинг силы НФЛ: Eagles падают (NFL power rankings: Eagles take a tumble)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Падение рейтингов Филадельфии и стабильность других команд — это не просто спорт, а динамика стоимости миллиардных медиа-франшиз. Успех команды напрямую коррелирует с продажами мерчандайзинга, ценами на билеты и рекламными контрактами. Для вещателей и рекламодателей колебания формы команд означают необходимость корректировки маркетинговых стратегий в реальном времени. НФЛ остается главным генератором телевизионных рейтингов в США, и любые изменения в иерархии команд влияют на распределение рекламных бюджетов. Стабильность таких брендов, как Rams, делает их более привлекательными для долгосрочных спонсорских сделок.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">10 лучших фильмов года: от эскапизма до драмы (From 'Sinners' to 'Hamnet,' our top 10 movies)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Выбор лучших фильмов года отражает общественный запрос на сложные нарративы в эпоху неопределенности. Успех картин, сочетающих исторические драмы и жанровое кино, показывает, что аудитория ищет смыслы за пределами комиксовых блокбастеров. Для киностудий это сигнал о кризисе франшиз и необходимости инвестировать в оригинальный контент среднего бюджета. Культурное потребление смещается от чистого развлечения к рефлексии. Инвесторам в медиа стоит учесть, что стриминги и прокатчики будут искать новые «Оппенгеймеры», а не очередных «Мстителей».</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Погода и путешествия (Weather / Travel impacts)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Хотя раздел погоды кажется рутинным, для экономики США (особенно логистики и авиаперевозок) зимние штормы являются фактором форс-мажора, ежегодно стоящим миллиарды. Точность прогнозов напрямую влияет на хеджирование рисков в энергетике (цена на газ/электричество). Упоминание погоды на первой полосе подчеркивает зависимость современной инфраструктуры от климатических аномалий. В контексте праздничного сезона любой сбой из-за погоды имеет мультипликативный эффект на розничные продажи и настроения потребителей.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>FINANCIAL TIMES</h2>
+      <div class="outlet-sub">ФРС, ЕС, Китай, Нефть, Финансы.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">ФРС снижает ставки на фоне слабости рынка труда (Fed cuts rates to lowest in three years)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Решение ФРС о снижении ставки, несмотря на устойчивую инфляцию, сигнализирует о смене приоритетов в пользу поддержки рынка труда. Раскол в комитете (три голоса против) указывает на растущую внутреннюю неопределенность и риск ошибки в политике. Для рынков это означает продолжение ликвидной поддержки, но с повышением волатильности из-за угрозы стагфляции. В долгосрочной перспективе это может ослабить доллар, если инфляция вновь ускорится.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">ЕС планирует обойти вето Орбана по активам РФ (EU plans to outflank Orbán on Russian asset freeze)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Брюссель намерен использовать чрезвычайные полномочия (статья 122), чтобы исключить Венгрию из процесса принятия решений по заморозке российских активов. Это создает прецедент игнорирования национального суверенитета ради геополитических целей, что несет институциональные риски для единства блока. Для Москвы это четкий сигнал о том, что активы потеряны надолго, что ускорит разрыв финансовых связей с Западом. Схема снижает риск того, что США разморозят свою часть, цементируя санкционный режим.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Китай усиливает поддержку производителей ИИ-чипов (China renews drive to bolster AI chipmakers)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Директива Пекина о закупке отечественных чипов — это стратегический шаг по созданию гарантированного внутреннего спроса для защиты от санкций США. Это ускоряет технологическое расхождение (decoupling) и стимулирует развитие китайских аналогов Nvidia. Для западных техгигантов это означает потерю крупнейшего рынка сбыта в долгосрочной перспективе. Геополитически это закрепляет фрагментацию глобальной технологической экосистемы на два лагеря.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Роман нефтяных гигантов с зеленой энергетикой окончен (How Big Oil's fling with green energy soured)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Нефтяные мейджоры сворачивают инвестиции в ВИЭ, возвращаясь к ископаемому топливу под давлением акционеров, требующих прибыли. Это признание того, что маржинальность зеленой энергетики пока не может конкурировать с традиционной добычей в условиях высоких ставок. Тренд перекладывает бремя энергоперехода на государство и специализированные компании, замедляя глобальную декарбонизацию. Для инвесторов это сигнал рассматривать нефтегаз как защитный актив, а не как трансформирующийся сектор.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Люксембург блокирует единый надзор за капиталом в ЕС (Luxembourg leads resistance to unified capital rules)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Национальные интересы Люксембурга тормозят создание Союза рынков капитала ЕС, сохраняя фрагментацию финансового надзора. Это защищает локальную индустрию фондов, но лишает Евросоюз возможности конкурировать с глубокими рынками капитала США. Для европейского бизнеса это означает сохранение зависимости от банковского кредитования и дефицит венчурного финансирования. Институциональный тупик подчеркивает неспособность ЕС жертвовать частными интересами ради общей конкурентоспособности.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE NEW YORK TIMES</h2>
+      <div class="outlet-sub">ФРС, Ближний Восток, Наука, Тайвань, Миграция.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">ФРС снижает ставки на фоне раскола мнений (Fed Cuts Rates As Split Clouds Action in 2026)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Редкое тройное несогласие при голосовании в ФРС обнажает отсутствие консенсуса по дальнейшей траектории экономики США. Регулятор оказался в ловушке между необходимостью стимулировать охлаждающийся рынок труда и борьбой с «липкой» инфляцией. Это повышает риск политической ошибки и делает монетарную политику менее предсказуемой и зависимой от входящих данных. Рынкам следует готовиться к «пиле» в ставках и отсутствию четкого forward guidance.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">США захватывают танкер для давления на Мадуро (U.S. Takes Tanker in Bid to Squeeze Maduro Further)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Физический захват танкера знаменует переход от финансовых санкций к прямым силовым действиям (interdiction) против венесуэльского экспорта. Это сигнал глобальным трейдерам и страховщикам о том, что работа с подсанкционной нефтью несет риск потери груза, что повысит премию за риск в котировках. Для администрации Трампа это способ проецировать силу в регионе без ввода войск. Экономически это может еще больше дестабилизировать режим Мадуро или толкнуть его к полной зависимости от теневого флота.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Тайвань защищает секреты чипов законом о нацбезопасности (Taiwan Acts To Protect Chip Secrets)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Тайбэй использует законодательство о нацбезопасности для предотвращения утечки технологий не только в Китай, но и к союзникам, включая США. Это показывает, что Тайвань намерен сохранять свой «кремниевый щит» как гарантию безопасности, не допуская размывания своего технологического превосходства. Такой протекционизм усложнит стратегию friend-shoring для западных компаний. Это создает напряжение между корпоративными интересами глобальных игроков и суверенной стратегией острова.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Иммигранты — топливо для научной мощи США (Immigrants Fuel a Scientific Pipeline)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Статистика Нобелевских лауреатов подтверждает критическую зависимость инновационной экономики США от притока глобальных талантов. Ужесточение миграционной политики несет долгосрочный стратегический риск утраты технологического лидерства в пользу конкурентов, таких как Китай. Для секторов биотеха и IT это сигнал о возможной нехватке кадров высшей квалификации. Противоречие между популистской повесткой и нуждами экономики знаний становится системной уязвимостью.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Нестабильность в сирийских лагерях ИГИЛ (Volatility Grows in Syrian Camps)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Вывод войск США создает вакуум безопасности, который может привести к возрождению экстремистских группировок. Передача ответственности режиму Асада — прагматичный, но циничный шаг, легитимизирующий Дамаск как партнера по безопасности. Это перекладывает риски на региональных игроков и Европу, которая может столкнуться с возвращением боевиков. Ситуация создает долгосрочную угрозу для энергетической и политической стабильности Ближнего Востока.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE DAILY TELEGRAPH</h2>
+      <div class="outlet-sub">Аргентина, Украина, Тайвань, Net Zero, Китай.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Запрет на оружие для Фолклендов должен быть снят (Falklands arms ban must end, says Milei)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Президент Аргентины Милей использует свое сближение с США и Израилем как рычаг давления на Лондон. Позиционируя Аргентину как западный бастион против Китая, он пытается расколоть единую позицию НАТО по вопросу вооружения Буэнос-Айреса. Это долгосрочная стратегия дипломатического возвращения островов через экономическую и военную интеграцию с Западом. Для Великобритании это риск изменения баланса сил в Южной Атлантике при поддержке Вашингтона.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Европа предупреждает Трампа по Украине (Europe warns Trump of 'critical time' for Ukraine)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Лидеры ЕС пытаются единым фронтом противостоять стремлению Трампа к быстрой сделке с РФ за счет украинских территорий. Акцент на «гарантиях безопасности» — попытка повысить цену предательства интересов Киева для Белого дома. Раскол между трансатлантическими союзниками ослабляет переговорные позиции Запада в целом. Это подчеркивает отсутствие у Европы собственных рычагов жесткой силы для влияния на исход конфликта.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Китай разгромит США в войне за Тайвань (China would rout us in Taiwan war, admits Pentagon)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Утечка пессимистичных оценок Пентагона может быть инструментом лоббирования бюджетных ассигнований на массовое производство дронов. Тем не менее, это сигнал о временном окне уязвимости, когда старые платформы уже неэффективны, а новые еще не развернуты. Это повышает риск просчета со стороны Пекина, который может решиться на операцию, пока окно возможностей открыто. Для рынков это напоминание о хвостовом риске глобального конфликта.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Замедление Net Zero сэкономит Британии £50 млрд (Delaying Miliband's net zero targets 'will save Britain £50bn')</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Отчет дает фискальное обоснование для отказа от агрессивных климатических целей, ставя экономическую целесообразность выше экологии. Это отражает глобальный тренд «гринлэша» (greenlash) на фоне кризиса стоимости жизни. Для инвесторов в зеленую инфраструктуру это создает регуляторную неопределенность и риск заморозки проектов. Политически это позволяет лейбористам пересмотреть непопулярные меры под предлогом бюджетной экономии.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Китайский торговый профицит превысил $1 трлн (China trade surplus eclipses $1 trillion)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Несмотря на тарифы, экспортная машина Китая продолжает доминировать, что говорит о неэффективности протекционистских мер Запада. Пекин компенсирует падение спроса в США наращиванием поставок на Глобальный Юг и в Европу. Это усиливает дисбалансы в мировой торговле и провоцирует новые торговые войны. Для рынков это сигнал, что структурная зависимость мира от китайского производства сохраняется.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE GLOBE AND MAIL</h2>
+      <div class="outlet-sub">Канада, Ставки, Украина, ИИ, Конго.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Банк Канады держит ставку, опасаясь тарифов США (BoC holds key rate steady)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Пауза в снижении ставок в Канаде на фоне действий ФРС показывает уязвимость канадской экономики перед протекционизмом Трампа. Регулятор занимает выжидательную позицию, чтобы оценить ущерб от торговых войн и защитить курс нацвалюты. Дивергенция монетарных политик с США создает риски для канадского доллара и импортируемой инфляции. Это сигнал инвесторам о повышенной неопределенности в канадских активах.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Зеленский увязывает выборы с гарантиями США (Zelensky ties wartime election to U.S. guarantees)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Зеленский выставляет заведомо невыполнимое условие (гарантии безопасности США) для проведения выборов, чтобы снять с себя давление Трампа. Это тактический ход для сохранения легитимности внутри страны без риска хаотичного голосования во время войны. Перекладывание ответственности на Вашингтон обнажает пустоту западной риторики о демократии в условиях конфликта. Внутренне это подчеркивает хрупкость политической системы Украины.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Повстанцы захватили город в Конго: провал сделки США (Rwanda-backed rebels capture major Congolese city)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Падение города Увира демонстрирует неспособность дипломатии США сдерживать региональные конфликты в Африке. Прокси-война Руанды за минеральные ресурсы (кобальт, медь) угрожает стабильности цепочек поставок для зеленой энергетики и электроники. Отсутствие жесткой реакции Запада сигнализирует о терпимости к силовому переделу ресурсов. Это повышает ESG-риски и риски поставок для технологических компаний.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Британская Колумбия: конфликт судов и экономики (Eby accuses courts of jeopardizing economy)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Политическая атака на судебные решения о правах коренных народов сигнализирует о кризисе инвестиционной уверенности в ресурсном секторе Канады. Конфликт между юридическими правами и экономическим развитием переходит в конституционную плоскость. Для инвесторов это добавляет слой риска «социальной лицензии» и задержек проектов. Государство вынуждено брать на себя риски, перекладывая их на налогоплательщиков.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Онтарио: скандал с ИИ-отчетом (Ontario government report ... partly generated by AI)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Обвинения в использовании ИИ и выдуманных ссылках в правительственном отчете подрывают доверие к качеству государственного управления. Это прецедент, показывающий риски некритичного внедрения технологий в бюрократию. Для политиков это репутационный удар, ставящий под сомнение компетентность экспертизы. Ситуация ускорит введение регламентов на использование генеративного ИИ в госсекторе.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>NEW YORK POST</h2>
+      <div class="outlet-sub">ChatGPT, Инфляция, Nvidia, Культурные войны, Ставки.</div>
+      <div class="articles-list">
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">1</div><h3 class="article-title">Семья судится с ChatGPT из-за убийства (Family sues over ChatGPT's role in murder)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Иск создает опасный прецедент ответственности разработчиков ИИ за действия пользователей, спровоцированные «галлюцинациями» нейросетей. Успех иска может разрушить правовой иммунитет платформ (аналог Section 230) и затормозить внедрение технологий. Это вводит огромный непроцененный юридический риск для сектора ИИ. Компании будут вынуждены вводить жесткую цензуру моделей, снижая их полезность.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">2</div><h3 class="article-title">Цены на подарки растут из-за тарифов Трампа (Prices for holiday gifts going through roof)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Данные связывают потребительскую инфляцию напрямую с протекционизмом, разрушая миф о том, что тарифы платит экспортер. Это создает политическую уязвимость для администрации, так как кризис стоимости жизни бьет по электорату. Для ритейлеров это означает сжатие маржи между ростом закупочных цен и чувствительностью покупателей. Сигнал о возможном снижении потребления, если торговые войны усилятся.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">3</div><h3 class="article-title">Nvidia будет отслеживать свои чипы (Nvidia to track its chips)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Внедрение геолокации в чипы — попытка Nvidia сохранить доступ к рынкам, переложив функцию геополитического надзора на частный сектор. Это создает технологический «геозабор», фрагментирующий глобальный рынок. Мера стимулирует Китай ускорить импортозамещение, так как использование западного оборудования становится риском безопасности. Это усиливает тренд на балканизацию технологических стандартов.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">4</div><h3 class="article-title">Рубио требует вернуть Times New Roman (Rubio: Use Times New Roman)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Директива о смене шрифтов — символический акт «институциональной чистки» наследия демократов и DEI-повестки. Это сигнал бюрократии о возврате к традиционализму и отказе от «инклюзивных» практик, которые новая администрация считает неэффективными. Мера задает тон для более широкого сворачивания либеральных инициатив в госаппарате. Фокус смещается на иерархию и дисциплину вместо доступности.</div>
+        </div>
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main"><div class="article-index">5</div><h3 class="article-title">Букмекерский гигант рассматривает продажу из-за налогов (Bets giant considers cashing out)</h3></div><div class="article-toggle">▶</div>
+          </div>
+          <div class="article-body">Стратегический пересмотр владельца William Hill — прямая реакция на агрессивное повышение налогов в Британии. Это иллюстрация бегства капитала и корпоративного распада в ответ на фискальную нестабильность. Сектор переоценивает британские активы как «неинвестируемые» из-за регуляторных рисков. Сигнал к консолидации рынка, где активы будут скупаться американскими или частными инвесторами.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h2>О проекте</h2>
+    <p>
+      Deep Press Analysis — это ежедневный разбор западной прессы: мировые новости, экономика, геополитика,
+      финансы и сценарии будущего. Проект агрегирует ключевые материалы из FT, WSJ, The Times,
+      NYT, USA Today и других, чтобы вы видели логику событий, а не просто заголовки.
+    </p>
+
+    <p style="margin-top: 14px; font-size: 13px; color: var(--muted);">
+      <strong style="color: var(--accent-soft);">АРХИВ:</strong>
+      <a href="/ru/101225.html" style="color: #e5e7eb; text-decoration: underline;">
+        10 декабря 2025
+      </a>
+    </p>
+
+    <div class="contact-section">
+      <div class="contact-label">КОНТАКТЫ / EMAIL</div>
+      <a href="mailto:deeppressanalysis@protonmail.com" class="metal-email">
+          deeppressanalysis@protonmail.com
+      </a>
+    </div>
+
+  </footer>
+</div>
+
+<script>
+  // Glassmorphism accordion: smooth open/close
+  document.querySelectorAll('.article-header').forEach(function (header) {
+    header.addEventListener('click', function () {
+      const card = header.parentElement;
+      const outlet = card.closest('.outlet');
+
+      // Only one item open per block
+      outlet.querySelectorAll('.article-card.open').forEach(function (other) {
+        if (other !== card) other.classList.remove('open');
+      });
+
+      card.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
 
