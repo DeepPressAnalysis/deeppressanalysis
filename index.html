@@ -7,7 +7,9 @@
 
   <meta name="description" content="Deep Press Analysis — daily analytical briefing on global media: economy, financial markets, geopolitics, wars, sanctions and technology. Multi-language breakdowns of Western press narratives." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://deeppressanalysis.com/" />
+
+  <!-- FIX #1: canonical aligned with redirect target -->
+  <link rel="canonical" href="https://deeppressanalysis.com/en/" />
 
   <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/en/" />
   <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/" />
@@ -15,6 +17,8 @@
   <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/" />
   <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/" />
   <link rel="alternate" hreflang="hi" href="https://deeppressanalysis.com/hi/" />
+
+  <!-- FIX #1: x-default aligned with canonical -->
   <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/" />
 
   <meta property="og:type" content="website" />
@@ -22,6 +26,10 @@
   <meta property="og:title" content="Deep Press Analysis — global news forensics" />
   <meta property="og:description" content="Daily deep-dive into Western and global media: economy, markets, geopolitics and information wars." />
   <meta property="og:image" content="https://deeppressanalysis.com/assets/og-image.jpg" />
+
+  <!-- FIX #4: image dimensions for better social previews -->
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Deep Press Analysis — global news forensics" />
@@ -49,12 +57,13 @@
 
   <script>
     // Language → folder mapping (clean URLs with trailing slash)
+    // FIX #2/#3: use 'uk' language code, keep folder '/ua/'
     const LANG_MAP = {
       "en": "/en/",
       "ru": "/ru/",
       "de": "/de/",
       "ar": "/ar/",
-      "ua": "/ua/",
+      "uk": "/ua/",
       "hi": "/hi/"
     };
 
@@ -62,11 +71,8 @@
       const userLang = navigator.language || navigator.userLanguage || "en";
       const langShort = String(userLang).split("-")[0].toLowerCase();
 
-      // Normalize: browser 'uk' (Ukrainian) → folder 'ua'
-      const normalizedLang = (langShort === "uk") ? "ua" : langShort;
-
       // Default to English if not supported
-      const targetPath = LANG_MAP[normalizedLang] || "/en/";
+      const targetPath = LANG_MAP[langShort] || "/en/";
 
       window.location.replace(targetPath);
     } catch (e) {
