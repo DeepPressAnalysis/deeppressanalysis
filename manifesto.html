@@ -28,7 +28,7 @@
       --max:1100px;
       --radius:18px;
 
-      /* NEW: red glow */
+      /* red glow */
       --antiRed: #ff3b3b;
     }
 
@@ -172,7 +172,7 @@
       max-width: 82ch;
     }
 
-    /* NEW: red glowing Anti-Propaganda line (under the sub text) */
+    /* red glowing Anti-Propaganda line */
     .antiLine{
       margin-top: 10px;
       display:inline-flex;
@@ -198,9 +198,7 @@
       font-weight: 1000;
     }
     @media (prefers-reduced-motion: no-preference){
-      .antiLine{
-        animation: antiGlow 3.6s ease-in-out infinite;
-      }
+      .antiLine{ animation: antiGlow 3.6s ease-in-out infinite; }
       @keyframes antiGlow{
         0%,100%{ opacity:.92; filter: drop-shadow(0 0 0 rgba(255,59,59,0)); }
         50%{ opacity:1; filter: drop-shadow(0 0 16px rgba(255,59,59,.18)); }
@@ -327,6 +325,95 @@
       text-shadow: 0 0 12px rgba(57,255,20,.20);
     }
 
+    /* =========================
+       DONATE BUTTON (glow-on-hover)
+       ========================= */
+    .donate-wrap{ display:inline-flex; align-items:center; }
+    .donate-wrap form{ margin:0; }
+
+    .donate-btn.glow-on-hover{
+      width: 320px;            /* под HOME */
+      max-width: 100%;
+      height: 52px;
+
+      border: none;
+      outline: none;
+
+      color: rgba(255,255,255,.92);
+      background: rgba(17,17,17,.72);
+      cursor: pointer;
+
+      position: relative;
+      z-index: 0;
+      border-radius: 14px;
+
+      font: 900 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow:
+        0 0 0 1px rgba(57,255,20,.08) inset,
+        0 20px 70px rgba(0,0,0,.55);
+
+      transition: transform .15s ease;
+    }
+
+    .donate-btn.glow-on-hover:before{
+      content:'';
+      background: linear-gradient(
+        45deg,
+        #ff0000, #ff7300, #fffb00, #48ff00,
+        #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000
+      );
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(6px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: glowing 20s linear infinite;
+      opacity: 0;
+      transition: opacity .25s ease-in-out;
+      border-radius: 14px;
+    }
+
+    .donate-btn.glow-on-hover:hover:before{ opacity: 1; }
+
+    .donate-btn.glow-on-hover:after{
+      z-index: -1;
+      content:'';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      border-radius: 14px;
+      background: rgba(0,0,0,.45);
+      box-shadow: 0 2px 0 rgba(255,255,255,.06) inset;
+    }
+
+    .donate-btn.glow-on-hover:active{
+      transform: translateY(1px);
+      color: rgba(0,0,0,.85);
+    }
+    .donate-btn.glow-on-hover:active:after{
+      background: rgba(255,255,255,.18);
+    }
+
+    @keyframes glowing{
+      0%   { background-position: 0 0; }
+      50%  { background-position: 400% 0; }
+      100% { background-position: 0 0; }
+    }
+
+    @media (max-width: 520px){
+      .donate-btn.glow-on-hover{ width: 100%; }
+      .btn-home{ width: 100%; min-width: 0; }
+    }
+
     /* Signature */
     .signatureWrap{
       margin-top: 18px;
@@ -412,7 +499,6 @@
         It is analytical interpretation of media as a system — incentives, institutions, regulation, power, and risk.
       </p>
 
-      <!-- NEW: red glowing anti-propaganda line -->
       <div class="antiLine"><span class="antiStar">*</span> Anti-Propaganda</div>
 
       <div class="grid">
@@ -442,6 +528,13 @@
             <a class="btn btn-home" href="/" title="Home">
               <span class="homeMark">HOME</span> <span class="arrow">↳</span>
             </a>
+
+            <div class="donate-wrap">
+              <form action="https://www.paypal.com/donate" method="post" target="_blank" rel="noopener">
+                <input type="hidden" name="hosted_button_id" value="ER23YUDGYSY9Y" />
+                <button type="submit" class="donate-btn glow-on-hover">Support independent analysis</button>
+              </form>
+            </div>
           </div>
 
           <div class="signatureWrap" aria-label="Signature">
@@ -522,3 +615,4 @@
 
 </body>
 </html>
+
