@@ -53,6 +53,34 @@
 
     .page { max-width: 980px; margin: 0 auto; }
 
+    /* ---------- SOCIAL BUTTONS CSS ---------- */
+    .social {display: inline-block;}
+    .social a {
+        display: block;
+        width: 48px;
+        height: 48px;
+        margin: 0 10px 10px 0;
+        text-align: center;
+        color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 24px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        transition: all 0.2s;
+    }
+    .social a:hover {
+        border-color: #888;
+        opacity: .8;
+    }
+    .social svg {
+        margin-top: 7px;
+        width: 32px;
+        height: 32px;
+    }
+    .email a {background: #5bc7ff}
+    .telegram a {background: #249bd7}
+    .x a {background: #000}
+    .youtube a {background: #c4302b}
+
     /* ---------- LANGUAGE BAR ---------- */
     .lang-bar {
       display: flex; flex-wrap: wrap; justify-content: flex-end;
@@ -74,7 +102,7 @@
       box-shadow: 0 0 12px rgba(56,189,248,0.5); cursor: default;
     }
 
-    /* ---------- TOP BAR (SOCIALS) ---------- */
+    /* ---------- TOP BAR ---------- */
     .top-bar {
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: 12px; gap: 10px;
@@ -85,27 +113,12 @@
       color: var(--muted); opacity: 0.9;
     }
 
-    .top-bar-right { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-
-    .social-btn {
-      padding: 5px 10px; font-size: 12px; border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5); background: rgba(15,23,42,0.96);
-      color: var(--text); text-decoration: none; display: inline-flex;
-      align-items: center; gap: 6px; cursor: pointer; transition: all 0.15s ease;
-      box-shadow: 0 8px 20px rgba(15,23,42,0.75); opacity: 0.94;
+    .top-bar-right {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
     }
-
-    .social-btn:hover {
-      background: rgba(15,23,42,1); border-color: var(--accent-soft);
-      transform: translateY(-1px); box-shadow: 0 14px 30px rgba(15,23,42,0.98); opacity: 1;
-    }
-
-    .social-icon {
-      width: 18px; height: 18px; border-radius: 999px; display: inline-flex;
-      align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;
-    }
-
-    .social-icon svg { display: block; width: 100%; height: 100%; }
 
     /* ---------- HEADER ---------- */
     header {
@@ -151,7 +164,7 @@
       box-shadow: 0 22px 50px rgba(0,0,0,0.9); backdrop-filter: blur(26px);
     }
 
-    /* ---------- OUTLET TITLE: AURORA DRIFT (UPDATED) ---------- */
+    /* ---------- OUTLET TITLE: AURORA DRIFT ---------- */
     section.outlet h2 {
       font-size: 18px;
       margin-bottom: 4px;
@@ -159,7 +172,6 @@
       text-transform: uppercase;
       display: inline-block;
       
-      /* Aurora Drift Style */
       background: linear-gradient(90deg,#22d3ee,#a78bfa,#34d399,#f472b6,#22d3ee);
       background-size: 300% 100%;
       -webkit-background-clip: text; color: transparent;
@@ -261,6 +273,129 @@
       100% { filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3)); }
     }
 
+    /* ===========================
+       MANIFESTO BUTTON STYLES
+       =========================== */
+
+    .footer-actions {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .animated-button {
+      background: linear-gradient(-30deg, #0b1b3d 50%, #08142b 50%);
+      padding: 14px 26px;
+      margin: 12px 0 0;
+      display: inline-block;
+      -webkit-transform: translate(0%, 0%);
+              transform: translate(0%, 0%);
+      overflow: hidden;
+      color: #d4e0f7;
+      font-size: 14px;
+      letter-spacing: 2.5px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+              box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      border-radius: 14px;
+      position: relative;
+    }
+
+    .animated-button::before {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: #8592ad;
+      opacity: 0;
+      -webkit-transition: .2s opacity ease-in-out;
+      transition: .2s opacity ease-in-out;
+    }
+
+    .animated-button:hover::before { opacity: 0.2; }
+
+    .animated-button span { position: absolute; }
+
+    .animated-button span:nth-child(1) {
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to left, rgba(8, 20, 43, 0), #2662d9);
+      -webkit-animation: 2s animateTop linear infinite;
+              animation: 2s animateTop linear infinite;
+    }
+
+    @-webkit-keyframes animateTop {
+      0% { -webkit-transform: translateX(100%); transform: translateX(100%); }
+      100% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+    }
+    @keyframes animateTop {
+      0% { -webkit-transform: translateX(100%); transform: translateX(100%); }
+      100% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+    }
+
+    .animated-button span:nth-child(2) {
+      top: 0px;
+      right: 0px;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to top, rgba(8, 20, 43, 0), #2662d9);
+      -webkit-animation: 2s animateRight linear -1s infinite;
+              animation: 2s animateRight linear -1s infinite;
+    }
+
+    @-webkit-keyframes animateRight {
+      0% { -webkit-transform: translateY(100%); transform: translateY(100%); }
+      100% { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+    }
+    @keyframes animateRight {
+      0% { -webkit-transform: translateY(100%); transform: translateY(100%); }
+      100% { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+    }
+
+    .animated-button span:nth-child(3) {
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, rgba(8, 20, 43, 0), #2662d9);
+      -webkit-animation: 2s animateBottom linear infinite;
+              animation: 2s animateBottom linear infinite;
+    }
+
+    @-webkit-keyframes animateBottom {
+      0% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+      100% { -webkit-transform: translateX(100%); transform: translateX(100%); }
+    }
+    @keyframes animateBottom {
+      0% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+      100% { -webkit-transform: translateX(100%); transform: translateX(100%); }
+    }
+
+    .animated-button span:nth-child(4) {
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(8, 20, 43, 0), #2662d9);
+      -webkit-animation: 2s animateLeft linear -1s infinite;
+              animation: 2s animateLeft linear -1s infinite;
+    }
+
+    @-webkit-keyframes animateLeft {
+      0% { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+      100% { -webkit-transform: translateY(100%); transform: translateY(100%); }
+    }
+    @keyframes animateLeft {
+      0% { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+      100% { -webkit-transform: translateY(100%); transform: translateY(100%); }
+    }
+
     @media (max-width: 640px) {
       .top-bar { flex-direction: column; align-items: flex-start; }
       .lang-bar { justify-content: flex-start; }
@@ -287,40 +422,38 @@
     <div class="top-bar-left">DEEP PRESS ANALYSIS · ЕЖЕДНЕВНЫЙ БРИФИНГ</div>
 
     <div class="top-bar-right">
-
-      <a class="social-btn" href="https://t.me/DeepPressAnalysis" target="_blank" rel="noopener">
-        <span class="social-icon">
-          <svg viewBox="0 0 24 24"><defs><linearGradient id="tgGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs><rect x="1" y="1" width="22" height="22" rx="11" fill="url(#tgGrad)"/><path d="M7 12.5L16.5 7.5C16.9 7.3 17.3 7.6 17.1 8.1L14.6 16C14.4 16.6 13.7 16.8 13.3 16.3L11.4 14.1L9.6 15.7C9.3 15.9 8.9 15.8 8.8 15.4L7.2 13C6.9 12.5 6.7 12.1 7 12.5Z" fill="#f9fafb"/></svg>
-        </span>
-        <span>Telegram</span>
-      </a>
-
-      <a class="social-btn" href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" target="_blank" rel="noopener">
-        <span class="social-icon">
-          <svg viewBox="0 0 24 24"><defs><linearGradient id="ytGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#b91c1c"/></linearGradient></defs><rect x="1" y="1" width="22" height="22" rx="6" fill="url(#ytGrad)"/><path d="M10 15L15 12L10 9V15Z" fill="#f9fafb"/></svg>
-        </span>
-        <span class="social-label">YouTube</span>
-      </a>
-
-      <a class="social-btn" href="https://www.tiktok.com/@deeppressanalysis" target="_blank" rel="noopener">
-        <span class="social-icon">
-          <svg viewBox="0 0 24 24">
-            <defs>
-              <linearGradient id="ttGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#25F4EE"/>
-                <stop offset="50%" stop-color="#ffffff"/>
-                <stop offset="100%" stop-color="#FE2C55"/>
-              </linearGradient>
-            </defs>
-            <rect x="1" y="1" width="22" height="22" rx="6" fill="#000"/>
-            <path
-              d="M14.5 5.2c.8.9 1.8 1.5 3 1.6v2.1c-1.2-.1-2.3-.5-3-1v5.4c0 2.7-2.1 4.9-4.8 4.9-2.7 0-4.8-2.2-4.8-4.9 0-2.6 2.1-4.8 4.7-4.9v2.3c-1.3.1-2.4 1.2-2.4 2.6 0 1.4 1.1 2.6 2.5 2.6s2.5-1.2 2.5-2.6V5.2h2.3z"
-              fill="url(#ttGrad)"
-            />
+      
+      <div class="social email">
+        <a href="mailto:deeppressanalysis@protonmail.com" target="_blank">
+          <svg role="img" viewBox="0 0 512 512">
+            <path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/>
           </svg>
-        </span>
-        <span>TikTok</span>
-      </a>
+        </a>
+      </div>
+
+      <div class="social telegram">
+        <a href="https://t.me/DeepPressAnalysis" target="_blank" rel="noopener noreferrer">
+          <svg role="img" viewBox="0 0 448 512">
+            <path fill="currentColor" d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="social x">
+        <a href="https://x.com/deeppressanalys" target="_blank" rel="noopener noreferrer">
+          <svg role="img" viewBox="0 0 512 512">
+            <path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="social youtube">
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" target="_blank" rel="noopener noreferrer">
+          <svg role="img" viewBox="0 0 576 512">
+            <path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+          </svg>
+        </a>
+      </div>
 
     </div>
   </div>
@@ -877,12 +1010,13 @@
       </a>
     </p>
 
-    <div class="contact-section">
-      <div class="contact-label">Связь / Email</div>
-      <a href="mailto:deeppressanalysis@protonmail.com" class="metal-email">
-        deeppressanalysis@protonmail.com
+    <div class="footer-actions">
+      <a class="animated-button" href="https://deeppressanalysis.com/manifesto.html">
+        <span></span><span></span><span></span><span></span>
+        Манифест
       </a>
     </div>
+
   </footer>
 
 </div>
