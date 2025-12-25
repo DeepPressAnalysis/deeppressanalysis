@@ -2,58 +2,70 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <title>Deep Press Analysis — Глобальний медіа-брифінг: 24 грудня 2025</title>
+  <title>Deep Press Analysis — Різдвяний випуск: 25 грудня 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <meta
     name="description"
-    content="Deep Press Analysis — Глобальний брифінг за 24 грудня 2025: Повернення Наварро і торгові війни, криза безпеки в Ізраїлі (Haaretz), перезавантаження UK-EU, Steam Machine 2026 та домашні роботи."
+    content="Deep Press Analysis — Глобальний медіа-брифінг за 25 грудня 2025: Блокада Венесуели Трампом, квантовий прорив, податки у Британії, Steam Machine 2026, криза «етичних» брендів."
   />
-  <meta
-    name="keywords"
-    content="Deep Press Analysis, Глобальний брифінг, 24 грудня 2025, Пітер Наварро, торгові війни, Ізраїль, Haaretz, Steam Machine, робототехніка, Брекзит, Україна, G7"
-  />
+  <meta name="keywords" content="Геополітика, аналіз ринків, Пітер Наварро, квантові обчислення, санкції Венесуела, технотренди 2026, Deep Press Analysis" />
   <meta name="robots" content="index, follow" />
-
-  <link rel="canonical" href="https://deeppressanalysis.com/ua/index.html" />
-  <link rel="alternate" href="https://deeppressanalysis.com/" hreflang="x-default" />
-  <link rel="alternate" href="https://deeppressanalysis.com/en/index.html" hreflang="en" />
-  <link rel="alternate" href="https://deeppressanalysis.com/ru/index.html" hreflang="ru" />
-  <link rel="alternate" href="https://deeppressanalysis.com/de/index.html" hreflang="de" />
-  <link rel="alternate" href="https://deeppressanalysis.com/ua/index.html" hreflang="uk" />
-
-  <meta property="og:site_name" content="Deep Press Analysis" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Deep Press Analysis — Глобальний медіа-брифінг: 24 грудня 2025" />
-  <meta property="og:description" content="Щоденний синтез топових міжнародних видань: ринки, геополітика, технології та інституційні ризики." />
-  <meta property="og:url" content="https://deeppressanalysis.com/ua/index.html" />
 
   <style>
     :root {
       --bg: #020617;
       --glass: rgba(15,23,42,0.72);
       --border: rgba(148,163,184,0.35);
-      --border-strong: rgba(148,163,184,0.7);
+      --border-strong: rgba(218, 165, 32, 0.5); /* Golden border */
       --text: #e5e7eb;
       --muted: #9ca3af;
-      --accent: #22d3ee;
-      --accent-soft: #38bdf8;
+      --accent: #FFD700; /* Gold */
+      --accent-soft: #F0E68C; /* Khaki/Soft Gold */
+      --festive-red: #d42e2e;
+      --festive-green: #2e8b57;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100vh;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      background: radial-gradient(circle at top, #0f1c30 0, #020617 45%, #000 100%);
       color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
       padding: 20px 14px 40px;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      text-align: left;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    .page { max-width: 980px; margin: 0 auto; }
+    /* --- SNOWFALL EFFECT --- */
+    .snow-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .snowflake {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to { transform: translateY(105vh); }
+    }
+
+    .page { max-width: 980px; margin: 0 auto; position: relative; z-index: 1; }
 
     /* ---------- SOCIAL BUTTONS CSS ---------- */
     .social {display: inline-block;}
@@ -68,20 +80,22 @@
         border-radius: 24px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         transition: all 0.2s;
+        background-color: rgba(255,255,255,0.05);
     }
     .social a:hover {
-        border-color: #888;
-        opacity: .8;
+        border-color: var(--accent);
+        transform: scale(1.1);
+        box-shadow: 0 0 15px var(--accent);
     }
     .social svg {
         margin-top: 7px;
         width: 32px;
         height: 32px;
     }
-    .email a {background: #5bc7ff}
-    .telegram a {background: #249bd7}
-    .x a {background: #000}
-    .youtube a {background: #c4302b}
+    .email a {background: linear-gradient(135deg, #5bc7ff, #0056b3);}
+    .telegram a {background: linear-gradient(135deg, #249bd7, #004a80);}
+    .x a {background: #000; border: 1px solid #333;}
+    .youtube a {background: linear-gradient(135deg, #c4302b, #800000);}
 
     /* ---------- LANGUAGE BAR ---------- */
     .lang-bar {
@@ -96,12 +110,13 @@
       text-decoration: none; display: inline-block; transition: all 0.2s;
     }
 
-    .lang-pill:hover { border-color: var(--accent); color: var(--text); }
+    .lang-pill:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 8px rgba(255, 215, 0, 0.4); }
 
     .lang-pill.active {
-      border-color: var(--accent-soft); color: #f9fafb;
-      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.35), #020617);
-      box-shadow: 0 0 12px rgba(56,189,248,0.5); cursor: default;
+      border-color: var(--accent); color: #000;
+      font-weight: bold;
+      background: linear-gradient(45deg, #FFD700, #FDB931);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.6); cursor: default;
     }
 
     /* ---------- TOP BAR ---------- */
@@ -109,51 +124,63 @@
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: 12px; gap: 10px;
     }
-
     .top-bar-left {
       font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
-      color: var(--muted); opacity: 0.9;
+      color: var(--accent-soft); opacity: 1; text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
     }
-
     .top-bar-right {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      align-items: center;
+      display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center;
     }
 
-    /* ---------- HEADER ---------- */
+    /* ---------- HEADER (HOLIDAY EDITION) ---------- */
     header {
       margin-bottom: 26px; border-radius: 20px; padding: 20px 20px 18px;
-      background: radial-gradient(circle at 0 -40%, rgba(56,189,248,0.24), transparent 60%),
+      background: radial-gradient(circle at 50% -20%, rgba(255, 215, 0, 0.15), transparent 60%),
                   linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
-      border: 1px solid rgba(148,163,184,0.4);
-      box-shadow: 0 26px 60px rgba(0,0,0,0.95), inset 0 0 0 0.5px rgba(255,255,255,0.04);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 20px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255, 215, 0, 0.1);
       backdrop-filter: blur(26px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+        background: linear-gradient(90deg, transparent, #FFD700, #fff, #FFD700, transparent);
+        opacity: 0.8;
     }
 
     .header-main { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
 
     h1.site-title {
       font-size: 26px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
-      background: linear-gradient(90deg, #bfc5cc, #ffffff, #a4aab2, #ffffff);
+      background: linear-gradient(90deg, #FDB931, #FFFFAC, #D1B464, #FFFFAC);
       background-size: 250%; -webkit-background-clip: text; color: transparent;
-      animation: chromeBase 4s linear infinite; margin: 0;
+      animation: chromeBase 6s linear infinite; margin: 0;
+      text-shadow: 0 0 20px rgba(255,215,0,0.3);
     }
-
     @keyframes chromeBase { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
 
     .site-tagline { font-size: 12px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
-    .header-date { margin-top: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: #e5e7eb; }
+    
+    .header-date { 
+        margin-top: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; 
+        color: #e5e7eb; display: flex; align-items: center; gap: 8px; justify-content: flex-start;
+    }
+
+    .holiday-badge {
+        background: rgba(255, 215, 0, 0.2); border: 1px solid #FFD700; color: #FFD700;
+        padding: 2px 8px; border-radius: 4px; font-size: 10px; margin-left: 10px;
+    }
+
     .header-note { font-size: 13px; color: var(--muted); margin-top: 8px; }
     .header-focus { margin-top: 6px; margin-bottom: 16px; font-size: 13px; color: #d1d5db; }
-    .header-focus strong { color: var(--accent-soft); font-weight: 600; }
+    .header-focus strong { color: var(--accent); font-weight: 600; }
 
-    /* Spotify Frame Wrapper */
     .spotify-wrapper {
       border-radius: 12px; overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      border: 1px solid rgba(148,163,184,0.2);
+      border: 1px solid rgba(255, 215, 0, 0.2);
       background: #000;
     }
 
@@ -162,24 +189,20 @@
 
     section.outlet {
       background: linear-gradient(135deg, rgba(15,23,42,0.94), rgba(15,23,42,0.86));
-      border-radius: 18px; border: 1px solid var(--border); padding: 16px 16px 14px;
+      border-radius: 18px; border: 1px solid rgba(148,163,184,0.3); 
+      padding: 16px 16px 14px;
       box-shadow: 0 22px 50px rgba(0,0,0,0.9); backdrop-filter: blur(26px);
+      position: relative;
     }
 
-    /* ---------- OUTLET TITLE: AURORA DRIFT ---------- */
     section.outlet h2 {
-      font-size: 18px;
-      margin-bottom: 4px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      font-size: 18px; margin-bottom: 4px; letter-spacing: 0.14em; text-transform: uppercase;
       display: inline-block;
-      
-      background: linear-gradient(90deg,#22d3ee,#a78bfa,#34d399,#f472b6,#22d3ee);
+      background: linear-gradient(90deg, #FFD700, #ff6b6b, #4ecdc4, #FFD700);
       background-size: 300% 100%;
       -webkit-background-clip: text; color: transparent;
-      animation: aurora 10s ease-in-out infinite;
+      animation: aurora 8s ease-in-out infinite;
     }
-
     @keyframes aurora {
       0% { background-position: 0% 0%; }
       50% { background-position: 100% 0%; }
@@ -192,17 +215,17 @@
     /* CARD STYLES */
     .article-card {
       position: relative; border-radius: 14px;
-      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.9), #020617);
-      border: 1px solid rgba(148,163,184,0.35); overflow: hidden;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.9), inset 0 0 0 0.5px rgba(255,255,255,0.02);
-      backdrop-filter: blur(18px); transition: all 0.16s ease;
+      background: radial-gradient(circle at 0 0, rgba(20, 30, 50, 0.95), #020617);
+      border: 1px solid rgba(255,255,255,0.08); overflow: hidden;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.9);
+      backdrop-filter: blur(18px); transition: all 0.2s ease;
     }
 
     .article-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 20px 44px rgba(0,0,0,1), 0 0 24px rgba(56,189,248,0.2);
-      border-color: var(--border-strong);
-      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.96), #020617);
+      box-shadow: 0 20px 44px rgba(0,0,0,1), 0 0 15px rgba(255, 215, 0, 0.1);
+      border-color: rgba(255, 215, 0, 0.4);
+      background: radial-gradient(circle at 0 0, rgba(25, 40, 65, 0.96), #020617);
     }
 
     .article-header {
@@ -211,7 +234,7 @@
     }
 
     .article-main { display: flex; align-items: baseline; gap: 8px; flex: 1; min-width: 0; }
-    .article-index { font-size: 12px; color: var(--accent-soft); opacity: 0.85; min-width: 18px; flex-shrink: 0; }
+    .article-index { font-size: 12px; color: var(--accent); opacity: 0.85; min-width: 18px; flex-shrink: 0; text-shadow: 0 0 5px rgba(255,215,0,0.5); }
 
     h3.article-title {
       font-weight: 650; font-size: 14px;
@@ -223,24 +246,24 @@
       width: 22px; height: 22px; border-radius: 999px;
       display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
       border: 1px solid rgba(148,163,184,0.5); color: var(--muted); font-size: 12px;
-      background: radial-gradient(circle at 30% 0, rgba(248,250,252,0.14), transparent 60%);
+      background: rgba(255,255,255,0.05);
       transition: all 0.2s ease;
     }
 
     .article-card.open .article-toggle {
-      transform: rotate(90deg); color: var(--accent);
-      border-color: rgba(56,189,248,0.85);
-      background: radial-gradient(circle at 30% 0, rgba(56,189,248,0.35), transparent 60%);
-      box-shadow: 0 0 18px rgba(56,189,248,0.6);
+      transform: rotate(90deg);
+      color: #000;
+      border-color: var(--accent);
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
     }
 
     .article-body {
       padding: 0 14px 12px; max-height: 0; opacity: 0;
-      font-size: 14px; color: var(--muted);
+      font-size: 14px; color: #b0b8c4;
       transition: max-height 0.26s ease-out, opacity 0.22s ease-out;
       overflow: hidden; white-space: pre-line;
     }
-
     .article-card.open .article-body { max-height: 1200px; opacity: 1; }
 
     /* ---------- FOOTER ---------- */
@@ -248,155 +271,31 @@
       margin-top: 26px; padding: 16px 16px 30px; border-radius: 16px;
       border: 1px solid var(--border); background: rgba(15,23,42,0.96);
       box-shadow: 0 18px 40px rgba(0,0,0,0.95); backdrop-filter: blur(20px);
+      text-align: center;
     }
-
-    footer h2 { font-size: 16px; margin-bottom: 8px; color: var(--accent); }
+    footer h2 { font-size: 16px; margin-bottom: 8px; color: var(--accent); text-shadow: 0 0 10px rgba(255,215,0,0.4); }
     footer p { font-size: 14px; color: var(--muted); }
 
-    .contact-section {
-      margin-top: 30px; padding-top: 20px;
-      border-top: 1px solid rgba(148,163,184,0.15); text-align: center;
-    }
-
-    .contact-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b; margin-bottom: 8px; }
-
-    .metal-email {
-      display: inline-block; font-size: 14px; text-decoration: none; letter-spacing: 0.5px;
-      background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 40%, #999999 100%);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
-      animation: red-aura-pulse 3s infinite alternate; transition: transform 0.2s, filter 0.2s;
-    }
-
-    .metal-email:hover { transform: scale(1.02); filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.9)); animation: none; cursor: pointer; }
-
-    @keyframes red-aura-pulse {
-      0% { filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3)); }
-      50% { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.8)); }
-      100% { filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.3)); }
-    }
-
-    /* ===========================
-       MANIFESTO BUTTON STYLES
-       =========================== */
-
-    .footer-actions {
-      margin-top: 14px;
-      display: flex;
-      justify-content: center;
-    }
+    .footer-actions { margin-top: 14px; display: flex; justify-content: center; }
 
     .animated-button {
-      background: linear-gradient(-30deg, #0b1b3d 50%, #08142b 50%);
-      padding: 14px 26px;
-      margin: 12px 0 0;
-      display: inline-block;
-      -webkit-transform: translate(0%, 0%);
-              transform: translate(0%, 0%);
-      overflow: hidden;
-      color: #d4e0f7;
-      font-size: 14px;
-      letter-spacing: 2.5px;
-      text-align: center;
-      text-transform: uppercase;
-      text-decoration: none;
-      -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-              box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-      border-radius: 14px;
-      position: relative;
+      background: linear-gradient(-30deg, #1a2f55 50%, #08142b 50%);
+      padding: 14px 26px; margin: 12px 0 0; display: inline-block;
+      overflow: hidden; color: #FFD700; font-size: 14px; letter-spacing: 2.5px;
+      text-align: center; text-transform: uppercase; text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); border-radius: 14px; position: relative;
+      border: 1px solid rgba(255,215,0,0.2);
     }
+    .animated-button:hover {
+        background: #1a2f55;
+        box-shadow: 0 0 20px rgba(255,215,0,0.3);
+    }
+    .animated-button span { position: absolute; background: #FFD700; }
 
-    .animated-button::before {
-      content: '';
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      background-color: #8592ad;
-      opacity: 0;
-      -webkit-transition: .2s opacity ease-in-out;
-      transition: .2s opacity ease-in-out;
-    }
-
-    .animated-button:hover::before { opacity: 0.2; }
-
-    .animated-button span { position: absolute; }
-
-    .animated-button span:nth-child(1) {
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to left, rgba(8, 20, 43, 0), #2662d9);
-      -webkit-animation: 2s animateTop linear infinite;
-              animation: 2s animateTop linear infinite;
-    }
-
-    @-webkit-keyframes animateTop {
-      0% { -webkit-transform: translateX(100%); transform: translateX(100%); }
-      100% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
-    }
-    @keyframes animateTop {
-      0% { -webkit-transform: translateX(100%); transform: translateX(100%); }
-      100% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
-    }
-
-    .animated-button span:nth-child(2) {
-      top: 0px;
-      right: 0px;
-      height: 100%;
-      width: 2px;
-      background: linear-gradient(to top, rgba(8, 20, 43, 0), #2662d9);
-      -webkit-animation: 2s animateRight linear -1s infinite;
-              animation: 2s animateRight linear -1s infinite;
-    }
-
-    @-webkit-keyframes animateRight {
-      0% { -webkit-transform: translateY(100%); transform: translateY(100%); }
-      100% { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
-    }
-    @keyframes animateRight {
-      0% { -webkit-transform: translateY(100%); transform: translateY(100%); }
-      100% { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
-    }
-
-    .animated-button span:nth-child(3) {
-      bottom: 0px;
-      left: 0px;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, rgba(8, 20, 43, 0), #2662d9);
-      -webkit-animation: 2s animateBottom linear infinite;
-              animation: 2s animateBottom linear infinite;
-    }
-
-    @-webkit-keyframes animateBottom {
-      0% { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
-      100% { -webkit-transform: translateX(100%); transform: translateX(100%); }
-    }
-    @keyframes animateBottom {
-      0% { -webkit-transform: translateX(-100%); transform: translateX(100%); }
-      100% { -webkit-transform: translateX(100%); transform: translateX(100%); }
-    }
-
-    .animated-button span:nth-child(4) {
-      top: 0px;
-      left: 0px;
-      height: 100%;
-      width: 2px;
-      background: linear-gradient(to bottom, rgba(8, 20, 43, 0), #2662d9);
-      -webkit-animation: 2s animateLeft linear -1s infinite;
-              animation: 2s animateLeft linear -1s infinite;
-    }
-
-    @-webkit-keyframes animateLeft {
-      0% { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
-      100% { -webkit-transform: translateY(100%); transform: translateY(100%); }
-    }
-    @keyframes animateLeft {
-      0% { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
-      100% { -webkit-transform: translateY(100%); transform: translateY(100%); }
-    }
+    .animated-button span:nth-child(1) { top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to left, transparent, #FFD700); animation: animateTop 2s linear infinite; }
+    .animated-button span:nth-child(2) { top: 0; right: 0; height: 100%; width: 2px; background: linear-gradient(to top, transparent, #FFD700); animation: animateRight 2s linear -1s infinite; }
+    .animated-button span:nth-child(3) { bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, transparent, #FFD700); animation: animateBottom 2s linear infinite; }
+    .animated-button span:nth-child(4) { top: 0; left: 0; height: 100%; width: 2px; background: linear-gradient(to bottom, transparent, #FFD700); animation: animateLeft 2s linear -1s infinite; }
 
     @media (max-width: 640px) {
       .top-bar { flex-direction: column; align-items: flex-start; }
@@ -408,6 +307,8 @@
   </style>
 </head>
 <body>
+
+<div class="snow-container" id="snow"></div>
 
 <div class="page">
 
@@ -421,7 +322,7 @@
   </div>
 
   <div class="top-bar">
-    <div class="top-bar-left">DEEP PRESS ANALYSIS · ЩОДЕННИЙ БРИФІНГ</div>
+    <div class="top-bar-left">DEEP PRESS ANALYSIS · ЗИМОВИЙ БРИФІНГ</div>
 
     <div class="top-bar-right">
       
@@ -464,16 +365,19 @@
     <div class="header-main">
       <h1 class="site-title">Deep Press Analysis</h1>
       <div class="site-tagline">Щоденний синтез топових міжнародних видань</div>
-      <div class="header-date"><time datetime="2025-12-24">24 грудня 2025</time></div>
+      <div class="header-date">
+          <time datetime="2025-12-25">25 грудня 2025</time>
+          <span class="holiday-badge">СПЕЦВИПУСК</span>
+      </div>
     </div>
 
     <div class="header-note">
-      Підбірка ключового аналізу з провідних західних та світових ЗМІ: ринки, геополітика, війна, санкції,
-      енергетика та технології — щоб ви не просто читали заголовки, а розуміли приховану логіку подій.
+      Добірка ключової аналітики з провідних західних та світових ЗМІ: ринки, геополітика, війна, санкції,
+      енергетика та технології — щоб ви не просто читали заголовки, а бачили приховану логіку подій.
     </div>
 
     <div class="header-focus">
-      <strong>У фокусі сьогодні:</strong> Повернення Пітера Наварро і торгові війни, провал безпеки в Ізраїлі (Haaretz), перезавантаження відносин Британії та ЄС, український кредит від G7, Steam Machine 2026 та бум домашньої робототехніки.
+      <strong>У фокусі сьогодні:</strong> Блокада Венесуели, повернення Пітера Наварро, квантовий прорив, Steam Machine 2026, податковий дрейф Британії та криза «етичних» компаній.
     </div>
 
     <div class="spotify-wrapper">
@@ -491,252 +395,189 @@
   <main>
 
     <section class="outlet">
+      <h2>THE WEEK UK 🎄</h2>
+      <div class="outlet-sub">Венесуела, Erasmus, загроза НАТО, реклама, Арктика.</div>
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <h3 class="article-title">Блокада Венесуели Трампом: нафта, геополітика та приховані ризики</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Дональд Трамп перейшов до агресивної фази тиску на режим Мадуро, оголосивши «повну морську блокаду». Офіційна риторика (боротьба з наркотрафіком та захист демократії) приховує прагматичні цілі: припинення потоку біженців до США та встановлення контролю над найбільшими запасами нафти в регіоні. Для Китаю, основного покупця венесуельської нафти, це прямий сигнал про загрозу енергетичній безпеці. Ринки реагують стрибком цін на нафту, закладаючи ризики морської конфронтації. Ескалація може втягнути США у затяжний конфлікт, але Вашингтон робить ставку на швидкий економічний колапс Каракаса, ігноруючи гуманітарні наслідки.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <h3 class="article-title">Повернення Британії до програми Erasmus: ціна «перезавантаження» з ЄС</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Рішення уряду Стармера повернути Великобританію до студентської програми Erasmus до 2027 року знаменує стратегічний розворот від ізоляціонізму. Незважаючи на високу вартість (£570 млн на рік) та критику за відмову від дешевшої схеми Turing, цей крок — інвестиція у відновлення «м'якої сили» та інституційних зв'язків із Брюсселем. Угода є прелюдією до більш важливих переговорів про торгівлю продуктами харчування та електроенергією. Це сигнал бізнесу про поступову гармонізацію правил з ЄС, що знижує торгові бар'єри, але політично вразливо для звинувачень у «зраді Brexit».</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <h3 class="article-title">Загроза війни з Росією: мілітаризація суспільного порядку денного</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Заяви голови МІ-6 та генсека НАТО про перебування Європи у «просторі між миром та війною» спрямовані на підготовку громадської думки до довгострокової конфронтації. Акцент на гібридних загрозах (кібератаки, картографування підводних кабелів) обґрунтовує необхідність кратного збільшення оборонних бюджетів, які поки що стагнують. Інституційна логіка полягає у лобіюванні інтересів ВПК та консолідації альянсу перед можливим зниженням активності США. Ризик полягає у «самосправджуваному пророцтві», де ескалація риторики звужує дипломатичний простір.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <h3 class="article-title">Перегони різдвяної реклами: битва за емоції споживача</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Маркетингові війни ритейлерів (Sainsbury’s, John Lewis) перейшли з площини продукту в площину «емоційної ефективності». Аналіз показує, що кампанії, які апелюють до почуттів та «слави» (віральності), вчетверо ефективніші за раціональні пропозиції. Це відображає кризу традиційного споживання: в умовах економічної невизначеності бренди продають не товари, а почуття захищеності та ностальгії. Для інвесторів це індикатор того, що ритейл робить ставку на ірраціональну поведінку покупців для підтримки маржинальності у святковий сезон.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <h3 class="article-title">Полюс холоду та нафти: боротьба за ресурси Арктики</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Хоча стаття формально присвячена туризму, контекст «дикої Канади» та інтересу до північних територій корелює з глобальними перегонами за Арктику. Розвиток інфраструктури у важкодоступних регіонах (вертолітні маршрути, елітні лоджі) маркує повзуче освоєння територій, багатих на ресурси. На тлі танення льодовиків цей регіон стає ареною не лише туристичного, а й геостратегічного суперництва. Комерціалізація дикої природи тут йде пліч-о-пліч із закріпленням суверенітету над північними маршрутами.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>NEW SCIENTIST</h2>
+      <div class="outlet-sub">Чорні діри, клімат, квантова межа, генна інженерія, мікробіом.</div>
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <h3 class="article-title">Зірки-чорні діри: перегляд космологічної парадигми</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Відкриття «чорних дір-зірок» у ранньому Всесвіті за допомогою телескопа Джеймса Вебба загрожує переписати стандартні моделі астрофізики. Якщо гіпотеза підтвердиться, це змінить розуміння процесів формування галактик та розподілу матерії. Для наукової спільноти це означає зсув фокусу фінансування та досліджень у галузь фізики високих енергій та гравітації. Технологічно це стимулює розвиток точніших інструментів спостереження. Інтелектуальна монополія на нову теорію стане предметом конкуренції провідних світових інститутів.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <h3 class="article-title">Необоротність потепління Арктики: провал стратегії адаптації</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Дослідження показує, що навіть при зниженні рівня CO2 Арктика збереже потепління на 1,5°C через інерцію океану. Це ставить хрест на стратегіях «відкату» кліматичних змін та змушує переходити до жорсткої адаптації. Економічні наслідки колосальні: необоротне відкриття Північного морського шляху змінить глобальну логістику, але руйнування інфраструктури на вічній мерзлоті вимагатиме трильйонних вкладень. Ринкам страхування та нерухомості належить переоцінка ризиків північних активів, які стають токсичними.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <h3 class="article-title">Квантовий прорив: кубіти долають часовий бар'єр</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Вчені знайшли спосіб змусити кубіти зберігати інформацію довше, порушуючи фундаментальну квантову межу. Це критичний крок до створення стабільних квантових комп'ютерів, здатних зламувати сучасні шифри. Технологія має подвійне призначення: комерційне (надшвидкі обчислення) та військове (дешифрування). Перегони за практичну реалізацію цього методу посилять технологічне суперництво між США та Китаєм. Той, хто першим масштабує рішення, отримає стратегічну перевагу в кібербезпеці та моделюванні матеріалів.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <h3 class="article-title">Генний драйв проти малярії: етика та біобезпека</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Успішне тестування технології генного редагування комарів відкриває скриньку Пандори в екології. Можливість знищувати хвороби шляхом зміни геному диких популяцій обіцяє величезні вигоди фарміндустрії та економікам країн, що розвиваються. Однак це створює непередбачувані біологічні ризики та правові колізії: комарі не знають кордонів. Відсутність глобального регулювання таких технологій створює загрозу їх застосування як біологічної зброї або інструменту екологічного шантажу.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <h3 class="article-title">Аналіз мікробіому: комерціалізація персональних даних</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Розвиток сервісів на кшталт Zoe, що оцінюють здоров'я за мікробіомом, знаменує перехід до гіпер-персоналізованої медицини. Збір масових даних про біологічні параметри населення стає активом для Big Tech та страховиків. Прихована логіка — перенесення відповідальності за здоров'я на індивіда та створення нових ринків БАДів та функціонального харчування. Ризик полягає у відсутності стандартів інтерпретації даних, що відкриває простір для маркетингових маніпуляцій та недобросовісної конкуренції у сфері Wellness.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="outlet">
       <h2>THE NEW YORKER</h2>
-      <div class="outlet-sub">Пітер Наварро, шлюбні контракти, криза читання, даркнет у політиці, смерть словників.</div>
+      <div class="outlet-sub">Шлюбні контракти, Пітер Наварро, словники, MAHA, даркнет.</div>
       <div class="articles-list">
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">1</div>
-              <h3 class="article-title">Пітер Наварро: архітектор торгових воєн повертається</h3>
+              <h3 class="article-title">Зростання популярності шлюбних контрактів: фінансіалізація стосунків</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div class="article-body">Профіль Пітера Наварро, ключового радника Трампа з торгівлі, сигналізує про неминуче посилення протекціоністської політики США. Наварро, відомий своєю теорією «смерті від Китаю», уособлює відмову від глобалізації на користь економічного націоналізму. Для ринків це означає підвищення волатильності в торгових ланцюгах та ймовірне введення нових тарифів, які зачеплять не лише КНР, а й союзників США. Політичне повернення таких фігур вказує на консолідацію яструбів, готових використовувати економіку як геополітичну зброю. У довгостроковій перспективі це створює ризики примусового решорінгу (повернення виробництв) для транснаціональних корпорацій. Стаття підсвічує інституційну слабкість стримувань, коли ідеологізовані радники отримують прямий доступ до прийняття рішень.</div>
+          <div class="article-body">Сплеск інтересу міленіалів та зумерів до пренапів (зростання з 3% до 21% і вище) сигналізує про фундаментальне зрушення в інституті шлюбу. Стосунки все частіше розглядаються через призму управління ризиками та захисту активів. Це створює новий ринок для LegalTech-стартапів. Соціально це відображає глибоку недовіру до інституцій та партнерів, а також прагматизацію особистого життя, де «любов зустрічається з логікою» в умовах економічної нестабільності.</div>
         </div>
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">2</div>
-              <h3 class="article-title">Шлюбний контракт як новий економічний імператив</h3>
+              <h3 class="article-title">Пітер Наварро та тарифні війни: ідеологія протекціонізму</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div class="article-body">Зростання популярності шлюбних контрактів (prenups) серед міленіалів та зумерів відображає фундаментальний зсув у сприйнятті шлюбу як економічного партнерства на тлі фінансової нестабільності. Це вже не інструмент надбагатих, а механізм захисту активів середнього класу в умовах інфляції та складної структури доходів (криптовалюти, IP). Тенденція вказує на зниження довіри до традиційних правових інститутів сім'ї та перехід до договірних відносин, де ризики хеджуються заздалегідь. Для Wealth Management це відкриває новий ринок послуг. Соціологічно це маркер прагматизації відносин, де жінки все частіше виступають ініціаторами фінансового захисту.</div>
+          <div class="article-body">Профіль Пітера Наварро, архітектора торгових воєн Трампа, демонструє, як маргінальні економічні теорії стають державним мейнстрімом через особисту лояльність лідеру. Укорінення ідеї, що торгівля — це гра з нульовою сумою, загрожує глобальним ланцюжкам постачання. Повернення фігур подібного штибу в орбіту влади сигналізує про те, що протекціонізм і тарифні бар'єри стануть довгостроковою нормою. Для бізнесу це означає необхідність перебудови логістики з розрахунком на фрагментацію ринків.</div>
         </div>
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">3</div>
-              <h3 class="article-title">Криза грамотності як системний ризик ринку праці</h3>
+              <h3 class="article-title">Криза словників: хто контролює значення слів?</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div class="article-body">Проблема навчання читанню в США виходить за рамки педагогіки і стає фактором якості людського капіталу. Ігнорування «науки про читання» (Science of Reading) призводить до того, що значна частина робочої сили випадає з високотехнологічної економіки, збільшуючи соціальну нерівність. Для EdTech-сектору це сигнал про гігантський попит на ефективні інструменти навчання. Системний збій у державній освіті створює можливості для приватного капіталу зайняти нішу підготовки кадрів. Політично це бомба уповільненої дії, що живить популізм, оскільки низька грамотність корелює зі сприйнятливістю до дезінформації. Реформа освіти стає економічним імперативом для збереження конкурентоспроможності нації.</div>
+          <div class="article-body">Перехід словників в онлайн та домінування алгоритмів пошуку змінюють природу істини. Словники перестають бути нормативними арбітрами, перетворюючись на фіксаторів поточного вжитку (включаючи сленг та меми). Це розмиває мовні стандарти, але демократизує мову. Небезпека криється в тому, що технологічні платформи (Google, Oxford online) стають непрозорими гейткіперами смислової реальності. Боротьба за дефініції стає частиною культурних воєн, де мова використовується як інструмент політичного впливу.</div>
         </div>
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">4</div>
-              <h3 class="article-title">«Темна мережа» та радикалізація мейнстріму</h3>
+              <h3 class="article-title">Феномен MAHA: політизація здорового способу життя</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div class="article-body">Аналіз вказує на стирання меж між маргінальними інтернет-субкультурами та великою політикою. Платформи, що раніше вважалися прихистком екстремістів, тепер формують порядок денний, впливаючи на електоральні вподобання. Це створює репутаційні та регуляторні ризики для техногігантів, які зіткнуться з посиленням модерації. Політичний капітал конвертується з онлайн-радикалізму в реальні голоси, дестабілізуючи традиційні партійні системи. Для інвесторів у медіа це сигнал про зростання витрат на комплаєнс та фрагментацію інтернету. Феномен «витоку переконань» з даркнету вимагає перегляду моделей оцінки соціально-політичних ризиків.</div>
+          <div class="article-body">Рух «Make America Healthy Again» (MAHA) маркує злиття політичного популізму з альтернативною медициною та скептицизмом до науки. Це створює електоральну базу для дерегуляції фармринку та атак на традиційні інститути охорони здоров'я. Політизація питань здоров'я (вакцини, харчування) розколює суспільство та підриває довіру до експертизи. Для інвесторів у Healthcare це сигнал про зростання волатильності та можливі регуляторні зміни під тиском популістів.</div>
         </div>
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">5</div>
-              <h3 class="article-title">Майбутнє мови в епоху цифрової диктатури</h3>
+              <h3 class="article-title">Темна сторона мережі: легітимізація екстремізму</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div class="article-body">Трансформація словників у гнучкі цифрові бази даних відображає кризу експертного знання. Вплив алгоритмів на мовну норму означає перехід контролю над сенсами від академічних еліт до техплатформ. Англійська мова як інструмент м'якої сили стає більш хаотичною. Для AI-індустрії це виклик: на яких даних навчати нейромережі, якщо норма розмивається? Збіднення або мутація мови може ускладнити міжнародну комунікацію та юридичну визначеність. Ринок лексикографії відроджується як частина інфраструктури даних для ШІ, де «значення» визначається частотою використання, а не традицією.</div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="outlet">
-      <h2>HAARETZ (ISRAEL)</h2>
-      <div class="outlet-sub">Рекорд вбивств, легалізація форпостів, буферна зона в Газі, політизація 7 жовтня, скандал з Австралією.</div>
-      <div class="articles-list">
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">1</div>
-              <h3 class="article-title">Рекордний рівень вбивств і провал внутрішньої безпеки</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Різке зростання насильницької злочинності в арабському секторі Ізраїлю (понад 300 вбивств) за міністра Бен-Гвіра сигналізує про втрату державою монополії на насильство в цілих регіонах. Кримінальні клани заміщують інститути влади, створюючи ризики «держави в державі». Політична вигода для ультраправих полягає в можливості використовувати хаос як привід для ще більш жорстких заходів, проте слабкість поліції загрожує стабільності країни. Для економіки це означає зростання витрат на безпеку та зниження інвестицій у периферію. Ігнорування проблеми урядом Нетаньягу посилює соціальний розкол і може призвести до масштабних заворушень.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">2</div>
-              <h3 class="article-title">Легалізація форпостів як фактична анексія</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Рішення уряду легалізувати 19 форпостів та скасувати закон про розмежування в Самарії де-факто закріплює повзучу анексію територій. Це торпедує будь-які майбутні можливості створення палестинської держави та ставить під удар нормалізацію відносин із Саудівською Аравією. Для Гааги це стане додатковим аргументом на користь звинувачень у порушенні міжнародного права. Внутрішньо це зміцнює базу поселенського руху, роблячи його домінуючою силою. Економічно це тягне за собою перенаправлення бюджетних коштів на інфраструктуру поселень. Ізраїль ризикує опинитися в дипломатичній ізоляції з боку ЄС, роблячи ставку виключно на підтримку Трампа.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">3</div>
-              <h3 class="article-title">Буферна зона в Газі: довгострокова окупація</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Супутникові дані підтверджують створення «стерильної» зони безпеки всередині сектору Газа шляхом систематичного знесення будівель, що вказує на стратегію довгострокової військової присутності. Це гарантує постійне тертя з місцевим населенням та навантаження на бюджет. Буферна зона знижує ризик прямих проривів, але не вирішує проблему ракетних обстрілів чи тунелів. Політично це створює факти на землі, які буде вкрай складно демонтувати в рамках переговорів. Будівництво нової військової інфраструктури свідчить про підготовку до окупації за моделлю Західного берега.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">4</div>
-              <h3 class="article-title">Законопроект про політизоване розслідування 7 жовтня</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Просування законопроекту про створення комісії з розслідування під контролем політиків, а не суддів, спрямоване на захист Нетаньягу від відповідальності. Це підриває довіру до державних інститутів та створює прецедент втручання виконавчої влади у процес пошуку істини. Ризик полягає в тому, що висновки такої комісії будуть сприйняті як нелегітимні, що посилить внутрішній громадянський конфлікт. Для ринків це сигнал про продовження ерозії верховенства права. Відсутність незалежного розслідування не дозволить винести реальні уроки, залишаючи систему безпеки вразливою.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">5</div>
-              <h3 class="article-title">Дипломатичний скандал з Австралією</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Ворожий прийом прем'єр-міністра Австралії на єврейському заході оголює прірву між лівоцентристськими урядами Заходу та Ізраїлем. Антиізраїльські настрої стають фактором внутрішньої політики західних країн, впливаючи на електоральні цикли. Ізраїль втрачає традиційну двопартійну підтримку союзників. Австралія дрейфує в бік більш критичної позиції, що загрожує наслідками в ООН. Єврейська діаспора стає заручницею геополітичної поляризації, змушена обирати між лояльністю місцевому уряду та підтримкою Ізраїлю, що вимагає перегляду інструментів роботи з діаспорою.</div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="outlet">
-      <h2>THE JERUSALEM POST (ISRAEL)</h2>
-      <div class="outlet-sub">Іранські ракети, альянс проти Туреччини, іракські міліції, міф про С-500, санкції проти ХАМАС.</div>
-      <div class="articles-list">
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">1</div>
-              <h3 class="article-title">Іранська балістична загроза як новий пріоритет</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Інтерв'ю сенатора Ліндсі Грема зміщує фокус з ядерної програми Ірану на його конвенційний ракетний арсенал. Це сигнал про підготовку до збільшення фінансування ізраїльської ПРО (Iron Beam) і, можливо, до превентивних ударів. Визнання ракетної загрози стратегічною змінює доктрину стримування. Для оборонного сектору це нові контракти. Геополітично це спроба пов'язати безпеку Ізраїлю безпосередньо з безпекою США, очікуючи більш агресивної політики адміністрації Трампа.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">2</div>
-              <h3 class="article-title">Східно-середземноморський альянс проти Туреччини</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Саміт Ізраїль-Греція-Кіпр трансформується в повноцінний оборонний альянс, спрямований на стримування Туреччини. Замість газопроводу EastMed на перший план виходять спільні військові навчання та координація спецслужб. Це створює новий баланс сил, ізолюючи Анкару та підвищуючи ризик ескалації. Для енергетичних ринків це сигнал, що експорт газу піде через СПГ-термінали Єгипту або Кіпру. Ізраїль диверсифікує свої регіональні союзи, не покладаючись лише на арабських партнерів по «Угодах Авраама».</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">3</div>
-              <h3 class="article-title">Проблема роззброєння іракських ополчень</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Тиск на проіранські міліції в Іраку відкриває новий фронт боротьби за вплив Тегерана. Опір цих груп створює ризик громадянської війни або відновлення атак на бази США. Для нафтового ринку нестабільність в Іраку — традиційний «бичачий» фактор. Спроба інтегрувати бойовиків у державні структури може призвести до «ліванізації» Іраку. Ситуація демонструє межі іранського впливу під тиском міжнародних посередників.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">4</div>
-              <h3 class="article-title">Міф про перевагу С-500 над F-35</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Стаття, що дезавуює можливості російської системи С-500 проти стелс-винищувачів, є елементом інформаційної війни на ринку озброєнь. Ствердження переваги західних технологій (F-35) важливе для збереження стратегічного стримування в Сирії та Ірані. Публікація також слугує попередженням Ірану не розраховувати на російські поставки як на панацею. У довгостроковій перспективі це стимулює гонку технологій РЕБ та гіперзвукової зброї.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">5</div>
-              <h3 class="article-title">Фінансові санкції Британії проти ХАМАС</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Можливі санкції Лондона проти мережі ХАМАС переносять війну у правове та фінансове поле Європи. Це удар по фандрайзингу угруповання через НУО. Для європейських банків будь-які транзакції з палестинськими активістами стають «токсичними». Розширення визначення терористичної діяльності створює прецедент для інших країн ЄС. Уряд Стармера демонструє жорсткість, а Ізраїль лобіює перекриття фінансового кисню ХАМАС у глобальному масштабі.</div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="outlet">
-      <h2>THE OBSERVER</h2>
-      <div class="outlet-sub">Перезавантаження з ЄС, кредит Україні, крах Bumble, голодування Palestine Action, ресурси Азії.</div>
-      <div class="articles-list">
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">1</div>
-              <h3 class="article-title">Вес Стрітінг і «перезавантаження» відносин з ЄС</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Інтерв'ю міністра Стрітінга виявляє стратегічний розворот лейбористів: визнання економічної шкоди від Brexit та необхідність поглиблення зв'язків з ЄС. Заяви про бажання увійти до митного союзу — це пробна куля для тестування реакції. Для бізнесу це сигнал про можливе зниження бар'єрів, але політично це ризиковано через Reform UK. Стрітінг пов'язує зростання економіки безпосередньо з євроінтеграцією. Фінансові ринки бачать у цьому пошук джерел зростання поза підвищенням податків.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">2</div>
-              <h3 class="article-title">Кредит G7 Україні за рахунок російських активів</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Узгодження кредиту в £79 млрд для Києва, забезпеченого доходами від заморожених активів РФ, створює новий фінансово-правовий прецедент. Захід переходить до використання ресурсів супротивника, знижуючи навантаження на власних платників податків. Ризик полягає в потенційних юридичних контрзаходах Москви та підриві довіри до резервних валют. Для України це «фінансова крапельниця», що дозволяє пережити 2026 рік. Це рішення цементує економічний розрив між Заходом і Росією на десятиліття.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">3</div>
-              <h3 class="article-title">Корпоративна криза Bumble та права чоловіків</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Кейс додатку Bumble, змушеного відмовитися від фішки «жінки пишуть першими» під тиском позовів про дискримінацію чоловіків, ілюструє ризики ESG-політик у США. Юридичний активізм консервативних груп стає інструментом тиску на корпорації. Падіння акцій показує, що ринок карає за ідеологізовані бізнес-моделі, якщо вони не генерують зростання. Це попередження для техсектору: соціальна місія не замінить ефективність продукту. Інвесторам варто переоцінити ризики компаній, побудованих на вразливих соціальних конструктах.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">4</div>
-              <h3 class="article-title">Голодування як інструмент внутрішньої дестабілізації</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Ситуація з голодуванням активістки Palestine Action у британській в'язниці загрожує стати тригером масових протестів. Якщо вона помре, це створить фігуру мученика, посилюючи тиск на уряд щодо експорту зброї (Elbit Systems). Влада стоїть перед дилемою: поступитися шантажу або допустити смерть ув'язненої. Це підкреслює вразливість західних демократій перед внутрішнім активізмом, спрямованим проти зовнішньої політики. Для оборонних компаній це означає зростання витрат на безпеку.</div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <div class="article-index">5</div>
-              <h3 class="article-title">Дефіцит ресурсів і «літієва» дипломатія</h3>
-            </div>
-            <div class="article-toggle" aria-hidden="true">▶</div>
-          </div>
-          <div class="article-body">Ескалація на кордоні Таїланду і Камбоджі може бути передвісником конфліктів за ресурси в Південно-Східній Азії, регіоні, насиченому інтересами Китаю та США. Будь-яка нестабільність тут впливає на ланцюги поставок електроніки. Регіональні конфлікти стають розмінною монетою в піарі великих держав. Для інвесторів у ринки, що розвиваються (стратегія China+1), це нагадування про приховані політичні ризики.</div>
+          <div class="article-body">Листи читачів, що обговорюють вплив інтернет-фігур на кшталт Ніка Фуентеса, підкреслюють, як алгоритми соцмереж виводять радикальні ідеї з тіні в мейнстрім. Екстремізм стає частиною публічної дискусії. Це створює репутаційні ризики для платформ і брендів, чия реклама може опинитися поруч із токсичним контентом. Політична поляризація, що підігрівається цифровими екосистемами, робить соціальну тканину більш крихкою та непередбачуваною.</div>
         </div>
 
       </div>
@@ -744,62 +585,125 @@
 
     <section class="outlet">
       <h2>T3 UK (JANUARY 2026)</h2>
-      <div class="outlet-sub">Steam Machine 2026, робот-прибиральник 1X Neo, OnePlus 15R, розумний дім Ring, пилососи DJI.</div>
+      <div class="outlet-sub">Steam Machine 2026, робот 1X Neo, OnePlus 15, Vertu, DJI.</div>
       <div class="articles-list">
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">1</div>
-              <h3 class="article-title">Steam Machine 2026 і битва екосистем</h3>
+              <h3 class="article-title">Повернення Steam Machine: війна платформ</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div class="article-body">Повернення Valve з новою консоллю Steam Machine (Linux) розмиває межу між ПК і консольним геймінгом. Це загрожує бізнес-моделі Sony та Microsoft, посилюючи позиції хмарного геймінгу та знижуючи залежність від Windows. Успіх Steam Deck довів попит, тепер боротьба йде за вітальню. Для AMD це зміцнення позицій, а для Microsoft — ризик втрати монополії на ПК-геймінг.</div>
+          <div class="article-body">Друга спроба Valve випустити власну консоль — це стратегічний удар по монополії Windows та закритим екосистемам Sony/Microsoft. Ставка на Linux (через SteamOS) та відкритість платформи загрожує традиційній бізнес-моделі консолей, заснованій на ексклюзивах. Якщо пристрій стане масовим, це змінить розстановку сил у геймінгу, посиливши позиції PC-архітектури у вітальнях. Для розробників це сигнал про необхідність оптимізації під Linux, а для Microsoft — тривожний дзвінок про втрату контролю над ігровим "залізом".</div>
         </div>
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">2</div>
-              <h3 class="article-title">Роботизація побуту як новий люкс-сегмент</h3>
+              <h3 class="article-title">Гуманоїд 1X Neo: демократизація робототехніки</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div class="article-body">Гуманоїдний робот-прибиральник 1X Neo за $20,000 відкриває еру домашньої робототехніки преміум-класу. Це перехід від автоматів до антропоморфних помічників. Створюється величезний ринок сервісу та ПЗ, але виникають питання приватності через збір даних у домі. Інвесторам варто стежити за виробниками сенсорів. Це також крок до вирішення проблеми дефіциту персоналу з догляду.</div>
+          <div class="article-body">Поява домашнього робота-гуманоїда за ціною $20,000 (порівнянно з автомобілем) знаменує початок ери побутової антропоморфної робототехніки. Це створює новий ринок сервісного обслуговування та додатків для роботів. Однак масове впровадження пристроїв з камерами та ШІ у приватні будинки несе безпрецедентні ризики конфіденційності. Збір даних про побут користувачів стане золотою жилою для корпорацій, а питання безпеки (злам робота) перейде з кіберплощини у фізичну загрозу.</div>
         </div>
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">3</div>
-              <h3 class="article-title">Комодитизація смартфонів та стратегія «суб-флагманів»</h3>
+              <h3 class="article-title">OnePlus 15 та комодитизація флагманів</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div class="article-body">Випуск OnePlus 15R з топовим чіпом, але урізаними камерами, відображає кризу інновацій. Виробники дроблять лінійки для стимулювання попиту в умовах насичення ринку. Технології досягли плато, конкуренція зміщується в бік екосистем та ШІ. Китайські бренди продовжують демпінгувати, знижуючи маржинальність ринку. Для інвесторів у hardware це сигнал шукати точки зростання в AR або носимій електроніці.</div>
+          <div class="article-body">Випуск смартфона, що перевершує люксові аналоги за характеристиками, але коштує дешевше, підтверджує тренд на комодитизацію «заліза». Технологічна перевага більше не гарантує преміальну націнку. Китайські виробники агресивно від'їдають частку у Apple та Samsung, пропонуючи порівнянний досвід за менші гроші. Це змушує старих лідерів ринку шукати нові способи монетизації (сервіси, екосистема), оскільки маржинальність «заліза» неминуче падатиме.</div>
         </div>
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">4</div>
-              <h3 class="article-title">Розумний дім і ринок оренди: битва за доступ</h3>
+              <h3 class="article-title">Шпигунський смартфон Vertu: приватність як розкіш</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div class="article-body">Пристрій Ring Intercom від Amazon вирішує проблему «останнього метра» для доставки в багатоквартирних будинках, проникаючи в інфраструктуру старого житлового фонду. Це стратегічний хід Amazon, що знижує бар'єр для e-commerce, але посилює контроль техногігантів над фізичним простором. Ринок пристроїв для орендарів швидко зростає на тлі зниження доступності іпотеки.</div>
+          <div class="article-body">Випуск телефону за £86,000 з акцентом на безпеку та «живих агентів» підтримки підкреслює новий статус приватності — тепер це елітний товар. У світі тотального цифрового стеження гарантія конфіденційності стає доступною лише надбагатим. Це поглиблює цифрову нерівність. З іншого боку, використання живих операторів замість ШІ в люкс-сегменті говорить про те, що людське обслуговування стає ознакою справжнього преміуму, тоді як маси отримують автоматизацію.</div>
         </div>
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <div class="article-index">5</div>
-              <h3 class="article-title">Китайська експансія в домашню техніку</h3>
+              <h3 class="article-title">DJI Romo: дронізація побуту</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div class="article-body">Вихід DJI на ринок роботів-пилососів (Romo) — приклад диверсифікації під тиском санкцій. Використовуючи напрацювання в лідарах (подвійного призначення), DJI захоплює цивільний сектор, конкуруючи із західними брендами (iRobot). Використання китайських сенсорів, що сканують квартири, неминуче викличе питання у регуляторів ЄС та США. Побутові пристрої стають питанням національної кібербезпеки.</div>
+          <div class="article-body">Вхід гіганта дронів DJI на ринок роботів-пилососів з використанням Lidar-технологій — це експансія технологій подвійного призначення у побут. Технології картографування простору, відпрацьовані в повітрі, тепер скануватимуть інтер'єри квартир. Це посилює домінування китайських техногігантів у зборі просторових даних. Конкуренція на ринку розумного будинку загострюється, і перевагу отримують компанії з власним виробництвом сенсорів та алгоритмів навігації.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE OBSERVER</h2>
+      <div class="outlet-sub">Вес Стрітінг, Bumble, приватний капітал, Палестина, Девід Волльямс.</div>
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <h3 class="article-title">Вес Стрітінг та податки: політичний дрейф лейбористів</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Інтерв'ю міністра охорони здоров'я оголює внутрішні протиріччя в уряді: визнання «занадто високих податків» і натяк на необхідність митного союзу з ЄС. Це спроба перехопити порядок денний економічного зростання через зближення з Європою, не називаючи це скасуванням Brexit. Стрітінг позиціонує себе як прагматика, готового до непопулярних реформ. Для бізнесу це сигнал про можливе пом'якшення торгових бар'єрів, але й про збереження жорсткої фіскальної дисципліни.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <h3 class="article-title">Крах фемінізму Bumble: ринок диктує правила</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Відмова дейтинг-додатка Bumble від своєї ключової фішки («жінки пишуть першими») під тиском позовів та падіння акцій — яскравий приклад перемоги ринкових реалій над ідеологією. «Етичний» маркетинг не витримав зіткнення з юридичним тролінгом активістів за права чоловіків та втомою користувачів. Кейс показує вразливість компаній, що будують бренд на соціальній місії: у кризу інвестори вимагають прибутку, а не цінностей.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <h3 class="article-title">Приватний капітал у дитбудинках: монетизація вразливості</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Наводнення сектору опіки приватними інвесторами та непрофільним бізнесом (від таксі до IT) перетворює соціальну допомогу на актив для вилучення ренти. Держава фінансує утримання дітей, а прибуток осідає у приватних власників, часто на шкоду якості послуг. Це класичний приклад приватизації прибутків та націоналізації збитків (соціальних ризиків). Відсутність жорсткого регулювання створює моральний ризик, де діти стають просто «одиницями доходу» в портфелях інвесторів.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <h3 class="article-title">Голодування активістки: межі тероризму</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Ситуація з голодуванням активістки Palestine Action, обвинуваченої в тероризмі за вандалізм, підсвічує посилення державної машини проти прямої дії. Розширення трактування «тероризму» на протестну діяльність проти корпорацій (Elbit Systems) створює прецедент для придушення будь-якого радикального активізму. Держава демонструє готовність йти до кінця, ризикуючи життям ув'язненої, щоб не створювати образ слабкості. Це сигнал усім протестним рухам про підвищення ставок.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <h3 class="article-title">Скасування Девіда Волльямса: корпоративний ризик-менеджмент</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Розрив видавництва HarperCollins із найбільш касовим дитячим автором через старі звинувачення — це розважливий крок з мінімізації репутаційних ризиків. В епоху ESG та етичної прозорості токсичний актив, навіть якщо він приносить мільйони, стає тягарем. Рішення прийнято на випередження, щоб уникнути бойкоту та зберегти обличчя бренду. Це показує, що «культура скасування» трансформувалася в інструмент корпоративного управління, де імідж компанії важливіший за короткостроковий виторг конкретного автора.</div>
         </div>
 
       </div>
@@ -808,16 +712,16 @@
   </main>
 
   <footer>
-    <h2>Про проект</h2>
+    <h2>Про проєкт</h2>
     <p>
       Deep Press Analysis — щоденний синтез топових міжнародних видань: геополітика, ринки
       та сценарії майбутнього — щоб ви не просто читали заголовки, а розуміли приховану логіку.
     </p>
 
     <p style="margin-top: 14px; font-size: 13px; color: var(--muted);">
-      <strong style="color: var(--accent-soft);">Архів:</strong>
-      <a href="/ua/231225.html" style="color: #e5e7eb; text-decoration: underline;">
-        23 грудня 2025
+      <strong style="color: var(--accent);">Архів:</strong>
+      <a href="/ua/241225.html" style="color: #e5e7eb; text-decoration: underline;">
+        24 грудня 2025
       </a>
     </p>
 
@@ -833,7 +737,23 @@
 </div>
 
 <script>
-  // Glassmorphism accordion: smooth open/close + a11y attributes
+  // Script for snow effect creation
+  document.addEventListener('DOMContentLoaded', function() {
+    const snowContainer = document.getElementById('snow');
+    const snowflakeCount = 50; // number of snowflakes
+
+    for(let i=0; i<snowflakeCount; i++){
+      const flake = document.createElement('div');
+      flake.classList.add('snowflake');
+      flake.style.left = Math.random() * 100 + 'vw';
+      flake.style.animationDuration = (Math.random() * 3 + 4) + 's'; // between 4 and 7 seconds
+      flake.style.opacity = Math.random();
+      flake.style.width = flake.style.height = (Math.random() * 5 + 2) + 'px'; // varying size
+      snowContainer.appendChild(flake);
+    }
+  });
+
+  // Glassmorphism accordion logic
   document.querySelectorAll('.article-card').forEach(function(card){
     const header = card.querySelector('.article-header');
     const body = card.querySelector('.article-body');
