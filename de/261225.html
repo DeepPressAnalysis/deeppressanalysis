@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deep Press Analysis — Weihnachtsausgabe: 26. Dezember 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Deep Press Analysis — Globales Medienbriefing vom 26. Dezember 2025: Schattenbanken an der Wall Street, nukleares China, Labour-Krise, Selenskyjs Friedensplan und Markttrends."
+  />
+  <meta name="robots" content="index, follow" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --glass: rgba(15,23,42,0.72);
+      --border: rgba(148,163,184,0.35);
+      --border-strong: rgba(218, 165, 32, 0.5); /* Golden border */
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #FFD700; /* Gold */
+      --accent-soft: #F0E68C; /* Khaki/Soft Gold */
+      --festive-red: #d42e2e;
+      --festive-green: #2e8b57;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #0f1c30 0, #020617 45%, #000 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px 14px 40px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      text-align: left;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* --- SNOWFALL EFFECT --- */
+    .snow-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .snowflake {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to { transform: translateY(105vh); }
+    }
+
+    .page { max-width: 980px; margin: 0 auto; position: relative; z-index: 1; }
+
+    /* ---------- SOCIAL BUTTONS CSS ---------- */
+    .social {display: inline-block;}
+    .social a {
+        display: block;
+        width: 48px;
+        height: 48px;
+        margin: 0 10px 10px 0;
+        text-align: center;
+        color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 24px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        transition: all 0.2s;
+        background-color: rgba(255,255,255,0.05);
+    }
+    .social a:hover {
+        border-color: var(--accent);
+        transform: scale(1.1);
+        box-shadow: 0 0 15px var(--accent);
+    }
+    .social svg {
+        margin-top: 7px;
+        width: 32px;
+        height: 32px;
+    }
+    /* Festive colors for icons */
+    .email a {background: linear-gradient(135deg, #5bc7ff, #0056b3);}
+    .telegram a {background: linear-gradient(135deg, #249bd7, #004a80);}
+    .x a {background: #000; border: 1px solid #333;}
+    .youtube a {background: linear-gradient(135deg, #c4302b, #800000);}
+
+    /* ---------- LANGUAGE BAR ---------- */
+    .lang-bar {
+      display: flex; flex-wrap: wrap; justify-content: flex-end;
+      gap: 4px; margin-bottom: 10px; font-size: 11px;
+    }
+
+    .lang-pill {
+      padding: 3px 7px; border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4); background: rgba(15,23,42,0.9);
+      color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em;
+      text-decoration: none; display: inline-block; transition: all 0.2s;
+    }
+
+    .lang-pill:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 8px rgba(255, 215, 0, 0.4); }
+
+    .lang-pill.active {
+      border-color: var(--accent); color: #000;
+      font-weight: bold;
+      background: linear-gradient(45deg, #FFD700, #FDB931);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.6); cursor: default;
+    }
+
+    /* ---------- TOP BAR ---------- */
+    .top-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 12px; gap: 10px;
+    }
+    .top-bar-left {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+      color: var(--accent-soft); opacity: 1; text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+    }
+    .top-bar-right {
+      display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center;
+    }
+
+    /* ---------- HEADER (HOLIDAY EDITION) ---------- */
+    header {
+      margin-bottom: 26px; border-radius: 20px; padding: 20px 20px 18px;
+      background: radial-gradient(circle at 50% -20%, rgba(255, 215, 0, 0.15), transparent 60%),
+                  linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 20px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255, 215, 0, 0.1);
+      backdrop-filter: blur(26px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+        background: linear-gradient(90deg, transparent, #FFD700, #fff, #FFD700, transparent);
+        opacity: 0.8;
+    }
+
+    .header-main { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+
+    /* GOLDEN TITLE */
+    h1.site-title {
+      font-size: 26px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      background: linear-gradient(90deg, #FDB931, #FFFFAC, #D1B464, #FFFFAC);
+      background-size: 250%; -webkit-background-clip: text; color: transparent;
+      animation: chromeBase 6s linear infinite; margin: 0;
+      text-shadow: 0 0 20px rgba(255,215,0,0.3);
+    }
+    @keyframes chromeBase { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+    .site-tagline { font-size: 12px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+    
+    .header-date { 
+        margin-top: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; 
+        color: #e5e7eb; display: flex; align-items: center; gap: 8px; justify-content: flex-start;
+    }
+
+    .holiday-badge {
+        background: rgba(255, 215, 0, 0.2); border: 1px solid #FFD700; color: #FFD700;
+        padding: 2px 8px; border-radius: 4px; font-size: 10px; margin-left: 10px;
+    }
+
+    .header-note { font-size: 13px; color: var(--muted); margin-top: 8px; }
+    .header-focus { margin-top: 6px; margin-bottom: 16px; font-size: 13px; color: #d1d5db; }
+    .header-focus strong { color: var(--accent); font-weight: 600; }
+
+    .spotify-wrapper {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      background: #000;
+    }
+
+    /* ---------- CONTENT ---------- */
+    main { display: flex; flex-direction: column; gap: 18px; }
+
+    section.outlet {
+      background: linear-gradient(135deg, rgba(15,23,42,0.94), rgba(15,23,42,0.86));
+      border-radius: 18px; border: 1px solid rgba(148,163,184,0.3); 
+      padding: 16px 16px 14px;
+      box-shadow: 0 22px 50px rgba(0,0,0,0.9); backdrop-filter: blur(26px);
+      position: relative;
+    }
+
+    /* CHRISTMAS GRADIENT FOR OUTLET TITLES */
+    section.outlet h2 {
+      font-size: 18px; margin-bottom: 4px; letter-spacing: 0.14em; text-transform: uppercase;
+      display: inline-block;
+      background: linear-gradient(90deg, #FFD700, #ff6b6b, #4ecdc4, #FFD700);
+      background-size: 300% 100%;
+      -webkit-background-clip: text; color: transparent;
+      animation: aurora 8s ease-in-out infinite;
+    }
+    @keyframes aurora {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .outlet-sub { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .articles-list { display: flex; flex-direction: column; gap: 8px; }
+
+    /* CARD STYLES */
+    .article-card {
+      position: relative; border-radius: 14px;
+      background: radial-gradient(circle at 0 0, rgba(20, 30, 50, 0.95), #020617);
+      border: 1px solid rgba(255,255,255,0.08); overflow: hidden;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.9);
+      backdrop-filter: blur(18px); transition: all 0.2s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(0,0,0,1), 0 0 15px rgba(255, 215, 0, 0.1);
+      border-color: rgba(255, 215, 0, 0.4);
+      background: radial-gradient(circle at 0 0, rgba(25, 40, 65, 0.96), #020617);
+    }
+
+    .article-header {
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; padding: 12px 14px; gap: 10px; -webkit-tap-highlight-color: transparent;
+    }
+
+    .article-main { display: flex; align-items: baseline; gap: 8px; flex: 1; min-width: 0; }
+    .article-index { font-size: 12px; color: var(--accent); opacity: 0.85; min-width: 18px; flex-shrink: 0; text-shadow: 0 0 5px rgba(255,215,0,0.5); }
+
+    h3.article-title {
+      font-weight: 650; font-size: 14px;
+      white-space: normal; overflow: hidden; text-overflow: ellipsis;
+      margin: 0; color: inherit; line-height: 1.3;
+    }
+
+    .article-toggle {
+      width: 22px; height: 22px; border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+      border: 1px solid rgba(148,163,184,0.5); color: var(--muted); font-size: 12px;
+      background: rgba(255,255,255,0.05);
+      transition: all 0.2s ease;
+    }
+
+    .article-card.open .article-toggle {
+      transform: rotate(90deg);
+      color: #000;
+      border-color: var(--accent);
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .article-body {
+      padding: 0 14px 12px; max-height: 0; opacity: 0;
+      font-size: 14px; color: #b0b8c4;
+      transition: max-height 0.26s ease-out, opacity 0.22s ease-out;
+      overflow: hidden; white-space: pre-line;
+    }
+    .article-card.open .article-body { max-height: 1200px; opacity: 1; }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      margin-top: 26px; padding: 16px 16px 30px; border-radius: 16px;
+      border: 1px solid var(--border); background: rgba(15,23,42,0.96);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.95); backdrop-filter: blur(20px);
+      text-align: center;
+    }
+    footer h2 { font-size: 16px; margin-bottom: 8px; color: var(--accent); text-shadow: 0 0 10px rgba(255,215,0,0.4); }
+    footer p { font-size: 14px; color: var(--muted); }
+
+    .footer-actions { margin-top: 14px; display: flex; justify-content: center; }
+
+    .animated-button {
+      background: linear-gradient(-30deg, #1a2f55 50%, #08142b 50%);
+      padding: 14px 26px; margin: 12px 0 0; display: inline-block;
+      overflow: hidden; color: #FFD700; font-size: 14px; letter-spacing: 2.5px;
+      text-align: center; text-transform: uppercase; text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); border-radius: 14px; position: relative;
+      border: 1px solid rgba(255,215,0,0.2);
+    }
+    .animated-button:hover {
+        background: #1a2f55;
+        box-shadow: 0 0 20px rgba(255,215,0,0.3);
+    }
+    .animated-button span { position: absolute; background: #FFD700; }
+
+    /* Button Animations override to Gold */
+    .animated-button span:nth-child(1) { top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to left, transparent, #FFD700); animation: animateTop 2s linear infinite; }
+    .animated-button span:nth-child(2) { top: 0; right: 0; height: 100%; width: 2px; background: linear-gradient(to top, transparent, #FFD700); animation: animateRight 2s linear -1s infinite; }
+    .animated-button span:nth-child(3) { bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, transparent, #FFD700); animation: animateBottom 2s linear infinite; }
+    .animated-button span:nth-child(4) { top: 0; left: 0; height: 100%; width: 2px; background: linear-gradient(to bottom, transparent, #FFD700); animation: animateLeft 2s linear -1s infinite; }
+
+    @media (max-width: 640px) {
+      .top-bar { flex-direction: column; align-items: flex-start; }
+      .lang-bar { justify-content: flex-start; }
+      h1.site-title { font-size: 20px; letter-spacing: 0.18em; white-space: normal; }
+      header { padding: 16px 14px; }
+      h3.article-title { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="snow-container" id="snow"></div>
+
+<div class="page">
+
+  <div class="lang-bar">
+    <a href="/ua/index.html" class="lang-pill" hreflang="uk">UA</a>
+    <a href="/en/index.html" class="lang-pill" hreflang="en">EN</a>
+    <a href="/ar/index.html" class="lang-pill" hreflang="ar">AR</a>
+    <a href="/ru/index.html" class="lang-pill" hreflang="ru">RU</a>
+    <span class="lang-pill active" aria-current="page">DE</span>
+    <a href="/hi/index.html" class="lang-pill" hreflang="hi">HI</a>
+  </div>
+
+  <div class="top-bar">
+    <div class="top-bar-left">DEEP PRESS ANALYSIS · WINTER-BRIEFING</div>
+
+    <div class="top-bar-right">
+      
+      <div class="social email">
+        <a href="mailto:deeppressanalysis@protonmail.com" target="_blank">
+          <svg role="img" viewBox="0 0 512 512">
+            <path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="social telegram">
+        <a href="https://t.me/DeepPressAnalysis" target="_blank" rel="noopener noreferrer">
+          <svg role="img" viewBox="0 0 448 512">
+            <path fill="currentColor" d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="social x">
+        <a href="https://x.com/deeppressanalys" target="_blank" rel="noopener noreferrer">
+          <svg role="img" viewBox="0 0 512 512">
+            <path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="social youtube">
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" target="_blank" rel="noopener noreferrer">
+          <svg role="img" viewBox="0 0 576 512">
+            <path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <header>
+    <div class="header-main">
+      <h1 class="site-title">Deep Press Analysis</h1>
+      <div class="site-tagline">Tägliche Synthese führender internationaler Publikationen</div>
+      <div class="header-date">
+          <time datetime="2025-12-26">26. Dezember 2025</time>
+          <span class="holiday-badge">SPECIAL EDITION</span>
+      </div>
+    </div>
+
+    <div class="header-note">
+      Eine Zusammenstellung wichtiger Analysen aus führenden westlichen und globalen Medien: Märkte, Geopolitik, Krieg, Sanktionen,
+      Energie und Technologie — damit Sie nicht nur Schlagzeilen lesen, sondern die verborgene Logik der Ereignisse verstehen.
+    </div>
+
+    <div class="header-focus">
+      <strong>Heute im Fokus:</strong> Schattenbanken an der Wall Street, nukleares Gleichgewicht Chinas, Krise der Labour-Partei in Großbritannien, „Vibe-Coding“ und Selenskyjs Friedensplan.
+    </div>
+
+    <div class="spotify-wrapper">
+      <iframe
+        title="Deep Press Analysis — Spotify"
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0"
+        width="100%" height="152"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="outlet">
+      <h2>THE WALL STREET JOURNAL</h2>
+      <div class="outlet-sub">Schattenbanken, Mittelstand, Chip-Zölle, Nvidia, Himalaya.</div>
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <h3 class="article-title">Family Offices werden zu den neuen „Schattenbanken“ der Wall Street</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Das explosive Wachstum der Vermögenswerte von Family Offices (Prognose: 9 Billionen Dollar bis 2030) schafft ein paralleles, schwach reguliertes Finanzsystem, das in seiner Größenordnung mit Hedgefonds und Private Equity vergleichbar ist. Für die Aufsichtsbehörden ist dies eine „Grauzone“, die systemische Risiken birgt, da diese Strukturen keinen Bankbeschränkungen unterliegen, aber über enorme Liquidität verfügen. Für die Kapitalmärkte bedeutet dies eine Machtverschiebung von traditionellen Institutionen hin zu privaten Superreichen, die Deals schneller und aggressiver als Banken abwickeln können. Die Stärkung dieses Sektors signalisiert ein wachsendes Misstrauen der Eliten gegenüber öffentlichen Märkten und das Streben nach voller Privatsphäre der Vermögenswerte angesichts steuerlicher Unsicherheiten.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <h3 class="article-title">Wirtschaftliche Kluft: Kleinunternehmen stagnieren vor dem Hintergrund von Konzernerfolgen</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Es ist eine gefährliche Zweiteilung der US-Wirtschaft zu beobachten: Großkonzerne mit Zugang zu KI und Kapitalmärkten verzeichnen Rekordgewinne, während kleine und mittlere Unternehmen (KMU) unter Inflation und erschöpften Reserven leiden. Dies birgt Risiken für den Arbeitsmarkt, da KMUs traditionell einen erheblichen Anteil der Beschäftigung sichern, und ihr Rückgang könnte zu einem versteckten Anstieg der Arbeitslosigkeit führen. Politisch nährt dies die Basis des Populismus, da sich Kleinunternehmer vom System, das auf den S&P 500 ausgerichtet ist, im Stich gelassen fühlen. Für Investoren ist dies ein Signal für eine mögliche Marktkonsolidierung, bei der große Player geschwächte Wettbewerber zu niedrigen Bewertungen übernehmen werden.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <h3 class="article-title">Trump-Administration verschiebt Chip-Zölle auf 2027</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Entscheidung, die Einführung harter Zölle auf chinesische Halbleiter zu verschieben, deutet darauf hin, dass Washington die hohe Abhängigkeit der US-Lieferketten vom Import „reifer“ Chips anerkennt. 
+
+[Image of semiconductor supply chain map]
+ Das Weiße Haus nutzt den Aufschub als Hebel in Verhandlungen und versucht, einen sofortigen Inflationsschock für amerikanische Elektronik- und Automobilhersteller zu vermeiden. Dieser vorübergehende Waffenstillstand gibt der Wirtschaft ein Zeitfenster zur Diversifizierung, erhält aber die langfristige Unsicherheit aufrecht. Geopolitisch ist dies ein Signal an Peking für die Bereitschaft zu pragmatischem Handel trotz harter Rhetorik.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <h3 class="article-title">Nvidia schließt Lizenzdeal mit Groq zum Schutz vor kartellrechtlichen Risiken</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die strategische Partnerschaft des Marktführers für KI-Chips mit einem Wettbewerber zielt weniger auf technologischen Austausch als vielmehr auf die Reduzierung des regulatorischen Drucks ab. Durch die Bereitschaft, Technologien zu lizenzieren, versucht Nvidia, Vorwürfen der Monopolisierung eines kritischen Sektors und möglichen Zerschlagungen zuvorzukommen. Für Startups wie Groq ist dies eine Validierung ihrer Technologie und Zugang zum Ökosystem, für den Markt insgesamt jedoch das Risiko einer anhaltenden Dominanz eines einzelnen Akteurs unter dem Deckmantel der Offenheit. Der Deal signalisiert auch eine Verlagerung des Wettbewerbs in den Bereich Software und Ökosysteme, weg von reiner Hardware.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <h3 class="article-title">Indien militarisiert den Himalaya als Antwort auf Bedrohung durch China</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Massive Investitionen Neu-Delhis in Dual-Use-Infrastruktur in den Grenzregionen zeugen von der Vorbereitung auf eine langwierige Konfrontation mit der VR China, die über lokale Scharmützel hinausgeht.  Dies verändert das Kräfteverhältnis in der Region und zwingt China, Ressourcen an der Westflanke zu binden, was indirekt den USA und ihren Verbündeten im Indopazifik zugutekommt. Für globale Investoren erhöht dies die Länderrisiken, eröffnet aber gleichzeitig einen Markt für Rüstungs- und Bauunternehmen. Eine Eskalation im Himalaya könnte angesichts des nuklearen Status beider Staaten zu einem „Schwarzen Schwan“ für die asiatischen Märkte werden.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE NEW YORK TIMES</h2>
+      <div class="outlet-sub">Harvard vs. Trump, Private Equity, Nukleares China, Nationalgarde, Selenskyjs Plan.</div>
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <h3 class="article-title">Harvard wehrt sich gegen Forderung der Trump-Administration über 200 Mio. Dollar</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Der Versuch des Weißen Hauses, Harvard unter Androhung des Entzugs von Bundesmitteln zur Zahlung einer hohen Strafe zu zwingen, schafft einen gefährlichen Präzedenzfall für direkten politischen Druck auf die akademische Autonomie. Dies ist ein Signal an alle Elite-Universitäten, dass staatliche Zuschüsse nun strikt an ideologische Loyalität oder die Erfüllung politischer Forderungen der Administration geknüpft sind. Für institutionelle Investoren und Spender besteht das Risiko der Toxizität von Vermögenswerten: Universitäten werden zum politischen Schlachtfeld. Langfristig könnte dies zur Privatisierung von Top-Universitäten und deren Verzicht auf Bundesgelder zur Wahrung der Unabhängigkeit führen.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <h3 class="article-title">Investoren warnen vor „Fäulnis“ im Private Equity durch zyklische Deals</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Praxis des Verkaufs von Unternehmen von einem Fonds an einen anderen innerhalb derselben Verwaltungsgesellschaft (Continuation Funds) verschleiert reale Verluste und bläht Renditekennzahlen künstlich auf. Dies schafft eine Blase der Intransparenz im Private-Equity-Sektor und bedroht die Liquidität von Pensionsfonds und institutionellen Anlegern, die in diese Vermögenswerte investiert haben. Die Regulierungsbehörden hinken diesen Finanzkonstrukten hinterher, was das Risiko einer plötzlichen Neubewertung von Vermögenswerten und einer Vertrauenskrise in die Anlageklasse PE erhöht. Faktisch zögert die Branche die Anerkennung von Problemen hinaus und häuft systemische Risiken an.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <h3 class="article-title">China beschleunigt Atomprogramm und verändert strategische Parität</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Ein Pentagon-Bericht über das Wachstum des chinesischen Atomwaffenarsenals und den Übergang zu einer „Launch-on-Warning“-Strategie bricht die bestehende Architektur der nuklearen Abschreckung auf.  Peking strebt Parität mit den USA und Russland an, was bestehende Rüstungskontrollverträge entwertet und deren Überarbeitung in einem trilateralen Format erfordert. Dies stimuliert ein neues Wettrüsten in Asien und zwingt Japan und Südkorea, ihren atomwaffenfreien Status zu überdenken. Für den US-Verteidigungssektor garantiert dies langfristige Aufträge zur Modernisierung der nuklearen Triade.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <h3 class="article-title">Oberster Gerichtshof schränkt Einsatz der Nationalgarde im Inland ein</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Entscheidung des Gerichts, den Truppenaufmarsch in Chicago zu blockieren, errichtet eine wichtige verfassungsrechtliche Barriere gegen den Einsatz der Armee für innenpolitische Polizeiaufgaben. Diese Niederlage der Trump-Administration verringert das Risiko autoritärer Eingriffe in demokratisch regierte Bundesstaaten und Städte. Allerdings könnte dies die Exekutive dazu drängen, Umwege zu suchen, beispielsweise über den Insurrection Act, was den Konflikt zwischen der Bundesregierung und den Bundesstaaten verschärft. Für die Märkte ist dies ein positives Signal für den Erhalt institutioneller Checks and Balances.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <h3 class="article-title">Selenskyjs neuer Friedensplan: Realismus gegen Populismus</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Veröffentlichung des 20-Punkte-Plans Kiews, der Kompromisse vorsieht, spiegelt den Druck westlicher Partner und die Kriegsmüdigkeit wider, stößt aber auf strikte Ablehnung im Kreml. Moskau interpretiert jegliche Zugeständnisse als Schwäche, erhöht den Einsatz und fordert die vollständige Kapitulation, was einen diplomatischen Durchbruch kurzfristig unwahrscheinlich macht. Der Plan dient eher als Instrument zur Konsolidierung der innenpolitischen und westlichen Öffentlichkeit, indem er Kiews Konstruktivität vor dem Hintergrund der russischen Verweigerungshaltung demonstriert. Geopolitisch fixiert dies den Übergang des Konflikts in eine Phase des Feilschens um Territorien, was Risiken einer inneren Destabilisierung in der Ukraine birgt.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE DAILY TELEGRAPH</h2>
+      <div class="outlet-sub">Redefreiheit, House of Lords, König Charles, Diebstahl, Lebensstandard.</div>
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <h3 class="article-title">Lehrer wegen Zeigen eines Trump-Videos mit Terrorist gleichgesetzt</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Der Vorfall, bei dem das Anti-Terror-Programm Prevent gegen einen Lehrer eingesetzt wurde, weil er legale politische Inhalte zeigte, offenbart eine ideologische Schieflage im Bildungssystem und in den Sicherheitsmechanismen. Dies schafft Risiken einer „Hexenjagd“ und Selbstzensur im öffentlichen Sektor und polarisiert die Gesellschaft entlang der Linien des Kulturkampfes. Institutionell untergräbt dies das Vertrauen in Safeguarding-Mechanismen und lenkt den Fokus von echten Radikalisierungsbedrohungen auf politischen Dissens. Die rechtlichen Folgen solcher Fälle könnten zu einer Überarbeitung des Arbeitsrechts im öffentlichen Dienst führen.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <h3 class="article-title">Vorschlag: Sitze im House of Lords für Reform UK</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Initiative der Konservativen, Populisten in das Oberhaus zu holen, zielt darauf ab, Nigel Farages Partei innerhalb des Systems zu legitimieren, um ihr Protestpotenzial „draußen“ zu verringern. Für Labour ist dies eine Falle: Eine Ablehnung würde das Narrativ „Establishment gegen das Volk“ bestätigen, eine Zustimmung gäbe gefährlichen Konkurrenten eine Bühne. Dies spiegelt die Erosion des Zweiparteiensystems und den Versuch wider, archaische Institutionen an die neue politische Realität anzupassen. Langfristig könnte dies den Einfluss von Euroskeptikern und der Anti-Migrations-Agenda auf den Gesetzgebungsprozess stärken.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <h3 class="article-title">König ruft zu „Digital Detox“ und Zusammenhalt auf</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Botschaft des Monarchen geht über traditionelle Glückwünsche hinaus und spricht Probleme der psychischen Gesundheit und der sozialen Atomisierung an. Dies ist ein Versuch der Monarchie, eine relevante Rolle in der modernen Gesellschaft zu finden und als überpolitischer Schiedsrichter der Moral aufzutreten. Der Aufruf zur Entschleunigung steht im Widerspruch zur wirtschaftlichen Realität, resoniert aber mit der Müdigkeit der Gesellschaft durch permanente Krisen. Der König positioniert sich als Beschützer traditioneller menschlicher Bindungen gegen technokratische Entfremdung und stärkt so die „Soft Power“ der Krone.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <h3 class="article-title">Einzelhändler bedroht durch neue Art von „Diebstahl-Unternehmern“</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Zunahme von Diebstählen von Premiumgütern (Jellycats, Lego) durch Angehörige der Mittelschicht zum Zweck des Weiterverkaufs signalisiert eine Auflösung des Gesellschaftsvertrags und sinkende Realeinkommen. Dies ist keine Randkriminalität mehr, sondern eine wirtschaftliche Strategie zum Überleben oder zur Bereicherung, der traditionelle Sicherheitssysteme im Einzelhandel nicht gewachsen sind. Für Handelsketten bedeutet dies steigende Betriebskosten und die Notwendigkeit harter Kontrollmaßnahmen, die loyale Kunden abschrecken. Wirtschaftlich ist dies ein Zeichen versteckter Inflation und einer Lebenshaltungskostenkrise.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <h3 class="article-title">Britischer Lebensstandard fällt bis 2035 unter den von Malta</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die CEBR-Prognose über den langfristigen Rückstand der britischen Wirtschaft ist ein Indikator für das Scheitern von Strukturreformen und die Folgen des Brexit. Eine hohe Steuerlast und niedrige Arbeitsproduktivität machen das Land selbst im Vergleich zu kleinen EU-Volkswirtschaften nicht wettbewerbsfähig. Für Investoren ist dies eine „Red Flag“, die auf eine Schrumpfung des Binnenmarktes und sinkende Kaufkraft hinweist. Politisch ist dies eine Zeitbombe für jede Regierung, da es das Grundversprechen von stetigem Wohlstandswachstum zerstört.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE GLOBE AND MAIL</h2>
+      <div class="outlet-sub">Kartelle, NDA-Skandal, Schattendiplomatie, Gesundheitswesen, KI-Coding.</div>
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <h3 class="article-title">Razzien in Mexiko im Fall Ryan Wedding und organisierte Kriminalität</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Operation gegen den kanadischen Ex-Olympioniken, der zum Drogenbaron wurde, zeigt die vertiefte Zusammenarbeit der nordamerikanischen Geheimdienste im Kampf gegen transnationale Kriminalität. Sie deutet auch auf den wachsenden Druck der USA und Kanadas auf Mexiko hin, echte Maßnahmen gegen Kartelle zu ergreifen, die das Land als Drehkreuz nutzen.  Der Fall beleuchtet die Anfälligkeit der NAFTA-Grenzen und Häfen für Drogenschmuggel. Für Unternehmen bedeutet dies das Risiko strengerer Grenzkontrollen und komplexerer Logistik zwischen den Ländern des Handelsblocks.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <h3 class="article-title">Orchester in Vancouver droht Missbrauchsopfer wegen NDA-Verstoß mit Klage</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Der Skandal um die Nutzung von Verschwiegenheitsvereinbarungen (NDAs) zur Vertuschung sexueller Gewalt schafft ernsthafte Reputationsrisiken für Kulturinstitutionen und ihre Sponsoren. Die öffentliche Reaktion zeigt, dass juristische Instrumente zum Schutz der Unternehmensreputation in der Post-MeToo-Ära toxisch werden. Dies könnte zu einer Überarbeitung der NDA-Gesetzgebung in Kanada führen und die Möglichkeiten von Organisationen einschränken, interne Untersuchungen zu verbergen. Für Mäzene und Fördergeber ist dies ein Signal für eine sorgfältigere Prüfung der ethischen Standards der Mittelempfänger.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <h3 class="article-title">Selenskyj diskutiert Friedensplan mit Trump-Umfeld</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Direkte Kontakte Kiews mit inoffiziellen Emissären Trumps (Witkoff, Kushner) zeugen von der Schaffung eines diplomatischen Schattenkanals unter Umgehung des State Department. Selenskyj versucht, sich an den transaktionalen Stil des zukünftigen US-Präsidenten anzupassen, indem er pragmatische Lösungen (Entmilitarisierungszonen, Ressourcen) anbietet. Dies birgt Risiken einer Spaltung der einheitlichen westlichen Front, da Europa bei diesen Absprachen außen vor bleiben könnte. Für die Ukraine ist dies ein Vabanquespiel: Der Versuch, Sicherheit durch territoriale Kompromisse zu erkaufen, solange das Zeitfenster noch offen ist.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <h3 class="article-title">US-Gesundheitskrise durch die Augen eines kanadischen Korrespondenten</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Ein Bericht aus Pennsylvania unterstreicht die Fragilität des amerikanischen Sozialmodells, in dem sich arbeitende Bürger keine grundlegende Behandlung leisten können. Die bevorstehenden Kürzungen bei Medicaid durch die Trump-Administration drohen eine humanitäre Katastrophe im Rust Belt auszulösen, was paradoxerweise seine eigene Wählerschaft trifft. Die steigende Zahl der Unversicherten belastet Notdienste und senkt die Arbeitsproduktivität. Für Kanada ist dies Anlass für eine innenpolitische Debatte über den Schutz des eigenen Gesundheitssystems vor einer schleichenden Privatisierung nach amerikanischem Vorbild.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <h3 class="article-title">„Vibe-Coding“ mit KI: Revolution oder Sicherheitsrisiko?</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die massive Einführung von KI-Tools zum Schreiben von Code senkt die Einstiegshürde in die IT, schafft aber eine Zeitbombe in Form von Sicherheitslücken und Fehlern. Unternehmen, die bei Entwicklern sparen wollen, riskieren nicht wartbare und unsichere Produkte. Dies verändert die Struktur des Arbeitsmarktes: Die Nachfrage verschiebt sich von „Codern“ hin zu Systemarchitekten und KI-Auditoren. Für die Cybersicherheit ist dies ein Albtraumszenario, da das Volumen an „Müll-Code“ exponentiell wächst und neue Angriffsvektoren für Hacker schafft.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE GUARDIAN UK</h2>
+      <div class="outlet-sub">Elternrechte, Stadtplanung, Mariupol, Farage, IS-Mosambik.</div>
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <h3 class="article-title">„Verlorenes Jahrzehnt“ bei Elternrechten</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Das Scheitern der Politik des geteilten Elternurlaubs (SPL) offenbart tiefe strukturelle Probleme des britischen Arbeitsmarktes und der Geschlechterungleichheit. Die geringe Nachfrage nach dieser Leistung ist auf finanzielle Nachteile für Familien zurückzuführen, was traditionelle Rollen und die „Mutterschaftsstrafe“ in der Karriere von Frauen festigt. Für die Wirtschaft bedeutet dies einen Verlust an Humankapital und eine geringere Mobilität der Arbeitskräfte. Unternehmen, die ihre Unternehmenskultur nicht an moderne Vaterschaftsansprüche anpassen, riskieren, im Kampf um Talente zu verlieren.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <h3 class="article-title">Neue Städte von Labour: Ambitionen ohne Fundament</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Kritik von Branchenveteranen am Städtebauprogramm der Regierung weist auf das Risiko hin, Fehler der Vergangenheit zu wiederholen: Die Schaffung von „Schlaf-Ghettos“ ohne Infrastruktur und Arbeitsplätze. Der fehlende Fokus auf sozialen Wohnungsbau macht das Projekt zu einem Geschenk an Immobilienentwickler, ohne die Krise der Erschwinglichkeit von Immobilien zu lösen. Dies ist ein politisches Risiko für Labour, die eine Lösung des Wohnungsproblems versprochen hatten. Ohne umfassende Planung werden „neue Städte“ zu Zentren sozialer Spannungen und des Verkehrskollapses.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <h3 class="article-title">Russland eröffnet Theater in Mariupol als Symbol der „Normalisierung“</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Nutzung des wiederaufgebauten Theaters zu Propagandazwecken ist ein klassisches Beispiel eines „Potemkinschen Dorfes“ zur Legitimierung der Besatzung in den Augen der russischen Öffentlichkeit. Es ist ein Versuch, das Narrativ des Krieges umzuschreiben und die Erinnerung an Kriegsverbrechen (Bombardierung des Theaters) durch kulturelle Aneignung auszulöschen. Für die internationale Gemeinschaft ist dies eine Erinnerung daran, dass Russland die besetzten Gebiete aktiv integriert, was ihre Rückgabe nicht nur militärisch, sondern auch mental immer schwieriger macht.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <h3 class="article-title">Nigel Farage wegen Goldwerbung unter Beschuss</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Nutzung des Abgeordnetenstatus zur Bewerbung zweifelhafter Finanzprodukte (Investition von Rentenersparnissen in Gold) schafft einen Interessenkonflikt und ein ethisches Problem. Dies untergräbt das Vertrauen in das Parlament und wirft die Frage nach einer strengeren Regulierung von Nebentätigkeiten für Politiker auf. Populistische Führer monetarisieren ihren Einfluss, indem sie finanzielle Unsicherheit an ihre eigene Wählerbasis verkaufen. Regulierungsbehörden müssen entscheiden, wo die Grenze zwischen unternehmerischer Freiheit und dem Missbrauch des Wählervertrauens verläuft.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <h3 class="article-title">IS-Mosambik: Vergessener Krieg bedroht Gasprojekte</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die Eskalation des islamistischen Aufstands in Cabo Delgado vor dem Hintergrund schwindender weltweiter Aufmerksamkeit bedroht die größten Gasfelder Ostafrikas.  Die Unfähigkeit der lokalen Behörden, die Bedrohung einzudämmen, stellt die Umsetzung der Projekte von TotalEnergies und ExxonMobil in Frage, die für die Energiesicherheit der Region entscheidend sind. Die Ausbreitung der Instabilität könnte Nachbarländer destabilisieren und einen neuen Herd für Migrationskrisen und eine Basis für internationalen Terrorismus schaffen.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE INDEPENDENT</h2>
+      <div class="outlet-sub">Starmer-Krise, Rechtsruck, Prinz Andrew, NHS.</div>
+      <div class="articles-list">
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">1</div>
+              <h3 class="article-title">Ein Drittel der Labour-Wähler fordert Starmers Rücktritt</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Der katastrophale Absturz der Beliebtheitswerte des Premierministers bei der eigenen Wählerschaft schafft ein Machtvakuum und Voraussetzungen für einen innerparteilichen Umsturz. Die Enttäuschung resultiert aus dem Fehlen einer klaren Wirtschaftsstrategie und dem Bruch von Wahlversprechen. Dies öffnet ein Gelegenheitsfenster für den linken Parteiflügel (Burnham) oder rechte Populisten (Reform UK), die die Protestagenda kapern. Für die Märkte bedeutet eine solche politische Turbulenz das Risiko eines Kurswechsels und Instabilität des Pfunds.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">2</div>
+              <h3 class="article-title">Gewerkschaften warnen: Anbiederung an rechte Agenda ist zum Scheitern verurteilt</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Der Versuch von Labour, die Anti-Migrations-Rhetorik der Rechten zu übernehmen, wird von Strategen als Fehler gewertet: Das Original (Farage) wird immer überzeugender sein als die Kopie. Dies stößt den progressiven Kern der Partei ab, ohne konservative Wähler zu gewinnen. Der Riss zwischen Parteiführung und Gewerkschaftsbasis schwächt die Organisationsstruktur von Labour. Gesellschaftlich legitimiert dies Fremdenfeindlichkeit und rückt sie vom Rand in den Mainstream, was soziale Spannungen verstärkt.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">3</div>
+              <h3 class="article-title">Andrew von königlichen Weihnachtsfeierlichkeiten ausgeschlossen</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Der demonstrative Ausschluss von Prinz Andrew von öffentlichen Veranstaltungen ist Teil der Strategie eines „Cordon sanitaire“ um toxische Elemente der Monarchie. Charles III. trennt familiäre Bindungen strikt vom öffentlichen Image der Institution, im Bewusstsein, dass Assoziationen mit dem Fall Epstein irreparablen Reputationsschaden anrichten. Dies ist ein Signal, dass Loyalität zur Krone nun einen makellosen Ruf erfordert und „alte Regeln“ des gegenseitigen Schutzes nicht mehr gelten. Die Monarchie versucht sich durch Säuberung der eigenen Reihen zu modernisieren.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">4</div>
+              <h3 class="article-title">König lobt „Mut und Aufopferung“ in seiner Ansprache</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Der Fokus der Weihnachtsansprache auf Werte des Dienens und des Zusammenhalts der Gemeinschaft ist ein Versuch, der wachsenden Polarisierung und Gewalt (Erwähnung von Bondi Beach) etwas entgegenzusetzen. Der König nutzt religiöse und historische Anspielungen (Zweiter Weltkrieg), um ein Narrativ der Kontinuität und Stabilität in Zeiten des Wandels zu schaffen. Dies ist ein klassisches Instrument der „Soft Power“, das darauf abzielt, den sozialen Frieden zu wahren, wenn politische Institutionen an Vertrauen verlieren.</div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <div class="article-index">5</div>
+              <h3 class="article-title">Ärzte warnen: Politik von Reform UK wird den NHS zerstören</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div class="article-body">Die medizinische Gemeinschaft schlägt Alarm: Populistische Vorschläge zur drastischen Kürzung der Migration sind unvereinbar mit dem Funktionieren des Gesundheitssystems, das kritisch von ausländischem Personal abhängt. Dies ist ein Zusammenprall von Ideologie und Realität: „Souveränität der Grenzen“ gegen Verfügbarkeit von Behandlung. Die Politisierung der Personalfrage im NHS droht das System kollabieren zu lassen, noch bevor genügend lokale Fachkräfte ausgebildet werden können. Dies schafft ein Dilemma für jede Regierung: Entweder unpopuläre Migration oder eine Krise der sozialen Dienstleistungen.</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h2>Über das Projekt</h2>
+    <p>
+      Deep Press Analysis — Tägliche Synthese führender internationaler Publikationen: Geopolitik, Märkte
+      und Zukunftsszenarien — damit Sie nicht nur Schlagzeilen lesen, sondern die verborgene Logik verstehen.
+    </p>
+
+    <p style="margin-top: 14px; font-size: 13px; color: var(--muted);">
+      <strong style="color: var(--accent);">Archiv:</strong>
+      <a href="/de/25122025.html" style="color: #e5e7eb; text-decoration: underline;">
+        25. Dezember 2025
+      </a>
+    </p>
+
+    <div class="footer-actions">
+      <a class="animated-button" href="https://deeppressanalysis.com/manifesto.html">
+        <span></span><span></span><span></span><span></span>
+        Manifest
+      </a>
+    </div>
+
+  </footer>
+
+</div>
+
+<script>
+  // Script for snow effect creation
+  document.addEventListener('DOMContentLoaded', function() {
+    const snowContainer = document.getElementById('snow');
+    const snowflakeCount = 50; // number of snowflakes
+
+    for(let i=0; i<snowflakeCount; i++){
+      const flake = document.createElement('div');
+      flake.classList.add('snowflake');
+      flake.style.left = Math.random() * 100 + 'vw';
+      flake.style.animationDuration = (Math.random() * 3 + 4) + 's'; // between 4 and 7 seconds
+      flake.style.opacity = Math.random();
+      flake.style.width = flake.style.height = (Math.random() * 5 + 2) + 'px'; // varying size
+      snowContainer.appendChild(flake);
+    }
+  });
+
+  // Glassmorphism accordion logic
+  document.querySelectorAll('.article-card').forEach(function(card){
+    const header = card.querySelector('.article-header');
+    const body = card.querySelector('.article-body');
+    if(!header || !body) return;
+
+    header.setAttribute('role','button');
+    header.setAttribute('tabindex','0');
+
+    const id = 'panel-' + Math.random().toString(16).slice(2);
+    body.id = body.id || id;
+    header.setAttribute('aria-controls', body.id);
+    header.setAttribute('aria-expanded', 'false');
+
+    function closeOthers() {
+      const outlet = card.closest('.outlet');
+      if(!outlet) return;
+      outlet.querySelectorAll('.article-card.open').forEach(function(other){
+        if(other !== card){
+          other.classList.remove('open');
+          const h = other.querySelector('.article-header');
+          if(h) h.setAttribute('aria-expanded','false');
+        }
+      });
+    }
+
+    function toggle() {
+      const willOpen = !card.classList.contains('open');
+      closeOthers();
+      card.classList.toggle('open');
+      header.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    }
+
+    header.addEventListener('click', toggle);
+    header.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        e.stopPropagation();
+        toggle();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
