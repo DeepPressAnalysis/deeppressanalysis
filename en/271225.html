@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deep Press Analysis — New Year Edition 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Deep Press Analysis. Holiday Edition: Trump's Ultimatum, Oil Wars, and Hidden Market Logic. Exclusive briefing for investors and decision-makers." />
+  <meta name="keywords" content="Market Analysis, Geopolitics, Trump Administration 2026, Investor Briefing, Financial News, Global Economy, Oil Wars" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --gold: #FFD700;
+      --red-festive: #ff3b3b;
+      --green-festive: #2ecc71;
+      --blue-festive: #3498db;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 0%, #1a2c4e 0%, #020617 60%, #000 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- SNOWFALL --- */
+    .snow-container {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 1;
+    }
+    .snowflake {
+      position: absolute; width: 5px; height: 5px;
+      background: white; border-radius: 50%; opacity: 0.3;
+      animation: fall linear infinite;
+    }
+    @keyframes fall { to { transform: translateY(110vh); } }
+
+    /* --- GARLAND --- */
+    .garland-wrapper {
+      position: fixed; top: -15px; left: 0; width: 100%; height: 80px;
+      z-index: 9999; pointer-events: none;
+      display: flex; justify-content: center; overflow: hidden;
+    }
+    .light-string {
+      display: flex; justify-content: space-between; width: 120%;
+      margin-left: -10%; padding: 0; list-style: none;
+      border-top: 2px solid #555; border-radius: 50%;
+      height: 60px; margin-top: 0;
+    }
+    .bulb {
+      position: relative; width: 12px; height: 24px;
+      border-radius: 50%; background: #fff; margin: 0 15px; top: 12px;
+      animation-fill-mode: both; animation-iteration-count: infinite;
+    }
+    .bulb::before {
+      content: ""; position: absolute; top: -4px; left: 2px;
+      width: 8px; height: 6px; background: #222; border-radius: 2px;
+    }
+    .bulb:nth-child(4n+1) { background: var(--red-festive); box-shadow: 0 5px 20px var(--red-festive); animation: flash-1 2s infinite alternate; }
+    .bulb:nth-child(4n+2) { background: var(--gold); box-shadow: 0 5px 20px var(--gold); animation: flash-2 2.5s infinite alternate; }
+    .bulb:nth-child(4n+3) { background: var(--green-festive); box-shadow: 0 5px 20px var(--green-festive); animation: flash-3 1.8s infinite alternate; }
+    .bulb:nth-child(4n+4) { background: var(--blue-festive); box-shadow: 0 5px 20px var(--blue-festive); animation: flash-1 2.2s infinite alternate; }
+    @keyframes flash-1 { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    @keyframes flash-2 { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+    @keyframes flash-3 { 0%,50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+    /* --- LAYOUT --- */
+    .page-wrapper {
+      max-width: 980px; margin: 0 auto;
+      padding: 70px 20px 40px; position: relative; z-index: 2;
+    }
+
+    /* --- TOP NAV --- */
+    .top-nav {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 20px; flex-wrap: wrap; gap: 15px;
+    }
+
+    .social-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .social-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: center;
+      color: #ccc; transition: all 0.3s ease; text-decoration: none;
+    }
+    .social-btn:hover {
+      border-color: var(--gold); color: var(--gold);
+      transform: translateY(-3px); box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+    .social-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .lang-bar { display: flex; gap: 4px; flex-wrap: wrap; }
+    .lang-pill {
+      padding: 6px 10px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.4);
+      color: var(--muted); text-decoration: none; font-size: 11px;
+      text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+    }
+    .lang-pill:hover, .lang-pill.active {
+      border-color: var(--gold); color: var(--gold);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+    .lang-pill.active { background: rgba(255,215,0,0.1); }
+
+    /* --- HEADER --- */
+    header {
+      margin-bottom: 30px; border-radius: 24px; padding: 30px;
+      background: linear-gradient(135deg, rgba(20,30,50,0.8), rgba(10,15,25,0.9));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 40px rgba(0,0,0,0.8); backdrop-filter: blur(20px);
+      position: relative; overflow: hidden;
+    }
+    header::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+      background: linear-gradient(90deg, transparent, #FFD700, transparent); opacity: 0.8;
+    }
+    h1.site-title {
+      font-size: 32px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
+      background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7);
+      -webkit-background-clip: text; color: transparent; margin: 0 0 5px;
+      text-shadow: 0 2px 20px rgba(255, 215, 0, 0.3);
+    }
+    .header-meta {
+      display: flex; align-items: center; gap: 15px; margin-top: 10px;
+      color: #e5e7eb; font-size: 13px; font-weight: 600; letter-spacing: 1px;
+    }
+    .badge {
+      background: rgba(212, 46, 46, 0.2); border: 1px solid #ff6b6b;
+      color: #ff6b6b; padding: 2px 8px; border-radius: 4px; font-size: 10px; text-transform: uppercase;
+    }
+    .header-desc { font-size: 14px; color: #cbd5e1; margin-top: 12px; }
+
+    /* --- CARDS --- */
+    main { display: flex; flex-direction: column; gap: 24px; }
+    section.outlet {
+      background: rgba(13, 20, 35, 0.7); border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px;
+      backdrop-filter: blur(15px);
+    }
+    section.outlet h2 {
+      font-size: 18px; letter-spacing: 2px; text-transform: uppercase;
+      background: linear-gradient(90deg, #fff, #94a3b8);
+      -webkit-background-clip: text; color: transparent; margin-bottom: 5px;
+    }
+    .outlet-sub { font-size: 11px; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; opacity: 0.8; }
+
+    .article-card {
+      border-radius: 12px; margin-bottom: 10px; overflow: hidden;
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s;
+    }
+    .article-card:hover { border-color: rgba(255, 215, 0, 0.3); transform: translateX(4px); }
+    .article-card.open { border-color: var(--gold); background: rgba(15, 23, 42, 0.95); box-shadow: 0 0 20px rgba(255, 215, 0, 0.1); }
+    
+    .article-header { padding: 14px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .article-main { display: flex; align-items: baseline; gap: 12px; flex: 1; }
+    .article-index { font-family: monospace; color: var(--gold); font-size: 12px; opacity: 0.7; }
+    .article-title { font-size: 15px; font-weight: 500; color: #f1f5f9; }
+    .article-toggle { font-size: 10px; color: #aaa; transition: 0.3s; }
+    .article-card.open .article-toggle { transform: rotate(180deg); color: var(--gold); }
+
+    .article-body {
+      padding: 0 16px 16px 40px; max-height: 0; opacity: 0; overflow: hidden;
+      font-size: 14px; color: #cbd5e1; transition: all 0.4s ease;
+      border-left: 2px solid var(--gold); margin-left: 16px;
+    }
+    .article-card.open .article-body { max-height: 1000px; opacity: 1; margin-top: -5px; }
+
+    /* --- FOOTER --- */
+    footer {
+      margin-top: 40px; padding: 30px; text-align: center;
+      background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
+      border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+    }
+    .archive-block {
+      margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 13px; color: var(--muted);
+    }
+    .archive-link { color: #e5e7eb; text-decoration: underline; margin-left: 5px; transition: 0.3s; }
+    .archive-link:hover { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
+    
+    .footer-btn {
+      display: inline-block; margin-top: 15px; padding: 10px 25px;
+      color: var(--gold); border: 1px solid var(--gold);
+      text-transform: uppercase; letter-spacing: 2px; font-size: 11px;
+      text-decoration: none; border-radius: 4px; transition: 0.3s;
+    }
+    .footer-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+
+    @media (max-width: 600px) {
+      .top-nav { flex-direction: column-reverse; gap: 15px; }
+      .light-string { width: 150%; margin-left: -25%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="snow-container" id="snow"></div>
+
+  <div class="garland-wrapper">
+    <ul class="light-string">
+      <li class="bulb"></li><li class="bulb"></li><li class="bulb"></li><li class="bulb"></li>
+      <li class="bulb"></li><li class="bulb"></li><li class="bulb"></li><li class="bulb"></li>
+      <li class="bulb"></li><li class="bulb"></li><li class="bulb"></li><li class="bulb"></li>
+      <li class="bulb"></li><li class="bulb"></li><li class="bulb"></li><li class="bulb"></li>
+    </ul>
+  </div>
+
+  <div class="page-wrapper">
+
+    <div class="top-nav">
+      
+      <div class="social-row">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email">
+            <svg viewBox="0 0 512 512"><path d="M48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48zM464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416z"/></svg>
+        </a>
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" title="Telegram">
+            <svg viewBox="0 0 448 512"><path d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"/></svg>
+        </a>
+        <a href="https://x.com/deeppressanalys" class="social-btn" target="_blank" title="X">
+            <svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" title="YouTube">
+            <svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+        </a>
+      </div>
+
+      <div class="lang-bar">
+        <a href="/ua/index.html" class="lang-pill">UA</a>
+        <a href="#" class="lang-pill active">EN</a>
+        <a href="/ar/index.html" class="lang-pill">AR</a>
+        <a href="/ru/index.html" class="lang-pill">RU</a>
+        <a href="/de/index.html" class="lang-pill">DE</a>
+        <a href="/hi/index.html" class="lang-pill">HI</a>
+      </div>
+    </div>
+
+    <header>
+      <h1 class="site-title">Deep Press Analysis</h1>
+      <div class="header-meta">
+        <time>DECEMBER 27, 2025</time>
+        <span class="badge">Christmas Edition</span>
+      </div>
+      <div class="header-desc">
+        Holiday Digest: Trump's Ultimatum, Oil Wars, Royal Diplomacy, and the Silver Rush.
+      </div>
+    </header>
+
+    <main>
+
+      <section class="outlet">
+        <h2>NEW YORK POST</h2>
+        <div class="outlet-sub">Zelensky & Trump • NY Taxes • Media Risks</div>
+        
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">01</span>
+              <h3 class="article-title">Zelensky Brings New Plan to Trump (Zel meet a ‘good shot’ for peace)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Volodymyr Zelensky's visit to Mar-a-Lago with a "20-point plan" signals the final stage of bargaining before Trump's inauguration. Kyiv, realizing the inevitability of pressure from the new US administration, attempts to seize the initiative and offer a format Trump can sell to voters as a personal victory. For the White House, this is a chance to close the "toughest deal" and pivot resources to confront China and Iran. However, Trump's optimism clashes with reality: Russia is in no rush to make concessions without sanctions relief. For markets, this signals high volatility: expectations of rapid detente could turn into disappointment. The risk for Zelensky is that rejecting Trump's proposals could lead to a halt in aid. The hidden logic is transforming the Ukraine case from a geopolitical problem into a business project for Trump-loyal investors.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">02</span>
+              <h3 class="article-title">Hochul Snubs Trump's Tax Cut (Pay Snub)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            The conflict between New York Governor Kathy Hochul and Trump's federal initiative to eliminate taxes on tips reveals a deep crisis in fiscal federalism. Democratic states, facing budget deficits, are forced to sabotage Washington's populist measures. This creates a dangerous split: the federal center lowers the burden, while states maintain it, accelerating business migration to "red" jurisdictions. For New York, this threatens to speed up the exodus of the service class. Politically, this is a gift to Republicans: they gain the argument that Democrats are "robbing" the working class. Institutionally, this leads to fragmentation of the US tax landscape, complicating planning for national chains.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">03</span>
+              <h3 class="article-title">Mayor Picks YouTuber as Advisor (Mayor Mamdani picks ‘Ms. Rachel’)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            The appointment of a children's YouTube influencer to NYC Mayor Mamdani's team is not just a staffing curiosity but a symptom of the "populization" of metropolis governance. The bet is on media reach and virality rather than administrative competence, causing alarm among business elites. This signals that the new administration will be guided by social media logic. For investors, this raises the risk of unpredictable regulatory decisions dictated by momentary trends. A decline in expertise at City Hall could lead to administrative paralysis in crisis situations. This approach undermines the trust of institutional players used to clear rules of the game.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">04</span>
+              <h3 class="article-title">Jimmy Kimmel and Disney's Corporate Risks (Kimmel cranks up lefty volume)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Jimmy Kimmel's attack on Trump on British TV goes beyond entertainment, becoming a corporate risk factor for ABC/Disney. With a new administration prone to using regulatory levers against "unfriendly" media, such rhetoric could have consequences for the parent company. Trump has already shown readiness to review licenses in response to criticism. For Disney shareholders, this is a signal that political engagement by talent threatens business interests. Growing polarization also leads to an exodus of conservative viewers. Management faces a choice: protect stars' free speech or minimize risks to preserve lobbying avenues in Washington.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">05</span>
+              <h3 class="article-title">MTA Payment Glitches (Slap at ‘OMNY tap’)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Tech glitches in the fare payment system ahead of full rollout reveal critical infrastructure vulnerability to digitalization. For New York, where workforce mobility is a key economic driver, transport unreliability causes direct losses. The issue highlights the risk of relying on a single tech solution without adequate analog backups. This could lead to social tension and revenue drops for the transit authority. For TechGov investors, this is a reminder that implementing innovation in legacy systems carries high operational risks. Politically, it gives ammo to critics of digital control.
+          </div>
+        </div>
+      </section>
+
+      <section class="outlet">
+        <h2>THE GLOBE AND MAIL</h2>
+        <div class="outlet-sub">Venezuela & Oil • Nigeria • Canada Defense</div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">01</span>
+              <h3 class="article-title">Trump Preps Regime Change in Venezuela (Regime change in oil-rich Venezuela)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            US military activity off Venezuela and Trump's harsh rhetoric indicate a priority shift: from isolationism to aggressive resource mercantilism. Washington seeks control over major oil reserves to reduce import dependence, including from Canada. For Ottawa, this is an existential threat: losing the US market would be catastrophic for the budget. The hidden logic is creating North American energy autarky under total US dominance. Invasion risks are high, as it would allow Trump to crash global oil prices, weakening Russia and Iran. Geopolitically, this is a return to the "Monroe Doctrine."
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">02</span>
+              <h3 class="article-title">US Strike in Nigeria: Religion or Geopolitics? (Nigeria disputes Trump’s Christians claim)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            A US strike on targets in Nigeria under the pretext of protecting Christians sets a dangerous precedent for weaponizing religion to justify military intervention. This allows Trump to mobilize his base but risks sparking sectarian war in Africa. Nigerian authorities fear destabilization. Washington's hidden motive is a show of force in a region where Chinese and Islamist influence is growing. For investors in African assets, this signals rising security risks. Ignoring ally sovereignty undermines trust in the US as a partner and could push African nations closer to Beijing.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">03</span>
+              <h3 class="article-title">New Canadian Consensus vs Trump 2.0 (This year, we found a new consensus)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Trump's return has triggered a tectonic shift in Canadian politics: Liberals and Conservatives are uniting around economic nationalism and militarization. Abandoning pacifism is a defensive reaction to the threat of a US economic blockade. Institutionally, Canada is shifting to a war economy footing and protectionism. For business, this means the end of easy US market access and a need to diversify. The hidden logic is Ottawa trying to prove its utility to Washington as a strong military ally. However, the social cost (cutting programs for defense) could spark protests.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">04</span>
+              <h3 class="article-title">Stars and Dogs: Market Winners (Stars and Dogs)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Analysis of the year's market winners shows a paradigm shift: away from speculative growth to real assets. Companies tied to cheap money and hype are losing ground. Leaders are those generating cash flow amidst inflation and instability. This signals investors to reprice risk: the era of "easy growth" is over; the battle for efficiency begins. A hidden factor is Trump's policy impact (oil/gas up, ESG down). Institutional investors are reshuffling portfolios for trade wars. The main risk is betting on sectors that could fall victim to new tariffs.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">05</span>
+              <h3 class="article-title">Doctors and Health Breakthroughs (Five health breakthroughs)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Focus on medical innovation (xenotransplantation, vaccines) amid US budget cuts highlights the growing role of private capital. Reduced public science funding forces research centers to seek commercial partnerships, opening a window for pharma giants to acquire developments. For Canada, success in localizing vaccine production is national security, reducing reliance on the US. These technologies are becoming strategic assets. Investors should watch the longevity and transplant sectors. Ethical and regulatory lag is braking adoption, but a breakthrough is inevitable.
+          </div>
+        </div>
+      </section>
+
+      <section class="outlet">
+        <h2>THE INDEPENDENT</h2>
+        <div class="outlet-sub">Gaza Peace Collapse • Royal Trade • NHS</div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">01</span>
+              <h3 class="article-title">Collapse of Gaza "Peace Plan" (The price of Gaza ‘peace’)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Trump's promised "peace for eternity" turns out to be a PR construct. Continued civilian deaths and lack of control mechanisms discredit US diplomacy. Trump uses the conflict for domestic consumption while Israel creates buffer zones. The hidden logic is pushing the Palestinian issue to the periphery via managed chaos. For the region, this is accumulating explosive potential destabilizing Egypt and Jordan. Institutionally, it's a failure of international organizations. For oil markets, it's a deferred risk: quiet could turn to escalation involving Iranian proxies if the humanitarian disaster peaks in winter.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">02</span>
+              <h3 class="article-title">Royal Family as Trade Diplomacy Tool (Charles and William plan US visits)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Planned US visits by King Charles III and Prince William are a desperate attempt by London to save a trade deal with Washington. With investment freezes and Trump tariff threats, the monarchy is used as the ultimate "soft power" lever. Britain is ready to trade symbolic capital for preferences. The hidden risk is dragging the Crown into political bargaining, risking reputational damage if the deal is unfair. For Trump, it legitimizes his status. For British business, it signals the government has exhausted traditional levers. Success is critical for the post-Brexit economy.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">03</span>
+              <h3 class="article-title">NHS Crisis: Infrastructure Collapse (Mixed-sex ward breaches soar)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Record breaches of patient accommodation standards in UK hospitals signal systemic collapse of state medicine due to chronic underfunding. Politically, this is a time bomb for the Labour government. Rising breaches undermine the social contract: citizens pay taxes but don't get safety. For the private sector, it signals rising demand: the solvent class will leave the NHS. Institutionally, it threatens a wave of lawsuits and staff exodus. Macroeconomically, the health crisis lowers productivity and increases budget burdens.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">04</span>
+              <h3 class="article-title">Chinese Spies Target British Lawyers (I was ‘target’ for Chinese spies)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Chinese intel activity against the UK legal community signals hybrid warfare moving to a new level. Beijing seeks to undermine legal mechanisms used to counter its influence. This is a direct attack on civil society. For law firms, it means sharply higher cybersecurity and compliance costs. The risk of "elite capture" via fake headhunting is becoming systemic. Geopolitically, this pushes Britain toward tighter synchronization with US containment policy.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">05</span>
+              <h3 class="article-title">Aid Deficit and Winter Crisis in Gaza (Scrutiny and supplies needed)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Winter storms and lack of shelter in Gaza turn the humanitarian crisis into a strategic instability factor. Inability to ensure survival undermines legitimacy of peace initiatives and fosters radicalization. Blocking aid is used as leverage but backfires via international condemnation. For the West, it's a reputational disaster showing double standards. A hidden risk is epidemic outbreaks spreading to neighbors. Economically, reconstruction will require colossal funds no one is ready to provide without security guarantees.
+          </div>
+        </div>
+      </section>
+
+      <section class="outlet">
+        <h2>THE TIMES UK</h2>
+        <div class="outlet-sub">King & Trump • Dyson & Tax • Retail Slump</div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">01</span>
+              <h3 class="article-title">King Visits Trump to Save Economy (King likely to visit US)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            The Monarch's 2026 visit aligns with the US semiquincentennial, but the real goal is unfreezing trade talks. A pause in US investment in UK tech (£31bn) leaves London vulnerable. Britain is forced to use the Royal Family as top-tier lobbyists. The hidden motive is bypassing Trump's protectionism via personal diplomacy. The risk is Trump demanding painful concessions (agri-market access, lower standards) for photo ops. For markets, this indicates a crisis in the "Special Relationship." Failure could lead to Britain's economic isolation.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">02</span>
+              <h3 class="article-title">Dyson vs Inheritance Tax: Capital Rebellion (Inheritance tax will kill firms)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            James Dyson's public critique of Labour's tax reform is the tip of the iceberg of capital discontent. The threat of selling family businesses to pay inheritance tax creates deindustrialization risks and asset transfers to foreign funds focused on short-term profit. This undermines the UK economy's foundation: long-term family business. For investors, it signals an unfavorable tax climate and capital flight. Politically, it's a conflict between fiscal need and industrial base preservation. Without government concessions, Britain may lose major HQs.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">03</span>
+              <h3 class="article-title">Boxing Day Slump and Retail Crisis (Fewer shoppers hit sales)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            A 15% drop in store footfall on a key sales day indicates a deep cost-of-living crisis. Consumers are exhausted by inflation, and the "golden quarter" failed to deliver profits. This signals a potential recessionary scenario in early 2026. The shift online continues, killing physical retail and changing city centers. For commercial real estate, this is a negative signal requiring asset repricing. Economically, it means lower tax revenue and bankruptcy threats. Investors should avoid traditional retail formats not adapted to thrifty consumption.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">04</span>
+              <h3 class="article-title">Chinese Spies and LinkedIn (I was ‘target’ for Chinese spies)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Chinese intel use of professional networks (LinkedIn) for recruitment shows open society vulnerability. Attacks on the legal sector aim to undermine institutions protecting democratic norms. This is part of Beijing's strategy to gather kompromat on elites. For the corporate sector, it's a warning: any online contact could be an espionage entry point. MI5's public warning speaks to the problem's scale. This will increase business paranoia and may lead to hiring/cooperation restrictions with Chinese counterparties, furthering technological decoupling.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">05</span>
+              <h3 class="article-title">Gen Z and Drunk Driving: Norm Shift (Drink-driving ‘acceptable to Gen Z’)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Data showing Gen Z is more tolerant of drunk driving than Boomers points to a dangerous social trend. This contradicts the "conscious" youth narrative and may result from lost trust in rules or growing nihilism. For insurers, it's a signal to revise risk models (higher premiums). Legislatively, it will push the government to toughen limits and fines. It also creates public safety risks and increases police burden. Sociologically, it marks a generational value gap where individualism overrides collective safety.
+          </div>
+        </div>
+      </section>
+
+      <section class="outlet">
+        <h2>THE WALL STREET JOURNAL</h2>
+        <div class="outlet-sub">Fed Loyalty • Silver Bubble • AI Tricks</div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">01</span>
+              <h3 class="article-title">Trump Wants Loyalist for Fed Chair (Conditions Compromise All Fed Hopefuls)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Trump is narrowing the Fed Chair candidate pool to those ready to cut rates on command, regardless of inflation. Candidates face a loyalty test, not a competence one. This is a direct threat to Central Bank independence. Politicizing the Fed to boost the economy short-term (pre-midterms) threatens a long-term inflation spiral and loss of dollar trust. For markets, it's a "sugar high": rate cuts will boost stocks but create bubbles. Institutional investors see a risk of the US turning into a country with manual monetary policy control, changing debt market rules and sparking flight to alternative assets.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">02</span>
+              <h3 class="article-title">Mexico Wins Trade Wars (Mexico’s Exports Rise Despite Tariffs)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Despite Trump's tariff threats, Mexican exports to the US are rising, replacing Chinese goods. Mexico is the main beneficiary of the geopolitical rift, offering a "backdoor" to the US market. Business pragmatism outweighs political rhetoric: supply chains are reconfiguring (nearshoring) but not fully returning to the US due to cost. For investors, this confirms Mexican asset attractiveness. However, USMCA review risk remains. Trump may use Mexico's dependence for political blackmail, but economic integration is too deep to sever without hurting the US itself.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">03</span>
+              <h3 class="article-title">Russia as Kushner/Witkoff Business Project (Trump’s Russia Plan)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Trump's circle (Witkoff, Kushner) views Russia not as an enemy, but as an undervalued asset for post-conflict investment. The "peace for profit" idea implies lifting sanctions for US capital access to resources. However, experienced investors are skeptical: expropriation risks and structural economic issues make Russia toxic. The hidden motive is monetizing diplomatic success, turning reconstruction into personal enrichment for inner circles. For Ukraine and Europe, it's a risk of trading security for Kremlin deals. Markets see a signal of potential opening, but institutional money won't go there.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">04</span>
+              <h3 class="article-title">Retail Investors' "Silver Rush" (Amateur Investors Get Swept Up)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            A surge in silver prices, fueled by retail investors and YouTubers, shows bubble signs. Physical metal buying reflects deep distrust in fiat money. Unlike gold, the silver market is smaller and more volatile, making it vulnerable to manipulation. Industrial consumers (solar, electronics) face raw material shortages, driving cost inflation. For regulators, it's a signal of overheated speculation. If the bubble bursts, millions of small investors will suffer. It's also an indicator of flight to hard assets amid geopolitical anxiety.
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">05</span>
+              <h3 class="article-title">AI Cost Opacity: Hidden Big Tech Risks (AI Costs Lack Transparency)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            Tech giants (Google, Amazon) hide real AI chip costs by mixing them with long-term data center capex. This distorts reporting: chips obsolete in 3 years vs buildings lasting 40. Inflating depreciation terms artificially boosts profit, misleading shareholders on AI race profitability. This creates a risk of sudden future write-downs. For investors, it's a "black box": impossible to assess capex efficiency. The situation resembles dotcom-era accounting tricks. Regulators may demand transparency, leading to tech valuation repricing downward.
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>
+        Deep Press Analysis © 2025<br>
+        <span style="font-size: 12px; color: #64748b;">Daily synthesis for decision makers.</span>
+      </p>
+      
+      <a href="https://deeppressanalysis.com/manifesto.html" class="footer-btn">Read Manifesto</a>
+
+      <div class="archive-block">
+        <strong style="color: var(--gold);">Archive:</strong>
+        <a href="/en/261225.html" class="archive-link">December 26, 2025</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // JS: Snow
+    const snowContainer = document.getElementById('snow');
+    const snowflakeCount = 60;
+    for(let i=0; i<snowflakeCount; i++){
+      const flake = document.createElement('div');
+      flake.classList.add('snowflake');
+      flake.style.left = Math.random() * 100 + 'vw';
+      flake.style.animationDuration = (Math.random() * 3 + 5) + 's'; 
+      flake.style.opacity = Math.random() * 0.6 + 0.1;
+      flake.style.width = flake.style.height = (Math.random() * 4 + 2) + 'px';
+      flake.style.animationDelay = (Math.random() * 5) + 's';
+      snowContainer.appendChild(flake);
+    }
+
+    // JS: Accordion
+    document.querySelectorAll('.article-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const card = header.parentElement;
+        const section = card.closest('.outlet');
+        section.querySelectorAll('.article-card').forEach(c => {
+          if (c !== card) c.classList.remove('open');
+        });
+        card.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
