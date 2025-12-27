@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deep Press Analysis — नव वर्ष संस्करण 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Deep Press Analysis. हॉलिडे संस्करण: ट्रम्प का अल्टीमेटम, तेल युद्ध और बाजारों का छिपा हुआ तर्क। निवेशकों और निर्णय निर्माताओं के लिए विशेष ब्रीफिंग।" />
+  <meta name="keywords" content="बाजार विश्लेषण, भू-राजनीति, ट्रम्प प्रशासन 2026, निवेश समाचार, वित्तीय समाचार, वैश्विक अर्थव्यवस्था, तेल युद्ध" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --gold: #FFD700;
+      --red-festive: #ff3b3b;
+      --green-festive: #2ecc71;
+      --blue-festive: #3498db;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 0%, #1a2c4e 0%, #020617 60%, #000 100%);
+      color: var(--text);
+      font-family: 'Nirmala UI', 'Tiro Devanagari Hindi', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- SNOWFALL --- */
+    .snow-container {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 1;
+    }
+    .snowflake {
+      position: absolute; width: 5px; height: 5px;
+      background: white; border-radius: 50%; opacity: 0.3;
+      animation: fall linear infinite;
+    }
+    @keyframes fall { to { transform: translateY(110vh); } }
+
+    /* --- GARLAND --- */
+    .garland-wrapper {
+      position: fixed; top: -15px; left: 0; width: 100%; height: 80px;
+      z-index: 9999; pointer-events: none;
+      display: flex; justify-content: center; overflow: hidden;
+    }
+    .light-string {
+      display: flex; justify-content: space-between; width: 120%;
+      margin-left: -10%; padding: 0; list-style: none;
+      border-top: 2px solid #555; border-radius: 50%;
+      height: 60px; margin-top: 0;
+    }
+    .bulb {
+      position: relative; width: 12px; height: 24px;
+      border-radius: 50%; background: #fff; margin: 0 15px; top: 12px;
+      animation-fill-mode: both; animation-iteration-count: infinite;
+    }
+    .bulb::before {
+      content: ""; position: absolute; top: -4px; left: 2px;
+      width: 8px; height: 6px; background: #222; border-radius: 2px;
+    }
+    .bulb:nth-child(4n+1) { background: var(--red-festive); box-shadow: 0 5px 20px var(--red-festive); animation: flash-1 2s infinite alternate; }
+    .bulb:nth-child(4n+2) { background: var(--gold); box-shadow: 0 5px 20px var(--gold); animation: flash-2 2.5s infinite alternate; }
+    .bulb:nth-child(4n+3) { background: var(--green-festive); box-shadow: 0 5px 20px var(--green-festive); animation: flash-3 1.8s infinite alternate; }
+    .bulb:nth-child(4n+4) { background: var(--blue-festive); box-shadow: 0 5px 20px var(--blue-festive); animation: flash-1 2.2s infinite alternate; }
+    @keyframes flash-1 { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    @keyframes flash-2 { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+    @keyframes flash-3 { 0%,50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+    /* --- LAYOUT --- */
+    .page-wrapper {
+      max-width: 980px; margin: 0 auto;
+      padding: 70px 20px 40px; position: relative; z-index: 2;
+    }
+
+    /* --- TOP NAV --- */
+    .top-nav {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 20px; flex-wrap: wrap; gap: 15px;
+    }
+
+    .social-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .social-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: center;
+      color: #ccc; transition: all 0.3s ease; text-decoration: none;
+    }
+    .social-btn:hover {
+      border-color: var(--gold); color: var(--gold);
+      transform: translateY(-3px); box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+    .social-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .lang-bar { display: flex; gap: 4px; flex-wrap: wrap; }
+    .lang-pill {
+      padding: 6px 10px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.4);
+      color: var(--muted); text-decoration: none; font-size: 11px;
+      text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+    }
+    .lang-pill:hover, .lang-pill.active {
+      border-color: var(--gold); color: var(--gold);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+    .lang-pill.active { background: rgba(255,215,0,0.1); }
+
+    /* --- HEADER --- */
+    header {
+      margin-bottom: 30px; border-radius: 24px; padding: 30px;
+      background: linear-gradient(135deg, rgba(20,30,50,0.8), rgba(10,15,25,0.9));
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 40px rgba(0,0,0,0.8); backdrop-filter: blur(20px);
+      position: relative; overflow: hidden;
+    }
+    header::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+      background: linear-gradient(90deg, transparent, #FFD700, transparent); opacity: 0.8;
+    }
+    h1.site-title {
+      font-size: 32px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
+      background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7);
+      -webkit-background-clip: text; color: transparent; margin: 0 0 5px;
+      text-shadow: 0 2px 20px rgba(255, 215, 0, 0.3);
+    }
+    .header-meta {
+      display: flex; align-items: center; gap: 15px; margin-top: 10px;
+      color: #e5e7eb; font-size: 13px; font-weight: 600; letter-spacing: 1px;
+    }
+    .badge {
+      background: rgba(212, 46, 46, 0.2); border: 1px solid #ff6b6b;
+      color: #ff6b6b; padding: 2px 8px; border-radius: 4px; font-size: 10px; text-transform: uppercase;
+    }
+    .header-desc { font-size: 14px; color: #cbd5e1; margin-top: 12px; }
+
+    /* --- CARDS --- */
+    main { display: flex; flex-direction: column; gap: 24px; }
+    section.outlet {
+      background: rgba(13, 20, 35, 0.7); border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px;
+      backdrop-filter: blur(15px);
+    }
+    section.outlet h2 {
+      font-size: 18px; letter-spacing: 2px; text-transform: uppercase;
+      background: linear-gradient(90deg, #fff, #94a3b8);
+      -webkit-background-clip: text; color: transparent; margin-bottom: 5px;
+    }
+    .outlet-sub { font-size: 11px; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; opacity: 0.8; }
+
+    .article-card {
+      border-radius: 12px; margin-bottom: 10px; overflow: hidden;
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s;
+    }
+    .article-card:hover { border-color: rgba(255, 215, 0, 0.3); transform: translateX(4px); }
+    .article-card.open { border-color: var(--gold); background: rgba(15, 23, 42, 0.95); box-shadow: 0 0 20px rgba(255, 215, 0, 0.1); }
+    
+    .article-header { padding: 14px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .article-main { display: flex; align-items: baseline; gap: 12px; flex: 1; }
+    .article-index { font-family: monospace; color: var(--gold); font-size: 12px; opacity: 0.7; }
+    .article-title { font-size: 15px; font-weight: 500; color: #f1f5f9; }
+    .article-toggle { font-size: 10px; color: #aaa; transition: 0.3s; }
+    .article-card.open .article-toggle { transform: rotate(180deg); color: var(--gold); }
+
+    .article-body {
+      padding: 0 16px 16px 40px; max-height: 0; opacity: 0; overflow: hidden;
+      font-size: 14px; color: #cbd5e1; transition: all 0.4s ease;
+      border-left: 2px solid var(--gold); margin-left: 16px;
+    }
+    .article-card.open .article-body { max-height: 1000px; opacity: 1; margin-top: -5px; }
+
+    /* --- FOOTER --- */
+    footer {
+      margin-top: 40px; padding: 30px; text-align: center;
+      background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
+      border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+    }
+    .archive-block {
+      margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 13px; color: var(--muted);
+    }
+    .archive-link { color: #e5e7eb; text-decoration: underline; margin-left: 5px; transition: 0.3s; }
+    .archive-link:hover { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
+    
+    .footer-btn {
+      display: inline-block; margin-top: 15px; padding: 10px 25px;
+      color: var(--gold); border: 1px solid var(--gold);
+      text-transform: uppercase; letter-spacing: 2px; font-size: 11px;
+      text-decoration: none; border-radius: 4px; transition: 0.3s;
+    }
+    .footer-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+
+    @media (max-width: 600px) {
+      .top-nav { flex-direction: column-reverse; gap: 15px; }
+      .light-string { width: 150%; margin-left: -25%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="snow-container" id="snow"></div>
+
+  <div class="garland-wrapper">
+    <ul class="light-string">
+      <li class="bulb"></li><li class="bulb"></li><li class="bulb"></li><li class="bulb"></li>
+      <li class="bulb"></li><li class="bulb"></li><li class="bulb"></li><li class="bulb"></li>
+      <li class="bulb"></li><li class="bulb"></li><li class="bulb"></li><li class="bulb"></li>
+      <li class="bulb"></li><li class="bulb"></li><li class="bulb"></li><li class="bulb"></li>
+    </ul>
+  </div>
+
+  <div class="page-wrapper">
+
+    <div class="top-nav">
+      
+      <div class="social-row">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email">
+            <svg viewBox="0 0 512 512"><path d="M48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48zM464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416z"/></svg>
+        </a>
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" title="Telegram">
+            <svg viewBox="0 0 448 512"><path d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"/></svg>
+        </a>
+        <a href="https://x.com/deeppressanalys" class="social-btn" target="_blank" title="X">
+            <svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" title="YouTube">
+            <svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+        </a>
+      </div>
+
+      <div class="lang-bar">
+        <a href="/ua/index.html" class="lang-pill">UA</a>
+        <a href="/en/index.html" class="lang-pill">EN</a>
+        <a href="/ar/index.html" class="lang-pill">AR</a>
+        <a href="/ru/index.html" class="lang-pill">RU</a>
+        <a href="/de/index.html" class="lang-pill">DE</a>
+        <a href="#" class="lang-pill active">HI</a>
+      </div>
+    </div>
+
+    <header>
+      <h1 class="site-title">Deep Press Analysis</h1>
+      <div class="header-meta">
+        <time>27 दिसंबर 2025</time>
+        <span class="badge">Christmas Edition</span>
+      </div>
+      <div class="header-desc">
+        हॉलिडे डाइजेस्ट: ट्रम्प का अल्टीमेटम, तेल युद्ध, शाही कूटनीति और चांदी के बाजार में तेजी।
+      </div>
+    </header>
+
+    <main>
+
+      <section class="outlet">
+        <h2>NEW YORK POST</h2>
+        <div class="outlet-sub">ज़ेलेंस्की और ट्रम्प • न्यूयॉर्क टैक्स • मीडिया जोखिम</div>
+        
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">01</span>
+              <h3 class="article-title">ज़ेलेंस्की ट्रम्प के लिए नई योजना लाए (Zelensky Brings New Plan)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            वलोडिमिर ज़ेलेंस्की की '20-सूत्रीय योजना' के साथ मार-ए-लागो की यात्रा, ट्रम्प के शपथ ग्रहण से पहले सौदेबाजी के अंतिम चरण का संकेत है। नई अमेरिकी सरकार के दबाव की अनिवार्यता को समझते हुए, कीव पहल करने की कोशिश कर रहा है। वे ऐसा प्रारूप पेश करना चाहते हैं जिसे ट्रम्प अपनी व्यक्तिगत जीत के रूप में मतदाताओं को बेच सकें। व्हाइट हाउस के लिए, यह 'सबसे कठिन सौदे' को बंद करने और चीन तथा ईरान का मुकाबला करने के लिए संसाधनों को मोड़ने का अवसर है। हालांकि, ट्रम्प का आशावाद वास्तविकता से टकरा रहा है: रूस प्रतिबंध हटाए बिना रियायतें देने की जल्दी में नहीं है। बाजारों के लिए, यह उच्च अस्थिरता (volatility) का संकेत है। ज़ेलेंस्की के लिए जोखिम यह है कि ट्रम्प के प्रस्तावों को अस्वीकार करने से सहायता रुक सकती है। इसमें निहित तर्क यूक्रेनी मामले को एक भू-राजनीतिक समस्या से बदलकर ट्रम्प के वफादार निवेशकों के लिए एक व्यावसायिक परियोजना बनाना है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">02</span>
+              <h3 class="article-title">होचुल ने ट्रम्प की तर्ज पर टैक्स छूट से किया इनकार (Hochul Snubs Trump)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            न्यूयॉर्क की गवर्नर कैथी होचुल और ट्रम्प की 'टिप्स पर टैक्स हटाने' की संघीय पहल के बीच संघर्ष, वित्तीय संघवाद में गहरे संकट को उजागर करता है। बजट घाटे का सामना कर रहे डेमोक्रेटिक राज्य, वाशिंगटन के लोकलुभावन उपायों को विफल करने के लिए मजबूर हैं। यह एक खतरनाक स्थिति पैदा करता है: केंद्र सरकार बोझ कम करती है, जबकि राज्य इसे बनाए रखते हैं, जिससे 'लाल' (रिपब्लिकन) राज्यों की ओर व्यवसायों का पलायन तेज हो जाता है। न्यूयॉर्क के लिए, यह सर्विस क्लास के पलायन को तेज करने का जोखिम पैदा करता है। राजनीतिक रूप से, यह रिपब्लिकन के लिए एक उपहार है: उन्हें यह तर्क मिलता है कि डेमोक्रेट श्रमिक वर्ग को 'लूट' रहे हैं। संस्थागत रूप से, यह अमेरिकी कर परिदृश्य के विखंडन की ओर ले जाता है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">03</span>
+              <h3 class="article-title">नए मेयर ने YouTuber को सलाहकार नियुक्त किया (Mayor Picks YouTuber)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            न्यूयॉर्क के मेयर ममदानी की टीम में बच्चों की YouTube इन्फ्लुएंसर की नियुक्ति सिर्फ एक कार्मिक जिज्ञासा नहीं है, बल्कि महानगर शासन के 'लोकलुभावनवाद' का लक्षण है। प्रशासनिक क्षमता के बजाय मीडिया पहुंच और वायरल होने की क्षमता पर दांव लगाया जा रहा है, जिससे व्यापारिक अभिजात वर्ग (Business Elites) में चिंता है। यह संकेत है कि नया प्रशासन सोशल मीडिया के तर्क से निर्देशित होगा। निवेशकों के लिए, यह क्षणिक रुझानों द्वारा निर्देशित अप्रत्याशित नियामक निर्णयों के जोखिम को बढ़ाता है। संकट की स्थितियों में सिटी हॉल में विशेषज्ञता की कमी प्रशासनिक पक्षाघात का कारण बन सकती है। यह दृष्टिकोण संस्थागत खिलाड़ियों के भरोसे को कम करता है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">04</span>
+              <h3 class="article-title">जिमी किमेल और डिज्नी के कॉर्पोरेट जोखिम (Kimmel & Disney Risks)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            ब्रिटिश टीवी पर जिमी किमेल द्वारा ट्रम्प पर हमला मनोरंजन से परे है और यह उनकी मूल कंपनी (ABC/Disney) के लिए एक कॉर्पोरेट जोखिम कारक बन गया है। 'अमित्र' मीडिया के खिलाफ नियामक लीवर का उपयोग करने की प्रवृत्ति वाली नई सरकार के साथ, ऐसी बयानबाजी के परिणाम हो सकते हैं। ट्रम्प पहले ही आलोचना के जवाब में लाइसेंस की समीक्षा करने की तत्परता दिखा चुके हैं। डिज्नी के शेयरधारकों के लिए, यह एक संकेत है कि प्रतिभाओं (talents) की राजनीतिक सक्रियता व्यावसायिक हितों को खतरे में डाल रही है। बढ़ता ध्रुवीकरण रूढ़िवादी दर्शकों के पलायन का कारण भी बन रहा है। प्रबंधन के सामने एक विकल्प है: अपने सितारों की अभिव्यक्ति की स्वतंत्रता की रक्षा करें या वाशिंगटन में लॉबिंग के अवसरों को बनाए रखने के लिए जोखिम कम करें।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">05</span>
+              <h3 class="article-title">मेट्रो भुगतान प्रणाली में तकनीकी खामियां (MTA Payment Glitches)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            पूर्ण रोलआउट से पहले किराया भुगतान प्रणाली में तकनीकी गड़बड़ियां डिजिटलीकरण के प्रति महत्वपूर्ण बुनियादी ढांचे की संवेदनशीलता को उजागर करती हैं। न्यूयॉर्क के लिए, जहां कार्यबल की गतिशीलता एक प्रमुख आर्थिक चालक है, परिवहन की अविश्वसनीयता सीधे नुकसान का कारण बनती है। यह समस्या पर्याप्त एनालॉग बैकअप के बिना एकल तकनीकी समाधान पर निर्भर रहने के जोखिम को रेखांकित करती है। इससे सामाजिक तनाव और परिवहन प्राधिकरण के राजस्व में गिरावट आ सकती है। TechGov निवेशकों के लिए, यह एक अनुस्मारक है कि पुरानी प्रणालियों में नवाचार लागू करना उच्च परिचालन जोखिमों के साथ आता है।
+          </div>
+        </div>
+      </section>
+
+      <section class="outlet">
+        <h2>THE GLOBE AND MAIL</h2>
+        <div class="outlet-sub">वेनेजुएला और तेल • नाइजीरिया • कनाडा रक्षा</div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">01</span>
+              <h3 class="article-title">वेनेजुएला में सत्ता परिवर्तन की तैयारी कर रहे ट्रम्प (Regime Change in Venezuela)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            वेनेजुएला के तट पर अमेरिकी सैन्य गतिविधि और ट्रम्प की कठोर बयानबाजी प्राथमिकताओं में बदलाव का संकेत देती है: अलगाववाद से आक्रामक संसाधन व्यापारवाद (mercantilism) की ओर। वाशिंगटन प्रमुख तेल भंडार पर नियंत्रण चाहता है ताकि कनाडा सहित अन्य देशों से आयात निर्भरता कम की जा सके। ओटावा के लिए, यह एक अस्तित्वगत खतरा है: अमेरिकी बाजार खोना बजट के लिए विनाशकारी होगा। छिपा हुआ तर्क पूर्ण अमेरिकी प्रभुत्व के तहत उत्तरी अमेरिकी ऊर्जा आत्मनिर्भरता बनाना है। आक्रमण के जोखिम अधिक हैं, क्योंकि इससे ट्रम्प को वैश्विक तेल की कीमतें गिराने में मदद मिलेगी, जिससे रूस और ईरान कमजोर होंगे। भू-राजनीतिक रूप से, यह "मुनरो सिद्धांत" की वापसी है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">02</span>
+              <h3 class="article-title">नाइजीरिया पर अमेरिकी हमला: धर्म या भू-राजनीति? (US Strike in Nigeria)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            ईसाइयों की रक्षा के बहाने नाइजीरिया में लक्ष्यों पर अमेरिकी हमला, सैन्य हस्तक्षेप को सही ठहराने के लिए धर्म का हथियार के रूप में उपयोग करने का एक खतरनाक उदाहरण है। यह ट्रम्प को अपने वोट बैंक को लामबंद करने की अनुमति देता है लेकिन अफ्रीका में सांप्रदायिक युद्ध भड़कने का जोखिम है। नाइजीरियाई अधिकारियों को अस्थिरता का डर है। वाशिंगटन का छिपा हुआ मकसद उस क्षेत्र में शक्ति प्रदर्शन है जहां चीनी और इस्लामी प्रभाव बढ़ रहा है। अफ्रीकी संपत्ति में निवेशकों के लिए, यह बढ़ती सुरक्षा जोखिमों का संकेत है। सहयोगी की संप्रभुता की अनदेखी एक भागीदार के रूप में अमेरिका पर विश्वास को कम करती है और अफ्रीकी देशों को बीजिंग के करीब धकेल सकती है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">03</span>
+              <h3 class="article-title">ट्रम्प 2.0 के सामने नई कनाडाई आम सहमति (New Canadian Consensus)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            ट्रम्प की वापसी ने कनाडाई राजनीति में एक बड़ा बदलाव किया है: लिबरल और कंजरवेटिव आर्थिक राष्ट्रवाद और सैन्यीकरण के इर्द-गिर्द एकजुट हो रहे हैं। शांतिवाद (pacifism) का त्याग अमेरिकी आर्थिक नाकाबंदी के खतरे के प्रति रक्षात्मक प्रतिक्रिया है। संस्थागत रूप से, कनाडा युद्ध अर्थव्यवस्था और संरक्षणवाद की ओर बढ़ रहा है। व्यवसाय के लिए, इसका मतलब है कि अमेरिकी बाजार तक आसान पहुंच का अंत और विविधता लाने की आवश्यकता। छिपा हुआ तर्क यह है कि ओटावा एक मजबूत सैन्य सहयोगी के रूप में वाशिंगटन के लिए अपनी उपयोगिता साबित करने की कोशिश कर रहा है। हालांकि, इसकी सामाजिक लागत (रक्षा के लिए कल्याणकारी कार्यक्रमों में कटौती) विरोध प्रदर्शनों को भड़का सकती है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">04</span>
+              <h3 class="article-title">सितारे और कुत्ते: बाजार के विजेता (Stars and Dogs)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            वर्ष के बाजार विजेताओं का विश्लेषण एक प्रतिमान बदलाव (paradigm shift) दिखाता है: सट्टा विकास से हटकर वास्तविक संपत्ति की ओर। सस्ते पैसे और प्रचार (hype) से जुड़ी कंपनियां अपनी जमीन खो रही हैं। मुद्रास्फीति और अस्थिरता के बीच नकदी प्रवाह (cash flow) उत्पन्न करने वाले अग्रणी हैं। यह निवेशकों को जोखिम का पुनर्मूल्यांकन करने का संकेत देता है: "आसान विकास" का युग समाप्त हो गया है; दक्षता के लिए लड़ाई शुरू होती है। एक छिपा हुआ कारक ट्रम्प की नीति का प्रभाव है (तेल/गैस ऊपर, ESG नीचे)। संस्थागत निवेशक व्यापार युद्धों के लिए पोर्टफोलियो में फेरबदल कर रहे हैं। मुख्य जोखिम उन क्षेत्रों पर दांव लगाना है जो नए टैरिफ का शिकार हो सकते हैं।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">05</span>
+              <h3 class="article-title">डॉक्टर और स्वास्थ्य सफलताएं (Health Breakthroughs)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            अमेरिकी बजट में कटौती के बीच चिकित्सा नवाचार (जेनोट्रांसप्लांटेशन, टीके) पर ध्यान निजी पूंजी की बढ़ती भूमिका को उजागर करता है। कम सरकारी विज्ञान वित्तपोषण अनुसंधान केंद्रों को वाणिज्यिक साझेदारी की तलाश करने के लिए मजबूर करता है, जिससे फार्मा दिग्गजों के लिए विकास का अधिग्रहण करने का अवसर खुलता है। कनाडा के लिए, वैक्सीन उत्पादन के स्थानीयकरण में सफलता राष्ट्रीय सुरक्षा का मामला है, जो अमेरिका पर निर्भरता कम करती है। ये प्रौद्योगिकियां रणनीतिक संपत्ति बन रही हैं। निवेशकों को दीर्घायु (longevity) और प्रत्यारोपण क्षेत्रों पर नजर रखनी चाहिए। नैतिक और नियामक देरी अपनाने में बाधा बन रही है, लेकिन सफलता अपरिहार्य है।
+          </div>
+        </div>
+      </section>
+
+      <section class="outlet">
+        <h2>THE INDEPENDENT</h2>
+        <div class="outlet-sub">गाजा शांति का पतन • शाही व्यापार • NHS</div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">01</span>
+              <h3 class="article-title">गाजा 'शांति योजना' का पतन (Collapse of Gaza Peace)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            ट्रम्प का वादा किया गया "अनंत काल के लिए शांति" एक पीआर (PR) निर्माण साबित हो रहा है। नागरिकों की लगातार मौतें और नियंत्रण तंत्र की कमी अमेरिकी कूटनीति को बदनाम करती है। ट्रम्प संघर्ष का उपयोग घरेलू खपत के लिए करते हैं जबकि इज़राइल बफर ज़ोन बनाता है। छिपा हुआ तर्क फिलिस्तीनी मुद्दे को प्रबंधित अराजकता (managed chaos) के माध्यम से हाशिए पर धकेलना है। क्षेत्र के लिए, यह विस्फोटक क्षमता जमा कर रहा है जो मिस्र और जॉर्डन को अस्थिर कर सकता है। संस्थागत रूप से, यह अंतरराष्ट्रीय संगठनों की विफलता है। तेल बाजारों के लिए, यह एक स्थगित जोखिम है: यदि मानवीय आपदा सर्दियों में चरम पर पहुंचती है तो शांति ईरान के प्रॉक्सी को शामिल करते हुए वृद्धि (escalation) में बदल सकती है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">02</span>
+              <h3 class="article-title">व्यापार कूटनीति के साधन के रूप में शाही परिवार (Royal Family as Trade Tool)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            किंग चार्ल्स III और प्रिंस विलियम की नियोजित अमेरिकी यात्राएं लंदन द्वारा वाशिंगटन के साथ व्यापार सौदे को बचाने का एक हताश प्रयास है। निवेश फ्रीज और ट्रम्प के टैरिफ खतरों के साथ, राजशाही का उपयोग अंतिम "सॉफ्ट पावर" लीवर के रूप में किया जा रहा है। ब्रिटेन वरीयताओं (preferences) के बदले प्रतीकात्मक पूंजी का व्यापार करने के लिए तैयार है। छिपा हुआ जोखिम क्राउन को राजनीतिक सौदेबाजी में घसीटना है, जिससे सौदा अनुचित होने पर प्रतिष्ठा को नुकसान होने का खतरा है। ट्रम्प के लिए, यह उनकी स्थिति को वैध बनाता है। ब्रिटिश व्यापार के लिए, यह संकेत देता है कि सरकार ने पारंपरिक लीवर समाप्त कर दिए हैं। ब्रेक्सिट के बाद की अर्थव्यवस्था के लिए सफलता महत्वपूर्ण है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">03</span>
+              <h3 class="article-title">NHS संकट: बुनियादी ढांचे का पतन (NHS Crisis)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            ब्रिटेन के अस्पतालों में रोगी आवास मानकों का रिकॉर्ड उल्लंघन, पुरानी कम फंडिंग के कारण राज्य चिकित्सा के प्रणालीगत पतन का संकेत देता है। राजनीतिक रूप से, यह लेबर सरकार के लिए एक टाइम बम है। बढ़ते उल्लंघन सामाजिक अनुबंध को कमजोर करते हैं: नागरिक कर देते हैं लेकिन सुरक्षा नहीं पाते हैं। निजी क्षेत्र के लिए, यह बढ़ती मांग का संकेत है: संपन्न वर्ग NHS को छोड़ देगा। संस्थागत रूप से, यह मुकदमों की लहर और कर्मचारियों के पलायन की धमकी देता है। व्यापक आर्थिक रूप से, स्वास्थ्य संकट उत्पादकता कम करता है और बजट बोझ बढ़ाता है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">04</span>
+              <h3 class="article-title">चीनी जासूसों ने ब्रिटिश वकीलों को निशाना बनाया (Spies Target Lawyers)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            यूके के कानूनी समुदाय के खिलाफ चीनी खुफिया गतिविधि हाइब्रिड युद्ध के एक नए स्तर पर जाने का संकेत देती है। बीजिंग अपने प्रभाव का मुकाबला करने के लिए उपयोग किए जाने वाले कानूनी तंत्र को कमजोर करना चाहता है। यह नागरिक समाज पर सीधा हमला है। कानून फर्मों के लिए, इसका मतलब है कि साइबर सुरक्षा और अनुपालन लागत में तेजी से वृद्धि। नकली हेडहंटिंग के माध्यम से "कुलीन वर्ग को पकड़ने" (elite capture) का जोखिम प्रणालीगत होता जा रहा है। भू-राजनीतिक रूप से, यह ब्रिटेन को अमेरिकी रोकथाम नीति (containment policy) के साथ सख्त तालमेल की ओर धकेलता है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">05</span>
+              <h3 class="article-title">गाजा में सहायता की कमी और शीतकालीन संकट (Gaza Winter Crisis)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            गाजा में सर्दियों के तूफान और आश्रय की कमी मानवीय संकट को रणनीतिक अस्थिरता कारक में बदल देती है। अस्तित्व सुनिश्चित करने में असमर्थता शांति पहल की वैधता को कमजोर करती है और कट्टरपंथ को बढ़ावा देती है। सहायता को रोकना एक उत्तोलक (leverage) के रूप में उपयोग किया जाता है लेकिन अंतरराष्ट्रीय निंदा के माध्यम से उल्टा असर करता है। पश्चिम के लिए, यह दोहरे मानकों को दिखाने वाली एक प्रतिष्ठा आपदा है। एक छिपा हुआ जोखिम महामारी का प्रकोप है जो पड़ोसियों तक फैल सकता है। आर्थिक रूप से, पुनर्निर्माण के लिए भारी धन की आवश्यकता होगी जिसे कोई भी सुरक्षा गारंटी के बिना प्रदान करने के लिए तैयार नहीं है।
+          </div>
+        </div>
+      </section>
+
+      <section class="outlet">
+        <h2>THE TIMES UK</h2>
+        <div class="outlet-sub">राजा और ट्रम्प • डायसन और टैक्स • खुदरा मंदी</div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">01</span>
+              <h3 class="article-title">अर्थव्यवस्था को बचाने के लिए राजा करेंगे ट्रम्प से मुलाकात (King Visits Trump)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            सम्राट की 2026 की यात्रा अमेरिकी स्वतंत्रता की 250वीं वर्षगांठ के साथ मेल खाती है, लेकिन असली लक्ष्य व्यापार वार्ता को फिर से शुरू करना है। यूके टेक (£31bn) में अमेरिकी निवेश में ठहराव लंदन को असुरक्षित छोड़ देता है। ब्रिटेन शाही परिवार को शीर्ष स्तर के पैरवीकार (lobbyists) के रूप में उपयोग करने के लिए मजबूर है। छिपा हुआ मकसद व्यक्तिगत कूटनीति के माध्यम से ट्रम्प के संरक्षणवाद को बायपास करना है। जोखिम यह है कि ट्रम्प फोटो सेशन के बदले दर्दनाक रियायतों (कृषि बाजार पहुंच, कम मानक) की मांग कर सकते हैं। बाजारों के लिए, यह "विशेष संबंधों" में संकट का संकेत देता है। विफलता ब्रिटेन के आर्थिक अलगाव का कारण बन सकती है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">02</span>
+              <h3 class="article-title">विरासत कर के खिलाफ डायसन: पूंजी का विद्रोह (Dyson vs Inheritance Tax)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            जेम्स डायसन द्वारा लेबर पार्टी के कर सुधार की सार्वजनिक आलोचना पूंजी असंतोष की नोक है। विरासत कर (inheritance tax) का भुगतान करने के लिए पारिवारिक व्यवसायों को बेचने का खतरा विऔद्योगीकरण (deindustrialization) जोखिम पैदा करता है और अल्पकालिक लाभ पर केंद्रित विदेशी फंडों को संपत्ति हस्तांतरण करता है। यह यूके की अर्थव्यवस्था की नींव को कमजोर करता है: दीर्घकालिक पारिवारिक व्यवसाय। निवेशकों के लिए, यह प्रतिकूल कर वातावरण और पूंजी पलायन का संकेत देता है। राजनीतिक रूप से, यह राजकोषीय आवश्यकता और औद्योगिक आधार संरक्षण के बीच संघर्ष है। सरकारी रियायतों के बिना, ब्रिटेन प्रमुख मुख्यालय खो सकता है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">03</span>
+              <h3 class="article-title">बॉक्सिंग डे पर बिक्री में गिरावट और खुदरा संकट (Retail Crisis)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            एक प्रमुख बिक्री दिवस पर स्टोर फुटफॉल में 15% की गिरावट जीवन-यापन की लागत के गहरे संकट का संकेत देती है। उपभोक्ता महंगाई से थक चुके हैं, और "स्वर्ण तिमाही" मुनाफा देने में विफल रही। यह 2026 की शुरुआत में संभावित मंदी के परिदृश्य का संकेत देता है। ऑनलाइन बदलाव जारी है, जो भौतिक खुदरा (physical retail) को मार रहा है और शहर के केंद्रों को बदल रहा है। वाणिज्यिक अचल संपत्ति के लिए, यह एक नकारात्मक संकेत है जिसके लिए संपत्ति के पुनर्मूल्यांकन की आवश्यकता है। आर्थिक रूप से, इसका मतलब कम कर राजस्व और दिवालियापन के खतरे हैं। निवेशकों को पारंपरिक खुदरा प्रारूपों से बचना चाहिए।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">04</span>
+              <h3 class="article-title">चीनी जासूस और लिंक्डइन (Spies and LinkedIn)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            भर्ती के लिए चीनी खुफिया द्वारा पेशेवर नेटवर्क (LinkedIn) का उपयोग खुले समाज की भेद्यता को दर्शाता है। कानूनी क्षेत्र पर हमलों का उद्देश्य लोकतांत्रिक मानदंडों की रक्षा करने वाली संस्थाओं को कमजोर करना है। यह अभिजात वर्ग पर कोमप्रोमैट (kompromat - समझौता करने वाली सामग्री) इकट्ठा करने की बीजिंग की रणनीति का हिस्सा है। कॉर्पोरेट क्षेत्र के लिए, यह एक चेतावनी है: कोई भी ऑनलाइन संपर्क जासूसी का प्रवेश बिंदु हो सकता है। MI5 की सार्वजनिक चेतावनी समस्या के पैमाने को बयां करती है। इससे व्यापारिक व्यामोह (paranoia) बढ़ेगा और चीनी समकक्षों के साथ भर्ती/सहयोग प्रतिबंध हो सकते हैं।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">05</span>
+              <h3 class="article-title">जेन जेड और ड्रंक ड्राइविंग: मानदंड बदलाव (Gen Z Norm Shift)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            आंकड़े दिखाते हैं कि जेन जेड (Gen Z) बूमर्स की तुलना में शराब पीकर गाड़ी चलाने के प्रति अधिक सहिष्णु है, जो एक खतरनाक सामाजिक प्रवृत्ति की ओर इशारा करता है। यह "जागरूक" युवाओं के आख्यान का खंडन करता है और नियमों में विश्वास खोने या बढ़ते शून्यवाद का परिणाम हो सकता है। बीमाकर्ताओं के लिए, यह जोखिम मॉडल (उच्च प्रीमियम) को संशोधित करने का संकेत है। विधायी रूप से, यह सरकार को सीमाओं और जुर्मानों को सख्त करने के लिए प्रेरित करेगा। यह सार्वजनिक सुरक्षा जोखिम भी पैदा करता है और पुलिस का बोझ बढ़ाता है। समाजशास्त्रीय रूप से, यह एक पीढ़ीगत मूल्य अंतर को चिह्नित करता है जहां व्यक्तिवाद सामूहिक सुरक्षा पर हावी हो जाता है।
+          </div>
+        </div>
+      </section>
+
+      <section class="outlet">
+        <h2>THE WALL STREET JOURNAL</h2>
+        <div class="outlet-sub">फेड वफादारी • चांदी का बुलबुला • एआई ट्रिक्स</div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">01</span>
+              <h3 class="article-title">ट्रम्प फेड प्रमुख के रूप में वफादार व्यक्ति चाहते हैं (Trump Wants Loyalist for Fed)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            ट्रम्प फेड चेयर उम्मीदवार पूल को उन लोगों तक सीमित कर रहे हैं जो मुद्रास्फीति की परवाह किए बिना आदेश पर दरें कम करने के लिए तैयार हैं। उम्मीदवारों को वफादारी परीक्षा का सामना करना पड़ता है, क्षमता का नहीं। यह सेंट्रल बैंक की स्वतंत्रता के लिए सीधा खतरा है। अर्थव्यवस्था को अल्पावधि (मध्यावधि चुनाव से पहले) बढ़ावा देने के लिए फेड का राजनीतिकरण दीर्घकालिक मुद्रास्फीति सर्पिल और डॉलर के विश्वास के नुकसान की धमकी देता है। बाजारों के लिए, यह "शुगर हाई" है: दर में कटौती स्टॉक को बढ़ावा देगी लेकिन बुलबुले बनाएगी। संस्थागत निवेशक अमेरिका के मैनुअल मौद्रिक नीति नियंत्रण वाले देश में बदलने का जोखिम देखते हैं, जिससे ऋण बाजार के नियम बदल जाएंगे।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">02</span>
+              <h3 class="article-title">व्यापार युद्धों से मेक्सिको को फायदा (Mexico Wins Trade Wars)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            ट्रम्प की टैरिफ धमकियों के बावजूद, अमेरिका को मैक्सिकन निर्यात बढ़ रहा है, जो चीनी सामानों की जगह ले रहा है। मेक्सिको भू-राजनीतिक दरार का मुख्य लाभार्थी है, जो अमेरिकी बाजार के लिए "पिछला दरवाजा" (backdoor) पेश करता है। व्यावसायिक व्यावहारिकता राजनीतिक बयानबाजी से अधिक महत्वपूर्ण है: आपूर्ति श्रृंखलाएं पुनर्गठित हो रही हैं (nearshoring) लेकिन लागत के कारण पूरी तरह से अमेरिका में वापस नहीं आ रही हैं। निवेशकों के लिए, यह मैक्सिकन संपत्ति के आकर्षण की पुष्टि करता है। हालांकि, USMCA समीक्षा जोखिम बना हुआ है। ट्रम्प राजनीतिक ब्लैकमेल के लिए मेक्सिको की निर्भरता का उपयोग कर सकते हैं, लेकिन आर्थिक एकीकरण इतना गहरा है कि अमेरिका को चोट पहुंचाए बिना इसे तोड़ा नहीं जा सकता।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">03</span>
+              <h3 class="article-title">कुशनर/विटकॉफ के बिजनेस प्रोजेक्ट के रूप में रूस (Russia as Business Project)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            ट्रम्प का सर्कल (विटकॉफ, कुशनर) रूस को दुश्मन के रूप में नहीं, बल्कि संघर्ष के बाद के निवेश के लिए एक अंडरवैल्यूड संपत्ति के रूप में देखता है। "लाभ के लिए शांति" विचार का तात्पर्य संसाधनों तक अमेरिकी पूंजी की पहुंच के लिए प्रतिबंध हटाना है। हालांकि, अनुभवी निवेशक उलझन में हैं: ज़ब्ती जोखिम और संरचनात्मक आर्थिक मुद्दे रूस को विषाक्त (toxic) बनाते हैं। छिपा हुआ मकसद राजनयिक सफलता का मुद्रीकरण करना है, पुनर्निर्माण को आंतरिक हलकों के लिए व्यक्तिगत संवर्धन में बदलना है। यूक्रेन और यूरोप के लिए, यह क्रेमलिन सौदों के लिए सुरक्षा का व्यापार करने का जोखिम है। बाजार संभावित उद्घाटन का संकेत देखते हैं, लेकिन संस्थागत पैसा वहां नहीं जाएगा।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">04</span>
+              <h3 class="article-title">खुदरा निवेशकों की 'चांदी की दौड़' (Silver Rush)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            खुदरा निवेशकों और YouTubers द्वारा संचालित चांदी की कीमतों में उछाल, बुलबुले के संकेत दिखाता है। भौतिक धातु की खरीद फिएट मनी में गहरे अविश्वास को दर्शाती है। सोने के विपरीत, चांदी का बाजार छोटा और अधिक अस्थिर है, जिससे यह हेरफेर के लिए असुरक्षित हो जाता है। औद्योगिक उपभोक्ताओं (सौर, इलेक्ट्रॉनिक्स) को कच्चे माल की कमी का सामना करना पड़ रहा है, जिससे लागत मुद्रास्फीति बढ़ रही है। नियामकों के लिए, यह अधिक गरम सट्टेबाजी का संकेत है। यदि बुलबुला फूटता है, तो लाखों छोटे निवेशकों को नुकसान होगा। भू-राजनीतिक चिंता के बीच यह हार्ड एसेट्स की ओर पलायन का सूचक भी है।
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-header">
+            <div class="article-main">
+              <span class="article-index">05</span>
+              <h3 class="article-title">AI लागत अस्पष्टता: बिग टेक जोखिम (AI Cost Opacity)</h3>
+            </div>
+            <div class="article-toggle">▼</div>
+          </div>
+          <div class="article-body">
+            टेक दिग्गज (Google, Amazon) दीर्घकालिक डेटा सेंटर निवेश के साथ मिलाकर वास्तविक AI चिप लागत को छिपाते हैं। यह रिपोर्टिंग को विकृत करता है: चिप्स 3 साल में पुराने हो जाते हैं बनाम इमारतें 40 साल तक चलती हैं। मूल्यह्रास शर्तों (depreciation terms) को बढ़ाना कृत्रिम रूप से लाभ को बढ़ाता है, जिससे शेयरधारकों को एआई रेस की लाभप्रदता पर गुमराह किया जाता है। यह भविष्य में अचानक राइट-डाउन का जोखिम पैदा करता है। निवेशकों के लिए, यह एक "ब्लैक बॉक्स" है: पूंजीगत व्यय दक्षता का आकलन करना असंभव है। स्थिति डॉट-कॉम युग की लेखांकन चालों जैसा दिखता है। नियामक पारदर्शिता की मांग कर सकते हैं, जिससे टेक मूल्यांकन नीचे आ सकता है।
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>
+        Deep Press Analysis © 2025<br>
+        <span style="font-size: 12px; color: #64748b;">निर्णय निर्माताओं के लिए दैनिक संश्लेषण।</span>
+      </p>
+      
+      <a href="https://deeppressanalysis.com/manifesto.html" class="footer-btn">घोषणापत्र पढ़ें</a>
+
+      <div class="archive-block">
+        <strong style="color: var(--gold);">आर्काइव:</strong>
+        <a href="/hi/261225.html" class="archive-link">26 दिसंबर 2025</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // JS: Snow
+    const snowContainer = document.getElementById('snow');
+    const snowflakeCount = 60;
+    for(let i=0; i<snowflakeCount; i++){
+      const flake = document.createElement('div');
+      flake.classList.add('snowflake');
+      flake.style.left = Math.random() * 100 + 'vw';
+      flake.style.animationDuration = (Math.random() * 3 + 5) + 's'; 
+      flake.style.opacity = Math.random() * 0.6 + 0.1;
+      flake.style.width = flake.style.height = (Math.random() * 4 + 2) + 'px';
+      flake.style.animationDelay = (Math.random() * 5) + 's';
+      snowContainer.appendChild(flake);
+    }
+
+    // JS: Accordion
+    document.querySelectorAll('.article-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const card = header.parentElement;
+        const section = card.closest('.outlet');
+        section.querySelectorAll('.article-card').forEach(c => {
+          if (c !== card) c.classList.remove('open');
+        });
+        card.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
