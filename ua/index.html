@@ -2,46 +2,52 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <title>Deep Press Analysis — 30 Грудня 2025</title>
+  <title>Deep Press Analysis — 31 груд. 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Deep Press Analysis. Випуск 30 грудня: Новий пакт Британії та ЄС, Трамп проти ФРС, Крах Іранського ріала та Аварія Ентоні Джошуа." />
-  <meta name="keywords" content="Новини, геополітика, економіка, Трамп, Зеленський, війна в Україні, НАТО, Брекзит, 2025, аналітика" />
+  <meta name="description" content="Deep Press Analysis 2025. Підсумки року. Атака на резиденцію Путіна, Трамп 2.0, Індія та новий Папа Римський. Глобальний геополітичний аналіз." />
+  <meta name="keywords" content="геополітика 2026, аналіз ринків, війна в Україні, Трамп, Ватикан, штучний інтелект, Deep Press Analysis" />
 
   <style>
     :root {
-      --bg: #020617;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
+      /* 2026 Theme: Deep Space & Cyber Champagne */
+      --bg-core: #050510;
+      --text: #e0e6ed;
+      --muted: #94a3b8;
+      
+      /* Neon Palette */
       --gold: #FFD700;
-      --red-festive: #ff3b3b;
-      --green-festive: #2ecc71;
-      --blue-festive: #3498db;
+      --neon-blue: #00f3ff;
+      --neon-purple: #bc13fe;
+      --neon-pink: #ff0055;
+      
+      --glass-bg: rgba(20, 25, 45, 0.65);
+      --glass-border: rgba(255, 255, 255, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100vh;
-      background: radial-gradient(circle at 50% 0%, #1a2c4e 0%, #020617 60%, #000 100%);
+      background: radial-gradient(circle at 50% -20%, #2a1b3d 0%, #090919 60%, #000 100%);
+      background-attachment: fixed;
       color: var(--text);
       font-family: system-ui, -apple-system, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* --- SNOWFALL --- */
-    .snow-container {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: 1;
+    /* --- CANVAS FIREWORKS --- */
+    #fireworks-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; /* Behind content but in front of background */
+      pointer-events: none; /* Let clicks pass through */
     }
-    .snowflake {
-      position: absolute; width: 5px; height: 5px;
-      background: white; border-radius: 50%; opacity: 0.3;
-      animation: fall linear infinite;
-    }
-    @keyframes fall { to { transform: translateY(110vh); } }
 
-    /* --- GARLAND --- */
+    /* --- GARLAND (Party Mode) --- */
     .garland-wrapper {
       position: fixed; top: -15px; left: 0; width: 100%; height: 80px;
       z-index: 9999; pointer-events: none;
@@ -50,25 +56,20 @@
     .light-string {
       display: flex; justify-content: space-between; width: 120%;
       margin-left: -10%; padding: 0; list-style: none;
-      border-top: 2px solid #555; border-radius: 50%;
-      height: 60px; margin-top: 0;
+      border-top: 2px solid rgba(255, 255, 255, 0.2); border-radius: 50%;
+      height: 60px;
     }
     .bulb {
       position: relative; width: 12px; height: 24px;
-      border-radius: 50%; background: #fff; margin: 0 15px; top: 12px;
-      animation-fill-mode: both; animation-iteration-count: infinite;
+      border-radius: 50%; margin: 0 15px; top: 12px;
+      background: #fff;
     }
-    .bulb::before {
-      content: ""; position: absolute; top: -4px; left: 2px;
-      width: 8px; height: 6px; background: #222; border-radius: 2px;
-    }
-    .bulb:nth-child(4n+1) { background: var(--red-festive); box-shadow: 0 5px 20px var(--red-festive); animation: flash-1 2s infinite alternate; }
-    .bulb:nth-child(4n+2) { background: var(--gold); box-shadow: 0 5px 20px var(--gold); animation: flash-2 2.5s infinite alternate; }
-    .bulb:nth-child(4n+3) { background: var(--green-festive); box-shadow: 0 5px 20px var(--green-festive); animation: flash-3 1.8s infinite alternate; }
-    .bulb:nth-child(4n+4) { background: var(--blue-festive); box-shadow: 0 5px 20px var(--blue-festive); animation: flash-1 2.2s infinite alternate; }
-    @keyframes flash-1 { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
-    @keyframes flash-2 { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
-    @keyframes flash-3 { 0%,50% { opacity: 0.3; } 100% { opacity: 1; } }
+    /* Party Colors: Cyan, Magenta, Gold */
+    .bulb:nth-child(4n+1) { background: var(--neon-blue); box-shadow: 0 0 15px var(--neon-blue); animation: flash-party 1s infinite alternate; }
+    .bulb:nth-child(4n+2) { background: var(--neon-pink); box-shadow: 0 0 15px var(--neon-pink); animation: flash-party 1.5s infinite alternate; }
+    .bulb:nth-child(4n+3) { background: var(--gold); box-shadow: 0 0 20px var(--gold); animation: flash-party 1.2s infinite alternate; }
+    .bulb:nth-child(4n+4) { background: var(--neon-purple); box-shadow: 0 0 15px var(--neon-purple); animation: flash-party 0.8s infinite alternate; }
+    @keyframes flash-party { 0% { opacity: 0.5; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1.1); } }
 
     /* --- LAYOUT --- */
     .page-wrapper {
@@ -79,130 +80,173 @@
     /* --- TOP NAV --- */
     .top-nav {
       display: flex; justify-content: space-between; align-items: flex-start;
-      margin-bottom: 20px; flex-wrap: wrap; gap: 15px;
+      margin-bottom: 30px; flex-wrap: wrap; gap: 15px;
     }
-
     .social-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .social-btn {
-      width: 40px; height: 40px; border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.15);
+      width: 40px; height: 40px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
       background: rgba(255,255,255,0.05);
       display: flex; align-items: center; justify-content: center;
       color: #ccc; transition: all 0.3s ease; text-decoration: none;
+      backdrop-filter: blur(5px);
     }
     .social-btn:hover {
-      border-color: var(--gold); color: var(--gold);
-      transform: translateY(-3px); box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+      border-color: var(--neon-blue); color: var(--neon-blue);
+      transform: translateY(-3px); box-shadow: 0 0 15px var(--neon-blue);
     }
     .social-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
     .lang-bar { display: flex; gap: 4px; flex-wrap: wrap; }
     .lang-pill {
-      padding: 6px 10px; border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.4);
+      padding: 6px 12px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3);
       color: var(--muted); text-decoration: none; font-size: 11px;
-      text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+      backdrop-filter: blur(5px);
     }
     .lang-pill:hover, .lang-pill.active {
-      border-color: var(--gold); color: var(--gold);
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      border-color: var(--neon-purple); color: #fff;
+      background: rgba(188, 19, 254, 0.2);
+      box-shadow: 0 0 15px var(--neon-purple);
     }
-    .lang-pill.active { background: rgba(255,215,0,0.1); }
 
-    /* --- HEADER --- */
+    /* --- HEADER 2026 --- */
     header {
-      margin-bottom: 30px; border-radius: 24px; padding: 30px;
-      background: linear-gradient(135deg, rgba(20,30,50,0.8), rgba(10,15,25,0.9));
-      border: 1px solid rgba(255, 215, 0, 0.3);
-      box-shadow: 0 0 40px rgba(0,0,0,0.8); backdrop-filter: blur(20px);
-      position: relative; overflow: hidden;
+      margin-bottom: 40px; border-radius: 24px; padding: 40px;
+      background: linear-gradient(135deg, rgba(10,10,30,0.85), rgba(20,0,30,0.7));
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      box-shadow: 0 0 40px rgba(0,0,0,0.6), inset 0 0 20px rgba(188, 19, 254, 0.1);
+      backdrop-filter: blur(20px);
+      text-align: center; position: relative; overflow: hidden;
     }
-    header::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-      background: linear-gradient(90deg, transparent, #FFD700, transparent); opacity: 0.8;
+    
+    /* Giant 2026 Background */
+    .neon-year {
+      font-size: 100px; line-height: 0.8; font-weight: 900;
+      color: transparent; -webkit-text-stroke: 2px var(--gold);
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      opacity: 0.08; z-index: 0; letter-spacing: 10px;
+      pointer-events: none;
     }
+
     h1.site-title {
-      font-size: 32px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
-      background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7);
-      -webkit-background-clip: text; color: transparent; margin: 0 0 5px;
-      text-shadow: 0 2px 20px rgba(255, 215, 0, 0.3);
+      font-size: 38px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
+      background: linear-gradient(to right, #fff, #00f3ff, #fff);
+      -webkit-background-clip: text; color: transparent; margin: 0 0 10px;
+      position: relative; z-index: 2;
+      text-shadow: 0 0 25px rgba(0, 243, 255, 0.5);
     }
+
     .header-meta {
-      display: flex; align-items: center; gap: 15px; margin-top: 10px;
-      color: #e5e7eb; font-size: 13px; font-weight: 600; letter-spacing: 1px;
+      display: flex; justify-content: center; align-items: center; gap: 15px;
+      margin-top: 15px; position: relative; z-index: 2;
+    }
+    .date-pill {
+      background: rgba(0,0,0,0.6); border: 1px solid var(--gold);
+      color: var(--gold); padding: 4px 12px; border-radius: 20px;
+      font-weight: 700; font-size: 12px; letter-spacing: 1px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
     }
     .badge {
-      background: rgba(212, 46, 46, 0.2); border: 1px solid #ff6b6b;
-      color: #ff6b6b; padding: 2px 8px; border-radius: 4px; font-size: 10px; text-transform: uppercase;
+      background: rgba(188, 19, 254, 0.2); border: 1px solid var(--neon-purple);
+      color: #df8fff; padding: 4px 10px; border-radius: 4px; font-size: 11px; text-transform: uppercase;
+      font-weight: bold; letter-spacing: 1px;
     }
-    .header-desc { font-size: 14px; color: #cbd5e1; margin-top: 12px; }
 
-    /* --- CARDS --- */
-    main { display: flex; flex-direction: column; gap: 24px; }
-    section.outlet {
-      background: rgba(13, 20, 35, 0.7); border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px;
-      backdrop-filter: blur(15px);
+    .header-desc {
+      font-size: 15px; color: #cbd5e1; margin-top: 20px;
+      position: relative; z-index: 2; max-width: 650px; margin-left: auto; margin-right: auto;
     }
+
+    /* --- CARDS & OUTLETS --- */
+    main { display: flex; flex-direction: column; gap: 30px; position: relative; z-index: 2; }
+
+    section.outlet {
+      background: var(--glass-bg); border-radius: 20px;
+      border: 1px solid var(--glass-border); padding: 25px;
+      backdrop-filter: blur(12px); position: relative;
+    }
+    /* Gradient Top Border */
+    section.outlet::before {
+      content: ''; position: absolute; top: 0; left: 20px; right: 20px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.5;
+    }
+
     section.outlet h2 {
       font-size: 18px; letter-spacing: 2px; text-transform: uppercase;
-      background: linear-gradient(90deg, #fff, #94a3b8);
-      -webkit-background-clip: text; color: transparent; margin-bottom: 5px;
+      color: #fff; margin-bottom: 5px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.2);
     }
-    .outlet-sub { font-size: 11px; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; opacity: 0.8; }
+    .outlet-sub { font-size: 11px; color: var(--neon-blue); text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px; opacity: 0.9; }
 
     .article-card {
-      border-radius: 12px; margin-bottom: 10px; overflow: hidden;
-      background: linear-gradient(180deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
-      border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s;
+      border-radius: 14px; margin-bottom: 12px; overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.3));
+      border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease;
     }
-    .article-card:hover { border-color: rgba(255, 215, 0, 0.3); transform: translateX(4px); }
-    .article-card.open { border-color: var(--gold); background: rgba(15, 23, 42, 0.95); box-shadow: 0 0 20px rgba(255, 215, 0, 0.1); }
+    .article-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+      transform: translateX(4px);
+    }
+    .article-card.open {
+      border-color: var(--neon-blue);
+      background: rgba(10, 15, 25, 0.9);
+      box-shadow: 0 0 25px rgba(0, 243, 255, 0.15);
+    }
     
-    .article-header { padding: 14px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .article-header { padding: 15px 18px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
     .article-main { display: flex; align-items: baseline; gap: 12px; flex: 1; }
-    .article-index { font-family: monospace; color: var(--gold); font-size: 12px; opacity: 0.7; }
-    .article-title { font-size: 15px; font-weight: 500; color: #f1f5f9; }
-    .article-toggle { font-size: 10px; color: #aaa; transition: 0.3s; }
-    .article-card.open .article-toggle { transform: rotate(180deg); color: var(--gold); }
+    .article-index { font-family: monospace; color: var(--gold); font-size: 13px; font-weight: bold; opacity: 0.8; }
+    .article-title { font-size: 15px; font-weight: 500; color: #f1f5f9; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+    .article-toggle { font-size: 10px; color: var(--muted); transition: 0.3s; }
+    .article-card.open .article-toggle { transform: rotate(180deg); color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
 
     .article-body {
-      padding: 0 16px 16px 40px; max-height: 0; opacity: 0; overflow: hidden;
-      font-size: 14px; color: #cbd5e1; transition: all 0.4s ease;
-      border-left: 2px solid var(--gold); margin-left: 16px;
+      padding: 0 18px 18px 45px; max-height: 0; opacity: 0; overflow: hidden;
+      font-size: 14px; color: #d1d5db; transition: all 0.4s ease;
+      border-left: 2px solid var(--neon-blue); margin-left: 18px;
     }
     .article-card.open .article-body { max-height: 1000px; opacity: 1; margin-top: -5px; }
 
     /* --- FOOTER --- */
     footer {
-      margin-top: 40px; padding: 30px; text-align: center;
-      background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
-      border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+      margin-top: 60px; padding: 40px 20px; text-align: center;
+      background: linear-gradient(to top, #000, #0a0a1a);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-radius: 30px 30px 0 0;
+      position: relative; z-index: 2;
     }
     .archive-block {
-      margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05);
       font-size: 13px; color: var(--muted);
     }
-    .archive-link { color: #e5e7eb; text-decoration: underline; margin-left: 5px; transition: 0.3s; }
-    .archive-link:hover { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
+    .archive-link { color: var(--neon-blue); text-decoration: underline; margin-left: 5px; transition: 0.3s; }
+    .archive-link:hover { color: #fff; text-shadow: 0 0 10px var(--neon-blue); }
     
     .footer-btn {
-      display: inline-block; margin-top: 15px; padding: 10px 25px;
-      color: var(--gold); border: 1px solid var(--gold);
-      text-transform: uppercase; letter-spacing: 2px; font-size: 11px;
+      display: inline-block; margin-top: 20px; padding: 12px 30px;
+      color: #000; background: var(--gold);
+      text-transform: uppercase; letter-spacing: 2px; font-size: 11px; font-weight: 700;
       text-decoration: none; border-radius: 4px; transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
     }
-    .footer-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+    .footer-btn:hover {
+      background: #fff; box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); transform: scale(1.05);
+    }
 
     @media (max-width: 600px) {
-      .top-nav { flex-direction: column-reverse; gap: 15px; }
+      .top-nav { flex-direction: column-reverse; gap: 20px; }
       .light-string { width: 150%; margin-left: -25%; }
+      h1.site-title { font-size: 28px; }
+      .neon-year { font-size: 70px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="snow-container" id="snow"></div>
+  <canvas id="fireworks-canvas"></canvas>
 
   <div class="garland-wrapper">
     <ul class="light-string">
@@ -218,7 +262,7 @@
     <div class="top-nav">
       
       <div class="social-row">
-        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="E-Mail">
             <svg viewBox="0 0 512 512"><path d="M48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48zM464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416z"/></svg>
         </a>
         <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" title="Telegram">
@@ -243,32 +287,33 @@
     </div>
 
     <header>
+      <div class="neon-year">2026</div>
       <h1 class="site-title">Deep Press Analysis</h1>
       <div class="header-meta">
-        <time>30 ГРУДНЯ 2025</time>
+        <span class="date-pill">31 ГРУДНЯ 2025</span>
         <span class="badge">Новорічний випуск</span>
       </div>
       <div class="header-desc">
-        Святковий дайджест: Британія та ЄС, Трамп проти ФРС, Крах Іранського ріала та Аварія Ентоні Джошуа.
+        Україна та звинувачення Кремля, другий термін Трампа, смерть Халеди Зія та перший Папа-американець. Глобальний огляд подій останнього дня року.
       </div>
     </header>
 
     <main>
 
       <section class="outlet">
-        <h2>THE INDEPENDENT</h2>
-        <div class="outlet-sub">Британія/ЄС • Україна • Брексит • Джошуа • Принц Ендрю</div>
+        <h2>FINANCIAL TIMES</h2>
+        <div class="outlet-sub">Україна • Private Equity • Ємен • Клімат • Тайвань</div>
         
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">01</span>
-              <h3 class="article-title">Британія шукає новий оборонний пакт з ЄС (UK should seek new EU defence pact to replace Trump-poll)</h3>
+              <h3 class="article-title">Україна намагається спростувати звинувачення в атаці на Путіна</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Опубліковані дані соціологічного опитування фіксують тектонічний зсув у стратегічному мисленні британського електорату: 55% виборців підтримують створення нового оборонного альянсу з Європою без участі США. Драйвером цього процесу виступає зростаюча недовіра до адміністрації Трампа та сумніви в надійності 5-ї статті НАТО за нинішнього Білого дому. Для Лондона це створює складну дилему: необхідність хеджувати ризики безпеки через Брюссель підриває пост-брекзитівську концепцію «Глобальної Британії», орієнтованої на трансатлантичні зв'язки. З погляду оборонної промисловості, такий розворот може стимулювати консолідацію європейського ВПК та перенаправлення британських військових бюджетів у спільні європейські проєкти на шкоду американським підрядникам. Політично це послаблює важелі впливу Вашингтона на Лондон, роблячи Велику Британію менш слухняним молодшим партнером у геополітичних іграх США.
+            Кремль використовує інцидент із імовірною атакою дронів на резиденцію Путіна як інструмент дипломатичного тиску в критичний момент переговорів. Звинувачення на адресу Києва, попри відсутність публічно наданих доказів, створюють для Москви зручний привід або заморозити переговорний процес, або виправдати ескалацію ударів по українській інфраструктурі. Реакція Дональда Трампа, який висловив «гнів» і прийняв російську версію подій, сигналізує про хиткість підтримки Зеленського новою адміністрацією США. Для Києва це створює ризик примусу до невигідних поступок заради збереження американської допомоги. Європейські союзники опиняються в ролі спостерігачів, чий вплив на архітектуру безпеки знижується в міру того, як діалог переходить у площину двосторонніх контактів Вашингтона і Москви. Ринки сприймають цю риторику як сигнал підвищеної волатильності, закладаючи в ціни ризики зриву мирного процесу. Росія тестує готовність Білого дому тиснути на свого союзника, створюючи прецедент для майбутніх маніпуляцій.
           </div>
         </div>
 
@@ -276,12 +321,12 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">02</span>
-              <h3 class="article-title">15-річні гарантії безпеки для України: ризики та невизначеність (Europe could have 15 years to get its act together - if Zelensky accepts a deal)</h3>
+              <h3 class="article-title">Групи викупу продають активи самі собі рекордними темпами</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Пропозиція Трампа щодо 15-річних гарантій безпеки для Києва в обмін на заморожування конфлікту розглядається аналітиками як тимчасовий захід із високим ризиком анулювання. Скепсис викликає відсутність фізичної присутності військ США та залежність домовленостей від особистих рішень президента, схильного до розриву міжнародних угод розчерком пера. Для Зеленського прийняття такого ультиматуму несе загрозу внутрішньої дестабілізації, проте відмова загрожує повною втратою підтримки Вашингтона. Європейським столицям цей план дає вузьке вікно можливостей для форсованого нарощування власної військової автономії, доки США де-факто усуваються від вирішення проблем безпеки на континенті. Ринки можуть сприйняти угоду як короткостроковий сигнал до зниження геополітичної напруженості, але довгострокові інвестори побачать у ній лише відкладену кризу.
+            Різке зростання використання «інструментів продовження» (continuation vehicles) у приватному капіталі розкриває структурні проблеми з ліквідністю в галузі. Не маючи можливості реалізувати активи через IPO або прямий продаж за бажаними оцінками, фонди перекладають компанії зі старих портфелів у нові, що дозволяє штучно фіксувати прибуток і генерувати комісійні. Це створює очевидний конфлікт інтересів, де керуючі виступають одночасно продавцями і покупцями, потенційно завищуючи оцінки за відсутності ринкового ціноутворення. Для інституційних інвесторів, таких як пенсійні фонди, це несе ризик концентрації збитків і «зомбування» портфелів. Зростання обсягу таких угод до 100 мільярдів доларів свідчить про спробу галузі відкласти визнання реальної вартості активів. Регуляторні органи починають звертати увагу на непрозорість цих схем, що загрожує посиленням правил. У довгостроковій перспективі це може призвести до корекції ринку приватного капіталу, коли міхур оцінок зіткнеться з реальністю.
           </div>
         </div>
 
@@ -289,12 +334,12 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">03</span>
-              <h3 class="article-title">Затримки торгової угоди з ЄС коштують економіці £100 млн на тиждень (Delays to post-Brexit deal 'costing UK £100m a week')</h3>
+              <h3 class="article-title">Саудівська Аравія завдає удару по порту в Ємені для зупинки постачання зброї</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Бюрократична тяганина в узгодженні санітарних та фітосанітарних норм (SPS) з Євросоюзом перетворюється на значущий макроекономічний фактор, що гальмує зростання ВВП Великої Британії. Відсутність угоди генерує прямі збитки для експортерів та збільшує інфляційний тиск через логістичні витрати. Політично це б'є по репутації уряду Стармера, який обіцяв «перезавантаження» відносин із Брюсселем, та посилює критику з боку бізнесу, що втрачає конкурентоспроможність. Для ритейлерів та агропромислового сектору збереження бар'єрів означає продовження тренду на зниження маржинальності та скорочення обсягів торгівлі. Інвесторам у британські активи варто враховувати структурну слабкість експортно-орієнтованих галузей до моменту фіналізації угоди.
+            Прямий авіаудар Ер-Ріяда по порту Мукалла знаменує перехід прихованих суперечностей між Саудівською Аравією та ОАЕ у фазу відкритого конфлікту. Боротьба за контроль над стратегічними портами Ємену відображає конкуренцію двох монархій за економічне домінування в регіоні та вплив на морські торгові шляхи. ОАЕ, що підтримують сепаратистів Півдня, прагнуть закріпити свою присутність у Баб-ель-Мандебській протоці, що суперечить інтересам саудитів, які виступають за єдиний Ємен під своїм патронатом. Розкол усередині антихуситської коаліції підриває зусилля США зі стримування Ірану та створює безпековий вакуум. Для нафтових ринків це додає премію за ризик, оскільки загроза транзиту тепер походить від внутрішніх чвар союзників Заходу. На Вашингтон чекає складна дипломатична місія з примирення партнерів, чиї амбіції виходять за рамки традиційного альянсу.
           </div>
         </div>
 
@@ -302,12 +347,12 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">04</span>
-              <h3 class="article-title">Аварія Ентоні Джошуа: удар по спортивній бізнес-імперії (Boxing champion Anthony Joshua in hospital after fatal car crash)</h3>
+              <h3 class="article-title">Кліматична політика страждає попри бум чистої енергії</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Інцидент у Нігерії за участю колишнього чемпіона світу у суперважкій вазі виходить за межі спортивної хроніки, зачіпаючи багатомільйонні контракти та плани на 2026 рік. Загибель ключових членів команди Джошуа та його власні травми ставлять під загрозу очікуваний мега-бій із Тайсоном Ф'юрі в Саудівській Аравії, що несе ризики для промоутерів та стрімінгових платформ, які вже заклали цю подію у фінансові моделі. Ситуація підкреслює крихкість активів в індустрії розваг, зав'язаних на фізичному стані однієї зірки. Страхові компанії та спонсори можуть переглянути умови контрактів, враховуючи репутаційні та фізичні ризики, пов'язані з позаспортивною діяльністю атлетів.
+            Відмова адміністрації Трампа від ключових екологічних норм провокує глобальний відкат у кліматичному регулюванні. Розрив між здешевленням зелених технологій і державною політикою, що повертається до підтримки вуглеводнів, створює невизначеність для довгострокових інвестицій. Дії США змушують ЄС і Канаду пом'якшувати власні стандарти, щоб не втратити промислову конкурентоспроможність, запускаючи механізм «гонки поступок». Це веде до фрагментації глобального ринку, де різні юрисдикції житимуть за несумісними правилами. Для транснаціональних корпорацій це означає зростання комплаєнс-ризиків і необхідність дублювання виробничих ланцюжків. Відмова від координації кліматичних зусиль перетворює екологію зі сфери співпраці на інструмент торговельного протекціонізму. Інституційна ерозія кліматичного порядку денного збільшує фізичні ризики для інфраструктури та страхового сектору в майбутньому.
           </div>
         </div>
 
@@ -315,30 +360,30 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">05</span>
-              <h3 class="article-title">Приховування архівних документів про принца Ендрю (Royal row as Cabinet Office accused of Andrew cover-up)</h3>
+              <h3 class="article-title">Китай посилює військові навчання навколо Тайваню</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Вилучення розсекречених документів про поїздки герцога Йоркського з Національного архіву провокує інституційний конфлікт та звинувачення у непрозорості влади. Посилання на «адміністративну помилку» виглядає непереконливо для критиків монархії, посилюючи підозри у захисті королівської родини від репутаційної шкоди на тлі зв'язків зі справою Епштейна. Цей кейс підриває довіру до механізмів публічної звітності (Public Records Act) та створює ризики для іміджу уряду, який сприймається як пособник у приховуванні незручної правди. Для монархії продовження скандалу навколо Ендрю залишається токсичним активом, що заважає модернізації інституту та консолідації суспільної підтримки.
+            Масштабні навчання НВАК із відпрацюванням блокади портів Тайваню стають інструментом постійного тиску, що розмиває статус-кво в протоці. Стримана реакція Трампа, який назвав маневри несерйозними на тлі заяв про дружбу з Сі Цзіньпіном, може бути сприйнята Пекіном як сигнал до більшої свободи дій. Це підвищує ризик прорахунку, оскільки Китай може посилити тактику «сірої зони», не побоюючись негайної відповіді США. Для Японії та інших регіональних союзників така позиція Вашингтона стає стимулом до форсованої мілітаризації та пошуку нових форматів безпеки. Технологічний сектор отримує чергове нагадування про вразливість ланцюжків постачання напівпровідників, що прискорить диверсифікацію виробництва. Пекін фактично нормалізує військову присутність навколо острова, перетворюючи навчання на важіль економічного задушення Тайбея.
           </div>
         </div>
       </section>
 
       <section class="outlet">
-        <h2>THE TIMES UK</h2>
-        <div class="outlet-sub">Стармер/Профспілки • Енергетика • Nvidia • МЗС • Гібридна робота</div>
-        
+        <h2>THE INDIAN EXPRESS</h2>
+        <div class="outlet-sub">Бангладеш • Нафта РФ • Моді • Уттар-Прадеш • Мумбаї</div>
+
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">01</span>
-              <h3 class="article-title">Глава профспілки Unite пророкує неминучу відставку Стармера (Starmer's demise as Labour leader inevitable, says Unite chief)</h3>
+              <h3 class="article-title">Смерть Халеди Зія та політична невизначеність у Бангладеш</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Публічна атака лідера найбільшої профспілки-донора на прем'єр-міністра сигналізує про глибокий розкол усередині Лейбористської партії та загрозу втрати фінансової бази. Вимоги Шерон Грем — відмова від жорсткої бюджетної економії, запровадження податку на багатство та перегляд цілей Net Zero — ставлять уряд перед вибором між лояльністю бізнесу та підтримкою ядерного електорату. Потенційна зміна лідера чи політичного курсу створює невизначеність для ринків, особливо у секторах енергетики та оборони, які профспілки вимагають націоналізувати чи реформувати. Інвесторам слід враховувати ризик лівого популізму та можливого збільшення державних запозичень, якщо Стармер піддасться тиску.
+            Відхід із життя лідера Націоналістичної партії Бангладеш (BNP) відбувається в момент критичної трансформації влади в Дацці. Смерть матріарха опозиції та повернення її сина Таріка Рахмана консолідує партійні лави, але відкриває період боротьби за спадщину і вплив. Для Індії ця подія несе стратегічні виклики: історично складні відносини з BNP і відсутність Шейх Хасіни вимагають від Нью-Делі вибудовування нових каналів комунікації. Існує ризик посилення ісламістських настроїв, якщо вакуум влади не буде заповнений стабільними інститутами. Присутність глави МЗС Індії на похороні — прагматична спроба зберегти вплив і не допустити дрейфу сусіда в орбіту Китаю або Пакистану. Внутрішньополітична нестабільність у Бангладеш може негативно позначитися на регіональних торговельних проєктах і безпеці кордонів.
           </div>
         </div>
 
@@ -346,12 +391,12 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">02</span>
-              <h3 class="article-title">План Мілібенда щодо створення будинків з «нульовими рахунками» (Miliband vows to create 'zero bill' households)</h3>
+              <h3 class="article-title">Постачання російської нафти: нові гравці та тіньовий флот</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Ініціатива міністра енергетики щодо масового субсидування сонячних панелей та акумуляторів спрямована на вирішення відразу двох завдань: досягнення кліматичних цілей та зниження соціальної напруги через тарифи. Перерозподіл £13 млрд на користь децентралізованої генерації змінює ландшафт для традиційних енергокомпаній, знижуючи їхню базу роздрібних споживачів. Зняття обмежень на встановлення plug-in панелей відкриває новий масовий ринок для виробників обладнання та ритейлерів, копіюючи успішний німецький досвід. Однак фіскальне навантаження програми та залежність від імпорту компонентів (переважно з Китаю) створюють ризики для торговельного балансу.
+            Поява маловідомих посередників з ОАЕ у схемах постачання російської нафти свідчить про адаптацію Москви до санкцій США проти «Роснєфті» та «Лукойлу». Витіснення великих трейдерів і фрагментація поставок через фірми-одноденки робить ринок непрозорим і ускладнює моніторинг дотримання цінової стелі. Для Індії це означає збереження доступу до дисконтованої сировини, але ціною кратного зростання ризиків вторинних санкцій для фінансового сектору. Тіньовий флот стає ключовим елементом логістики, що підвищує екологічні та страхові ризики. Росія демонструє здатність обходити обмеження, вибудовуючи паралельну фінансову інфраструктуру. Однак залежність від неперевірених контрагентів може призвести до збоїв у поставках і волатильності цін на внутрішньому ринку Індії.
           </div>
         </div>
 
@@ -359,12 +404,12 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">03</span>
-              <h3 class="article-title">Nvidia: занадто велика, щоб впасти? (Wherever you turn in AI, Nvidia is there)</h3>
+              <h3 class="article-title">Прем'єр Моді стурбований атакою на резиденцію Путіна</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Домінування Nvidia на ринку ІІ-чіпів досягло масштабів, що створюють системні ризики для всього фондового ринку: акції компанії займають критичну частку в індексах S&P 500 та портфелях пенсійних фондів. Концентрація технологічного прогресу в руках однієї корпорації викликає занепокоєння регуляторів та МВФ щодо фінансової стабільності у разі корекції. Партнерства з OpenAI, Intel та Nokia цементують монополію Дженсена Хуанга, роблячи конкуренцію практично неможливою у короткостроковій перспективі. Для інвесторів це ситуація «міхура чи нової реальності», де будь-які збої в ланцюжках поставок або регуляторні обмеження проти Nvidia можуть обвалити широкий ринок.
+            Підкреслена стурбованість Нарендри Моді повідомленнями про атаку на резиденцію Путіна демонструє прагнення Індії зберегти довірливий діалог із Москвою. Нью-Делі фактично легітимізує російську версію подій заради захисту своїх стратегічних інтересів у сфері енергетики та оборони. Такий крок дозволяє Індії позиціювати себе як незалежного гравця, здатного говорити з усіма сторонами конфлікту, але ризикує викликати роздратування Києва і Заходу. Заклик до дипломатії слугує меті запобігання неконтрольованій ескалації, яка могла б вдарити по глобальній економіці. Індія сигналізує, що не готова приєднуватися до ізоляції Росії попри тиск. Моді намагається конвертувати нейтралітет у геополітичний капітал, пропонуючи Індію як медіатора Глобального Півдня.
           </div>
         </div>
 
@@ -372,12 +417,12 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">04</span>
-              <h3 class="article-title">Скандал у МЗС: провал перевірки біографії дисидента (Inquiry into failure to spot dissident's offensive tweets)</h3>
+              <h3 class="article-title">Затримка публікації списків виборців в Уттар-Прадеш</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Внутрішнє розслідування у Форін-офісі у справі Алаа Абд ель-Фаттаха розкриває системну некомпетентність у процедурах ветингу при наданні громадянства та дипломатичного захисту. Політична ціна помилки висока: уряд Стармера опинився під вогнем критики за підтримку фігури, яка закликала до насильства, що ускладнює відносини з єврейськими громадами та дає козирі опозиції. Інцидент може призвести до посилення міграційних перевірок та перегляду критеріїв надання притулку, сповільнюючи бюрократичні процеси. Дипломатично це послаблює моральний авторитет Лондона у правозахисному порядку денному.
+            Неодноразове перенесення публікації списків виборців і прогнозоване видалення майже 19% електорату в ключовому штаті викликають підозри в маніпуляціях перед виборами. Масштабна чистка списків може бути спрямована на виключення нелояльних демографічних груп, що ставить під сумнів чесність виборчого процесу. Використання адміністративного ресурсу для формування «потрібного» електорального ландшафту підриває довіру до демократичних інститутів. Високий відсоток видалень у міських округах вказує на точковий характер кампанії проти опозиції. Це створює ризики соціальної напруги і протестів після оголошення результатів. Для інвесторів це сигнал про те, що політична стабільність забезпечується не консенсусом, а контролем, що може загрожувати довгостроковою турбулентністю.
           </div>
         </div>
 
@@ -385,30 +430,30 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">05</span>
-              <h3 class="article-title">Британський ринок праці лідирує за гібридною зайнятістю (Office-shy Britons lead Europe for hybrid work)</h3>
+              <h3 class="article-title">Реальна картина муніципальних виборів у Мумбаї: фонди у правлячого альянсу</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Велика Британія закріплює статус європейської столиці гібридної роботи: 40% вакансій передбачають віддалений компонент, що значно вище за показники Франції та Німеччини. Цей структурний зсув змушує бізнес переглядати стратегії управління нерухомістю, знижуючи попит на офісні площі в центрах міст та впливаючи на транспортну інфраструктуру. Компанії змушені пом'якшувати вимоги до присутності в офісі заради залучення талантів, що змінює корпоративну культуру. Для девелоперів комерційної нерухомості це сигнал до перепрофілювання активів, а для транспортних операторів — до перегляду бізнес-моделей через падіння пасажиропотоку.
+            Розслідування розподілу муніципальних коштів у Мумбаї виявило диспропорцію: 99% фондів розвитку спрямовано в округи, контрольовані правлячим альянсом. Це перетворює бюджетну політику на інструмент політичного примусу, ставлячи опозиційні райони в умови штучного дефіциту ресурсів. Фінансове задушення опонентів напередодні виборів підриває конкуренцію та принципи місцевого самоврядування. Концентрація ресурсів дозволяє правлячій партії цементувати свою владу, використовуючи міську інфраструктуру як електоральний бонус. Для бізнесу це означає, що доступ до контрактів буде суворо обумовлений політичною лояльністю. Ситуація у фінансовій столиці відображає загальний тренд на централізацію влади та використання економічних важелів для придушення політичної конкуренції.
           </div>
         </div>
       </section>
 
       <section class="outlet">
-        <h2>THE WALL STREET JOURNAL</h2>
-        <div class="outlet-sub">Ціни на електроенергію • M&A • Україна • Іран • Трамп/Нетаньягу</div>
+        <h2>TIME (SPECIAL EDITION)</h2>
+        <div class="outlet-sub">Трамп 2.0 • Близький Схід • ШІ • Охорона здоров'я • Папа Лев XIV</div>
 
         <div class="article-card">
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">01</span>
-              <h3 class="article-title">Зростання цін на електроенергію: нова політична загроза (Power Bills Spark Outrage)</h3>
+              <h3 class="article-title">Повернення Трампа та руйнування норм</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Різке подорожчання електроенергії в США (на 4% у 2026 році після 4,9% у 2025) стає ключовим чинником соціального невдоволення, здатним вплинути на проміжні вибори 2026 року. Хоча публічно провину покладають на дата-центри, реальні причини комплексні: зношування мереж, кліматичні катаклізми та витрати на «зелений перехід». Для бізнесу це означає зростання операційних витрат та необхідність інвестувати у власну генерацію чи енергоефективність. Політизація тарифів загрожує регуляторним втручанням у роботу комунальних підприємств (utilities). Соціальне розшарування посилюється, оскільки інфляція енергоносіїв б'є по домогосподарствах із низьким доходом.
+            Другий термін Трампа знаменує собою системну відмову від усталених норм американської демократії та зовнішньої політики. Готовність використовувати силові структури проти внутрішніх опонентів і перегляд міжнародних альянсів створюють прецедент авторитарної трансформації інститутів США. Для глобальної системи це означає кінець епохи передбачуваного американського лідерства і перехід до транзакційної дипломатії. Ринки стикаються з ризиками раптових протекціоністських заходів і торговельних воєн, не стримуваних традиційними радниками. Соціальна поляризація в США досягає рівня, що загрожує громадянському миру. Трамп тестує межі президентської влади, що може призвести до довгострокового ослаблення системи стримувань і противаг.
           </div>
         </div>
 
@@ -416,12 +461,12 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">02</span>
-              <h3 class="article-title">Бум злиттів та поглинань в управлінні капіталом (Boom in Dealmaking Rocks Wealth-Management Business)</h3>
+              <h3 class="article-title">Мирна угода на Близькому Сході: крихка надія</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Ринок управління приватним капіталом (RIA) переживає безпрецедентну консолідацію, рушієм якої є гроші private equity та прагнення до масштабування. Великі гравці, такі як Creative Planning та Corient, агресивно поглинають регіональні фірми, створюючи національних гігантів з активами в сотні мільярдів доларів. Драйвером виступає не лише старіння власників малих фірм, які шукають вихід, а й зростання кількості надбагатих клієнтів, які потребують комплексного обслуговування. Для клієнтів це несе ризик коммодитизації послуг та підвищення комісій, а для ринку – зниження конкуренції. Інституціоналізація сектору привертає увагу суверенних фондів (наприклад, Мубадала).
+            Досягнуте перемир'я і звільнення заручників — це тактична пауза, але не стратегічне вирішення конфлікту. Руйнування Гази і гуманітарна катастрофа створюють підґрунтя для радикалізації майбутніх поколінь попри тимчасове затишшя. Угода, продавлена адміністрацією Трампа під загрозою сили, може виявитися нестійкою без вирішення фундаментального палестинського питання. Ізраїль отримує перепочинок, але залишається у складній ситуації міжнародної ізоляції та залежності від гарантій США. Регіональні гравці змушені адаптуватися до реальності, де Вашингтон диктує умови, ігноруючи багатосторонні механізми. Ризик відновлення бойових дій залишається високим, оскільки глибинні причини конфлікту не усунуті.
           </div>
         </div>
 
@@ -429,12 +474,12 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">03</span>
-              <h3 class="article-title">Україна та 15-річні гарантії безпеки (Kyiv Seeks Security Pledge)</h3>
+              <h3 class="article-title">Майбутнє штучного інтелекту: золотий вік чи екзистенційний ризик?</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Переговори про гарантії безпеки буксують через розбіжності у термінах (Київ вимагає 30-50 років замість запропонованих 15) та статус окупованих територій. Ідея створення «демілітаризованої зони» та «вільної економічної зони» на Донбасі зустрічає опір Кремля, який вимагає повного виведення українських військ. Невизначеність статусу Запорізької АЕС створює перманентний ризик ядерного інциденту та енергетичного шантажу. Адміністрація Трампа прагне перекласти основний тягар гарантій на європейських союзників, що тестує єдність НАТО та готовність ЄС платити за безпеку на своїх кордонах. Ринки реагують на відсутність прориву збереженням високої премії за геополітичний ризик.
+            Відсутність єдиного підходу до регулювання ШІ створює ризики безконтрольного розвитку технологій, здатних дестабілізувати ринки і суспільство. Техногіганти, які отримали карт-бланш від адміністрації Трампа, концентрують владу, порівнянну з державною, без належної підзвітності. Розрив між оптимізмом інвесторів і попередженнями вчених про екзистенційні загрози посилює невизначеність. Геополітична гонка озброєнь у сфері ШІ робить міжнародне співробітництво з безпеки практично неможливим. Автоматизація загрожує соціальними потрясіннями, до яких державні інститути не готові. Людство опиняється в заручниках корпоративних амбіцій, де швидкість впровадження переважає над безпекою.
           </div>
         </div>
 
@@ -442,12 +487,12 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">04</span>
-              <h3 class="article-title">Протести в Ірані та падіння валюти (Protests Raise Pressure on Tehran Regime)</h3>
+              <h3 class="article-title">Криза охорони здоров'я та реформи РФК-молодшого</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Економічна криза в Ірані, посилена наслідками війни з Ізраїлем, вилилася у вуличні протести та обвал ріала на 60%. Соціальне невдоволення торговців Базару — традиційної опори режиму — сигналізує про серйозну ерозію внутрішньої легітимності влади. Погрози Трампа завдати військового удару у разі спроб Тегерана відновити ядерну чи ракетну програму обмежують можливості режиму для зовнішньополітичного маневру. Для нафтового ринку нестабільність в Ірані — «дика карта», здатна як обвалити експорт (у разі ескалації), так і не вплинути на нього, якщо режим обере ізоляцію. Геополітично ослаблення Ірану вигідне Ізраїлю та Саудівській Аравії.
+            Призначення скептика вакцинації на посаду глави охорони здоров'я США і масові скорочення в наукових відомствах (NIH, CDC) підривають національну систему біозахисту. Політизація науки й урізання фінансування досліджень створюють довгострокові ризики для громадського здоров'я і готовності до пандемій. Це може призвести до відтоку наукових кадрів і зниження інноваційного потенціалу фармацевтичної галузі США. Поширення дезінформації на державному рівні загрожує зниженням колективного імунітету і поверненням забутих хвороб. Економічні наслідки включають зниження продуктивності праці та зростання витрат на лікування. Приватний сектор стикається з непередбачуваним регуляторним середовищем, де рішення приймаються на основі ідеології, а не доказової медицини.
           </div>
         </div>
 
@@ -455,362 +500,12 @@
           <div class="article-header">
             <div class="article-main">
               <span class="article-index">05</span>
-              <h3 class="article-title">Трамп, Нетаньягу та іранське питання (Trump Threatens Military Action If Iran Rebuilds Nuclear Program)</h3>
+              <h3 class="article-title">Новий Папа Лев XIV та геополітика Ватикану</h3>
             </div>
             <div class="article-toggle">▼</div>
           </div>
           <div class="article-body">
-            Публічна єдність Трампа та Нетаньягу приховує тактичні розбіжності: президент США відкритий до дипломатії з Тегераном, тоді як Ізраїль налаштований більш войовничо. Вимога Трампа про помилування Нетаньягу (ймовірно, у корупційних справах) підкреслює персоналізований характер зовнішньої політики США, де особисті стосунки превалюють над інституційними нормами. Жорстка риторика на адресу ХАМАС та заклики до їх роззброєння є прикриттям для відсутності реального прогресу у створенні міжнародних сил для Гази. Для регіону це означає збереження статус-кво з домінуванням силових рішень та маргіналізацією палестинського питання.
-          </div>
-        </div>
-      </section>
-
-      <section class="outlet">
-        <h2>THE WASHINGTON POST</h2>
-        <div class="outlet-sub">Переговори РФ/Україна • Конгрес • Трамп/ФРС • Венесуела • Маск/Венс</div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">01</span>
-              <h3 class="article-title">Звинувачення Росії в атаці на резиденцію Путіна зривають переговори (Russian accusation unsettles peace talks)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Заява Кремля про українську атаку на резиденцію Путіна інтерпретується Києвом як класична операція «під чужим прапором» для зриву мирного процесу або виправдання нової ескалації. Час інциденту — одразу після зустрічі Зеленського з Трампом — вказує на прагнення Москви перехопити ініціативу та підвищити ставки перед можливим заморожуванням. Реакція Трампа («Мені це не подобається») демонструє крихкість його посередницької місії та залежність від маніпуляцій обох сторін. Зупинка постачання ракет Tomahawk Вашингтоном підтверджує небажання США провокувати Росію, що Київ зчитує як слабкість. Ситуація підвищує ризик ударів по центрах прийняття рішень в Україні.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">02</span>
-              <h3 class="article-title">Колишні законодавці прагнуть повернутися до Конгресу (Former legislators seek return to Congress)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Тренд на повернення колишніх конгресменів (як демократів, так і республіканців) відображає кризу кадрового резерву та професіоналізації в американській політиці. Ветерани Капітолія сприймають поточну дисфункцію Конгресу як можливість продати виборцю свою «компетентність» та досвід, протиставляючи його хаосу новачків. Однак повернення фігур із багажем скандалів свідчить про деградацію партійних фільтрів. Цей рух також вказує на те, що політична кар'єра у Вашингтоні залишається привабливою формою капіталізації зв'язків, незважаючи на рекордно низький рейтинг схвалення інституту. Для лобістів повернення «старої гвардії» спрощує роботу.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">03</span>
-              <h3 class="article-title">Трамп погрожує судовим позовом главі ФРС Павеллу (Trump says he might sue Fed Chair Jerome H. Powell)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Погроза Трампа подати до суду на Джерома Павелла за «некомпетентність» є безпрецедентною атакою на незалежність Центрального банку. Формальний привід (витрати на реновацію будівлі ФРС) приховує справжнє прагнення Білого дому підпорядкувати монетарну політику політичним цілям, вимагаючи зниження ставок. Навіть ймовірність судового розгляду створює нервозність на фінансових ринках, підриваючи довіру до долара та передбачуваності інфляційного таргетування. Інституційний конфлікт може паралізувати прийняття рішень у ФРС у критичний момент.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">04</span>
-              <h3 class="article-title">Трамп оголошує про удар по наркотрафіку у Венесуелі (Trump says U.S. destroyed loading dock in first land strike on Venezuela)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Заява про знищення портової інфраструктури у Венесуелі силами США знаменує перехід до прямих силових акцій на території суверенної держави під прапором боротьби з наркотиками. Розширення повноважень ЦРУ та використання терміну «неміжнародний збройний конфлікт» легалізує де-факто військові операції без оголошення війни. Це створює прецедент для односторонніх дій у Латинській Америці, дестабілізуючи режим Мадуро, але й викликаючи критику за порушення міжнародного права. Економічно це удар по тіньових доходах Каракаса.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">05</span>
-              <h3 class="article-title">Перемир'я Трампа та Маска за посередництва Венса (How Vance brokered a Trump-Musk truce)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Успішні зусилля Джей-Ді Венса щодо запобігання створенню Ілоном Маском третьої партії відвернули електоральну катастрофу для республіканців на виборах 2026 року. Інтеграція Маска назад в орбіту GOP через обіцянки посад демонструє транзакційний характер політики нової адміністрації. Це посилює вплив техно-олігархії на державні рішення, особливо у космічній та бюджетній сферах (DOGE). Для Маска відмова від самостійної гри в обмін на важелі впливу всередині системи є прагматичним вибором, що захищає його бізнес-інтереси. Альянс Венса та Маска формує новий центр сили.
-          </div>
-        </div>
-      </section>
-
-      <section class="outlet">
-        <h2>NEW YORK POST</h2>
-        <div class="outlet-sub">Рейди ICE • Венесуела • Google/DEI • Бейонсе • Зарплати в NY</div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">01</span>
-              <h3 class="article-title">Федеральні рейди після шахрайства на $9 млрд (ICE raids in Minnesota after $9B Somali fraud)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Масштабна операція ICE проти сомалійських іммігрантів у Міннесоті виходить за межі боротьби з розкраданнями та перетворюється на потужний політичний інструмент проти демократичної адміністрації штату. Скандал із «фейковими дитячими садками» б'є прицільно по репутації губернатора Тіма Волза та конгресвумен Ільхан Омар, пов'язуючи їхню політику «відкритих дверей» з фінансовою безконтрольністю. Для республіканців це ідеальний кейс для дискредитації прогресивного порядку денного. Інституційно це сигналізує про перегляд механізмів розподілу грантів. Економічно кейс створює ризики для всієї системи соціального аутсорсингу.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">02</span>
-              <h3 class="article-title">Трамп оголошує про удар по наркотрафіку у Венесуелі (President Trump said Monday the US had "hit" an area in Venezuela)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Односторонні удари США по портовій інфраструктурі Венесуели під прапором боротьби з наркотрафіком знаменують перехід до «дипломатії канонерок» нового типу. Юридична кваліфікація дій як боротьби з «наркотероризмом» дозволяє Вашингтону обходити суверенітет країни без оголошення війни. Стратегічно це спроба перерізати тіньові фінансові потоки режиму Мадуро, змушуючи його до поступок через економічне задушення, а не лише санкції. Для нафтових ринків це «чорний лебідь»: ескалація може призвести до повної блокади венесуельського експорту. Геополітично це тест на реакцію Китаю та Росії.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">03</span>
-              <h3 class="article-title">Мін'юст Трампа починає розслідування DEI у Google та Verizon (Feds use fraud law in Google, Verizon hiring probes)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Використання Закону про неправдиві позови (False Claims Act) для боротьби з програмами різноманітності (DEI) у корпораціях — це юридичне ноу-хау адміністрації, що перетворює кадрову політику на фінансовий злочин. Атака на Google та Verizon служить показовою прочуханкою для всього великого бізнесу: компаніям доведеться вибирати між ризиком федеральних позовів та репутаційними втратами від відмови від інклюзивності. Це створює колосальну правову невизначеність для HR-департаментів. У довгостроковій перспективі це спрямоване на демонтаж «корпоративного прогресивізму» та перерозподіл робочих місць на користь електорату Трампа.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">04</span>
-              <h3 class="article-title">Бейонсе увійшла до клубу мільярдерів (Beyoncé is wild 'Bill')</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Досягнення Бейонсе статусу мільярдера через диверсифікацію в кантрі-музику та алкогольний бізнес відображає структурний зсув в економіці розваг. Артисти більше не покладаються на стрімінг, монетизуючи особистий бренд через фізичні товари. Успіх туру Cowboy Carter показує стійкість попиту на «емоційні активи» навіть в умовах інфляції, але також наголошує на консолідації доходів на вершині піраміди шоу-бізнесу. Для індустрії це сигнал, що вертикальна інтеграція — єдина модель надприбутковості. Маркетинговий розворот до «традиційних американських цінностей» також читається як прагматична адаптація.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">05</span>
-              <h3 class="article-title">Зростання мінімальної зарплати в Нью-Йорку (Min. wage NYers get boost Jan. 1)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Підвищення мінімальної ставки до $17 за годину та прив'язка подальшого зростання до інфляції створюють інфляційну спіраль «зарплати-ціни» у сфері послуг мегаполісу. Для малого бізнесу це означає неминуче скорочення штату або прискорену автоматизацію, що вдарить по ринку праці для низькокваліфікованої молоді. Політично це спроба демократів утримати лояльність робітничого класу, але економічно захід може прискорити відтік бізнесу до штатів із дешевшою робочою силою. Для споживача це гарантоване зростання чеків у ритейлі та громадському харчуванні.
-          </div>
-        </div>
-      </section>
-
-      <section class="outlet">
-        <h2>THE NEW YORK TIMES</h2>
-        <div class="outlet-sub">Колумбія • Зеленський/Путін • Каліфорнія • Злочинність у DC • Глибоководний видобуток</div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">01</span>
-              <h3 class="article-title">Адміністрація Трампа атакує «наркотерористів» у Колумбії (Remnants of U.S. Strikes: Bodies and a Singed Boat)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Виявлення фізичних свідчень (тіл та уламків) ударів США біля берегів Колумбії дезавуює офіційну версію про «безконтактну» боротьбу з картелями та ставить Боготу у вразливе становище. Трамп де-факто переносить зону бойових дій до Карибського басейну, ігноруючи кордони союзників заради внутрішнього порядку денного. Це підриває легітимність колумбійського уряду, який виглядає нездатним контролювати свою територію, та посилює антиамериканські настрої у регіоні. Юридично розширення поняття «самооборони» до превентивних ударів по цивільних суднах створює небезпечний вакуум у міжнародному морському праві.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">02</span>
-              <h3 class="article-title">Зеленський звинувачує Путіна в саботажі мирних переговорів (Zelenskyy says Putin sabotaging peace talks)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Заява Кремля про атаку дронів на резиденцію Путіна інтерпретується Києвом як класична операція «під чужим прапором» для зриву дипломатичного треку Трампа. Москва прагне підвищити ставки перед можливим заморожуванням, створюючи привід для ударів по центрах прийняття рішень у Києві та делегітимації Зеленського як перемовника. Для Вашингтона ця ескалація — тест на здатність контролювати обидві сторони конфлікту. 15-річні гарантії безпеки, що обговорюються в Мар-а-Лаго, виглядають слабкою втіхою для України на тлі реальної загрози нової хвилі бомбардувань. Ринки зчитують ситуацію як сигнал про те, що гаряча фаза далека від завершення.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">03</span>
-              <h3 class="article-title">Праві Каліфорнії бояться втрати голосу через джеррімендеринг (California's Right Fears Losing Voice)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Політичний відчай у сільській Північній Каліфорнії, що межує із сепаратизмом («Штат Джефферсон»), розкриває глибину розколу між міськими елітами та аграрною периферією. Ліквідація республіканських округів через перекроювання карт (джеррімендеринг) вимиває поміркованих консерваторів із Конгресу, радикалізуючи електорат. Це веде до паралічу управління водними ресурсами та лісовим господарством, оскільки інтереси фермерів ігноруються на користь міського екологічного порядку денного. Інституційно це підриває довіру до демократичних процедур. Для агробізнесу це екзистенційна загроза.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">04</span>
-              <h3 class="article-title">Брехня Трампа про відсутність вбивств у Вашингтоні (Trump Says D.C. Is Free of Murder. Victims' Families Feel Ignored)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Маніпуляція статистикою злочинності з боку президента є виправданням для безпрецедентного федерального втручання у справи самоврядування округу Колумбія. Заяви про «безпечне місто» на тлі триваючих вбивств створюють альтернативну реальність для його бази, але руйнують довіру місцевих громад до правоохоронців. Введення Нацгвардії та перепідпорядкування поліції Вашингтона Білому дому — це репетиція використання федеральних сил для придушення незгодних у демократичних анклавах. Для мешканців столиці це означає життя у режимі фактичного воєнного стану з нульовою підзвітністю силовиків.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">05</span>
-              <h3 class="article-title">Глибоководний видобуток: екологія проти ресурсів (What Lurks Far Below / Seabed Mining Cuts Animal Diversity)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Дослідження, що фінансуються гірничодобувною компанією, підтверджують шкоду біорізноманіттю, але бізнес-логіка диктує неминучість розробки дна заради металів для «зеленого переходу». Конфлікт інтересів, де наука залежить від корпоративних грошей, ставить під сумнів об'єктивність екологічних оцінок та регуляторних рішень. Геополітично США та їхні союзники змушені форсувати глибоководний видобуток, щоб знизити критичну залежність від Китаю у постачанні рідкісноземельних металів. Це створює дилему для ESG-інвесторів. У довгостроковій перспективі переможе стратегічна необхідність.
-          </div>
-        </div>
-      </section>
-
-      <section class="outlet">
-        <h2>THE GLOBE AND MAIL</h2>
-        <div class="outlet-sub">Трамп/Іран • Біженці в Канаді • Медицина • Lululemon • Призов у Німеччині</div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">01</span>
-              <h3 class="article-title">Трамп підтримує удари по Ірану на зустрічі з Нетаньягу (Trump voices support for further strikes on Iran)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Публічне схвалення Трампом силового сценарію щодо Тегерана розв'язує руки Нетаньягу для ескалації, незважаючи на формальну риторику про «мир». Зв'язка «помилування для Нетаньягу в обмін на лояльність плану США» перетворює зовнішню політику на серію особистих транзакцій, що ігнорують довгострокові інтереси стабільності. Для Ірану загроза «вибити дух» (knock the hell out) — це стимул до форсованого створення ядерної бомби як єдиної гарантії виживання. Ринки нафти отримують чіткий сигнал про високий ризик перебоїв у Ормузькій протоці. Геополітично це остаточно ховає надії на поновлення ядерної угоди.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">02</span>
-              <h3 class="article-title">Призупинення програми для кваліфікованих біженців (Officials halt skilled refugee jobs program)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Заморожування Оттавою програми Economic Mobility Pathways Pilot — це панічна реакція ліберального уряду на падіння рейтингів через міграційну кризу. Жертвуючи економічно вигідним каналом залучення талантів заради політичного популізму, Канада стріляє собі в ногу в умовах дефіциту кадрів. Для бізнесу це означає зрив планів найму та зростання витрат на персонал, що знижує конкурентоспроможність канадських компаній. Інституційно це підриває довіру до імміграційної системи країни, яка перестає бути передбачуваною та прозорою.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">03</span>
-              <h3 class="article-title">Смерть у приймальному відділенні та криза охорони здоров'я (Alberta man's death in ER reignites anger)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Трагедія в Альберті стала каталізатором загальнонаціонального невдоволення колапсом системи охорони здоров'я, перетворюючись на головну загрозу для провінційної влади. Використання ChatGPT пацієнтом для самодіагностики наголошує на повній втраті довіри до доступності професійної допомоги. Криза має системний характер: вливання мільярдів доларів не вирішують проблему дефіциту персоналу та управлінської неефективності. Для політиків це «мінне поле»: нездатність забезпечити базову безпеку громадян делегітимізує соціальний контракт. Економічно це веде до зростання втрат від непрацездатності та стимулює розвиток приватного медичного сектору.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">04</span>
-              <h3 class="article-title">Засновник Lululemon починає проксі-війну (Lululemon founder launches proxy fight)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Атака Чіпа Вілсона на раду директорів Lululemon — це спроба повернути контроль над компанією на тлі падіння акцій та посилення конкуренції з боку нових брендів (Alo, Vuori). Конфлікт оголює стратегічний глухий кут гіганта athleisure: масштаб став ворогом інновацій та «культурного коду», що робив бренд культовим. Для акціонерів це період турбулентності, але й надія на струс менеджменту, що застряг у бюрократії. Ринок сприймає це як сигнал, що поточна стратегія компанії вичерпала себе і потребує радикального перегляду.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">05</span>
-              <h3 class="article-title">Німеччина повертає призов (As Germany eyes return to conscription)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Плани Берліна щодо повернення обов'язкової військової служби для 18-річних — тектонічний зсув у ментальності повоєнної Європи, продиктований російською загрозою. Це кінець ери «дивідендів миру» та перехід до мобілізаційної моделі суспільства, що викличе опір молоді та соціальну напругу. Для економіки це вилучення робочої сили з і без того дефіцитного ринку праці, що сповільнить зростання ВВП. Стратегічно це сигнал про те, що НАТО більше не покладається лише на професійні армії та технологічну перевагу, готуючись до затяжного конвенційного конфлікту. Для ВПК це означає гарантовані довгострокові замовлення.
-          </div>
-        </div>
-      </section>
-
-      <section class="outlet">
-        <h2>THE GUARDIAN UK</h2>
-        <div class="outlet-sub">Етнонаціоналізм • ХАМАС • Facebook • NHS • Препарати для схуднення</div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">01</span>
-              <h3 class="article-title">Зростання етнонаціоналізму: кожен третій вважає народження критерієм «британськості» (One in three believe 'Britishness' is dependent on being born in UK)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Соціологія фіксує небезпечний дрейф британського суспільства від громадянської моделі нації до етнічної, що підживлюється риторикою Reform UK. Це не просто культурний зсув, а ерозія фундаменту соціальної стабільності у мультикультурній державі. Політично це створює пастку для лейбористів: спроба загравати з патріотичним порядком денним може відштовхнути прогресивне ядро, а ігнорування — посилити правих популістів. Для бізнесу це ризик звуження ринку талантів та погіршення інвестиційного клімату через сприйняття країни як ксенофобської. Інституційно це виклик для монархії.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">02</span>
-              <h3 class="article-title">Трамп вимагає роззброєння ХАМАС (Hamas has to disarm for peace, says Trump)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Ультиматум Трампа ХАМАС із погрозою, що їм «доведеться несолодко» (hell to pay), спрямований на форсування угоди, вигідної Ізраїлю, але такої, що ігнорує реалії на землі. Вимога повного роззброєння в стислий термін є нездійсненною без фізичного знищення угруповання, що передбачає продовження війни чужими руками. Підтримка Нетаньягу з боку США цементує його владу та дозволяє ігнорувати внутрішню опозицію та родини заручників. Для регіону це означає збереження осередку напруженості, оскільки без політичного вирішення палестинського питання будь-яке перемир'я буде тимчасовим.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">03</span>
-              <h3 class="article-title">Facebook «повільно видаляє» прославлення різанини в Бонді (Facebook 'slow to remove' accounts celebrating Bondi beach massacre)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Нездатність Meta оперативно видаляти контент, що прославляє тероризм, розкриває системний провал алгоритмічної модерації та пріоритет залученості над безпекою. Це дає потужні аргументи регуляторам (Ofcom) для запровадження жорстких штрафів та навіть кримінальної відповідальності для топ-менеджменту соцмереж. Політично скандал посилює тиск на техногігантів, вимагаючи від них виконання функцій цензора. Радикалізація через соцмережі залишається головною загрозою внутрішній безпеці. Для інвесторів у техсектор це сигнал про майбутнє посилення законодавства (Online Safety Act) та зростання витрат на комплаєнс.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">04</span>
-              <h3 class="article-title">Нормалізація «коридорної медицини» в NHS ('Normalised' hospital corridor care must end)</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Визнання провідними лікарями «нормалізації» лікування пацієнтів у коридорах — це діагноз колапсу моделі безкоштовної охорони здоров'я, яка не справляється зі старінням населення. 16 000 смертей на рік через затримки — цифра, яка мала б обвалити уряд, але викликає лише бюрократичні відписки, що свідчить про політичний параліч. Криза NHS стає головним фактором ризику для економіки (втрата працездатності населення) та соціальної стабільності. Приватний сектор отримує імпульс до зростання, але це веде до дворівневої системи медицини, посилюючи нерівність.
-          </div>
-        </div>
-
-        <div class="article-card">
-          <div class="article-header">
-            <div class="article-main">
-              <span class="article-index">05</span>
-              <h3 class="article-title">Чорний ринок препаратів для схуднення (Black market weight-loss drugs 'a real risk')</h3>
-            </div>
-            <div class="article-toggle">▼</div>
-          </div>
-          <div class="article-body">
-            Бум нелегальної торгівлі Wegovy та Mounjaro через соцмережі оголює кризу доступності інноваційних ліків в офіційній системі та готовність суспільства до ризикованого самолікування. Це створює величезні ризики для громадського здоров'я (підробки, побічні ефекти), навантажуючи і без того слабку систему невідкладної допомоги. Для фармгигантов (Novo Nordisk, Eli Lilly) чорний ринок — це загроза репутації та інтелектуальній власності. Регуляторно це виклик: як контролювати онлайн-продажі без запровадження драконівських заходів цензури в інтернеті.
+            Обрання першого в історії Папи-американця змінює баланс сил у Католицькій церкві, традиційно орієнтованій на Європу або Глобальний Південь. Леву XIV належить виконати складне завдання: довести свою незалежність від політики Вашингтона, зберігаючи роль глобального морального арбітра. Його спроби медіації в конфліктах вказують на прагнення Ватикану заповнити дипломатичний вакуум в умовах кризи міжнародних інститутів. Однак національність понтифіка може ускладнити відносини з Китаєм і країнами, критично налаштованими до США. Ватикан намагається адаптуватися до багатополярного світу, але ризикує бути сприйнятим як інструмент «м'якої сили» Заходу. Внутрішні реформи церкви можуть загальмуватися на тлі необхідності балансувати між ліберальним і консервативним крилом.
           </div>
         </div>
       </section>
@@ -819,36 +514,22 @@
 
     <footer>
       <p>
-        Deep Press Analysis © 2025<br>
-        <span style="font-size: 12px; color: #64748b;">Щоденний синтез для тих, хто приймає рішення.</span>
+        Deep Press Analysis © 2026<br>
+        <span style="font-size: 13px; color: var(--muted);">Щоденний синтез для осіб, які приймають рішення.</span>
       </p>
       
-      <a href="https://deeppressanalysis.com/manifesto.html" class="footer-btn">Читати Маніфест</a>
+      <a href="https://deeppressanalysis.com/manifesto.html" class="footer-btn">Читати маніфест</a>
 
       <div class="archive-block">
         <strong style="color: var(--gold);">Архів:</strong>
-        <a href="/ua/291225.html" class="archive-link">29 грудня 2025</a>
+        <a href="/ua/301225.html" class="archive-link">30 грудня 2025</a>
       </div>
     </footer>
 
   </div>
 
   <script>
-    // JS: Сніг
-    const snowContainer = document.getElementById('snow');
-    const snowflakeCount = 60;
-    for(let i=0; i<snowflakeCount; i++){
-      const flake = document.createElement('div');
-      flake.classList.add('snowflake');
-      flake.style.left = Math.random() * 100 + 'vw';
-      flake.style.animationDuration = (Math.random() * 3 + 5) + 's'; 
-      flake.style.opacity = Math.random() * 0.6 + 0.1;
-      flake.style.width = flake.style.height = (Math.random() * 4 + 2) + 'px';
-      flake.style.animationDelay = (Math.random() * 5) + 's';
-      snowContainer.appendChild(flake);
-    }
-
-    // JS: Акордеон
+    // --- ACCORDION ---
     document.querySelectorAll('.article-header').forEach(header => {
       header.addEventListener('click', () => {
         const card = header.parentElement;
@@ -859,6 +540,141 @@
         card.classList.toggle('open');
       });
     });
+
+    // --- CANVAS FIREWORKS SCRIPT ---
+    const canvas = document.getElementById('fireworks-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particles = [];
+    const rockets = [];
+
+    // Party colors: Cyan, Magenta, Gold, White
+    const colors = ['#00f3ff', '#ff0055', '#FFD700', '#ffffff', '#bc13fe'];
+
+    class Rocket {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = height;
+        this.speed = Math.random() * 5 + 10; // Speed up
+        this.angle = Math.PI / 2 + (Math.random() - 0.5) * 0.3;
+        this.vx = Math.cos(this.angle) * 2;
+        this.vy = -Math.sin(this.angle) * this.speed;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.exploded = false;
+        // Explode higher up
+        this.explodeHeight = Math.random() * (height * 0.5) + (height * 0.1); 
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        // Gravity for rocket (slowing down)
+        this.vy += 0.15;
+
+        // Explode if reached apex or specific height
+        if (this.vy >= 0 || this.y < this.explodeHeight) {
+          this.explode();
+          return false; // remove rocket
+        }
+        return true; // keep rocket
+      }
+
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Trail
+        ctx.fillStyle = 'rgba(255,255,255,0.2)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y + 5, 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      explode() {
+        const count = Math.random() * 30 + 50; // More particles
+        for (let i = 0; i < count; i++) {
+          particles.push(new Particle(this.x, this.y, this.color));
+        }
+      }
+    }
+
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 5 + 1; // Particle burst speed
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.alpha = 1;
+        this.decay = Math.random() * 0.015 + 0.005;
+        this.gravity = 0.05;
+      }
+
+      update() {
+        this.vx *= 0.96; // Friction
+        this.vy *= 0.96;
+        this.vy += this.gravity;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= this.decay;
+        return this.alpha > 0;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function loop() {
+      // Clear with slight fade for trail effect
+      ctx.fillStyle = 'rgba(5, 5, 16, 0.2)'; // Match dark bg color
+      ctx.fillRect(0, 0, width, height);
+
+      // Randomly spawn rockets
+      if (Math.random() < 0.05) { // Spawn rate
+        rockets.push(new Rocket());
+      }
+
+      // Update rockets
+      for (let i = rockets.length - 1; i >= 0; i--) {
+        if (!rockets[i].update()) {
+          rockets.splice(i, 1);
+        } else {
+          rockets[i].draw();
+        }
+      }
+
+      // Update particles
+      for (let i = particles.length - 1; i >= 0; i--) {
+        if (!particles[i].update()) {
+          particles.splice(i, 1);
+        } else {
+          particles[i].draw();
+        }
+      }
+
+      requestAnimationFrame(loop);
+    }
+
+    loop();
   </script>
 </body>
 </html>
