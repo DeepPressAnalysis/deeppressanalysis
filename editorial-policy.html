@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editorial Policy — Deep Press Analysis</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --glass: rgba(20, 25, 45, 0.65);
+      --border: rgba(34, 211, 238, 0.28);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --accent-glow: #22d3ee88;
+      --gold: #facc15;
+      --purple: #a78bfa;
+      --gradient: linear-gradient(135deg, #0f172a, #1e293b);
+      --neon: linear-gradient(90deg, #22d3ee, #a78bfa, #f472b6, #22d3ee);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      min-height: 100vh;
+      background: var(--gradient);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(34,211,238,0.08) 0%, transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(167,139,250,0.08) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: -2;
+      animation: bgPulse 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgPulse {
+      0%   { opacity: 0.6; transform: scale(1); }
+      100% { opacity: 0.85; transform: scale(1.05); }
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 80px auto;
+      padding: 48px 32px;
+      background: var(--glass);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: var(--neon);
+      background-size: 200% 200%;
+      opacity: 0.07;
+      animation: auroraFlow 25s linear infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes auroraFlow {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* === Neon Outline Sweep Effect === */
+    .neon-sweep {
+      position: relative;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(229,231,235,0.55);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 3.6rem;
+      text-align: center;
+      margin-bottom: 1.2em;
+    }
+
+    .neon-sweep::after {
+      content: attr(data-title);
+      position: absolute;
+      inset: 0;
+      color: transparent;
+      -webkit-text-stroke: 1.4px var(--accent);
+      clip-path: inset(0 100% 0 0);
+      animation: outlineSweep 5.8s ease-in-out infinite;
+    }
+
+    @keyframes outlineSweep {
+      0%    { clip-path: inset(0 100% 0 0); }
+      45%   { clip-path: inset(0 0% 0 0); }
+      100%  { clip-path: inset(0 0% 0 0); }
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 3rem 0 1.2rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    h2::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      opacity: 0.7;
+    }
+
+    p {
+      font-size: 1.05rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+      text-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    ul {
+      list-style: none;
+      margin: 1.2em 0 1.8em 1.2em;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 1.8em;
+      margin-bottom: 0.9em;
+      font-size: 1.05rem;
+    }
+
+    ul li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    a:hover {
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 1.1rem;
+      padding: 1.5rem;
+      background: rgba(34,211,238,0.08);
+      border-radius: 16px;
+      border: 1px solid rgba(34,211,238,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .container { margin: 40px 16px; padding: 32px 24px; }
+      .neon-sweep { font-size: 2.8rem; }
+      h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="neon-sweep" data-title="Editorial Policy">Editorial Policy</h1>
+
+    <p><strong>Deep Press Analysis</strong> is an independent analytical media project focused on geopolitics, global economy, financial markets, institutional risk, and power structures.</p>
+
+    <h2>Editorial Independence</h2>
+    <p>All editorial decisions are made independently. We do not accept payments, sponsorships, or incentives in exchange for coverage, framing, or conclusions.</p>
+
+    <h2>Content Principles</h2>
+    <p>Our publications are based on:</p>
+    <ul>
+      <li>Open-source materials</li>
+      <li>Primary documents</li>
+      <li>Reputable international media</li>
+      <li>Publicly available data</li>
+    </ul>
+    <p>Every day we analyze fresh materials from leading media: 
+      <span class="highlight">The Economist, Financial Times, Bloomberg, Forbes, Foreign Affairs, The Washington Post, The New York Times, Politico, The Guardian, The Daily Telegraph, MoneyWeek, Harvard Business Review, Businessweek, Barron’s, The Independent</span>, 
+      and other influential outlets.
+    </p>
+    <p>We prioritize second-order analysis, institutional incentives, and systemic risk over opinion or advocacy.</p>
+
+    <h2>Accuracy and Corrections</h2>
+    <p>We strive for accuracy and transparency. If a factual error is identified, corrections are made promptly and clearly.</p>
+
+    <h2>Conflict of Interest</h2>
+    <p>Authors and editors are required to disclose any potential conflicts of interest. Content is produced without influence from governments, corporations, or political organizations.</p>
+
+    <h2>Use of Artificial Intelligence</h2>
+    <p>AI tools may be used for research assistance, translation, or formatting. Final editorial responsibility remains with the human editor.</p>
+
+    <h2>Ethics</h2>
+    <p>We avoid hate speech, incitement to violence, and disinformation. Content is produced for informational and analytical purposes only.</p>
+
+    <div class="contact">
+      <p>Editorial inquiries: 
+        <a href="mailto:info@deeppressanalysis.com">info@deeppressanalysis.com</a>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

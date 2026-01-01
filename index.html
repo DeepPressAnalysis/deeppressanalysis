@@ -4,30 +4,28 @@
   <meta charset="UTF-8" />
   <title>Deep Press Analysis — global news forensics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <meta name="description" content="Deep Press Analysis — daily analytical briefing on global media: economy, financial markets, geopolitics, wars, sanctions and technology. Multi-language breakdowns of Western press narratives." />
   <meta name="robots" content="index,follow" />
 
-  <!-- FIX #1: canonical aligned with redirect target -->
+  <!-- Canonical -->
   <link rel="canonical" href="https://deeppressanalysis.com/en/" />
 
+  <!-- Hreflang -->
   <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/en/" />
   <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/" />
   <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/" />
   <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/" />
   <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/" />
   <link rel="alternate" hreflang="hi" href="https://deeppressanalysis.com/hi/" />
-
-  <!-- FIX #1: x-default aligned with canonical -->
+  <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/" />
   <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/" />
 
+  <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://deeppressanalysis.com/" />
   <meta property="og:title" content="Deep Press Analysis — global news forensics" />
   <meta property="og:description" content="Daily deep-dive into Western and global media: economy, markets, geopolitics and information wars." />
   <meta property="og:image" content="https://deeppressanalysis.com/assets/og-image.jpg" />
-
-  <!-- FIX #4: image dimensions for better social previews -->
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
@@ -40,40 +38,66 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
 
+  <!-- JSON-LD NewsMediaOrganization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "NewsMediaOrganization",
+    "@id": "https://deeppressanalysis.com/#newsmediaorganization",
     "name": "Deep Press Analysis",
-    "url": "https://deeppressanalysis.com",
-    "logo": "https://deeppressanalysis.com/assets/logo.png",
+    "url": "https://deeppressanalysis.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deeppressanalysis.com/logo.png",
+      "width": 512,
+      "height": 512
+    },
     "sameAs": [
-      "https://www.youtube.com/@DeepPressAnalysis",
       "https://t.me/DeepPressAnalysis",
-      "https://www.tiktok.com/@DeepPressAnalysis"
+      "https://x.com/deeppressanalys",
+      "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
+      "https://www.pinterest.com/DeepPressAnalysis"
+    ],
+    "foundingDate": "2026-01-01",
+    "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
+    "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+    "masthead": "https://deeppressanalysis.com/manifesto.html",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Editorial",
+      "email": "info@deeppressanalysis.com"
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Worldwide"
+    },
+    "knowsAbout": [
+      "geopolitics",
+      "global economy",
+      "financial markets",
+      "media systems",
+      "institutional risk",
+      "power structures",
+      "technology policy"
     ]
   }
   </script>
 
+  <!-- Language redirect -->
   <script>
-    // Language → folder mapping (clean URLs with trailing slash)
-    // FIX #2/#3: use 'uk' language code, keep folder '/ua/'
     const LANG_MAP = {
       "en": "/en/",
       "ru": "/ru/",
       "de": "/de/",
       "ar": "/ar/",
       "uk": "/ua/",
-      "hi": "/hi/"
+      "hi": "/hi/",
+      "es": "/es/"
     };
-
     try {
       const userLang = navigator.language || navigator.userLanguage || "en";
       const langShort = String(userLang).split("-")[0].toLowerCase();
-
-      // Default to English if not supported
       const targetPath = LANG_MAP[langShort] || "/en/";
-
       window.location.replace(targetPath);
     } catch (e) {
       console.error("Language redirect failed:", e);
@@ -93,7 +117,8 @@
       <a href="/de/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">DE</a> ·
       <a href="/ar/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">AR</a> ·
       <a href="/ua/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">UA</a> ·
-      <a href="/hi/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">HI</a>
+      <a href="/hi/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">HI</a> ·
+      <a href="/es/" style="color:#38bdf8; text-decoration:none; margin:0 0.25rem;">ES</a>
     </p>
 
     <noscript>
