@@ -1,485 +1,495 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Deep Press Analysis Manifesto — Media Intelligence (Anti-Propaganda)</title>
-
   <!-- SEO -->
   <meta name="description" content="Deep Press Analysis Manifesto: media intelligence briefs that extract clear signals from global news—anti-propaganda, pro-understanding, focused on incentives, institutions, regulation, power, and risk." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://deeppressanalysis.com/manifesto" />
-
   <!-- Social -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Deep Press Analysis Manifesto — Media Intelligence" />
   <meta property="og:description" content="Anti-propaganda media intelligence. Less noise. More clarity." />
   <meta property="og:url" content="https://deeppressanalysis.com/manifesto" />
   <meta name="twitter:card" content="summary_large_image" />
-
   <style>
-    :root{
-      --bg:#050607;
-      --line:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.86);
-      --muted:rgba(255,255,255,.60);
-      --muted2:rgba(255,255,255,.42);
-      --neon:#39ff14;
-      --max:1100px;
-      --radius:18px;
-
-      /* red glow */
-      --antiRed: #ff3b3b;
+    :root {
+      --bg: #05040d;                      /* deep cosmic black-blue */
+      --glass: rgba(20, 20, 45, 0.68);    /* stronger glassmorphism */
+      --line: rgba(100, 255, 218, 0.18);  /* cyan-teal glow line */
+      --text: #f0f4ff;                    /* soft cold white */
+      --muted: #a3bffa;                   /* muted cyan-purple */
+      --muted2: #7c8cff;                  /* deeper muted */
+      --neon: #64ffda;                    /* electric cyan-teal (main Web3 neon) */
+      --antiRed: #ff3366;                 /* hot pink-red для anti-propaganda */
+      --glow: rgba(100, 255, 218, 0.35);  /* cyan glow */
+      --max: 1100px;
+      --radius: 18px;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
       background:
-        radial-gradient(900px 600px at 50% 42%, rgba(255,255,255,.04), transparent 60%),
-        radial-gradient(1200px 900px at 50% 100%, rgba(255,255,255,.03), transparent 55%),
+        radial-gradient(1200px 800px at 50% 30%, rgba(100, 255, 218, 0.06), transparent 60%),
+        radial-gradient(1400px 1000px at 70% 80%, rgba(120, 100, 255, 0.05), transparent 65%),
         var(--bg);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
-    body:before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
-      opacity:.08;
-      mix-blend-mode:overlay;
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E");
+      opacity: .09;
+      mix-blend-mode: overlay;
     }
 
-    /* WORLD CLOCK BAR */
-    .worldbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background: rgba(0,0,0,.78);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+    /* WORLD CLOCK BAR — Web3 cyan */
+    .worldbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10, 10, 30, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 255, 218, 0.22);
     }
-    .worldbar__inner{
+
+    .worldbar__inner {
       max-width: var(--max);
       margin: 0 auto;
       padding: 10px 16px;
-      display:flex;
-      align-items:center;
-      gap:12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .worldbar__label{
-      font: 600 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color: rgba(255,255,255,.85);
-      opacity:.55;
-      white-space:nowrap;
+
+    .worldbar__label {
+      font: 600 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(100, 255, 218, 0.92);
+      opacity: .65;
+      white-space: nowrap;
     }
-    .worldbar__clocks{
-      font: 800 13px/1.2 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      letter-spacing:.06em;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
+
+    .worldbar__clocks {
+      font: 800 13px/1.2 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing: .06em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--text);
     }
-    .worldbar__city,.worldbar__time{
+
+    .worldbar__city,
+    .worldbar__time {
       color: var(--neon);
-      text-shadow: 0 0 10px rgba(57,255,20,.18);
+      text-shadow: 0 0 12px rgba(100, 255, 218, 0.35);
     }
-    .worldbar__dot{
-      color: rgba(255,255,255,.70);
-      opacity:.35;
+
+    .worldbar__dot {
+      color: rgba(100, 255, 218, 0.70);
+      opacity: .45;
       padding: 0 10px;
     }
 
     /* layout */
-    .wrap{
+    .wrap {
       max-width: var(--max);
       margin: 0 auto;
       padding: 34px 16px 80px;
       min-height: calc(100vh - 42px);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* center card */
-    .card{
-      width:min(980px, 100%);
+    /* center card — stronger glass + neon edges */
+    .card {
+      width: min(980px, 100%);
       background:
-        radial-gradient(900px 500px at 15% 10%, rgba(255,255,255,.06), transparent 55%),
-        radial-gradient(700px 420px at 80% 70%, rgba(255,255,255,.05), transparent 55%),
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      border: 1px solid var(--line);
+        radial-gradient(1000px 600px at 20% 10%, rgba(100, 255, 218, 0.08), transparent 60%),
+        radial-gradient(800px 500px at 80% 70%, rgba(120, 100, 255, 0.07), transparent 60%),
+        linear-gradient(180deg, rgba(100, 255, 218, 0.04), rgba(120, 100, 255, 0.02));
+      border: 1px solid rgba(100, 255, 218, 0.25);
       border-radius: var(--radius);
       padding: clamp(26px, 3.5vw, 44px);
       box-shadow:
-        0 30px 120px rgba(0,0,0,.70),
-        0 2px 0 rgba(255,255,255,.06) inset;
-      position:relative;
-      overflow:hidden;
+        0 40px 140px rgba(0,0,0,.75),
+        0 0 0 1px rgba(100, 255, 218, 0.08) inset,
+        inset 0 2px 0 rgba(255,255,255,.04);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card:before{
-      content:"";
-      position:absolute;
-      left:14px;
-      top:24px;
-      bottom:24px;
-      width:2px;
-      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0));
-      opacity:.25;
-    }
-    .card:after{
-      content:"";
-      position:absolute;
-      right:20px;
-      top:22px;
-      width:30px;
-      height:30px;
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:10px;
-      opacity:.35;
+    .card:before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(100, 255, 218, .28), transparent);
+      opacity: .35;
     }
 
-    .kicker{
-      font: 800 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color: var(--muted2);
-      margin:0 0 16px;
+    .card:after {
+      content: "";
+      position: absolute;
+      right: 20px;
+      top: 22px;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(100, 255, 218, .25);
+      border-radius: 12px;
+      opacity: .45;
+      box-shadow: 0 0 16px rgba(100, 255, 218, .18);
     }
 
-    .title{
-      margin:0;
+    .kicker {
+      font: 800 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(100, 255, 218, .75);
+      margin: 0 0 16px;
+    }
+
+    .title {
+      margin: 0;
       font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Garamond, "Times New Roman", serif;
       font-weight: 600;
       font-size: clamp(42px, 6vw, 72px);
       letter-spacing: .01em;
       line-height: 1;
+      background: linear-gradient(90deg, #64ffda, #a5d8ff, #c3a6ff, #ff99e6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(100, 255, 218, 0.4);
     }
 
-    .sub{
+    .sub {
       margin: 14px 0 0;
       color: var(--muted);
       font: 500 14px/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       max-width: 82ch;
     }
 
-    /* red glowing Anti-Propaganda line */
-    .antiLine{
+    /* Anti-Propaganda — hot pink-red neon */
+    .antiLine {
       margin-top: 10px;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-
-      font: 900 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-
-      color: rgba(255, 59, 59, .95);
-      text-shadow:
-        0 0 10px rgba(255, 59, 59, .34),
-        0 0 26px rgba(255, 59, 59, .18);
-      user-select:none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font: 900 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--antiRed);
+      text-shadow: 0 0 14px rgba(255, 51, 102, 0.55);
+      user-select: none;
     }
-    .antiStar{
-      color: rgba(255, 59, 59, .98);
-      text-shadow:
-        0 0 12px rgba(255, 59, 59, .40),
-        0 0 28px rgba(255, 59, 59, .20);
+
+    .antiStar {
+      color: var(--antiRed);
+      text-shadow: 0 0 16px rgba(255, 51, 102, 0.45);
       transform: translateY(-.5px);
       font-weight: 1000;
     }
-    @media (prefers-reduced-motion: no-preference){
-      .antiLine{ animation: antiGlow 3.6s ease-in-out infinite; }
-      @keyframes antiGlow{
-        0%,100%{ opacity:.92; filter: drop-shadow(0 0 0 rgba(255,59,59,0)); }
-        50%{ opacity:1; filter: drop-shadow(0 0 16px rgba(255,59,59,.18)); }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .antiLine { animation: antiGlow 3.2s ease-in-out infinite; }
+      @keyframes antiGlow {
+        0%,100% { opacity: .92; filter: drop-shadow(0 0 0 rgba(255,51,102,0)); }
+        50%     { opacity: 1; filter: drop-shadow(0 0 20px rgba(255,51,102,.28)); }
       }
     }
 
-    .grid{
+    .grid {
       margin-top: 26px;
-      display:grid;
+      display: grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 26px;
     }
-    @media (max-width: 860px){
-      .grid{grid-template-columns:1fr}
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
     }
 
-    .manifest{
-      border-top: 1px solid rgba(255,255,255,.08);
+    .manifest {
+      border-top: 1px solid rgba(100, 255, 218, .18);
       padding-top: 18px;
     }
 
-    .manifest p{
+    .manifest p {
       margin: 0 0 12px;
-      color: rgba(255,255,255,.72);
+      color: rgba(240, 244, 255, .78);
       font: 500 14px/1.7 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
-    .manifest p strong{
-      color: rgba(255,255,255,.92);
+    .manifest p strong {
+      color: rgba(240, 244, 255, .96);
       font-weight: 700;
     }
 
-    .side{
-      border-left: 1px solid rgba(255,255,255,.08);
+    .side {
+      border-left: 1px solid rgba(100, 255, 218, .18);
       padding-left: 18px;
     }
-    @media (max-width: 860px){
-      .side{border-left:none; padding-left:0; border-top:1px solid rgba(255,255,255,.08); padding-top:16px}
+
+    @media (max-width: 860px) {
+      .side { border-left: none; padding-left: 0; border-top: 1px solid rgba(100, 255, 218, .18); padding-top: 16px; }
     }
 
-    .meta{
-      display:grid;
+    .meta {
+      display: grid;
       gap: 10px;
       margin-top: 4px;
     }
 
-    .metaItem{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 12px;
-      background: rgba(0,0,0,.22);
-    }
-
-    .metaKey{
-      font: 800 11px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color: rgba(255,255,255,.55);
-      white-space:nowrap;
-    }
-    .metaVal{
-      font: 750 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      color: rgba(255,255,255,.80);
-      text-align:right;
-    }
-    .metaVal .green{
-      color: var(--neon);
-      text-shadow: 0 0 10px rgba(57,255,20,.16);
-    }
-
-    .ctaRow{
-      margin-top: 18px;
-      display:flex;
+    .metaItem {
+      display: flex;
+      justify-content: space-between;
       gap: 12px;
-      flex-wrap:wrap;
-      align-items:center;
+      padding: 10px 12px;
+      border: 1px solid rgba(100, 255, 218, .18);
+      border-radius: 12px;
+      background: rgba(10, 10, 30, .38);
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
+    .metaKey {
+      font: 800 11px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(100, 255, 218, .65);
+      white-space: nowrap;
+    }
+
+    .metaVal {
+      font: 750 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: rgba(240, 244, 255, .88);
+      text-align: right;
+    }
+
+    .metaVal .green {
+      color: var(--neon);
+      text-shadow: 0 0 12px rgba(100, 255, 218, .28);
+    }
+
+    .ctaRow {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       padding: 12px 16px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.28);
-      color: rgba(255,255,255,.86);
-      text-decoration:none;
-      font: 850 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      letter-spacing:.16em;
-      text-transform:uppercase;
+      border: 1px solid rgba(100, 255, 218, .22);
+      background: rgba(10, 10, 30, .45);
+      color: rgba(240, 244, 255, .92);
+      text-decoration: none;
+      font: 850 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
       transition: transform .15s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease;
     }
-    .btn:hover{
+
+    .btn:hover {
       transform: translateY(-1px);
-      border-color: rgba(255,255,255,.22);
-      background: rgba(0,0,0,.36);
+      border-color: rgba(100, 255, 218, .45);
+      background: rgba(10, 10, 30, .55);
+      box-shadow: 0 0 20px rgba(100, 255, 218, .18);
     }
-    .btn .arrow{ opacity:.75 }
 
-    .btn-home{
+    .btn .arrow { opacity: .75; }
+
+    .btn-home {
       min-width: 320px;
-      border-color: rgba(57,255,20,.38);
-      background: rgba(0,0,0,.30);
+      border-color: rgba(100, 255, 218, .45);
+      background: rgba(10, 10, 30, .50);
       box-shadow:
-        0 0 0 1px rgba(57,255,20,.10) inset,
-        0 0 28px rgba(57,255,20,.18),
-        0 20px 70px rgba(0,0,0,.55);
-      color: rgba(255,255,255,.92);
+        0 0 0 1px rgba(100, 255, 218, .12) inset,
+        0 0 32px rgba(100, 255, 218, .22),
+        0 20px 80px rgba(0,0,0,.60);
+      color: rgba(240, 244, 255, .96);
     }
-    .btn-home:hover{
-      border-color: rgba(57,255,20,.70);
+
+    .btn-home:hover {
+      border-color: rgba(100, 255, 218, .70);
       box-shadow:
-        0 0 0 1px rgba(57,255,20,.16) inset,
-        0 0 42px rgba(57,255,20,.28),
-        0 20px 90px rgba(0,0,0,.60);
+        0 0 0 1px rgba(100, 255, 218, .20) inset,
+        0 0 48px rgba(100, 255, 218, .35),
+        0 20px 100px rgba(0,0,0,.70);
     }
-    .btn-home .homeMark{
+
+    .btn-home .homeMark {
       color: var(--neon);
-      text-shadow: 0 0 12px rgba(57,255,20,.20);
+      text-shadow: 0 0 14px rgba(100, 255, 218, .25);
     }
 
-    /* =========================
-       DONATE BUTTON (glow-on-hover)
-       ========================= */
-    .donate-wrap{ display:inline-flex; align-items:center; }
-    .donate-wrap form{ margin:0; }
-
-    .donate-btn.glow-on-hover{
-      width: 320px;            /* под HOME */
+    /* DONATE BUTTON — сохраняем rainbow glow, но усиливаем Web3-вайб */
+    .donate-wrap { display: inline-flex; align-items: center; }
+    .donate-wrap form { margin: 0; }
+    .donate-btn.glow-on-hover {
+      width: 320px;
       max-width: 100%;
       height: 52px;
-
       border: none;
       outline: none;
-
-      color: rgba(255,255,255,.92);
-      background: rgba(17,17,17,.72);
+      color: rgba(240, 244, 255, .96);
+      background: rgba(10, 10, 30, .68);
       cursor: pointer;
-
       position: relative;
       z-index: 0;
       border-radius: 14px;
-
-      font: 900 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font: 900 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       letter-spacing: .16em;
       text-transform: uppercase;
-
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(100, 255, 218, .25);
       box-shadow:
-        0 0 0 1px rgba(57,255,20,.08) inset,
-        0 20px 70px rgba(0,0,0,.55);
-
+        0 0 0 1px rgba(100, 255, 218, .12) inset,
+        0 20px 80px rgba(0,0,0,.60);
       transition: transform .15s ease;
     }
 
-    .donate-btn.glow-on-hover:before{
-      content:'';
+    .donate-btn.glow-on-hover:before {
+      content: '';
       background: linear-gradient(
         45deg,
-        #ff0000, #ff7300, #fffb00, #48ff00,
-        #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000
+        #64ffda, #a5d8ff, #c3a6ff, #ff99e6,
+        #ff6bcb, #ff4d94, #ff3366, #ff4d94, #ff6bcb
       );
       position: absolute;
       top: -2px;
       left: -2px;
       background-size: 400%;
       z-index: -1;
-      filter: blur(6px);
+      filter: blur(8px);
       width: calc(100% + 4px);
       height: calc(100% + 4px);
-      animation: glowing 20s linear infinite;
+      animation: glowing 18s linear infinite;
       opacity: 0;
       transition: opacity .25s ease-in-out;
       border-radius: 14px;
     }
 
-    .donate-btn.glow-on-hover:hover:before{ opacity: 1; }
+    .donate-btn.glow-on-hover:hover:before { opacity: 1; }
 
-    .donate-btn.glow-on-hover:after{
+    .donate-btn.glow-on-hover:after {
       z-index: -1;
-      content:'';
+      content: '';
       position: absolute;
       width: 100%;
       height: 100%;
       left: 0;
       top: 0;
       border-radius: 14px;
-      background: rgba(0,0,0,.45);
-      box-shadow: 0 2px 0 rgba(255,255,255,.06) inset;
+      background: rgba(10, 10, 30, .55);
+      box-shadow: 0 2px 0 rgba(255,255,255,.05) inset;
     }
 
-    .donate-btn.glow-on-hover:active{
+    .donate-btn.glow-on-hover:active {
       transform: translateY(1px);
-      color: rgba(0,0,0,.85);
-    }
-    .donate-btn.glow-on-hover:active:after{
-      background: rgba(255,255,255,.18);
+      color: rgba(0,0,0,.92);
     }
 
-    @keyframes glowing{
+    .donate-btn.glow-on-hover:active:after {
+      background: rgba(255,255,255,.22);
+    }
+
+    @keyframes glowing {
       0%   { background-position: 0 0; }
       50%  { background-position: 400% 0; }
       100% { background-position: 0 0; }
     }
 
-    @media (max-width: 520px){
-      .donate-btn.glow-on-hover{ width: 100%; }
-      .btn-home{ width: 100%; min-width: 0; }
+    @media (max-width: 520px) {
+      .donate-btn.glow-on-hover { width: 100%; }
+      .btn-home { width: 100%; min-width: 0; }
     }
 
-    /* Signature */
-    .signatureWrap{
+    /* Signature — metallic gradient + glow */
+    .signatureWrap {
       margin-top: 18px;
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
-    .signature{
-      font-family: "Brush Script MT","Segoe Script","Snell Roundhand","Apple Chancery","Lucida Handwriting","URW Chancery L",cursive;
+
+    .signature {
+      font-family: "Brush Script MT", "Segoe Script", "Snell Roundhand", "Apple Chancery", "Lucida Handwriting", "URW Chancery L", cursive;
       font-size: clamp(28px, 3vw, 40px);
       line-height: 1;
       letter-spacing: .02em;
       font-weight: 500;
-
-      color: rgba(255,255,255,.78);
       background: linear-gradient(
         110deg,
-        rgba(255,255,255,.66) 0%,
-        rgba(255,255,255,.92) 18%,
-        rgba(255,255,255,.70) 36%,
-        rgba(255,255,255,.88) 54%,
-        rgba(255,255,255,.68) 72%,
-        rgba(255,255,255,.82) 100%
+        #64ffda 0%,
+        #a5d8ff 18%,
+        #c3a6ff 36%,
+        #ff99e6 54%,
+        #ff6bcb 72%,
+        #ff4d94 100%
       );
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-
-      filter: drop-shadow(0 10px 26px rgba(0,0,0,.55));
-      opacity: .92;
+      filter: drop-shadow(0 12px 30px rgba(0,0,0,.65));
+      opacity: .94;
       position: relative;
       background-size: 220% 100%;
-      animation: sigShimmer 6s ease-in-out infinite;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .signature:after{
-      content:"";
-      position:absolute;
-      left:-6px; right:-6px;
-      top:50%;
-      height: 16px;
-      transform: translateY(-50%);
-      background: radial-gradient(closest-side, rgba(255,255,255,.12), transparent 70%);
-      opacity: .35;
-      filter: blur(10px);
-      z-index:-1;
-    }
-    @keyframes sigShimmer{
-      0%{ background-position: 0% 50%; }
-      50%{ background-position: 100% 50%; }
-      100%{ background-position: 0% 50%; }
+      animation: sigShimmer 5.5s ease-in-out infinite;
+      user-select: none;
+      white-space: nowrap;
     }
 
-    .footerline{
+    .signature:after {
+      content: "";
+      position: absolute;
+      left: -6px; right: -6px;
+      top: 50%;
+      height: 16px;
+      transform: translateY(-50%);
+      background: radial-gradient(closest-side, rgba(100, 255, 218, .18), transparent 70%);
+      opacity: .45;
+      filter: blur(12px);
+      z-index: -1;
+    }
+
+    @keyframes sigShimmer {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .footerline {
       margin-top: 14px;
       padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: rgba(255,255,255,.52);
+      border-top: 1px solid rgba(100, 255, 218, .18);
+      color: rgba(240, 244, 255, .58);
       font: 500 12px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
   </style>
 </head>
-
 <body>
-
+  <!-- WORLD CLOCK BAR остаётся без изменений -->
   <div class="worldbar" aria-label="World clocks">
     <div class="worldbar__inner">
       <span class="worldbar__label">LIVE TIME</span>
@@ -489,36 +499,28 @@
 
   <main class="wrap">
     <section class="card" aria-label="Deep Press Analysis Manifesto">
-
       <p class="kicker">DEEP PRESS ANALYSIS — MANIFESTO</p>
-
       <h1 class="title">Media Intelligence</h1>
-
       <p class="sub">
         Deep Press Analysis is <strong>not news</strong> and not opinion.
         It is analytical interpretation of media as a system — incentives, institutions, regulation, power, and risk.
       </p>
-
       <div class="antiLine"><span class="antiStar">*</span> Anti-Propaganda</div>
 
       <div class="grid">
-
         <div class="manifest">
           <p>
             We read global reporting to understand <strong>what changes beneath the headlines</strong>.
             Every item answers one question: <strong>What does this mean for the system?</strong>
           </p>
-
           <p>
             We analyze <strong>second-order effects</strong>, separate <strong>narratives from incentives</strong>,
             and translate complexity into <strong>clear, structured signals</strong>.
           </p>
-
           <p>
             This project is explicitly anti-propaganda: we reject ideological framing, emotional manipulation,
             tribal messaging, and simplified “good vs bad” stories.
           </p>
-
           <p>
             The world is not short on information — it is short on <strong>accessible understanding</strong>.
             We exist to make what’s happening <strong>readable</strong>, <strong>comparable</strong>, and <strong>interpretable</strong>.
@@ -528,7 +530,6 @@
             <a class="btn btn-home" href="/" title="Home">
               <span class="homeMark">HOME</span> <span class="arrow">↳</span>
             </a>
-
             <div class="donate-wrap">
               <form action="https://www.paypal.com/donate" method="post" target="_blank" rel="noopener">
                 <input type="hidden" name="hosted_button_id" value="ER23YUDGYSY9Y" />
@@ -553,28 +554,25 @@
               <div class="metaKey">STATUS</div>
               <div class="metaVal"><span class="green">ACTIVE</span></div>
             </div>
-
             <div class="metaItem">
               <div class="metaKey">MODE</div>
               <div class="metaVal">SIGNAL EXTRACTION</div>
             </div>
-
             <div class="metaItem">
               <div class="metaKey">STANCE</div>
               <div class="metaVal"><span class="green">ANTI-PROPAGANDA</span></div>
             </div>
           </div>
-
-          <p class="sub" style="margin-top:14px; color:rgba(255,255,255,.55)">
-            Site: <strong style="color:rgba(255,255,255,.85)">deeppressanalysis.com</strong><br/>
+          <p class="sub" style="margin-top:14px; color:rgba(240,244,255,.60)">
+            Site: <strong style="color:rgba(240,244,255,.92)">deeppressanalysis.com</strong><br/>
             Format: structured outlet briefs with institutional implications.
           </p>
         </aside>
-
       </div>
     </section>
   </main>
 
+  <!-- Скрипт world clocks остаётся без изменений -->
   <script>
     (function(){
       const clocks = [
@@ -585,9 +583,7 @@
         { label: "Delhi",    tz: "Asia/Kolkata" },
         { label: "Dubai",    tz: "Asia/Dubai" },
       ];
-
       const el = document.getElementById("worldClocks");
-
       function fmtTime(tz){
         const parts = new Intl.DateTimeFormat("en-GB", {
           timeZone: tz,
@@ -599,7 +595,6 @@
         const m = parts.find(p => p.type === "minute")?.value ?? "00";
         return `${h}:${m}`;
       }
-
       function render(){
         el.innerHTML = clocks.map((c, i) => {
           const time = fmtTime(c.tz);
@@ -607,12 +602,9 @@
           return `<span><span class="worldbar__city">${c.label}</span> <span class="worldbar__time">${time}</span></span>${sep}`;
         }).join("");
       }
-
       render();
       setInterval(render, 1000);
     })();
   </script>
-
 </body>
 </html>
-
