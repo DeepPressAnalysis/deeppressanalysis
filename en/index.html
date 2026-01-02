@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
-  <title>Deep Press Analysis — January 1, 2026</title>
+  <title>Deep Press Analysis — January 2, 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Daily World Press Synthesis: HS2 Scandal, Starmer's Crisis, Iran Protests, Trump's Doctrine in Latin America, and the Shamima Begum Case." />
+  <meta name="description" content="Daily world press synthesis: Record SpaceX & OpenAI IPOs, Swiss Alps tragedy, Warren Buffett steps down, and NYC's socialist turn." />
   <meta name="author" content="Deep Press Analysis" />
   <meta name="robots" content="index, follow" />
 
-  <link rel="canonical" href="https://deeppressanalysis.com/en/010126.html" />
+  <link rel="canonical" href="https://deeppressanalysis.com/en/020126.html" />
 
-  <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/010126.html" />
-  <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/en/010126.html" />
-  <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/010126.html" />
-  <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/010126.html" />
-  <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/010126.html" />
-  <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/010126.html" />
-  <link rel="alternate" hreflang="hi" href="https://deeppressanalysis.com/hi/010126.html" />
-  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/010126.html" />
+  <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/020126.html" />
+  <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/en/020126.html" />
+  <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/020126.html" />
+  <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/020126.html" />
+  <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/020126.html" />
+  <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/020126.html" />
+  <link rel="alternate" hreflang="hi" href="https://deeppressanalysis.com/hi/020126.html" />
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/020126.html" />
 
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Deep Press Analysis — January 1, 2026" />
-  <meta property="og:description" content="In-depth analysis of leading Western media: UK, USA, Iran, Technology." />
-  <meta property="og:url" content="https://deeppressanalysis.com/en/010126.html" />
+  <meta property="og:title" content="Deep Press Analysis — January 2, 2026" />
+  <meta property="og:description" content="Deep Dive: AI Bubble fears, Alps fire, Musk & '26 Election, NHS crisis, and Buffett's exit." />
+  <meta property="og:url" content="https://deeppressanalysis.com/en/020126.html" />
   <meta property="og:image" content="https://deeppressanalysis.com/assets/og-cover-2026.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Deep Press Analysis — January 1, 2026" />
-  <meta name="twitter:description" content="Daily Briefing: HS2, Starmer, Iran, Trump, Real Estate." />
+  <meta name="twitter:title" content="Deep Press Analysis — January 2, 2026" />
+  <meta name="twitter:description" content="Daily Synthesis: Warren Buffett departs, Mamdani vs Wall St, Iran evades sanctions." />
 
   <script type="application/ld+json">
   {
@@ -98,7 +98,7 @@
       color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
-      padding: 0 14px 40px; 
+      padding: 0 14px 40px;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -370,7 +370,7 @@
     animation: ticker-scroll 60s linear infinite;
   }
   .ticker-content:hover {
-    animation-play-state: paused; /* Pause on hover */
+    animation-play-state: paused; /* pause on hover */
   }
   .crypto-up { color: #22c55e; }
   .crypto-down { color: #ef4444; }
@@ -393,14 +393,14 @@
       );
       const cryptoData = await cryptoRes.json();
 
-      // 2. Forex from free CDN (USD base)
+      // 2. Forex (USD base)
       const forexRes = await fetch(
         'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json'
       );
       const forexData = await forexRes.json();
       const rates = forexData.usd;
 
-      // Build strings
+      // Build HTML
       let html = '';
 
       // Crypto
@@ -420,7 +420,7 @@
         html += `<span class="pair">${c.name}/USD: <strong>$${price}</strong> <span class="${changeClass}">${changeText}</span></span>`;
       });
 
-      // Forex (Major pairs to USD)
+      // Forex
       const forexPairs = [
         { code: 'eur', name: 'EUR/USD' },
         { code: 'gbp', name: 'GBP/USD' },
@@ -432,7 +432,7 @@
       forexPairs.forEach(p => {
         let rate = rates[p.code];
         if (!rate) return;
-        // Invert for USD/JPY, USD/CHF etc if needed
+        // Invert for USD/JPY etc
         if (p.name.includes('USD/')) {
           rate = (1 / rate).toFixed(4);
         } else {
@@ -441,11 +441,11 @@
         html += `<span class="pair">${p.name}: <strong>${rate}</strong></span>`;
       });
 
-      // Add date/time of update (Localized label)
+      // Timestamp
       const now = new Date().toLocaleTimeString('en-US', { hour12: false });
       html += `<span class="pair" style="color:var(--muted); font-size:0.9em;">Updated: ${now} UTC</span>`;
 
-      // Duplicate content for seamless scrolling
+      // Duplicate for seamless scroll
       document.getElementById('tickerContent').innerHTML = html + '      ' + html;
 
     } catch (err) {
@@ -455,7 +455,7 @@
     }
   }
 
-  // Start immediately + every 5 mins
+  // Update immediately + every 5 mins
   updateTicker();
   setInterval(updateTicker, 5 * 60 * 1000);
 </script>
@@ -495,88 +495,88 @@
   <header>
     <div class="header-main">
       <h1 class="site-title">Deep Press Analysis</h1>
-      <div class="site-tagline">Daily Synthesis of Leading International Editions</div>
-      <div class="header-date"><time datetime="2026-01-01">JANUARY 1, 2026</time></div>
+      <div class="site-tagline">Daily Synthesis of Leading International Publications</div>
+      <div class="header-date"><time datetime="2026-01-02">JANUARY 2, 2026</time></div>
     </div>
 
     <div class="header-note">
-      A curated selection of key analytics from leading Western and global media: markets, geopolitics, war, sanctions, energy, and technology — so you don't just read headlines, but see the hidden logic of events.
+      Curated critical analysis from top Western media: markets, geopolitics, war, sanctions, energy, and tech—so you don't just read headlines, you see the hidden logic.
     </div>
 
     <div class="header-focus">
-      <strong>Today's Focus:</strong> HS2 Scandal, UK Investment Crisis, Trump's "War Doctrine," Iran Protests, FTSE 100 Record, Shamima Begum Case, and Weather Collapse.
+      <strong>In Focus Today:</strong> Record IPOs (SpaceX, OpenAI), Alps tragedy, Iranian arms for crypto, Warren Buffett's exit, NYC socialism, and Ukraine defense 2026.
     </div>
   </header>
 
   <main>
 
     <section class="outlet">
-      <h2>THE INDEPENDENT</h2>
-      <div class="outlet-sub">HS2 • Investment • ICE • Camilla • Weather</div>
+      <h2>FINANCIAL TIMES</h2>
+      <div class="outlet-sub">IPOs • AI Bubble • Iran/Crypto • Swiss Tragedy • Drug Cartels</div>
       <div class="articles-list">
         
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-ind-1">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="ft-1">
             <div class="article-main">
               <div class="article-index">01</div>
-              <h3 class="article-title">HS2 Property Scandal: Government Inertia</h3>
+              <h3 class="article-title">Tech Giants Prep Record IPOs Amid AI Bubble Fears</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-ind-1" class="article-body">
-            The continued purchase of real estate by the state-owned HS2 company in areas where the railway line's construction was officially cancelled demonstrates a deep dysfunction in the management of infrastructure mega-projects. Spending taxpayer money on assets that are knowingly unnecessary exposes bureaucratic inertia and a lack of operational oversight by the Treasury. This inflicts reputational damage on the Labour government, which is trying to position itself as a responsible budget steward. The situation undermines investor and public confidence in the state's ability to implement major projects, which could complicate financing for future initiatives. For the real estate market in the affected areas, this creates artificial uncertainty and asset freezing. Politically, this hands trump cards to the opposition and local activists demanding a review of the entire transport development strategy. The incident underscores the need for radical reform of audit mechanisms in the public sector.
+          <div id="ft-1" class="article-body">
+            Leading U.S. tech companies—SpaceX, OpenAI, and Anthropic—are planning to go public in 2026, marking a potential historic event for stock exchanges. The combined valuation of these listings could exceed all 2025 IPOs combined, creating a colossal liquidity pool for investors and banks. For SpaceX, this involves a secondary share sale valuing the company at around $800 billion, placing it alongside the world's largest corporations. OpenAI is discussing fundraising at a $500 billion valuation, despite lacking legal advisors at the moment. However, this frenzy comes amidst growing market skepticism: recent sell-offs in Oracle and Broadcom signal fear of a "bursting AI bubble."
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-ind-2">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="ft-2">
             <div class="article-main">
               <div class="article-index">02</div>
-              <h3 class="article-title">UK Investment Crisis: Budget Policy Fallout</h3>
+              <h3 class="article-title">Iran Hawks High-Tech Arms for Crypto to Evade Sanctions</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-ind-2" class="article-body">
-            The UK has found itself in last place in the G7 for investment levels, a direct consequence of business uncertainty regarding Keir Starmer's government economic policy. Chancellor Rachel Reeves' decisions to increase the tax burden and change labor laws have created a toxic backdrop for capital investment. The stagnation of private investment, despite rising government spending, indicates that business is taking a wait-and-see approach or reorienting to other jurisdictions. This threatens a long-term lag in labor productivity and technological renewal of the economy. For the government, this is an alarm signal: without private capital, promises of economic growth will remain unfulfilled, hitting ratings ahead of elections. The leakage of projects, such as the cancellation of the Merck research center construction, demonstrates the real price of fiscal tightness. Markets should prepare for a possible review of tax strategy if the negative trend solidifies in the coming quarters.
+          <div id="ft-2" class="article-body">
+            Iran's state export entity, Mindex, has begun openly offering modern weaponry, including ballistic missiles and drones, in exchange for cryptocurrency. This move represents a direct attempt by Tehran to bypass the Western financial blockade and create an alternative settlement channel for its military-industrial complex. Using digital assets allows Iran to trade with other sanctioned regimes while minimizing the risk of transaction tracking via SWIFT. The inventory includes Emad missiles and Shahed drones, actively used by pro-Iranian groups in the Middle East.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-ind-3">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="ft-3">
             <div class="article-main">
               <div class="article-index">03</div>
-              <h3 class="article-title">"Military Recruitment" by ICE: Militarization of Policy</h3>
+              <h3 class="article-title">Swiss Resort Tragedy Hits Luxury Tourism Sector</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-ind-3" class="article-body">
-            The Trump administration's plans to spend $100 million on an aggressive recruiting campaign for Immigration and Customs Enforcement (ICE) signal massive preparations for mass deportations. Targeting advertising at gun enthusiasts and military aesthetics indicates a conscious bet on ideologically motivated personnel ready for harsh enforcement actions. This creates risks of intensifying social polarization and civil confrontation within the US. For the defense sector and private security firms, this opens a market for large-scale government contracts to secure deportation logistics. A "wartime" strategy in peacetime blurs the lines between law enforcement and paramilitary operations. This may lead to legal collisions and increased oversight by human rights organizations, but in the short term, it strengthens the executive branch's enforcement apparatus. For labor markets, this could mean a sharp outflow of workforce from sectors dependent on migrants (agriculture, construction).
+          <div id="ft-3" class="article-body">
+            A fire at the Le Constellation bar in the Crans-Montana resort, claiming nearly 40 lives, exposes systemic safety issues in the European premium leisure sector. The use of pyrotechnics in an enclosed space with flammable insulation points to gross negligence despite the resort's high status. For the insurance market, this event will trigger risk reassessments and premium hikes for hospitality venues in the Alps. Canton Valais authorities have ruled out terrorism, focusing on negligence.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-ind-4">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="ft-4">
             <div class="article-main">
               <div class="article-index">04</div>
-              <h3 class="article-title">Queen Camilla's Admission: Rebranding the Monarchy</h3>
+              <h3 class="article-title">Europe Underestimated Threat of Drug Gangs and Port Corruption</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-ind-4" class="article-body">
-            Queen Camilla's public admission of experiencing abuse is a strategic move to modernize the royal family's image. The monarchy seeks to synchronize with the current social agenda, demonstrating vulnerability and proximity to the problems of ordinary citizens. This allows the institution of the Crown to remain relevant in the era of social media and the MeToo movement, strengthening the palace's "soft power." Such a step shifts attention from political scandals and questions about the cost of maintaining the monarchy to socially significant topics. For the charity sector, this is a powerful signal of support that could attract funding to organizations helping victims of violence. In the long term, this helps the Queen Consort step out of the shadow of the past and form an independent humanitarian profile. However, this also raises the requirements for transparency and ethical behavior for all members of the royal family.
+          <div id="ft-4" class="article-body">
+            The European Union Drugs Agency (EUDA) has admitted that the EU missed the moment drug trafficking turned into a systemic national security threat. A sharp rise in cocaine imports from Latin America is accompanied by unprecedented levels of violence and corruption in key logistics hubs like Antwerp and Rotterdam. Criminal groups have shifted to "crime-as-a-service" tactics, hiring hitmen via social media and bribing officials, police, and judges. For business, this means rising logistics security costs and cargo delay risks.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-ind-5">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="ft-5">
             <div class="article-main">
               <div class="article-index">05</div>
-              <h3 class="article-title">Weather Collapse and Infrastructure Vulnerability</h3>
+              <h3 class="article-title">Conglomerates Shed Assets Under Investor Pressure</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-ind-5" class="article-body">
-            Massive snowfalls and meteorological warnings expose the chronic underfunding of Britain's resilience infrastructure. Regular winter collapses cause disproportionately high damage to the economy due to transport network paralysis and strain on the power grid. This raises the question of the efficiency of privatized utilities and their readiness for extreme weather events, the frequency of which is increasing due to climate change. For the insurance sector, this means a surge in payouts, which will inevitably be passed on to consumers through higher premiums. Politically, the inability to cope with seasonal challenges undermines the authority of local and central government. For business, this is a risk of disrupting "last mile" supply chains and reducing retail activity during a critical period. The situation requires a review of construction and maintenance standards taking into account new climatic realities.
+          <div id="ft-5" class="article-body">
+            Asset sales by major corporations reached $1 trillion in 2025, a three-year high. Giants like Unilever and Kraft Heinz are forced to simplify business structures and shed non-core divisions under pressure from activist investors. This trend marks the end of the diversified conglomerate era in favor of more focused and agile business models. For M&A markets, this creates a stream of opportunities attractive to private equity firms holding significant dry powder.
           </div>
         </article>
 
@@ -584,72 +584,72 @@
     </section>
 
     <section class="outlet">
-      <h2>THE GUARDIAN UK</h2>
-      <div class="outlet-sub">Starmer • Iran • Vaccination • FTSE 100 • Begum</div>
+      <h2>THE NEW YORK TIMES</h2>
+      <div class="outlet-sub">Middle East • Mamdani • Ukraine • Trump Media • Space/AI</div>
       <div class="articles-list">
         
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-grd-1">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="nyt-1">
             <div class="article-main">
               <div class="article-index">01</div>
-              <h3 class="article-title">Starmer's Political Survival: The "Year of Proof"</h3>
+              <h3 class="article-title">'Zero Hour' in Middle East: War-Weariness Shifts Power</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-grd-1" class="article-body">
-            Prime Minister Starmer enters 2026 with record-low ratings, betting on economic populism to save his administration. Announced measures to reduce the cost of living are an attempt to buy voter loyalty in the face of looming defeats in local elections. The government is shifting into election mobilization mode, trying to override Reform UK's agenda and calm the rebellion of its own backbenchers. However, fiscal space for maneuvering is limited, and any generous promises could unnerve debt markets. Rhetoric about "turning the corner" contrasts with the real sensation of falling living standards, creating a risk of an expectations crisis. If economic indicators do not improve in the first quarter, internal party pressure on Starmer could grow into an open challenge to his leadership. For business, this is a period of increased regulatory uncertainty, as the government may resort to populist measures pressuring corporations for short-term political points.
+          <div id="nyt-1" class="article-body">
+            The Middle East is approaching a bifurcation point where total conflict fatigue begins to outweigh ideological intransigence. After colossal casualties in Syria and Gaza, and the weakening of Iranian proxies (Hamas and Hezbollah), there is a growing demand among populations and elites for "pragmatism" and economic survival. Saudi Arabia seeks to cement its status as a modernized power, distancing itself from radical pan-Arab ideology for the sake of investment appeal.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-grd-2">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="nyt-2">
             <div class="article-main">
               <div class="article-index">02</div>
-              <h3 class="article-title">Iran Protests: Threat to Regime and Oil Markets</h3>
+              <h3 class="article-title">NYC's Socialist Turn: Mamdani's Inauguration Spooks Business</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-grd-2" class="article-body">
-            Massive protests in Iran, triggered by currency collapse and hyperinflation, have grown into a political challenge to the Ayatollah regime. The economic base of the social contract has been destroyed by sanctions and inefficient management, pushing even loyal strata (merchants) onto the streets. The risk of destabilization in a key oil-producing country creates nervousness in global energy markets, factoring a geopolitical risk premium into futures prices. The authorities' reaction, fluctuating between repression and attempts at dialogue, testifies to the confusion of the elites. External players, including the new US administration, may use the moment to increase pressure, which is fraught with conflict escalation. For regional security, this means potential weakening of Iranian proxy forces losing funding, but also the risk of aggressive actions by Tehran to distract attention. The long-term stability of the regime is in question, opening scenarios ranging from military dictatorship to civil war chaos.
+          <div id="nyt-2" class="article-body">
+            The inauguration of Zohran Mamdani, New York City's first socialist mayor, marks a radical left turn in governing the world's financial capital. His program, including rent freezes, free transit, and tax hikes on the wealthy, creates a direct conflict with Wall Street and developers. The presence of Bernie Sanders and Alexandria Ocasio-Cortez at the inauguration confirms NYC is becoming a laboratory for a national progressive agenda.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-grd-3">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="nyt-3">
             <div class="article-main">
               <div class="article-index">03</div>
-              <h3 class="article-title">Home Vaccination: Crisis of Trust and NHS Resources</h3>
+              <h3 class="article-title">Ukraine Front 2026: Survival Strategy Over Victory</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-grd-3" class="article-body">
-            The NHS initiative to send health workers to homes to vaccinate children is a gesture of desperation against the backdrop of immunization levels falling below critical thresholds. This testifies to a deep crisis of trust in the healthcare system and the influence of disinformation on public behavior. Redistributing scarce staff (nurses and midwives) to targeted visits may leave other areas of primary care exposed, creating new bottlenecks. From the perspective of bioethics and civil liberties, this is a step towards a more paternalistic model of medicine, which may cause a backlash among skeptical groups. Economically, this is an attempt to prevent outbreaks of measles and other diseases, the treatment of which would cost the budget much more. For pharmaceutical companies, this is a signal of guaranteed state demand, but failure of the program will deal a blow to the entire public health strategy. The success or failure of the pilot project will determine the future of preventive medicine in Britain.
+          <div id="nyt-3" class="article-body">
+            Entering the fourth year of war, Ukrainian troops are shifting to a deep defense strategy where physical survival, rather than regaining territory, becomes the primary goal. The Russian offensive, accelerating since summer, and a tactical shift to small groups and drones, put Kyiv in a dire position. Diplomatic uncertainty tied to Trump's policy undermines morale and operational planning. Analysts note time is working for Moscow, which is hardening its negotiating stance.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-grd-4">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="nyt-4">
             <div class="article-main">
               <div class="article-index">04</div>
-              <h3 class="article-title">Record Year for FTSE 100: Defense and Commodities Boom</h3>
+              <h3 class="article-title">Trump's Media Strategy: Dominance as a Power Tool</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-grd-4" class="article-body">
-            The FTSE 100 index growth of 21.5% in 2025 masks structural problems in the British economy, as the drivers were global commodity and defense giants, not the domestic market. The surge in Rolls-Royce and Babcock shares reflects global militarization and rising NATO defense budgets under pressure from Trump. The success of mining companies is driven by investors fleeing to gold and silver amidst geopolitical instability. This gap between a thriving stock market and a stagnating real economy intensifies social inequality. For investors, this is confirmation of the London Stock Exchange's status as a "safe haven" of the old economy (oil, weapons, metals), but also a signal of a deficit of innovative technology companies in the listing. The index's dependence on external shocks and the dollar rate makes it vulnerable to changes in the US Federal Reserve's monetary policy.
+          <div id="nyt-4" class="article-body">
+            Analysis of the first 329 days of Trump's second term reveals an unprecedented strategy of total information space capture. The President uses innovative methods, including activity on Truth Social and unconventional public appearances, to hold the electorate's attention daily. This is not just PR, but an agenda management tool allowing him to block criticism and impose narratives in real-time.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-grd-5">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="nyt-5">
             <div class="article-main">
               <div class="article-index">05</div>
-              <h3 class="article-title">Shamima Begum and ECHR: Sovereignty vs. Law</h3>
+              <h3 class="article-title">Data Centers in Orbit: Space as Solution to AI Energy Crisis</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-grd-5" class="article-body">
-            The intervention of the European Court of Human Rights (ECHR) in the case of stripping Shamima Begum of her citizenship creates an acute political dilemma for London. Strasbourg's questions about trafficking victims cast doubt on the legitimacy of the British Home Office's actions and could create a precedent for the return of other individuals linked to ISIS. This gives a powerful weapon to Eurosceptics and right-wing populists (Reform UK) demanding Britain's exit from ECHR jurisdiction. For the Labour government, this is a trap: compliance with international law threatens voter anger, while ignoring the court threatens a diplomatic crisis with Europe. The legal battle touches on fundamental questions: the limits of state responsibility for its citizens and the primacy of national security over human rights. The outcome of the case will affect the entire architecture of the UK's relationship with European legal institutions.
+          <div id="nyt-5" class="article-body">
+            Tech leaders are seriously considering moving AI training infrastructure to Earth's orbit due to energy and land shortages. Projects by companies like SpaceX envision solar farms and servers in space, where solar energy access is constant and cooling is simplified by low temperatures. This solution could remove scaling limits for AI models that face energy grid bottlenecks on Earth.
           </div>
         </article>
 
@@ -657,72 +657,72 @@
     </section>
 
     <section class="outlet">
-      <h2>THE WASHINGTON POST</h2>
-      <div class="outlet-sub">Trump Doctrine • CIA/Ukraine • Saipan • Golf • Church</div>
+      <h2>NEW YORK POST</h2>
+      <div class="outlet-sub">NYC Socialism • Musk & GOP • Taxes • Venezuela • Real Estate</div>
       <div class="articles-list">
         
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-wapo-1">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="nyp-1">
             <div class="article-main">
               <div class="article-index">01</div>
-              <h3 class="article-title">The "Donroe Doctrine": New Imperialism in Latin America</h3>
+              <h3 class="article-title">'Red Apple': Ideological War at City Hall</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-wapo-1" class="article-body">
-            The Trump administration is reformatting foreign policy in the Western Hemisphere, reviving the "Monroe Doctrine" in an aggressive interpretation. The course towards forcefully pushing out non-regional players (primarily China) and direct intervention in the internal affairs of neighbors marks a rejection of multilateral diplomacy in favor of power dictates. This creates risks of destabilizing regimes in Venezuela and other countries disliked by Washington, under the pretext of fighting drug trafficking and migration. For US business, this opens privileged access to regional resources, but also raises the risks of anti-American sentiment and sabotage. Using the migration issue as a pressure lever turns a humanitarian problem into a tool of geopolitical bargaining. The strategy is aimed at creating a closed economic bloc under US aegis, which contradicts global free trade principles. However, such an approach may push wavering Latin American countries into an even tighter embrace of Beijing as an alternative partner.
+          <div id="nyp-1" class="article-body">
+            Zohran Mamdani's inauguration is presented as the start of an open class war in New York. The new mayor's rhetoric about the "end of the 1% era" and demonization of the wealthy create a toxic environment for big capital and high-income taxpayers. Criticism focuses on the hypocrisy of "socialism in designer boots," undermining the mayor's populist image among the working class. The Mamdani administration intends to repeal Eric Adams' decrees, creating legal chaos.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-wapo-2">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="nyp-2">
             <div class="article-main">
               <div class="article-index">02</div>
-              <h3 class="article-title">Secret CIA War and Ukrainian Refinery Strikes</h3>
+              <h3 class="article-title">Elon Musk Funds GOP to Capture Congress in 2026</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-wapo-2" class="article-body">
-            Information about secret CIA assistance in guiding Ukrainian drones to the Russian shadow fleet and refineries, despite Trump's official distancing, reveals the double bottom of American policy. The "Deep State" and intelligence community continue to implement their own strategies to weaken Russia, acting autonomously from the White House's public rhetoric. This maintains a high level of escalation and makes energy markets hostages of covert operations. Strikes on oil export infrastructure directly affect world prices, creating volatility beneficial to speculators and American shale oil producers. For the Kremlin, this is a signal that a change of president in the US does not guarantee the cessation of hybrid war. The disclosure of this data could be used by Trump for purges in the intelligence services under the pretext of their lack of control. In the long term, this blurs "red lines" in the conflict, legalizing economic warfare as a norm.
+          <div id="nyp-2" class="article-body">
+            Elon Musk has openly declared his intention to fund Republican candidates in the 2026 midterms, calling a Democratic victory an existential threat to America. Musk's status as the largest political donor of 2024 ($290M) makes him a key player in shaping the party agenda. His financial power will target candidates loyal to deregulation, the crypto industry, and strict migration policy.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-wapo-3">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="nyp-3">
             <div class="article-main">
               <div class="article-index">03</div>
-              <h3 class="article-title">Saipan Casino: Beachhead for Chinese Crime</h3>
+              <h3 class="article-title">Tax Populism: Hochul Kills Tax on Tips</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-wapo-3" class="article-body">
-            The story of the unfinished Imperial Palace casino on Saipan illustrates the vulnerability of US territories to the penetration of dubious Chinese capital. The project, which promised economic prosperity, turned into debts, corruption, and risks of money laundering through the gambling business. An attempt to resell the asset to a Japanese investor with alleged ties to the previous owners indicates the persistence of shadow control schemes. For Washington, this is a national security issue, as the economic dependence of a strategically important island on Chinese money undermines US sovereignty in the Pacific. The situation requires strict federal intervention and financial monitoring, which may lead to license revocation and project bankruptcy. This is a lesson for other jurisdictions about the toxicity of investments that do not undergo proper compliance. The project's failure also deals a blow to the region's tourism potential, leaving behind only infrastructure ruins.
+          <div id="nyp-3" class="article-body">
+            New York Governor Kathy Hochul has proposed eliminating the state income tax on tips, following a trend set by Trump. This move is a blatant attempt to retain the service industry electorate amidst falling ratings and pressure from Republicans. Economically, this measure will create a budget hole that must be filled by other taxes or spending cuts.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-wapo-4">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="nyp-4">
             <div class="article-main">
               <div class="article-index">04</div>
-              <h3 class="article-title">Trump Tears Up D.C. Golf Lease: Conflict of Interest</h3>
+              <h3 class="article-title">Maduro Frees Americans Under Sanctions Pressure</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-wapo-4" class="article-body">
-            The administration's decision to terminate the lease agreement with the operator of public golf courses in Washington opens the way for their transfer under the management of structures close to Trump. This is a classic example of using administrative resources for personal enrichment and branding at the expense of public assets. Plans to turn accessible city courses into elite Ryder Cup-level clubs raise questions about gentrification and local residents' access to recreation. Politically, this is a demonstration of power and disregard for ethical norms, characteristic of Trump's second term. For competitors in the golf industry, this is a signal of the impossibility of fair competition with the president's business. The situation creates legal risks for the administration, but in a loyal judicial system, they may be neutralized. Converting public land into a "family" asset cements the trend of merging state and personal interests of the top leadership.
+          <div id="nyp-4" class="article-body">
+            The release of 88 prisoners by the Maduro regime in Venezuela, including American citizens, testifies to the effectiveness of targeted U.S. economic pressure. Caracas is making concessions in an attempt to achieve oil sanctions relief and restore access to global financial markets. For the oil market, this signals a potential increase in Venezuelan oil supply in the medium term.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-wapo-5">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="nyp-5">
             <div class="article-main">
               <div class="article-index">05</div>
-              <h3 class="article-title">Religious Schism and Financial Malfeasance</h3>
+              <h3 class="article-title">Luxury Real Estate vs. Socialist Agenda</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-wapo-5" class="article-body">
-            The scandal in the Anglican Church in North America (ACNA), where the interim leader himself came under suspicion of financial irregularities, reflects a deep institutional crisis in religious organizations. A power struggle, covered by accusations of sexual harassment and embezzlement, undermines the church's moral authority and alienates the flock. For conservative religious groups positioning themselves as an alternative to the liberal mainstream, such leadership corrosion is destructive. Financial opacity of charitable funds and "gray" donation management schemes attract the attention of tax authorities (IRS). This may lead to tighter regulation of the non-profit sector and the revocation of tax benefits. Internal strife weakens the political influence of religious lobbies, making them less effective in promoting a conservative agenda. The crisis of trust may provoke an outflow of donors and fragmentation of the denomination.
+          <div id="nyp-5" class="article-body">
+            New York's luxury real estate market shows complete disregard for the new mayor's political rhetoric. Ads for a $29M West Village mansion against the backdrop of a socialist inauguration highlight the deep divide between the economic reality of the wealthy and political slogans. This market segment isn't reacting with price drops yet, banking on inertia and property rights. However, Mamdani's aggressive plans for taxes on second homes create deferred liquidity risks.
           </div>
         </article>
 
@@ -731,71 +731,363 @@
 
     <section class="outlet">
       <h2>THE DAILY TELEGRAPH</h2>
-      <div class="outlet-sub">EVs • Ineos • Israel/Aid • Citizenship • Real Estate</div>
+      <div class="outlet-sub">Switzerland • UK Poverty • NHS/Private Med • Russian Intel • Courts</div>
       <div class="articles-list">
         
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-tel-1">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tel-1">
             <div class="article-main">
               <div class="article-index">01</div>
-              <h3 class="article-title">EV Market Braking: Net Zero Failure</h3>
+              <h3 class="article-title">Swiss Fire: Negligence and Threat to Tourism</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-tel-1" class="article-body">
-            The first recorded drop in the installation rate of electric vehicle charging stations threatens the UK's entire energy transition strategy. The reasons—high grid connection costs and bureaucratic delays—point to systemic failures in infrastructure planning. This makes the government's goal of reaching 300,000 chargers by 2030 unrealistic, undermining the confidence of automakers who have invested billions in electrification. For consumers, this is a signal to remain loyal to ICE or hybrids, slowing fleet renewal. Energy companies, having hiked connection prices, are effectively sabotaging state policy for short-term profit. Labour finds itself under fire: their ideological commitment to the "green" agenda is crashing against the harsh reality of market costs. This may force the government to review the deadlines for banning gasoline car sales, following the EU's example.
+          <div id="tel-1" class="article-body">
+            Police have classified the Crans-Montana tragedy as an accident caused by gross violation of fire safety rules (use of fireworks in a room with a flammable ceiling). The bar owners—French nationals—ignored an official ban on pyrotechnics. This event will damage the reputation of Swiss resorts, traditionally considered safe.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-tel-2">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tel-2">
             <div class="article-main">
               <div class="article-index">02</div>
-              <h3 class="article-title">Jim Ratcliffe vs. Carbon Tax</h3>
+              <h3 class="article-title">Britons Poorer Under Labour: Starmer's Promise Fails</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-tel-2" class="article-body">
-            Ineos owner Jim Ratcliffe's statements that carbon taxes and energy prices are killing British industry are an ultimatum to the government from the real sector. Losses of £1 billion at the Grangemouth plant are being used as an argument in lobbying for state subsidies and relaxing environmental standards. This is classic deindustrialization blackmail: either the state pays, or it loses strategic manufacturing and jobs. The situation illustrates the dead end Britain finds itself in: high energy costs make domestic products uncompetitive on the global market. The government's allocation of £120 million in emergency aid is merely a temporary patch that does not solve the systemic problem. For investors, this is confirmation that British heavy industry is a "zombie sector" surviving only through state support. The conflict between climate goals and industrial sovereignty is escalating to the limit.
+          <div id="tel-2" class="article-body">
+            Fresh data shows a 2.1% drop in discretionary income for Britain's poorest households over 18 months of Labour rule, while the wealthy saw incomes rise 10.3%. This deals a blow to Keir Starmer's key political promise to raise living standards. Causes cited include high inflation, frozen tax thresholds, and rising bills, which disproportionately hit low-income earners.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-tel-3">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tel-3">
             <div class="article-main">
               <div class="article-index">03</div>
-              <h3 class="article-title">Israel Bans Humanitarian Missions: Diplomatic Deadlock</h3>
+              <h3 class="article-title">NHS Crisis Sparks Private Medicine Boom</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-tel-3" class="article-body">
-            Israel's decision to ban the work of 37 humanitarian organizations, including Oxfam and MSF, in Gaza under the pretext of their links to terrorism, shifts the conflict into a diplomatic war with the West. The demand to provide personal data of Palestinian employees puts NGOs before an ethical choice between staff safety and the ability to provide aid. This creates an information blockade of the region, as international organizations are the main sources of verified data on the humanitarian situation. Sharp criticism from the UK Foreign Office shows that the patience of Israel's allies is running out, yet London has few real leverage points. For Israel, this is a way to establish full control over resource distribution in the enclave, excluding uncontrolled witnesses. In the long term, this strengthens Israel's isolation on the international stage and radicalizes the Gaza population deprived of basic aid.
+          <div id="tel-3" class="article-body">
+            The number of paid prostate cancer surgeries in Britain has doubled (+102%) amidst the NHS crisis. Patients are forced to spend savings to avoid long waits for treatment, de facto creating a two-tier healthcare system. This testifies to the deep dysfunction of the state healthcare funding model.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-tel-4">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tel-4">
             <div class="article-main">
               <div class="article-index">04</div>
-              <h3 class="article-title">Shamima Begum: Battle for Citizenship Boundaries</h3>
+              <h3 class="article-title">Russian Intel Duped: $500,000 Sent to Kyiv</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-tel-4" class="article-body">
-            Home Secretary Shabana Mahmood's determination to conflict with European judges over the Begum case is a political maneuver designed to protect Labour from accusations of softness. The government understands that the return of the "ISIS bride" would be a gift to the right-wing opposition and is ready to sacrifice its reputation as human rights defenders for ratings. Citing national security as an absolute priority creates a legal collision with Britain's international obligations. This case is becoming a litmus test for the future of London's relationship with the ECHR: if Strasbourg insists on its position, calls to exit the Convention will become mainstream British policy. The institutional risk lies in blurring the concept of citizenship, which de facto becomes a privilege revocable by the executive branch. For society, this is a signal that in terrorism issues, the presumption of innocence and human rights take a back seat.
+          <div id="tel-4" class="article-body">
+            Russian intelligence paid a half-million-dollar reward for the "assassination" of Denis Kapustin, commander of the RDK fighting for Ukraine. However, the murder was staged, and the money went to Ukraine's budget, becoming a humiliating failure for Moscow. This incident demonstrates the vulnerability of Russian intelligence networks and the effectiveness of Ukrainian counter-intelligence operations.
           </div>
         </article>
 
         <article class="article-card">
-          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="art-tel-5">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tel-5">
             <div class="article-main">
               <div class="article-index">05</div>
-              <h3 class="article-title">Real Estate Market Eclipsed by Taxes</h3>
+              <h3 class="article-title">Terrorist Payouts: Awale Precedent and Human Rights Crisis</h3>
             </div>
             <div class="article-toggle" aria-hidden="true">▶</div>
           </div>
-          <div id="art-tel-5" class="article-body">
-            The British real estate market enters 2026 in a state of stagnation provoked by Labour's tax initiatives. Expectations of a stamp duty hike and the abolition of benefits for landlords are causing an asset dump in the buy-to-let sector, temporarily saturating the market but leading to a rental housing deficit in the future. Buyers are taking a wait-and-see approach, counting on lower mortgage rates, but the "tax shock" negates this effect. The market is fragmenting: London is becoming cheaper, while affordable regions in the North and Midlands are showing growth, indicating a migration of demand in search of yield. The political risk is that housing becomes less affordable not due to prices, but due to the cost of ownership and transactions. For investors, real estate stops being a guaranteed capital preservation tool, giving way to more liquid assets. The construction sector reacts by freezing new projects, which will exacerbate the housing crisis in 2-3 years.
+          <div id="tel-5" class="article-body">
+            Islamist terrorist Fuad Awale won £240,000 from the UK government for a "human rights violation" (excessively long prison isolation). This decision creates a dangerous legal precedent, opening the floodgates for claims from other extremist prisoners. The case sharpens the debate over Britain's withdrawal from the ECHR jurisdiction.
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE GUARDIAN</h2>
+      <div class="outlet-sub">Oil • Switzerland • Populism • Mamdani • Gambling</div>
+      <div class="articles-list">
+        
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="grd-1">
+            <div class="article-main">
+              <div class="article-index">01</div>
+              <h3 class="article-title">Oil Prices Slump Amid Global Glut and Trade Wars</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="grd-1" class="article-body">
+            Oil markets recorded a 20% drop by the end of 2025, the worst performance since the pandemic. The main driver is a supply-demand imbalance: non-OPEC production (primarily U.S.) continues to grow, while Chinese demand weakens due to the trade war with the Trump administration. For exporting countries, this creates serious budget risks.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="grd-2">
+            <div class="article-main">
+              <div class="article-index">02</div>
+              <h3 class="article-title">Swiss Tragedy Exposes Tourism Safety Gaps</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="grd-2" class="article-body">
+            The fire at the Crans-Montana resort with dozens of victims puts Switzerland's reputation as a benchmark for safety and reliability at risk. The incident is likely to lead to a strict overhaul of regulatory norms for entertainment venues across Europe, increasing operating costs for hospitality businesses. Insurers will inevitably revise risk models for ski resorts.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="grd-3">
+            <div class="article-main">
+              <div class="article-index">03</div>
+              <h3 class="article-title">Populism as Existential Threat to UK Democracy</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="grd-3" class="article-body">
+            Labour Party strategists are sounding the alarm, warning Keir Starmer about underestimating the threat from populist movements, specifically Reform UK. The lack of a clear counter-plan allows radical forces to entrench themselves in the minds of disillusioned voters as a legitimate alternative. This creates a risk of political turbulence and erosion of traditional power institutions over the next three years.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="grd-4">
+            <div class="article-main">
+              <div class="article-index">04</div>
+              <h3 class="article-title">Zohran Mamdani and NYC's 'New Era': Challenge to Capital</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="grd-4" class="article-body">
+            The inauguration of NYC's first socialist mayor marks a radical shift in governing the global financial capital. Mamdani's rhetoric about "reinventing" the city and a clear focus on working-class interests create tension with Wall Street and developers. His victory over the Democratic establishment signals a deep demand for leftist reforms among the city's electorate.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="grd-5">
+            <div class="article-main">
+              <div class="article-index">05</div>
+              <h3 class="article-title">Gambling Ad Ban: Industry Under Fire</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="grd-5" class="article-body">
+            Growing public pressure and polling data are pushing the government to introduce strict restrictions on gambling advertising. The £12.5bn industry faces the risk of losing key marketing channels, including sports and social media, which will inevitably hit operator revenues. For media holdings and sports clubs, this means the loss of major sponsors.
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE TIMES</h2>
+      <div class="outlet-sub">Infrastructure • N. Ireland • Whitehall • Taxes • Medicine</div>
+      <div class="articles-list">
+        
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tms-1">
+            <div class="article-main">
+              <div class="article-index">01</div>
+              <h3 class="article-title">'Oxford Triangle' at Risk: Business Demands Infrastructure</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="tms-1" class="article-body">
+            Major pharmaceutical and tech companies, including AstraZeneca and GSK, are pressuring Chancellor Rachel Reeves over delays in building the East West Rail line. Stalling infrastructure projects in the Oxford-Cambridge corridor threatens the creation of a European Silicon Valley equivalent with £78bn potential. For investors, this is a signal of bureaucratic inefficiency.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tms-2">
+            <div class="article-main">
+              <div class="article-index">02</div>
+              <h3 class="article-title">Troubles Bill: Veterans vs. Government</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="tms-2" class="article-body">
+            New legislation on investigating Northern Ireland Troubles events has sparked an acute conflict between the government and the military community. Accusations that veterans are being treated worse than former terrorists undermine armed forces morale and provoke personnel exodus from special forces. For the Starmer cabinet, this creates a serious reputational crisis.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tms-3">
+            <div class="article-main">
+              <div class="article-index">03</div>
+              <h3 class="article-title">Attack on 'Stakeholder State': Revolt Inside the System</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="tms-3" class="article-body">
+            Public criticism from a former Downing Street strategist reveals deep systemic paralysis within the British bureaucracy. Whitehall is accused of replacing real governance with servicing narrow pressure groups ("stakeholders") and focusing on marginal topics at the expense of voter demands. This testifies to a loss of control over the state apparatus, which is sabotaging the elected government's will.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tms-4">
+            <div class="article-main">
+              <div class="article-index">04</div>
+              <h3 class="article-title">Middle Class Under Tax Squeeze: Frozen Thresholds</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="tms-4" class="article-body">
+            The policy of "fiscal drag" through freezing income tax thresholds will lead to a significant drop in real incomes for the middle class by the end of the decade. This hidden tax hike will hit the purchasing power of millions of qualified professionals, including teachers and doctors. For the economy, this means a contraction of domestic demand and a risk of slower growth.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tms-5">
+            <div class="article-main">
+              <div class="article-index">05</div>
+              <h3 class="article-title">Private Medicine and NHS Crisis: Prostate Surgery</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="tms-5" class="article-body">
+            The sharp rise in paid prostate surgeries testifies to the actual collapse of NHS availability in critical areas. Patients are forced to pay out-of-pocket, de facto creating a two-tier healthcare system that undermines the social contract. For the private medical services and insurance market, this opens opportunities for aggressive growth.
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE WALL STREET JOURNAL</h2>
+      <div class="outlet-sub">Warren Buffett • Condos • Arctic • Trump Tariffs • Saks Bankruptcy</div>
+      <div class="articles-list">
+        
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="wsj-1">
+            <div class="article-main">
+              <div class="article-index">01</div>
+              <h3 class="article-title">Warren Buffett Departs: End of an Era and Signal to Markets</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="wsj-1" class="article-body">
+            The handover of Berkshire Hathaway to Greg Abel and Warren Buffett's departure as CEO marks the end of an era in global finance. Buffett leaves the company with a record cash pile, an unequivocal signal of his skepticism regarding current market valuations. The strategy of hoarding liquidity and selling stocks (including Apple) suggests preparation for a possible correction or recession.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="wsj-2">
+            <div class="article-main">
+              <div class="article-index">02</div>
+              <h3 class="article-title">Condo Market in Freefall</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="wsj-2" class="article-body">
+            The U.S. condo sector is experiencing its worst slump in a decade, reflecting structural shifts in buyer preferences and housing economics. Rising insurance costs, increased HOA fees, and remote work effects make city apartments less attractive compared to single-family homes. Markets in Florida (due to climate risks) and major city centers are suffering particularly hard.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="wsj-3">
+            <div class="article-main">
+              <div class="article-index">03</div>
+              <h3 class="article-title">China in the Arctic: New Cold War Front</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="wsj-3" class="article-body">
+            The activity of Chinese submarines and research vessels in the Arctic opens a new theater of geopolitical confrontation. Beijing seeks control over new trade routes and resources, as well as reduced nuclear missile flight times to the U.S. For Washington and NATO, this means an urgent need to ramp up military presence in the North.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="wsj-4">
+            <div class="article-main">
+              <div class="article-index">04</div>
+              <h3 class="article-title">Trump Delays Tariffs: Tactical Pause</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="wsj-4" class="article-body">
+            Donald Trump's decision to delay tariff hikes on furniture and kitchen cabinets demonstrates the administration's sensitivity to inflation risks and consumer dissatisfaction. Despite protectionist rhetoric, the White House is forced to maneuver to avoid driving up mass-market goods prices. This creates a precedent for other industries to intensify lobbying for tariff exemptions.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="wsj-5">
+            <div class="article-main">
+              <div class="article-index">05</div>
+              <h3 class="article-title">Saks Global Bankruptcy: Sunset of Department Store Era</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="wsj-5" class="article-body">
+            The impending bankruptcy of the owner of Saks Fifth Avenue and Neiman Marcus underscores the deep crisis of the traditional luxury department store model. High debt loads taken on for mergers proved unsustainable against shifting consumer behavior and e-commerce growth. For luxury brand suppliers, this is a serious blow, threatening non-payments and loss of sales channels.
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="outlet">
+      <h2>THE WASHINGTON POST</h2>
+      <div class="outlet-sub">SocSec Crisis • Data Centers • Fake News • Food Theft • Conflicts</div>
+      <div class="articles-list">
+        
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="wap-1">
+            <div class="article-main">
+              <div class="article-index">01</div>
+              <h3 class="article-title">Social Security Crisis: Institutional Collapse</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="wap-1" class="article-body">
+            The U.S. Social Security Administration (SSA) is in a state of managerial chaos due to aggressive cuts and reforms by the new administration. A "hostile takeover" by DOGE (Department of Government Efficiency) has led to a mass staff exodus, growing queues, and payment delays. This is not just an administrative problem, but a political strategy to discredit and dismantle the safety net.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="wap-2">
+            <div class="article-main">
+              <div class="article-index">02</div>
+              <h3 class="article-title">Battle for Data Centers: Ecology vs. Taxes</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="wap-2" class="article-body">
+            Conflict over the construction of a hyperscale data center in Prince George's County (Maryland) illustrates the growing tension between technological development and local community interests. Authorities see data centers as a budget lifeline amidst deficits, while residents fear environmental damage and grid strain. This is a classic example of AI infrastructure facing "on the ground" (NIMBY) resistance.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="wap-3">
+            <div class="article-main">
+              <div class="article-index">03</div>
+              <h3 class="article-title">Viral Fake and Daycare Funding Freeze</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="wap-3" class="article-body">
+            The administration's decision to freeze daycare funding based on a viral blogger video demonstrates how social media disinformation is becoming the basis for state policy. Immigrant-run institutions were hit, fitting the White House's anti-migrant agenda. This creates a dangerous precedent where unverified content is used to bypass standard procedures.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="wap-4">
+            <div class="article-main">
+              <div class="article-index">04</div>
+              <h3 class="article-title">Delicacy Thefts: Inflation Breeds Crime</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="wap-4" class="article-body">
+            A series of expensive seafood thefts in New England points to a surge in organized supply chain crime (cargo theft). Food products are becoming a priority target for thieves due to high liquidity and tracking difficulty, directly correlating with rising prices and inflation. Economically, this is a "crime tax" ultimately passed on to the consumer.
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-header" role="button" tabindex="0" aria-expanded="false" aria-controls="wap-5">
+            <div class="article-main">
+              <div class="article-index">05</div>
+              <h3 class="article-title">Global Conflicts: New Norm of Violence</h3>
+            </div>
+            <div class="article-toggle" aria-hidden="true">▶</div>
+          </div>
+          <div id="wap-5" class="article-body">
+            Conflict mortality statistics for 2025 (240,000 dead) testify to the collapse of international deterrence mechanisms. Wars in Gaza, Ukraine, and Sudan are becoming protracted and less restrained in means, with civilian populations increasingly becoming direct targets. The U.S. withdrawal from the "global policeman" role creates a security vacuum filled by regional powers.
           </div>
         </article>
 
@@ -814,7 +1106,7 @@
 
     <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
       <strong style="color: var(--accent);">Archive:</strong>
-      <a href="/en/311225.html" style="color: #e5e7eb; text-decoration: underline; margin-left: 5px;">December 31, 2025</a>
+      <a href="/en/010126.html" style="color: #e5e7eb; text-decoration: underline; margin-left: 5px;">January 1, 2026</a>
     </div>
   </footer>
 
