@@ -2,7 +2,7 @@
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
-  <title>Deep Press Analysis — January 4, 2026</title>
+  <title>Deep Press Analysis — Global News Forensics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Daily global press synthesis: Maduro captured, 'Donroe Doctrine', Brexit review, FTSE 10,000, and Iran protests." />
   <meta name="author" content="Deep Press Analysis" />
@@ -10,21 +10,21 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
 
-  <link rel="canonical" href="https://deeppressanalysis.com/en/040126.html" />
+<link rel="canonical" href="https://deeppressanalysis.com/en/040126.html" />
 
-  <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/040126.html" />
-  <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/en/040126.html" />
-  <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/040126.html" /> 
-  <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/040126.html" />
-  <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/040126.html" />
-  <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/040126.html" />
-  <link rel="alternate" hreflang="hi" href="https://deeppressanalysis.com/hi/040126.html" />
-  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/040126.html" />
+  <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/" />
+  <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/" />
+  <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/" />
+  <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/" />
+  <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/" />
+  <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/" />
+  <link rel="alternate" hreflang="hi" href="https://deeppressanalysis.com/hi/" />
 
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Deep Press Analysis — January 4, 2026" />
   <meta property="og:description" content="Deep analytics: Venezuela intervention, Donroe Doctrine, Iran crisis, and UK economic shifts." />
-  <meta property="og:url" content="https://deeppressanalysis.com/en/040126.html" />
+  <meta property="og:url" content="https://deeppressanalysis.com/" />
   <meta property="og:image" content="https://deeppressanalysis.com/assets/og-cover-2026.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
@@ -574,13 +574,13 @@
 <div class="page">
 
   <div class="lang-bar">
-    <a href="/ua/040126.html" class="lang-pill" aria-label="Ukrainian">UA</a>
-    <a href="#" class="lang-pill active" aria-current="page" aria-label="English">EN</a>
-    <a href="/es/040126.html" class="lang-pill" aria-label="Spanish">ES</a>
-    <a href="/ar/040126.html" class="lang-pill" aria-label="Arabic">AR</a>
-    <a href="/ru/040126.html" class="lang-pill" aria-label="Russian">RU</a>
-    <a href="/de/040126.html" class="lang-pill" aria-label="German">DE</a>
-    <a href="/hi/040126.html" class="lang-pill" aria-label="Hindi">HI</a>
+    <a href="/ua/" class="lang-pill" aria-label="Ukrainian">UA</a>
+    <a href="/" class="lang-pill active" aria-current="page" aria-label="English">EN</a>
+    <a href="/es/" class="lang-pill" aria-label="Spanish">ES</a>
+    <a href="/ar/" class="lang-pill" aria-label="Arabic">AR</a>
+    <a href="/ru/" class="lang-pill" aria-label="Russian">RU</a>
+    <a href="/de/" class="lang-pill" aria-label="German">DE</a>
+    <a href="/hi/" class="lang-pill" aria-label="Hindi">HI</a>
   </div>
 
   <div class="top-bar">
@@ -1005,5 +1005,39 @@
     });
   });
 </script>
+
+<script>
+(function() {
+  // 1. Если пользователь уже выбирал язык или был перенаправлен, не трогаем его
+  // Используем sessionStorage (сбрасывается при закрытии вкладки)
+  if (sessionStorage.getItem('dpa_lang_redirected')) {
+    return; 
+  }
+
+  // 2. Получаем язык браузера
+  var userLang = navigator.language || navigator.userLanguage || "en";
+  var langShort = String(userLang).substring(0, 2).toLowerCase();
+
+  // 3. Карта редиректов (только если язык НЕ английский)
+  // Указываем ссылки на КОРНЕВЫЕ папки языков
+  var sites = {
+    'ru': '/ru/',
+    'uk': '/ua/', // Украинский код может быть 'uk'
+    'ua': '/ua/',
+    'de': '/de/',
+    'ar': '/ar/',
+    'es': '/es/',
+    'hi': '/hi/'
+  };
+
+  // 4. Если язык в списке есть и он не английский - перенаправляем
+  if (sites[langShort] && langShort !== 'en') {
+    // Ставим метку, чтобы скрипт не сработал повторно, если пользователь вернется на EN
+    sessionStorage.setItem('dpa_lang_redirected', 'true');
+    window.location.replace(sites[langShort]);
+  }
+})();
+</script>
+
 </body>
 </html>
