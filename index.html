@@ -8,7 +8,6 @@
   <meta name="author" content="Deep Press Analysis" />
   <meta name="robots" content="index, follow" />
 
-  <!-- CSP: В идеале выносится в HTTP-заголовки сервера -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://deeppressanalysis.com; connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io; form-action 'self' https://formspree.io; object-src 'none'; base-uri 'self'; frame-src 'none'; media-src 'none'; upgrade-insecure-requests;">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,27 +32,73 @@
   <meta name="twitter:title" content="Deep Press Analysis — February 22, 2026" />
   <meta name="twitter:description" content="Daily global press synthesis: Trump's luxury park plans, Iran strike risks, RBI holds rates, the Robin Hood state, and China's dancing robots." />
 
+  <!-- Schema.org E-E-A-T markup -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "NewsMediaOrganization",
-    "@id": "https://deeppressanalysis.com/#newsmediaorganization",
-    "name": "Deep Press Analysis",
-    "url": "https://deeppressanalysis.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://deeppressanalysis.com/logo.png",
-      "width": 512,
-      "height": 512
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "@id": "https://deeppressanalysis.com/#newsmediaorganization",
+      "name": "Deep Press Analysis",
+      "url": "https://deeppressanalysis.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://deeppressanalysis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://t.me/DeepPressAnalysis",
+        "https://www.threads.com/@deeppressanalysis",
+        "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
+        "https://www.pinterest.com/DeepPressAnalysis"
+      ],
+      "foundingDate": "2025-12-01",
+      "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
+      "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "masthead": "https://deeppressanalysis.com/manifesto.html",
+      "verificationFactCheckingPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Editorial",
+        "email": "info@deeppressanalysis.com",
+        "availableLanguage": ["English", "Russian", "Ukrainian", "German", "Arabic", "Spanish"]
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Worldwide"
+      },
+      "knowsAbout": [
+        "geopolitics",
+        "global economy",
+        "financial markets",
+        "institutional risk",
+        "Trump administration",
+        "Iran conflict",
+        "Federal Reserve",
+        "artificial intelligence",
+        "supply chains"
+      ]
     },
-    "sameAs": [
-      "https://t.me/DeepPressAnalysis",
-      "https://www.threads.com/@deeppressanalysis",
-      "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
-      "https://www.pinterest.com/DeepPressAnalysis"
-    ],
-    "foundingDate": "2025-12-01"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://deeppressanalysis.com/#webpage",
+      "url": "https://deeppressanalysis.com/",
+      "name": "Deep Press Analysis — February 22, 2026",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "datePublished": "2026-02-22T06:00:00+00:00",
+      "dateModified": "2026-02-22T06:00:00+00:00",
+      "description": "Daily global press synthesis: Trump's luxury park plans, Iran strike risks, RBI holds rates, the Robin Hood state, and China's dancing robots.",
+      "inLanguage": "en",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://deeppressanalysis.com/" }
+        ]
+      }
+    }
+  ]
   </script>
 
   <style>
@@ -93,7 +138,6 @@
       border-radius: 3px;
     }
 
-    /* Тикер */
     .ticker-container {
       background: var(--brand-navy);
       color: #fff;
@@ -129,7 +173,6 @@
       padding: 0 20px;
     }
 
-    /* Навигация и соцсети */
     .top-toolbar {
       display: flex;
       justify-content: space-between;
@@ -171,7 +214,6 @@
     .lang-link:hover { color: var(--brand-blue); }
     .lang-link.active { color: var(--brand-navy); font-weight: 800; border-bottom: 2px solid var(--brand-blue); padding-bottom: 2px; }
 
-    /* Шапка сайта */
     header {
       text-align: center;
       margin-bottom: 50px;
@@ -212,7 +254,6 @@
     .briefing-summary p { font-size: 15px; color: var(--text-secondary); margin: 0; }
     .briefing-summary strong { color: var(--brand-navy); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
 
-    /* Статьи и Аккордеон */
     .outlet-section {
       background: var(--bg-paper);
       border: 1px solid var(--border-color);
@@ -274,7 +315,6 @@
     .article-item.active .art-title { color: var(--brand-blue); }
     .article-item.active .toggle-icon { transform: rotate(180deg); }
 
-    /* Плавное появление контента статьи (visibility исправляет баги с кликами) */
     .article-body {
       max-height: 0;
       overflow: hidden;
@@ -295,7 +335,6 @@
       color: var(--text-secondary); max-width: 85ch; line-height: 1.7;
     }
 
-    /* Подписка (Newsletter) */
     .nebula-wrapper {
       background-color: var(--bg-body);
       width: 100%;
@@ -335,7 +374,8 @@
       cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
       transition: all 0.2s;
     }
-    .subscribe-button:hover { background: var(--brand-blue); border-color: var(--brand-blue); }
+    .subscribe-button:disabled { opacity: 0.7; cursor: not-allowed; }
+    .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
 
     .form-error-msg {
       display: none;
@@ -358,7 +398,6 @@
     .checkmark-circle { stroke: var(--up-color); stroke-width: 2; fill: none; }
     .checkmark-check { stroke: var(--up-color); stroke-width: 2; }
 
-    /* Подвал */
     footer {
       text-align: center;
       margin-top: 60px;
@@ -420,7 +459,7 @@
     }
   </style>
 
-  <script src="/analytics.js" defer></script>
+  <script src="/analytics.js" defer onerror="console.warn('analytics.js failed to load')"></script>
 </head>
 <body>
 
@@ -431,7 +470,6 @@
     </style>
   </noscript>
 
-  <!-- Семантичный тикер с aria-live="off" для скринридеров -->
   <aside aria-label="Live market data ticker" aria-live="off">
     <div class="ticker-container">
       <div class="ticker-content" id="tickerContent">
@@ -452,9 +490,8 @@
         <a href="/de/" class="lang-link" hreflang="de" aria-label="German version">DE</a>
       </nav>
 
-      <!-- Нативный <nav> для соцсетей -->
       <nav class="social-row" aria-label="Social media links">
-        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Send email to Deep Press Analysis">
+        <a href="/cdn-cgi/l/email-protection#71181f171e31151414010103140202101f101d080218025f121e1c" class="social-btn" title="Email" aria-label="Send email to Deep Press Analysis">
           <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
         </a>
         <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Visit our Telegram channel">
@@ -471,7 +508,6 @@
 
     <header>
       <div class="meta-issue">
-        <!-- Семантичный тег времени -->
         VOL. 26 • ISSUE 53 • <time datetime="2026-02-22">FEB 22, 2026</time>
       </div>
       <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
@@ -483,7 +519,6 @@
     </header>
 
     <main>
-
       <!-- The New York Times -->
       <section class="outlet-section">
         <div class="outlet-header">
@@ -780,9 +815,8 @@
 
   </div>
 
-  <!-- Newsletter Section (H2 -> H3 hierarchy respected inside main/page body logic) -->
   <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
-    <h2 class="nebula-title" id="newsletter-heading">Secure Briefing Access</h2>
+    <h3 class="nebula-title" id="newsletter-heading">Secure Briefing Access</h3>
 
     <div class="form-container">
       <div class="newsletter-form-wrapper">
@@ -797,7 +831,6 @@
             </div>
             <button class="subscribe-button" type="submit">Subscribe</button>
           </div>
-          <!-- Сообщение об ошибке (JavaScript validation) -->
           <div class="form-error-msg" id="formErrorMsg" role="alert" aria-live="polite"></div>
         </form>
 
@@ -823,10 +856,13 @@
     </nav>
   </footer>
 
+  <!-- Cloudflare email decoding script for the obfuscated mailto link -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  
   <script>
-    // ─── 1. Языковой редирект ──────────────────────────────────────────────────
+    // ─── 1. Языковой редирект (localStorage) ───────────────────────────────────
     (function () {
-      if (sessionStorage.getItem('dpa_lang_redirected')) return;
+      if (localStorage.getItem('dpa_lang_redirected')) return;
       var userLang = (navigator.language || navigator.userLanguage || 'en');
       var langShort = String(userLang).substring(0, 2).toLowerCase();
       var sites = {
@@ -834,12 +870,12 @@
         'de': '/de/', 'ar': '/ar/', 'es': '/es/'
       };
       if (sites[langShort] && langShort !== 'en') {
-        sessionStorage.setItem('dpa_lang_redirected', 'true');
+        localStorage.setItem('dpa_lang_redirected', 'true');
         window.location.replace(sites[langShort]);
       }
     })();
 
-    // ─── 2. Аккордеон (Плавное открытие) ───────────────────────────────────────
+    // ─── 2. Аккордеон (Плавное открытие с правильным ARIA) ─────────────────────
     function toggleArt(button) {
       var parent = button.closest('.article-item');
       var body = parent.querySelector('.article-body');
@@ -870,14 +906,32 @@
       }
     });
 
-    // ─── 3. Тикер (С плавной перезаписью DOM без сброса анимации) ──────────────
-    var _lastTickerHtml = '';
+    // ─── 3. Тикер (Отслеживание устаревших данных + Защита от XSS) ─────────────
+    var _lastTickerHtml    = '';
+    var _tickerStaleTimer  = null;
+    var tickerEl           = document.getElementById('tickerContent');
+
+    function setTickerStale() {
+      var staleTag = tickerEl.querySelector('.ticker-stale');
+      if (!staleTag) {
+        var tag = document.createElement('span');
+        tag.className = 'pair ticker-stale';
+        tag.style.cssText = 'color:#f87171; font-style:italic;';
+        tag.textContent = '⚠ data may be stale';
+        tickerEl.appendChild(tag);
+      }
+    }
+
+    function clearTickerStale() {
+      var staleTag = tickerEl.querySelector('.ticker-stale');
+      if (staleTag) staleTag.remove();
+    }
 
     async function updateTicker() {
       try {
         var html = '';
 
-        var cryptoRes = await fetch(
+        var cryptoRes  = await fetch(
           'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true'
         );
         var cryptoData = await cryptoRes.json();
@@ -890,12 +944,13 @@
 
         cryptos.forEach(function (c) {
           if (cryptoData[c.id]) {
-            var price  = cryptoData[c.id].usd.toFixed(0);
-            var change = cryptoData[c.id].usd_24h_change;
-            var cls    = change >= 0 ? 'crypto-up' : 'crypto-down';
-            var sign   = change >= 0 ? '+' : '';
+            var price  = Number(cryptoData[c.id].usd);
+            var change = Number(cryptoData[c.id].usd_24h_change);
+            if (isNaN(price) || isNaN(change)) return; 
+            var cls  = change >= 0 ? 'crypto-up' : 'crypto-down';
+            var sign = change >= 0 ? '+' : '';
             html += '<span class="pair">' + c.name +
-                    ' <strong>$' + price + '</strong>' +
+                    ' <strong>$' + price.toFixed(0) + '</strong>' +
                     ' <span class="' + cls + '">' + sign + change.toFixed(1) + '%</span></span>';
           }
         });
@@ -906,10 +961,12 @@
           var rates     = forexData.usd;
 
           if (rates.eur) {
-            html += '<span class="pair">EUR/USD <strong>' + rates.eur.toFixed(4) + '</strong></span>';
+            var eur = Number(rates.eur);
+            if (!isNaN(eur)) html += '<span class="pair">EUR/USD <strong>' + eur.toFixed(4) + '</strong></span>';
           }
           if (rates.gbp) {
-            html += '<span class="pair">GBP/USD <strong>' + rates.gbp.toFixed(4) + '</strong></span>';
+            var gbp = Number(rates.gbp);
+            if (!isNaN(gbp)) html += '<span class="pair">GBP/USD <strong>' + gbp.toFixed(4) + '</strong></span>';
           }
         } catch (forexError) {
           html += '<span class="pair">EUR/USD <strong>1.0850</strong></span>';
@@ -919,20 +976,20 @@
         html += '<span class="pair">BRENT <strong>$78.40</strong> <span class="crypto-up">+1.2%</span></span>';
         html += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 
-        // Обновляем DOM только если данные изменились — анимация не сбрасывается
         if (html !== _lastTickerHtml) {
           _lastTickerHtml = html;
-          // Дублируем строку для бесшовной CSS-анимации translateX(-50%)
-          document.getElementById('tickerContent').innerHTML = html + html;
+          tickerEl.innerHTML = html + html; 
         }
+
+        clearTickerStale();
+        clearTimeout(_tickerStaleTimer);
 
       } catch (err) {
         console.error('Ticker error:', err);
-        // Не перезаписываем DOM, если это ошибка, оставляем старые данные, 
-        // или если совсем пусто, ставим плейсхолдер.
         if (!_lastTickerHtml) {
-            document.getElementById('tickerContent').innerHTML =
-              '<span class="pair" style="color:#f87171;">Market Data Unavailable</span>';
+          tickerEl.innerHTML = '<span class="pair" style="color:#f87171;">Market Data Unavailable</span>';
+        } else {
+          _tickerStaleTimer = setTimeout(setTickerStale, 60 * 1000);
         }
       }
     }
@@ -940,11 +997,12 @@
     updateTicker();
     setInterval(updateTicker, 5 * 60 * 1000);
 
-    // ─── 4. Форма подписки (Надежная JS-валидация и кастомные ошибки) ──────────
+    // ─── 4. Форма подписки (Custom Validation + Double-Submit Prevention) ──────
     var form           = document.getElementById('newsletterForm');
     var successMessage = document.getElementById('successMessage');
     var formErrorMsg   = document.getElementById('formErrorMsg');
     var emailInput     = form.querySelector('input[type="email"]');
+    var submitBtn      = form.querySelector('button[type="submit"]');
 
     function isValidEmail(email) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
@@ -955,7 +1013,6 @@
 
       var emailVal = emailInput.value;
 
-      // Сбрасываем предыдущую ошибку
       emailInput.classList.remove('input-error');
       formErrorMsg.classList.remove('visible');
       formErrorMsg.textContent = '';
@@ -976,6 +1033,9 @@
         return;
       }
 
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
       var formData = new FormData(form);
       try {
         var response = await fetch(form.action, {
@@ -983,24 +1043,30 @@
           body: formData,
           headers: { 'Accept': 'application/json' }
         });
+        
         if (response.ok) {
           form.classList.add('hidden');
           successMessage.classList.add('visible');
         } else {
           formErrorMsg.textContent = 'Subscription error. Please try again.';
           formErrorMsg.classList.add('visible');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Subscribe';
         }
       } catch (error) {
         formErrorMsg.textContent = 'Network error. Please check your connection.';
         formErrorMsg.classList.add('visible');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Subscribe';
       }
     });
 
-    // Сброс ошибки при вводе
+    // Сброс ошибки при вводе нового текста
     emailInput.addEventListener('input', function () {
       emailInput.classList.remove('input-error');
       formErrorMsg.classList.remove('visible');
     });
+
   </script>
 </body>
 </html>
