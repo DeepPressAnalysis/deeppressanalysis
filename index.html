@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  Deep Press Analysis — index.html                                    ║
+  ║  ВАЖНО: nonce в CSP и тегах <script> ДОЛЖЕН генерироваться           ║
+  ║  сервером динамически при каждом запросе (Node/PHP/Python/etc.).     ║
+  ║  В шаблоне замените «EDNnf03nceIofn39fn3e9h3sdfa» на %%NONCE%%       ║
+  ║  или эквивалент вашего шаблонизатора.                                ║
+  ║  Пример Node.js:  crypto.randomBytes(16).toString('base64')          ║
+  ║  Пример PHP:      base64_encode(random_bytes(16))                    ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+<!-- ФИХ #5: class="no-js" — JS удалит его при загрузке -->
+<html lang="en" class="no-js" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
   <title>Deep Press Analysis — February 24, 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Daily global press synthesis: Trump's 15% tariff tide, Iran-Russia missile deal, HALO trade trends, TSA PreCheck reversal, and Mexican cartel unrest." />
+  <meta name="description" content="Daily global press synthesis: Mexico cartel unrest, US Olympic hockey gold, Nvidia laptop chips, New York Medicaid fraud probe, and US 15% global tariff shift." />
+  <meta name="keywords" content="Deep Press Analysis, Geopolitics, US tariffs, Nvidia AI, Mexico unrest, Olympic hockey, New York Medicaid, macroeconomics" />
   <meta name="author" content="Deep Press Analysis" />
   <meta name="robots" content="index, follow" />
 
@@ -14,7 +27,7 @@
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
     img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
-    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io;
+    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
     form-action 'self' https://formspree.io;
     object-src 'none';
     base-uri 'self';
@@ -27,23 +40,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="canonical" href="https://deeppressanalysis.com/" />
-  <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/" />
+  <link rel="canonical"  href="https://deeppressanalysis.com/" />
+  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/" />
   <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/" />
-  <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/" />
-  <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/" />
-  <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/" />
-  <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/" />
-  <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/" />
+  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/" />
+  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/" />
+  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/" />
+  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/" />
+  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/" />
 
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Deep Press Analysis — February 24, 2026" />
-  <meta property="og:description" content="Daily global press synthesis: Trump's 15% tariff tide, Iran-Russia missile deal, HALO trade trends, TSA PreCheck reversal, and Mexican cartel unrest." />
-  <meta property="og:url" content="https://deeppressanalysis.com/" />
-  <meta property="og:image" content="https://deeppressanalysis.com/assets/og-cover-2026.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Deep Press Analysis — February 24, 2026" />
-  <meta name="twitter:description" content="Daily global press synthesis: Trump's 15% tariff tide, Iran-Russia missile deal, HALO trade trends, TSA PreCheck reversal, and Mexican cartel unrest." />
+  <meta property="og:type"        content="article" />
+  <meta property="og:title"       content="Deep Press Analysis — February 24, 2026" />
+  <meta property="og:description" content="Daily global press synthesis: Mexico cartel unrest, US Olympic hockey gold, Nvidia laptop chips, New York Medicaid fraud probe, and US 15% global tariff shift." />
+  <meta property="og:url"         content="https://deeppressanalysis.com/" />
+  <meta property="og:image"       content="https://deeppressanalysis.com/assets/og-cover-2026.jpg" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Deep Press Analysis — February 24, 2026" />
+  <meta name="twitter:description" content="Daily global press synthesis: Mexico cartel unrest, US Olympic hockey gold, Nvidia laptop chips, New York Medicaid fraud probe, and US 15% global tariff shift." />
 
   <script type="application/ld+json">
   [
@@ -74,12 +87,9 @@
         "@type": "ContactPoint",
         "contactType": "Editorial",
         "email": "info@deeppressanalysis.com",
-        "availableLanguage": ["English", "Russian", "Ukrainian", "German", "Arabic", "Spanish"]
+        "availableLanguage": ["English","Russian","Ukrainian","German","Arabic","Spanish"]
       },
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Worldwide"
-      }
+      "areaServed": { "@type": "AdministrativeArea", "name": "Worldwide" }
     },
     {
       "@context": "https://schema.org",
@@ -89,8 +99,8 @@
       "name": "Deep Press Analysis — February 24, 2026",
       "isPartOf": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
       "datePublished": "2026-02-24T06:00:00+00:00",
-      "dateModified": "2026-02-24T06:00:00+00:00",
-      "description": "Daily global press synthesis: Trump's 15% tariff tide, Iran-Russia missile deal, HALO trade trends, TSA PreCheck reversal, and Mexican cartel unrest.",
+      "dateModified":  "2026-02-24T06:00:00+00:00",
+      "description": "Daily global press synthesis: Mexico cartel unrest, US Olympic hockey gold, Nvidia laptop chips, New York Medicaid fraud probe, and US 15% global tariff shift.",
       "inLanguage": "en",
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -104,15 +114,15 @@
 
   <style>
     :root {
-      --bg-body: #F2F4F7;
-      --bg-paper: #FFFFFF;
-      --text-primary: #111827;
+      --bg-body:        #F2F4F7;
+      --bg-paper:       #FFFFFF;
+      --text-primary:   #111827;
       --text-secondary: #4B5563;
-      --brand-navy: #0F172A;
-      --brand-blue: #2563EB;
-      --border-color: #E5E7EB;
-      --up-color: #059669;
-      --down-color: #DC2626;
+      --brand-navy:     #0F172A;
+      --brand-blue:     #2563EB;
+      --border-color:   #E5E7EB;
+      --up-color:       #059669;
+      --down-color:     #DC2626;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -123,7 +133,6 @@
       font-family: 'Inter', system-ui, sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 0;
     }
 
     h1, h2, h3, h4 {
@@ -131,7 +140,9 @@
       color: var(--brand-navy);
       line-height: 1.3;
     }
-    a { text-decoration: none; color: inherit; transition: 0.2s; }
+
+    /* ФИХ #6: transition: all → конкретные свойства (производительность) */
+    a { text-decoration: none; color: inherit; transition: color 0.2s, opacity 0.2s; }
 
     *:focus-visible {
       outline: 3px solid var(--brand-blue);
@@ -139,6 +150,7 @@
       border-radius: 3px;
     }
 
+    /* ─── Тикер ─────────────────────────────────────────────────────────── */
     .ticker-container {
       background: var(--brand-navy);
       color: #fff;
@@ -154,25 +166,23 @@
       animation: ticker 80s linear infinite;
     }
     .ticker-content:hover { animation-play-state: paused; }
-
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    .pair { margin-right: 2.5rem; font-family: 'Inter', monospace; letter-spacing: -0.5px; }
+    .pair        { margin-right: 2.5rem; font-family: 'Inter', monospace; letter-spacing: -0.5px; }
     .pair strong { font-weight: 600; color: #fff; }
-    .crypto-up { color: #34d399; }
+    .crypto-up   { color: #34d399; }
     .crypto-down { color: #f87171; }
 
+    /* ─── ФИХ #5: no-js — статьи видны без JS ───────────────────────────── */
     .no-js .article-body {
       max-height: none !important;
-      opacity: 1 !important;
+      opacity: 1    !important;
       visibility: visible !important;
     }
+    .no-js .toggle-icon { display: none; }
 
-    .container {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+    /* ─── Layout ─────────────────────────────────────────────────────────── */
+    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
 
     .top-toolbar {
       display: flex;
@@ -193,109 +203,77 @@
       background: #fff;
       border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      transition: 0.2s;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
     }
-    .social-btn svg { width: 14px; height: 14px; fill: currentColor; }
     .social-btn img { width: 16px; height: 16px; object-fit: contain; display: block; }
-    .social-btn:hover {
-      background: var(--brand-navy);
-      color: #fff;
-      border-color: var(--brand-navy);
-    }
+    .social-btn:hover { background: var(--brand-navy); color: #fff; border-color: var(--brand-navy); }
 
     .lang-bar {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      gap: 12px;
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      display: flex; gap: 12px;
     }
-    .lang-link { color: #9CA3AF; transition: 0.2s; }
-    .lang-link:hover { color: var(--brand-blue); }
-    .lang-link.active { color: var(--brand-navy); font-weight: 800; border-bottom: 2px solid var(--brand-blue); padding-bottom: 2px; }
+    .lang-link        { color: #9CA3AF; transition: color 0.2s; }
+    .lang-link:hover  { color: var(--brand-blue); }
+    .lang-link.active {
+      color: var(--brand-navy); font-weight: 800;
+      border-bottom: 2px solid var(--brand-blue); padding-bottom: 2px;
+    }
 
+    /* ─── Header ─────────────────────────────────────────────────────────── */
     header {
       text-align: center;
       margin-bottom: 50px;
       padding-bottom: 30px;
       border-bottom: 1px solid #d1d5db;
     }
-
     .meta-issue {
       font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
       color: var(--text-secondary); margin-bottom: 10px;
     }
-
     h1.site-title {
-      font-size: 48px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
+      font-size: 48px; font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 8px;
     }
-
     .subtitle {
       font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 500;
+      font-size: 14px; color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
     }
-
     .briefing-summary {
-      background: #fff;
-      border: 1px solid var(--border-color);
-      padding: 20px;
-      margin-top: 30px;
-      text-align: left;
+      background: #fff; border: 1px solid var(--border-color);
+      padding: 20px; margin-top: 30px; text-align: left;
       border-left: 4px solid var(--brand-navy);
       box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
-    .briefing-summary p { font-size: 15px; color: var(--text-secondary); margin: 0; }
-    .briefing-summary strong { color: var(--brand-navy); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
+    .briefing-summary p      { font-size: 15px; color: var(--text-secondary); margin: 0; }
+    .briefing-summary strong {
+      color: var(--brand-navy); font-weight: 700;
+      text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;
+    }
 
+    /* ─── Outlets ────────────────────────────────────────────────────────── */
     .outlet-section {
-      background: var(--bg-paper);
-      border: 1px solid var(--border-color);
-      margin-bottom: 30px;
-      border-radius: 4px;
-      overflow: hidden;
+      background: var(--bg-paper); border: 1px solid var(--border-color);
+      margin-bottom: 30px; border-radius: 4px; overflow: hidden;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
     }
-
     .outlet-header {
-      background: #f8fafc;
-      padding: 15px 25px;
+      background: #f8fafc; padding: 15px 25px;
       border-bottom: 1px solid var(--border-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
     }
+    .outlet-header h2 { font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
+    .outlet-tags      { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; }
 
-    .outlet-header h2 {
-      font-size: 18px;
-      margin: 0;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .outlet-tags {
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--brand-blue);
-      text-transform: uppercase;
-    }
-
-    .article-item { border-bottom: 1px solid var(--border-color); }
+    /* ─── Accordion ──────────────────────────────────────────────────────── */
+    .article-item            { border-bottom: 1px solid var(--border-color); }
     .article-item:last-child { border-bottom: none; }
 
     .article-trigger {
       display: flex; align-items: baseline; width: 100%;
       padding: 20px 25px; cursor: pointer; background: #fff;
-      transition: background 0.2s;
-      border: none;
-      text-align: left;
+      transition: background 0.2s; border: none; text-align: left;
     }
     .article-trigger:hover { background: #f9fafb; }
     .article-trigger:focus { background: #f0f9ff; }
@@ -307,74 +285,64 @@
     .art-title {
       font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
       color: var(--text-primary); flex-grow: 1; padding-right: 20px;
+      transition: color 0.2s;
     }
     .toggle-icon {
       color: var(--text-secondary); font-size: 12px; width: 20px; text-align: center;
       transition: transform 0.3s ease;
     }
-
-    .article-item.active .art-title { color: var(--brand-blue); }
+    .article-item.active .art-title  { color: var(--brand-blue); }
     .article-item.active .toggle-icon { transform: rotate(180deg); }
 
     .article-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                  opacity 0.3s ease,
-                  visibility 0.4s;
-      background: #fff;
-      opacity: 0;
-      visibility: hidden;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.4s;
+      background: #fff; opacity: 0; visibility: hidden;
     }
-    .article-item.active .article-body {
-      opacity: 1;
-      visibility: visible;
-    }
+    .article-item.active .article-body { opacity: 1; visibility: visible; }
 
     .body-inner {
       padding: 5px 25px 25px 60px; font-size: 16px;
       color: var(--text-secondary); max-width: 85ch; line-height: 1.7;
     }
 
+    /* ─── Newsletter ─────────────────────────────────────────────────────── */
     .nebula-wrapper {
-      background-color: var(--bg-body);
-      width: 100%;
-      padding: 60px 0;
-      margin-top: 60px;
+      background-color: var(--bg-body); width: 100%;
+      padding: 60px 0; margin-top: 60px;
       border-top: 1px solid var(--border-color);
     }
-
     .nebula-title {
       text-align: center; color: var(--brand-navy);
       font-family: 'Libre Baskerville', serif; margin-bottom: 10px; font-size: 24px;
     }
-    .form-container { display: flex; justify-content: center; padding: 20px; }
-    .newsletter-form-wrapper { width: 100%; max-width: 500px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .input-group { display: flex; width: 100%; align-items: center; }
+    .form-container          { display: flex; justify-content: center; padding: 20px; }
+    .newsletter-form-wrapper {
+      width: 100%; max-width: 500px;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .input-group  { display: flex; width: 100%; align-items: center; }
     .nebula-input { position: relative; flex: 1; }
 
     .sr-only {
-      position: absolute;
-      width: 1px; height: 1px;
-      padding: 0; margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border: 0;
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
     }
 
     .nebula-input .input {
       width: 100%; padding: 12px 12px 12px 40px;
-      border: 1px solid #cbd5e1; background: #FFFFFF;
+      border: 1px solid #cbd5e1; background: #fff;
       color: var(--brand-navy); font-size: 16px; outline: none;
-      border-radius: 4px 0 0 4px; transition: 0.2s;
+      border-radius: 4px 0 0 4px; transition: border-color 0.2s;
     }
-    .nebula-input .input:focus { border-color: var(--brand-blue); z-index: 2; position: relative; }
-    .nebula-input .input.input-error { border-color: var(--down-color); }
+    .nebula-input .input:focus         { border-color: var(--brand-blue); z-index: 2; position: relative; }
+    .nebula-input .input.input-error   { border-color: var(--down-color); }
 
     .email-icon {
       position: absolute; top: 50%; left: 12px; transform: translateY(-50%);
       width: 20px; height: 20px; fill: #94a3b8; pointer-events: none;
+      transition: fill 0.2s;
     }
     .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
 
@@ -383,90 +351,60 @@
       color: #fff; background: var(--brand-navy);
       border: 1px solid var(--brand-navy); border-radius: 0 4px 4px 0;
       cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
-      transition: all 0.2s;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .subscribe-button:disabled { opacity: 0.7; cursor: not-allowed; }
+    .subscribe-button:disabled          { opacity: 0.7; cursor: not-allowed; }
     .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
 
     .form-error-msg {
-      display: none;
-      color: var(--down-color);
-      font-size: 13px;
-      margin-top: 6px;
-      text-align: left;
-      width: 100%;
+      display: none; color: var(--down-color);
+      font-size: 13px; margin-top: 6px; text-align: left; width: 100%;
     }
     .form-error-msg.visible { display: block; }
 
-    .success-message {
-      display: none;
-      text-align: center;
-      color: var(--brand-navy);
-    }
-    .success-message.visible { display: block; }
-    .newsletter-form.hidden { display: none; }
+    .success-message           { display: none; text-align: center; color: var(--brand-navy); }
+    .success-message.visible   { display: block; }
+    .newsletter-form.hidden    { display: none; }
 
     .checkmark-circle { stroke: var(--up-color); stroke-width: 2; fill: none; }
-    .checkmark-check { stroke: var(--up-color); stroke-width: 2; }
+    .checkmark-check  { stroke: var(--up-color); stroke-width: 2; }
 
+    /* ─── Footer ─────────────────────────────────────────────────────────── */
     footer {
-      text-align: center;
-      margin-top: 60px;
-      padding-top: 30px;
-      padding-bottom: 60px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      font-size: 13px;
+      text-align: center; margin-top: 60px;
+      padding: 30px 0 60px; border-top: 1px solid var(--border-color);
+      color: var(--text-secondary); font-size: 13px;
     }
-
-    .footer-links {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-    }
-
+    .footer-links { margin-top: 35px; display: flex; justify-content: center; gap: 40px; }
     .btn-text {
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 18px;
-      letter-spacing: 1px;
-      color: var(--brand-navy);
-      border-bottom: 2px solid transparent;
-      padding-bottom: 4px;
-      transition: all 0.2s ease;
+      font-weight: 900; text-transform: uppercase; font-size: 18px; letter-spacing: 1px;
+      color: var(--brand-navy); border-bottom: 2px solid transparent; padding-bottom: 4px;
+      transition: color 0.2s, border-color 0.2s;
     }
-    .btn-text:hover {
-      color: var(--brand-blue);
-      border-bottom-color: var(--brand-blue);
-    }
+    .btn-text:hover { color: var(--brand-blue); border-bottom-color: var(--brand-blue); }
 
-    /* Spotify player facade */
+    /* ─── Spotify facade ─────────────────────────────────────────────────── */
     .spotify-fake-player {
-      background-color: #282828;
-      border-radius: 12px;
-      height: 152px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      overflow: hidden;
-      transition: background-color 0.3s ease;
-      position: relative;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      background-color: #282828; border-radius: 12px; height: 152px;
+      display: flex; align-items: center; cursor: pointer; overflow: hidden;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
       margin-bottom: 40px;
     }
+    .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
 
-    .spotify-fake-player:hover { background-color: #333333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
-
-    .fake-cover { width: 152px; height: 152px; flex-shrink: 0; }
-    .fake-cover img {
-      width: 100%; height: 100%; object-fit: cover;
-      border-top-left-radius: 12px; border-bottom-left-radius: 12px; opacity: 0.95;
+    .fake-cover         { width: 152px; height: 152px; flex-shrink: 0; }
+    .fake-cover img     {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.95;
+      border-top-left-radius: 12px; border-bottom-left-radius: 12px;
     }
-    .fake-info { padding: 0 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
-    .fake-meta { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
-    .fake-title { font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
-    .fake-desc { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
+    .fake-info          {
+      padding: 0 24px; flex-grow: 1;
+      display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+    }
+    .fake-meta   { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .fake-title  { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
+    .fake-desc   { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
     .fake-play-btn {
       background-color: #1ed760; color: #000; border: none; border-radius: 50%;
       width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
@@ -478,6 +416,7 @@
     .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
     .hidden-player { display: none !important; }
 
+    /* ─── Reduced motion ─────────────────────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -488,47 +427,51 @@
       .ticker-content { animation: none; }
     }
 
+    /* ─── Mobile ─────────────────────────────────────────────────────────── */
     @media (max-width: 600px) {
-      h1.site-title { font-size: 32px; }
-      .top-toolbar { flex-direction: column-reverse; gap: 20px; align-items: center; }
-      .lang-bar { flex-wrap: wrap; justify-content: center; }
-      .body-inner { padding-left: 25px; }
-      .outlet-tags { display: none; }
-      .input-group { flex-direction: column; gap: 10px; }
-      .nebula-input .input { border-radius: 4px; }
-      .subscribe-button { border-radius: 4px; width: 100%; }
-      .footer-links { flex-direction: column; gap: 20px; }
-      .spotify-fake-player { height: auto; padding: 16px; flex-wrap: wrap; }
-      .fake-cover { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
-      .fake-cover img { border-radius: 4px; }
-      .fake-info { padding: 0; width: calc(100% - 80px - 50px); }
-      .fake-title { font-size: 16px; white-space: normal; }
-      .fake-play-btn { width: 40px; height: 40px; margin-right: 0; }
+      h1.site-title    { font-size: 32px; }
+      .top-toolbar     { flex-direction: column-reverse; gap: 20px; align-items: center; }
+      .lang-bar        { flex-wrap: wrap; justify-content: center; }
+      .body-inner      { padding-left: 25px; }
+      .outlet-tags     { display: none; }
+      .input-group     { flex-direction: column; gap: 10px; }
+      .nebula-input .input  { border-radius: 4px; }
+      .subscribe-button     { border-radius: 4px; width: 100%; }
+      .footer-links    { flex-direction: column; gap: 20px; }
+      .spotify-fake-player  { height: auto; padding: 16px; flex-wrap: wrap; }
+      .fake-cover      { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
+      .fake-cover img  { border-radius: 4px; }
+      .fake-info       { padding: 0; width: calc(100% - 80px - 50px); }
+      .fake-title      { font-size: 16px; white-space: normal; }
+      .fake-play-btn   { width: 40px; height: 40px; margin-right: 0; }
     }
 
+    /* ─── Print ──────────────────────────────────────────────────────────── */
     @media print {
-      .ticker-container, .social-row, .lang-bar, .nebula-wrapper, footer,
-      .spotify-fake-player, #spotify-real-container { display: none; }
+      .ticker-container, .social-row, .lang-bar,
+      .nebula-wrapper, footer, .spotify-fake-player,
+      #spotify-real-container { display: none; }
       body { background: white; }
       .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
     }
   </style>
 
-  <script src="/analytics.js" nonce="EDNnf03nceIofn39fn3e9h3sdfa"></script>
+  <!-- ФИХ #2: defer — analytics.js не блокирует рендер страницы -->
+  <script src="/analytics.js" defer nonce="EDNnf03nceIofn39fn3e9h3sdfa"></script>
 </head>
-<body>
 
+<body>
   <noscript>
     <style>
       .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
-      .toggle-icon { display: none; }
+      .toggle-icon  { display: none; }
     </style>
   </noscript>
 
   <aside aria-label="Live market data ticker" aria-live="off">
     <div class="ticker-container">
       <div class="ticker-content" id="tickerContent">
-        <span style="padding-left: 20px;">Loading market data...</span>
+        <span style="padding-left:20px;">Loading market data…</span>
       </div>
     </div>
   </aside>
@@ -538,7 +481,7 @@
     <div class="top-toolbar">
       <nav class="lang-bar" aria-label="Language selection">
         <a href="/ua/" class="lang-link" hreflang="uk" aria-label="Ukrainian version">UA</a>
-        <a href="/" class="lang-link active" hreflang="en" aria-current="page" aria-label="English version">EN</a>
+        <a href="/"    class="lang-link active" hreflang="en" aria-current="page" aria-label="English version">EN</a>
         <a href="/es/" class="lang-link" hreflang="es" aria-label="Spanish version">ES</a>
         <a href="/ar/" class="lang-link" hreflang="ar" aria-label="Arabic version">AR</a>
         <a href="/ru/" class="lang-link" hreflang="ru" aria-label="Russian version">RU</a>
@@ -567,16 +510,18 @@
       </div>
       <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
       <div class="subtitle">Daily synthesis of leading international publications</div>
-
       <div class="briefing-summary">
-        <p><strong>IN FOCUS TODAY:</strong> Trump's 15% global tariff shift, Iran-Russia €500mn missile deal, Nvidia's AI laptop chips, the Wall Street HALO trade, and TSA PreCheck shutdown reversal.</p>
+        <p><strong>In focus today:</strong> US global tariff overhaul, Mexican cartel roadblocks, Nvidia's AI laptop expansion, New York Medicaid federal probe, and US Olympic hockey triumph.</p>
       </div>
     </header>
 
     <main>
 
-      <!-- Spotify facade -->
-      <div id="spotify-facade" class="spotify-fake-player" role="button" tabindex="0"
+      <!-- Spotify facade.
+           ФИХ Spotify CSP: onclick/onkeydown удалены из HTML-атрибутов.
+           Обработчики добавляются через addEventListener в JS-блоке с nonce. -->
+      <div id="spotify-facade" class="spotify-fake-player"
+           role="button" tabindex="0"
            aria-label="Play Deep Press Analysis podcast on Spotify">
         <div class="fake-cover">
           <img src="https://deeppressanalysis.com/logo.png" alt="Deep Press Analysis Podcast Cover">
@@ -588,18 +533,17 @@
         </div>
         <button class="fake-play-btn" aria-label="Play Podcast" tabindex="-1">
           <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/>
           </svg>
         </button>
       </div>
-      <div id="spotify-real-container" style="margin-bottom: 40px;"></div>
+      <div id="spotify-real-container" style="margin-bottom:40px;"></div>
 
-
-      <!-- Financial Times -->
+      <!-- ── Financial Times ──────────────────────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
           <h2>Financial Times</h2>
-          <div class="outlet-tags">Global Trade • Geopolitics • Commodities • Labor Market</div>
+          <div class="outlet-tags">Global Trade • Geopolitics • Defense</div>
         </div>
 
         <article class="article-item">
@@ -610,7 +554,7 @@
           </button>
           <div class="article-body" id="art-ft-01" role="region" aria-labelledby="btn-ft-01">
             <div class="body-inner">
-              The Trump administration's introduction of a new 15% global tariff radically reformats the architecture of world trade. Replacing the tariffs struck down by the Supreme Court with a uniform 25% rate valid for 150 days creates an unprecedented zone of legal and commercial uncertainty. Paradoxically, this protectionist move yields the greatest tactical benefit for Washington's geopolitical opponents, including Beijing. The reduction in average tariffs for Chinese imports opens a critically important window of opportunity for accelerated exports and the capture of vacated American niches. Simultaneously, the main blow is absorbed by traditional strategic U.S. allies: the UK, the European Union, and Japan. Such trade dynamics threaten to irreversibly accelerate the fragmentation of the Western economic and political bloc. For European and Japanese multinational corporations, this signifies a sharp, uncontrolled margin compression in a key consumer market. In the long term, this move directly incentivizes the EU and Japan to form autonomous trade coalitions in a hardline bypass maneuver against the U.S. For institutional investors, this is a direct signal to immediately overhaul supply chains and aggressively hedge currency risks. The use of a temporary 150-day window pending congressional approval indicates the White House's attempt to govern the macroeconomy via executive decrees. Such a governance model exponentially increases political volatility risks for the entire corporate sector. Ultimately, this aggressive tariff policy neutralizes Washington's years-long efforts to technologically and financially isolate the Chinese economy.
+              The introduction of a new global 15 percent tariff fundamentally alters the architecture of global trade. The U.S. Supreme Court's decision to strike down previous tariffs forced the Trump administration to act through temporary emergency mechanisms. Paradoxically, this decision brings the greatest tactical advantage to Washington's geopolitical opponents, including Beijing and Brasilia. A reduction in the average tariff level for these countries opens a window of opportunity for aggressive export expansion into the American market. During the 150-day window, Chinese corporations will try to maximize shipments to build buffer stocks before potential policy tightening by Congress. This creates risks of short-term oversaturation of U.S. warehouses and pricing pressure on domestic manufacturers. Institutionally, the move demonstrates the vulnerability of U.S. executive branch trade policy to the judicial system. For investors, this is a signal of high volatility in the logistics sector over the next six months. Multinational corporations will have to urgently revise supply chains, focusing on the temporary tariff relief. Strategically, such a move undermines trust in the long-term predictability of American economic diplomacy. Ultimately, markets are pricing in a high probability of new trade wars once the 150-day period expires.
             </div>
           </div>
         </article>
@@ -623,7 +567,7 @@
           </button>
           <div class="article-body" id="art-ft-02" role="region" aria-labelledby="btn-ft-02">
             <div class="body-inner">
-              The secret €500 million contract between Iran and Russia marks a qualitative shift in bilateral military-technical cooperation. The emergency supply of advanced missile systems to Iran critically alters the established balance of power across the Middle East. This deal is aimed at the forced restoration of the Iranian air defense system following recent regional escalations. It serves as a direct asymmetric response to growing vulnerabilities against potential preemptive strikes by Israel or the U.S. For Moscow, this contract solves two strategic macroeconomic objectives at once: securing an influx of foreign currency liquidity and tying down American military resources. The buildup of the U.S. military presence in the Middle Eastern theater inevitably diverts the Pentagon's focus away from the Indo-Pacific region. For global energy markets, the strengthening of Iranian air defenses means an automatic hike in the geopolitical risk premium. The probability of a successful, rapid strike on Iranian oil infrastructure decreases, while the risk of a protracted, grueling escalation rapidly climbs. Investors should factor permanently elevated price volatility for benchmark crude grades into their medium-term strategies. Furthermore, the transfer of Russian high-tech systems to Tehran accelerates the development of an autonomous Iranian military-industrial complex. Looking ahead, this creates a long-term, hard-to-contain threat to the security of logistics routes in the Strait of Hormuz. On a macro level, the deal cements an anti-Western axis, publicly demonstrating the institutional ineffectiveness of the global sanctions regime.
+              The secret half-billion-euro deal between Tehran and Moscow marks a new stage of military-technological integration between the two states. The agreement is aimed at a deep modernization of Iran's air defense system amidst the buildup of the American military presence in the Middle East. The Kremlin secures much-needed financial injections, diversifying its revenue streams under intense sanctions pressure. For Tehran, this is a critical step to protect strategic assets from potential preemptive strikes by Israel or the U.S. The proliferation of Russian air defense systems can significantly alter the balance of power in the Persian Gulf. This move sends a clear signal to Washington that isolating Iran will face systemic resistance from alternative power centers. Institutional investors must factor in the elevated risk of regional escalation, which directly impacts the risk premium in oil prices. Technology transfers potentially complicate any future diplomatic initiatives regarding the Iranian nuclear program. For the U.S. military-industrial complex, this becomes a driver to request additional budgets for developing countermeasures to bypass these new air defenses. Moscow's strategic logic lies in tying down U.S. resources in the Middle East, diverting them from the European theater. Thus, a localized deal assumes macro-regional proportions, heightening overall geopolitical tensions.
             </div>
           </div>
         </article>
@@ -631,12 +575,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-ft-03" aria-expanded="false" aria-controls="art-ft-03">
             <span class="art-idx">03</span>
-            <span class="art-title">How 'Work Tok' films got Gen Z hooked</span>
+            <span class="art-title">Random scary stories are driving gold prices</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-ft-03" role="region" aria-labelledby="btn-ft-03">
             <div class="body-inner">
-              The explosive growth in the popularity of corporate "Work Tok" content among young professionals is generating new institutional risks for employers. The mass broadcasting of internal work processes on social media dismantling traditional mechanisms for controlling corporate information. For multinational corporations, this means a sharp increase in the probability of commercial secrets and confidential client data leaks. Investors are beginning to evaluate companies' HR policies based on their capacity to manage reputational crises in real-time. Simultaneously, this trend is forcing management to overhaul corporate culture standards and internal security protocols. The transparency of working conditions dictated by social networks strips corporations of the ability to hide managerial inefficiencies. This provokes accelerated employee turnover among Gen Z, who instantly monetize their departures through viral content. For the cybersecurity sector, this trend opens up a massive market for services monitoring employees' digital footprints. Companies that ignore the impact of "Work Tok" face a significant discount when recruiting highly skilled talent. In the long term, this will lead to tighter employment contracts and the implementation of strict NDAs at the entry-level staff tier. Thus, social media is morphing from a marketing tool into an uncontrollable operational risk factor. Markets must account for this dimension when assessing the resilience of business models in the service and retail sectors.
+              The precious metals market is experiencing anomalous volatility, fueled not by fundamental economic factors but by information dumps. Institutional players are weaponizing fear narratives to artificially inflate gold prices amidst political uncertainty. This trend exposes a deep crisis of confidence in traditional fiat instruments and government bonds. Capital is seeking a safe haven, yet the transition process itself is becoming a speculative tool for hedge funds. The strategic advantage here lies with major physical gold holders and emerging market central banks. The proliferation of alarming scenarios benefits algorithmic traders capitalizing on short-term price spikes. The risk for retail investors is buying the asset at peak overvaluation driven by emotional rather than rational demand. Institutionally, this undermines central banks' efforts to stabilize inflation expectations. Markets are receiving a signal that geopolitical fear is becoming an independent, monetizable asset class. Future price dynamics will depend on the frequency and intensity of new anxiety-inducing narratives generated in the media space. In the long run, this pricing mechanism leads to a dangerous decoupling of base asset values from the real economy.
             </div>
           </div>
         </article>
@@ -644,12 +588,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-ft-04" aria-expanded="false" aria-controls="art-ft-04">
             <span class="art-idx">04</span>
-            <span class="art-title">Random scary stories are driving gold prices</span>
+            <span class="art-title">UK, EU and Japan will take the largest hit from new US tariffs</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-ft-04" role="region" aria-labelledby="btn-ft-04">
             <div class="body-inner">
-              The irrational reaction of gold quotes to localized informational noise indicates deep structural stress within global financial markets. Investors are exhibiting an unprecedented level of nervousness, converting any news chatter into macroeconomic risks. Such hypersensitivity of the safe-haven asset confirms a loss of trust in traditional hedging instruments, including U.S. Treasuries. Speculative capital utilizes "scary stories" as a convenient pretext to justify the rotation of liquidity into physical assets. For central banks, these dynamics complicate the forecasting of inflation expectations and the management of monetary policy. Institutional players are forced to algorithmically adjust their portfolios, reacting to unpredictable media triggers. This creates an ideal environment for massive price manipulation by major funds that control information flows. The surge in gold volatility amid an absence of real fundamental shocks points to an overheating of the global financial system. Strategically, this reflects growing apprehensions among elites regarding hidden vulnerabilities in the banking sector. Corporations dependent on the cost of precious metals in manufacturing must price in anomalous premiums to mitigate the risk of price spikes. Further detachment of quotes from macroeconomic reality threatens to burst localized bubbles on commodity exchanges. Investors need to revise their sovereign risk assessment algorithms, filtering out the emotional factor from fundamental analysis.
+              The revision of the U.S. tariff schedule strikes a disproportionately heavy blow to Washington's key geopolitical allies. The economies of the UK, the European Union, and Japan will face a sharp surge in costs when exporting goods to the American market. This paradoxical situation stems directly from the U.S. administration's attempts to unify trade barriers without regard for alliance commitments. For European and Japanese exporters, this translates into a loss of competitive advantage and profit margins in critical sectors. Washington's internal logic is dictated by the priority of protecting domestic manufacturers, even at the cost of chilling relations with partners. The EU and the UK will be forced to develop symmetrical countermeasures, threatening to spiral into mutual protectionism. This creates severe institutional risks for the World Trade Organization, further marginalizing its role as an arbiter. For currency markets, it signals potential devaluations of the euro and yen to offset tariff burdens. Transnational corporations based in these jurisdictions might accelerate the relocation of production facilities directly to U.S. soil. Strategically, this move by Washington fragments the unified front of Western nations, weakening their collective stance in global confrontations. Investors must reassess the short-term profitability of European industrial conglomerates.
             </div>
           </div>
         </article>
@@ -657,22 +601,22 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-ft-05" aria-expanded="false" aria-controls="art-ft-05">
             <span class="art-idx">05</span>
-            <span class="art-title">Brazil will enjoy the biggest cut in average tariffs</span>
+            <span class="art-title">How 'Work Tok' films got Gen Z hooked</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-ft-05" role="region" aria-labelledby="btn-ft-05">
             <div class="body-inner">
-              The U.S. administration's decision to reformat global tariffs makes Brazil a key beneficiary of the new international trade rules. A substantial reduction in average duties for Brazilian exports radically alters the supply logistics for agricultural and raw materials bound for the U.S. This move by Washington is aimed at weakening economic reliance on traditional partners, yet it inadvertently strengthens the position of BRICS nations. Brazilian agro-industrial holdings are gaining a critical competitive advantage over European and Canadian suppliers. For global food markets, this signifies a massive reallocation of trade flows and a shift in pricing centers. The bolstering of Brazil's export positions will attract colossal volumes of foreign direct investment into Latin American infrastructure. In a geopolitical context, Washington is essentially sponsoring the economic growth of a state that actively promotes a de-dollarization agenda. For investors in the South American logistics sector, an unprecedented window of opportunity for extracting excess profits is opening up. Simultaneously, European exporters are losing market share, which will inevitably lead to pressure on the EU's political leadership. The formation of a new trade corridor between Brazil and the U.S. will necessitate the urgent modernization of seaports and transport arteries. This process will generate long-term demand for the services of transnational construction and engineering corporations. Consequently, U.S. protectionism is paradoxically acting as a growth driver for the emerging economies of the Global South.
+              The popularization of career-oriented content on social networks among Gen Z is radically changing the rules of the labor market. Corporations are forced to adapt their HR strategies to short-form video formats to attract young talent. This trend shifts the focus from classical metrics of professionalism to the media appeal of corporate culture. Tech platforms monopolizing the information flows between employers and job seekers emerge as the primary beneficiaries. A hidden risk for companies lies in the inflated expectations of candidates, shaped by idealized online portrayals. Staff turnover is accelerating, as young professionals switch jobs more readily at the slightest discrepancy between reality and their media-driven perceptions. Institutionally, this weakens traditional labor unions and collective bargaining mechanisms, individualizing employment relations. For businesses, hidden costs associated with staff retention and maintaining an external employer brand are rising. The market receives a signal that social capital and employee loyalty are becoming increasingly volatile assets. In the long term, this will demand a massive restructuring of motivation and performance evaluation systems. Companies capable of integrating media transparency into their core operations will secure a strategic advantage.
             </div>
           </div>
         </article>
       </section>
 
-      <!-- The Wall Street Journal -->
+      <!-- ── The Wall Street Journal ──────────────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
           <h2>The Wall Street Journal</h2>
-          <div class="outlet-tags">Tech Sector • M&A • Artificial Intelligence • Corporate Governance • Crypto</div>
+          <div class="outlet-tags">Artificial Intelligence • Markets • Corporate Finance</div>
         </div>
 
         <article class="article-item">
@@ -683,7 +627,7 @@
           </button>
           <div class="article-body" id="art-wsj-01" role="region" aria-labelledby="btn-wsj-01">
             <div class="body-inner">
-              Nvidia's aggressive expansion into the consumer laptop market is a strategic maneuver for total revenue diversification. The partnership with giants like Dell and Lenovo to integrate localized AI chips signals an attempt to monetize technologies at the level of every end user. Previously, the company's monopoly super-profits were generated exclusively by the cloud data center sector and heavy enterprise solutions. Shifting focus to the consumer segment may point to a hidden slowdown in the growth rate of the B2B artificial intelligence market. For the stagnating personal computer market, this is a chance to ignite a global cycle of forced hardware upgrades. To investors, this move demonstrates Nvidia's ruthless determination to control the entire vertical of computing power, from servers to home devices. Nevertheless, stepping into mass retail carries serious structural risks of compressing the corporation's overall business margins. Geopolitically, the deployment of local AI processors radically diminishes users' critical dependence on centralized cloud services. This directly alters the data collection architecture of Big Tech, threatening the hegemony of traditional technological platforms. Such a strategy will inevitably trigger colossal strain on global semiconductor supply chains. The primary brunt of the sudden surge in demand for mass-market chips will fall upon the manufacturing capacities of Taiwan's TSMC. The success of this initiative will determine whether AI remains an elite corporate instrument or becomes a fundamental utility for every household.
+              Nvidia's reentry into the consumer PC market with new laptop chips signifies an aggressive diversification of its business. Having reached a growth plateau in the data center and enterprise AI segment, the corporation seeks to monetize its R&D in the mass market. Partnerships with major manufacturers like Dell and Lenovo ensure guaranteed distribution channels for the new processors. This move is a direct challenge to the traditional leaders in this segment, foreshadowing a fierce price and technology war. Nvidia's advantage lies in reducing its dependence on a narrow circle of mega-corporations purchasing server hardware. For the market, this is a clear signal that AI technologies are transitioning from the infrastructure phase to mass consumer application. Institutional risks involve potential margin cannibalization, as the consumer sector is traditionally less profitable. Laptop manufacturers gain a powerful marketing tool to stimulate user device upgrade cycles. Strategically, integrating advanced computing into end-user devices decentralizes the global AI architecture. Investors should closely monitor processor market share dynamics, as this maneuver could radically reshape the technological landscape. The success or failure of this expansion will dictate the semiconductor giant's stock growth trajectory over the next several years.
             </div>
           </div>
         </article>
@@ -691,12 +635,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-wsj-02" aria-expanded="false" aria-controls="art-wsj-02">
             <span class="art-idx">02</span>
-            <span class="art-title">Investor Ed Garden has built a stake in building-products supplier Fortune Brands</span>
+            <span class="art-title">Investor Ed Garden has built a stake in Fortune Brands and is seeking to replace the chief executive</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-wsj-02" role="region" aria-labelledby="btn-wsj-02">
             <div class="body-inner">
-              The entry of aggressive investor Ed Garden into the capital of building materials supplier Fortune Brands marks the beginning of a harsh corporate restructuring within the sector. The demand to replace the incoming CEO and alter the strategic course indicates deep shareholder dissatisfaction with current yields. The activity of activist investors in the basic goods manufacturing sphere points to the market's search for hidden value outside the overheated tech sector. For the management of industrial companies, this is an exceptionally clear signal: the era of passive corporate governance is over. Garden's strategy will likely focus on the ruthless optimization of operational costs and the sell-off of non-core assets. In a macroeconomic sense, the interest in building materials manufacturers anticipates an expected boom in the infrastructure renewal and real estate sectors. Institutional investors are placing their bets on companies capable of generating stable cash flow amidst inflationary pressures. Intense pressure on the board of directors at Fortune Brands will set a precedent for the entire sector, sparking a wave of preemptive mergers and acquisitions. Companies with inefficient capital structures are becoming ideal targets for private equity funds and corporate raiders. Such dynamics will inevitably lead to the consolidation of the building materials market into the hands of a few dominant players. For end consumers and developers, the monopolization of the sector will result in price dictation and stricter supply conditions. Markets should brace for a series of aggressive proxy battles that will fundamentally reshape the landscape of traditional industries.
+              The accumulation of a massive stake in Fortune Brands by activist investor Ed Garden triggers a process of aggressive corporate restructuring. The demand to replace the CEO is merely the tip of the iceberg in a plan to radically boost the company's operational efficiency. The underlying motivation is to consolidate the fragmented building materials and plumbing market to maximize shareholder value. Such activist campaigns frequently precede attempts to spin off profitable divisions into standalone businesses or sell them outright. For current management, this creates an environment of extreme pressure, forcing short-term decisions at the expense of long-term strategy. The market receives a signal that assets in the durable consumer goods sector are undervalued. The upside belongs to institutional investors positioned to profit from stock rallies fueled by aggressive corporate news. Risks involve potential cuts to R&D investments in favor of special dividends or share buybacks. Strategically, this reflects a broader trend of capital tightening its grip on the real economy amidst high borrowing costs. Fortune Brands' competitors might exploit the company's internal instability to aggressively capture market share. Ultimately, the outcome of this conflict will set a precedent for other companies in the building materials industry.
             </div>
           </div>
         </article>
@@ -709,7 +653,7 @@
           </button>
           <div class="article-body" id="art-wsj-03" role="region" aria-labelledby="btn-wsj-03">
             <div class="body-inner">
-              The formation of the HALO investment trend reflects a fundamental, tectonic shift in the assessment of long-term corporate risks on Wall Street. The mass buying of shares in companies with the highest chances of survival in the artificial intelligence era signifies the end of the speculative hype phase. Markets are transitioning to a rigorous evaluation of real structural resilience, pricing in the inevitable process of massive "creative destruction." Artificial intelligence is now perceived not just as an economic growth driver, but as a direct existential threat to traditional business models. This defensive trend is leading to an unprecedented and potentially toxic concentration of capital within a narrow pool of adaptive corporations. For small and medium-sized businesses lacking billion-dollar budgets for neural network integration, this means a catastrophic spike in the cost of financing. Institutionally, the HALO strategy critically exacerbates index skewness, making global benchmarks hostages to the success of a few tech giants. The main macroeconomic risk lies in the formation of a new survival bubble, where premiums for "unsinkability" status become entirely irrational. For regulators, this trend unambiguously signals an inescapable impending wave of corporate defaults in obsolete economic sectors. In the medium term, the draining of capital from the real sector will necessitate an urgent and stringent overhaul of U.S. antitrust legislation. Portfolio managers who ignore the strict AI-resilience filter risk facing a fatal exodus of client funds. Investing has definitively transformed from an instrument for stimulating growth into a mechanism for paying insurance against technological obsolescence.
+              The massive influx of American investors into the stocks of companies expected to survive the AI era (HALO trades) is inflating a new speculative bubble. This phenomenon reflects a profound repricing of risks, as capital flees traditional sectors for tech assets with questionable fundamentals. Investors are buying not current cash flows, but promises of monopoly power in the future digital economy. The hidden logic of market makers is to monetize the Fear Of Missing Out (FOMO) among both retail and institutional participants. This benefits major investment banks reaping windfall profits from portfolio rebalancing commissions. The risk lies in the extreme concentration of capital within a narrow segment, leaving the broader stock market highly vulnerable to localized shocks. Institutionally, this distorts resource allocation mechanisms, starving legacy industrial sectors of funding. Markets are being signaled that the AI narrative has entirely eclipsed traditional value investing metrics. A severe correction is inevitable in the long term, as most companies in the HALO basket will fail to meet the lofty expectations priced into their valuations. Strategically, this imbalance could stall the actual implementation of innovations due to capital deficits in applied sectors. Investors should hedge their positions, bracing for extreme volatility during upcoming quarterly earnings reports.
             </div>
           </div>
         </article>
@@ -717,12 +661,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-wsj-04" aria-expanded="false" aria-controls="art-wsj-04">
             <span class="art-idx">04</span>
-            <span class="art-title">Trump demanded that Netflix drop former national security adviser Susan Rice</span>
+            <span class="art-title">Trump demanded that Netflix drop former national security adviser Susan Rice from its board</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-wsj-04" role="region" aria-labelledby="btn-wsj-04">
             <div class="body-inner">
-              The president's direct pressure on the personnel policy of the public corporation Netflix destroys the fundamental boundaries between the state and private business. The demand to fire former national security adviser Susan Rice is an act of political retaliation framed as an economic ultimatum. For Wall Street, this is an unprecedented signal that loyalty to the White House is becoming a key criterion for corporate survival. Institutionally, such actions undermine the independence of boards of directors and corporate governance standards at major U.S. companies. Media conglomerates and Big Tech find themselves under colossal pressure, forced to balance between political arm-twisting and shareholder interests. Netflix capitulating to political demands would set an incredibly dangerous precedent for the entire market, legitimizing the practice of manual state blackmail. Investors are obliged to price critically high risks of regulatory and administrative interference into the asset values of media companies. Geopolitically, this situation demonstrates the autocratic drift of the American system, where loyalty is valued above the professional competencies of managers. Potential corporate conflicts on this front will inevitably lead to an exodus of independent directors from public companies. Fear of presidential wrath will compel corporations to implement covert political censorship when hiring top executives. For the entertainment market, this signifies a direct threat of losing creative autonomy and a decline in global competitiveness. The politicization of the corporate sector will inevitably provoke a massive crisis of confidence from international investors regarding the U.S. jurisdiction.
+              Donald Trump's demand to remove former National Security Advisor Susan Rice from Netflix's board of directors constitutes an unprecedented act of political pressure on the corporate sector. This move highlights the blurring lines between state governance and the internal politics of public tech companies. The underlying logic is to consolidate media resources and eliminate potential hubs of criticism within major corporations ahead of crucial electoral cycles. This poses a severe dilemma for Netflix: yield to political coercion and lose its reputation as an independent platform, or engage in an open clash with the administration. The advantage lies with the ruling power, which is testing the limits of its influence over the boards of transnational giants. The market receives a highly alarming signal regarding the elevated institutional risks of doing business in a politically polarized environment. Such a precedent could trigger a chain reaction of purges across other corporations seeking to avoid White House wrath. Risks for investors involve potential boycotts of the service by opposition-minded consumers, directly impacting revenue. Strategically, this undermines the core principles of corporate governance and board independence in the United States. Ultimately, the market capitalization of media companies is becoming a derivative of their loyalty to the current political establishment. This will force ESG-focused funds to fundamentally revise their investment strategies in the U.S. tech sector.
             </div>
           </div>
         </article>
@@ -730,22 +674,22 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-wsj-05" aria-expanded="false" aria-controls="art-wsj-05">
             <span class="art-idx">05</span>
-            <span class="art-title">Ripple, Bridge conditionally approved for national trust bank charter</span>
+            <span class="art-title">Crypto firms receive conditional approval to become federally chartered national trust banks</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-wsj-05" role="region" aria-labelledby="btn-wsj-05">
             <div class="body-inner">
-              The mass acquisition of national banking licenses by crypto companies, such as Ripple and Bridge, marks the final institutional legalization of digital assets. This complex legal process reflects the crypto industry's strategy for seamless integration into the classical dollar system under the supervision of the Federal Reserve. The voluntary consent of fintech startups to stringent reserve capital requirements signifies a complete abandonment of their original ideals of decentralization. For traditional, conservative banks, this poses a direct existential threat, as tech competitors gain access to cheap liquidity. Armed with bank charters, crypto companies will begin to aggressively dump prices in the highly lucrative market of corporate lending and international settlements. Stripe's $1.1 billion acquisition of the stablecoin platform Bridge confirms that this infrastructure has become the core of the new financial architecture. U.S. regulators, by issuing licenses, are attempting to preemptively bring the shadow sector under total control, minimizing accumulated systemic risks. In a geopolitical context, this trend categorically reinforces the global hegemony of the dollar in the digital space. The integration of dollar-pegged stablecoins into the legal interbank network strips competitors of the chance to build alternative settlement systems. For institutional investors, the convergence of the crypto sector with classical banking launches an unprecedented cycle of M&A activity. The primary long-term risk remains the inevitable cultural clash between the aggressive methods of Silicon Valley and rigid banking compliance. Nonetheless, this transformation permanently alters the mechanics of global capital movement, making transactions instantaneous and completely subject to state oversight.
+              The conditional approval for crypto firms to establish national trust banks marks the legalization of digital assets within the traditional financial system. Companies like Bridge, acquired by massive fintech players, are obtaining an institutional status that blurs the line between blockchain and fiat. The regulators' hidden motivation is not to support the crypto industry, but to establish total control over it via integration into banking supervision. For crypto platforms, this means trading independence for legitimacy and access to cheap Federal Reserve liquidity. The primary beneficiaries are traditional financial conglomerates, which are seizing the new infrastructure by absorbing crypto startups. This signals to markets that the era of unregulated decentralized finance is definitively ending. Institutional risks involve the potential transfer of crypto market volatility onto the balance sheets of traditional banks. Heightened oversight will lead to the monopolization of the sector by a few dominant players capable of bearing the compliance burden. Strategically, the U.S. aims to forge a controlled dollar infrastructure in the digital realm, crowding out offshore stablecoins. Investors should anticipate a wave of M&A activity where the targets are not just tech, but the banking charters of crypto startups. This process will fundamentally restructure the architecture of global settlements over the next decade.
             </div>
           </div>
         </article>
       </section>
 
-      <!-- The Washington Post -->
+      <!-- ── The Washington Post ─────────────────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
           <h2>The Washington Post</h2>
-          <div class="outlet-tags">U.S. Policy • Infrastructure • Sports Marketing • Corporate Culture • Macroeconomics</div>
+          <div class="outlet-tags">U.S. Politics • Society • Security</div>
         </div>
 
         <article class="article-item">
@@ -756,7 +700,7 @@
           </button>
           <div class="article-body" id="art-wp-01" role="region" aria-labelledby="btn-wp-01">
             <div class="body-inner">
-              The Department of Homeland Security's abrupt course reversal regarding the TSA PreCheck program exposes the deepest managerial crisis within the U.S. executive branch. Secretary Noem's announcement to freeze expedited screening was an undisguised attempt to use a transport collapse as an instrument of blackmail in budget battles. The White House's emergency intervention and subsequent cancellation of the decision publicly laid bare a total lack of systemic coordination within the federal government. For the entire aviation logistics sector and the tourism business, the threat of shutting down the program posed a colossal, unacceptable financial risk. A slowdown in hub throughput would have inevitably led to the disruption of critical supply chains and a paralysis of business activity. Maintaining the pause for the adjacent Global Entry program confirms the reality of critically depleted border administrative resources. Institutionally, this egregious incident irreversibly shatters big business's trust in basic government services. For markets, this is a crystal-clear signal: domestic political infighting in Washington has directly begun to destroy the infrastructural foundations of the economy. Investors in the transportation and tourism sectors must radically reevaluate the risks of tying their assets to the stability of government funding. Using transportation security as a bargaining chip creates a highly dangerous precedent for any future political crises. Airlines will be forced to invest billions into creating private alternatives to state control in order to retain premium clients. Ultimately, federal apparatus dysfunction is becoming the primary systemic drag on the growth of the American transportation industry.
+              The Department of Homeland Security's decision to walk back the suspension of the TSA PreCheck program amidst a partial shutdown highlights the economy's critical reliance on logistics flows. The initial threat to halt the program served as a political pressure tactic against Congress in budget negotiations. The rapid reversal illustrates the formidable lobbying power of airlines and the tourism sector, for whom passenger delays translate directly into multi-million-dollar losses. The administration's underlying logic involves an attempt to minimize backlash from the middle class, the primary demographic utilizing expedited security screening. Airport operators and business travelers emerge as the beneficiaries, having narrowly avoided a massive transportation collapse. Markets are being signaled that infrastructural services maintain immunity even during acute political crises in Washington. However, institutional risks are rising, as the funding of critical security services shifts to a manual management regime. For aviation sector investors, this offers a temporary reprieve, yet the fundamental issue of budget instability persists. Strategically, such maneuvers erode confidence in the stability of the state apparatus and the consistency of executive branch decisions. Further developments will hinge on the political elites' ability to reach a compromise before emergency funds are entirely depleted. Ultimately, weaponizing aviation security as a bargaining chip sets a perilous precedent for future budget wars.
             </div>
           </div>
         </article>
@@ -764,12 +708,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-wp-02" aria-expanded="false" aria-controls="art-wp-02">
             <span class="art-idx">02</span>
-            <span class="art-title">Global Entry program will remain paused</span>
+            <span class="art-title">Global Entry program remains paused amid partial government shutdown</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-wp-02" role="region" aria-labelledby="btn-wp-02">
             <div class="body-inner">
-              The administration's decision to keep the Global Entry program blocked strikes a direct strategic blow to the international business ecosystem. Freezing expedited border clearance for vetted travelers turns the basic logistics of top management into a chaotic and unpredictable process. This move by the White House acts as a covert form of economic isolationism, artificially slowing down cross-border business contacts. For multinational corporations, this translates into a sharp spike in non-production costs and missed deadlines for signing international contracts. Foreign investors perceive the dysfunction of U.S. border services as an indicator of the overall degradation of the American state apparatus. Suspending the program deprives the federal budget of a steady stream of fees, which appears absurd against the backdrop of an announced budget crisis. Institutionally, this demonstrates the Department of Homeland Security's inability to fulfill its baseline service obligations to taxpayers. Competing financial centers in Europe and Asia gain an unexpected advantage, intercepting streams of global business tourism. Airlines that bet heavily on the premium international segment will suffer colossal losses due to the cancellation of profitable flights. Markets should view this administrative paralysis as a harbinger of broader problems in the realm of customs control. The risk of freight delivery delays is growing exponentially as border resources are reallocated inefficiently. In the long run, isolation from global flows of capital and talent will inflict irreparable damage on the competitiveness of the American economy.
+              Keeping the Global Entry program paused during the shutdown reflects the government's selective approach to allocating scarce resources. Unlike domestic flights, the administration currently views the management of international traffic as a less politically sensitive area in the short term. This decision erects artificial barriers to international trade and business activity, disproportionately affecting transnational corporations. A hidden advantage may lie in strengthening the negotiating leverage of the security apparatus, which is demonstrating the indispensability of border agencies. For global supply chains, this translates to unpredictable delays and mounting costs for dispatching key personnel. The market receives a signal indicating an isolationist tilt in U.S. domestic policy, prioritizing the domestic consumer over international obligations. Institutionally, this weakens the competitiveness of American transit hubs relative to their European and Asian counterparts. Investors must price in additional operational risks for companies whose business models critically rely on seamless cross-border workforce mobility. Strategically, the artificial bottlenecking of Global Entry damages the appeal of the U.S. as a global business center. A prolonged freeze on the program will inevitably inflict hidden economic damage, which will surface in the upcoming quarterly reports of multinational firms. Thus, a localized budgetary crisis is converting into global macroeconomic costs.
             </div>
           </div>
         </article>
@@ -777,12 +721,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-wp-03" aria-expanded="false" aria-controls="art-wp-03">
             <span class="art-idx">03</span>
-            <span class="art-title">Golden ending: The U.S. men's hockey team captures Olympic gold</span>
+            <span class="art-title">Golden ending: U.S. men's hockey team captures first Olympic gold since 1980</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-wp-03" role="region" aria-labelledby="btn-wp-03">
             <div class="body-inner">
-              The U.S. men's national hockey team's triumphant gold medal victory at the Milan Olympics goes far beyond a classic sporting achievement. This success sets in motion a massive mechanism for the commercial monetization of a national triumph across media and consumer markets. The historical parallel with the 1980 "Miracle on Ice" ensures an unprecedented level of audience engagement and advertiser loyalty. For broadcast rights holders and streaming platforms, this final acted as a trigger for record growth in ad revenues and subscriptions. The overtime victory against Canada forms the perfect product for selling long-term, corporate-tier sponsorship contracts. Institutionally, this win critically strengthens the NHL's negotiating position in future discussions with the players' union. The league gains a powerful argument in favor of continued participation of professional athletes in international tournaments for the sake of global brand expansion. Geopolitically, the sports victory is expertly capitalized upon by Washington as an instrument for projecting "soft power" and forging national consolidation. For the sports equipment and merchandising market, a window opens to extract anomalous super-profits riding a wave of patriotic fervor. Investors in sports franchises should expect a proportional increase in the valuation of American hockey clubs. Sponsors of the U.S. Olympic Committee receive a maximum return on investment, guaranteeing an influx of capital into the next Olympic cycle. The team's success proves that elite sports remain one of the most profitable instruments for manipulating mass consciousness.
+              The U.S. men's hockey team capturing its first Olympic gold since 1980 generates a massive ideological and commercial surge. This sporting triumph is immediately capitalized upon by media conglomerates and sportswear manufacturers anticipating explosive sales growth. The underlying logic of the event lies in forging a new, unifying patriotic narrative, desperately needed amid deep societal polarization. Broadcast sponsors emerge as key beneficiaries, securing record ratings and the leverage to dictate premium pricing for ad slots. For the National Hockey League, this signifies a drastic expansion of its domestic audience and an opportunity for aggressive growth in the U.S. market. Markets receive a signal of a positive consumer backdrop, which traditionally fuels a short-term spike in retail spending. Institutional risks here are minimal, though there is a probability of overheating sports marketing budgets on the wave of euphoria. The team's success will be heavily exploited by political elites on both sides to amass symbolic capital ahead of elections. Strategically, such victories reinforce the position of American sports as a soft-power tool on the international stage. Entertainment sector investors should expect an influx of capital into sports franchises and infrastructure projects. In the long run, this victory has the potential to reshape the sports media consumption landscape in North America.
             </div>
           </div>
         </article>
@@ -790,12 +734,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-wp-04" aria-expanded="false" aria-controls="art-wp-04">
             <span class="art-idx">04</span>
-            <span class="art-title">Try a mindfulness exercise / Bring nature inside</span>
+            <span class="art-title">Homeland Security Secretary Kristi Noem met with swift criticism over travel disruptions</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-wp-04" role="region" aria-labelledby="btn-wp-04">
             <div class="body-inner">
-              The integration of mindfulness practices and eco-design into the corporate environment reflects a harsh economic necessity rather than genuine care for personnel. Amidst total employee burnout, companies are seeking cheap tools to maintain a minimally acceptable level of operational productivity. Promoting "oneness with nature" in the workplace is an attempt to shift the responsibility for psychological well-being onto the workers themselves. For the HR departments of large corporations, implementing such programs allows for substantial cuts in comprehensive health insurance expenses. Investors look favorably upon the "corporate zen" trend, as it mitigates the risk of mass resignations without expanding the payroll budget. Simulating nature in offices and introducing micro-meditations are becoming formal KPIs that mask the toxicity of modern corporate culture. Manufacturers of specialized office greenery and developers of mental health apps are forging a new, high-margin market segment. Fundamentally, however, these measures fail to solve the problem of structural staff overload in an era of algorithmic labor control. Institutionally, businesses are using psychological tricks to legitimize stagnant real wages and longer working hours. The economic impact of such surrogate practices is short-term and incapable of preventing a systemic talent crisis. Analysts should approach corporate reports brimming with "employee happiness" metrics with caution against a backdrop of falling margins. Ultimately, the monetization of mental health morphs into a cynical mechanism for extracting additional surplus value.
+              The harsh criticism directed at Homeland Security Secretary Kristi Noem exposes a managerial crisis in the upper echelons of the administration. The travel disruptions triggered by ill-conceived announcements about suspending security programs revealed a stark lack of interagency coordination. The hidden motivation behind these informational attacks may stem from competing political factions seeking to weaken her bureaucratic standing. For the government apparatus, this is a severe stress test demonstrating the vulnerability of logistical infrastructure to political voluntarism. Lobbying groups capitalize on this instability, securing leverage to demand further concessions for the transport industry under the guise of risk compensation. The market receives a negative signal regarding the unpredictability of the regulatory environment, forcing businesses to increase reserves for force majeure scenarios. The institutional authority of the Department of Homeland Security is eroding, which could hamper the execution of long-term infrastructure projects. For investors, the public reprimand of a key cabinet member equates to a higher risk premium for state-backed projects. Strategically, the frequent shifting of directives demoralizes the rank-and-file within security agencies, degrading their operational efficiency. The situation surrounding Kristi Noem becomes a bellwether for the overall level of turbulence within the state apparatus ahead of the election cycle. Ultimately, the costs of this incompetence will be passed down to consumers of transportation services via hidden tariff hikes.
             </div>
           </div>
         </article>
@@ -803,22 +747,22 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-wp-05" aria-expanded="false" aria-controls="art-wp-05">
             <span class="art-idx">05</span>
-            <span class="art-title">Partial government shutdown constraints</span>
+            <span class="art-title">Scandinavian practices of open-air living as a response to seasonal depression</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-wp-05" role="region" aria-labelledby="btn-wp-05">
             <div class="body-inner">
-              The ongoing partial shutdown of the U.S. federal government is transforming from a political show into a systemic macroeconomic shock. The artificial funding freeze paralyzes the operations of key agencies critical to the functioning of the economy's contracting system. Hundreds of thousands of federal contractors from the private sector are stripped of operational liquidity, inevitably leading to cash flow gaps and bankruptcies. For financial markets, Congress's inability to pass a baseline budget serves as an indicator of the utter dysfunction of the American political system. Rating agencies are handed a legitimate pretext to revise the U.S. sovereign credit rating downward. Delays in issuing licenses, patents, and permits artificially stall investment cycles across all sectors, from pharmacology to construction. Institutional investors are forced to price in a "political idiocy premium" when evaluating assets tied to government procurement. The gridlock at regulatory bodies creates a dangerous oversight vacuum, provoking corporations into violating safety and compliance standards. Washington's strategic competitors on the global stage are using this paralysis to aggressively advance their geoeconomic interests. Domestic political polarization has reached a stage where destroying one's own economy is deemed an acceptable tool for inter-party warfare. For small businesses reliant on federal grants, every day of the shutdown increases the likelihood of permanent closures. The ultimate outcome of this manufactured crisis will be a long-term surge in borrowing costs for both the state and the corporate sector.
+              The promotion of Scandinavian open-air living practices as an antidote to seasonal depression is forging new trends in the consumer economy. Under the guise of mental health advocacy, media outlets are driving demand for specialized outdoor apparel, gear, and eco-tourism services. The underlying logic of this narrative is the commercialization of basic human needs and the creation of new market niches within the wellness industry. Corporations manufacturing outdoor goods become the primary beneficiaries, their stock receiving an additional growth driver during the winter months. For the healthcare sector, this implies a shift in focus from pharmacological treatments to preventive practices, altering the structure of insurance payouts. The market is signaled that behavioral economics and consumer habit management are becoming premier profit-generation tools. Institutionally, this places pressure on employers, compelling them to integrate corporate wellness programs to retain staff. Investors should focus on outdoor apparel brands, as their products transition from niche categories to mass-market staples. Strategically, the popularization of such practices leads to the gentrification of natural recreational areas and surging real estate values near parks. The danger lies in the exacerbation of social stratification, where access to high-quality outdoor leisure becomes a privilege of the affluent. Ultimately, psychological comfort is being monetized, transforming into a robust growth driver for the retail sector.
             </div>
           </div>
         </article>
       </section>
 
-      <!-- The Globe and Mail -->
+      <!-- ── The Globe and Mail ──────────────────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
           <h2>The Globe and Mail</h2>
-          <div class="outlet-tags">Global Risks • Geopolitics • Sports Economy • Media Industry • Supply Chains</div>
+          <div class="outlet-tags">Macroeconomics • Security • Sports</div>
         </div>
 
         <article class="article-item">
@@ -829,7 +773,7 @@
           </button>
           <div class="article-body" id="art-gm-01" role="region" aria-labelledby="btn-gm-01">
             <div class="body-inner">
-              The escalation of unprecedented violence in the Mexican state of Jalisco instantly acquires the status of a global systemic and macroeconomic risk. Fierce armed clashes in key tourist hubs deal an irreparable blow to the industry that forms the structural base of the local economy. The emergency warning issued by the Canadian government acts as a red flag for institutional investors regarding Mexico City's loss of territorial control. For North American multinational corporations investing in infrastructure, this means an explosive rise in costs for physical personnel security. The situation ruthlessly exposes the critical vulnerability of logistical routes passing through cartel-controlled southwestern states. This crisis poses a direct existential threat to the realization of the strategic nearshoring concept, for the sake of which Western capital had been leaving Asia. Investors are now forced to panic-reassess the sovereign risks of a jurisdiction where the state's monopoly on violence has effectively crumbled. In the geopolitical dimension, the growing chaos fatally amplifies migratory pressure on U.S. borders, demanding a radical tightening of isolationism. The Mexican government's inability to protect foreign industrial and tourism assets will inevitably provoke a massive capital flight. Insurance premiums for businesses in the region have already reached prohibitive levels, rendering many manufacturing projects unviable. Global supply chains tied to Mexican industry are under the threat of sudden physical blockades by armed gangs. Ultimately, localized criminal terror has successfully fractured the continental strategy for North American economic integration.
+              The escalation of violence in Mexico following the death of a cartel leader and the entanglement of Canadian citizens creates a critical threat to the North American tourism sector. The incident demonstrates the Mexican state's sheer inability to ensure security in key economic zones controlled by transnational criminal syndicates. The underlying logic of the events points to the onset of a massive turf war over drug trafficking routes, inevitably destabilizing the region's investment climate. Competing resort destinations in the Caribbean basin emerge as direct beneficiaries, absorbing the redirected tourist flows. For Canadian airlines and tour operators, emergency evacuations and booking cancellations translate to colossal unforeseen expenses and a drop in capitalization. Markets receive a clear signal that the sovereign risks of emerging nations are no longer offset by the high yields of the tourism business. Institutionally, this questions the efficacy of bilateral security agreements between Canada and Mexico under the USMCA trade bloc. The Canadian government will be forced to tighten travel advisories, hitting the insurance industry, which must recalculate premiums for traveler policies. Strategically, the integration of the Mexican economy into the North American market confronts a fundamental barrier in the form of institutionalized criminalization. Investors in Mexican real estate and infrastructure must price in an unprecedented discount for geopolitical risk. Ultimately, the cartels are proving they possess sufficient power to directly sabotage the macroeconomic stability of entire states.
             </div>
           </div>
         </article>
@@ -837,12 +781,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-gm-02" aria-expanded="false" aria-controls="art-gm-02">
             <span class="art-idx">02</span>
-            <span class="art-title">Elly Alboim's legacy and consulting influence in Ottawa</span>
+            <span class="art-title">Ottawa warns Canadians in Puerto Vallarta to shelter in place</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-gm-02" role="region" aria-labelledby="btn-gm-02">
             <div class="body-inner">
-              The passing of Earnscliffe Strategy Group founder Elly Alboim highlights the critical role of shadow lobbying in shaping Canada's public policy. The transformation of former media top executives into influential consultants illustrates the mechanisms for privatizing political clout in Ottawa. The corporate sector utilizes such consulting outfits as an opaque gateway to directly steer the decisions of the federal bureaucracy. The reliance of state officials on external strategic advisors points to a profound intellectual degradation of the government apparatus. For big business, holding contracts with elite lobbyists becomes a mandatory condition for survival and securing access to budget allocations. Institutionally, this blurs the lines between independent journalism, PR technologies, and actual state governance. Investors entering the Canadian market must price colossal budgets for the services of such power-navigators into their operational costs. The fusion of political elites with private consulting creates a perfect breeding ground for legalized institutional corruption. The monopolization of expertise in the hands of a narrow circle allows them to dictate the trajectory of macroeconomic reforms in the interests of specific corporate clients. The loss of a key communicator of this caliber could provoke a temporary paralysis in the approval of several major infrastructure projects. Canada's GR services market faces a fierce redrawing of spheres of influence, which will temporarily destabilize the communication channels between business and government. Ultimately, a system where decisions are made not in parliament but in the backrooms of consulting firms harbors hidden sovereign risks for democracy.
+              Ottawa's directive for Canadian citizens to shelter in place in Puerto Vallarta signals the transition of diplomatic structures into a crisis management protocol. This measure underscores the helplessness of consular services during direct armed confrontations between criminal factions and Mexican authorities. The underlying motive behind these stark warnings is the Canadian government's attempt to absolve itself of legal and political responsibility for potential tourist casualties. Private military and security companies become the beneficiaries, as the price for their VIP extraction services skyrockets. For the insurance market, such official statements serve as legal grounds to deny payouts on standard travel policies, classifying the situation as a force majeure. The market is signaled about the critical vulnerability of logistical and transport arteries in highly popular recreational hubs. Institutional damage is inflicted on Mexico's reputation as a reliable partner, which will inevitably impact foreign direct investment into the country. Canadian corporations holding assets in affected regions must urgently revise security protocols for their personnel. Strategically, this event could act as a catalyst for Ottawa to overhaul its entire diplomatic architecture with Latin American nations. Investors should brace for a significant drop in Mexican asset valuations on international exchanges in upcoming trading sessions. Long-term consequences include the restructuring of the mass tourism industry, pivoting towards isolated enclaves with militarized security.
             </div>
           </div>
         </article>
@@ -850,12 +794,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-gm-03" aria-expanded="false" aria-controls="art-gm-03">
             <span class="art-idx">03</span>
-            <span class="art-title">Canada finishes Games with 21 medals</span>
+            <span class="art-title">Glory and heartbreak: reflections on the Milan Cortina Winter Games</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-gm-03" role="region" aria-labelledby="btn-gm-03">
             <div class="body-inner">
-              Concluding the Olympic Games with a tally of 21 medals is not just a sporting achievement, but a vital macroeconomic and brand asset for Canada. State investments in elite sports are converted into the fortification of the national brand within a hyper-competitive global market. For the corporate sponsors of the national team, this translates to maximum ROI via massive global audience reach. Strong performances stimulate domestic consumer demand in the sports retail, tourism, and related infrastructure segments. Institutionally, Olympic success legitimizes multi-million-dollar budget allocations to sports federations, shielding them from sequestration. Telecommunications giants and media conglomerates capitalize on sports patriotism by setting record-high rates for broadcasting and advertising. However, hinging state prestige on unpredictable sporting outcomes generates specific reputational risks for the political leadership. Failures in key disciplines can be leveraged by the opposition as a marker of the overall inefficiency of the government's social policy. Maintaining dominance in winter sports demands exponential growth in technological and biomedical investments from Ottawa. Geopolitically, sporting achievements remain a legitimate tool for projecting Canadian "soft power" on the international stage. For the venture capital market, niches are opening up in sports analytics and innovative equipment that have proven their efficacy. The Olympics have once again reaffirmed their status as a highly profitable corporate showcase, where medals are merely a byproduct of aggressive marketing.
+              The conclusion of the Milan Cortina Winter Olympic Games encapsulates not just sporting results, but massive geoeconomic processes. An analysis of the outcomes reveals a direct correlation between the medal haul and the level of state investment in infrastructure and sports technology. The hidden logic behind the Olympic megaproject is the reputation laundering of political regimes and the stimulation of the host nation's construction sector via massive budget injections. Global media corporations and sponsors emerge as the beneficiaries, capitalizing on viewer emotions through targeted advertising contracts. For Italy's economy, this entails a colossal debt burden that will fall on taxpayers once the sporting venues sit empty. Markets are signaled that the model of hosting ultra-expensive sporting mega-events is becoming financially unsustainable for national economies. Institutionally, the International Olympic Committee is grappling with a crisis of legitimacy driven by recurring corruption scandals and budget overruns. Canadian sports federations will leverage current results to lobby for increased state funding in the next cycle. Strategically, elite sports are definitively transforming into a proxy war between technological and pharmacological corporations. Investors should remain cautious regarding companies whose business models are overly reliant on Olympic contracts, given their high political exposure. Ultimately, the legacy of the games will be determined not by medals, but by the efficiency of integrating the built infrastructure into the real regional economy.
             </div>
           </div>
         </article>
@@ -863,12 +807,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-gm-04" aria-expanded="false" aria-controls="art-gm-04">
             <span class="art-idx">04</span>
-            <span class="art-title">Globe reporters reflect on the highs and lows of Milan Cortina</span>
+            <span class="art-title">Criminal groups set up roadblocks with burning vehicles in southwestern Mexico</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-gm-04" role="region" aria-labelledby="btn-gm-04">
             <div class="body-inner">
-              The massive coverage of the Milan Olympic Games by leading Canadian media reveals the deep commercialization of the sports journalism institution itself. The focus on emotional "highs and lows" is a cold calculation by editorial boards to maximize click-through rates and retain audience attention. The monetization of athletes' personal dramas transforms news agencies into beneficiaries of other people's psychological strain. For the media market, this type of storytelling becomes the primary survival tool in an era of fierce competition for ad budgets with social networks. Covering mega-sporting events requires colossal logistical expenditures, which are recouped exclusively through aggressive content promotion. Institutionally, this erodes the standards of objective analytics, replacing factual reporting with a manipulative narrative tailored for the mass consumer. Corporate advertisers eagerly fund this approach, as the emotional attachment of the audience guarantees high sales conversion rates. The Games in Italy also exposed the dependence of global broadcasters on the stability of the host nation's digital infrastructure. Media sector investors must account for the rising risks of cyberattacks and technical glitches capable of crashing monetization during prime time. The strategy of Canadian publications to hyperbolize national participation aims to artificially stoke consumer patriotism. Ultimately, the sports press acts as a core component of the entertainment industry, converting the sweat of athletes into shareholder dividends. The Olympics demonstrate that manufacturing and selling emotions remains one of the most stable and crisis-proof business models.
+              The establishment of roadblocks and burning of vehicles by criminal cartels in southwestern Mexico constitutes an act of open economic terrorism. Such tactics are designed to paralyze domestic trade and demonstrate dominance over federal law enforcement agencies. The militants' hidden objective is to force the government into clandestine negotiations and redistribute spheres of influence following a change in cartel leadership. The primary impact strikes the supply chains of agricultural produce and consumer goods, inevitably triggering localized inflation spikes. Shadow financial structures servicing drug trade transactions profit amid the weakening of state control. The market receives a stark signal that state sovereignty in certain regions has effectively collapsed, rendering long-term business planning impossible. The institutional paralysis of authorities undermines international creditors' confidence in Mexico's ability to service its debt obligations. Transnational manufacturing firms whose logistical routes traverse these hotspots will be forced to seek alternative, more expensive corridors. Strategically, this deepens the Mexican economy's reliance on the shadow sector, creating a vicious cycle of poverty and violence. Investors in regional retail and logistics must factor substantial losses from property damage and transport downtime into their models. This crisis starkly illustrates the systemic vulnerability of economies built upon a symbiosis of legal business and criminal enterprises.
             </div>
           </div>
         </article>
@@ -876,33 +820,33 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-gm-05" aria-expanded="false" aria-controls="art-gm-05">
             <span class="art-idx">05</span>
-            <span class="art-title">Roadblocks in Michoacan and Guerrero</span>
+            <span class="art-title">Elly Alboim's legacy: the passing of Ottawa's key political consultant</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-gm-05" role="region" aria-labelledby="btn-gm-05">
             <div class="body-inner">
-              The establishment of roadblocks by criminal cartels in the states of Michoacan and Guerrero signifies the virtual paralysis of critical transport arteries. This situation delivers a devastating blow to global supply chains, particularly within Mexico's agro-industrial and mining sectors. Barricading highways with burning vehicles demonstrates the absolute impotence of federal authorities against highly organized syndicates. For Canadian and American companies importing raw materials from these regions, this translates into catastrophic contract breaches and cash flow gaps. Exports of avocados, citrus fruits, and rare earth metals are held hostage by racketeering, a shock that immediately reverberates across global commodity exchanges. Investors in logistics and retail are forced to urgently scramble for alternative, costlier suppliers, fueling grocery inflation in North American markets. Multinational mining corporations are compelled to halt extraction due to the inability to move products and the looming threats to personnel safety. Insurance companies are refusing to cover losses stemming from freight delays in conflict zones, shifting the entire burden of risk onto real businesses. The institutional degradation of Mexico's law enforcement system renders any long-term capital investments in the southern states unviable. Surging costs for armed convoy protection devour margins, obliterating the logic of locating manufacturing near the U.S. border. This logistical collapse serves as the most potent argument against the strategic integration of economies under the USMCA framework. Highway banditry is definitively destroying the region's investment appeal, condemning the local economy to total dependency on shadow capital.
+              The passing of Elly Alboim, a pivotal political consultant in Ottawa, creates a substantial vacuum in the Canadian establishment's decision-making architecture. The loss of a figure of this magnitude disrupts established informal communication channels between the bureaucracy, the corporate sector, and the media. The underlying issue is that the governance system relied far too heavily on the backroom authority and personal networks of individual heavyweight consultants. Competing lobbying firms will become the beneficiaries, immediately initiating an aggressive turf war over political consulting and government contracts. For the ruling party, this represents the loss of a strategic navigator at a critical juncture of mounting economic and social contradictions nationwide. Markets receive a signal of potential turbulence and decreased predictability in Canada's regulatory policy in the near term. Institutionally, this exposes the fragility of formal governance frameworks, which functioned effectively only through the invisible moderation of such gray cardinals. Corporations whose interests were tied to Alboim's network risk losing influence over legislative initiatives and budget allocations. Strategically, the departure of the old guard of political technologists marks a generational shift and a change in approaches to shaping public opinion in the digital age. Investors in heavily regulated sectors, such as energy and telecommunications, should anticipate delays in the approval of key projects. Ultimately, the stability of the Canadian political system will face a rigorous test of its ability to function without its chief moderator.
             </div>
           </div>
         </article>
       </section>
 
-      <!-- New York Post -->
+      <!-- ── New York Post ───────────────────────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
           <h2>New York Post</h2>
-          <div class="outlet-tags">Healthcare • Urban Infrastructure • Sports Business • Media Crisis • Entertainment</div>
+          <div class="outlet-tags">Healthcare • Climate • Media</div>
         </div>
 
         <article class="article-item">
           <button class="article-trigger" id="btn-nyp-01" aria-expanded="false" aria-controls="art-nyp-01">
             <span class="art-idx">01</span>
-            <span class="art-title">Fed health big rips rampant fraud</span>
+            <span class="art-title">USA men win first Olympic hockey title since 1980's 'Miracle'</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-nyp-01" role="region" aria-labelledby="btn-nyp-01">
             <div class="body-inner">
-              Federal Medicare and Medicaid chief Mehmet Oz's attack on New York is a harsh prologue to the redistribution of the healthcare financing market. The public accusation that state authorities tolerate rampant fraud within the $124 billion budget carries a highly pronounced repressive character. For the federal center, this is a perfectly constructed legal pretext for massive sequestration of subsidies and the political blackmail of opposition governors. Bringing in federal investigators marks a transition from verbal interventions to forceful audits of the largest regional medical networks. For the private health insurance market, this will inevitably result in a shock spike in operational costs for compliance and legal defense. Shares of regional medical providers are doomed to take a deep dive due to the threat of frozen payouts and retroactive fines. Washington's strategic objective is to coerce loyal states into a radical offloading of social obligations under the threat of total financial boycott. Institutionally, this conflict blows up the core mechanisms of American fiscal federalism, concentrating financial power in the capital. Unprecedented risks of sudden account blockages and bankruptcy due to bureaucratic suspicions are forming for private clinics and laboratories. In a macroeconomic sense, this is a brutal signal to investors marking the kickoff of a campaign to optimize the budget deficit at the expense of vulnerable populations. Wall Street is already pricing in a sharp drop in profitability across the entire healthcare sector reliant on government subsidies. The health of the nation has definitively turned into a cynical instrument for fiscal adjustment and the reallocation of federal cash flows.
+              The victory of the U.S. men's hockey team at the Olympic Games acts as a crucial ideological shock absorber for American society. Amidst severe political division and economic uncertainty, this triumph is exploited by elites to generate fleeting national unity. The hidden commercial logic lies in monetizing this patriotic surge through record-breaking broadcasting rights and merchandising sales. Media conglomerates, television networks, and sportswear brands emerge as the beneficiaries, their market capitalization enjoying a localized boost from the euphoria. The National Hockey League gains an unprecedented window of opportunity to expand its audience and exert pressure on players' unions during upcoming contract negotiations. Markets receive a signal of a probable localized spike in consumer activity, as a positive emotional backdrop traditionally spurs impulse spending. Institutionally, the team's success translates into increased state subsidies for sports infrastructure development as part of upcoming electoral campaigns. The risk lies in the rapid dissipation of this momentum, after which structural economic issues will once again take center stage. Strategically, American sporting dominance is leveraged as a soft-power tool, projecting an image of national superiority to a global audience. Entertainment sector investors should anticipate aggressive M&A activity in the sports franchise segment, fueled by heightened interest. Ultimately, sporting success becomes an integral component of U.S. political and financial engineering.
             </div>
           </div>
         </article>
@@ -910,12 +854,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-nyp-02" aria-expanded="false" aria-controls="art-nyp-02">
             <span class="art-idx">02</span>
-            <span class="art-title">Blockbuster blizzard wallops Big Apple</span>
+            <span class="art-title">Fed health big rips rampant fraud in Medicaid</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-nyp-02" role="region" aria-labelledby="btn-nyp-02">
             <div class="body-inner">
-              The extreme snowstorm that paralyzed New York's infrastructure acts as a severe stress test for the economic resilience of the world's largest metropolis. The physical blockade of the city's transport arteries inflicts instant multi-billion-dollar damage on the retail, logistics, and commercial real estate sectors. For municipal authorities, this means a colossal over-expenditure of a tight budget on emergency services and snow removal operations. Airport shutdowns sever transcontinental supply chains and paralyze business communications across the U.S. East Coast. Investors in public utility infrastructure are facing a sharp rise in costs to repair power grids unable to withstand peak loads. The property and business insurance sector is bracing for a massive wave of payouts over business interruption claims and asset damage. Institutionally, climate shocks of this magnitude lay bare the chronic underfunding of New York's life-support systems. Corporations are forced to urgently stress-test remote work protocols, further depreciating the value of Manhattan office real estate. Losses sustained by local businesses are not compensated by the state, which will accelerate a wave of bankruptcies among small and medium-sized service enterprises. For the stock market, such weather anomalies serve as a justification for short-term profit-taking and a flight to defensive assets. Strategically, recurring blackouts and transport collapses diminish the city's investment appeal as a hub for corporate headquarters. The climate factor has definitively transitioned from being a force majeure into a permanent line item of unforeseen expenses for any major business in the region.
+              Dr. Mehmet Oz's harsh critique of the $124 billion Medicaid program signals the launch of a massive campaign to sequester social budgets. Statements by the head of the Centers for Medicare & Medicaid Services prime public opinion for radical spending cuts under the banner of combating fraud. The underlying motivation is the federal government's desire to shift the burden of healthcare financing onto individual state budgets, primarily New York. Private insurance companies emerge as the primary beneficiaries of this rhetoric, gaining leverage to expand the commercial segment of the healthcare market. For state medical facilities, this heralds rigorous audits and potential freezes on payouts, threatening smaller clinics with bankruptcy. Markets are receiving a clear signal that the administration is steering towards the monetization of benefits and the dismantling of the welfare state. The institutional conflict between the federal government and New York authorities is escalating into an open phase, paralyzing the execution of long-term healthcare programs. Municipal bond investors should reassess default risks stemming from the potential loss of massive federal subsidies. Strategically, attacking Medicaid undermines the financial stability of the most vulnerable populations, inevitably leading to a rise in social tension and crime. Pharmaceutical corporations must brace for intense pressure to lower drug prices for government procurement programs. Moving forward, the audit transforms into an instrument of political coercion against governors opposing the current administration.
             </div>
           </div>
         </article>
@@ -923,12 +867,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-nyp-03" aria-expanded="false" aria-controls="art-nyp-03">
             <span class="art-idx">03</span>
-            <span class="art-title">USA men win first Olympic hockey title since 1980's 'Miracle'</span>
+            <span class="art-title">Blockbuster blizzard wallops Big Apple</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-nyp-03" role="region" aria-labelledby="btn-nyp-03">
             <div class="body-inner">
-              The U.S. national team's gold medal victory in the Olympic hockey tournament serves as a massive catalyst for the entire North American sports marketing industry. The finals win over Canada generates colossal media reach, which is immediately monetized through the sale of exclusive rights and merchandise. For the National Hockey League, this triumph becomes a key argument in its strategy to expand its audience and elevate franchise valuations. Investors in television networks are recording an anomalous surge in viewer interest, allowing them to multiply advertising rates in future broadcasts. The historical narrative, echoing the "Miracle on Ice," is leveraged by corporations to stimulate emotional purchasing and drive consumer activity. The team's success bolsters the negotiating leverage of club owners in dialogues with municipal authorities over subsidizing the construction of new ice arenas. In a geopolitical context, the victory is expertly capitalized upon by the American establishment to showcase supremacy and rally the public. Manufacturers of sports equipment are anticipating an explosive demand for skates and sticks, injecting momentum into the stagnating sporting goods retail market. Institutionally, this outcome justifies the aggressive U.S. policy of lobbying its interests within the International Olympic Committee. However, for the hockey ecosystem itself, hyper-inflated expectations create the risk of rapid public burnout at the slightest future setback. Athletes' sponsorship contracts are being renegotiated upward, intensifying the financial burden on corporate brands. Elite sports once again prove their efficacy as a highly lucrative branch of the national entertainment and political PR industry.
+              The paralysis of the Big Apple due to a massive blizzard exposes, once again, the critical vulnerability of urban infrastructure to climate shocks. The shutdown of the metropolis's logistical arteries inflicts millions in daily losses on retail, hospitality, and the service sector. The underlying economic issue lies in the chronic underfunding of municipal services and an outdated crisis management planning system. E-commerce platforms and delivery services emerge as the beneficiaries, monopolizing the supply of goods to the population under physical isolation. For the insurance market, such catastrophes result in a deluge of claims for business interruption and property damage. The market receives a signal that investing in New York's municipal infrastructure projects carries elevated risks due to local governance inefficiencies. Institutionally, this erodes the corporate sector's confidence in the authorities' ability to ensure basic operational continuity, accelerating the exodus of headquarters to more stable jurisdictions. Energy companies will face stringent regulatory investigations over mass power outages. Strategically, frequent climate impacts will force a revision of zoning laws and building codes, radically increasing the cost of development projects. Manhattan real estate investors must account for rising insurance premiums and building maintenance operating costs. Ultimately, the natural disaster acts as a catalyst, accelerating the structural economic decline of the metropolis.
             </div>
           </div>
         </article>
@@ -936,12 +880,12 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-nyp-04" aria-expanded="false" aria-controls="art-nyp-04">
             <span class="art-idx">04</span>
-            <span class="art-title">Winter 2026 Sale: $1 for 12 weeks</span>
+            <span class="art-title">Federal investigators dig into New York's $124 billion Medicaid program</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-nyp-04" role="region" aria-labelledby="btn-nyp-04">
             <div class="body-inner">
-              The aggressive dumping strategy of print media offering subscriptions for one dollar points to a deep existential crisis within the traditional media industry. The radical slashing of content access prices is a desperate attempt by publishing houses to retain a dwindling base of loyal readers. For media holding investors, this is an alarming signal that the advertising-based news monetization model has definitively lost out to tech platforms. The practice of luring audiences with ultra-cheap introductory rates followed by high-priced auto-renewals teeters on the edge of manipulative marketing. This will inevitably lead to increased regulatory pressure on the sector concerning the transparency of user agreements and cancellation policies. The financial exhaustion of newspapers forces them to cut their analytical staff, replacing quality journalism with cheap clickbait and algorithm-driven content. Institutionally, the degradation of the independent press strips society of a basic mechanism for keeping corporate and state abuses in check. Big business is losing reliable channels of communication with solvent audiences, complicating the execution of complex PR strategies and reputation management. The monopolization of the digital advertising market by Big Tech leaves traditional publications no choice but aggressive, predatory pricing. Such fire sales accelerate the devaluation of intellectual labor, conditioning consumers to believe that quality information is worthless. In the long term, this will result in a string of bankruptcies for independent publishers and the absorption of the remaining market by highly politicized media conglomerates. The survival of the legacy press now hinges entirely on its ability to extract cash through microtransactions and the sale of subscriber data.
+              The initiation of an investigation by federal agents into New York's Medicaid program shifts the battle over budget resources into the realm of criminal law. The involvement of law enforcement signals Washington's distrust of state-level internal control mechanisms and a desire to pinpoint specific culprits. The hidden political objective is to discredit New York's leadership ahead of upcoming elections by exposing corruption schemes in the allocation of medical contracts. Law and consulting firms directly profit, as their services for audit support and corporate defense become critically necessary. For clinic operators and medical equipment suppliers, this entails a total freeze on accounts and the risk of license revocation. Markets are sent a signal regarding the extreme toxicity of the public health insurance sector for private capital amid the threat of criminal prosecution. The institutional balance of power shifts in favor of federal agencies dictating terms to regional health departments. Investors holding stocks in medical companies heavily reliant on government contracts must urgently diversify their portfolios due to the risk of losing key deals. Strategically, weaponizing the prosecutor's office as a budget control tool undermines providers' trust in the government as a partner. This will drive conscientious players unwilling to bear excessive compliance risks out of the market, degrading the quality of medical care. In the long term, sweeping purges in the sector will serve as a pretext for its privatization and transfer to transnational corporations.
             </div>
           </div>
         </article>
@@ -949,34 +893,37 @@
         <article class="article-item">
           <button class="article-trigger" id="btn-nyp-05" aria-expanded="false" aria-controls="art-nyp-05">
             <span class="art-idx">05</span>
-            <span class="art-title">The Tonight Show Starring Jimmy Fallon guests</span>
+            <span class="art-title">TV networks revamp broadcasting schedules amid shifting media consumption</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="art-nyp-05" role="region" aria-labelledby="btn-nyp-05">
             <div class="body-inner">
-              Late-night television's focus on a hypertrophied star-studded lineup reflects the cable networks' desperate struggle to retain a rapidly aging audience. Concentrating highly paid celebrities and viral musical acts into a single show is an attempt to compete with the fragmented content of platforms like TikTok. For media investors, the bloated production budgets of classic talk shows are turning into toxic assets with diminishing returns on investment. The reliance of ratings on rotating the same familiar faces indicates a profound creative crisis and a deficit of new formats within the entertainment industry. TV networks are using such programs exclusively as promotional storefronts for cross-promoting their own cinematic and corporate ventures. Institutionally, this broadcasting model blocks independent artists from accessing the screen, cementing the monopoly of a few massive production studios. The shrinking share of a solvent viewing audience forces networks into harsh concessions with advertisers, integrating brands directly into the fabric of the scripts. The migration of viewers to streaming services renders classic broadcast slots economically unviable without heavy subsidies from parent conglomerates. In a macroeconomic sense, this is a marker of the sunset of the era of mass synchronous TV viewing that defined the U.S. cultural landscape for decades. Corporations are compelled to seek out new, more complex targeting algorithms as traditional television advertising loses its potency. TV channels face a painful business restructuring, complete with mass layoffs and the abandonment of costly studio formats. Ultimately, the entertainment industry is morphing into a rigid algorithmic model, where the personality of the host gives way to big data analytics.
+              The radical restructuring of broadcasting schedules by television networks reflects a profound existential crisis for traditional media in the streaming era. Relying on proven franchises like wizarding stories or past blockbusters exposes the channels' inability to generate original content that retains audiences. The hidden logic behind these moves is aimed at minimizing production costs while attempting to preserve advertising revenues by catering to a nostalgic older generation. The primary beneficiaries of this decline are tech giants, definitively siphoning off advertiser budgets and the attention of younger consumers. For cable operators, this is a signal of inevitable subscriber attrition, threatening the collapse of the entire pay-TV business model. The market receives confirmation that linear TV is rapidly marginalizing, transforming into a niche product. Institutionally, this weakens the political clout of traditional TV channels, stripping them of their status as the primary shapers of public opinion. Investors in media holding stocks should brace for aggressive asset writedowns and painful restructurings. Strategically, the U.S. media landscape is consolidating around a few digital ecosystems that dictate terms to content producers. The survival of broadcast networks now hinges entirely on their ability to integrate into streaming platforms or sell their archives to competitors. Ultimately, attempts to bank on nostalgia merely delay the inevitable collapse of outdated information delivery infrastructure.
             </div>
           </div>
         </article>
       </section>
 
     </main>
+  </div><!-- /.container -->
 
-  </div>
-
+  <!-- ── Newsletter ────────────────────────────────────────────────── -->
   <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
     <h3 class="nebula-title" id="newsletter-heading">Secure Briefing Access</h3>
     <div class="form-container">
       <div class="newsletter-form-wrapper">
-        <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
+        <form class="newsletter-form" id="newsletterForm"
+              action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
           <div class="input-group">
             <div class="nebula-input">
+              <!-- ФИХ #8: убран дублирующий aria-label с <input>.
+                   <label for="emailInput"> уже является единственным источником имени. -->
               <label for="emailInput" class="sr-only">Corporate Email Address</label>
               <input type="email" id="emailInput" name="email" autocomplete="email"
-                     class="input" placeholder="Corporate Email Address" aria-label="Email address"
+                     class="input" placeholder="Corporate Email Address"
                      aria-describedby="formErrorMsg" />
               <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
             </div>
             <button class="subscribe-button" type="submit">Subscribe</button>
@@ -985,14 +932,14 @@
         </form>
 
         <div class="success-message" id="successMessage" role="alert" aria-live="assertive">
-          <div style="width: 70px; height: 70px; margin: 0 auto 20px auto;">
+          <div style="width:70px;height:70px;margin:0 auto 20px;">
             <svg viewBox="0 0 52 52" aria-hidden="true">
-              <circle class="checkmark-circle" cx="26" cy="26" r="25"></circle>
-              <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+              <circle class="checkmark-circle" cx="26" cy="26" r="25"/>
+              <path   class="checkmark-check"  fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
             </svg>
           </div>
-          <h4 style="font-family:'Libre Baskerville'; margin-bottom:5px;">Access Granted</h4>
-          <p style="font-size:14px; color:#4B5563;">Encrypted channel established.</p>
+          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Access Granted</h4>
+          <p  style="font-size:14px;color:#4B5563;">Encrypted channel established.</p>
         </div>
       </div>
     </div>
@@ -1002,47 +949,61 @@
     <p>&copy; 2026 Deep Press Analysis. All Rights Reserved.</p>
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="/en/archive.html" class="btn-text">Archive Access</a>
-      <a href="/manifesto.html" class="btn-text">Manifesto</a>
+      <a href="/manifesto.html"  class="btn-text">Manifesto</a>
     </nav>
   </footer>
 
+  <!-- ═══════════════════════════════════════════════════════════════════
+       ЕДИНЫЙ JS-БЛОК с nonce. Все исправления по аудиту здесь:
+         #1  — статический nonce (требует серверной генерации, см. комментарий в <html>)
+         #2  — analytics.js с defer (в <head> выше)
+         #3  — finally в форме подписки всегда разблокирует кнопку
+         #4  — ошибки analytics.js через window.addEventListener('error')
+         #5  — classList.remove('no-js') сразу при старте
+         #6  — transition: конкретные свойства (в CSS выше)
+         #7  — редирект проверяет path перед срабатыванием
+         #8  — убран дублирующий aria-label с <input> (в HTML выше)
+         Spotify — addEventListener вместо onclick/onkeydown в HTML
+       ═══════════════════════════════════════════════════════════════════ -->
   <script nonce="EDNnf03nceIofn39fn3e9h3sdfa">
   (function () {
     'use strict';
 
-    // ─── 0. Отлавливаем ошибки загрузки analytics.js ────────────────────────────
+    // ── ФИХ #5: убираем no-js немедленно ────────────────────────────────────────
+    document.documentElement.classList.remove('no-js');
+
+    // ── ФИХ #4: отлавливаем ошибки загрузки analytics.js без inline onerror ──────
     window.addEventListener('error', function (e) {
       if (e.filename && e.filename.includes('analytics.js')) {
-        console.warn('analytics.js failed to load');
+        console.warn('[DPA] analytics.js failed to load:', e.message);
       }
     }, true);
 
-    // ─── 1. Языковой редирект ────────────────────────────────────────────────────
+    // ── ФИХ #7: языковой редирект — не срабатывает при ручном возврате на EN ──────
     (function () {
       try {
+        // Если пользователь уже на языковом пути — не трогать
+        var path = window.location.pathname;
+        var langPaths = ['/ru/', '/ua/', '/de/', '/ar/', '/es/'];
+        if (langPaths.some(function (p) { return path === p || path.startsWith(p); })) return;
+
+        // Если пользователь вернулся сюда вручную (через lang-bar) — уважаем выбор
         if (localStorage.getItem('dpa_lang_redirected')) return;
-        var userLang = (navigator.language || navigator.userLanguage || 'en');
-        var langShort = String(userLang).substring(0, 2).toLowerCase();
-        var sites = {
-          'ru': '/ru/', 'uk': '/ua/', 'ua': '/ua/',
-          'de': '/de/', 'ar': '/ar/', 'es': '/es/'
-        };
-        if (sites[langShort] && langShort !== 'en') {
+
+        var lang  = String(navigator.language || navigator.userLanguage || 'en').substring(0, 2).toLowerCase();
+        var map   = { ru: '/ru/', uk: '/ua/', ua: '/ua/', de: '/de/', ar: '/ar/', es: '/es/' };
+        if (map[lang]) {
           localStorage.setItem('dpa_lang_redirected', 'true');
-          window.location.replace(sites[langShort]);
+          window.location.replace(map[lang]);
         }
-      } catch (e) {
-        // localStorage недоступен — молча игнорируем
-      }
+      } catch (_) { /* localStorage недоступен в приватном режиме — игнорируем */ }
     })();
 
-    // ─── 2. Аккордеон ────────────────────────────────────────────────────────────
+    // ── Аккордеон ────────────────────────────────────────────────────────────────
     function closeItem(item) {
       var body = item.querySelector('.article-body');
       body.style.maxHeight = body.scrollHeight + 'px';
-      requestAnimationFrame(function () {
-        body.style.maxHeight = '0px';
-      });
+      requestAnimationFrame(function () { body.style.maxHeight = '0px'; });
       item.classList.remove('active');
       item.querySelector('.article-trigger').setAttribute('aria-expanded', 'false');
     }
@@ -1054,34 +1015,26 @@
       body.style.maxHeight = body.scrollHeight + 'px';
     }
 
-    function toggleArt(button) {
-      var parent = button.closest('.article-item');
+    function toggleArt(btn) {
+      var parent   = btn.closest('.article-item');
       var isActive = parent.classList.contains('active');
-
-      document.querySelectorAll('.article-item').forEach(function (item) {
-        if (item !== parent) closeItem(item);
+      document.querySelectorAll('.article-item').forEach(function (it) {
+        if (it !== parent) closeItem(it);
       });
-
-      if (isActive) {
-        closeItem(parent);
-      } else {
-        openItem(parent);
-      }
+      isActive ? closeItem(parent) : openItem(parent);
     }
 
     document.querySelectorAll('.article-trigger').forEach(function (btn) {
       btn.addEventListener('click', function () { toggleArt(btn); });
     });
-
     document.addEventListener('keydown', function (e) {
-      if (e.target.classList.contains('article-trigger') &&
-          (e.key === 'Enter' || e.key === ' ')) {
+      if (e.target.classList.contains('article-trigger') && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
         toggleArt(e.target);
       }
     });
 
-    // ─── 3. Тикер ────────────────────────────────────────────────────────────────
+    // ── Тикер ────────────────────────────────────────────────────────────────────
     var tickerEl          = document.getElementById('tickerContent');
     var _lastTickerKey    = '';
     var _tickerStaleTimer = null;
@@ -1094,88 +1047,94 @@
       strong.textContent = priceText;
       span.appendChild(strong);
       if (changeText) {
-        var changeSpan = document.createElement('span');
-        changeSpan.className = changePositive ? 'crypto-up' : 'crypto-down';
-        changeSpan.textContent = ' ' + changeText;
-        span.appendChild(changeSpan);
+        var cs = document.createElement('span');
+        cs.className   = changePositive ? 'crypto-up' : 'crypto-down';
+        cs.textContent = ' ' + changeText;
+        span.appendChild(cs);
       }
       return span;
     }
 
     function setTickerStale() {
-      if (!tickerEl.querySelector('.ticker-stale')) {
-        var tag = document.createElement('span');
-        tag.className = 'pair ticker-stale';
-        tag.style.cssText = 'color:#f87171; font-style:italic;';
-        tag.textContent = '⚠ data may be stale';
-        tickerEl.appendChild(tag);
+      if (tickerEl.querySelector('.ticker-stale')) return;
+      var tag = document.createElement('span');
+      tag.className     = 'pair ticker-stale';
+      tag.style.cssText = 'color:#f87171;font-style:italic;';
+      tag.textContent   = '⚠ data may be stale';
+      tickerEl.appendChild(tag);
+    }
+    function clearTickerStale() {
+      var s = tickerEl.querySelector('.ticker-stale');
+      if (s) s.remove();
+    }
+
+    // ── ФИХ #3 (тикер): Brent берётся из Yahoo Finance, не хардкод ──────────────
+    async function fetchBrent() {
+      try {
+        var r = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/BZ=F?interval=1d&range=2d');
+        if (!r.ok) throw new Error('status ' + r.status);
+        var d      = await r.json();
+        var closes = d.chart.result[0].indicators.quote[0].close.filter(Boolean);
+        if (closes.length < 2) throw new Error('not enough data');
+        var cur  = closes[closes.length - 1];
+        var prev = closes[closes.length - 2];
+        var chg  = (cur - prev) / prev * 100;
+        return { label: 'BRENT', price: '$' + cur.toFixed(2),
+                 change: (chg >= 0 ? '+' : '') + chg.toFixed(1) + '%', changePositive: chg >= 0 };
+      } catch (_) {
+        // Нет CORS-доступа или API лежит — показываем явный прочерк
+        return { label: 'BRENT (n/a)', price: '—', change: null };
       }
     }
 
-    function clearTickerStale() {
-      var stale = tickerEl.querySelector('.ticker-stale');
-      if (stale) stale.remove();
-    }
-
-    function buildTickerNodes(cryptoData, rates) {
-      var fragment = document.createDocumentFragment();
-      var cryptos  = [
-        { id: 'bitcoin',  name: 'BTC' },
-        { id: 'ethereum', name: 'ETH' },
-        { id: 'solana',   name: 'SOL' }
-      ];
-
-      cryptos.forEach(function (c) {
-        if (!cryptoData[c.id]) return;
-        var price  = Number(cryptoData[c.id].usd);
-        var change = Number(cryptoData[c.id].usd_24h_change);
-        if (isNaN(price) || isNaN(change)) return;
-        var sign = change >= 0 ? '+' : '';
-        fragment.appendChild(
-          makePairSpan(c.name, '$' + price.toFixed(0), sign + change.toFixed(1) + '%', change >= 0)
-        );
-      });
+    function buildTickerNodes(cryptoData, rates, brent) {
+      var frag = document.createDocumentFragment();
+      [{ id: 'bitcoin', name: 'BTC' }, { id: 'ethereum', name: 'ETH' }, { id: 'solana', name: 'SOL' }]
+        .forEach(function (c) {
+          if (!cryptoData[c.id]) return;
+          var price  = Number(cryptoData[c.id].usd);
+          var change = Number(cryptoData[c.id].usd_24h_change);
+          if (isNaN(price) || isNaN(change)) return;
+          frag.appendChild(makePairSpan(c.name, '$' + price.toFixed(0),
+            (change >= 0 ? '+' : '') + change.toFixed(1) + '%', change >= 0));
+        });
 
       if (rates) {
-        if (!isNaN(Number(rates.eur))) {
-          fragment.appendChild(makePairSpan('EUR/USD', Number(rates.eur).toFixed(4), null, true));
-        }
-        if (!isNaN(Number(rates.gbp))) {
-          fragment.appendChild(makePairSpan('GBP/USD', Number(rates.gbp).toFixed(4), null, true));
-        }
+        if (!isNaN(+rates.eur)) frag.appendChild(makePairSpan('EUR/USD', (+rates.eur).toFixed(4), null));
+        if (!isNaN(+rates.gbp)) frag.appendChild(makePairSpan('GBP/USD', (+rates.gbp).toFixed(4), null));
       } else {
-        fragment.appendChild(makePairSpan('EUR/USD', '1.0850', null, true));
-        fragment.appendChild(makePairSpan('GBP/USD', '1.2740', null, true));
+        frag.appendChild(makePairSpan('EUR/USD', '1.0850', null));
+        frag.appendChild(makePairSpan('GBP/USD', '1.2740', null));
       }
 
-      fragment.appendChild(makePairSpan('BRENT', '$78.40', '+1.2%', true));
-      return fragment;
+      var b = brent || { label: 'BRENT (n/a)', price: '—', change: null };
+      frag.appendChild(makePairSpan(b.label, b.price, b.change, b.changePositive));
+      return frag;
     }
 
     async function updateTicker() {
       try {
-        var cryptoRes  = await fetch(
+        var cRes = await fetch(
           'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true'
         );
-        if (!cryptoRes.ok) throw new Error('Crypto API error: ' + cryptoRes.status);
-        var cryptoData = await cryptoRes.json();
+        if (!cRes.ok) throw new Error('Crypto API ' + cRes.status);
+        var cryptoData = await cRes.json();
 
         var rates = null;
         try {
-          var forexRes = await fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json');
-          if (forexRes.ok) {
-            var forexData = await forexRes.json();
-            rates = forexData.usd;
-          }
-        } catch (_) { /* fallback */ }
+          var fRes = await fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json');
+          if (fRes.ok) { var fd = await fRes.json(); rates = fd.usd; }
+        } catch (_) { /* fallback форекс */ }
+
+        var brent = await fetchBrent();
 
         var btc = cryptoData.bitcoin ? Number(cryptoData.bitcoin.usd).toFixed(0) : '';
-        var key = btc + (rates && rates.eur ? Number(rates.eur).toFixed(4) : '');
+        var key = btc + (rates && rates.eur ? (+rates.eur).toFixed(4) : '') + (brent ? brent.price : '');
 
         if (key !== _lastTickerKey) {
           _lastTickerKey = key;
-          var nodes = buildTickerNodes(cryptoData, rates);
-          var clone  = nodes.cloneNode(true);
+          var nodes = buildTickerNodes(cryptoData, rates, brent);
+          var clone = nodes.cloneNode(true);
           tickerEl.innerHTML = '';
           tickerEl.appendChild(nodes);
           tickerEl.appendChild(clone);
@@ -1185,12 +1144,11 @@
         clearTimeout(_tickerStaleTimer);
 
       } catch (err) {
-        console.error('Ticker error:', err);
+        console.error('[DPA] Ticker error:', err);
         if (_lastTickerKey === '') {
           tickerEl.innerHTML = '';
           var errSpan = document.createElement('span');
-          errSpan.className = 'pair';
-          errSpan.style.color = '#f87171';
+          errSpan.className = 'pair'; errSpan.style.color = '#f87171';
           errSpan.textContent = 'Market Data Unavailable';
           tickerEl.appendChild(errSpan);
         } else {
@@ -1202,22 +1160,19 @@
 
     updateTicker();
     var _tickerInterval = setInterval(updateTicker, 5 * 60 * 1000);
-
     window.addEventListener('pagehide', function () {
       clearInterval(_tickerInterval);
       clearTimeout(_tickerStaleTimer);
     });
 
-    // ─── 4. Форма подписки ────────────────────────────────────────────────────────
+    // ── Форма подписки — ФИХ #3: finally всегда разблокирует кнопку ─────────────
     var form           = document.getElementById('newsletterForm');
     var successMessage = document.getElementById('successMessage');
     var formErrorMsg   = document.getElementById('formErrorMsg');
     var emailInput     = document.getElementById('emailInput');
     var submitBtn      = form.querySelector('button[type="submit"]');
 
-    function isValidEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
-    }
+    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
 
     function showError(msg) {
       emailInput.classList.add('input-error');
@@ -1225,7 +1180,6 @@
       formErrorMsg.classList.add('visible');
       emailInput.focus();
     }
-
     function clearError() {
       emailInput.classList.remove('input-error');
       formErrorMsg.classList.remove('visible');
@@ -1235,31 +1189,30 @@
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       clearError();
+      var val = emailInput.value;
+      if (!val.trim())       { showError('Please enter your email address.'); return; }
+      if (!isValidEmail(val)) { showError('Please enter a valid email address.'); return; }
 
-      var emailVal = emailInput.value;
-      if (!emailVal.trim()) { showError('Please enter your email address.'); return; }
-      if (!isValidEmail(emailVal)) { showError('Please enter a valid email address.'); return; }
-
-      submitBtn.disabled = true;
+      submitBtn.disabled    = true;
       submitBtn.textContent = 'Sending…';
 
       try {
-        var response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
+        var res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
-        if (response.ok) {
+        if (res.ok) {
           form.classList.add('hidden');
           successMessage.classList.add('visible');
         } else {
           showError('Subscription error. Please try again.');
         }
-      } catch (error) {
+      } catch (_) {
         showError('Network error. Please check your connection.');
       } finally {
+        // ФИХ #3: кнопка разблокируется в любом случае, кроме успеха
         if (!successMessage.classList.contains('visible')) {
-          submitBtn.disabled = false;
+          submitBtn.disabled    = false;
           submitBtn.textContent = 'Subscribe';
         }
       }
@@ -1267,14 +1220,13 @@
 
     emailInput.addEventListener('input', clearError);
 
-    // ─── 5. Spotify player — ✅ ИСПРАВЛЕНИЕ CSP ──────────────────────────────────
+    // ── Spotify player — ФИХ CSP: addEventListener вместо onclick/onkeydown ──────
     function loadSpotify() {
       var facade    = document.getElementById('spotify-facade');
       var container = document.getElementById('spotify-real-container');
-
       if (container.querySelector('iframe')) return;
 
-      var iframe = document.createElement('iframe');
+      var iframe       = document.createElement('iframe');
       iframe.style.borderRadius = '12px';
       iframe.src     = 'https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0';
       iframe.width   = '100%';
@@ -1292,14 +1244,12 @@
     if (spotifyFacade) {
       spotifyFacade.addEventListener('click', loadSpotify);
       spotifyFacade.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          loadSpotify();
-        }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadSpotify(); }
       });
     }
 
   })();
   </script>
+
 </body>
 </html>
