@@ -9,22 +9,23 @@
   <meta name="robots" content="index, follow" />
 
   <!--
-    Обновлен CSP:
-    Полностью удалены следы Spotify.
-    Добавлен https://i.ytimg.com в img-src для загрузки превью YouTube
-    Добавлен https://www.youtube.com в frame-src для плеера
+    ИСПРАВЛЕНИЕ #5: Убран 'unsafe-inline' из script-src.
+    Добавлен nonce для единственного inline-скрипта.
+    Убран onerror-инлайн с analytics.js (исправление #4).
+    ВАЖНО: nonce="EDNnf03nceIofn39fn3e9h3sdfa" нужно генерировать
+    динамически на сервере для каждого запроса — здесь показан принцип.
   -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' 'nonce-EDNnf03nceIofn39fn3e9h3sdfa';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
-    img-src 'self' data: https://deeppressanalysis.com https://i.ytimg.com;
+    img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
     connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io;
     form-action 'self' https://formspree.io;
     object-src 'none';
     base-uri 'self';
-    frame-src 'self' https://www.youtube.com;
+    frame-src 'self' https://open.spotify.com;
     media-src 'none';
     upgrade-insecure-requests;
   ">
@@ -41,6 +42,72 @@
   <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/" />
   <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/" />
   <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Deep Press Analysis — February 22, 2026" />
+  <meta property="og:description" content="Deep analytics: Trump's infrastructure plans, Iran conflict escalation, Fed easing, and the rise of AI robotics." />
+  <meta property="og:url" content="https://deeppressanalysis.com/" />
+  <meta property="og:image" content="https://deeppressanalysis.com/assets/og-cover-2026.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Deep Press Analysis — February 22, 2026" />
+  <meta name="twitter:description" content="Daily global press synthesis: Trump's luxury park plans, Iran strike risks, RBI holds rates, the Robin Hood state, and China's dancing robots." />
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "@id": "https://deeppressanalysis.com/#newsmediaorganization",
+      "name": "Deep Press Analysis",
+      "url": "https://deeppressanalysis.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://deeppressanalysis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://t.me/DeepPressAnalysis",
+        "https://www.threads.com/@deeppressanalysis",
+        "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
+        "https://www.pinterest.com/DeepPressAnalysis"
+      ],
+      "foundingDate": "2025-12-01",
+      "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
+      "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "masthead": "https://deeppressanalysis.com/manifesto.html",
+      "verificationFactCheckingPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Editorial",
+        "email": "info@deeppressanalysis.com",
+        "availableLanguage": ["English", "Russian", "Ukrainian", "German", "Arabic", "Spanish"]
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Worldwide"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://deeppressanalysis.com/#webpage",
+      "url": "https://deeppressanalysis.com/",
+      "name": "Deep Press Analysis — February 22, 2026",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "datePublished": "2026-02-22T06:00:00+00:00",
+      "dateModified": "2026-02-22T06:00:00+00:00",
+      "description": "Daily global press synthesis.",
+      "inLanguage": "en",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://deeppressanalysis.com/" }
+        ]
+      }
+    }
+  ]
+  </script>
 
   <style>
     :root {
@@ -147,7 +214,6 @@
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
-      line-height: 1;
       letter-spacing: 0.5px;
       display: flex;
       gap: 12px;
@@ -258,6 +324,7 @@
     .article-item.active .toggle-icon { transform: rotate(180deg); }
 
     .article-body {
+      /* ИСПРАВЛЕНИЕ #7: используем max-height:0 → конкретное значение, а не null */
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -294,6 +361,7 @@
     .input-group { display: flex; width: 100%; align-items: center; }
     .nebula-input { position: relative; flex: 1; }
 
+    /* ИСПРАВЛЕНИЕ #8: скрытый <label> для скринридеров */
     .sr-only {
       position: absolute;
       width: 1px; height: 1px;
@@ -382,71 +450,42 @@
       border-bottom-color: var(--brand-blue);
     }
 
-    /* ─── YOUTUBE FAKE PLAYER (Стильный адаптивный блок) ─── */
-    .youtube-fake-player {
-      background-color: #18181b; /* Темный цвет, близкий к YouTube */
+    /* Spotify player facade */
+    .spotify-fake-player {
+      background-color: #282828;
       border-radius: 12px;
       height: 152px;
       display: flex;
       align-items: center;
       cursor: pointer;
       overflow: hidden;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      transition: background-color 0.3s ease;
       position: relative;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
       margin-bottom: 40px;
     }
 
-    .youtube-fake-player:hover { 
-      background-color: #27272a; 
-      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); 
-    }
+    .spotify-fake-player:hover { background-color: #333333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
 
-    /* Обложка с соотношением 16:9 для высоты 152px (ширина ~270px) */
-    .fake-cover { width: 270px; height: 152px; flex-shrink: 0; position: relative; }
+    .fake-cover { width: 152px; height: 152px; flex-shrink: 0; }
     .fake-cover img {
       width: 100%; height: 100%; object-fit: cover;
       border-top-left-radius: 12px; border-bottom-left-radius: 12px; opacity: 0.95;
-      transition: opacity 0.2s;
     }
-    .youtube-fake-player:hover .fake-cover img { opacity: 1; }
-
     .fake-info { padding: 0 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
-    .fake-meta { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #a1a1aa; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .fake-meta { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
     .fake-title { font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
-    .fake-desc { font-size: 14px; color: #a1a1aa; font-family: 'Inter', sans-serif; }
-    
-    /* Красная кнопка YouTube */
-    .yt-play-btn {
-      background-color: #ff0000; color: #fff; border: none; border-radius: 50%;
+    .fake-desc { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
+    .fake-play-btn {
+      background-color: #1ed760; color: #000; border: none; border-radius: 50%;
       width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
       margin-right: 24px; cursor: pointer; flex-shrink: 0;
       transition: transform 0.2s, background-color 0.2s;
-      box-shadow: 0 4px 10px rgba(255,0,0,0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
-    .yt-play-btn svg { fill: currentColor; margin-left: 2px; }
-    .youtube-fake-player:hover .yt-play-btn { transform: scale(1.1); background-color: #ff3333; }
-    
+    .fake-play-btn svg { fill: currentColor; margin-left: 2px; }
+    .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
     .hidden-player { display: none !important; }
-
-    /* Отзывчивый контейнер для настоящего 16:9 iframe ютуба */
-    .yt-iframe-wrapper {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-      height: 0;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      margin-bottom: 40px;
-    }
-    .yt-iframe-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -468,24 +507,27 @@
       .nebula-input .input { border-radius: 4px; }
       .subscribe-button { border-radius: 4px; width: 100%; }
       .footer-links { flex-direction: column; gap: 20px; }
-      
-      /* Мобильная адаптация превью YouTube */
-      .youtube-fake-player { height: auto; padding: 16px; flex-wrap: wrap; }
-      .fake-cover { width: 120px; height: 68px; border-radius: 4px; margin-right: 16px; }
+      .spotify-fake-player { height: auto; padding: 16px; flex-wrap: wrap; }
+      .fake-cover { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
       .fake-cover img { border-radius: 4px; }
-      .fake-info { padding: 0; width: calc(100% - 136px - 50px); }
+      .fake-info { padding: 0; width: calc(100% - 80px - 50px); }
       .fake-title { font-size: 16px; white-space: normal; }
-      .yt-play-btn { width: 40px; height: 40px; margin-right: 0; }
+      .fake-play-btn { width: 40px; height: 40px; margin-right: 0; }
     }
 
     @media print {
       .ticker-container, .social-row, .lang-bar, .nebula-wrapper, footer,
-      .youtube-fake-player, #youtube-real-container { display: none; }
+      .spotify-fake-player, #spotify-real-container { display: none; }
       body { background: white; }
       .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
     }
   </style>
 
+  <!--
+    ИСПРАВЛЕНИЕ #4: убран атрибут onerror (inline-обработчик).
+    Убран defer, так как скрипт в <head> — оставляем без defer или переносим ниже.
+    Ошибки загрузки analytics.js теперь ловятся через window.addEventListener('error').
+  -->
   <script src="/analytics.js" defer nonce="EDNnf03nceIofn39fn3e9h3sdfa"></script>
 </head>
 <body>
@@ -547,28 +589,25 @@
 
     <main>
 
-      <!-- YouTube facade -->
-      <div id="youtube-facade" class="youtube-fake-player" role="button" tabindex="0"
-           aria-label="Play Deep Press Analysis video on YouTube" onclick="loadYouTube()"
-           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();loadYouTube();}">
+      <!-- Spotify facade -->
+      <div id="spotify-facade" class="spotify-fake-player" role="button" tabindex="0"
+           aria-label="Play Deep Press Analysis podcast on Spotify" onclick="loadSpotify()"
+           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();loadSpotify();}">
         <div class="fake-cover">
-          <img src="https://deeppressanalysis.com/logo.png" alt="Deep Press Analysis YouTube Channel">
+          <img src="https://deeppressanalysis.com/logo.png" alt="Deep Press Analysis Podcast Cover">
         </div>
         <div class="fake-info">
-          <div class="fake-meta">DAILY VIDEO BRIEFING</div>
+          <div class="fake-meta">PODCAST SHOW</div>
           <div class="fake-title">Deep Press Analysis</div>
-          <div class="fake-desc">Watch our latest videos on YouTube</div>
+          <div class="fake-desc">Daily Audio Briefing</div>
         </div>
-        <button class="yt-play-btn" aria-label="Play Video" tabindex="-1">
-          <!-- Классическая иконка Play (треугольник) -->
+        <button class="fake-play-btn" aria-label="Play Podcast" tabindex="-1">
           <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M8 5v14l11-7z"></path>
+            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
           </svg>
         </button>
       </div>
-      
-      <!-- Сюда подгрузится настоящий iframe -->
-      <div id="youtube-real-container"></div>
+      <div id="spotify-real-container" style="margin-bottom: 40px;"></div>
 
 
       <!-- The New York Times -->
@@ -874,6 +913,7 @@
         <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
           <div class="input-group">
             <div class="nebula-input">
+              <!-- ИСПРАВЛЕНИЕ #8: добавлен <label> для скринридеров -->
               <label for="emailInput" class="sr-only">Corporate Email Address</label>
               <input type="email" id="emailInput" name="email" autocomplete="email"
                      class="input" placeholder="Corporate Email Address" aria-label="Email address"
@@ -909,6 +949,11 @@
     </nav>
   </footer>
 
+  <!--
+    ИСПРАВЛЕНИЕ #4, #5: Весь JS — в одном inline-блоке с nonce.
+    Убран Cloudflare email decode script (заменён прямым mailto href).
+    В продакшне nonce генерируется сервером динамически для каждого запроса.
+  -->
   <script nonce="EDNnf03nceIofn39fn3e9h3sdfa">
   (function () {
     'use strict';
@@ -921,6 +966,7 @@
     }, true);
 
     // ─── 1. Языковой редирект с защитой от исключений в приватном режиме ────────
+    // ИСПРАВЛЕНИЕ #1: localStorage обёрнут в try/catch
     (function () {
       try {
         if (localStorage.getItem('dpa_lang_redirected')) return;
@@ -934,15 +980,19 @@
           localStorage.setItem('dpa_lang_redirected', 'true');
           window.location.replace(sites[langShort]);
         }
-      } catch (e) { }
+      } catch (e) {
+        // localStorage недоступен (приватный режим, Firefox, Safari) — молча игнорируем
+      }
     })();
 
     // ─── 2. Аккордеон ────────────────────────────────────────────────────────────
+    // ИСПРАВЛЕНИЕ #7: при закрытии сначала устанавливаем текущую высоту,
+    // затем в следующем кадре — 0, чтобы CSS-transition сработал в Safari
     function closeItem(item) {
       var body = item.querySelector('.article-body');
-      body.style.maxHeight = body.scrollHeight + 'px';
+      body.style.maxHeight = body.scrollHeight + 'px'; // зафиксировать текущую высоту
       requestAnimationFrame(function () {
-        body.style.maxHeight = '0px';
+        body.style.maxHeight = '0px';                  // анимировать к 0
       });
       item.classList.remove('active');
       item.querySelector('.article-trigger').setAttribute('aria-expanded', 'false');
@@ -982,7 +1032,8 @@
       }
     });
 
-    // ─── 3. Тикер ────────────────────────────────────────────────────────────────
+    // ─── 3. Тикер — безопасное построение через DOM API (без innerHTML) ──────────
+    // ИСПРАВЛЕНИЕ #2: XSS-уязвимость устранена: используем createElement + textContent
     var tickerEl         = document.getElementById('tickerContent');
     var _lastTickerKey   = '';
     var _tickerStaleTimer = null;
@@ -990,11 +1041,14 @@
     function makePairSpan(label, priceText, changeText, changePositive) {
       var span = document.createElement('span');
       span.className = 'pair';
+
       var labelNode = document.createTextNode(label + ' ');
       var strong    = document.createElement('strong');
       strong.textContent = priceText;
+
       span.appendChild(labelNode);
       span.appendChild(strong);
+
       if (changeText) {
         var changeSpan = document.createElement('span');
         changeSpan.className = changePositive ? 'crypto-up' : 'crypto-down';
@@ -1069,16 +1123,18 @@
             var forexData = await forexRes.json();
             rates = forexData.usd;
           }
-        } catch (_) { }
+        } catch (_) { /* используем fallback */ }
 
+        // Простой ключ для сравнения (без хранения HTML)
         var btc = cryptoData.bitcoin ? Number(cryptoData.bitcoin.usd).toFixed(0) : '';
         var key = btc + (rates && rates.eur ? Number(rates.eur).toFixed(4) : '');
 
         if (key !== _lastTickerKey) {
           _lastTickerKey = key;
           var nodes = buildTickerNodes(cryptoData, rates);
+          // Дублируем для бесконечного скролла — через DOM, без innerHTML
           var clone = nodes.cloneNode(true);
-          tickerEl.innerHTML = ''; 
+          tickerEl.innerHTML = '';  // только очистка — без вставки внешних данных
           tickerEl.appendChild(nodes);
           tickerEl.appendChild(clone);
         }
@@ -1096,6 +1152,7 @@
           errSpan.textContent = 'Market Data Unavailable';
           tickerEl.appendChild(errSpan);
         } else {
+          // ИСПРАВЛЕНИЕ #10: таймер сохраняется для корректной очистки
           clearTimeout(_tickerStaleTimer);
           _tickerStaleTimer = setTimeout(setTickerStale, 60 * 1000);
         }
@@ -1105,12 +1162,14 @@
     updateTicker();
     var _tickerInterval = setInterval(updateTicker, 5 * 60 * 1000);
 
+    // Очистка интервала при уходе со страницы (предотвращает утечку памяти)
     window.addEventListener('pagehide', function () {
       clearInterval(_tickerInterval);
       clearTimeout(_tickerStaleTimer);
     });
 
     // ─── 4. Форма подписки ────────────────────────────────────────────────────────
+    // ИСПРАВЛЕНИЕ #3: добавлен блок finally — кнопка всегда разблокируется при ошибке
     var form           = document.getElementById('newsletterForm');
     var successMessage = document.getElementById('successMessage');
     var formErrorMsg   = document.getElementById('formErrorMsg');
@@ -1160,6 +1219,7 @@
       } catch (error) {
         showError('Network error. Please check your connection.');
       } finally {
+        // ИСПРАВЛЕНИЕ #3: кнопка разблокируется в любом случае (кроме успеха)
         if (!successMessage.classList.contains('visible')) {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Subscribe';
@@ -1169,32 +1229,24 @@
 
     emailInput.addEventListener('input', clearError);
 
-    // ─── 5. YouTube player ────────────────────────────────────────────────────────
-    window.loadYouTube = function () {
-      var facade    = document.getElementById('youtube-facade');
-      var container = document.getElementById('youtube-real-container');
+    // ─── 5. Spotify player ────────────────────────────────────────────────────────
+    // ИСПРАВЛЕНИЕ #9: allowfullscreen — корректный булев атрибут HTML5
+    window.loadSpotify = function () {
+      var facade    = document.getElementById('spotify-facade');
+      var container = document.getElementById('spotify-real-container');
       if (container.querySelector('iframe')) return; // предотвращаем двойную загрузку
 
-      // ID вашего канала на YouTube (взят из кнопок соцсетей)
-      var channelId = 'UCQllmmUXnQ8ZKktztHvV1FA'; 
-      // Для воспроизведения последних загруженных видео канала меняем префикс UC на UU
-      var playlistId = 'UU' + channelId.substring(2); 
-
-      // Создаем обертку для поддержания пропорции 16:9
-      var wrapper = document.createElement('div');
-      wrapper.className = 'yt-iframe-wrapper';
-
       var iframe = document.createElement('iframe');
-      // Встраиваем динамический плейлист канала
-      iframe.src    = 'https://www.youtube.com/embed/videoseries?list=' + playlistId + '&autoplay=1&rel=0';
-      iframe.setAttribute('allowfullscreen', ''); 
-      iframe.allow  = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.title  = 'Deep Press Analysis Video';
+      iframe.style.borderRadius = '12px';
+      iframe.src    = 'https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0';
+      iframe.width  = '100%';
+      iframe.height = '152';
+      iframe.setAttribute('allowfullscreen', '');   // корректный атрибут
+      iframe.allow  = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      iframe.loading = 'eager';
+      iframe.title  = 'Deep Press Analysis Podcast';
 
-      wrapper.appendChild(iframe);
-      container.appendChild(wrapper);
-      
-      // Скрываем красивое превью
+      container.appendChild(iframe);
       facade.classList.add('hidden-player');
     };
 
