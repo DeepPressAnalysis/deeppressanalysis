@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<html lang="uk" prefix="og: http://ogp.me/ns#">
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  Deep Press Analysis — index.html                                    ║
+  ║  ВАЖЛИВО: nonce в CSP та тегах <script> ПОВИНЕН генеруватися         ║
+  ║  сервером динамічно під час кожного запиту (Node/PHP/Python/etc.).   ║
+  ║  У шаблоні замініть «EDNnf03nceIofn39fn3e9h3sdfa» на %%NONCE%%       ║
+  ║  або еквівалент вашого шаблонізатора.                                ║
+  ║  Приклад Node.js:  crypto.randomBytes(16).toString('base64')         ║
+  ║  Приклад PHP:      base64_encode(random_bytes(16))                   ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+<!-- ФІКС #5: class="no-js" — JS видалить його під час завантаження -->
+<html lang="uk" class="no-js" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
-  <title>Deep Press Analysis — 10 березня 2026: Теракт у Нью-Йорку, Іран, нафта</title>
+  <title>Глибинний Аналіз Преси — 12 березня 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Щоденний глобальний прес-синтез: спроба теракту в Нью-Йорку, підготовка до війни з Іраном, стрибки цін на нафту, криза Medicaid та крипто-проєкти." />
-  <meta name="keywords" content="теракт Нью-Йорк, криза Medicaid, інвестиції НФЛ, Найджел Фараж, криптовалюта, ціни на нафту, Іран, токенізація акцій, Live Nation, Ілон Маск, розумний дім, кліматичні ризики" />
+  <meta name="description" content="Карта ризиків на 12 березня 2026: загроза блокади Ормузької протоки, аномалії фізичного та паперового ринків нафти, ризики міхура ШІ та деградація аерокосмічної логістики." />
   <meta name="author" content="Deep Press Analysis" />
   <meta name="robots" content="index, follow" />
 
-  <!--
-    ФИХ #2: убран 'unsafe-inline' из script-src.
-    Добавлен nonce для единственного inline-блока.
-    ВАЖНО: nonce должен генерироваться сервером динамически при каждом запросе.
-    Пример Node.js: crypto.randomBytes(16).toString('base64')
-    Пример PHP:     base64_encode(random_bytes(16))
-  -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'nonce-RuPressNonce2026abc';
+    script-src 'self' 'nonce-EDNnf03nceIofn39fn3e9h3sdfa';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
-    img-src 'self' data: https://deeppressanalysis.com;
-    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io;
+    img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
+    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
     form-action 'self' https://formspree.io;
     object-src 'none';
     base-uri 'self';
-    frame-src 'none';
+    frame-src 'self' https://open.spotify.com;
     media-src 'none';
     upgrade-insecure-requests;
   ">
@@ -35,78 +39,77 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="canonical" href="https://deeppressanalysis.com/ua/100326.html" />
-  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/100326.html" />
-  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/en/100326.html" />
-  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/100326.html" />
-  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/100326.html" />
-  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/100326.html" />
-  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/100326.html" />
-  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/100326.html" />
+  <link rel="canonical" href="https://deeppressanalysis.com/ua/" />
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/" />
+  <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/" />
+  <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/" />
+  <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/" />
+  <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/" />
+  <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/" />
 
-  <meta property="og:type"        content="article" />
-  <meta property="og:title"       content="Deep Press Analysis — 10 березня 2026: Теракт у Нью-Йорку, Іран, нафта" />
-  <meta property="og:description" content="Щоденний глобальний прес-синтез: спроба теракту в Нью-Йорку, підготовка до війни з Іраном, стрибки цін на нафту, криза Medicaid та крипто-проєкти." />
-  <meta property="og:url"         content="https://deeppressanalysis.com/ua/100326.html" />
-  <meta property="og:image"       content="https://deeppressanalysis.com/assets/og-cover-2026.jpg" />
-  <meta property="og:locale"      content="uk_UA" />
-  <meta name="twitter:card"       content="summary_large_image" />
-  <meta name="twitter:title"      content="Deep Press Analysis — 10 березня 2026: Теракт у Нью-Йорку, Іран, нафта" />
-  <meta name="twitter:description" content="Щоденний глобальний прес-синтез: спроба теракту в Нью-Йорку, підготовка до війни з Іраном, стрибки цін на нафту, криза Medicaid та крипто-проєкти." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Глибинний Аналіз Преси — 12 березня 2026" />
+  <meta property="og:description" content="Карта ризиків на 12 березня 2026: загроза блокади Ормузької протоки, аномалії фізичного та паперового ринків нафти, ризики міхура ШІ та деградація аерокосмічної логістики." />
+  <meta property="og:url" content="https://deeppressanalysis.com/ua/" />
+  <meta property="og:image" content="https://deeppressanalysis.com/assets/og-cover-2026.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Глибинний Аналіз Преси — 12 березня 2026" />
+  <meta name="twitter:description" content="Карта ризиків на 12 березня 2026: загроза блокади Ормузької протоки, аномалії фізичного та паперового ринків нафти, ризики міхура ШІ та деградація аерокосмічної логістики." />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "NewsMediaOrganization",
-        "@id": "https://deeppressanalysis.com/#newsmediaorganization",
-        "name": "Deep Press Analysis",
-        "url": "https://deeppressanalysis.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://deeppressanalysis.com/logo.png",
-          "width": 512,
-          "height": 512
-        },
-        "sameAs": [
-          "https://t.me/DeepPressAnalysis",
-          "https://www.threads.com/@deeppressanalysis",
-          "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
-          "https://www.pinterest.com/DeepPressAnalysis"
-        ],
-        "foundingDate": "2025-12-01",
-        "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
-        "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
-        "masthead": "https://deeppressanalysis.com/manifesto.html",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "Editorial",
-          "email": "info@deeppressanalysis.com"
-        },
-        "areaServed": {
-          "@type": "AdministrativeArea",
-          "name": "Worldwide"
-        }
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "@id": "https://deeppressanalysis.com/ua/#newsmediaorganization",
+      "name": "Deep Press Analysis",
+      "url": "https://deeppressanalysis.com/ua/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://deeppressanalysis.com/logo.png",
+        "width": 512,
+        "height": 512
       },
-      {
-        "@type": "NewsArticle",
-        "headline": "Deep Press Analysis — 10 березня 2026: Теракт у Нью-Йорку, Іран, нафта",
-        "datePublished": "2026-03-10T05:00:00Z",
-        "dateModified": "2026-03-10T05:00:00Z",
-        "description": "Щоденний глобальний прес-синтез: спроба теракту в Нью-Йорку, підготовка до війни з Іраном, стрибки цін на нафту, криза Medicaid та крипто-проєкти.",
-        "author": {
-          "@type": "Organization",
-          "name": "Deep Press Analysis"
-        },
-        "publisher": {
-          "@id": "https://deeppressanalysis.com/#newsmediaorganization"
-        }
+      "sameAs": [
+        "https://t.me/DeepPressAnalysis",
+        "https://www.threads.com/@deeppressanalysis",
+        "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
+        "https://www.pinterest.com/DeepPressAnalysis"
+      ],
+      "foundingDate": "2025-12-01",
+      "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
+      "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "masthead": "https://deeppressanalysis.com/manifesto.html",
+      "verificationFactCheckingPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Editorial",
+        "email": "info@deeppressanalysis.com",
+        "availableLanguage": ["English","Ukrainian","German","Arabic","Spanish"]
+      },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Worldwide" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://deeppressanalysis.com/ua/#webpage",
+      "url": "https://deeppressanalysis.com/ua/",
+      "name": "Глибинний Аналіз Преси — 12 березня 2026",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ua/#newsmediaorganization" },
+      "datePublished": "2026-03-12T06:00:00+00:00",
+      "dateModified":  "2026-03-12T06:00:00+00:00",
+      "description": "Карта ризиків на 12 березня 2026: загроза блокади Ормузької протоки, аномалії фізичного та паперового ринків нафти, ризики міхура ШІ та деградація аерокосмічної логістики.",
+      "inLanguage": "uk",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Головна", "item": "https://deeppressanalysis.com/ua/" }
+        ]
       }
-    ]
-  }
+    }
+  ]
   </script>
-  
+
   <style>
     :root {
       --bg-body:        #F2F4F7;
@@ -128,15 +131,16 @@
       font-family: 'Inter', system-ui, sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 0;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       font-family: 'Libre Baskerville', serif;
       color: var(--brand-navy);
       line-height: 1.3;
     }
-    a { text-decoration: none; color: inherit; transition: 0.2s; }
+
+    /* ФІКС #6: transition: all → конкретні властивості (продуктивність) */
+    a { text-decoration: none; color: inherit; transition: color 0.2s, opacity 0.2s; }
 
     *:focus-visible {
       outline: 3px solid var(--brand-blue);
@@ -144,6 +148,7 @@
       border-radius: 3px;
     }
 
+    /* ─── Тікер ─────────────────────────────────────────────────────────── */
     .ticker-container {
       background: var(--brand-navy);
       color: #fff;
@@ -154,16 +159,11 @@
       white-space: nowrap;
       height: 36px;
     }
-
-    /* ФИХ #3: display:inline-flex (как в EN) + translateX(-50%) для плавного бесконечного скролла.
-       Оригинальный код использовал inline-block + -100% с тройным дублированием —
-       это создавало рывок при перезапуске анимации. */
     .ticker-content {
       display: inline-flex;
       animation: ticker 80s linear infinite;
     }
     .ticker-content:hover { animation-play-state: paused; }
-
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     .pair        { margin-right: 2.5rem; font-family: 'Inter', monospace; letter-spacing: -0.5px; }
@@ -171,11 +171,16 @@
     .crypto-up   { color: #34d399; }
     .crypto-down { color: #f87171; }
 
-    .container {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 0 20px;
+    /* ─── ФІКС #5: no-js — статті видно без JS ───────────────────────────── */
+    .no-js .article-body {
+      max-height: none !important;
+      opacity: 1    !important;
+      visibility: visible !important;
     }
+    .no-js .toggle-icon { display: none; }
+
+    /* ─── Layout ─────────────────────────────────────────────────────────── */
+    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
 
     .top-toolbar {
       display: flex;
@@ -196,13 +201,9 @@
       background: #fff;
       border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      transition: 0.2s;
-      overflow: hidden;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
     }
-    .social-btn svg, .social-btn img {
-      width: 16px; height: 16px;
-      fill: currentColor; display: block; object-fit: contain;
-    }
+    .social-btn img { width: 16px; height: 16px; object-fit: contain; display: block; }
     .social-btn:hover { background: var(--brand-navy); color: #fff; border-color: var(--brand-navy); }
 
     .lang-bar {
@@ -210,36 +211,33 @@
       text-transform: uppercase; letter-spacing: 0.5px;
       display: flex; gap: 12px;
     }
-    .lang-link        { color: #9CA3AF; transition: 0.2s; }
+    .lang-link        { color: #9CA3AF; transition: color 0.2s; }
     .lang-link:hover  { color: var(--brand-blue); }
     .lang-link.active {
       color: var(--brand-navy); font-weight: 800;
       border-bottom: 2px solid var(--brand-blue); padding-bottom: 2px;
     }
 
+    /* ─── Header ─────────────────────────────────────────────────────────── */
     header {
       text-align: center;
       margin-bottom: 50px;
       padding-bottom: 30px;
       border-bottom: 1px solid #d1d5db;
     }
-
     .meta-issue {
       font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
       color: var(--text-secondary); margin-bottom: 10px;
     }
-
     h1.site-title {
       font-size: 48px; font-weight: 700;
       letter-spacing: -0.02em; margin-bottom: 8px;
     }
-
     .subtitle {
       font-family: 'Inter', sans-serif;
       font-size: 14px; color: var(--text-secondary);
       text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
     }
-
     .briefing-summary {
       background: #fff; border: 1px solid var(--border-color);
       padding: 20px; margin-top: 30px; text-align: left;
@@ -252,20 +250,21 @@
       text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;
     }
 
+    /* ─── Outlets ────────────────────────────────────────────────────────── */
     .outlet-section {
       background: var(--bg-paper); border: 1px solid var(--border-color);
       margin-bottom: 30px; border-radius: 4px; overflow: hidden;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
     }
-
     .outlet-header {
       background: #f8fafc; padding: 15px 25px;
       border-bottom: 1px solid var(--border-color);
       display: flex; justify-content: space-between; align-items: center;
     }
-    .outlet-header h2  { font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
-    .outlet-tags       { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; }
+    .outlet-header h2 { font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
+    .outlet-tags      { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; }
 
+    /* ─── Accordion ──────────────────────────────────────────────────────── */
     .article-item            { border-bottom: 1px solid var(--border-color); }
     .article-item:last-child { border-bottom: none; }
 
@@ -284,19 +283,18 @@
     .art-title {
       font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
       color: var(--text-primary); flex-grow: 1; padding-right: 20px;
+      transition: color 0.2s;
     }
     .toggle-icon {
       color: var(--text-secondary); font-size: 12px; width: 20px; text-align: center;
       transition: transform 0.3s ease;
     }
-
     .article-item.active .art-title  { color: var(--brand-blue); }
     .article-item.active .toggle-icon { transform: rotate(180deg); }
-    .article-item.active             { background: #fff; }
 
     .article-body {
       max-height: 0; overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.4s;
       background: #fff; opacity: 0; visibility: hidden;
     }
     .article-item.active .article-body { opacity: 1; visibility: visible; }
@@ -306,6 +304,7 @@
       color: var(--text-secondary); max-width: 85ch; line-height: 1.7;
     }
 
+    /* ─── Newsletter ─────────────────────────────────────────────────────── */
     .nebula-wrapper {
       background-color: var(--bg-body); width: 100%;
       padding: 60px 0; margin-top: 60px;
@@ -316,19 +315,33 @@
       font-family: 'Libre Baskerville', serif; margin-bottom: 10px; font-size: 24px;
     }
     .form-container          { display: flex; justify-content: center; padding: 20px; }
-    .newsletter-form-wrapper { width: 100%; max-width: 500px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .input-group             { display: flex; width: 100%; align-items: center; }
-    .nebula-input            { position: relative; flex: 1; }
+    .newsletter-form-wrapper {
+      width: 100%; max-width: 500px;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .input-group  { display: flex; width: 100%; align-items: center; }
+    .nebula-input { position: relative; flex: 1; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
 
     .nebula-input .input {
       width: 100%; padding: 12px 12px 12px 40px;
-      border: 1px solid #cbd5e1; background: #FFFFFF;
+      border: 1px solid #cbd5e1; background: #fff;
       color: var(--brand-navy); font-size: 16px; outline: none;
-      border-radius: 4px 0 0 4px; transition: 0.2s;
+      border-radius: 4px 0 0 4px; transition: border-color 0.2s;
     }
-    .nebula-input .input:focus { border-color: var(--brand-blue); z-index: 2; position: relative; }
+    .nebula-input .input:focus         { border-color: var(--brand-blue); z-index: 2; position: relative; }
+    .nebula-input .input.input-error   { border-color: var(--down-color); }
 
-    .email-icon { position: absolute; top: 50%; left: 12px; transform: translateY(-50%); width: 20px; height: 20px; fill: #94a3b8; pointer-events: none; }
+    .email-icon {
+      position: absolute; top: 50%; left: 12px; transform: translateY(-50%);
+      width: 20px; height: 20px; fill: #94a3b8; pointer-events: none;
+      transition: fill 0.2s;
+    }
     .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
 
     .subscribe-button {
@@ -336,9 +349,16 @@
       color: #fff; background: var(--brand-navy);
       border: 1px solid var(--brand-navy); border-radius: 0 4px 4px 0;
       cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
-      transition: all 0.2s;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .subscribe-button:hover { background: var(--brand-blue); border-color: var(--brand-blue); }
+    .subscribe-button:disabled          { opacity: 0.7; cursor: not-allowed; }
+    .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
+
+    .form-error-msg {
+      display: none; color: var(--down-color);
+      font-size: 13px; margin-top: 6px; text-align: left; width: 100%;
+    }
+    .form-error-msg.visible { display: block; }
 
     .success-message           { display: none; text-align: center; color: var(--brand-navy); }
     .success-message.visible   { display: block; }
@@ -347,20 +367,54 @@
     .checkmark-circle { stroke: var(--up-color); stroke-width: 2; fill: none; }
     .checkmark-check  { stroke: var(--up-color); stroke-width: 2; }
 
+    /* ─── Footer ─────────────────────────────────────────────────────────── */
     footer {
       text-align: center; margin-top: 60px;
-      padding-top: 30px; padding-bottom: 60px;
-      border-top: 1px solid var(--border-color);
+      padding: 30px 0 60px; border-top: 1px solid var(--border-color);
       color: var(--text-secondary); font-size: 13px;
     }
     .footer-links { margin-top: 35px; display: flex; justify-content: center; gap: 40px; }
     .btn-text {
       font-weight: 900; text-transform: uppercase; font-size: 18px; letter-spacing: 1px;
       color: var(--brand-navy); border-bottom: 2px solid transparent; padding-bottom: 4px;
-      transition: all 0.2s ease;
+      transition: color 0.2s, border-color 0.2s;
     }
     .btn-text:hover { color: var(--brand-blue); border-bottom-color: var(--brand-blue); }
 
+    /* ─── Spotify facade ─────────────────────────────────────────────────── */
+    .spotify-fake-player {
+      background-color: #282828; border-radius: 12px; height: 152px;
+      display: flex; align-items: center; cursor: pointer; overflow: hidden;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+    .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
+
+    .fake-cover         { width: 152px; height: 152px; flex-shrink: 0; }
+    .fake-cover img     {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.95;
+      border-top-left-radius: 12px; border-bottom-left-radius: 12px;
+    }
+    .fake-info          {
+      padding: 0 24px; flex-grow: 1;
+      display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+    }
+    .fake-meta   { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .fake-title  { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
+    .fake-desc   { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
+    .fake-play-btn {
+      background-color: #1ed760; color: #000; border: none; border-radius: 50%;
+      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+      margin-right: 24px; cursor: pointer; flex-shrink: 0;
+      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .fake-play-btn svg { fill: currentColor; margin-left: 2px; }
+    .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
+    .hidden-player { display: none !important; }
+
+    /* ─── Reduced motion ─────────────────────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -371,384 +425,348 @@
       .ticker-content { animation: none; }
     }
 
+    /* ─── Mobile ─────────────────────────────────────────────────────────── */
     @media (max-width: 600px) {
-      h1.site-title     { font-size: 32px; }
-      .top-toolbar      { flex-direction: column-reverse; gap: 20px; align-items: center; }
-      .lang-bar         { flex-wrap: wrap; justify-content: center; }
-      .body-inner       { padding-left: 25px; }
-      .outlet-tags      { display: none; }
-      .input-group      { flex-direction: column; gap: 10px; }
-      .nebula-input .input { border-radius: 4px; }
-      .subscribe-button { border-radius: 4px; width: 100%; }
-      .footer-links     { flex-direction: column; gap: 20px; }
+      h1.site-title    { font-size: 32px; }
+      .top-toolbar     { flex-direction: column-reverse; gap: 20px; align-items: center; }
+      .lang-bar        { flex-wrap: wrap; justify-content: center; }
+      .body-inner      { padding-left: 25px; }
+      .outlet-tags     { display: none; }
+      .input-group     { flex-direction: column; gap: 10px; }
+      .nebula-input .input  { border-radius: 4px; }
+      .subscribe-button     { border-radius: 4px; width: 100%; }
+      .footer-links    { flex-direction: column; gap: 20px; }
+      .spotify-fake-player  { height: auto; padding: 16px; flex-wrap: wrap; }
+      .fake-cover      { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
+      .fake-cover img  { border-radius: 4px; }
+      .fake-info       { padding: 0; width: calc(100% - 80px - 50px); }
+      .fake-title      { font-size: 16px; white-space: normal; }
+      .fake-play-btn   { width: 40px; height: 40px; margin-right: 0; }
     }
 
+    /* ─── Print ──────────────────────────────────────────────────────────── */
     @media print {
-      .ticker-container, .social-row, .lang-bar, .nebula-wrapper, footer { display: none; }
+      .ticker-container, .social-row, .lang-bar,
+      .nebula-wrapper, footer, .spotify-fake-player,
+      #spotify-real-container { display: none; }
       body { background: white; }
       .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
     }
   </style>
 
-  <script src="/analytics.js" defer nonce="RuPressNonce2026abc"></script>
+  <!-- ФІКС #2: defer — analytics.js не блокує рендер сторінки -->
+  <script src="/analytics.js" defer nonce="EDNnf03nceIofn39fn3e9h3sdfa"></script>
 </head>
-<body>
 
-  <aside aria-label="Котирування ринків у реальному часі" aria-live="off">
+<body>
+  <noscript>
+    <style>
+      .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
+      .toggle-icon  { display: none; }
+    </style>
+  </noscript>
+
+  <aside aria-label="Live market data ticker" aria-live="off">
     <div class="ticker-container">
       <div class="ticker-content" id="tickerContent">
         <span style="padding-left:20px;">Завантаження ринкових даних…</span>
       </div>
-    </div>
+     </div>
   </aside>
 
   <div class="container">
 
     <div class="top-toolbar">
-      <nav class="lang-bar" aria-label="Вибір мови">
-        <a href="/ua/100326.html" class="lang-link active" hreflang="uk" aria-current="page" aria-label="Українська версія">UA</a>
-        <a href="/en/100326.html" class="lang-link" hreflang="en" aria-label="English version">EN</a>
-        <a href="/es/100326.html" class="lang-link" hreflang="es" aria-label="Versión en español">ES</a>
-        <a href="/ar/100326.html" class="lang-link" hreflang="ar" aria-label="النسخة العربية">AR</a>
-        <a href="/ru/100326.html" class="lang-link" hreflang="ru" aria-label="RU версія">RU</a>
-        <a href="/de/100326.html" class="lang-link" hreflang="de" aria-label="Deutsche Version">DE</a>
+      <nav class="lang-bar" aria-label="Language selection">
+        <a href="/ua/" class="lang-link active" hreflang="uk" aria-current="page" aria-label="Ukrainian version">UA</a>
+        <a href="/"    class="lang-link" hreflang="en" aria-label="English version">EN</a>
+        <a href="/es/" class="lang-link" hreflang="es" aria-label="Spanish version">ES</a>
+        <a href="/ar/" class="lang-link" hreflang="ar" aria-label="Arabic version">AR</a>
+        <a href="/de/" class="lang-link" hreflang="de" aria-label="German version">DE</a>
       </nav>
 
-      <nav class="social-row" aria-label="Соціальні мережі">
-        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Написати нам">
-          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16" />
+      <nav class="social-row" aria-label="Social media links">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Send email to Deep Press Analysis">
+          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
         </a>
-        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Наш Telegram-канал">
-          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16" />
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Visit our Telegram channel">
+          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
         </a>
-        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Наш профіль у Threads">
-          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16" />
+        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Visit our Threads profile">
+          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16">
         </a>
-        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Наш YouTube-канал">
-          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16" />
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Visit our YouTube channel">
+          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
         </a>
       </nav>
     </div>
 
     <header>
-      <div class="meta-issue">ТОМ 26 • ВИПУСК 69 • <time datetime="2026-03-10">10 БЕРЕЗНЯ 2026</time></div>
-      <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
+      <div class="meta-issue">
+        ТОМ 26 • ВИПУСК 65 • <time datetime="2026-03-12">12 БЕРЕЗНЯ 2026</time>
+      </div>
+      <h1 class="site-title">ГЛИБИННИЙ АНАЛІЗ ПРЕСИ</h1>
       <div class="subtitle">Щоденний синтез провідних міжнародних видань</div>
       <div class="briefing-summary">
-        <p><strong>У фокусі сьогодні:</strong> Спроба теракту в Нью-Йорку, підготовка до війни з Іраном, стрибки цін на нафту, криза контрактів Medicaid, токенізація акцій та скасування звільнень Ілона Маска.</p>
+        <p><strong>Сьогодні у фокусі:</strong> Загроза блокади Ормузької протоки та атаки на бази США, колосальний розрив між фізичним і паперовим ринками нафти, інституціоналізація наступальних кібервійн, ризики розриву оціночного міхура ШІ та деградація аерокосмічної логістики.</p>
       </div>
     </header>
 
     <main>
 
-      <!-- ── NEW YORK POST ──────────────────────────────────────── -->
+      <!-- Spotify facade.
+           ФІКС Spotify CSP: onclick/onkeydown видалені з HTML-атрибутів.
+           Обробники додаються через addEventListener в JS-блоці з nonce. -->
+      <div id="spotify-facade" class="spotify-fake-player"
+           role="button" tabindex="0"
+           aria-label="Play Deep Press Analysis podcast on Spotify">
+        <div class="fake-cover">
+          <img src="https://deeppressanalysis.com/logo.png" alt="Deep Press Analysis Podcast Cover">
+        </div>
+        <div class="fake-info">
+          <div class="fake-meta">ПОДКАСТ</div>
+          <div class="fake-title">Глибинний Аналіз Преси</div>
+          <div class="fake-desc">Щоденний аудіобрифінг</div>
+        </div>
+        <button class="fake-play-btn" aria-label="Play Podcast" tabindex="-1">
+          <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/>
+          </svg>
+        </button>
+      </div>
+      <div id="spotify-real-container" style="margin-bottom:40px;"></div>
+
+      <!-- ── SECTION 1: GLOBAL MACRO & GEOPOLITICS ──────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>NEW YORK POST</h2>
-          <div class="outlet-tags">Теракт у Нью-Йорку • Криза Medicaid • Спортивні інвестиції</div>
+          <h2>Глобальне Макро та Геополітика</h2>
+          <div class="outlet-tags">Енергетика • Близький Схід • Ланцюги Постачання • Кібервійна</div>
         </div>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-nyp-01" aria-expanded="false" aria-controls="art-nyp-01">
+          <button class="article-trigger" id="btn-sec1-01" aria-expanded="false" aria-controls="art-sec1-01">
             <span class="art-idx">01</span>
-            <span class="art-title">Терористи планували масові жертви біля резиденції мера</span>
+            <span class="art-title">Блокада Ормузької протоки та атаки на бази США</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-nyp-01" role="region" aria-labelledby="btn-nyp-01">
+          <div class="article-body" id="art-sec1-01" role="region" aria-labelledby="btn-sec1-01">
             <div class="body-inner">
-              Арешт підозрюваних, які присягнули на вірність ІДІЛ і планували теракт біля резиденції мера Нью-Йорка, свідчить про серйозні прогалини у внутрішній безпеці США. Цей інцидент стає потужним політичним інструментом для консервативних сил, які вимагатимуть збільшення фінансування поліції та розширення повноважень спецслужб. Для адміністрації Трампа це ідеальний привід для виправдання жорсткої міграційної політики та посилення внутрішнього нагляду. Інституційні ризики полягають у можливій радикалізації суспільного дискурсу та зростанні напруженості у великих містах. Ринки технологій безпеки та приватних військових компаній, імовірно, відреагують зростанням котирувань на тлі очікувань нових державних контрактів. Водночас місцева влада Нью-Йорка стикається з кризою довіри, що може вплинути на розподіл муніципальних бюджетів у майбутньому. Посилення терористичної загрози також може негативно вплинути на сектор комерційної нерухомості в мегаполісах, оскільки корпорації переглядатимуть стандарти безпеки. Геополітично це посилює позиції тих, хто виступає за збереження військової присутності США на Близькому Сході. Відсутність успішного теракту демонструє ефективність федеральних структур, але сам факт підготовки вказує на наявність сплячих осередків. Інвесторам варто звернути увагу на компанії, що займаються кібербезпекою та аналізом великих даних для превентивного виявлення загроз. Загалом, кейс легітимізує подальшу мілітаризацію внутрішніх правоохоронних органів. Це також може стати тригером для перегляду федеральних грантів на безпеку для стратегічних об'єктів.
+              <strong>[Що змінилося]:</strong> Іран та КВІР погрожують перекрити протоку і завдали ракетних ударів по базах США в Катарі та Іраку у відповідь на масовані бомбардування.<br><br>
+              <strong>[Чому це важливо]:</strong> Протока контролює 20% світового постачання нафти та СПГ; фізичне перекриття неможливо компенсувати фінансовими інструментами.<br><br>
+              <strong>[Посилення ризику]:</strong> Глобальний енергетичний шок, руйнування ланцюгів постачання та різкий сплеск інфляції.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-nyp-02" aria-expanded="false" aria-controls="art-nyp-02">
+          <button class="article-trigger" id="btn-sec1-02" aria-expanded="false" aria-controls="art-sec1-02">
             <span class="art-idx">02</span>
-            <span class="art-title">Медичний гігант втрачає контракти через системні збої</span>
+            <span class="art-title">Розрив між фізичним ринком нафти та паперовими контрактами</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-nyp-02" role="region" aria-labelledby="btn-nyp-02">
+          <div class="article-body" id="art-sec1-02" role="region" aria-labelledby="btn-sec1-02">
             <div class="body-inner">
-              Ситуація навколо компанії Public Partnerships LLC, що отримала контракт на 11 мільярдів доларів у системі Medicaid Нью-Йорка, розкриває глибоку кризу в секторі державного медичного страхування. Втрата компанією контрактів у шести інших штатах свідчить про системні операційні збої та нездатність впоратися з масштабуванням послуг. Для інвесторів у сектор охорони здоров'я це чіткий сигнал про високі регуляторні та репутаційні ризики, пов'язані з монополізацією державних послуг. Політично цей скандал б'є по керівництву штату, яке ухвалило рішення про передачу контракту без належного аудиту. Це може спровокувати масштабні антикорупційні розслідування на федеральному рівні, що призведе до перерозподілу ринку медичних послуг. Конкуренти отримають вікно можливостей для агресивного лобіювання своїх інтересів з метою перехоплення мільярдних бюджетів. На інституційному рівні ця криза підриває довіру до моделі приватизації соціальних послуг, змушуючи регуляторів посилювати контроль. Фінансові наслідки для самої компанії можуть бути катастрофічними, враховуючи можливі штрафи та судові позови від пацієнтів і держави. Водночас це відкриває шлях для технологічних стартапів у сфері медичного адміністрування, які пропонують більш прозорі рішення. Скандал також загострює дискусію щодо ефективності розподілу коштів платників податків у соціальній сфері. Зі стратегічної точки зору, ринок вимагатиме жорсткіших критеріїв відбору підрядників для державних програм. Це неминуче призведе до консолідації галузі та витіснення менш ефективних гравців.
+              <strong>[Що змінилося]:</strong> Нафтові ф'ючерси впали на 12% після видаленого твіту Міністра енергетики США та ринкових очікувань політичного завершення війни.<br><br>
+              <strong>[Чому це важливо]:</strong> Ринки ігнорують реальне фізичне вузьке місце (Ормуз) і переоцінюють політичний шум, створюючи масивну цінову аномалію.<br><br>
+              <strong>[Посилення ризику]:</strong> Раптова і жорстка переоцінка активів (маржин-коли) для алгоритмічних і сировинних трейдерів після зближення ф'ючерсів зі спотовими цінами.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-nyp-03" aria-expanded="false" aria-controls="art-nyp-03">
+          <button class="article-trigger" id="btn-sec1-03" aria-expanded="false" aria-controls="art-sec1-03">
             <span class="art-idx">03</span>
-            <span class="art-title">Спортивні інвестиції як інструмент фінансової оптимізації</span>
+            <span class="art-title">Інституціоналізація наступальних кібероперацій (Cybercom)</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-nyp-03" role="region" aria-labelledby="btn-nyp-03">
+          <div class="article-body" id="art-sec1-03" role="region" aria-labelledby="btn-sec1-03">
             <div class="body-inner">
-              Підписання контракту на 36 мільйонів доларів у Національній футбольній лізі є не лише спортивним, але й стратегічним бізнес-рішенням. Такі угоди відображають загальну тенденцію до капіталізації спортивних франшиз та їх перетворення на високоліквідні активи. Для власників клубів агресивна інвестиційна політика слугує інструментом підвищення оціночної вартості бренду перед можливим продажем або залученням нових партнерів. З фінансової точки зору, ці витрати часто оптимізуються через складні механізми розподілу доходів ліги та податкові пільги. Ринок телевізійних прав залишається головним драйвером таких витрат, стимулюючи клуби до постійного оновлення зіркового капіталу. Для інвесторів у спортивну інфраструктуру це сигнал про збереження високого рівня ліквідності в індустрії розваг. Водночас довгострокові багатомільйонні контракти несуть інституційні ризики, пов'язані з травмами гравців або зміною кон'юнктури ринку. Профспілки гравців використовують подібні прецеденти для лобіювання кращих умов колективних договорів, що збільшує операційні витрати франшиз. Глобально це підтверджує стійкість американського ринку спортивного ентертейнменту навіть на тлі макроекономічної нестабільності. Розподіл капіталу на користь ключових гравців створює дисбаланс у зарплатних фондах, вимагаючи жорсткого фінансового менеджменту. Це також стимулює розвиток суміжних індустрій, таких як спортивна аналітика, страхування ризиків та маркетинг. У довгостроковій перспективі подібні інвестиції виправдовуються лише за умови успішних виступів команди та зростання продажів атрибутики.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-nyp-04" aria-expanded="false" aria-controls="art-nyp-04">
-            <span class="art-idx">04</span>
-            <span class="art-title">Масштабна перебудова захисту команди: стратегія управління активами</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-nyp-04" role="region" aria-labelledby="btn-nyp-04">
-            <div class="body-inner">
-              Одночасне залучення шести нових гравців для посилення захисту команди ілюструє агресивний підхід до управління спортивними активами в умовах високої конкуренції. Цей крок свідчить про готовність менеджменту йти на значні фінансові ризики заради швидкого досягнення результату. Логіка таких дій полягає у спробі максимізувати повернення інвестицій через негайне покращення турнірного становища. Для спортивного ринку це індикатор високої активності та готовності франшиз переглядати стратегії розвитку в режимі реального часу. Інституційним інвесторам варто розглядати це як модель кризового менеджменту, де швидка заміна ключових елементів системи вважається більш ефективною, ніж поступова еволюція. Внутрішньокомандні ризики пов'язані з можливою втратою корпоративної ідентичності та проблемами з інтеграцією нових ресурсів. З економічної точки зору, масові трансфери стимулюють короткостроковий сплеск інтересу спонсорів і телемовників. Однак відсутність миттєвого результату може призвести до стрімкого падіння капіталізації бренду та кадрових звільнень у топменеджменті. Це також створює прецедент для інших команд, спонукаючи їх до більш активної участі на ринку вільних агентів. Глобальна логіка полягає в оптимізації тактичної гнучкості структури для протидії конкурентам. Для аналітиків це свідчення переходу спортивної індустрії до моделі управління, орієнтованої на короткострокові фінансові цикли. Зрештою, успіх або провал цієї стратегії матиме прямий вплив на майбутню трансферну політику всієї ліги.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-nyp-05" aria-expanded="false" aria-controls="art-nyp-05">
-            <span class="art-idx">05</span>
-            <span class="art-title">Агресивний демпінг у медіа як спроба збереження частки ринку</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-nyp-05" role="region" aria-labelledby="btn-nyp-05">
-            <div class="body-inner">
-              Різке зниження вартості підписки на видання до одного долара на тиждень свідчить про глибоку системну кризу в індустрії друкованих і цифрових медіа. Цей агресивний ціновий демпінг є відчайдушною спробою зберегти аудиторію та підтримати видимість зростання бази підписників для рекламодавців. Для ринку це сигнал про те, що традиційні моделі монетизації контенту остаточно вичерпали свій потенціал. Інституційно такі дії підривають загальну цінність журналістської інформації, перетворюючи її на знецінений товар широкого вжитку. Медіахолдинги змушені жертвувати короткостроковою маржинальністю заради утримання частки ринку в умовах жорсткої конкуренції з алгоритмічними платформами. З точки зору інвесторів, це вказує на перехід до стратегії виживання, де головною метрикою стає не прибутковість, а обсяг зібраних даних користувачів. Ці дані згодом стають основним активом для перепродажу або інтеграції в політичні та комерційні кампанії. Прихована логіка полягає у створенні залежності споживача від певного інформаційного середовища з подальшим непомітним підвищенням тарифів. Водночас це відкриває шлях до подальшої консолідації медіаринку, оскільки дрібні гравці не здатні витримати подібні цінові війни. Геополітично контроль над великими базами підписників дозволяє ефективніше просувати певні наративи та формувати громадську думку. У довгостроковій перспективі така бізнес-модель вимагатиме докорінної реструктуризації редакційних витрат, включаючи масове впровадження штучного інтелекту. Загалом, це симптом трансформації медіа з незалежного бізнесу на інструмент обслуговування ширших корпоративних інтересів.
+              <strong>[Що змінилося]:</strong> Затвердження нового голови АНБ/Кіберкомандування, генерала Радда, на тлі успішного застосування кібератак (відключення електромереж) для прямої зміни режиму у Венесуелі.<br><br>
+              <strong>[Чому це важливо]:</strong> Кіберзброя офіційно легітимізується як стандартний інструмент "жорсткої сили" у міждержавних конфліктах.<br><br>
+              <strong>[Посилення ризику]:</strong> Асиметричні кібератаки у відповідь на критичну інфраструктуру (енергетику, фінанси, телекомунікації) з боку ворожих держав.
             </div>
           </div>
         </article>
       </section>
 
-      <!-- ── THE INDEPENDENT ──────────────────────────────────────── -->
+      <!-- ── SECTION 2: TECHNOLOGY & AVIATION ────────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>THE INDEPENDENT</h2>
-          <div class="outlet-tags">Криптопроєкти • Інфляція та нафта • Іранські радикали</div>
+          <h2>Технології та Авіація</h2>
+          <div class="outlet-tags">Штучний Інтелект • Технологічна Бульбашка • Аерокосмічна Логістика</div>
         </div>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-ind-01" aria-expanded="false" aria-controls="art-ind-01">
-            <span class="art-idx">01</span>
-            <span class="art-title">Найджел Фараж інвестує в криптовалютний проєкт Квасі Квартенга</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-ind-01" role="region" aria-labelledby="btn-ind-01">
-            <div class="body-inner">
-              Інвестиція лідера популістів у криптовалютний бізнес колишнього міністра фінансів ілюструє зрощення радикальної політики з альтернативними фінансовими ринками. Цей крок є стратегічною спробою легітимізувати криптовалюти серед консервативного електорату та створити нові центри фінансового впливу поза традиційною банківською системою. Для інституційних інвесторів це сигнал про посилення лобістського тиску на уряд з метою дерегулювання ринку цифрових активів у Британії. Прихована мета полягає у створенні фінансових інструментів, захищених від моніторингу державних регуляторів, що особливо вигідно для фінансування політичних кампаній. Залучення впізнаваних політичних фігур до таких проєктів суттєво знижує поріг недовіри роздрібних інвесторів, створюючи ризики утворення нових фінансових бульбашок. На макроекономічному рівні це свідчить про глибоку кризу довіри еліт до фіатної системи та фунта стерлінгів після низки економічних потрясінь. Геополітично розвиток непідконтрольних державі криптопроєктів послаблює ефективність міжнародних санкційних механізмів та фінансового моніторингу. Для уряду Великої Британії це створює безпрецедентні виклики у сфері податкового адміністрування та протидії відмиванню коштів. Злиття інтересів правих політиків і криптоентузіастів формує потужний блок, здатний диктувати умови Центральному банку Англії. Це також може стати каталізатором для прискореного впровадження державної цифрової валюти як захисної реакції регуляторів. У довгостроковій перспективі такі ініціативи розмивають межу між державним управлінням та спекулятивним капіталом. Загалом, кейс демонструє, як політичний капітал конвертується у ризикові фінансові активи для досягнення позаінституційного впливу.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-ind-02" aria-expanded="false" aria-controls="art-ind-02">
-            <span class="art-idx">02</span>
-            <span class="art-title">Попередження про інфляцію на тлі стрімкого зростання цін на нафту</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-ind-02" role="region" aria-labelledby="btn-ind-02">
-            <div class="body-inner">
-              Заява міністра фінансів Рейчел Рівз про загрозу інфляції через стрибок цін на нафту вище 100 доларів за барель є підготовкою ринків до жорсткої монетарної політики. Військові удари США та Ізраїлю по Ірану стали тригером для енергетичної кризи, яка кардинально змінює макроекономічний ландшафт Великої Британії та Європи. Для Банку Англії це означає безальтернативність утримання високих відсоткових ставок, що боляче вдарить по корпоративному сектору та ринку нерухомості. Прихована логіка уряду полягає у спробі перекласти відповідальність за внутрішні економічні проблеми на зовнішні геополітичні форс-мажори. Водночас нафтогазові корпорації отримують надприбутки, що неминуче спровокує дискусії про введення нових податків на непередбачений дохід. Для логістичного та виробничого секторів зростання цін на паливо створює ризик масових банкрутств та перебоїв у ланцюгах поставок. Геополітично ця ситуація робить західні економіки вкрай вразливими до дій картелю ОПЕК+, який може використовувати квоти як зброю. Інституційні ризики для уряду полягають у стрімкому падінні рейтингів через зниження реальних доходів населення та зростання вартості життя. Стратегічно це прискорить інвестиції в альтернативну енергетику, проте в короткостроковій перспективі посилить залежність від імпорту скрапленого газу. Ринки акцій реагуватимуть підвищеною волатильністю, з перетіканням капіталу в захисні активи та товари першої необхідності. Загалом, новий виток інфляції ставить хрест на планах швидкого економічного відновлення, вимагаючи секвестру державного бюджету. Ця криза також випробовує на міцність трансатлантичну єдність, оскільки Європа несе непропорційно великі економічні втрати від конфлікту.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-ind-03" aria-expanded="false" aria-controls="art-ind-03">
-            <span class="art-idx">03</span>
-            <span class="art-title">Іранські радикали вітають нового верховного лідера</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-ind-03" role="region" aria-labelledby="btn-ind-03">
-            <div class="body-inner">
-              Прихід до влади Моджтаби Хаменеї в Ірані на тлі американських бомбардувань означає остаточну консолідацію влади в руках Корпусу вартових ісламської революції. Цей транзит влади зводить нанівець будь-які надії на дипломатичне врегулювання конфлікту і сигналізує про перехід Тегерана до стратегії довготривалої війни на виснаження. Для світових енергетичних ринків це найгірший сценарій, який гарантує перманентну загрозу блокування Ормузької протоки та перебоїв з поставками нафти. Прихована логіка іранських еліт полягає у використанні зовнішньої агресії США для жорсткого придушення будь-якої внутрішньої опозиції та цементування режиму. Геополітично це вигідно Пекіну, оскільки глибоке втягнення Вашингтона у близькосхідний конфлікт відвертає американські ресурси від Індо-Тихоокеанського регіону. Інституційно новий лідер спиратиметься виключно на силовий блок, що унеможливлює кулуарні домовленості із західними урядами. Для Ізраїлю ця подія є індикатором необхідності підготовки до масштабної регіональної війни за участю всіх проксі-сил Ірану. Європейський Союз опиняється в ситуації стратегічного паралічу, змушений балансувати між підтримкою США та страхом перед неконтрольованою міграційною кризою з Близького Сходу. Військово-промисловий комплекс США отримує залізобетонні гарантії багаторічних замовлень на поповнення арсеналів та розробку нових систем протиракетної оборони. Інвесторам варто закладати у свої моделі перманентну геополітичну премію в цінах на енергоносії та золото. Стратегічно цей розвиток подій прискорює фрагментацію глобальної економіки та формування ізольованих макрорегіонів із власними фінансовими системами. Загалом, радикалізація Тегерана робить військову ескалацію єдиним інструментом комунікації між Заходом і віссю антизахідних режимів.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-ind-04" aria-expanded="false" aria-controls="art-ind-04">
+          <button class="article-trigger" id="btn-sec2-01" aria-expanded="false" aria-controls="art-sec2-01">
             <span class="art-idx">04</span>
-            <span class="art-title">Музеї вимагають введення туристичного податку для порятунку</span>
+            <span class="art-title">Криза бізнес-моделі лідерів сектору ШІ</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-ind-04" role="region" aria-labelledby="btn-ind-04">
+          <div class="article-body" id="art-sec2-01" role="region" aria-labelledby="btn-sec2-01">
             <div class="body-inner">
-              Ініціатива директора Музею Вікторії та Альберта щодо введення туристичного податку оголює глибоку кризу фінансування культурних інституцій Великої Британії. Цей крок є свідченням того, що держава більше не здатна утримувати величезну інфраструктуру впливу за рахунок прямих бюджетних дотацій. Для місцевого бізнесу та готельного сектору це пряма загроза зниження туристичного потоку, що неминуче спровокує лобістський спротив на рівні муніципалітетів. Прихована мета керівників музеїв полягає у створенні автономного джерела доходів, незалежного від політичної кон'юнктури та рішень уряду. Інституційні ризики такого кроку включають можливе погіршення іміджу Лондона як відкритої культурної столиці та зниження загальної привабливості юрисдикції. З економічної точки зору, перекладання витрат на туристів є класичним методом латання бюджетних дір без підвищення податків для власного електорату. Це також сигналізує інвесторам у комерційну нерухомість про загальне погіршення фінансового клімату в туристичних центрах країни. Стратегічно це може призвести до сегментації доступу до культури, перетворюючи її на елітний продукт для заможних іноземців. Для уряду підтримка цієї ініціативи означає визнання провалу попередньої економічної політики в гуманітарній сфері. Водночас це відкриває можливості для приватного капіталу брати участь у концесіях або прихованій приватизації окремих музейних активів. Глобально це відображає тенденцію європейських столиць до монетизації своєї історичної спадщини в умовах глобальної рецесії. Загалом, ситуація ілюструє перехід від концепції загальнодоступного суспільного блага до жорсткої комерціалізації національного надбання.
+              <strong>[Що змінилося]:</strong> OpenAI готується до IPO з оцінкою $730 млрд, одночасно тестуючи інтеграцію реклами у своїх безкоштовних продуктах через нестабільний рівень спалювання готівки (cash burn).<br><br>
+              <strong>[Чому це важливо]:</strong> Це демонструє вичерпання моделі зростання, що фінансується венчурним капіталом, без чіткої та життєздатної стратегії монетизації B2C.<br><br>
+              <strong>[Посилення ризику]:</strong> Сплеск технологічної бульбашки та масова переоцінка активів штучного інтелекту в бік зниження.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-ind-05" aria-expanded="false" aria-controls="art-ind-05">
+          <button class="article-trigger" id="btn-sec2-02" aria-expanded="false" aria-controls="art-sec2-02">
             <span class="art-idx">05</span>
-            <span class="art-title">Затяжний конфлікт зруйнує економіку Британії</span>
+            <span class="art-title">Деградація аерокосмічної логістики</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-ind-05" role="region" aria-labelledby="btn-ind-05">
+          <div class="article-body" id="art-sec2-02" role="region" aria-labelledby="btn-sec2-02">
             <div class="body-inner">
-              Урядові прогнози щодо руйнівних наслідків затяжної війни на Близькому Сході для британської економіки є актом відкритої підготовки суспільства до тривалого періоду стагнації. Заклики до економії палива свідчать про критичну вразливість інфраструктури та відсутність достатніх стратегічних резервів для пом'якшення шоків. Ця риторика використовується політичними елітами як універсальне виправдання для скорочення соціальних програм і відмови від передвиборчих обіцянок. Для фінансових ринків це прямий сигнал про можливе повернення до політики жорсткої економії та підвищення податкового навантаження на корпоративний сектор. Інституційні ризики полягають у зростанні соціальної напруженості, страйках профспілок та можливих політичних кризах на тлі падіння рівня життя. Прихована логіка таких заяв також може полягати у спробі здійснити дипломатичний тиск на Вашингтон з метою обмеження масштабів військової операції. Стратегічно це змушує британський бізнес масово переглядати інвестиційні плани, скорочувати персонал та заморожувати проєкти розвитку. Геополітично Британія демонструє межі своїх можливостей як глобального гравця, визнаючи критичну залежність від стабільності міжнародних ланцюгів поставок. Ринок страхових послуг зіткнеться з безпрецедентним зростанням виплат і переглядом тарифів для логістичних компаній. Водночас це стимулюватиме прискорені інвестиції у внутрішній видобуток енергоносіїв у Північному морі, незважаючи на протести екологів. Для опозиції це створює ідеальні умови для критики уряду, хоча реальних альтернативних механізмів вирішення кризи не існує. Загалом, ці попередження фіксують перехід британської економіки в режим ручного управління та антикризового реагування.
+              <strong>[Що змінилося]:</strong> Boeing затримує поставки 737 MAX через нові проблеми з електропроводкою; British Airways масово скасовує рейси на Близький Схід.<br><br>
+              <strong>[Чому це важливо]:</strong> Це синхронний удар як по пропозиції (нестача доступних літаків), так і по попиту/маршрутизації (закриття повітряного простору) в авіаційній галузі.<br><br>
+              <strong>[Посилення ризику]:</strong> Зниження корпоративної мобільності, стрімке зростання вартості вантажних перевезень та роздування капітальних витрат (CAPEX) авіакомпаній.
             </div>
           </div>
         </article>
       </section>
 
-      <!-- ── THE WALL STREET JOURNAL ────────────────────────────────────────────── -->
+      <!-- ── SECTION 3: WEEKLY RISK MAP & DRIVERS ────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>THE WALL STREET JOURNAL</h2>
-          <div class="outlet-tags">Ціни на нафту • Секс-скандал в елітній нерухомості • Токенізація акцій</div>
+          <h2>Щотижнева Карта Ризиків та Драйвери</h2>
+          <div class="outlet-tags">Оцінка Ризиків • Ринкові Драйвери • Аналіз Трендів</div>
         </div>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-wsj-01" aria-expanded="false" aria-controls="art-wsj-01">
-            <span class="art-idx">01</span>
-            <span class="art-title">Ціни на нафту несподівано впали після недільного піку</span>
+          <button class="article-trigger" id="btn-sec3-01" aria-expanded="false" aria-controls="art-sec3-01">
+            <span class="art-idx">06</span>
+            <span class="art-title">Матриця щотижневої карти ризиків</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-wsj-01" role="region" aria-labelledby="btn-wsj-01">
+          <div class="article-body" id="art-sec3-01" role="region" aria-labelledby="btn-sec3-01">
             <div class="body-inner">
-              Різкий відкат нафтових котирувань після досягнення піку є класичним прикладом фінансових спекуляцій на тлі геополітичної паніки. Інституційні трейдери та алгоритмічні фонди використали початковий інформаційний шок від ескалації на Близькому Сході для фіксації надприбутків. Цей розворот ринку свідчить про те, що великий капітал поки не вірить у тривале фізичне блокування поставок енергоносіїв з регіону. Для країн-експортерів нафти така волатильність створює серйозні труднощі в бюджетному плануванні та ускладнює координацію дій всередині картелю ОПЕК. Прихована логіка також може вказувати на масовані непублічні інтервенції центральних банків або вивільнення стратегічних резервів США для стабілізації ситуації. Політично зниження цін вигідне чинним адміністраціям західних країн, оскільки воно дещо знімає інфляційний тиск перед виборами. Однак для інвесторів у сектор сланцевої нафти така нестабільність є сигналом ризику, що обмежує масштабні капітальні інвестиції у нові бурові проєкти. Глобально ринок демонструє втому від постійних геополітичних шоків, адаптуючись і швидше відіграючи інформаційні приводи. Інституційні гравці продовжуватимуть використовувати похідні фінансові інструменти для хеджування ризиків, збільшуючи прибутковість інвестиційних банків. Водночас залишається загроза непередбачуваних ударів по нафтовій інфраструктурі, що миттєво зламає поточні алгоритми торгівлі. Ця ситуація підкреслює домінування фінансового капіталу над фундаментальними показниками попиту і пропозиції в ціноутворенні на сировину. Загалом, короткостроковий спад цін є радше тактичною корекцією, ніж свідченням системного вирішення енергетичної кризи.
+              • <strong>Фізичне енергетичне вузьке місце (Ормуз):</strong> Рівень сигналу S4 | Тренд: ↑ | Вплив: Нафтогаз, Логістика, Промисловість | Горизонт: Дні | Впевненість: Висока.<br><br>
+              • <strong>Цінова аномалія / Шок ліквідності (Нафта):</strong> Рівень сигналу S3 | Тренд: ↑ | Вплив: Хедж-фонди, Сировинні ринки | Горизонт: Дні-Тижні | Впевненість: Середня.<br><br>
+              • <strong>Близькосхідне зараження (Ліван, Ірак, Катар):</strong> Рівень сигналу S4 | Тренд: ↑ | Вплив: Суверенний борг, Авіація, Страхування | Горизонт: Дні-Тижні | Впевненість: Висока.<br><br>
+              • <strong>Кібервійна проти критичної інфраструктури:</strong> Рівень сигналу S3 | Тренд: ↑ | Вплив: Енергетика, Фінанси, Телеком | Горизонт: Тижні | Впевненість: Висока.<br><br>
+              • <strong>Прорив оціночної бульбашки ШІ:</strong> Рівень сигналу S2 | Тренд: → | Вплив: Технології, Венчурний капітал, M&A | Горизонт: Місяці | Впевненість: Середня.<br><br>
+              • <strong>Ескалація внутрішніх інцидентів безпеки:</strong> Рівень сигналу S2 | Тренд: ↑ | Вплив: Корпоративна безпека (США), Страхування | Горизонт: Тижні | Впевненість: Низька.<br><br>
+              • <strong>Звуження аерокосмічного ланцюга постачань:</strong> Рівень сигналу S4 | Тренд: → | Вплив: Авіакомпанії, Туризм, B2B логістика | Горизонт: Місяці | Впевненість: Висока.<br><br>
+              • <strong>Неправильний розподіл через політичний шум:</strong> Рівень сигналу S3 | Тренд: ↑ | Вплив: Алготрейдинг, Управління ризиками | Горизонт: Дні | Впевненість: Висока.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-wsj-02" aria-expanded="false" aria-controls="art-wsj-02">
-            <span class="art-idx">02</span>
-            <span class="art-title">Братів Александер засуджено за секс-торгівлю</span>
+          <button class="article-trigger" id="btn-sec3-02" aria-expanded="false" aria-controls="art-sec3-02">
+            <span class="art-idx">07</span>
+            <span class="art-title">Ключові драйвери та механізми</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-wsj-02" role="region" aria-labelledby="btn-wsj-02">
+          <div class="article-body" id="art-sec3-02" role="region" aria-labelledby="btn-sec3-02">
             <div class="body-inner">
-              Вирок відомим брокерам елітної нерухомості за звинуваченнями у сексуальній торгівлі є потужним ударом по репутації всього сектору розкоші. Цей судовий прецедент розкриває тіньові механізми функціонування ринку ультрадорогої нерухомості, де кримінальні практики використовувалися для налагодження зв'язків з клієнтами. Для великих ріелторських агентств це означає необхідність термінового аудиту внутрішніх політик і впровадження жорстких процедур комплаєнсу. Інституційно справа демонструє готовність американської системи правосуддя руйнувати недоторканність фінансових еліт під тиском суспільного запиту на справедливість. Прихований вплив цього процесу полягає у можливому розкритті імен впливових клієнтів братів, що створює ризики шантажу та скандалів на рівні топменеджменту корпорацій. Конкуренти на ринку нерухомості використовують падіння імперії Александерів для агресивного перерозподілу їхньої клієнтської бази та активів. Економічно це може призвести до короткострокового заморожування угод у верхньому ціновому сегменті, оскільки покупці уникатимуть токсичних посередників. Розслідування також проливає світло на способи легалізації коштів через купівлю елітних активів, що може спровокувати посилення фінансового моніторингу галузі. Для інвесторів це сигнал про зростання регуляторних ризиків у нерухомості як класі активів. Судовий вирок є чітким меседжем про те, що епоха повної безкарності брокерів у сегменті розкоші добігає кінця. Зі стратегічної точки зору, ринок змушений буде трансформуватися в бік більшої прозорості та використання технологічних платформ, мінімізуючи людський фактор. Загалом, скандал стане каталізатором для системного очищення галузі від тіньових схем стимулювання продажів.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wsj-03" aria-expanded="false" aria-controls="art-wsj-03">
-            <span class="art-idx">03</span>
-            <span class="art-title">Nasdaq та Kraken розробляють токенізовані акції</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wsj-03" role="region" aria-labelledby="btn-wsj-03">
-            <div class="body-inner">
-              Співпраця традиційної біржі Nasdaq і криптобіржі Kraken у сфері токенізації акцій є тектонічним зсувом в архітектурі світових фінансових ринків. Цей альянс символізує капітуляцію класичних інституцій перед технологією блокчейн та прагнення очолити процес, який вони не змогли зупинити. Для Волл-стріт це стратегічний крок для залучення нового покоління роздрібних інвесторів і збереження монополії на ліквідність. Прихована логіка полягає у мінімізації витрат на кліринг і розрахунки, які здійснюються миттєво через блокчейн, що збільшить маржинальність біржових операцій. Інституційно це створює колосальні виклики для Комісії з цінних паперів і бірж, оскільки розмиває межі між регульованими цінними паперами та криптоактивами. Для комерційних банків це сигнал тривоги, оскільки токенізація активів загрожує їхній ролі традиційних кастодіанів і посередників. Геополітично США таким чином намагаються закріпити своє технологічне лідерство в глобальній фінансовій системі, встановлюючи нові стандарти для всього світу. Інтеграція криптотехнологій у традиційні торги також несе системні кіберризики, адже вразливості смарт-контрактів можуть призвести до катастрофічних втрат. Цей крок легітимізує біржу Kraken, виводячи її з сірої зони до елітного клубу первинних фінансових гравців. У перспективі токенізація відкриває шлях до цілодобових торгів акціями, що повністю змінить ритм роботи глобального капіталу. Конкуренти на кшталт NYSE будуть змушені прискорити власні блокчейн-проєкти, провокуючи технологічну гонку озброєнь у фінансовому секторі. Загалом, ініціатива формує фундамент для створення єдиної глобальної децентралізованої платформи обігу капіталу.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wsj-04" aria-expanded="false" aria-controls="art-wsj-04">
-            <span class="art-idx">04</span>
-            <span class="art-title">Мін'юст та Live Nation врегулювали антимонопольний позов</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wsj-04" role="region" aria-labelledby="btn-wsj-04">
-            <div class="body-inner">
-              Мирова угода між урядом США та розважальним гігантом Live Nation є класичним прикладом корпоративного компромісу, що зберігає статус-кво на ринку. Незважаючи на гучні заяви про боротьбу з монополіями, Міністерство юстиції обрало шлях фінансових санкцій замість примусового розділення компанії. Цей крок вигідний керівництву Live Nation, оскільки дозволяє зберегти вертикально інтегровану бізнес-модель, відкупившись штрафами та косметичними поступками. Для ринку розваг це чіткий сигнал, що бар'єри для входу нових гравців залишаться нездоланними, а ціни на квитки продовжать зростати. Невдоволення окремих штатів цією угодою свідчить про глибокий розкол між федеральним урядом і місцевою владою щодо методів регулювання великого бізнесу. Прихована логіка таких мирових угод часто полягає в потужному лобіюванні інтересів корпорації у владних кабінетах Вашингтона. Для інвесторів компанії це надзвичайно позитивна новина, яка знімає ключовий фактор невизначеності та стимулює зростання котирувань акцій. Водночас це створює небезпечний інституційний прецедент, демонструючи іншим монополістам, що антимонопольне законодавство можна обійти за допомогою достатніх фінансових ресурсів. Незалежні промоутери та артисти залишаються в заручниках диктату єдиного монополіста, втрачаючи важелі впливу на умови співпраці. З макроекономічної точки зору, монополізація індустрії живих виступів стимулює інфляцію у сфері послуг. Це також вказує на слабкість антимонопольних інституцій США в умовах тиску транснаціонального капіталу. Загалом, угода консервує існуючу неефективність ринку, залишаючи споживачів головними платниками за корпоративні привілеї.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wsj-05" aria-expanded="false" aria-controls="art-wsj-05">
-            <span class="art-idx">05</span>
-            <span class="art-title">Simon & Schuster призначає екс-керівника Amazon новим CEO</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wsj-05" role="region" aria-labelledby="btn-wsj-05">
-            <div class="body-inner">
-              Призначення вихідця з Amazon на посаду генерального директора одного з найбільших книжкових видавництв є стратегічним сигналом про остаточну трансформацію галузі. Цей крок означає перехід від традиційної літературної моделі управління до жорсткого алгоритмічного підходу та фокусу на електронній комерції. Для ринку це свідчить про те, що видавничий бізнес тепер розглядається виключно крізь призму управління даними, логістики та цифрової дистрибуції. Прихований інтерес власників полягає в оптимізації операційних витрат і агресивному просуванні аудіо- та електронних форматів на шкоду традиційному друку. Інституційно це створює конфлікт інтересів між класичним редакторським корпусом, орієнтованим на якість, і новим менеджментом, сфокусованим на швидкості конверсії. Злиття корпоративних культур Amazon і класичного видавництва може призвести до монополізації каналів збуту контенту. Для авторів це означає жорсткіші умови контрактів, де ключовим критерієм успіху стануть не літературні премії, а маркетингові метрики та інтеграція в цифрові екосистеми. Цей процес безпосередньо загрожує незалежним книгарням, які не зможуть конкурувати з масштабованими цифровими стратегіями гіганта. Залучення топменеджера з технологічного гіганта є також захисним механізмом від можливого ворожого поглинання з боку інших медіаконгломератів. Для інвесторів це прозорий натяк на підготовку компанії до публічного розміщення акцій або вигідного перепродажу після максимізації фінансових показників. Глобально це відображає підпорядкування креативних індустрій законам великих даних і платформного капіталізму. Загалом, призначення фіксує перемогу технологічних алгоритмів над традиційним інтелектуальним кураторством.
+              • <strong>Геополітичне хеджування через ескалацію:</strong> Актори на Близькому Сході (США та Ізраїль з одного боку; Іран і Хезболла з іншого) екстремально підвищують ставки, намагаючись забезпечити стратегічну перевагу до будь-якого потенційного політичного втручання чи зміни курсу (на тлі заяв Д. Трампа про швидке завершення війни).<br><br>
+              • <strong>Розрив між політичним наративом та фізичною реальністю:</strong> Ринки схильні враховувати політичні заяви як доконані факти, ігноруючи реальне руйнування інфраструктури (в Лівані) та структурні вузькі місця (протоки). Стимул для трейдерів — зловити короткострокові тренди; стимул для політиків — заспокоїти електорат.<br><br>
+              • <strong>Тиск ліквідності в технологічному секторі:</strong> Інституційні інвестори вимагають екзитів (IPO). Це змушує компанії у сфері ШІ прискорювати монетизацію (навіть ціною репутаційних втрат або зміни продуктів), оголюючи слабкість поточної юніт-економіки.
             </div>
           </div>
         </article>
       </section>
 
-      <!-- ── THE WASHINGTON POST ─────────────────────────────────────── -->
+      <!-- ── SECTION 4: TRIGGERS & STRATEGIC IMPLICATIONS ────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>THE WASHINGTON POST</h2>
-          <div class="outlet-tags">Реформа держапарату • Війна з Іраном • Модернізація нерухомості</div>
+          <h2>Тригери та Стратегічні Наслідки</h2>
+          <div class="outlet-tags">Прогнозування • Розподіл Капіталу • Список Спостереження</div>
         </div>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-wp-01" aria-expanded="false" aria-controls="art-wp-01">
-            <span class="art-idx">01</span>
-            <span class="art-title">Адміністрація Трампа скасовує звільнення Ілона Маска та розпочинає набір держслужбовців</span>
+          <button class="article-trigger" id="btn-sec4-01" aria-expanded="false" aria-controls="art-sec4-01">
+            <span class="art-idx">08</span>
+            <span class="art-title">Тригери ескалації та деескалації</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-wp-01" role="region" aria-labelledby="btn-wp-01">
+          <div class="article-body" id="art-sec4-01" role="region" aria-labelledby="btn-sec4-01">
             <div class="body-inner">
-              Згортання радикальних реформ Ілона Маска в державному апараті свідчить про перемогу традиційної бюрократії над спробами технологічного руйнування системи. Це рішення адміністрації Трампа ілюструє глибокий інституційний конфлікт між політичним керівництвом та державним механізмом, без якого неможливе ефективне управління країною. Для ринків це позитивний сигнал про повернення до стабільності та передбачуваності регуляторної політики, що важливо для укладання довгострокових державних контрактів. Прихована логіка такого кроку полягає в усвідомленні того, що масові звільнення паралізували критично важливі функції уряду, поставивши під загрозу національну безпеку. Створення нових класифікацій посад дозволяє Білому дому замінити нелояльних фахівців на політично вмотивованих співробітників під виглядом оптимізації. Це формує безпрецедентний ризик політизації незалежних федеральних агентств та втрати інституційної пам'яті. Для самого Маска та його прихильників це серйозна апаратна поразка, що демонструє межі впливу приватного технологічного капіталу на державну машину. Водночас масштабний набір персоналу означає збільшення бюджетних витрат, що суперечить початковим деклараціям про економію коштів платників податків. Геополітично відновлення працездатності держапарату необхідне для ефективного протистояння зовнішнім загрозам в умовах глобальної нестабільності. Профспілки держслужбовців сприймуть це як власну перемогу, посиливши свої позиції на майбутніх переговорах про умови праці. Для інвесторів у консалтингові компанії та ІТ-інтеграторів, які обслуговують уряд, відкриваються нові можливості для освоєння бюджетів. Загалом, кейс підтверджує, що системна стійкість американської держави виявилася сильнішою за волюнтаристські спроби корпоративного управління.
+              <strong>1. Фізичне енергетичне вузьке місце (Ормуз)</strong><br>
+              • <em>Тригер ескалації:</em> Потоплення або захоплення нафтового танкера в протоці; атака на об'єкти Saudi Aramco.<br>
+              • <em>Тригер підтвердження:</em> Офіційні заяви про форс-мажор від трьох або більше глобальних судноплавних ліній.<br>
+              • <em>Тригер деескалації:</em> Запуск військово-морських конвоїв США з підтвердженим безпечним проходженням першої групи танкерів.<br><br>
+              <strong>2. Цінова аномалія / Шок ліквідності (Нафта)</strong><br>
+              • <em>Тригер ескалації:</em> Дефолт великого сировинного брокера через маржин-коли під час різкого розвороту цін вгору.<br>
+              • <em>Тригер підтвердження:</em> Спред між спотовими цінами та найближчими ф'ючерсами розширюється за межі історичних норм.<br>
+              • <em>Тригер деескалації:</em> Синхронізація ринку після початку фізичного втручання МЕА (вивільнення резервів).<br><br>
+              <strong>3. Кібервійна проти критичної інфраструктури</strong><br>
+              • <em>Тригер ескалації:</em> Успішна атака типу "Wiper" на енергомережі або фінансові клірингові центри союзників США в Європі чи на Близькому Сході.<br>
+              • <em>Тригер підтвердження:</em> Публічне попередження від CISA щодо активності APT (хакерів, спонсорованих державою) у критичних мережах.<br>
+              • <em>Тригер деескалації:</em> Відсутність системних інцидентів протягом 4 тижнів після стабілізації керівництва Cybercom.<br><br>
+              <strong>4. Прорив оціночної бульбашки ШІ</strong><br>
+              • <em>Тригер ескалації:</em> Відтік користувачів або страйк рекламодавців після інтеграції реклами в ChatGPT.<br>
+              • <em>Тригер підтвердження:</em> Офіційне зниження оцінки OpenAI перед IPO або перенесення розміщення на кінець року.<br>
+              • <em>Тригер деескалації:</em> Демонстрація прибутковості корпоративного сегмента (Enterprise) у наступних квартальних звітах ключових гравців.<br><br>
+              <strong>5. Близькосхідне зараження</strong><br>
+              • <em>Тригер ескалації:</em> Прямі удари по базах США, що призвели до масових втрат серед військових.<br>
+              • <em>Тригер підтвердження:</em> Закриття цивільного повітряного простору над усім Аравійським півостровом.<br>
+              • <em>Тригер деескалації:</em> Двостороння угода про припинення вогню за посередництва третіх країн.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-wp-02" aria-expanded="false" aria-controls="art-wp-02">
-            <span class="art-idx">02</span>
-            <span class="art-title">Підготовка до тривалої конфронтації на Близькому Сході: іранський фронт</span>
+          <button class="article-trigger" id="btn-sec4-02" aria-expanded="false" aria-controls="art-sec4-02">
+            <span class="art-idx">09</span>
+            <span class="art-title">Наслідки для прийняття рішень та Список спостереження</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-wp-02" role="region" aria-labelledby="btn-wp-02">
+          <div class="article-body" id="art-sec4-02" role="region" aria-labelledby="btn-sec4-02">
             <div class="body-inner">
-              Пряме втягнення США у військове протистояння з Іраном кардинально змінює архітектуру глобальної безпеки та розподіл американських ресурсів. Ця кампанія вигідна потужному лобі військово-промислового комплексу, яке гарантує собі стабільні довгострокові замовлення на тлі виснаження старих арсеналів. Для адміністрації це класичний інструмент мобілізації суспільства навколо зовнішнього ворога з метою відвернення уваги від внутрішньополітичних та економічних проблем. Прихований геополітичний мотив полягає у знищенні ядерного та промислового потенціалу Тегерана до того, як він зможе повноцінно інтегруватися в альтернативний антизахідний альянс. Це створює безпрецедентні інституційні ризики для світової економіки, фактично гарантуючи перманентну кризу на енергетичних ринках. Китай та країни Глобального Півдня уважно спостерігають за діями Вашингтона, оцінюючи межі американської військової могутності та готовність до ескалації. Для Ізраїлю американська операція є питанням екзистенціального виживання, що робить його політику ще більш безкомпромісною та незалежною від міжнародних інституцій. У макроекономічному вимірі війна стимулює новий виток глобальної інфляції, остаточно ховаючи надії на м'яку посадку американської економіки. Фінансові ринки реагують перерозподілом капіталу в активи-сховища, що зміцнює позиції долара, але б'є по валютах країн, що розвиваються. Водночас затяжний конфлікт загрожує розколом серед європейських союзників США, які не готові нести основний тягар економічних наслідків цієї війни. У довгостроковій перспективі ситуація прискорює фрагментацію світової торгівлі та створення регіональних блоків із закритими ланцюгами поставок. Загалом, силове вирішення іранського питання остаточно фіксує перехід світу в стан глобальної нестабільності та домінування військової сили.
+              <strong>Наслідки для прийняття рішень:</strong><br>
+              • <em>Розподіл капіталу:</em> Створюйте резерви ліквідності. Тимчасово заморозьте CAPEX у проектах, які сильно залежать від транскордонної логістики на Близькому Сході. Переоцініть доцільність інвестицій у ШІ-стартапи на основі мультиплікаторів 2024-2025 років.<br>
+              • <em>Управління ризиками:</em> Хеджуйте енергетичні ризики виключно через фізичні контракти та диверсифікацію постачальників, відмовляючись від чисто фінансового (паперового) хеджування нафти. Оновіть протоколи аварійного відновлення з урахуванням нових кіберзагроз на державному рівні.<br>
+              • <em>Синхронізація рішень:</em> Призупиніть угоди M&A в секторах, високочутливих до цін на нафту (транспорт, важка промисловість), на горизонті 2-4 тижнів до з'ясування статусу Ормузької протоки.<br>
+              • <em>Комунікації (IR / PR):</em> Підготуйте ринки та акціонерів до можливого скорочення маржі у другому кварталі 2026 року через зростання витрат на фрахт, цін на енергоносії та премій за страхові ризики.<br><br>
+              <strong>Список спостереження (Наступний тиждень):</strong><br>
+              • <em>Звіти МЕА:</em> Терміни та обсяги найбільшого в історії вивільнення нафтових резервів.<br>
+              • <em>Заяви Saudi Aramco:</em> Терміни відновлення поставок та оцінка довгострокової шкоди від логістичної блокади.<br>
+              • <em>Дані щодо фрахту Baltic Exchange:</em> Сплески страхових премій для суден у Перській затоці.<br>
+              • <em>Ринки деривативів:</em> Обсяги відкритого інтересу в найближчих ф'ючерсах на нафту Brent.<br>
+              • <em>Комунікації Пентагону:</em> Статус перехоплень ракет над Катаром та Іраком; накази про розгортання ВМС США.<br>
+              • <em>Корпоративні заяви авіакомпаній:</em> Оновлення фінансових прогнозів європейських і американських авіакомпаній через скасування рейсів (маркер B2B активності).<br>
+              • <em>Звіти SEC (OpenAI / Tech):</em> Витоки інформації або офіційні документи щодо структурування IPO на тлі зміни моделі монетизації.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-wp-03" aria-expanded="false" aria-controls="art-wp-03">
-            <span class="art-idx">03</span>
-            <span class="art-title">Зміна архітектури безпеки в Лівані як наслідок регіонального конфлікту</span>
+          <button class="article-trigger" id="btn-sec4-03" aria-expanded="false" aria-controls="art-sec4-03">
+            <span class="art-idx">10</span>
+            <span class="art-title">Межі та Невизначеність</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-wp-03" role="region" aria-labelledby="btn-wp-03">
+          <div class="article-body" id="art-sec4-03" role="region" aria-labelledby="btn-sec4-03">
             <div class="body-inner">
-              Згадка Лівану в контексті масштабної регіональної війни свідчить про перетворення цієї території на головний полігон зіткнення інтересів Заходу і збройних угруповань. Системне руйнування залишків ліванської державності вигідне зовнішнім гравцям, які прагнуть встановити повний контроль над східним Середземномор'ям. Для Ізраїлю це стратегічна можливість остаточно вирішити проблему північних кордонів шляхом створення буферної зони та демонтажу військової інфраструктури. Прихована логіка полягає у використанні військового хаосу для переформатування політичної системи Лівану та витіснення звідти впливу радикальних рухів. Інституційно це означає повний колапс міжнародного гуманітарного права, оскільки глобальні організації довели свою абсолютну недієздатність у запобіганні ескалації. Для Європи такий сценарій несе катастрофічні ризики через нову хвилю багатомільйонної міграції, здатну зруйнувати політичну стабільність на континенті. Макроекономічні наслідки включають повну зупинку проєктів з видобутку газу на шельфі Левантійського басейну, що грає на руку традиційним енергетичним монополіям. Фінансові еліти Близького Сходу активно переміщують капітали в безпечні юрисдикції, залишаючи регіон у стані глибокої інвестиційної посухи. Геополітично ситуація відкриває вікно можливостей для нових посередників, які спробують капіталізувати свій вплив на учасників конфлікту. Гуманітарна криза стане інструментом шантажу в кулуарних переговорах між великими державами про новий світоустрій. Військова промисловість використовує ліванський театр воєнних дій як ідеальне середовище для тестування новітніх систем озброєнь у реальних умовах. Загалом, деградація Лівану є симптомом більш широкого процесу руйнування постколоніальних кордонів на Близькому Сході.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wp-04" aria-expanded="false" aria-controls="art-wp-04">
-            <span class="art-idx">04</span>
-            <span class="art-title">Технологічна модернізація житлового фонду як драйвер нової економіки</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wp-04" role="region" aria-labelledby="btn-wp-04">
-            <div class="body-inner">
-              Масова реклама та впровадження моторизованих і розумних систем для дому відображають глибинні структурні зміни на ринку приватної нерухомості. Цей тренд стимулюється потужним лобі виробників електроніки та енергетичних компаній, зацікавлених у тотальній цифровізації побуту. Для технологічних гігантів розумні будинки є ключовим інструментом збору надвеликих масивів персональних даних для подальшої монетизації. Прихована логіка таких інновацій полягає у створенні штучного попиту на регулярне оновлення обладнання, що перетворює житло на постійне джерело операційних витрат. Інституційно це вимагає кардинального перегляду будівельних норм та стандартів кібербезпеки на федеральному рівні. Для страхових компаній інтеграція систем розумного дому дозволяє впровадити динамічне ціноутворення полісів, перекладаючи відповідальність за ризики на споживача. Ринок нерухомості реагує розшаруванням: об'єкти без базової технологічної інфраструктури стрімко втрачають ліквідність і капіталізацію. З точки зору макроекономіки, цей сектор стає важливим драйвером споживчого кредитування та підтримки роздрібної торгівлі в умовах рецесії. Геополітично залежність від рідкоземельних металів і мікрочипів для виробництва цих систем посилює вразливість західних країн від азійських ланцюгів поставок. Впровадження таких технологій також тісно пов'язане з урядовими програмами енергоефективності, які є прихованою формою субсидування великого бізнесу. Інвестори бачать у секторі Інтернету речей захисний актив, здатний генерувати стабільний грошовий потік незалежно від політичних криз. Загалом, технологізація житла перетворює приватний простір на вузол глобальної інформаційно-економічної мережі.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wp-05" aria-expanded="false" aria-controls="art-wp-05">
-            <span class="art-idx">05</span>
-            <span class="art-title">Реорганізація управління погодними та кліматичними ризиками</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wp-05" role="region" aria-labelledby="btn-wp-05">
-            <div class="body-inner">
-              Детальне відстеження погодних аномалій та опадів на національному рівні перестало бути виключно метеорологічним питанням, перетворившись на інструмент фінансового моделювання. Агропромислові корпорації використовують ці дані для алгоритмічної торгівлі ф'ючерсами на продовольство, штучно завищуючи ціни в очікуванні кліматичних шоків. Для страхового ринку точна аналітика погоди є підставою для легального звуження зон покриття та відмови у виплатах у ризикових регіонах. Прихована логіка урядових звітів полягає у підготовці правової основи для перерозподілу федеральних дотацій між штатами залежно від рівня кліматичної загрози. Інституційні ризики пов'язані з можливою приватизацією ключових систем збору метеорологічних даних, що створить монополію на критично важливу інформацію. Ринок нерухомості у прибережних та посушливих зонах очікує системна криза недооціненості ризиків, що може спровокувати колапс іпотечних портфелів регіональних банків. Геополітично контроль над кліматичними технологіями та прогнозуванням стає новим виміром стратегічної переваги над країнами, що розвиваються. Інвестори активно переміщують капітали в компанії, що займаються управлінням водними ресурсами та розробкою стійких до екстремальних умов агрокультур. В умовах дефіциту ресурсів точна кліматична статистика стає зброєю у торгових війнах для обґрунтування протекціоністських бар'єрів. Уряд використовує ці дані для виправдання жорстких екологічних регуляцій, які фактично є інструментом зачистки ринку від невеликих конкурентів. Це також стимулює масові міграційні процеси всередині країни, змінюючи електоральну карту та податкову базу штатів. Загалом, кліматичні дані трансформувалися в ключовий макроекономічний індикатор, що визначає напрямки руху глобального капіталу.
+              • <strong>Де ризик переоцінений:</strong> Очікування швидкого політичного вирішення кризи (заяви Трампа про завершення війни). Ринки часто плутають бажання політиків вирішити проблему з їхньою реальною здатністю зупинити інституційну інерцію конфлікту.<br><br>
+              • <strong>Прогалини в даних:</strong> Непрозорість фактичного стану енергетичної інфраструктури Ірану після авіаударів; невідомий ступінь готовності КВІР до тривалої блокади Ормузької протоки.<br><br>
+              • <strong>Припущення:</strong> Побудована гіпотеза передбачає, що втручання МЕА з використанням резервів матиме лише короткостроковий ефект охолодження ринку, але не зможе фізично компенсувати логістичну блокаду на горизонті, що перевищує 4 тижні.
             </div>
           </div>
         </article>
       </section>
 
     </main>
-  </div>
+  </div><!-- /.container -->
 
+  <!-- ── Newsletter ────────────────────────────────────────────────── -->
   <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
-    <h3 class="nebula-title" id="newsletter-heading">Безкоштовна підписка</h3>
+    <h3 class="nebula-title" id="newsletter-heading">Безпечний доступ до брифінгів</h3>
     <div class="form-container">
       <div class="newsletter-form-wrapper">
         <form class="newsletter-form" id="newsletterForm"
               action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
           <div class="input-group">
             <div class="nebula-input">
-              <label for="emailInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
-                Ваша email-адреса
-              </label>
-              <input required type="email" id="emailInput" name="email" autocomplete="email"
-                     class="input" placeholder="Ваша email-адреса"
+              <!-- ФІКС #8: прибрано дублюючий aria-label з <input>.
+                   <label for="emailInput"> вже є єдиним джерелом імені. -->
+              <label for="emailInput" class="sr-only">Корпоративна Email адреса</label>
+              <input type="email" id="emailInput" name="email" autocomplete="email"
+                     class="input" placeholder="Корпоративна Email адреса"
                      aria-describedby="formErrorMsg" />
               <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -756,8 +774,7 @@
             </div>
             <button class="subscribe-button" type="submit">Підписатися</button>
           </div>
-          <div id="formErrorMsg" role="alert" aria-live="polite"
-               style="display:none;color:var(--down-color);font-size:13px;margin-top:6px;"></div>
+          <div class="form-error-msg" id="formErrorMsg" role="alert" aria-live="polite"></div>
         </form>
 
         <div class="success-message" id="successMessage" role="alert" aria-live="assertive">
@@ -767,8 +784,8 @@
               <path   class="checkmark-check"  fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
             </svg>
           </div>
-          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Доступ надано</h4>
-          <p style="font-size:14px;color:#4B5563;">Зашифрований канал встановлено.</p>
+          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Доступ Надано</h4>
+          <p  style="font-size:14px;color:#4B5563;">Зашифрований канал встановлено.</p>
         </div>
       </div>
     </div>
@@ -776,40 +793,59 @@
 
   <footer>
     <p>&copy; 2026 Deep Press Analysis. Всі права захищено.</p>
-    <nav class="footer-links" aria-label="Навігація у підвалі">
-      <a href="/ua/archive.html" class="btn-text">Архів</a>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/ua/archive.html" class="btn-text">Доступ до архіву</a>
       <a href="/manifesto.html"  class="btn-text">Маніфест</a>
     </nav>
   </footer>
 
-  <!--
-    ФИХ #1: XSS устранён — тикер больше НЕ использует innerHTML с данными из сети.
-             Все данные API вставляются через DOM API (createElement + textContent).
-    ФИХ #2: onclick/onkeydown удалены из HTML. Все обработчики — здесь, с nonce.
-    ФИХ #3: Тикер — translateX(-50%) + двойное дублирование контента (как в EN).
-    ФИХ #4: aria-labelledby исправлен в HTML-разметке выше.
-  -->
-  <script nonce="RuPressNonce2026abc">
+  <!-- ═══════════════════════════════════════════════════════════════════
+       ЄДИНИЙ JS-БЛОК з nonce. Усі виправлення по аудиту тут:
+         #1  — статичний nonce (вимагає серверної генерації, див. коментар у <html>)
+         #2  — analytics.js з defer (у <head> вище)
+         #3  — finally у формі підписки завжди розблоковує кнопку
+         #4  — помилки analytics.js через window.addEventListener('error')
+         #5  — classList.remove('no-js') відразу при старті
+         #6  — transition: конкретні властивості (у CSS вище)
+         #7  — редирект перевіряє path перед спрацьовуванням
+         #8  — прибрано дублюючий aria-label з <input> (у HTML вище)
+         Spotify — addEventListener замість onclick/onkeydown у HTML
+       ═══════════════════════════════════════════════════════════════════ -->
+  <script nonce="EDNnf03nceIofn39fn3e9h3sdfa">
   (function () {
     'use strict';
 
-    // ── Мовний редирект ─────────────────────────────────────────────────────────
+    // ── ФІКС #5: прибираємо no-js негайно ────────────────────────────────────────
+    document.documentElement.classList.remove('no-js');
+
+    // ── ФІКС #4: відловлюємо помилки завантаження analytics.js без inline onerror ──────
+    window.addEventListener('error', function (e) {
+      if (e.filename && e.filename.includes('analytics.js')) {
+        console.warn('[DPA] analytics.js failed to load:', e.message);
+      }
+    }, true);
+
+    // ── ФІКС #7: мовний редирект — не спрацьовує при ручному поверненні на EN ──────
     (function () {
       try {
-        if (sessionStorage.getItem('dpa_lang_redirected')) return;
-        var lang    = String(navigator.language || navigator.userLanguage || 'en').substring(0, 2).toLowerCase();
-        var map     = { ru: '/ru/100326.html', uk: '/ua/100326.html', ua: '/ua/100326.html',
-                        de: '/de/100326.html', ar: '/ar/100326.html', es: '/es/100326.html',
-                        en: '/en/100326.html' };
-        var path    = window.location.pathname;
-        if (map[lang] && !path.includes('/' + lang + '/')) {
-          sessionStorage.setItem('dpa_lang_redirected', 'true');
+        // Якщо користувач вже на мовному шляху — не чіпати
+        var path = window.location.pathname;
+        var langPaths = ['/ua/', '/de/', '/ar/', '/es/'];
+        if (langPaths.some(function (p) { return path === p || path.startsWith(p); })) return;
+
+        // Якщо користувач повернувся сюди вручну (через lang-bar) — поважаємо вибір
+        if (localStorage.getItem('dpa_lang_redirected')) return;
+
+        var lang  = String(navigator.language || navigator.userLanguage || 'en').substring(0, 2).toLowerCase();
+        var map   = { uk: '/ua/', ua: '/ua/', de: '/de/', ar: '/ar/', es: '/es/' };
+        if (map[lang]) {
+          localStorage.setItem('dpa_lang_redirected', 'true');
           window.location.replace(map[lang]);
         }
-      } catch (_) { /* sessionStorage недоступний — ігноруємо */ }
+      } catch (_) { /* localStorage недоступний у приватному режимі — ігноруємо */ }
     })();
 
-    // ── Акордеон — ФИХ #2: addEventListener замість onclick у HTML ───────────────
+    // ── Акордеон ────────────────────────────────────────────────────────────────
     function closeItem(item) {
       var body = item.querySelector('.article-body');
       body.style.maxHeight = body.scrollHeight + 'px';
@@ -844,12 +880,10 @@
       }
     });
 
-    // ── Тикер — ФИХ #1 (XSS) + ФИХ #3 (анімація) ───────────────────────────────
-    // ФИХ #1: замість innerHTML будуємо DOM-вузли через createElement/textContent.
-    //         Зовнішні дані НІКОЛИ не потрапляють в innerHTML.
-    // ФИХ #3: контент дублюється ОДИН РАЗ (разом 2 копії),
-    //         анімація йде до -50% — створює безшовний нескінченний скрол.
-    var tickerEl = document.getElementById('tickerContent');
+    // ── Тікер ────────────────────────────────────────────────────────────────────
+    var tickerEl          = document.getElementById('tickerContent');
+    var _lastTickerKey    = '';
+    var _tickerStaleTimer = null;
 
     function makePairSpan(label, priceText, changeText, changePositive) {
       var span = document.createElement('span');
@@ -867,33 +901,60 @@
       return span;
     }
 
-    function buildTickerFragment(cryptoData, rates) {
-      var frag = document.createDocumentFragment();
+    function setTickerStale() {
+      if (tickerEl.querySelector('.ticker-stale')) return;
+      var tag = document.createElement('span');
+      tag.className     = 'pair ticker-stale';
+      tag.style.cssText = 'color:#f87171;font-style:italic;';
+      tag.textContent   = '⚠ дані можуть бути застарілими';
+      tickerEl.appendChild(tag);
+    }
+    function clearTickerStale() {
+      var s = tickerEl.querySelector('.ticker-stale');
+      if (s) s.remove();
+    }
 
+    // ── ФІКС #3 (тікер): Brent береться з Yahoo Finance, не хардкод ──────────────
+    async function fetchBrent() {
+      try {
+        var r = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/BZ=F?interval=1d&range=2d');
+        if (!r.ok) throw new Error('status ' + r.status);
+        var d      = await r.json();
+        var closes = d.chart.result[0].indicators.quote[0].close.filter(Boolean);
+        if (closes.length < 2) throw new Error('not enough data');
+        var cur  = closes[closes.length - 1];
+        var prev = closes[closes.length - 2];
+        var chg  = (cur - prev) / prev * 100;
+        return { label: 'BRENT', price: '$' + cur.toFixed(2),
+                 change: (chg >= 0 ? '+' : '') + chg.toFixed(1) + '%', changePositive: chg >= 0 };
+      } catch (_) {
+        // Немає CORS-доступу або API лежить — показуємо явний прочерк
+        return { label: 'BRENT (n/a)', price: '—', change: null };
+      }
+    }
+
+    function buildTickerNodes(cryptoData, rates, brent) {
+      var frag = document.createDocumentFragment();
       [{ id: 'bitcoin', name: 'BTC' }, { id: 'ethereum', name: 'ETH' }, { id: 'solana', name: 'SOL' }]
         .forEach(function (c) {
           if (!cryptoData[c.id]) return;
           var price  = Number(cryptoData[c.id].usd);
           var change = Number(cryptoData[c.id].usd_24h_change);
           if (isNaN(price) || isNaN(change)) return;
-          frag.appendChild(makePairSpan(
-            c.name, '$' + price.toFixed(0),
-            (change >= 0 ? '+' : '') + change.toFixed(1) + '%',
-            change >= 0
-          ));
+          frag.appendChild(makePairSpan(c.name, '$' + price.toFixed(0),
+            (change >= 0 ? '+' : '') + change.toFixed(1) + '%', change >= 0));
         });
 
-      if (rates && !isNaN(+rates.eur))
-        frag.appendChild(makePairSpan('EUR/USD', (+rates.eur).toFixed(4), null));
-      else
+      if (rates) {
+        if (!isNaN(+rates.eur)) frag.appendChild(makePairSpan('EUR/USD', (+rates.eur).toFixed(4), null));
+        if (!isNaN(+rates.gbp)) frag.appendChild(makePairSpan('GBP/USD', (+rates.gbp).toFixed(4), null));
+      } else {
         frag.appendChild(makePairSpan('EUR/USD', '1.0850', null));
-
-      if (rates && !isNaN(+rates.gbp))
-        frag.appendChild(makePairSpan('GBP/USD', (+rates.gbp).toFixed(4), null));
-      else
         frag.appendChild(makePairSpan('GBP/USD', '1.2740', null));
+      }
 
-      frag.appendChild(makePairSpan('BRENT', '$78.40', '+1.2%', true));
+      var b = brent || { label: 'BRENT (n/a)', price: '—', change: null };
+      frag.appendChild(makePairSpan(b.label, b.price, b.change, b.changePositive));
       return frag;
     }
 
@@ -911,38 +972,75 @@
           if (fRes.ok) { var fd = await fRes.json(); rates = fd.usd; }
         } catch (_) { /* fallback форекс */ }
 
-        // Будуємо фрагмент і його клон для безшовного скролу (-50%)
-        var nodes = buildTickerFragment(cryptoData, rates);
-        var clone = nodes.cloneNode(true);
-        tickerEl.innerHTML = ''; // тільки очищення — дані вставляємо через DOM
-        tickerEl.appendChild(nodes);
-        tickerEl.appendChild(clone);
+        var brent = await fetchBrent();
+
+        var btc = cryptoData.bitcoin ? Number(cryptoData.bitcoin.usd).toFixed(0) : '';
+        var key = btc + (rates && rates.eur ? (+rates.eur).toFixed(4) : '') + (brent ? brent.price : '');
+
+        if (key !== _lastTickerKey) {
+          _lastTickerKey = key;
+          var nodes = buildTickerNodes(cryptoData, rates, brent);
+          var clone = nodes.cloneNode(true);
+          tickerEl.innerHTML = '';
+          tickerEl.appendChild(nodes);
+          tickerEl.appendChild(clone);
+        }
+
+        clearTickerStale();
+        clearTimeout(_tickerStaleTimer);
 
       } catch (err) {
-        console.error('Помилка тикера:', err);
-        tickerEl.innerHTML = '';
-        var errSpan = document.createElement('span');
-        errSpan.className = 'pair'; errSpan.style.color = '#f87171';
-        errSpan.textContent = 'Ринкові дані недоступні';
-        tickerEl.appendChild(errSpan);
+        console.error('[DPA] Ticker error:', err);
+        if (_lastTickerKey === '') {
+          tickerEl.innerHTML = '';
+          var errSpan = document.createElement('span');
+          errSpan.className = 'pair'; errSpan.style.color = '#f87171';
+          errSpan.textContent = 'Ринкові дані недоступні';
+          tickerEl.appendChild(errSpan);
+        } else {
+          clearTimeout(_tickerStaleTimer);
+          _tickerStaleTimer = setTimeout(setTickerStale, 60 * 1000);
+        }
       }
     }
 
     updateTicker();
-    var _interval = setInterval(updateTicker, 5 * 60 * 1000);
-    window.addEventListener('pagehide', function () { clearInterval(_interval); });
+    var _tickerInterval = setInterval(updateTicker, 5 * 60 * 1000);
+    window.addEventListener('pagehide', function () {
+      clearInterval(_tickerInterval);
+      clearTimeout(_tickerStaleTimer);
+    });
 
-    // ── Форма підписки ────────────────────────────────────────────────────────────
+    // ── Форма підписки — ФІКС #3: finally завжди розблоковує кнопку ─────────────
     var form           = document.getElementById('newsletterForm');
     var successMessage = document.getElementById('successMessage');
     var formErrorMsg   = document.getElementById('formErrorMsg');
+    var emailInput     = document.getElementById('emailInput');
     var submitBtn      = form.querySelector('button[type="submit"]');
+
+    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+
+    function showError(msg) {
+      emailInput.classList.add('input-error');
+      formErrorMsg.textContent = msg;
+      formErrorMsg.classList.add('visible');
+      emailInput.focus();
+    }
+    function clearError() {
+      emailInput.classList.remove('input-error');
+      formErrorMsg.classList.remove('visible');
+      formErrorMsg.textContent = '';
+    }
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
-      formErrorMsg.style.display = 'none';
+      clearError();
+      var val = emailInput.value;
+      if (!val.trim())       { showError('Будь ласка, введіть вашу email адресу.'); return; }
+      if (!isValidEmail(val)) { showError('Будь ласка, введіть коректну email адресу.'); return; }
+
       submitBtn.disabled    = true;
-      submitBtn.textContent = 'Відправлення…';
+      submitBtn.textContent = 'Надсилання…';
 
       try {
         var res = await fetch(form.action, {
@@ -953,19 +1051,48 @@
           form.classList.add('hidden');
           successMessage.classList.add('visible');
         } else {
-          formErrorMsg.textContent   = 'Помилка підписки. Спробуйте ще раз.';
-          formErrorMsg.style.display = 'block';
+          showError('Помилка підписки. Будь ласка, спробуйте ще раз.');
         }
       } catch (_) {
-        formErrorMsg.textContent   = 'Помилка мережі. Перевірте з\'єднання.';
-        formErrorMsg.style.display = 'block';
+        showError('Помилка мережі. Перевірте з\'єднання.');
       } finally {
+        // ФІКС #3: кнопка розблоковується у будь-якому випадку, крім успіху
         if (!successMessage.classList.contains('visible')) {
           submitBtn.disabled    = false;
           submitBtn.textContent = 'Підписатися';
         }
       }
     });
+
+    emailInput.addEventListener('input', clearError);
+
+    // ── Spotify player — ФІКС CSP: addEventListener замість onclick/onkeydown ──────
+    function loadSpotify() {
+      var facade    = document.getElementById('spotify-facade');
+      var container = document.getElementById('spotify-real-container');
+      if (container.querySelector('iframe')) return;
+
+      var iframe     = document.createElement('iframe');
+      iframe.style.borderRadius = '12px';
+      iframe.src     = 'https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0';
+      iframe.width   = '100%';
+      iframe.height  = '152';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.allow   = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      iframe.loading = 'eager';
+      iframe.title   = 'Deep Press Analysis Podcast';
+
+      container.appendChild(iframe);
+      facade.classList.add('hidden-player');
+    }
+
+    var spotifyFacade = document.getElementById('spotify-facade');
+    if (spotifyFacade) {
+      spotifyFacade.addEventListener('click', loadSpotify);
+      spotifyFacade.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadSpotify(); }
+      });
+    }
 
   })();
   </script>
