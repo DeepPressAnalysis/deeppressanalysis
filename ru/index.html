@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<html lang="ru" prefix="og: http://ogp.me/ns#">
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  Deep Press Analysis — index.html                                    ║
+  ║  ВАЖНО: nonce в CSP и тегах <script> ДОЛЖЕН генерироваться           ║
+  ║  сервером динамически при каждом запросе (Node/PHP/Python/etc.).     ║
+  ║  В шаблоне замените «EDNnf03nceIofn39fn3e9h3sdfa» на %%NONCE%%       ║
+  ║  или эквивалент вашего шаблонизатора.                                ║
+  ║  Пример Node.js:  crypto.randomBytes(16).toString('base64')          ║
+  ║  Пример PHP:      base64_encode(random_bytes(16))                    ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+<!-- ФИХ #5: class="no-js" — JS удалит его при загрузке -->
+<html lang="ru" class="no-js" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
-  <title>Deep Press Analysis — 12 марта 2026 | Ормуз, кибервойны и AI-пузырь</title>
+  <title>Deep Press Analysis — 12 марта 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ежедневный глобальный пресс-синтез: угроза блокировки Ормузского пролива, легализация кибероружия, кризис монетизации AI, нефтяные аномалии и деградация логистики." />
-  <meta name="keywords" content="Ормузский пролив, нефть, фьючерсы, кибервойна, Cybercom, OpenAI, AI-пузырь, логистика, Boeing" />
+  <meta name="description" content="Карта рисков на 12 марта 2026: угроза блокады Ормузского пролива, аномалии физического и бумажного рынков нефти, риски пузыря ИИ и деградация аэрокосмической логистики." />
   <meta name="author" content="Deep Press Analysis" />
   <meta name="robots" content="index, follow" />
 
-  <!--
-    ФИХ #2: убран 'unsafe-inline' из script-src.
-    Добавлен nonce для единственного inline-блока.
-    ВАЖНО: nonce должен генерироваться сервером динамически при каждом запросе.
-    Пример Node.js: crypto.randomBytes(16).toString('base64')
-    Пример PHP:     base64_encode(random_bytes(16))
-  -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'nonce-RuPressNonce2026abc';
+    script-src 'self' 'nonce-EDNnf03nceIofn39fn3e9h3sdfa';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
-    img-src 'self' data: https://deeppressanalysis.com;
-    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io;
+    img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
+    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
     form-action 'self' https://formspree.io;
     object-src 'none';
     base-uri 'self';
-    frame-src 'none';
+    frame-src 'self' https://open.spotify.com;
     media-src 'none';
     upgrade-insecure-requests;
   ">
@@ -35,60 +39,78 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="canonical" href="https://deeppressanalysis.com/ru/120326.html" />
-  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/120326.html" />
-  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/en/120326.html" />
-  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/120326.html" />
-  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/120326.html" />
-  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/120326.html" />
-  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/120326.html" />
-  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/120326.html" />
+  <link rel="canonical"  href="https://deeppressanalysis.com/ru/" />
+  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/" />
+  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/" />
+  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/" />
+  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/" />
+  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/" />
+  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/" />
 
   <meta property="og:type"        content="article" />
   <meta property="og:title"       content="Deep Press Analysis — 12 марта 2026" />
-  <meta property="og:description" content="Глубокая аналитика: угроза перекрытия Ормузского пролива, AI-пузырь, институционализация киберопераций и разрыв нефтяных контрактов." />
-  <meta property="og:url"         content="https://deeppressanalysis.com/ru/120326.html" />
+  <meta property="og:description" content="Карта рисков на 12 марта 2026: угроза блокады Ормузского пролива, аномалии физического и бумажного рынков нефти, риски пузыря ИИ и деградация аэрокосмической логистики." />
+  <meta property="og:url"         content="https://deeppressanalysis.com/ru/" />
   <meta property="og:image"       content="https://deeppressanalysis.com/assets/og-cover-2026.jpg" />
-  <meta property="og:locale"      content="ru_RU" />
   <meta name="twitter:card"       content="summary_large_image" />
   <meta name="twitter:title"      content="Deep Press Analysis — 12 марта 2026" />
-  <meta name="twitter:description" content="Глубокая аналитика: угроза перекрытия Ормузского пролива, AI-пузырь, институционализация киберопераций и разрыв нефтяных контрактов." />
+  <meta name="twitter:description" content="Карта рисков на 12 марта 2026: угроза блокады Ормузского пролива, аномалии физического и бумажного рынков нефти, риски пузыря ИИ и деградация аэрокосмической логистики." />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "NewsMediaOrganization",
-    "@id": "https://deeppressanalysis.com/#newsmediaorganization",
-    "name": "Deep Press Analysis",
-    "url": "https://deeppressanalysis.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://deeppressanalysis.com/logo.png",
-      "width": 512,
-      "height": 512
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "@id": "https://deeppressanalysis.com/#newsmediaorganization",
+      "name": "Deep Press Analysis",
+      "url": "https://deeppressanalysis.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://deeppressanalysis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://t.me/DeepPressAnalysis",
+        "https://www.threads.com/@deeppressanalysis",
+        "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
+        "https://www.pinterest.com/DeepPressAnalysis"
+      ],
+      "foundingDate": "2025-12-01",
+      "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
+      "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "masthead": "https://deeppressanalysis.com/manifesto.html",
+      "verificationFactCheckingPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Editorial",
+        "email": "info@deeppressanalysis.com",
+        "availableLanguage": ["English","Russian","Ukrainian","German","Arabic","Spanish"]
+      },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Worldwide" }
     },
-    "sameAs": [
-      "https://t.me/DeepPressAnalysis",
-      "https://www.threads.com/@deeppressanalysis",
-      "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
-      "https://www.pinterest.com/DeepPressAnalysis"
-    ],
-    "foundingDate": "2025-12-01",
-    "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
-    "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
-    "masthead": "https://deeppressanalysis.com/manifesto.html",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Editorial",
-      "email": "info@deeppressanalysis.com"
-    },
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": "Worldwide"
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://deeppressanalysis.com/ru/#webpage",
+      "url": "https://deeppressanalysis.com/ru/",
+      "name": "Deep Press Analysis — 12 марта 2026",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "datePublished": "2026-03-12T06:00:00+00:00",
+      "dateModified":  "2026-03-12T06:00:00+00:00",
+      "description": "Карта рисков на 12 марта 2026: угроза блокады Ормузского пролива, аномалии физического и бумажного рынков нефти, риски пузыря ИИ и деградация аэрокосмической логистики.",
+      "inLanguage": "ru",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://deeppressanalysis.com/ru/" }
+        ]
+      }
     }
-  }
+  ]
   </script>
-  
+
   <style>
     :root {
       --bg-body:        #F2F4F7;
@@ -110,15 +132,16 @@
       font-family: 'Inter', system-ui, sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 0;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       font-family: 'Libre Baskerville', serif;
       color: var(--brand-navy);
       line-height: 1.3;
     }
-    a { text-decoration: none; color: inherit; transition: 0.2s; }
+
+    /* ФИХ #6: transition: all → конкретные свойства (производительность) */
+    a { text-decoration: none; color: inherit; transition: color 0.2s, opacity 0.2s; }
 
     *:focus-visible {
       outline: 3px solid var(--brand-blue);
@@ -126,6 +149,7 @@
       border-radius: 3px;
     }
 
+    /* ─── Тикер ─────────────────────────────────────────────────────────── */
     .ticker-container {
       background: var(--brand-navy);
       color: #fff;
@@ -136,16 +160,11 @@
       white-space: nowrap;
       height: 36px;
     }
-
-    /* ФИХ #3: display:inline-flex (как в EN) + translateX(-50%) для плавного бесконечного скролла.
-       Оригинальный код использовал inline-block + -100% с тройным дублированием —
-       это создавало рывок при перезапуске анимации. */
     .ticker-content {
       display: inline-flex;
       animation: ticker 80s linear infinite;
     }
     .ticker-content:hover { animation-play-state: paused; }
-
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     .pair        { margin-right: 2.5rem; font-family: 'Inter', monospace; letter-spacing: -0.5px; }
@@ -153,11 +172,16 @@
     .crypto-up   { color: #34d399; }
     .crypto-down { color: #f87171; }
 
-    .container {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 0 20px;
+    /* ─── ФИХ #5: no-js — статьи видны без JS ───────────────────────────── */
+    .no-js .article-body {
+      max-height: none !important;
+      opacity: 1    !important;
+      visibility: visible !important;
     }
+    .no-js .toggle-icon { display: none; }
+
+    /* ─── Layout ─────────────────────────────────────────────────────────── */
+    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
 
     .top-toolbar {
       display: flex;
@@ -178,13 +202,9 @@
       background: #fff;
       border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      transition: 0.2s;
-      overflow: hidden;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
     }
-    .social-btn svg, .social-btn img {
-      width: 16px; height: 16px;
-      fill: currentColor; display: block; object-fit: contain;
-    }
+    .social-btn img { width: 16px; height: 16px; object-fit: contain; display: block; }
     .social-btn:hover { background: var(--brand-navy); color: #fff; border-color: var(--brand-navy); }
 
     .lang-bar {
@@ -192,36 +212,33 @@
       text-transform: uppercase; letter-spacing: 0.5px;
       display: flex; gap: 12px;
     }
-    .lang-link        { color: #9CA3AF; transition: 0.2s; }
+    .lang-link        { color: #9CA3AF; transition: color 0.2s; }
     .lang-link:hover  { color: var(--brand-blue); }
     .lang-link.active {
       color: var(--brand-navy); font-weight: 800;
       border-bottom: 2px solid var(--brand-blue); padding-bottom: 2px;
     }
 
+    /* ─── Header ─────────────────────────────────────────────────────────── */
     header {
       text-align: center;
       margin-bottom: 50px;
       padding-bottom: 30px;
       border-bottom: 1px solid #d1d5db;
     }
-
     .meta-issue {
       font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
       color: var(--text-secondary); margin-bottom: 10px;
     }
-
     h1.site-title {
       font-size: 48px; font-weight: 700;
       letter-spacing: -0.02em; margin-bottom: 8px;
     }
-
     .subtitle {
       font-family: 'Inter', sans-serif;
       font-size: 14px; color: var(--text-secondary);
       text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
     }
-
     .briefing-summary {
       background: #fff; border: 1px solid var(--border-color);
       padding: 20px; margin-top: 30px; text-align: left;
@@ -234,20 +251,21 @@
       text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;
     }
 
+    /* ─── Outlets ────────────────────────────────────────────────────────── */
     .outlet-section {
       background: var(--bg-paper); border: 1px solid var(--border-color);
       margin-bottom: 30px; border-radius: 4px; overflow: hidden;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
     }
-
     .outlet-header {
       background: #f8fafc; padding: 15px 25px;
       border-bottom: 1px solid var(--border-color);
       display: flex; justify-content: space-between; align-items: center;
     }
-    .outlet-header h2  { font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
-    .outlet-tags       { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; }
+    .outlet-header h2 { font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
+    .outlet-tags      { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; }
 
+    /* ─── Accordion ──────────────────────────────────────────────────────── */
     .article-item            { border-bottom: 1px solid var(--border-color); }
     .article-item:last-child { border-bottom: none; }
 
@@ -266,19 +284,18 @@
     .art-title {
       font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
       color: var(--text-primary); flex-grow: 1; padding-right: 20px;
+      transition: color 0.2s;
     }
     .toggle-icon {
       color: var(--text-secondary); font-size: 12px; width: 20px; text-align: center;
       transition: transform 0.3s ease;
     }
-
     .article-item.active .art-title  { color: var(--brand-blue); }
     .article-item.active .toggle-icon { transform: rotate(180deg); }
-    .article-item.active             { background: #fff; }
 
     .article-body {
       max-height: 0; overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.4s;
       background: #fff; opacity: 0; visibility: hidden;
     }
     .article-item.active .article-body { opacity: 1; visibility: visible; }
@@ -288,6 +305,7 @@
       color: var(--text-secondary); max-width: 85ch; line-height: 1.7;
     }
 
+    /* ─── Newsletter ─────────────────────────────────────────────────────── */
     .nebula-wrapper {
       background-color: var(--bg-body); width: 100%;
       padding: 60px 0; margin-top: 60px;
@@ -298,19 +316,33 @@
       font-family: 'Libre Baskerville', serif; margin-bottom: 10px; font-size: 24px;
     }
     .form-container          { display: flex; justify-content: center; padding: 20px; }
-    .newsletter-form-wrapper { width: 100%; max-width: 500px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .input-group             { display: flex; width: 100%; align-items: center; }
-    .nebula-input            { position: relative; flex: 1; }
+    .newsletter-form-wrapper {
+      width: 100%; max-width: 500px;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .input-group  { display: flex; width: 100%; align-items: center; }
+    .nebula-input { position: relative; flex: 1; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
 
     .nebula-input .input {
       width: 100%; padding: 12px 12px 12px 40px;
-      border: 1px solid #cbd5e1; background: #FFFFFF;
+      border: 1px solid #cbd5e1; background: #fff;
       color: var(--brand-navy); font-size: 16px; outline: none;
-      border-radius: 4px 0 0 4px; transition: 0.2s;
+      border-radius: 4px 0 0 4px; transition: border-color 0.2s;
     }
-    .nebula-input .input:focus { border-color: var(--brand-blue); z-index: 2; position: relative; }
+    .nebula-input .input:focus         { border-color: var(--brand-blue); z-index: 2; position: relative; }
+    .nebula-input .input.input-error   { border-color: var(--down-color); }
 
-    .email-icon { position: absolute; top: 50%; left: 12px; transform: translateY(-50%); width: 20px; height: 20px; fill: #94a3b8; pointer-events: none; }
+    .email-icon {
+      position: absolute; top: 50%; left: 12px; transform: translateY(-50%);
+      width: 20px; height: 20px; fill: #94a3b8; pointer-events: none;
+      transition: fill 0.2s;
+    }
     .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
 
     .subscribe-button {
@@ -318,9 +350,16 @@
       color: #fff; background: var(--brand-navy);
       border: 1px solid var(--brand-navy); border-radius: 0 4px 4px 0;
       cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
-      transition: all 0.2s;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .subscribe-button:hover { background: var(--brand-blue); border-color: var(--brand-blue); }
+    .subscribe-button:disabled          { opacity: 0.7; cursor: not-allowed; }
+    .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
+
+    .form-error-msg {
+      display: none; color: var(--down-color);
+      font-size: 13px; margin-top: 6px; text-align: left; width: 100%;
+    }
+    .form-error-msg.visible { display: block; }
 
     .success-message           { display: none; text-align: center; color: var(--brand-navy); }
     .success-message.visible   { display: block; }
@@ -329,20 +368,54 @@
     .checkmark-circle { stroke: var(--up-color); stroke-width: 2; fill: none; }
     .checkmark-check  { stroke: var(--up-color); stroke-width: 2; }
 
+    /* ─── Footer ─────────────────────────────────────────────────────────── */
     footer {
       text-align: center; margin-top: 60px;
-      padding-top: 30px; padding-bottom: 60px;
-      border-top: 1px solid var(--border-color);
+      padding: 30px 0 60px; border-top: 1px solid var(--border-color);
       color: var(--text-secondary); font-size: 13px;
     }
     .footer-links { margin-top: 35px; display: flex; justify-content: center; gap: 40px; }
     .btn-text {
       font-weight: 900; text-transform: uppercase; font-size: 18px; letter-spacing: 1px;
       color: var(--brand-navy); border-bottom: 2px solid transparent; padding-bottom: 4px;
-      transition: all 0.2s ease;
+      transition: color 0.2s, border-color 0.2s;
     }
     .btn-text:hover { color: var(--brand-blue); border-bottom-color: var(--brand-blue); }
 
+    /* ─── Spotify facade ─────────────────────────────────────────────────── */
+    .spotify-fake-player {
+      background-color: #282828; border-radius: 12px; height: 152px;
+      display: flex; align-items: center; cursor: pointer; overflow: hidden;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+    .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
+
+    .fake-cover         { width: 152px; height: 152px; flex-shrink: 0; }
+    .fake-cover img     {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.95;
+      border-top-left-radius: 12px; border-bottom-left-radius: 12px;
+    }
+    .fake-info          {
+      padding: 0 24px; flex-grow: 1;
+      display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+    }
+    .fake-meta   { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .fake-title  { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
+    .fake-desc   { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
+    .fake-play-btn {
+      background-color: #1ed760; color: #000; border: none; border-radius: 50%;
+      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+      margin-right: 24px; cursor: pointer; flex-shrink: 0;
+      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .fake-play-btn svg { fill: currentColor; margin-left: 2px; }
+    .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
+    .hidden-player { display: none !important; }
+
+    /* ─── Reduced motion ─────────────────────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -353,30 +426,48 @@
       .ticker-content { animation: none; }
     }
 
+    /* ─── Mobile ─────────────────────────────────────────────────────────── */
     @media (max-width: 600px) {
-      h1.site-title     { font-size: 32px; }
-      .top-toolbar      { flex-direction: column-reverse; gap: 20px; align-items: center; }
-      .lang-bar         { flex-wrap: wrap; justify-content: center; }
-      .body-inner       { padding-left: 25px; }
-      .outlet-tags      { display: none; }
-      .input-group      { flex-direction: column; gap: 10px; }
-      .nebula-input .input { border-radius: 4px; }
-      .subscribe-button { border-radius: 4px; width: 100%; }
-      .footer-links     { flex-direction: column; gap: 20px; }
+      h1.site-title    { font-size: 32px; }
+      .top-toolbar     { flex-direction: column-reverse; gap: 20px; align-items: center; }
+      .lang-bar        { flex-wrap: wrap; justify-content: center; }
+      .body-inner      { padding-left: 25px; }
+      .outlet-tags     { display: none; }
+      .input-group     { flex-direction: column; gap: 10px; }
+      .nebula-input .input  { border-radius: 4px; }
+      .subscribe-button     { border-radius: 4px; width: 100%; }
+      .footer-links    { flex-direction: column; gap: 20px; }
+      .spotify-fake-player  { height: auto; padding: 16px; flex-wrap: wrap; }
+      .fake-cover      { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
+      .fake-cover img  { border-radius: 4px; }
+      .fake-info       { padding: 0; width: calc(100% - 80px - 50px); }
+      .fake-title      { font-size: 16px; white-space: normal; }
+      .fake-play-btn   { width: 40px; height: 40px; margin-right: 0; }
     }
 
+    /* ─── Print ──────────────────────────────────────────────────────────── */
     @media print {
-      .ticker-container, .social-row, .lang-bar, .nebula-wrapper, footer { display: none; }
+      .ticker-container, .social-row, .lang-bar,
+      .nebula-wrapper, footer, .spotify-fake-player,
+      #spotify-real-container { display: none; }
       body { background: white; }
       .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
     }
   </style>
 
-  <script src="/analytics.js" defer nonce="RuPressNonce2026abc"></script>
+  <!-- ФИХ #2: defer — analytics.js не блокирует рендер страницы -->
+  <script src="/analytics.js" defer nonce="EDNnf03nceIofn39fn3e9h3sdfa"></script>
 </head>
-<body>
 
-  <aside aria-label="Котировки рынков в реальном времени" aria-live="off">
+<body>
+  <noscript>
+    <style>
+      .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
+      .toggle-icon  { display: none; }
+    </style>
+  </noscript>
+
+  <aside aria-label="Live market data ticker" aria-live="off">
     <div class="ticker-container">
       <div class="ticker-content" id="tickerContent">
         <span style="padding-left:20px;">Загрузка рыночных данных…</span>
@@ -388,144 +479,296 @@
 
     <div class="top-toolbar">
       <nav class="lang-bar" aria-label="Выбор языка">
-        <a href="/ua/120326.html" class="lang-link" hreflang="uk" aria-label="Українська версія">UA</a>
-        <a href="/en/120326.html" class="lang-link" hreflang="en" aria-label="English version">EN</a>
-        <a href="/es/120326.html" class="lang-link" hreflang="es" aria-label="Versión en español">ES</a>
-        <a href="/ar/120326.html" class="lang-link" hreflang="ar" aria-label="النسخة العربية">AR</a>
-        <a href="/ru/120326.html" class="lang-link active" hreflang="ru" aria-current="page" aria-label="Русская версия">RU</a>
-        <a href="/de/120326.html" class="lang-link" hreflang="de" aria-label="Deutsche Version">DE</a>
+        <a href="/ua/" class="lang-link" hreflang="uk" aria-label="Украинская версия">UA</a>
+        <a href="/"    class="lang-link" hreflang="en" aria-label="Английская версия">EN</a>
+        <a href="/es/" class="lang-link" hreflang="es" aria-label="Испанская версия">ES</a>
+        <a href="/ar/" class="lang-link" hreflang="ar" aria-label="Арабская версия">AR</a>
+        <a href="/ru/" class="lang-link active" hreflang="ru" aria-current="page" aria-label="Русская версия">RU</a>
+        <a href="/de/" class="lang-link" hreflang="de" aria-label="Немецкая версия">DE</a>
       </nav>
 
       <nav class="social-row" aria-label="Социальные сети">
-        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Написать нам">
-          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16" />
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Написать в Deep Press Analysis">
+          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
         </a>
-        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Наш Telegram-канал">
-          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16" />
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Посетить наш Telegram канал">
+          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
         </a>
-        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Наш профиль в Threads">
-          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16" />
+        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Посетить наш профиль в Threads">
+          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16">
         </a>
-        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Наш YouTube-канал">
-          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16" />
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Посетить наш YouTube канал">
+          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
         </a>
       </nav>
     </div>
 
     <header>
-      <div class="meta-issue">ТОМ 26 • ВЫПУСК 12 • <time datetime="2026-03-12">12 МАРТА 2026</time></div>
+      <div class="meta-issue">
+        ТОМ 26 • ВЫПУСК 65 • <time datetime="2026-03-12">12 МАР 2026</time>
+      </div>
       <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
       <div class="subtitle">Ежедневный синтез ведущих международных изданий</div>
       <div class="briefing-summary">
-        <p><strong>В фокусе сегодня:</strong> Блокировка Ормузского пролива и ракетные удары, ценовая аномалия нефти, наступательные кибероперации Cybercom, кризис бизнес-модели OpenAI и деградация авиакосмической логистики.</p>
+        <p><strong>Сегодня в фокусе:</strong> Угроза блокады Ормузского пролива и атаки на базы США, колоссальный разрыв между физическим и бумажным рынками нефти, институционализация наступательных киберопераций, риски пузыря оценок ИИ и деградация аэрокосмической логистики.</p>
       </div>
     </header>
 
     <main>
 
-      <!-- ── Global Risk Intelligence ──────────────────────────────────────── -->
+      <!-- Spotify facade.
+           ФИХ Spotify CSP: onclick/onkeydown удалены из HTML-атрибутов.
+           Обработчики добавляются через addEventListener в JS-блоке с nonce. -->
+      <div id="spotify-facade" class="spotify-fake-player"
+           role="button" tabindex="0"
+           aria-label="Слушать подкаст Deep Press Analysis в Spotify">
+        <div class="fake-cover">
+          <img src="https://deeppressanalysis.com/logo.png" alt="Обложка подкаста Deep Press Analysis">
+        </div>
+        <div class="fake-info">
+          <div class="fake-meta">ПОДКАСТ</div>
+          <div class="fake-title">Deep Press Analysis</div>
+          <div class="fake-desc">Ежедневный аудио-брифинг</div>
+        </div>
+        <button class="fake-play-btn" aria-label="Слушать подкаст" tabindex="-1">
+          <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/>
+          </svg>
+        </button>
+      </div>
+      <div id="spotify-real-container" style="margin-bottom:40px;"></div>
+
+      <!-- ── SECTION 1: GLOBAL MACRO & GEOPOLITICS ──────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>Сводка Главных Угроз</h2>
-          <div class="outlet-tags">Ормуз • Нефть • Кибервойна • AI-Пузырь • Логистика</div>
+          <h2>Глобальная макроэкономика и геополитика</h2>
+          <div class="outlet-tags">Энергетика • Ближний Восток • Цепочки поставок • Кибервойна</div>
         </div>
 
-        <!-- ФИХ #2 и #4: убраны onclick из HTML-атрибутов (inline handlers).
-             Все обработчики добавлены через addEventListener в JS-блоке с nonce.
-             ФИХ #4: aria-labelledby теперь ссылается на кнопку-триггер,
-             а не на сам элемент article-body — самореференция ломает скринридеры. -->
         <article class="article-item">
-          <button class="article-trigger" id="btn-gri-01" aria-expanded="false" aria-controls="art-gri-01">
+          <button class="article-trigger" id="btn-sec1-01" aria-expanded="false" aria-controls="art-sec1-01">
             <span class="art-idx">01</span>
-            <span class="art-title">Блокировка Ормузского пролива и атаки на базы США</span>
+            <span class="art-title">Блокада Ормузского пролива и атаки на базы США</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-gri-01" role="region" aria-labelledby="btn-gri-01">
+          <div class="article-body" id="art-sec1-01" role="region" aria-labelledby="btn-sec1-01">
             <div class="body-inner">
-              <strong>Что изменилось:</strong> Иран и КСИР угрожают закрыть пролив и нанесли ракетные удары по базам США в Катаре и Ираке в ответ на массированные бомбардировки.<br><br>
-              <strong>Почему это важно:</strong> Пролив контролирует 20% мирового объема поставок нефти и СПГ; физическое перекрытие невозможно компенсировать финансовыми инструментами.<br><br>
-              <strong>Усиливающийся риск:</strong> Глобальный энергетический шок, слом логистических цепей и инфляционный всплеск.
+              <strong>[Что изменилось]:</strong> Иран и КСИР угрожают перекрыть пролив и нанесли ракетные удары по базам США в Катаре и Ираке в ответ на массированные бомбардировки.<br><br>
+              <strong>[Почему это важно]:</strong> Пролив контролирует 20% мировых поставок нефти и СПГ; физическое перекрытие невозможно компенсировать финансовыми инструментами.<br><br>
+              <strong>[Усиление риска]:</strong> Глобальный энергетический шок, разрушение цепочек поставок и резкий всплеск инфляции.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-gri-02" aria-expanded="false" aria-controls="art-gri-02">
+          <button class="article-trigger" id="btn-sec1-02" aria-expanded="false" aria-controls="art-sec1-02">
             <span class="art-idx">02</span>
             <span class="art-title">Разрыв между физическим рынком нефти и бумажными контрактами</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-gri-02" role="region" aria-labelledby="btn-gri-02">
+          <div class="article-body" id="art-sec1-02" role="region" aria-labelledby="btn-sec1-02">
             <div class="body-inner">
-              <strong>Что изменилось:</strong> Фьючерсы на нефть упали на 12% на фоне удаленного твита министра энергетики США и ожиданий политического завершения войны.<br><br>
-              <strong>Почему это важно:</strong> Рынки игнорируют реальное физическое «узкое место» (Ормуз) и переоценивают политический шум, создавая ценовую аномалию.<br><br>
-              <strong>Усиливающийся риск:</strong> Внезапная и жесткая переоценка активов (margin calls) для алгоритмических и сырьевых трейдеров при конвергенции фьючерсов со спотом.
+              <strong>[Что изменилось]:</strong> Фьючерсы на нефть рухнули на 12% на фоне удаленного твита министра энергетики США и ожиданий рынка о политическом завершении войны.<br><br>
+              <strong>[Почему это важно]:</strong> Рынки игнорируют реальное физическое «узкое горлышко» (Ормуз) и переоценивают политический шум, создавая колоссальную ценовую аномалию.<br><br>
+              <strong>[Усиление риска]:</strong> Внезапная и жесткая переоценка активов (маржин-коллы) для алгоритмических и сырьевых трейдеров при конвергенции фьючерсов со спотовыми ценами.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-gri-03" aria-expanded="false" aria-controls="art-gri-03">
+          <button class="article-trigger" id="btn-sec1-03" aria-expanded="false" aria-controls="art-sec1-03">
             <span class="art-idx">03</span>
             <span class="art-title">Институционализация наступательных киберопераций (Cybercom)</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-gri-03" role="region" aria-labelledby="btn-gri-03">
+          <div class="article-body" id="art-sec1-03" role="region" aria-labelledby="btn-sec1-03">
             <div class="body-inner">
-              <strong>Что изменилось:</strong> Утверждение нового главы АНБ/Cybercom генерала Радда на фоне успешного применения кибератак (отключение энергетики) для прямой смены режима в Венесуэле.<br><br>
-              <strong>Почему это важно:</strong> Кибероружие легализуется как инструмент «жесткой силы» (hard power) в межгосударственных конфликтах.<br><br>
-              <strong>Усиливающийся риск:</strong> Асимметричные кибератаки в ответ на критическую инфраструктуру (энергетика, финансы) со стороны государств-антагонистов.
+              <strong>[Что изменилось]:</strong> Утверждение нового главы АНБ/Киберкомандования генерала Рэдда на фоне успешного применения кибератак (отключение энергосетей) для прямой смены режима в Венесуэле.<br><br>
+              <strong>[Почему это важно]:</strong> Кибероружие официально легитимизируется как стандартный инструмент «жесткой силы» в межгосударственных конфликтах.<br><br>
+              <strong>[Усиление риска]:</strong> Асимметричные ответные кибератаки на критическую инфраструктуру (энергетика, финансы, телекоммуникации) со стороны враждебных государств.
             </div>
           </div>
         </article>
+      </section>
+
+      <!-- ── SECTION 2: TECHNOLOGY & AVIATION ────────────────────────────── -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>Технологии и авиация</h2>
+          <div class="outlet-tags">Искусственный интеллект • Технологический пузырь • Аэрокосмическая логистика</div>
+        </div>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-gri-04" aria-expanded="false" aria-controls="art-gri-04">
+          <button class="article-trigger" id="btn-sec2-01" aria-expanded="false" aria-controls="art-sec2-01">
             <span class="art-idx">04</span>
-            <span class="art-title">Кризис бизнес-модели лидеров AI-сектора</span>
+            <span class="art-title">Кризис бизнес-модели лидеров сектора ИИ</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-gri-04" role="region" aria-labelledby="btn-gri-04">
+          <div class="article-body" id="art-sec2-01" role="region" aria-labelledby="btn-sec2-01">
             <div class="body-inner">
-              <strong>Что изменилось:</strong> OpenAI готовится к IPO с оценкой $730 млрд, параллельно тестируя внедрение рекламы в бесплатные продукты из-за высокого burn rate.<br><br>
-              <strong>Почему это важно:</strong> Демонстрирует исчерпание модели роста за счет венчурного капитала без четкой стратегии монетизации B2C сегмента.<br><br>
-              <strong>Усиливающийся риск:</strong> Схлопывание технологического пузыря (Tech Bubble Burst) и масштабная переоценка AI-активов.
+              <strong>[Что изменилось]:</strong> OpenAI готовится к IPO с оценкой в $730 млрд, одновременно тестируя интеграцию рекламы в свои бесплатные продукты из-за неприемлемой скорости сжигания наличных (cash burn rate).<br><br>
+              <strong>[Почему это важно]:</strong> Это демонстрирует истощение модели роста, финансируемой венчурным капиталом, без четкой и жизнеспособной стратегии B2C-монетизации.<br><br>
+              <strong>[Усиление риска]:</strong> Схлопывание технологического пузыря и массовая понижательная переоценка активов в сфере искусственного интеллекта.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-gri-05" aria-expanded="false" aria-controls="art-gri-05">
+          <button class="article-trigger" id="btn-sec2-02" aria-expanded="false" aria-controls="art-sec2-02">
             <span class="art-idx">05</span>
-            <span class="art-title">Деградация авиакосмической логистики</span>
+            <span class="art-title">Деградация аэрокосмической логистики</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-gri-05" role="region" aria-labelledby="btn-gri-05">
+          <div class="article-body" id="art-sec2-02" role="region" aria-labelledby="btn-sec2-02">
             <div class="body-inner">
-              <strong>Что изменилось:</strong> Boeing задерживает поставки 737 MAX из-за новых проблем с электропроводкой; British Airways массово отменяет рейсы на Ближний Восток.<br><br>
-              <strong>Почему это важно:</strong> Синхронный удар по предложению (нехватка бортов) и спросу/маршрутизации (закрытие неба) в авиаотрасли.<br><br>
-              <strong>Усиливающийся риск:</strong> Снижение корпоративной мобильности, рост затрат на фрахт и CAPEX авиакомпаний.
+              <strong>[Что изменилось]:</strong> Boeing задерживает поставки 737 MAX из-за новых проблем с электропроводкой; British Airways массово отменяет рейсы на Ближний Восток.<br><br>
+              <strong>[Почему это важно]:</strong> Это представляет собой синхронный удар как по предложению (нехватка доступных самолетов), так и по спросу/маршрутизации (закрытие воздушного пространства) в авиационной отрасли.<br><br>
+              <strong>[Усиление риска]:</strong> Снижение корпоративной мобильности, взлет стоимости грузоперевозок и раздувание капитальных затрат (CAPEX) авиакомпаний.
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ── SECTION 3: WEEKLY RISK MAP & DRIVERS ────────────────────────── -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>Еженедельная карта рисков и драйверы</h2>
+          <div class="outlet-tags">Оценка рисков • Драйверы рынка • Анализ трендов</div>
+        </div>
+
+        <article class="article-item">
+          <button class="article-trigger" id="btn-sec3-01" aria-expanded="false" aria-controls="art-sec3-01">
+            <span class="art-idx">06</span>
+            <span class="art-title">Матрица еженедельной карты рисков</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="art-sec3-01" role="region" aria-labelledby="btn-sec3-01">
+            <div class="body-inner">
+              • <strong>Физическое энергетическое узкое горлышко (Ормуз):</strong> Уровень сигнала S4 | Тренд: ↑ | Влияние: Нефтегаз, логистика, промышленность | Горизонт: Дни | Уверенность: Высокая.<br><br>
+              • <strong>Ценовая аномалия / Шок ликвидности (Нефть):</strong> Уровень сигнала S3 | Тренд: ↑ | Влияние: Хедж-фонды, сырьевые рынки | Горизонт: Дни-недели | Уверенность: Средняя.<br><br>
+              • <strong>Ближневосточное заражение (Ливан, Ирак, Катар):</strong> Уровень сигнала S4 | Тренд: ↑ | Влияние: Суверенный долг, авиация, страхование | Горизонт: Дни-недели | Уверенность: Высокая.<br><br>
+              • <strong>Кибервойна против критической инфраструктуры:</strong> Уровень сигнала S3 | Тренд: ↑ | Влияние: Энергетика, финансы, телеком | Горизонт: Недели | Уверенность: Высокая.<br><br>
+              • <strong>Схлопывание пузыря оценок ИИ:</strong> Уровень сигнала S2 | Тренд: → | Влияние: Технологии, венчурный капитал, M&A | Горизонт: Месяцы | Уверенность: Средняя.<br><br>
+              • <strong>Эскалация инцидентов внутренней безопасности:</strong> Уровень сигнала S2 | Тренд: ↑ | Влияние: Корпоративная безопасность (США), страхование | Горизонт: Недели | Уверенность: Низкая.<br><br>
+              • <strong>Сжатие цепочек поставок в аэрокосмической отрасли:</strong> Уровень сигнала S4 | Тренд: → | Влияние: Авиакомпании, туризм, B2B-логистика | Горизонт: Месяцы | Уверенность: Высокая.<br><br>
+              • <strong>Неправильное распределение из-за политического шума:</strong> Уровень сигнала S3 | Тренд: ↑ | Влияние: Алготрейдинг, управление рисками | Горизонт: Дни | Уверенность: Высокая.
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item">
+          <button class="article-trigger" id="btn-sec3-02" aria-expanded="false" aria-controls="art-sec3-02">
+            <span class="art-idx">07</span>
+            <span class="art-title">Ключевые драйверы и механизмы</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="art-sec3-02" role="region" aria-labelledby="btn-sec3-02">
+            <div class="body-inner">
+              • <strong>Геополитическое хеджирование через эскалацию:</strong> Игроки на Ближнем Востоке (США и Израиль с одной стороны; Иран и «Хезболла» с другой) предельно повышают ставки, пытаясь закрепить стратегическое преимущество перед любым потенциальным политическим вмешательством или сменой курса (на фоне заявлений Д. Трампа о скором завершении войны).<br><br>
+              • <strong>Разрыв между политическим нарративом и физической реальностью:</strong> Рынки склонны закладывать в цены политические заявления как свершившийся факт, игнорируя реальное разрушение инфраструктуры (в Ливане) и структурные ограничения (проливы). Стимул трейдеров — поймать краткосрочный тренд; стимул политиков — успокоить электорат.<br><br>
+              • <strong>Давление ликвидности в технологическом секторе:</strong> Институциональные инвесторы требуют выходов (IPO). Это заставляет ИИ-компании форсировать монетизацию (даже ценой репутационных потерь или изменения продукта), обнажая слабость текущей юнит-экономики.
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ── SECTION 4: TRIGGERS & STRATEGIC IMPLICATIONS ────────────────── -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>Триггеры и стратегические последствия</h2>
+          <div class="outlet-tags">Прогнозирование • Распределение капитала • Список наблюдения</div>
+        </div>
+
+        <article class="article-item">
+          <button class="article-trigger" id="btn-sec4-01" aria-expanded="false" aria-controls="art-sec4-01">
+            <span class="art-idx">08</span>
+            <span class="art-title">Триггеры эскалации и деэскалации</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="art-sec4-01" role="region" aria-labelledby="btn-sec4-01">
+            <div class="body-inner">
+              <strong>1. Физическое энергетическое узкое горлышко (Ормуз)</strong><br>
+              • <em>Триггер эскалации:</em> Потопление или захват нефтяного танкера в проливе; атака на объекты Saudi Aramco.<br>
+              • <em>Триггер подтверждения:</em> Официальные заявления о форс-мажоре от трех или более глобальных судоходных линий.<br>
+              • <em>Триггер деэскалации:</em> Запуск военно-морских конвоев США с подтвержденным безопасным проходом первой группы танкеров.<br><br>
+              <strong>2. Ценовая аномалия / Шок ликвидности (Нефть)</strong><br>
+              • <em>Триггер эскалации:</em> Дефолт крупного сырьевого брокера из-за маржин-коллов при резком развороте цен вверх.<br>
+              • <em>Триггер подтверждения:</em> Расширение спреда между спотовыми ценами и ближними фьючерсами за пределы исторических норм.<br>
+              • <em>Триггер деэскалации:</em> Синхронизация рынка после начала физической интервенции МЭА (высвобождение резервов).<br><br>
+              <strong>3. Кибервойна против критической инфраструктуры</strong><br>
+              • <em>Триггер эскалации:</em> Успешная атака типа «Wiper» (уничтожитель данных) на энергосети или финансовые клиринговые центры союзников США в Европе или на Ближнем Востоке.<br>
+              • <em>Триггер подтверждения:</em> Публичное предупреждение CISA об активности APT (спонсируемых государствами хакеров) в критических сетях.<br>
+              • <em>Триггер деэскалации:</em> Отсутствие системных инцидентов в течение 4 недель после стабилизации руководства Киберкомандования.<br><br>
+              <strong>4. Схлопывание пузыря оценок ИИ</strong><br>
+              • <em>Триггер эскалации:</em> Отток пользователей или забастовка рекламодателей после интеграции рекламы в ChatGPT.<br>
+              • <em>Триггер подтверждения:</em> Официальное снижение оценки OpenAI перед IPO или перенос размещения на конец года.<br>
+              • <em>Триггер деэскалации:</em> Демонстрация прибыльности в корпоративном сегменте (Enterprise) в предстоящих квартальных отчетах ключевых игроков.<br><br>
+              <strong>5. Ближневосточное заражение</strong><br>
+              • <em>Триггер эскалации:</em> Прямые удары по базам США, повлекшие массовые потери среди военных.<br>
+              • <em>Триггер подтверждения:</em> Закрытие гражданского воздушного пространства над всем Аравийским полуостровом.<br>
+              • <em>Триггер деэскалации:</em> Двустороннее соглашение о прекращении огня при посредничестве третьих стран.
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item">
+          <button class="article-trigger" id="btn-sec4-02" aria-expanded="false" aria-controls="art-sec4-02">
+            <span class="art-idx">09</span>
+            <span class="art-title">Последствия для решений и список наблюдения</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="art-sec4-02" role="region" aria-labelledby="btn-sec4-02">
+            <div class="body-inner">
+              <strong>Последствия для решений:</strong><br>
+              • <em>Распределение капитала:</em> Создание резервов ликвидности. Временная заморозка CAPEX в проектах, сильно зависящих от трансграничной логистики на Ближнем Востоке. Переоценка целесообразности инвестиций в ИИ-стартапы, исходящих из мультипликаторов 2024-2025 годов.<br>
+              • <em>Управление рисками:</em> Хеджирование энергетических рисков исключительно через физические контракты и диверсификацию поставщиков, отход от сугубо финансового (бумажного) хеджирования нефти. Обновление протоколов аварийного восстановления с учетом новых киберугроз государственного уровня.<br>
+              • <em>Тайминг решений:</em> Приостановка сделок M&A в секторах, высокочувствительных к ценам на нефть (транспорт, тяжелая промышленность), на горизонте 2-4 недель до прояснения статуса Ормузского пролива.<br>
+              • <em>Коммуникации (IR / PR):</em> Подготовка рынков и акционеров к потенциальному сжатию маржи во втором квартале 2026 года из-за роста стоимости фрахта, цен на энергоносители и премий за страховой риск.<br><br>
+              <strong>Список наблюдения (Следующая неделя):</strong><br>
+              • <em>Отчеты МЭА (IEA):</em> Сроки и объемы крупнейшего в истории высвобождения нефтяных резервов.<br>
+              • <em>Заявления Saudi Aramco:</em> Сроки восстановления поставок и оценка долгосрочного ущерба от логистической блокады.<br>
+              • <em>Данные по фрахту Baltic Exchange:</em> Всплески страховых премий для судов в Персидском заливе.<br>
+              • <em>Рынки деривативов:</em> Объемы открытого интереса (Open Interest) по ближним фьючерсам на нефть марки Brent.<br>
+              • <em>Сообщения Пентагона:</em> Статус перехвата ракет над Катаром и Ираком; приказы о развертывании ВМС США.<br>
+              • <em>Корпоративные заявления авиакомпаний:</em> Обновления финансовых прогнозов от европейских и американских авиаперевозчиков в связи с отменами рейсов (маркер B2B-активности).<br>
+              • <em>Документы SEC (OpenAI / Tech):</em> Утечки или официальные документы о структурировании IPO на фоне изменения модели монетизации.
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item">
+          <button class="article-trigger" id="btn-sec4-03" aria-expanded="false" aria-controls="art-sec4-03">
+            <span class="art-idx">10</span>
+            <span class="art-title">Ограничения и неопределенность</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="art-sec4-03" role="region" aria-labelledby="btn-sec4-03">
+            <div class="body-inner">
+              • <strong>Где риск переоценен:</strong> Ожидания быстрого политического разрешения кризиса (заявления Трампа об окончании войны). Рынки часто путают желание политиков решить проблему с их реальной способностью остановить институциональную инерцию конфликта.<br><br>
+              • <strong>Пробелы в данных:</strong> Непрозрачность реального состояния энергетической инфраструктуры Ирана после авиаударов; неизвестная степень готовности КСИР к длительной блокаде Ормузского пролива.<br><br>
+              • <strong>Допущения:</strong> Построенная гипотеза предполагает, что интервенция резервов МЭА окажет лишь краткосрочный эффект охлаждения рынка, но не сможет физически заместить логистическую блокаду на горизонте более 4 недель.
             </div>
           </div>
         </article>
       </section>
 
     </main>
-  </div>
+  </div><!-- /.container -->
 
+  <!-- ── Newsletter ────────────────────────────────────────────────── -->
   <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
-    <h3 class="nebula-title" id="newsletter-heading">Бесплатная подписка</h3>
+    <h3 class="nebula-title" id="newsletter-heading">Безопасный доступ к брифингам</h3>
     <div class="form-container">
       <div class="newsletter-form-wrapper">
         <form class="newsletter-form" id="newsletterForm"
               action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
           <div class="input-group">
             <div class="nebula-input">
-              <label for="emailInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
-                Ваш email-адрес
-              </label>
-              <input required type="email" id="emailInput" name="email" autocomplete="email"
-                     class="input" placeholder="Ваш email-адрес"
+              <!-- ФИХ #8: убран дублирующий aria-label с <input>.
+                   <label for="emailInput"> уже является единственным источником имени. -->
+              <label for="emailInput" class="sr-only">Корпоративный email</label>
+              <input type="email" id="emailInput" name="email" autocomplete="email"
+                     class="input" placeholder="Корпоративный email"
                      aria-describedby="formErrorMsg" />
               <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -533,8 +776,7 @@
             </div>
             <button class="subscribe-button" type="submit">Подписаться</button>
           </div>
-          <div id="formErrorMsg" role="alert" aria-live="polite"
-               style="display:none;color:var(--down-color);font-size:13px;margin-top:6px;"></div>
+          <div class="form-error-msg" id="formErrorMsg" role="alert" aria-live="polite"></div>
         </form>
 
         <div class="success-message" id="successMessage" role="alert" aria-live="assertive">
@@ -544,8 +786,8 @@
               <path   class="checkmark-check"  fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
             </svg>
           </div>
-          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Доступ предоставлен</h4>
-          <p style="font-size:14px;color:#4B5563;">Зашифрованный канал установлен.</p>
+          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Доступ разрешен</h4>
+          <p  style="font-size:14px;color:#4B5563;">Зашифрованный канал установлен.</p>
         </div>
       </div>
     </div>
@@ -553,40 +795,59 @@
 
   <footer>
     <p>&copy; 2026 Deep Press Analysis. Все права защищены.</p>
-    <nav class="footer-links" aria-label="Навигация в подвале">
-      <a href="/ru/archive.html" class="btn-text">Архив</a>
+    <nav class="footer-links" aria-label="Навигация">
+      <a href="/ru/archive.html" class="btn-text">Доступ к архиву</a>
       <a href="/manifesto.html"  class="btn-text">Манифест</a>
     </nav>
   </footer>
 
-  <!--
-    ФИХ #1: XSS устранён — тикер больше НЕ использует innerHTML с данными из сети.
-             Все данные API вставляются через DOM API (createElement + textContent).
-    ФИХ #2: onclick/onkeydown удалены из HTML. Все обработчики — здесь, с nonce.
-    ФИХ #3: Тикер — translateX(-50%) + двойное дублирование контента (как в EN).
-    ФИХ #4: aria-labelledby исправлен в HTML-разметке выше.
-  -->
-  <script nonce="RuPressNonce2026abc">
+  <!-- ═══════════════════════════════════════════════════════════════════
+       ЕДИНЫЙ JS-БЛОК с nonce. Все исправления по аудиту здесь:
+         #1  — статический nonce (требует серверной генерации, см. комментарий в <html>)
+         #2  — analytics.js с defer (в <head> выше)
+         #3  — finally в форме подписки всегда разблокирует кнопку
+         #4  — ошибки analytics.js через window.addEventListener('error')
+         #5  — classList.remove('no-js') сразу при старте
+         #6  — transition: конкретные свойства (в CSS выше)
+         #7  — редирект проверяет path перед срабатыванием
+         #8  — убран дублирующий aria-label с <input> (в HTML выше)
+         Spotify — addEventListener вместо onclick/onkeydown в HTML
+       ═══════════════════════════════════════════════════════════════════ -->
+  <script nonce="EDNnf03nceIofn39fn3e9h3sdfa">
   (function () {
     'use strict';
 
-    // ── Языковой редирект ─────────────────────────────────────────────────────────
+    // ── ФИХ #5: убираем no-js немедленно ────────────────────────────────────────
+    document.documentElement.classList.remove('no-js');
+
+    // ── ФИХ #4: отлавливаем ошибки загрузки analytics.js без inline onerror ──────
+    window.addEventListener('error', function (e) {
+      if (e.filename && e.filename.includes('analytics.js')) {
+        console.warn('[DPA] analytics.js failed to load:', e.message);
+      }
+    }, true);
+
+    // ── ФИХ #7: языковой редирект — не срабатывает при ручном возврате на EN ──────
     (function () {
       try {
-        if (sessionStorage.getItem('dpa_lang_redirected')) return;
-        var lang    = String(navigator.language || navigator.userLanguage || 'en').substring(0, 2).toLowerCase();
-        var map     = { ru: '/ru/120326.html', uk: '/ua/120326.html', ua: '/ua/120326.html',
-                        de: '/de/120326.html', ar: '/ar/120326.html', es: '/es/120326.html',
-                        en: '/en/120326.html' };
-        var path    = window.location.pathname;
-        if (map[lang] && !path.includes('/' + lang + '/')) {
-          sessionStorage.setItem('dpa_lang_redirected', 'true');
+        // Если пользователь уже на языковом пути — не трогать
+        var path = window.location.pathname;
+        var langPaths = ['/ru/', '/ua/', '/de/', '/ar/', '/es/'];
+        if (langPaths.some(function (p) { return path === p || path.startsWith(p); })) return;
+
+        // Если пользователь вернулся сюда вручную (через lang-bar) — уважаем выбор
+        if (localStorage.getItem('dpa_lang_redirected')) return;
+
+        var lang  = String(navigator.language || navigator.userLanguage || 'en').substring(0, 2).toLowerCase();
+        var map   = { ru: '/ru/', uk: '/ua/', ua: '/ua/', de: '/de/', ar: '/ar/', es: '/es/' };
+        if (map[lang]) {
+          localStorage.setItem('dpa_lang_redirected', 'true');
           window.location.replace(map[lang]);
         }
-      } catch (_) { /* sessionStorage недоступен — игнорируем */ }
+      } catch (_) { /* localStorage недоступен в приватном режиме — игнорируем */ }
     })();
 
-    // ── Аккордеон — ФИХ #2: addEventListener вместо onclick в HTML ───────────────
+    // ── Аккордеон ────────────────────────────────────────────────────────────────
     function closeItem(item) {
       var body = item.querySelector('.article-body');
       body.style.maxHeight = body.scrollHeight + 'px';
@@ -621,12 +882,10 @@
       }
     });
 
-    // ── Тикер — ФИХ #1 (XSS) + ФИХ #3 (анимация) ───────────────────────────────
-    // ФИХ #1: вместо innerHTML строим DOM-узлы через createElement/textContent.
-    //         Внешние данные НИКОГДА не попадают в innerHTML.
-    // ФИХ #3: контент дублируется ОДИН РАЗ (итого 2 копии),
-    //         анимация идёт до -50% — создаёт бесшовный бесконечный скролл.
-    var tickerEl = document.getElementById('tickerContent');
+    // ── Тикер ────────────────────────────────────────────────────────────────────
+    var tickerEl          = document.getElementById('tickerContent');
+    var _lastTickerKey    = '';
+    var _tickerStaleTimer = null;
 
     function makePairSpan(label, priceText, changeText, changePositive) {
       var span = document.createElement('span');
@@ -644,33 +903,60 @@
       return span;
     }
 
-    function buildTickerFragment(cryptoData, rates) {
-      var frag = document.createDocumentFragment();
+    function setTickerStale() {
+      if (tickerEl.querySelector('.ticker-stale')) return;
+      var tag = document.createElement('span');
+      tag.className     = 'pair ticker-stale';
+      tag.style.cssText = 'color:#f87171;font-style:italic;';
+      tag.textContent   = '⚠ данные могут устареть';
+      tickerEl.appendChild(tag);
+    }
+    function clearTickerStale() {
+      var s = tickerEl.querySelector('.ticker-stale');
+      if (s) s.remove();
+    }
 
+    // ── ФИХ #3 (тикер): Brent берётся из Yahoo Finance, не хардкод ──────────────
+    async function fetchBrent() {
+      try {
+        var r = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/BZ=F?interval=1d&range=2d');
+        if (!r.ok) throw new Error('status ' + r.status);
+        var d      = await r.json();
+        var closes = d.chart.result[0].indicators.quote[0].close.filter(Boolean);
+        if (closes.length < 2) throw new Error('not enough data');
+        var cur  = closes[closes.length - 1];
+        var prev = closes[closes.length - 2];
+        var chg  = (cur - prev) / prev * 100;
+        return { label: 'BRENT', price: '$' + cur.toFixed(2),
+                 change: (chg >= 0 ? '+' : '') + chg.toFixed(1) + '%', changePositive: chg >= 0 };
+      } catch (_) {
+        // Нет CORS-доступа или API лежит — показываем явный прочерк
+        return { label: 'BRENT (н/д)', price: '—', change: null };
+      }
+    }
+
+    function buildTickerNodes(cryptoData, rates, brent) {
+      var frag = document.createDocumentFragment();
       [{ id: 'bitcoin', name: 'BTC' }, { id: 'ethereum', name: 'ETH' }, { id: 'solana', name: 'SOL' }]
         .forEach(function (c) {
           if (!cryptoData[c.id]) return;
           var price  = Number(cryptoData[c.id].usd);
           var change = Number(cryptoData[c.id].usd_24h_change);
           if (isNaN(price) || isNaN(change)) return;
-          frag.appendChild(makePairSpan(
-            c.name, '$' + price.toFixed(0),
-            (change >= 0 ? '+' : '') + change.toFixed(1) + '%',
-            change >= 0
-          ));
+          frag.appendChild(makePairSpan(c.name, '$' + price.toFixed(0),
+            (change >= 0 ? '+' : '') + change.toFixed(1) + '%', change >= 0));
         });
 
-      if (rates && !isNaN(+rates.eur))
-        frag.appendChild(makePairSpan('EUR/USD', (+rates.eur).toFixed(4), null));
-      else
+      if (rates) {
+        if (!isNaN(+rates.eur)) frag.appendChild(makePairSpan('EUR/USD', (+rates.eur).toFixed(4), null));
+        if (!isNaN(+rates.gbp)) frag.appendChild(makePairSpan('GBP/USD', (+rates.gbp).toFixed(4), null));
+      } else {
         frag.appendChild(makePairSpan('EUR/USD', '1.0850', null));
-
-      if (rates && !isNaN(+rates.gbp))
-        frag.appendChild(makePairSpan('GBP/USD', (+rates.gbp).toFixed(4), null));
-      else
         frag.appendChild(makePairSpan('GBP/USD', '1.2740', null));
+      }
 
-      frag.appendChild(makePairSpan('BRENT', '$78.40', '+1.2%', true));
+      var b = brent || { label: 'BRENT (н/д)', price: '—', change: null };
+      frag.appendChild(makePairSpan(b.label, b.price, b.change, b.changePositive));
       return frag;
     }
 
@@ -688,36 +974,73 @@
           if (fRes.ok) { var fd = await fRes.json(); rates = fd.usd; }
         } catch (_) { /* fallback форекс */ }
 
-        // Строим фрагмент и его клон для бесшовного скролла (-50%)
-        var nodes = buildTickerFragment(cryptoData, rates);
-        var clone = nodes.cloneNode(true);
-        tickerEl.innerHTML = ''; // только очистка — данные вставляем через DOM
-        tickerEl.appendChild(nodes);
-        tickerEl.appendChild(clone);
+        var brent = await fetchBrent();
+
+        var btc = cryptoData.bitcoin ? Number(cryptoData.bitcoin.usd).toFixed(0) : '';
+        var key = btc + (rates && rates.eur ? (+rates.eur).toFixed(4) : '') + (brent ? brent.price : '');
+
+        if (key !== _lastTickerKey) {
+          _lastTickerKey = key;
+          var nodes = buildTickerNodes(cryptoData, rates, brent);
+          var clone = nodes.cloneNode(true);
+          tickerEl.innerHTML = '';
+          tickerEl.appendChild(nodes);
+          tickerEl.appendChild(clone);
+        }
+
+        clearTickerStale();
+        clearTimeout(_tickerStaleTimer);
 
       } catch (err) {
-        console.error('Ошибка тикера:', err);
-        tickerEl.innerHTML = '';
-        var errSpan = document.createElement('span');
-        errSpan.className = 'pair'; errSpan.style.color = '#f87171';
-        errSpan.textContent = 'Рыночные данные недоступны';
-        tickerEl.appendChild(errSpan);
+        console.error('[DPA] Ticker error:', err);
+        if (_lastTickerKey === '') {
+          tickerEl.innerHTML = '';
+          var errSpan = document.createElement('span');
+          errSpan.className = 'pair'; errSpan.style.color = '#f87171';
+          errSpan.textContent = 'Рыночные данные недоступны';
+          tickerEl.appendChild(errSpan);
+        } else {
+          clearTimeout(_tickerStaleTimer);
+          _tickerStaleTimer = setTimeout(setTickerStale, 60 * 1000);
+        }
       }
     }
 
     updateTicker();
-    var _interval = setInterval(updateTicker, 5 * 60 * 1000);
-    window.addEventListener('pagehide', function () { clearInterval(_interval); });
+    var _tickerInterval = setInterval(updateTicker, 5 * 60 * 1000);
+    window.addEventListener('pagehide', function () {
+      clearInterval(_tickerInterval);
+      clearTimeout(_tickerStaleTimer);
+    });
 
-    // ── Форма подписки ────────────────────────────────────────────────────────────
+    // ── Форма подписки — ФИХ #3: finally всегда разблокирует кнопку ─────────────
     var form           = document.getElementById('newsletterForm');
     var successMessage = document.getElementById('successMessage');
     var formErrorMsg   = document.getElementById('formErrorMsg');
+    var emailInput     = document.getElementById('emailInput');
     var submitBtn      = form.querySelector('button[type="submit"]');
+
+    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+
+    function showError(msg) {
+      emailInput.classList.add('input-error');
+      formErrorMsg.textContent = msg;
+      formErrorMsg.classList.add('visible');
+      emailInput.focus();
+    }
+    function clearError() {
+      emailInput.classList.remove('input-error');
+      formErrorMsg.classList.remove('visible');
+      formErrorMsg.textContent = '';
+    }
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
-      formErrorMsg.style.display = 'none';
+      clearError();
+      var val = emailInput.value;
+      if (!val.trim())       { showError('Пожалуйста, введите ваш email.'); return; }
+      if (!isValidEmail(val)) { showError('Пожалуйста, введите корректный email.'); return; }
+
       submitBtn.disabled    = true;
       submitBtn.textContent = 'Отправка…';
 
@@ -730,19 +1053,48 @@
           form.classList.add('hidden');
           successMessage.classList.add('visible');
         } else {
-          formErrorMsg.textContent   = 'Ошибка подписки. Попробуйте снова.';
-          formErrorMsg.style.display = 'block';
+          showError('Ошибка подписки. Пожалуйста, попробуйте еще раз.');
         }
       } catch (_) {
-        formErrorMsg.textContent   = 'Ошибка сети. Проверьте соединение.';
-        formErrorMsg.style.display = 'block';
+        showError('Ошибка сети. Проверьте подключение.');
       } finally {
+        // ФИХ #3: кнопка разблокируется в любом случае, кроме успеха
         if (!successMessage.classList.contains('visible')) {
           submitBtn.disabled    = false;
           submitBtn.textContent = 'Подписаться';
         }
       }
     });
+
+    emailInput.addEventListener('input', clearError);
+
+    // ── Spotify player — ФИХ CSP: addEventListener вместо onclick/onkeydown ──────
+    function loadSpotify() {
+      var facade    = document.getElementById('spotify-facade');
+      var container = document.getElementById('spotify-real-container');
+      if (container.querySelector('iframe')) return;
+
+      var iframe     = document.createElement('iframe');
+      iframe.style.borderRadius = '12px';
+      iframe.src     = 'https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0';
+      iframe.width   = '100%';
+      iframe.height  = '152';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.allow   = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      iframe.loading = 'eager';
+      iframe.title   = 'Подкаст Deep Press Analysis';
+
+      container.appendChild(iframe);
+      facade.classList.add('hidden-player');
+    }
+
+    var spotifyFacade = document.getElementById('spotify-facade');
+    if (spotifyFacade) {
+      spotifyFacade.addEventListener('click', loadSpotify);
+      spotifyFacade.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadSpotify(); }
+      });
+    }
 
   })();
   </script>
