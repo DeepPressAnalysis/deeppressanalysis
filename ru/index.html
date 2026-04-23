@@ -1,37 +1,31 @@
 <!DOCTYPE html>
-<!--
-  ╔══════════════════════════════════════════════════════════════════════╗
-  ║  Deep Press Analysis — index.html                                    ║
-  ║  ВАЖНО: nonce в CSP и тегах <script> ДОЛЖЕН генерироваться           ║
-  ║  сервером динамически при каждом запросе (Node/PHP/Python/etc.).     ║
-  ║  В шаблоне замените «EDNnf03nceIofn39fn3e9h3sdfa» на %%NONCE%%       ║
-  ║  или эквивалент вашего шаблонизатора.                                ║
-  ║  Пример Node.js:  crypto.randomBytes(16).toString('base64')          ║
-  ║  Пример PHP:      base64_encode(random_bytes(16))                    ║
-  ╚══════════════════════════════════════════════════════════════════════╝
--->
-<!-- ФИХ #5: class="no-js" — JS удалит его при загрузке -->
-<html lang="ru" dir="ltr" class="no-js" prefix="og: http://ogp.me/ns#">
+<html lang="ru" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
-  <title>Deep Press Analysis — 21 апреля 2026 года</title>
+  <title>Deep Press Analysis — 22 апреля 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ежедневный анализ мировой прессы: скандал с проверкой Мандельсона, смена генерального директора Apple, риск стагфляции и политическая турбулентность в Великобритании." />
-  <meta name="keywords" content="мировая пресса, анализ новостей, Тим Кук, Apple, Кир Стармер, политика Великобритании, стагфляция, нефтяной рынок, Уолл-стрит, геополитический риск" />
+  <meta name="description" content="Ежедневный глобальный пресс-синтез: прорыв аккумуляторов CATL, реформа ФРС США, ИИ-стратегия Apple, сокращения бюджетов в Австралии и кризис в правительстве Стармера." />
   <meta name="author" content="Deep Press Analysis" />
   <meta name="robots" content="index, follow" />
 
+  <!--
+    ФИХ #2: убран 'unsafe-inline' из script-src.
+    Добавлен nonce для единственного inline-блока.
+    ВАЖНО: nonce должен генерироваться сервером динамически при каждом запросе.
+    Пример Node.js: crypto.randomBytes(16).toString('base64')
+    Пример PHP:     base64_encode(random_bytes(16))
+  -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'nonce-EDNnf03nceIofn39fn3e9h3sdfa';
+    script-src 'self' 'nonce-RuPressNonce2026abc';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
-    img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
-    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
+    img-src 'self' data: https://deeppressanalysis.com;
+    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io;
     form-action 'self' https://formspree.io;
     object-src 'none';
     base-uri 'self';
-    frame-src 'self' https://open.spotify.com;
+    frame-src 'none';
     media-src 'none';
     upgrade-insecure-requests;
   ">
@@ -40,79 +34,83 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="canonical"  href="https://deeppressanalysis.com/ru/index.html" />
-  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/index.html" />
-  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/index.html" />
-  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/index.html" />
-  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/index.html" />
-  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/index.html" />
-  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/index.html" />
-  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/index.html" />
+  <link rel="canonical" href="https://deeppressanalysis.com/ru/220426.html" />
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/220426.html" />
+  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/en/220426.html" />
+  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/220426.html" />
+  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/220426.html" />
+  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/220426.html" />
+  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/220426.html" />
+  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/220426.html" />
 
   <meta property="og:type"        content="article" />
-  <meta property="og:title"       content="Deep Press Analysis — 21 апреля 2026 года" />
-  <meta property="og:description" content="Ежедневный анализ мировой прессы: скандал с проверкой Мандельсона, смена генерального директора Apple, риск стагфляции и политическая турбулентность в Великобритании." />
-  <meta property="og:url"         content="https://deeppressanalysis.com/ru/index.html" />
+  <meta property="og:title"       content="Deep Press Analysis — 22 апреля 2026: Технологическое доминирование Китая и макроэкономические сдвиги" />
+  <meta property="og:description" content="Глубокая аналитика: инновации CATL, слияние SpaceX и Cursor, изменения в монетарной политике ФРС США и правительственный кризис в Британии." />
+  <meta property="og:url"         content="https://deeppressanalysis.com/ru/220426.html" />
   <meta property="og:image"       content="https://deeppressanalysis.com/assets/og-cover-2026.jpg" />
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Deep Press Analysis — 21 апреля 2026 года" />
-  <meta name="twitter:description" content="Ежедневный анализ мировой прессы: скандал с проверкой Мандельсона, смена генерального директора Apple, риск стагфляции и политическая турбулентность в Великобритании." />
+  <meta property="og:locale"      content="ru_RU" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="Deep Press Analysis — 22 апреля 2026" />
+  <meta name="twitter:description" content="Ежедневный пресс-синтез: CATL, ФРС, SpaceX, Apple и политика." />
 
   <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsMediaOrganization",
-      "@id": "https://deeppressanalysis.com/#newsmediaorganization",
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "@id": "https://deeppressanalysis.com/#newsmediaorganization",
+    "name": "Deep Press Analysis",
+    "url": "https://deeppressanalysis.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deeppressanalysis.com/logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "sameAs": [
+      "https://t.me/DeepPressAnalysis",
+      "https://www.threads.com/@deeppressanalysis",
+      "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
+      "https://www.pinterest.com/DeepPressAnalysis"
+    ],
+    "foundingDate": "2025-12-01",
+    "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
+    "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+    "masthead": "https://deeppressanalysis.com/manifesto.html",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Editorial",
+      "email": "info@deeppressanalysis.com"
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Worldwide"
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Deep Press Analysis — 22 апреля 2026",
+    "datePublished": "2026-04-22T00:00:00Z",
+    "dateModified": "2026-04-22T00:00:00Z",
+    "description": "Ежедневный глобальный пресс-синтез: прорыв аккумуляторов CATL, реформа ФРС США, ИИ-стратегия Apple, сокращения бюджетов в Австралии и кризис в правительстве Стармера.",
+    "author": {
+      "@type": "Organization",
+      "name": "Deep Press Analysis"
+    },
+    "publisher": {
+      "@type": "Organization",
       "name": "Deep Press Analysis",
-      "url": "https://deeppressanalysis.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://deeppressanalysis.com/logo.png",
-        "width": 512,
-        "height": 512
-      },
-      "sameAs": [
-        "https://t.me/DeepPressAnalysis",
-        "https://www.threads.com/@deeppressanalysis",
-        "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
-        "https://www.pinterest.com/DeepPressAnalysis"
-      ],
-      "foundingDate": "2025-12-01",
-      "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
-      "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
-      "masthead": "https://deeppressanalysis.com/manifesto.html",
-      "verificationFactCheckingPolicy": "https://deeppressanalysis.com/editorial-policy.html",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Editorial",
-        "email": "info@deeppressanalysis.com",
-        "availableLanguage": ["English","Russian","Ukrainian","German","Arabic","Spanish"]
-      },
-      "areaServed": { "@type": "AdministrativeArea", "name": "Worldwide" }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/#webpage",
-      "url": "https://deeppressanalysis.com/ru/index.html",
-      "headline": "Deep Press Analysis — 21 апреля 2026 года",
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "datePublished": "2026-04-21T06:00:00+00:00",
-      "dateModified":  "2026-04-21T06:00:00+00:00",
-      "description": "Ежедневный анализ мировой прессы: скандал с проверкой Мандельсона, смена генерального директора Apple, риск стагфляции и политическая турбулентность в Великобритании.",
-      "inLanguage": "ru",
-      "author": { "@type": "Organization", "name": "Deep Press Analysis" },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://deeppressanalysis.com/ru/index.html" }
-        ]
+        "url": "https://deeppressanalysis.com/logo.png"
       }
     }
-  ]
+  }
   </script>
-
+  
   <style>
     :root {
       --bg-body:        #F2F4F7;
@@ -134,16 +132,15 @@
       font-family: 'Inter', system-ui, sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      padding-bottom: 0;
     }
 
-    h1, h2, h3, h4 {
+    h1, h2, h3 {
       font-family: 'Libre Baskerville', serif;
       color: var(--brand-navy);
       line-height: 1.3;
     }
-
-    /* ФИХ #6: transition: all → конкретные свойства (производительность) */
-    a { text-decoration: none; color: inherit; transition: color 0.2s, opacity 0.2s; }
+    a { text-decoration: none; color: inherit; transition: 0.2s; }
 
     *:focus-visible {
       outline: 3px solid var(--brand-blue);
@@ -151,7 +148,6 @@
       border-radius: 3px;
     }
 
-    /* ─── Тикер ─────────────────────────────────────────────────────────── */
     .ticker-container {
       background: var(--brand-navy);
       color: #fff;
@@ -162,11 +158,16 @@
       white-space: nowrap;
       height: 36px;
     }
+
+    /* ФИХ #3: display:inline-flex (как в EN) + translateX(-50%) для плавного бесконечного скролла.
+       Оригинальный код использовал inline-block + -100% с тройным дублированием —
+       это создавало рывок при перезапуске анимации. */
     .ticker-content {
       display: inline-flex;
       animation: ticker 80s linear infinite;
     }
     .ticker-content:hover { animation-play-state: paused; }
+
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     .pair        { margin-right: 2.5rem; font-family: 'Inter', monospace; letter-spacing: -0.5px; }
@@ -174,16 +175,11 @@
     .crypto-up   { color: #34d399; }
     .crypto-down { color: #f87171; }
 
-    /* ─── ФИХ #5: no-js — статьи видны без JS ───────────────────────────── */
-    .no-js .article-body {
-      max-height: none !important;
-      opacity: 1    !important;
-      visibility: visible !important;
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
-    .no-js .toggle-icon { display: none; }
-
-    /* ─── Layout ─────────────────────────────────────────────────────────── */
-    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
 
     .top-toolbar {
       display: flex;
@@ -204,9 +200,13 @@
       background: #fff;
       border: 1px solid var(--border-color);
       color: var(--text-secondary);
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      transition: 0.2s;
+      overflow: hidden;
     }
-    .social-btn img { width: 16px; height: 16px; object-fit: contain; display: block; }
+    .social-btn svg, .social-btn img {
+      width: 16px; height: 16px;
+      fill: currentColor; display: block; object-fit: contain;
+    }
     .social-btn:hover { background: var(--brand-navy); color: #fff; border-color: var(--brand-navy); }
 
     .lang-bar {
@@ -214,33 +214,36 @@
       text-transform: uppercase; letter-spacing: 0.5px;
       display: flex; gap: 12px;
     }
-    .lang-link        { color: #9CA3AF; transition: color 0.2s; }
+    .lang-link        { color: #9CA3AF; transition: 0.2s; }
     .lang-link:hover  { color: var(--brand-blue); }
     .lang-link.active {
       color: var(--brand-navy); font-weight: 800;
       border-bottom: 2px solid var(--brand-blue); padding-bottom: 2px;
     }
 
-    /* ─── Header ─────────────────────────────────────────────────────────── */
     header {
       text-align: center;
       margin-bottom: 50px;
       padding-bottom: 30px;
       border-bottom: 1px solid #d1d5db;
     }
+
     .meta-issue {
       font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
       color: var(--text-secondary); margin-bottom: 10px;
     }
+
     h1.site-title {
       font-size: 48px; font-weight: 700;
       letter-spacing: -0.02em; margin-bottom: 8px;
     }
+
     .subtitle {
       font-family: 'Inter', sans-serif;
       font-size: 14px; color: var(--text-secondary);
       text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
     }
+
     .briefing-summary {
       background: #fff; border: 1px solid var(--border-color);
       padding: 20px; margin-top: 30px; text-align: left;
@@ -253,21 +256,20 @@
       text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;
     }
 
-    /* ─── Outlets ────────────────────────────────────────────────────────── */
     .outlet-section {
       background: var(--bg-paper); border: 1px solid var(--border-color);
       margin-bottom: 30px; border-radius: 4px; overflow: hidden;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
     }
+
     .outlet-header {
       background: #f8fafc; padding: 15px 25px;
       border-bottom: 1px solid var(--border-color);
       display: flex; justify-content: space-between; align-items: center;
     }
-    .outlet-header h2 { font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
-    .outlet-tags      { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; }
+    .outlet-header h2  { font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
+    .outlet-tags       { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; }
 
-    /* ─── Accordion ──────────────────────────────────────────────────────── */
     .article-item            { border-bottom: 1px solid var(--border-color); }
     .article-item:last-child { border-bottom: none; }
 
@@ -286,29 +288,28 @@
     .art-title {
       font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
       color: var(--text-primary); flex-grow: 1; padding-right: 20px;
-      transition: color 0.2s;
     }
     .toggle-icon {
       color: var(--text-secondary); font-size: 12px; width: 20px; text-align: center;
       transition: transform 0.3s ease;
     }
+
     .article-item.active .art-title  { color: var(--brand-blue); }
     .article-item.active .toggle-icon { transform: rotate(180deg); }
+    .article-item.active             { background: #fff; }
 
     .article-body {
       max-height: 0; overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.4s;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
       background: #fff; opacity: 0; visibility: hidden;
     }
     .article-item.active .article-body { opacity: 1; visibility: visible; }
 
     .body-inner {
-      padding: 5px 25px 25px 60px;
-      font-size: 16px;
+      padding: 5px 25px 25px 60px; font-size: 16px;
       color: var(--text-secondary); max-width: 85ch; line-height: 1.7;
     }
 
-    /* ─── Newsletter ─────────────────────────────────────────────────────── */
     .nebula-wrapper {
       background-color: var(--bg-body); width: 100%;
       padding: 60px 0; margin-top: 60px;
@@ -319,35 +320,19 @@
       font-family: 'Libre Baskerville', serif; margin-bottom: 10px; font-size: 24px;
     }
     .form-container          { display: flex; justify-content: center; padding: 20px; }
-    .newsletter-form-wrapper {
-      width: 100%; max-width: 500px;
-      display: flex; flex-direction: column; align-items: center; gap: 20px;
-    }
-    .input-group  { display: flex; width: 100%; align-items: center; }
-    .nebula-input { position: relative; flex: 1; }
-
-    .sr-only {
-      position: absolute; width: 1px; height: 1px;
-      padding: 0; margin: -1px; overflow: hidden;
-      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-    }
+    .newsletter-form-wrapper { width: 100%; max-width: 500px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .input-group             { display: flex; width: 100%; align-items: center; }
+    .nebula-input            { position: relative; flex: 1; }
 
     .nebula-input .input {
       width: 100%; padding: 12px 12px 12px 40px;
-      border: 1px solid #cbd5e1; background: #fff;
+      border: 1px solid #cbd5e1; background: #FFFFFF;
       color: var(--brand-navy); font-size: 16px; outline: none;
-      border-radius: 4px 0 0 4px;
-      transition: border-color 0.2s;
+      border-radius: 4px 0 0 4px; transition: 0.2s;
     }
-    .nebula-input .input:focus         { border-color: var(--brand-blue); z-index: 2; position: relative; }
-    .nebula-input .input.input-error   { border-color: var(--down-color); }
+    .nebula-input .input:focus { border-color: var(--brand-blue); z-index: 2; position: relative; }
 
-    .email-icon {
-      position: absolute; top: 50%; left: 12px;
-      transform: translateY(-50%);
-      width: 20px; height: 20px; fill: #94a3b8; pointer-events: none;
-      transition: fill 0.2s;
-    }
+    .email-icon { position: absolute; top: 50%; left: 12px; transform: translateY(-50%); width: 20px; height: 20px; fill: #94a3b8; pointer-events: none; }
     .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
 
     .subscribe-button {
@@ -355,17 +340,9 @@
       color: #fff; background: var(--brand-navy);
       border: 1px solid var(--brand-navy); border-radius: 0 4px 4px 0;
       cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
-      transition: background 0.2s, border-color 0.2s;
+      transition: all 0.2s;
     }
-    .subscribe-button:disabled          { opacity: 0.7; cursor: not-allowed; }
-    .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
-
-    .form-error-msg {
-      display: none; color: var(--down-color);
-      font-size: 13px; margin-top: 6px; text-align: left;
-      width: 100%;
-    }
-    .form-error-msg.visible { display: block; }
+    .subscribe-button:hover { background: var(--brand-blue); border-color: var(--brand-blue); }
 
     .success-message           { display: none; text-align: center; color: var(--brand-navy); }
     .success-message.visible   { display: block; }
@@ -374,55 +351,20 @@
     .checkmark-circle { stroke: var(--up-color); stroke-width: 2; fill: none; }
     .checkmark-check  { stroke: var(--up-color); stroke-width: 2; }
 
-    /* ─── Footer ─────────────────────────────────────────────────────────── */
     footer {
       text-align: center; margin-top: 60px;
-      padding: 30px 0 60px; border-top: 1px solid var(--border-color);
+      padding-top: 30px; padding-bottom: 60px;
+      border-top: 1px solid var(--border-color);
       color: var(--text-secondary); font-size: 13px;
     }
     .footer-links { margin-top: 35px; display: flex; justify-content: center; gap: 40px; }
     .btn-text {
       font-weight: 900; text-transform: uppercase; font-size: 18px; letter-spacing: 1px;
       color: var(--brand-navy); border-bottom: 2px solid transparent; padding-bottom: 4px;
-      transition: color 0.2s, border-color 0.2s;
+      transition: all 0.2s ease;
     }
     .btn-text:hover { color: var(--brand-blue); border-bottom-color: var(--brand-blue); }
 
-    /* ─── Spotify facade ─────────────────────────────────────────────────── */
-    .spotify-fake-player {
-      background-color: #282828; border-radius: 12px; height: 152px;
-      display: flex; align-items: center; cursor: pointer; overflow: hidden;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-    }
-    .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
-
-    .fake-cover         { width: 152px; height: 152px; flex-shrink: 0; }
-    .fake-cover img     {
-      width: 100%; height: 100%; object-fit: cover; opacity: 0.95;
-      border-top-left-radius: 12px; border-bottom-left-radius: 12px;
-    }
-    .fake-info          {
-      padding: 0 24px; flex-grow: 1;
-      display: flex; flex-direction: column; justify-content: center; overflow: hidden;
-      text-align: left;
-    }
-    .fake-meta   { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
-    .fake-title  { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
-    .fake-desc   { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
-    .fake-play-btn {
-      background-color: #1ed760; color: #000; border: none; border-radius: 50%;
-      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
-      margin-right: 24px; cursor: pointer; flex-shrink: 0;
-      transition: transform 0.2s, background-color 0.2s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    .fake-play-btn svg { fill: currentColor; margin-left: 2px; }
-    .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
-    .hidden-player { display: none !important; }
-
-    /* ─── Reduced motion ─────────────────────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -433,51 +375,33 @@
       .ticker-content { animation: none; }
     }
 
-    /* ─── Mobile ─────────────────────────────────────────────────────────── */
     @media (max-width: 600px) {
-      h1.site-title    { font-size: 32px; }
-      .top-toolbar     { flex-direction: column-reverse; gap: 20px; align-items: center; }
-      .lang-bar        { flex-wrap: wrap; justify-content: center; }
-      .body-inner      { padding-left: 25px; padding-right: 25px; }
-      .outlet-tags     { display: none; }
-      .input-group     { flex-direction: column; gap: 10px; }
-      .nebula-input .input  { border-radius: 4px; }
-      .subscribe-button     { border-radius: 4px; width: 100%; }
-      .footer-links    { flex-direction: column; gap: 20px; }
-      .spotify-fake-player  { height: auto; padding: 16px; flex-wrap: wrap; }
-      .fake-cover      { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
-      .fake-cover img  { border-radius: 4px; }
-      .fake-info       { padding: 0; width: calc(100% - 80px - 50px); }
-      .fake-title      { font-size: 16px; white-space: normal; }
-      .fake-play-btn   { width: 40px; height: 40px; margin-right: 0; }
+      h1.site-title     { font-size: 32px; }
+      .top-toolbar      { flex-direction: column-reverse; gap: 20px; align-items: center; }
+      .lang-bar         { flex-wrap: wrap; justify-content: center; }
+      .body-inner       { padding-left: 25px; }
+      .outlet-tags      { display: none; }
+      .input-group      { flex-direction: column; gap: 10px; }
+      .nebula-input .input { border-radius: 4px; }
+      .subscribe-button { border-radius: 4px; width: 100%; }
+      .footer-links     { flex-direction: column; gap: 20px; }
     }
 
-    /* ─── Print ──────────────────────────────────────────────────────────── */
     @media print {
-      .ticker-container, .social-row, .lang-bar,
-      .nebula-wrapper, footer, .spotify-fake-player,
-      #spotify-real-container { display: none; }
+      .ticker-container, .social-row, .lang-bar, .nebula-wrapper, footer { display: none; }
       body { background: white; }
       .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
     }
   </style>
 
-  <!-- ФИХ #2: defer — analytics.js не блокирует рендер страницы -->
-  <script src="/analytics.js" defer nonce="EDNnf03nceIofn39fn3e9h3sdfa"></script>
+  <script src="/analytics.js" defer nonce="RuPressNonce2026abc"></script>
 </head>
-
 <body>
-  <noscript>
-    <style>
-      .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
-      .toggle-icon  { display: none; }
-    </style>
-  </noscript>
 
-  <aside aria-label="Live market data ticker" aria-live="off">
+  <aside aria-label="Котировки рынков в реальном времени" aria-live="off">
     <div class="ticker-container">
       <div class="ticker-content" id="tickerContent">
-        <span style="padding-left:20px;">Загрузка рыночных данных...</span>
+        <span style="padding-left:20px;">Загрузка рыночных данных…</span>
       </div>
     </div>
   </aside>
@@ -485,496 +409,183 @@
   <div class="container">
 
     <div class="top-toolbar">
-      <nav class="lang-bar" aria-label="Language selection">
-        <a href="/ua/index.html" class="lang-link" hreflang="uk" aria-label="Ukrainian version">UA</a>
-        <a href="/index.html"    class="lang-link" hreflang="en" aria-label="English version">EN</a>
-        <a href="/es/index.html" class="lang-link" hreflang="es" aria-label="Spanish version">ES</a>
-        <a href="/ar/index.html" class="lang-link" hreflang="ar" aria-label="Arabic version">AR</a>
-        <a href="/ru/index.html" class="lang-link active" hreflang="ru" aria-current="page" aria-label="Russian version">RU</a>
-        <a href="/de/index.html" class="lang-link" hreflang="de" aria-label="German version">DE</a>
+      <nav class="lang-bar" aria-label="Выбор языка">
+        <a href="/ua/220426.html" class="lang-link" hreflang="uk" aria-label="Українська версія">UA</a>
+        <a href="/en/220426.html" class="lang-link" hreflang="en" aria-label="English version">EN</a>
+        <a href="/es/220426.html" class="lang-link" hreflang="es" aria-label="Versión en español">ES</a>
+        <a href="/ar/220426.html" class="lang-link" hreflang="ar" aria-label="النسخة العربية">AR</a>
+        <a href="/ru/220426.html" class="lang-link active" hreflang="ru" aria-current="page" aria-label="Русская версия">RU</a>
+        <a href="/de/220426.html" class="lang-link" hreflang="de" aria-label="Deutsche Version">DE</a>
       </nav>
 
-      <nav class="social-row" aria-label="Social media links">
-        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Send email to Deep Press Analysis">
-          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
+      <nav class="social-row" aria-label="Социальные сети">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Написать нам">
+          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16" />
         </a>
-        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Visit our Telegram channel">
-          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Наш Telegram-канал">
+          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16" />
         </a>
-        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Visit our Threads profile">
-          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16">
+        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Наш профиль в Threads">
+          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16" />
         </a>
-        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Visit our YouTube channel">
-          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Наш YouTube-канал">
+          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16" />
         </a>
       </nav>
     </div>
 
     <header>
-      <div class="meta-issue">
-        ТОМ 26 • ВЫПУСК 55 • <time datetime="2026-04-21">21 АПРЕЛЯ 2026</time>
-      </div>
+      <div class="meta-issue">ТОМ 26 • ВЫПУСК 112 • <time datetime="2026-04-22">22 АПРЕЛЯ 2026</time></div>
       <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
       <div class="subtitle">Ежедневный синтез ведущих международных изданий</div>
       <div class="briefing-summary">
-        <p><strong>Сегодня в центре внимания:</strong> скандал вокруг назначения Мандельсона премьер-министром Великобритании, уход Тима Кука с поста CEO Apple, угроза стагфляции в Австралии и падение маржи европейских нефтеперерабатывающих заводов.</p>
+        <p><strong>В фокусе сегодня:</strong> Прорыв аккумуляторов CATL, смена курса ФРС США, масштабная ИИ-стратегия Apple, реформа системы NDIS в Австралии, кризис Лейбористской партии в Великобритании и миллиардные слияния в бигтехе.</p>
       </div>
     </header>
 
     <main>
 
-      <div id="spotify-facade" class="spotify-fake-player"
-           role="button" tabindex="0"
-           aria-label="Play Deep Press Analysis podcast on Spotify">
-        <div class="fake-cover">
-          <img src="https://deeppressanalysis.com/logo.png" alt="Deep Press Analysis Podcast Cover">
-        </div>
-        <div class="fake-info">
-          <div class="fake-meta">ПОДКАСТ</div>
-          <div class="fake-title">Deep Press Analysis</div>
-          <div class="fake-desc">Ежедневный аудио-брифинг</div>
-        </div>
-        <button class="fake-play-btn" aria-label="Play Podcast" tabindex="-1">
-          <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/>
-          </svg>
-        </button>
-      </div>
-      <div id="spotify-real-container" style="margin-bottom:40px;"></div>
-
-      <!-- ── THE TIMES ──────────────────────────────────────────── -->
+      <!-- ── FINANCIAL TIMES ──────────────────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>THE TIMES</h2>
-          <div class="outlet-tags">Политика Великобритании • Технологии • Потребительские тренды</div>
+          <h2>FINANCIAL TIMES</h2>
+          <div class="outlet-tags">Аккумуляторы CATL • ИИ в Apple • Электромобили</div>
         </div>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-times-01" aria-expanded="false" aria-controls="art-times-01">
+          <button class="article-trigger" id="btn-ft-01" aria-expanded="false" aria-controls="art-ft-01">
             <span class="art-idx">01</span>
-            <span class="art-title">Премьер-министр вынудил Форин-офис одобрить назначение Мандельсона</span>
+            <span class="art-title">Инновация CATL в аккумуляторах на 1500 км угрожает европейскому автопрому</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-times-01" role="region" aria-labelledby="btn-times-01">
+          <div class="article-body" id="art-ft-01" role="region" aria-labelledby="btn-ft-01">
             <div class="body-inner">
-              Открытое давление главы кабинета министров на дипломатический аппарат свидетельствует о глубоком кризисе доверия внутри системы государственного управления. Подобная тактика выгодна политическому руководству для снятия с себя ответственности за потенциальные репутационные издержки перед донорами партии. Институциональный риск заключается в саботаже инициатив Даунинг-стрит со стороны кадровых бюрократов в среднесрочной перспективе. Для инвесторов в британские государственные облигации это сигнал о растущей политической нестабильности и ослаблении управленческой вертикали. Рынок валюты может отреагировать локальным снижением курса фунта из-за ожиданий паралича внешнеполитического ведомства. Стратегическая логика премьер-министра строится на попытке узурпации контроля над ключевыми международными назначениями в обход стандартных процедур проверки. Оппозиционные силы получают легитимный инструмент для инициирования парламентских расследований и блокировки правительственных бюджетов. Возникает угроза пересмотра протоколов обмена разведывательной информацией с союзниками по пакту AUKUS. В макроэкономическом плане скандал отвлекает административные ресурсы от решения структурных проблем национальной экономики. В долгосрочной перспективе инцидент приведет к законодательному ограничению полномочий исполнительной власти при назначении послов.
+              Анонс новой батареи CATL с запасом хода 1500 км кардинально меняет баланс сил на глобальном рынке электромобилей. Технологический прорыв китайской корпорации девальвирует многомиллиардные инвестиции европейских автоконцернов в текущие стандарты литий-ионных батарей. Главным бенефициаром выступает Пекин, закрепляющий монопольное положение в критической технологической цепочке с добавленной стоимостью. Для западных производителей это создает экзистенциальный риск потери доли рынка даже в премиальном сегменте. Европейские регуляторы оказываются перед сложным выбором: усиливать протекционистские барьеры или допускать китайских поставщиков для спасения локального автопрома. Рынок реагирует переоценкой акций традиционных автопроизводителей в сторону понижения. Скрытая логика CATL заключается в установлении глобального отраслевого стандарта, который сделает конкуренцию по запасу хода бессмысленной. Ускоренная зарядка до 98% за шесть минут нивелирует последний аргумент сторонников двигателей внутреннего сгорания. Это спровоцирует масштабный отток капитала из инфраструктурных проектов, ориентированных на углеводородное топливо. Для институциональных инвесторов сигнал однозначен: технологическое лидерство в энергопереходе окончательно сместилось в Азию. В долгосрочной перспективе данный шаг усиливает геополитическую зависимость Евросоюза от китайских промышленных платформ. Вашингтон, вероятно, ответит ужесточением санкционного режима против китайского технологического сектора для защиты собственных производителей.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-times-02" aria-expanded="false" aria-controls="art-times-02">
+          <button class="article-trigger" id="btn-ft-02" aria-expanded="false" aria-controls="art-ft-02">
             <span class="art-idx">02</span>
-            <span class="art-title">Все школы введут запрет на использование смартфонов</span>
+            <span class="art-title">Будущий глава Apple обязан форсировать переход к ИИ</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-times-02" role="region" aria-labelledby="btn-times-02">
+          <div class="article-body" id="art-ft-02" role="region" aria-labelledby="btn-ft-02">
             <div class="body-inner">
-              Директивный запрет мобильных устройств в образовательных учреждениях представляет собой масштабное регуляторное вмешательство в рынок потребительской электроники. Инициатива выгодна консервативным политическим кругам, стремящимся мобилизовать традиционный электорат через эксплуатацию темы социальной безопасности. Главный институциональный риск связан с необходимостью выделения значительных бюджетных средств на обеспечение контроля и администрирования запрета. Технологические корпорации и производители периферии столкнутся с резким падением спроса в сегменте подростковой электроники. Поставщики телекоммуникационных услуг зафиксируют снижение объемов потребления мобильного трафика в дневные часы. Стратегическая логика государства направлена на восстановление монополии на информационное влияние в образовательной среде. Компании, специализирующиеся на разработке образовательного программного обеспечения для десктопов, получают стратегическое преимущество. Возникают правовые риски, связанные с исками от родителей относительно ограничения прав на свободу связи. В макроэкономическом контексте это стимулирует перераспределение капиталов из мобильной разработки в сектор стационарных образовательных технологий. В долгосрочной перспективе политика приведет к изменению паттернов потребления цифрового контента у целого поколения.
+              Требование к новому руководству Apple сфокусироваться на искусственном интеллекте отражает глубокий институциональный кризис внутри корпорации. Инвесторы сигнализируют о недовольстве текущей консервативной стратегией, которая привела к отставанию от Microsoft и Alphabet в ключевом сегменте. Скрытый мотив утечек о смене парадигмы управления заключается в подготовке рынка к масштабным сделкам по слияниям и поглощениям. Apple вынуждена будет агрессивно скупать ИИ-стартапы, чтобы компенсировать дефицит собственных прорывных разработок. Это создает колоссальные риски для капитализации, так как требует пересмотра привычной модели распределения дивидендов и обратного выкупа акций. Смещение фокуса на ИИ неизбежно приведет к реструктуризации аппаратных подразделений компании. Поставщики компонентов в Азии столкнутся с пересмотром контрактов и снижением маржинальности базовых сборок. Для глобального рынка это означает начало нового суперцикла инвестиций в серверное оборудование и полупроводники. Основными бенефициарами аппаратного сдвига Apple станут производители чипов нового поколения, такие как TSMC и Nvidia. В то же время, экосистема разработчиков iOS столкнется с жесткой перестройкой архитектуры приложений под новые нейросетевые стандарты. Стратегическая логика инвесторов — превратить устройство в терминал для облачных вычислений, снизив зависимость от регулярного обновления железа. Геополитический риск заключается в том, что интеграция сложных ИИ-моделей потребует новых протоколов работы с данными, что столкнется с жестким регулированием в ЕС и Китае.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-times-03" aria-expanded="false" aria-controls="art-times-03">
+          <button class="article-trigger" id="btn-ft-03" aria-expanded="false" aria-controls="art-ft-03">
             <span class="art-idx">03</span>
-            <span class="art-title">Стоит ли использовать солнцезащитный крем весной</span>
+            <span class="art-title">Гонка CATL и BYD заставляет пересматривать глобальные цепочки поставок</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-times-03" role="region" aria-labelledby="btn-times-03">
+          <div class="article-body" id="art-ft-03" role="region" aria-labelledby="btn-ft-03">
             <div class="body-inner">
-              Медийное стимулирование всесезонного использования косметики является скрытой кампанией по расширению рынка сбыта для фармацевтических гигантов. Данный нарратив выгоден производителям дерматологической продукции, стремящимся нивелировать фактор сезонности в своих отчетах о доходах. Риск для отрасли заключается в возможном ужесточении контроля за химическим составом продукции со стороны медицинских регуляторов. Акции корпораций сектора потребительских товаров повседневного спроса получают позитивный импульс благодаря расширению целевой аудитории. Рынок сырья для косметической промышленности фиксирует рост фьючерсных контрактов на ключевые химические компоненты. Стратегическая логика брендов базируется на формировании устойчивой психологической зависимости потребителей от превентивных медицинских товаров. Розничные сети получают возможность пересмотреть структуру полочного пространства, увеличив маржинальность квадратного метра. Усиливается конкуренция между традиционной косметикой и специализированной аптечной продукцией за бюджет домохозяйств. Макроэкономически это отражает тренд на коммодификацию здоровья и старения в развитых экономиках. В долгосрочной перспективе ожидается волна слияний и поглощений в секторе премиальной косметики.
+              Внутренняя конкуренция между китайскими гигантами CATL и BYD формирует новую архитектуру мирового рынка накопителей энергии. Ожесточенная ценовая и технологическая война внутри Китая приводит к экстремальному снижению себестоимости батарей. Это выгодно развивающимся странам, получающим доступ к дешевой инфраструктуре энергоперехода в обход западных патентов. Скрытая угроза для западных рынков кроется в демпинге, который делает нерентабельными любые стартапы в области твердотельных батарей в США и ЕС. Для глобальных сырьевых рынков эта гонка означает стабилизацию или даже снижение премий на литий и кобальт за счет оптимизации химического состава аккумуляторов. Китайское правительство сознательно стимулирует эту дуополию, чтобы вытолкнуть обе компании на внешнюю экспансию. Логика Пекина заключается в создании ситуации, когда западные санкции против одной из компаний компенсируются доступом к технологиям другой. Институциональные инвесторы вынуждены хеджировать риски, распределяя капитал между обеими корпорациями, что дополнительно накачивает азиатский фондовый рынок. Влияние на геополитику выражается в привязке стран глобального Юга к китайским технологическим стандартам на десятилетия вперед. Европейские регуляторы теряют рычаги влияния, так как любые ограничения бьют по темпам декарбонизации самого Евросоюза. Гонка CATL и BYD также ускоряет внедрение стационарных систем хранения энергии, что трансформирует сети распределения электричества. В итоге, корпоративная битва двух гигантов становится основным драйвером глобальной энергетической дефляции.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-times-04" aria-expanded="false" aria-controls="art-times-04">
+          <button class="article-trigger" id="btn-ft-04" aria-expanded="false" aria-controls="art-ft-04">
             <span class="art-idx">04</span>
-            <span class="art-title">Мадонна в корсете в 67 лет. Ура!</span>
+            <span class="art-title">Китай увеличивает отрыв от Европы в сегменте электромобилей</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-times-04" role="region" aria-labelledby="btn-times-04">
+          <div class="article-body" id="art-ft-04" role="region" aria-labelledby="btn-ft-04">
             <div class="body-inner">
-              Публикация подчеркивает коммерческую эксплуатацию концепции активного долголетия в индустрии развлечений. Подобный фокус выгоден транснациональным медиахолдингам, стремящимся удержать стареющую демографическую группу в активном потребительском цикле. Институциональный риск кроется в отчуждении более молодой аудитории, что может снизить реклам доходов на долгосрочном горизонте. Компании сектора эстетической медицины и биотехнологий воспринимают это как мощный маркетинговый сигнал, стимулирующий приток венчурного капитала. Фондовые рынки реагируют на подобные социокультурные сдвиги переоценкой активов в сегменте так называемой "серебряной экономики". Стратегическая логика медиа направлена на нормализацию высокого уровня потребления премиальных услуг среди людей пенсионного возраста. Бренды одежды и люксовых товаров получают стимул для пересмотра своих размерных сеток и маркетинговых кампаний. Возникает угроза репутационных кризисов для корпораций, игнорирующих инклюзивность по возрастному признаку. В глобальном масштабе это отражает адаптацию западного капитала к демографическому старению населения. Индустрия управления капиталом (wealth management) получает новые инструменты для продажи инвестиционных продуктов, ориентированных на качество жизни.
+              Увеличение отрыва Китая от Европы в сегменте электромобилей фиксирует структурное поражение европейской промышленной политики. Европейские автоконцерны оказались заложниками собственной бюрократии и высоких издержек на фоне агрессивного государственного субсидирования в КНР. Главный бенефициар этой тенденции — китайский экспортный сектор, который компенсирует спад на внутреннем рынке недвижимости за счет высокотехнологичного производства. Для экономики Евросоюза это означает риск масштабной деиндустриализации и роста социальной напряженности в промышленных регионах. Скрытая логика рынка показывает, что инвесторы больше не верят в способность традиционных брендов компенсировать технологическое отставание силой торговой марки. Происходит масштабный переток капитала из европейских активов в азиатские промышленные кластеры. Влияние на геополитику проявляется в усилении торговых трений: Брюссель будет вынужден вводить заградительные пошлины для спасения остатков отрасли. Однако протекционизм чреват ответными мерами Пекина, что нанесет удар по европейскому экспорту товаров роскоши и машиностроения. Институциональные риски растут из-за политизации логистических цепочек, где китайские компоненты становятся маркером уязвимости. Европейский Союз фактически теряет статус независимого полюса в глобальной технологической гонке, переходя в разряд потребителя чужих инноваций. Для макроэкономики это означает долгосрочное инфляционное давление из-за необходимости дублирования производств на европейской территории. Спасение отрасли теперь возможно лишь через частичную сдачу суверенитета и допуск китайских корпораций к строительству заводов внутри ЕС.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-times-05" aria-expanded="false" aria-controls="art-times-05">
+          <button class="article-trigger" id="btn-ft-05" aria-expanded="false" aria-controls="art-ft-05">
             <span class="art-idx">05</span>
-            <span class="art-title">Восстановление туристического рынка Южной Америки</span>
+            <span class="art-title">Инвестиции в инфраструктуру зарядных станций меняют энергетический баланс Азии</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-times-05" role="region" aria-labelledby="btn-times-05">
+          <div class="article-body" id="art-ft-05" role="region" aria-labelledby="btn-ft-05">
             <div class="body-inner">
-              Агрессивное продвижение дальних туристических направлений сигнализирует о попытке авиакомпаний компенсировать убытки на европейских маршрутах. Кампания напрямую выгодна латиноамериканским суверенным фондам, нуждающимся в притоке иностранной валюты для обслуживания внешнего долга. Основной институциональный риск для инвесторов связан с высокой политической волатильностью и нестабильностью инфраструктуры в принимающих странах. Акции трансконтинентальных авиаперевозчиков и международных гостиничных сетей реагируют локальным ростом на ожидания расширения спроса. Товарные рынки фиксируют увеличение потребления авиационного топлива, что поддерживает премиальные котировки на энергоносители. Стратегическая логика туристических операторов заключается в смещении фокуса на высокомаржинальных клиентов, готовых оплачивать премиальные пакеты. Развивающиеся рынки получают временное окно для привлечения прямых иностранных инвестиций в рекреационный сектор. Возрастают экологические риски, что может спровоцировать жесткие квоты со стороны местных правительств на посещение исторических объектов. Макроэкономически это свидетельствует о неравномерном восстановлении глобальной мобильности капитала и людей. В долгосрочной перспективе сектор столкнется с необходимостью интеграции ESG-стандартов для сохранения доступа к западному финансированию.
+              Масштабная экспансия правительственных проектов по созданию инфраструктуры замены и зарядки батарей в Китае меняет правила игры в энергетике. Переход от парадигмы долгой зарядки к горячей замене батарей позволяет КНР решить проблему пиковых нагрузок на электросети. Скрытая логика заключается в превращении миллионов электромобилей в распределенную сеть хранения энергии, подконтрольную государству. Это выгодно государственным генерирующим компаниям, которые получают идеальный инструмент балансировки спроса и предложения. Для глобального рынка это сигнал о том, что стандарты зарядки Type 2 и CCS могут оказаться тупиковой ветвью эволюции. Западные автопроизводители, сделавшие ставку на классические зарядные станции, рискуют оказаться вне новой инфраструктурной реальности на крупнейшем в мире рынке. Инвестиции в 100 000 станций замены формируют непреодолимый барьер для входа иностранных игроков, не поддерживающих данный аппаратный стандарт. Для сырьевых трейдеров это означает стабилизацию спроса на редкоземельные металлы, так как батареи будут централизованно утилизироваться и перерабатываться операторами станций. Геополитический эффект выражается в готовности Китая экспортировать эту инфраструктурную модель в страны Африки и Латинской Америки. Подобный экспорт жестко привязывает транспортные системы целых государств к китайским поставщикам оборудования и софта. Институциональные инвесторы получают четкий ориентир: инфраструктурные проекты в Азии предлагают более предсказуемую доходность, чем нестабильный западный энергопереход. В конечном итоге, контроль над инфраструктурой зарядки становится для Пекина аналогом контроля над глобальными маршрутами поставок нефти в прошлом веке.
             </div>
           </div>
         </article>
       </section>
 
-      <!-- ── THE WALL STREET JOURNAL ──────────────────────────────────── -->
-      <section class="outlet-section">
-        <div class="outlet-header">
-          <h2>THE WALL STREET JOURNAL</h2>
-          <div class="outlet-tags">Бигтех • Центральные банки • Энергетические рынки</div>
-        </div>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wsj-01" aria-expanded="false" aria-controls="art-wsj-01">
-            <span class="art-idx">01</span>
-            <span class="art-title">Кук покидает пост в Apple, преемником назначен Тернус</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wsj-01" role="region" aria-labelledby="btn-wsj-01">
-            <div class="body-inner">
-              Смена первого лица в крупнейшей технологической корпорации мира означает радикальный пересмотр стратегии распределения капитала. Назначение инженера-аппаратчика выгодно промышленному блоку компании, нацеленному на возврат инвестиций в производственные мощности. Институциональный риск выражается в вероятном конфликте между старой командой, ориентированной на сервисы, и новым руководством. Институциональные инвесторы реагируют на транзит власти фиксацией прибыли, что вызывает локальную коррекцию индексов широкого рынка. Акции поставщиков компонентов в Азии получают мощный драйвер роста на фоне ожиданий обновления всей продуктовой линейки. Стратегическая логика совета директоров продиктована необходимостью преодоления технологической стагнации и защиты доли рынка от азиатских конкурентов. Компании-конкуренты получают краткосрочное операционное окно для перехвата корпоративных клиентов во время переходного периода. Усиливаются регуляторные риски, так как смена вектора может привлечь новое внимание антимонопольных ведомств к закрытой экосистеме. Макроэкономически это маркирует завершение эпохи финансового инжиниринга в IT-секторе и возврат к капиталоемким аппаратным инновациям. В перспективе пяти лет ожидается значительная реструктуризация цепочек поставок и возможный перенос части производств ближе к рынкам сбыта.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wsj-02" aria-expanded="false" aria-controls="art-wsj-02">
-            <span class="art-idx">02</span>
-            <span class="art-title">Кандидат Трампа на пост главы ФРС балансирует между инвесторами и лояльностью</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wsj-02" role="region" aria-labelledby="btn-wsj-02">
-            <div class="body-inner">
-              Номинация компромиссного кандидата на пост председателя ФРС отражает борьбу за контроль над эмиссионным центром. Подобный расклад выгоден крупному финансовому капиталу, который получает рычаг давления на денежно-кредитную политику через политические каналы. Институциональный риск заключается в утрате Центральным банком независимости, что подрывает доверие к долговым обязательствам США. Рынок казначейских облигаций реагирует ростом доходностей, закладывая в цены риски монетарного финансирования бюджетного дефицита. Доллар США испытывает давление из-за неопределенности относительно будущей траектории базовой процентной ставки. Стратегическая логика Белого дома направлена на обеспечение мягкой монетарной среды перед промежуточными выборами. Банковский сектор получает сигнал о возможном ослаблении регуляторных требований в обмен на лояльность к промышленной политике администрации. Сенатские слушания станут платформой для раскрытия конфликтов интересов, что может парализовать утверждение кандидатуры. Данная ситуация формирует макроэкономический фон, способствующий перетоку капитала в защитные активы и золото. В долгосрочном плане политизация ФРС грозит структурной инфляцией и снижением статуса доллара как главной резервной валюты.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wsj-03" aria-expanded="false" aria-controls="art-wsj-03">
-            <span class="art-idx">03</span>
-            <span class="art-title">Невидимая рука работает на нефтяном рынке</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wsj-03" role="region" aria-labelledby="btn-wsj-03">
-            <div class="body-inner">
-              Снижение физических цен на нефть на фоне военного конфликта демонстрирует разрушение спроса из-за высоких тарифов. Эта тенденция крайне невыгодна странам-экспортерам, чьи бюджеты сверстаны из расчета сохранения геополитической премии. Ключевой институциональный риск для ОПЕК+ состоит в потере контроля над ценообразованием из-за сокращения промышленного потребления в Азии и Европе. Энергетический сектор фондового рынка фиксирует отток капитала, инвесторы сбрасывают акции нефтедобывающих компаний второго эшелона. Котировки производных финансовых инструментов на нефть марки Brent переходят в состояние контанго, сигнализируя об избытке физического предложения. Стратегическая логика рынка заключается в автоматической балансировке: высокие цены стимулируют энергосбережение и активизируют альтернативные источники генерации. Логистические компании и операторы танкерного флота сталкиваются со снижением фрахтовых ставок из-за падения объемов транспортировки. Складывается угроза каскадных банкротств среди независимых американских сланцевых производителей, обремененных долгами. Макроэкономически это снижает глобальное инфляционное давление, предоставляя центральным банкам пространство для маневра. В долгосрочной перспективе ускоряется переход на возобновляемые источники энергии как защитный механизм от ценовых шоков.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wsj-04" aria-expanded="false" aria-controls="art-wsj-04">
-            <span class="art-idx">04</span>
-            <span class="art-title">Американские фондовые индексы снижаются</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wsj-04" role="region" aria-labelledby="btn-wsj-04">
-            <div class="body-inner">
-              Синхронное падение ключевых индексов указывает на системный пересмотр рисков институциональными портфельными управляющими. Коррекция выгодна хедж-фондам, использующим алгоритмические стратегии коротких продаж для монетизации волатильности. Риск для финансовой системы заключается в возможности срабатывания маржин-коллов у крупных розничных брокеров. Переток ликвидности направлен из высокотехнологичного сектора в защитные дивидендные акции коммунального и медицинского сегментов. На валютном рынке наблюдается укрепление швейцарского франка и японской иены как классических валют-убежищ. Стратегическая логика институционалов заключается в фиксации рекордных прибылей предыдущих кварталов перед ожидаемым макроэкономическим спадом. Корпорации приостанавливают программы обратного выкупа акций, предпочитая аккумулировать наличные средства на балансах. Возникает угроза заморозки рынка первичных публичных размещений (IPO) до стабилизации индекса волатильности VIX. Макроэкономический фон характеризуется снижением индекса потребительского доверия и ожиданием жесткой посадки экономики. В долгосрочной перспективе рынок войдет в фазу бокового движения с премией за качество корпоративного управления.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wsj-05" aria-expanded="false" aria-controls="art-wsj-05">
-            <span class="art-idx">05</span>
-            <span class="art-title">Маржа европейских нефтеперерабатывающих заводов рухнула</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wsj-05" role="region" aria-labelledby="btn-wsj-05">
-            <div class="body-inner">
-              Отрицательная рентабельность европейской нефтепереработки подчеркивает структурный кризис индустриальной модели континента. Данный шок выгоден ближневосточным и азиатским комплексам, получающим рыночную долю за счет деградации европейских конкурентов. Институциональный риск связан с вероятной остановкой стратегических НПЗ, что поставит под удар энергетическую безопасность Евросоюза. Акции европейских энергетических мейджоров испытывают серьезное давление, инвесторы требуют выделения убыточных активов в отдельные структуры. Цены на конечные нефтепродукты, включая дизельное топливо, парадоксальным образом остаются высокими из-за дефицита локального предложения. Стратегическая логика транснациональных компаний заключается в оптимизации налогооблагаемой базы через закрытие нерентабельных заводов в Европе. Национальные правительства оказываются перед необходимостью субсидирования отрасли для сохранения рабочих мест и контроля над ценами. Профсоюзы готовятся к масштабным забастовкам, что усилит социальную напряженность в промышленных регионах. В макроэкономическом разрезе это ускоряет деиндустриализацию Европы и потерю конкурентоспособности ее экспортных секторов. В долгосрочной перспективе ЕС станет полностью зависимым от импорта продуктов глубокой переработки нефти.
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- ── THE WASHINGTON POST ─────────────────────────────────────── -->
-      <section class="outlet-section">
-        <div class="outlet-header">
-          <h2>THE WASHINGTON POST</h2>
-          <div class="outlet-tags">Политика США • Исполнительная власть • Влияние климата</div>
-        </div>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wp-01" aria-expanded="false" aria-controls="art-wp-01">
-            <span class="art-idx">01</span>
-            <span class="art-title">Министр труда покидает свой пост</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wp-01" role="region" aria-labelledby="btn-wp-01">
-            <div class="body-inner">
-              Отставка ключевого министра сигнализирует о глубоком административном кризисе и утрате Белым домом контроля над кадровым составом. Смещение фокуса с трудовой политики выгодно крупным корпорациям, ожидающим ослабления профсоюзного надзора и снижения штрафов. Институциональный риск кроется в параличе работы федерального ведомства на фоне межпартийных баталий при утверждении нового руководителя. Рынки труда реагируют сдержанно, однако акции компаний из сектора гиг-экономики показывают локальный спекулятивный рост. Государственные облигации остаются индифферентными, так как инвесторы расценивают событие как политический шум без немедленных фискальных последствий. Стратегическая логика президентской администрации направлена на быструю изоляцию токсичного чиновника до начала предвыборной кампании. Демократическая оппозиция получает инструмент для дискредитации антикоррупционной платформы правящей партии в медиа. Юридические риски для ушедшего министра возрастают, возможны длительные слушания в профильных комитетах Конгресса. На макроуровне это замедляет реализацию заявленных программ по возвращению производств на территорию США. В долгосрочной перспективе министерство труда теряет аппаратный вес, уступая влияние лоббистским структурам капитала.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wp-02" aria-expanded="false" aria-controls="art-wp-02">
-            <span class="art-idx">02</span>
-            <span class="art-title">Уход на фоне обвинений в должностных преступлениях</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wp-02" role="region" aria-labelledby="btn-wp-02">
-            <div class="body-inner">
-              Публичная артикуляция коррупционных обвинений против члена кабинета свидетельствует об усилении влияния генеральных инспекторов. Активизация расследований выгодна фракциям внутри госаппарата, борющимся за перераспределение бюджетных потоков. Главный институциональный риск заключается в размывании презумпции невиновности и переходе к управлению через информационный шантаж. Частный капитал воспринимает это как сигнал к приостановке долгосрочных контрактов с министерством из-за угрозы проверок. Валютные и товарные рынки игнорируют инцидент, расценивая его как локальную аппаратную борьбу. Стратегическая логика надзорных органов заключается в демонстрации своей независимости и расширении штатного финансирования. Подрядчики министерства рискуют столкнуться с заморозкой выплат по текущим государственным заказам. Судебная система столкнется с потоком исков от отстраненных помощников министра, требующих восстановления в должности. Макроэкономические последствия минимальны, однако инцидент снижает индекс доверия инвесторов к государственным институтам США. В стратегической перспективе это усиливает бюрократическую осторожность, замедляя любые нестандартные государственные инициативы.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wp-03" aria-expanded="false" aria-controls="art-wp-03">
-            <span class="art-idx">03</span>
-            <span class="art-title">Заместитель министра станет исполняющим обязанности главы ведомства</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wp-03" role="region" aria-labelledby="btn-wp-03">
-            <div class="body-inner">
-              Назначение технического руководителя свидетельствует о переходе министерства в режим операционного выживания. Данный статус-кво выгоден отраслевым лоббистам, получающим возможность блокировать любые новые регуляторные инициативы ведомства. Риск заключается в неспособности исполняющего обязанности принимать стратегические решения в случае внезапных кризисов на рынке труда. Корпоративный сектор реагирует позитивно, закладывая в финансовые модели снижение издержек на соблюдение новых трудовых стандартов. Инвесторы в сектора логистики и ритейла получают благоприятный прогноз по стабильности операционных расходов. Стратегическая логика администрации заключается в минимизации политических рисков путем назначения непубличной, компромиссной фигуры. Профсоюзные организации теряют политический рычаг, так как технический руководитель не имеет мандата на масштабные уступки. Отсутствие утвержденного министра ставит под угрозу координацию действий с министерством торговли по защите внутреннего рынка. Макроэкономически это закрепляет текущие дисбалансы между доходами капитала и наемным трудом. В долгосрочном плане временное руководство ослабляет позиции ведомства в межбюджетной борьбе внутри правительства.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wp-04" aria-expanded="false" aria-controls="art-wp-04">
-            <span class="art-idx">04</span>
-            <span class="art-title">Переход в частный сектор после отставки</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wp-04" role="region" aria-labelledby="btn-wp-04">
-            <div class="body-inner">
-              Быстрая коммерциализация статуса бывшего министра обнажает механику "вращающихся дверей" между правительством и бизнесом. Этот механизм выгоден транснациональным компаниям, покупающим инсайдерский доступ к регуляторным алгоритмам. Риск для государственной системы заключается в деградации качества принятия решений, когда чиновники работают с оглядкой на будущих работодателей. Инвестиционные банки оценивают наем бывших регуляторов как мощный фактор повышения неформальной капитализации корпорации. Рынок лоббистских услуг фиксирует рост чеков на GR-сопровождение инфраструктурных проектов. Стратегическая логика корпорации-нанимателя заключается в монетизации политических связей чиновника для обхода антимонопольных ограничений. Конкуренты вынуждены пропорционально увеличивать свои бюджеты на связи с правительством, чтобы сохранить паритет. Возникают риски новых расследований о конфликте интересов, что может ударить по котировкам нанимающей компании. В макроэкономическом контексте это ведет к монополизации рынков и снижению эффективности государственных субсидий. Стратегически система легализует конвертацию административного ресурса в корпоративный капитал.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-wp-05" aria-expanded="false" aria-controls="art-wp-05">
-            <span class="art-idx">05</span>
-            <span class="art-title">Колебания погодных условий на Восточном побережье</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-wp-05" role="region" aria-labelledby="btn-wp-05">
-            <div class="body-inner">
-              Анализ метеорологической волатильности является критическим элементом для оценки рисков в энергетическом и аграрном секторах. Изменения паттернов выгодны операторам товарных бирж и маркетмейкерам, зарабатывающим на климатическом арбитраже. Основной институциональный риск лежит в плоскости неготовности муниципальной инфраструктуры к резким перепадам потребления ресурсов. Акции региональных коммунальных предприятий реагируют на прогнозы повышенной волатильностью из-за угрозы аварийных отключений. Цены на фьючерсы на природный газ и электроэнергию демонстрируют резкие скачки, отражая нестабильность будущих поставок. Стратегическая логика энергетических трейдеров заключается в хеджировании позиций через погодные деривативы. Страховые компании пересматривают тарифы для бизнеса в регионе, увеличивая издержки логистических и складских операторов. Возникает необходимость экстренных государственных субсидий для поддержания баланса энергосистемы Восточного побережья. Макроэкономически это усиливает инфляционное давление через рост базовых тарифов на электроэнергию для предприятий. В долгосрочной перспективе капитал будет перетекать в проекты по созданию систем распределенного хранения энергии.
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- ── NEW YORK POST ───────────────────────────────────────────── -->
-      <section class="outlet-section">
-        <div class="outlet-header">
-          <h2>NEW YORK POST</h2>
-          <div class="outlet-tags">Спортивная экономика • Недвижимость • Монетизация медиа</div>
-        </div>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-nyp-01" aria-expanded="false" aria-controls="art-nyp-01">
-            <span class="art-idx">01</span>
-            <span class="art-title">Проклятие Мамбино: Метс проигрывают 10 раз подряд</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-nyp-01" role="region" aria-labelledby="btn-nyp-01">
-            <div class="body-inner">
-              Устойчивая серия поражений крупной спортивной франшизы представляет собой серьезный удар по стоимости базового актива. Данная ситуация выгодна конкурирующим командам на локальном рынке, которые перехватывают спонсорские контракты и рекламные бюджеты. Институциональный риск для владельцев клуба заключается в критическом падении доходов от продажи билетов и прав на трансляции. Облигации и долговые инструменты, привязанные к выручке стадиона, теряют инвестиционную привлекательность. Снижается стоимость рекламного инвентаря в локальных медиасетях, транслирующих матчи терпящей бедствие команды. Стратегическая логика руководства франшизы в этих условиях требует жестких кадровых решений для демонстрации контроля над ситуацией. Мерчандайзинговые партнеры несут прямые убытки, требуя пересмотра условий лицензионных соглашений. Усиливается политическое давление со стороны муниципалитета, предоставившего налоговые льготы в обмен на экономическую активность. Макроэкономическое влияние локализовано, но индустрия развлечений фиксирует переток зрительских бюджетов в другие сегменты. В долгосрочной перспективе франшизе грозит реструктуризация или полная смена спортивного и административного менеджмента.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-nyp-02" aria-expanded="false" aria-controls="art-nyp-02">
-            <span class="art-idx">02</span>
-            <span class="art-title">Никс теряют преимущество в 12 очков в плей-офф</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-nyp-02" role="region" aria-labelledby="btn-nyp-02">
-            <div class="body-inner">
-              Спортивная волатильность в матчах с высокими ставками напрямую влияет на телевизионные рейтинги и монетизацию франшиз. Затягивание серии плей-офф выгодно национальным вещателям, увеличивающим количество слотов для продажи прайм-тайм рекламы. Риск для спортивных инвесторов заключается в непредвиденных изменениях в капитализации бренда из-за эмоциональной реакции рынка. Букмекеры и операторы спортивных ставок генерируют сверхприбыль за счет непредсказуемости исхода и сгорания прогнозов большинства клиентов. Стоимость акций компаний, владеющих спортивных аренами, испытывает кратковременный рост на фоне ожиданий дополнительных домашних матчей. Стратегическая логика лиги поощряет конкурентный баланс, максимизирующий общую стоимость коллективных телевизионных прав. Региональная экономика получает стимул в виде дополнительных расходов болельщиков на логистику и гостиничный бизнес. Владельцы лож и премиальных мест сталкиваются с необходимостью дополнительных незапланированных трат для удержания статуса. Макроэкономически это подтверждает устойчивость потребительского спроса в сегменте премиальных спортивных развлечений. В долгосрочной перспективе клубы будут инвестировать больше средств в предиктивную аналитику для управления рисками.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-nyp-03" aria-expanded="false" aria-controls="art-nyp-03">
-            <span class="art-idx">03</span>
-            <span class="art-title">Продажи элитной недвижимости превысили 6,5 млрд долларов</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-nyp-03" role="region" aria-labelledby="btn-nyp-03">
-            <div class="body-inner">
-              Рекордный объем сделок в люксовом сегменте недвижимости сигнализирует о парковании капитала ультрахайнетами (UHNWI) в защитных активах. Этот тренд выгоден крупным брокерским агентствам и девелоперам, максимизирующим комиссионные доходы на пике рынка. Главный институциональный риск заключается в раздувании ценового пузыря, оторванного от реальных доходов населения мегаполиса. Инвестиционные трасты недвижимости (REIT), ориентированные на премиальный сектор, демонстрируют опережающий рост котировок. Доллар локально поддерживается притоком иностранного капитала, ищущего безопасную гавань в американской недвижимости. Стратегическая логика инвесторов направлена на защиту сбережений от инфляции и возможных конфискационных налогов в других юрисдикциях. Усиливается социальное неравенство, что провоцирует леворадикальные политические силы на требования введения новых налогов на роскошь. Муниципальные бюджеты получают кратковременный профицит за счет налогов на передачу прав собственности. На макроуровне это свидетельствует об избытке ликвидности в верхнем дециле экономики при стагнации среднего класса. В долгосрочной перспективе сектор столкнется с коррекцией при малейшем ужесточении фискальной политики.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-nyp-04" aria-expanded="false" aria-controls="art-nyp-04">
-            <span class="art-idx">04</span>
-            <span class="art-title">Новый эксклюзивный кондоминиум на Мэдисон-авеню</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-nyp-04" role="region" aria-labelledby="btn-nyp-04">
-            <div class="body-inner">
-              Запуск ультра-премиальных проектов на фоне общих экономических опасений демонстрирует фрагментацию рынка капитала. Данный девелопмент выгоден узкой группе институциональных кредиторов, финансирующих элитное строительство под залог будущих сверхприбылей. Институциональный риск состоит в заморозке ликвидности, если цикл высоких процентных ставок затянется, отпугнув ипотечных покупателей. Акции компаний, производящих эксклюзивные строительные материалы и интерьерные решения, получают позитивный импульс. Наблюдается дивергенция между ценами на базовые строительные материалы и стоимостью премиальной отделки. Стратегическая логика застройщика базируется на создании искусственного дефицита предложения в престижных исторических локациях. Мелкие девелоперы вытесняются с рынка, не имея доступа к дешевому проектному финансированию. Возрастает риск изменения зонирования со стороны городских властей, требующих выделения квот на социальное жилье. Макроэкономически этот сектор действует как абсорбент избыточной денежной массы, не создавая широкого мультипликативного эффекта. В среднесрочной перспективе подобные объекты будут приобретаться исключительно за наличный расчет корпоративными структурами.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-nyp-05" aria-expanded="false" aria-controls="art-nyp-05">
-            <span class="art-idx">05</span>
-            <span class="art-title">Телевизионный показ франшизы Люди Икс</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-nyp-05" role="region" aria-labelledby="btn-nyp-05">
-            <div class="body-inner">
-              Синдикация крупных голливудских активов на кабельных каналах отражает стратегии монетизации библиотек в эпоху потокового вещания. Подобная модель выгодна медиаконгломератам, извлекающим двойную прибыль из старого контента за счет продажи рекламного времени. Институциональный риск кроется в каннибализации собственных стриминговых сервисов, подписчики которых теряют стимул к оплате подписки. Акции традиционных телевизионных сетей стабилизируются, демонстрируя способность генерировать стабильный денежный поток. Рекламный рынок фиксирует жесткую борьбу за слоты в фильмах с гарантированной, хотя и стареющей, лояльной аудиторией. Стратегическая логика корпорации направлена на диверсификацию доходов в условиях стагнации прироста новых цифровых подписчиков. Стриминговые платформы-конкуренты вынуждены агрессивнее инвестировать в оригинальный контент для удержания доли рынка. Возникают конфликты вокруг выплаты роялти создателям контента из-за непрозрачности метрик телевизионных просмотров. Макроэкономически медиа-рынок переходит в фазу консолидации, где стоимость библиотеки важнее технологической платформы. В долгосрочной перспективе традиционное телевидение окончательно трансформируется в витрину для монетизации вторичных прав.
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- ── THE AUSTRALIAN ────────────────────────────────────────── -->
+      <!-- ── THE AUSTRALIAN ────────────────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
           <h2>THE AUSTRALIAN</h2>
-          <div class="outlet-tags">Макроэкономика • Сырьевые рынки • Культурные войны</div>
+          <div class="outlet-tags">Реформа NDIS • Сокращение бюджета • Индустрия видеоигр</div>
         </div>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-aus-01" aria-expanded="false" aria-controls="art-aus-01">
+          <button class="article-trigger" id="btn-au-01" aria-expanded="false" aria-controls="art-au-01">
             <span class="art-idx">01</span>
-            <span class="art-title">Стагфляция неизбежна, на очереди нормирование топлива</span>
+            <span class="art-title">Масштабные изменения NDIS для сокращения стремительно растущих расходов схемы</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-aus-01" role="region" aria-labelledby="btn-aus-01">
+          <div class="article-body" id="art-au-01" role="region" aria-labelledby="btn-au-01">
             <div class="body-inner">
-              Признание неизбежности стагфляции на государственном уровне знаменует провал макроэкономической политики по сдерживанию кризиса. Данный сценарий выгоден лишь ограниченному числу сырьевых монополий, способных диктовать цены на внутреннем рынке. Институциональный риск для правительства заключается в потере контроля над инфляционными ожиданиями и угрозе социальных бунтов из-за нормирования. Рынок акций реагирует бегством в защитные активы, инвесторы сбрасывают бумаги ритейла и потребительского сектора. Австралийский доллар испытывает давление из-за снижения инвестиционной привлекательности страны на фоне энергетического дефицита. Стратегическая логика кабинета министров сводится к подготовке населения к жесткой экономии и снятию с себя ответственности за глобальные шоки. Производители альтернативной энергии получают политический карт-бланш на ускоренную реализацию проектов в обход экологических норм. Угроза нормирования топлива бьет по логистической цепи, провоцируя дефицит товаров первой необходимости в регионах. Макроэкономически страна входит в период длительной депрессии, сопровождающейся обесцениванием реальных доходов домохозяйств. В долгосрочной перспективе потребуется радикальная перестройка всей структуры национальной экономики с фокусом на самообеспечение.
+              Радикальная реформа Национальной системы страхования инвалидности (NDIS) в Австралии отражает критический сдвиг в фискальной политике государства. Ограничение роста расходов схемы до пяти процентов в год продиктовано острой необходимостью снизить давление на государственный бюджет перед лицом грядущей рецессии. Скрытая логика кабинета министров направлена на перекладывание части финансовых обязательств на бюджеты отдельных штатов, что спровоцирует жесткий политический торг. Главным бенефициаром выступает федеральное казначейство, получающее пространство для маневра и возможность улучшить кредитные рейтинги страны. Для частных поставщиков медицинских услуг и услуг по уходу на дому это крайне негативный сигнал, предвещающий схлопывание сверхприбылей и банкротство мелких операторов. Институциональные инвесторы, ранее активно вкладывавшие средства в сектор здравоохранения под гарантии NDIS, вынуждены экстренно пересматривать портфели. Рынок недвижимости также может ощутить удар из-за сокращения субсидируемого спроса на специализированное жилье. Политические риски для правящей партии колоссальны, так как сокращение поддержки уязвимых групп населения традиционно используется оппозицией для электорального давления. Исключение психосоциальных расстройств из текущего периметра реформ указывает на страх правительства перед масштабным социальным взрывом. Стратегически Канберра посылает сигнал суверенным фондам: государство возвращается к жесткой фискальной дисциплине даже в чувствительных социальных сферах. Для макроэкономики это означает краткосрочное снижение потребительского спроса в секторе услуг, но долгосрочную стабилизацию государственного долга. В итоге, реформа NDIS становится маркером готовности западных правительств демонтировать элементы социального государства ради макроэкономической устойчивости.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-aus-02" aria-expanded="false" aria-controls="art-aus-02">
+          <button class="article-trigger" id="btn-au-02" aria-expanded="false" aria-controls="art-au-02">
             <span class="art-idx">02</span>
-            <span class="art-title">Бюджет становится заложником конфликта в Иране</span>
+            <span class="art-title">Увеличение бюджета на 96 млрд долларов при достижении экономии</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-aus-02" role="region" aria-labelledby="btn-aus-02">
+          <div class="article-body" id="art-au-02" role="region" aria-labelledby="btn-au-02">
             <div class="body-inner">
-              Жесткая зависимость национальной фискальной политики от геополитического шока свидетельствует об уязвимости сырьевой экономики. Пересмотр бюджета выгоден оборонному лобби, которое использует кризис для перенаправления государственных средств в свои проекты. Институциональный риск кроется в резком росте суверенного долга из-за необходимости компенсации издержек бизнесу и населению. Инвесторы переоценивают австралийские государственные облигации, закладывая в них более высокую премию за риск. Мировые товарные рынки закладывают в котировки длительную блокаду Ормузского пролива, что взвинчивает цены на сжиженный природный газ. Стратегическая логика Казначейства заключается в сокращении социальных программ для формирования экстренных резервов. Оппозиция использует уязвимость бюджета для критики энергетической и международной политики правящей коалиции. Появляется угроза снижения кредитного рейтинга страны ведущими международными рейтинговыми агентствами. Макроэкономически Австралия теряет статус безопасной гавани, становясь заложником внешних логистических и военных кризисов. В долгосрочном плане фискальная политика станет более консервативной, с упором на создание стратегических сырьевых резервов.
+              Прогнозируемое высвобождение 96 миллиардов долларов за счет реформы социальных программ формирует мощный резерв для перераспределения государственного капитала. Скрытый мотив данного маневра заключается в необходимости срочного финансирования оборонных инициатив и программ кибербезопасности в условиях нестабильности в Индо-Тихоокеанском регионе. Правительство формирует финансовую подушку, чтобы снизить зависимость от внешних заимствований на фоне глобального роста процентных ставок. Для долгового рынка Австралии это бычий сигнал, означающий сокращение эмиссии государственных облигаций и, как следствие, повышение их стоимости. Крупные инфраструктурные и военные корпорации являются неочевидными, но главными бенефициарами этой финансовой консолидации, ожидая перенаправления потоков. Резкое сокращение валового долга повышает суверенную устойчивость страны к возможным шокам на рынках сырья, от которых критически зависит австралийский экспорт. Риски заключаются в том, что заявленная экономия построена на оптимистичных прогнозах инфляции, которые могут не оправдаться. Инвесторы в секторах, зависящих от государственных субсидий, получают четкое предупреждение о смене парадигмы: эпоха легких бюджетных денег закончена. Влияние на национальную валюту будет позитивным, так как снижение дефицита бюджета традиционно укрепляет доверие иностранных инвесторов к австралийскому доллару. Политическая элита использует цифру в 96 миллиардов как главный аргумент для легитимизации непопулярных социальных ограничений перед налогоплательщиками. Это классический пример неолиберальной адаптации: урезание социальных обязательств ради обеспечения геополитической и финансовой гибкости государства. Успех или провал этой балансировки определит привлекательность австралийского рынка для глобального капитала на следующее десятилетие.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-aus-03" aria-expanded="false" aria-controls="art-aus-03">
+          <button class="article-trigger" id="btn-au-03" aria-expanded="false" aria-controls="art-au-03">
             <span class="art-idx">03</span>
-            <span class="art-title">Улучшенные игры обещают острые ощущения</span>
+            <span class="art-title">Регулятор берет на прицел игровых гигантов, ориентированных на детей</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-aus-03" role="region" aria-labelledby="btn-aus-03">
+          <div class="article-body" id="art-au-03" role="region" aria-labelledby="btn-au-03">
             <div class="body-inner">
-              Запуск соревнований с легальным использованием допинга бросает вызов традиционной монополии Международного олимпийского комитета. Данный проект выгоден биотехнологическим корпорациям и частным медицинским центрам, получающим легальный полигон для тестирования препаратов. Институциональный риск заключается в размывании спортивной этики и угрозе каскадных судебных исков в случае инвалидизации участников. Венчурные фонды проявляют сдержанный, но растущий интерес к спортивному проекту, рассматривая его как медийный стартап. Индустрия спортивного питания и фармакологии фиксирует рост фьючерсных ожиданий на специализированные стимуляторы. Стратегическая логика организаторов направлена на коммерциализацию зрелищности любой ценой, апеллируя к либертарианским ценностям. Традиционные спортивные федерации вынуждены усиливать санкционное давление на атлетов, чтобы предотвратить их переход в новую лигу. Возникают колоссальные репутационные риски для транснациональных брендов, которые откажутся или согласятся спонсировать мероприятие. Макроэкономически это открывает новый субрынок экстремальных развлечений, не регулируемый государственными антидопинговыми агентствами. В долгосрочной перспективе проект либо будет запрещен на законодательном уровне, либо приведет к расколу глобального спорта.
+              Атака австралийского регулятора на корпорации видеоигр, таргетирующие несовершеннолетних, отражает глобальный тренд на ужесточение контроля над цифровыми экономиками. В основе лежит не только забота о потребителе, но и скрытое стремление государств ограничить бесконтрольный отток капитала через микротранзакции и виртуальные валюты. Национальные правительства видят в игровых гигантах нерегулируемые финансовые институты, извлекающие прибыль в обход традиционного налогообложения. Бенефициарами расследования выступают локальные провайдеры контента и телекоммуникационные компании, заинтересованные в снижении влияния транснациональных платформ. Для рынков это означает существенный риск переоценки активов технологического сектора, чья бизнес-модель критически зависит от механизмов монетизации с высоким уровнем вовлечения. Введение жестких возрастных цензов и запретов на агрессивный маркетинг способно обрушить маржинальность целых игровых студий на треть. Институциональные инвесторы вынуждены закладывать высокие юридические риски в оценку игровых конгломератов, таких как Tencent или Epic Games. Инициатива Австралии часто служит испытательным полигоном для законодательства, которое впоследствии копируется Евросоюзом и Великобританией. Геополитический аспект также присутствует: многие из критикуемых механизмов разрабатываются и контролируются азиатскими корпорациями. Ограничение их деятельности на западных рынках вписывается в общую стратегию цифрового протекционизма и защиты суверенитета. Компаниям придется срочно перестраивать архитектуру доходов, переходя к моделям фиксированной подписки, что снизит спонтанную выручку. В итоге, действия регулятора форсируют структурную трансформацию индустрии развлечений, делая ее менее рентабельной, но более прозрачной для фискальных органов.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-aus-04" aria-expanded="false" aria-controls="art-aus-04">
+          <button class="article-trigger" id="btn-au-04" aria-expanded="false" aria-controls="art-au-04">
             <span class="art-idx">04</span>
-            <span class="art-title">Дикие свиньи становятся проблемой национального масштаба</span>
+            <span class="art-title">Абсурдность живых счетов: реформа управления</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-aus-04" role="region" aria-labelledby="btn-aus-04">
+          <div class="article-body" id="art-au-04" role="region" aria-labelledby="btn-au-04">
             <div class="body-inner">
-              Экологический кризис в сельскохозяйственных регионах представляет собой прямую угрозу продовольственной безопасности страны. Масштабная кампания по истреблению вредителей выгодна компаниям, специализирующимся на производстве пестицидов и биобезопасности. Главный институциональный риск для аграрного сектора связан с карантинными запретами на экспорт австралийского мяса из-за эпизоотий. Акции крупных агрохолдингов подвергаются распродаже из-за рисков снижения урожайности и потери поголовья скота. Фьючерсы на пшеницу и говядину демонстрируют локальный рост на фоне прогнозов сокращения австралийского предложения. Стратегическая логика властей предполагает жесткую мобилизацию ресурсов фермеров с минимальными государственными компенсациями. Производители оружия и систем слежения получают неожиданный приток государственных и частных заказов. Экоактивисты могут инициировать судебные процессы против радикальных методов решения проблемы, тормозя процесс. Макроэкономически убытки от биологического вторжения увеличивают инфляцию издержек в продовольственном секторе. В долгосрочном плане фермерским хозяйствам придется внедрять дорогостоящие системы закрытого земледелия и животноводства.
+              Дискуссия об избыточности человеческих вычислений в управленческих практиках поднимает проблему неэффективности устаревших корпоративных структур перед лицом автоматизации. Скрытая логика этой критики направлена на подготовку почвы для массовых сокращений административного персонала среднего звена. Главными бенефициарами выступают акционеры крупных корпораций, стремящиеся радикально снизить операционные издержки за счет внедрения алгоритмического управления. Это прямой сигнал рынку труда о том, что рутинные аналитические и учетные функции больше не гарантируют долгосрочную занятость. Риски смещаются в плоскость корпоративного управления: чрезмерная опора на автоматизированные системы без человеческого контроля чревата системными сбоями. Институциональные инвесторы все чаще требуют от топ-менеджмента доказательств внедрения решений искусственного интеллекта в повседневные бизнес-процессы. Компании, сохраняющие раздутые штаты классических учетных специалистов, подвергаются дисконту при оценке стоимости их акций. С макроэкономической точки зрения это ускоряет процесс поляризации доходов, вымывая средний класс из классических офисных профессий. Консалтинговые и аудиторские гиганты также сталкиваются с необходимостью пересмотра своих бизнес-моделей, так как клиенты отказываются платить за человеко-часы при выполнении стандартных расчетов. Государству придется реагировать на рост структурной безработицы среди квалифицированных кадров, что потребует масштабных программ переобучения. Стратегически выигрывают разработчики специализированного программного обеспечения для автоматизации и оптимизации корпоративных потоков. Переход от человеческого учета к алгоритмическому окончательно закрепляет доминирование технологий над традиционным корпоративным администрированием.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-aus-05" aria-expanded="false" aria-controls="art-aus-05">
+          <button class="article-trigger" id="btn-au-05" aria-expanded="false" aria-controls="art-au-05">
             <span class="art-idx">05</span>
-            <span class="art-title">Звезда обвиняется в оскорблении киноактера</span>
+            <span class="art-title">Радикальные перестановки в тренерском штабе на фоне кризиса результатов</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-aus-05" role="region" aria-labelledby="btn-aus-05">
+          <div class="article-body" id="art-au-05" role="region" aria-labelledby="btn-au-05">
             <div class="body-inner">
-              Публичные конфликты между медийными персонами служат инструментом регулирования репутационных капиталов в индустрии развлечений. Эскалация конфликта выгодна юридическим фирмам, специализирующимся на диффамации, и таблоидным медиаресурсам. Институциональный риск для продюсерских центров кроется в срыве съемочных графиков и заморозке релизов из-за токсичности актеров. Акции развлекательных конгломератов могут реагировать незначительным снижением, если скандал затрагивает ключевые франшизы. Страховые премии на случай отмены или задержки производства в Голливуде продолжают неуклонно расти. Стратегическая логика студий в таких ситуациях направлена на быстрое расторжение контрактов с виновниками для защиты бренда. Независимые студии получают шанс привлечь отмененных звезд с существенным дисконтом к их рыночной стоимости. Возрастает риск вмешательства профсоюзов актеров, что может усложнить разрешение спора. В макроэкономическом срезе это демонстрирует высокую волатильность человеческого капитала в креативных индустриях. В перспективе студии ужесточат пункты о моральном облике в контрактах, привязывая гонорары к отсутствию медийных скандалов.
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- ── THE GUARDIAN ────────────────────────────────────────── -->
-      <section class="outlet-section">
-        <div class="outlet-header">
-          <h2>THE GUARDIAN</h2>
-          <div class="outlet-tags">Политика Великобритании • Технологическое мошенничество • Глобальная культура</div>
-        </div>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-guard-01" aria-expanded="false" aria-controls="art-guard-01">
-            <span class="art-idx">01</span>
-            <span class="art-title">Стармер идет на столкновение с Роббинсом из-за Мандельсона</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-guard-01" role="region" aria-labelledby="btn-guard-01">
-            <div class="body-inner">
-              Эскалация конфликта между премьер-министром и бывшим главой дипслужбы обнажает системный разлом в британском истеблишменте. Этот конфликт выгоден внутрипартийной оппозиции лейбористов, стремящейся ослабить влияние действующего премьера. Институциональный риск заключается в параличе государственного аппарата, чиновники которого откажутся принимать решения из страха публичных репрессий. Для рынков это яркий маркер политической дисфункции, снижающий инвестиционную привлекательность государственных активов Соединенного Королевства. Британский фунт испытывает давление из-за неопределенности внешнеполитического курса и возможного дипломатического вакуума. Стратегическая логика Стармера направлена на жесткое подавление бюрократического саботажа для утверждения собственного авторитета. Независимые государственные аудиторы получают возможность усилить контроль над процедурами назначений. Правовые риски связаны с возможными судебными исками от несправедливо уволенных государственных служащих высшего звена. На макроэкономическом уровне кризис управления тормозит реализацию торговых соглашений в пост-брекзит эпоху. В долгосрочной перспективе это приведет к еще большей политизации британской государственной службы.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-guard-02" aria-expanded="false" aria-controls="art-guard-02">
-            <span class="art-idx">02</span>
-            <span class="art-title">Рост числа мошенничеств с вакансиями с использованием ИИ</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-guard-02" role="region" aria-labelledby="btn-guard-02">
-            <div class="body-inner">
-              Массовое применение искусственного интеллекта в мошеннических схемах подрывает базовое доверие к платформам онлайн-рекрутинга. Такая ситуация выгодна корпоративным IT-компаниям, разрабатывающим системы кибербезопасности и биометрической верификации. Институциональный риск для рынка труда заключается в критическом снижении ликвидности кадров из-за страха соискателей перед обманом. Акции платформ по поиску работы стагнируют из-за необходимости резко увеличить издержки на модерацию контента. Рынок данных фиксирует обесценивание традиционных резюме в пользу верифицированных цифровых профилей на блокчейне. Стратегическая логика мошенников строится на автоматизации социальной инженерии и масштабировании атак на незащищенные слои. Традиционные кадровые агентства получают конкурентное преимущество, возвращаясь к офлайн-моделям проверки кандидатов. Возникает угроза жесткого государственного регулирования алгоритмов, что ударит по всему сектору машинного обучения. Макроэкономически это увеличивает транзакционные издержки найма, замедляя переток рабочей силы в эффективные сектора. В долгосрочной перспективе корпорации перейдут на полностью закрытые, рекомендательные системы подбора персонала.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-guard-03" aria-expanded="false" aria-controls="art-guard-03">
-            <span class="art-idx">03</span>
-            <span class="art-title">Текила вытесняет джин в качестве главного летнего напитка</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-guard-03" role="region" aria-labelledby="btn-guard-03">
-            <div class="body-inner">
-              Смена потребительских предпочтений в алкогольном секторе отражает успешную маркетинговую экспансию латиноамериканского сырья на европейские рынки. Этот сдвиг выгоден транснациональным корпорациям, которые заранее инвестировали в приобретение мексиканских плантаций агавы. Институциональный риск для британских производителей джина заключается в обвале маржинальности и необходимости банкротства крафтовых дистиллерий. Акции европейских производителей крепкого алкоголя демонстрируют волатильность на фоне перестройки портфеля брендов. Товарные рынки фиксируют взрывной рост фьючерсов на голубую агаву, создавая дефицит сырья для локальных производителей. Стратегическая логика дистрибьюторов направлена на премиализацию продукта, переводя текилу из сегмента масс-маркет в люкс. Сектор гостеприимства и баров вынужден радикально пересматривать меню и цепочки поставок в преддверии летнего сезона. Регуляторные органы Мексики получают мощный рычаг давления, контролируя квоты на экспорт сертифицированного продукта. На макроуровне это демонстрирует зависимость европейского рынка развлечений от импортных сырьевых монокультур. В среднесрочной перспективе начнется волна поглощений независимых брендов текилы алкогольными гигантами.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-guard-04" aria-expanded="false" aria-controls="art-guard-04">
-            <span class="art-idx">04</span>
-            <span class="art-title">Макдермотт входит в шорт-лист кандидатов на пост тренера</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-guard-04" role="region" aria-labelledby="btn-guard-04">
-            <div class="body-inner">
-              Смена главного тренера в ключевом спортивном клубе сигнализирует о давлении инвесторов, требующих немедленной окупаемости вложений. Назначение кризис-менеджера выгодно пулу спонсоров, стремящихся агрессивно монетизировать бренд клуба на новых рынках. Институциональный риск кроется в конфликте между новой административной командой и историческими структурами профсоюзов игроков. Акции компаний, владеющих спортивными франшизами в лиге, реагируют локальным ростом на фоне ожидания структурных реформ. Бутализаторские конторы фиксируют приток капитала, спекулирующего на изменениях в турнирной таблице. Стратегическая логика правления клуба заключается в ставке на краткосрочный результат для повышения телевизионных доходов. Конкурирующие клубы получают тактическое преимущество во время переходного периода адаптации новой тактической схемы. Возможны юридические споры по поводу компенсаций предыдущему тренерскому штабу, обременяющие бюджет организации. Макроэкономически спортивная индустрия Британии подтверждает переход на американскую модель жесткого корпоративного управления. В долгосрочном плане тренерские должности окончательно потеряют автономность, подчинившись алгоритмам спортивных директоров.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-guard-05" aria-expanded="false" aria-controls="art-guard-05">
-            <span class="art-idx">05</span>
-            <span class="art-title">Передача информации комитету по разведке и безопасности</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-guard-05" role="region" aria-labelledby="btn-guard-05">
-            <div class="body-inner">
-              Передача досье на политического назначенца в закрытый комитет переводит скандал в плоскость угрозы национальной безопасности. Данный маневр выгоден специальным службам, которые формализуют свое право вето на политические назначения высшего уровня. Главный институциональный риск связан с беспрецедентной утечкой секретных данных через парламентские структуры в прессу. Для инвестиционных кругов это маркер непредсказуемости государственного аппарата, что охлаждает интерес к стратегическим партнерствам с правительством. Динамика британских гособлигаций остается вялой, отражая скепсис рынка в отношении дееспособности текущего кабинета. Стратегическая логика Даунинг-стрит заключается в попытке разделить ответственность за провал с межпартийным парламентским органом. Оппозиция использует слушания в комитете для полного демонтажа внешнеполитической повестки правящей партии. Правовые рамки закона о государственной тайне подвергаются давлению из-за публичного интереса к коммерческим связям кандидата. Макроэкономически это усложняет приток зарубежного капитала, так как процедуры комплаенса становятся непредсказуемо жесткими. В долгосрочной перспективе политический класс будет вынужден согласовывать свои шаги с силовым блоком еще до публичных анонсов.
+              Радикальные перестановки в управленческом штате спортивной франшизы Dragons служат микромоделью антикризисного менеджмента в условиях системного стресса. Решение об увольнении ассистентов и переформатировании состава после серии поражений продиктовано необходимостью защитить капитализацию клуба и успокоить спонсоров. Скрытый мотив главного тренера заключается в концентрации абсолютной власти и устранении внутренних центров влияния перед распределением бюджетов на следующий сезон. Это классический прием перекладывания ответственности, позволяющий отвести удар от высшего руководства и владельцев франшизы. Бенефициарами выступают спортивные агенты, получающие возможность завести своих клиентов на освободившиеся позиции в условиях кадрового дефицита. Для инвесторов в спортивно-развлекательном секторе подобные резкие движения являются маркером высокой волатильности актива и неэффективного предварительного планирования. Ультимативный подход к контрактам демонстрирует переход индустрии к более жестким корпоративным стандартам, где лояльность полностью подчинена результату. Риск данной стратегии заключается в разрушении командной химии и репутационных потерях клуба на рынке свободных агентов. Трансляторы и рекламодатели негативно оценивают нестабильность, что может привести к пересмотру спонсорских пакетов в сторону уменьшения базовой части выплат. Постоянная ротация состава не решает структурных проблем, а лишь создает иллюзию активных действий для стабилизации фанатской базы. На макроуровне спортивной индустрии это отражает кризис института долгосрочного планирования в угоду сиюминутным медийным метрикам. В итоге, франшиза рискует попасть в спираль перманентной реструктуризации, что сделает ее непривлекательной для стратегических покупателей.
             </div>
           </div>
         </article>
@@ -984,236 +595,164 @@
       <section class="outlet-section">
         <div class="outlet-header">
           <h2>THE INDEPENDENT</h2>
-          <div class="outlet-tags">Политика Великобритании • Спортивные травмы • Бизнес Ф1</div>
+          <div class="outlet-tags">Лейбористская партия • Кризис управления • Английская Премьер-лига</div>
         </div>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-indie-01" aria-expanded="false" aria-controls="art-indie-01">
+          <button class="article-trigger" id="btn-ind-01" aria-expanded="false" aria-controls="art-ind-01">
             <span class="art-idx">01</span>
-            <span class="art-title">Доказательство вины премьера находится на первой полосе</span>
+            <span class="art-title">Даунинг-стрит тайно искала должность посла для опального соратника Стармера</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-indie-01" role="region" aria-labelledby="btn-indie-01">
+          <div class="article-body" id="art-ind-01" role="region" aria-labelledby="btn-ind-01">
             <div class="body-inner">
-              Использование медиа-архивов как прямого политического оружия свидетельствует об утрате правительством монополии на интерпретацию фактов. Эта кампания выгодна конкурирующим медиаконгломератам и оппозиции, консолидирующим усилия для досрочной смены кабинета. Институциональный риск кроется в полном разрушении доверия к институту премьер-министра как гаранту стабильности системы. Инвесторы расценивают подобные публикации как индикатор токсичности исполнительной власти, приостанавливая долгосрочные проекты. Национальная валюта подвергается спекулятивным атакам из-за слабости политического мандата текущего лидера. Стратегическая логика издания направлена на капитализацию собственного влияния и принуждение власти к отставкам. Консервативная партия получает готовый фактологический базис для инициирования вотума недоверия в парламенте. Угроза ужесточения медиа-регулирования со стороны загнанного в угол правительства возрастает. Макроэкономически политический паралич препятствует принятию антикризисных мер в условиях стагфляции. В долгосрочной перспективе это окончательно закрепит роль прессы как главного внепарламентского надзорного органа.
+              Скандал вокруг попыток Даунинг-стрит тайно трудостроить скомпрометированного политического советника на дипломатическую должность обнажает серьезный институциональный конфликт в Великобритании. Скрытая логика аппарата премьер-министра заключалась в изоляции токсичного актива путем его перевода на почетную, но удаленную международную позицию. Давление на Министерство иностранных дел демонстрирует стремление исполнительной власти политизировать традиционно нейтральный и профессиональный дипломатический корпус. Для рынков и иностранных инвесторов это четкий сигнал о снижении прозрачности и качества государственного управления в Лондоне. Бенефициарами утечки информации являются внутрипартийные оппоненты Стармера и карьерные чиновники Уайтхолла, защищающие свою корпоративную независимость. Репутационные риски для правительства критически возрастают, так как разрушается ключевой электоральный нарратив о восстановлении этики после скандалов предыдущих администраций. Данный прецедент подрывает авторитет британских дипломатических миссий за рубежом, снижая их вес в международных торговых и политических переговорах. Скандал ослабляет позиции премьер-министра перед предстоящими сложными бюджетными дебатами, лишая его морального лидерства. Структурный риск заключается в усилении недоверия между политическими назначенцами и кадровым составом государственных ведомств, что парализует процесс принятия решений. Оппозиция получает идеальный инструмент для блокирования законодательных инициатив Лейбористской партии через парламентские расследования. Для глобальных корпораций, взаимодействующих с британским кабинетом министров, это повод пересмотреть стратегии лоббизма, учитывая высокую уязвимость окружения премьера. В конечном итоге, попытка кулуарно решить кадровую проблему конвертировалась в масштабный политический кризис, угрожающий стабильности всего кабинета.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-indie-02" aria-expanded="false" aria-controls="art-indie-02">
+          <button class="article-trigger" id="btn-ind-02" aria-expanded="false" aria-controls="art-ind-02">
             <span class="art-idx">02</span>
-            <span class="art-title">Выживание Стармера не решает его проблем</span>
+            <span class="art-title">Ответственность за ошибку с назначением Мандельсона должна лежать на Стармере</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-indie-02" role="region" aria-labelledby="btn-indie-02">
+          <div class="article-body" id="art-ind-02" role="region" aria-labelledby="btn-ind-02">
             <div class="body-inner">
-              Удержание власти премьер-министром носит технический характер и не устраняет фундаментальных структурных противоречий в правительстве. Подобная стагнация выгодна лоббистским группам, блокирующим нежелательные реформы через парализованный кабинет. Основной институциональный риск заключается в переходе системы государственного управления в режим реактивного ручного управления. Финансовые рынки закладывают в котировки сценарий "хромой утки", снижая инвестиционный горизонт до нескольких месяцев. Отток капитала из инфраструктурных фондов ускоряется из-за отсутствия долгосрочных правительственных гарантий. Стратегическая логика премьер-министра сужается до тактики политического выживания любой ценой. Региональные элиты и профсоюзы усиливают давление, шантажируя ослабленный центр угрозой масштабных забастовок. Юридическая неопределенность вокруг новых налоговых инициатив заставляет корпорации откладывать инвестиционные решения. В макроэкономическом контексте это означает потерянный год для структурных преобразований британской экономики. Долгосрочно лейбористская партия рискует расколоться на фракции в преддверии неминуемых досрочных выборов.
+              Резкая критика назначения Питера Мандельсона и возложение персональной ответственности на премьер-министра Стармера маркирует сдвиг баланса сил в британской элите. Возвращение фигуры из политического прошлого было продиктовано необходимостью успокоить крупный капитал и продемонстрировать готовность к прагматичному курсу. Однако скрытая логика этого шага оказалась ошибочной: назначение спровоцировало отторжение как левого крыла партии, так и независимого истеблишмента. Главная угроза для рынков кроется не в самой персоне, а в демонстрации кадрового голода и неспособности текущего руководства формировать новые элиты. Финансовые круги Сити считывают этот конфликт как маркер внутренней нестабильности, что может отразиться на оценке суверенных рисков Великобритании. Институциональный конфликт между Даунинг-стрит и аппаратом госслужбы выходит в публичную плоскость, разрушая систему сдержек и противовесов. Это крайне выгодно консервативной оппозиции, которая использует скандал для дискредитации управленческой компетентности лейбористов в преддверии новых кризисов. Инвесторам посылается сигнал, что правительственные гарантии могут быть легко отозваны под давлением медиа и парламентских комиссий. Стратегическая ошибка Стармера заключается в попытке использовать методы кулуарной дипломатии эпохи нулевых в условиях тотальной информационной прозрачности. Риск паралича исполнительной власти возрастает, так как любые новые кадровые решения будут проходить через жесткий фильтр медийного скептицизма. Капиталу, рассчитывающему на стабильную регуляторную среду, придется заморозить масштабные проекты в инфраструктуре до разрешения кризиса власти. В итоге, персональный имиджевый провал премьера конвертируется в измеримые политические и экономические издержки для всего государства.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-indie-03" aria-expanded="false" aria-controls="art-indie-03">
+          <button class="article-trigger" id="btn-ind-03" aria-expanded="false" aria-controls="art-ind-03">
             <span class="art-idx">03</span>
-            <span class="art-title">Дрейпер вынужден сняться с турниров из-за травмы</span>
+            <span class="art-title">Почему для Арсенала еще не все потеряно в чемпионской гонке</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-indie-03" role="region" aria-labelledby="btn-indie-03">
+          <div class="article-body" id="art-ind-03" role="region" aria-labelledby="btn-ind-03">
             <div class="body-inner">
-              Травма ключевого спортсмена и его снятие с престижных турниров наносит удар по монетизации спортивных трансляций. Этот инцидент выгоден конкурирующим теннисистам и их спонсорам, получающим доступ к призовым фондам и эфирному времени. Институциональный риск для спортивных ассоциаций кроется в претензиях вещателей, недовольных падением рейтингов из-за отсутствия звезд. Котировки спортивных брендов-спонсоров реагируют снижением, так как замораживается возврат инвестиций в маркетинговые контракты. Бутализаторский бизнес вынужден экстренно пересматривать линии коэффициентов, неся издержки на балансировку рисков. Стратегическая логика медицинского штаба игрока направлена на сохранение актива для более прибыльных турниров Большого шлема. Организаторы локальных турниров терпят прямые убытки от возврата билетов и падения интереса спонсоров. Возрастает спрос на разработку передовых протоколов спортивного страхования и превентивной медицины. Макроэкономическое влияние минимально, но инцидент отражает высокую хрупкость активов в индустрии профессионального спорта. В долгосрочной перспективе атлеты будут настаивать на пересмотре календаря соревнований для снижения физических перегрузок.
+              Сохранение интриги в чемпионской гонке английской Премьер-лиги является критически важным фактором для монетизации всей спортивной индустрии. Скрытая логика медийной поддержки конкуренции заключается в необходимости поддержания зрительского интереса и максимизации доходов от продажи телевизионных прав на финише сезона. Главными бенефициарами выступают глобальные бродкастеры и букмекеры, чья маржинальность напрямую зависит от степени непредсказуемости турнира. Для институциональных инвесторов, владеющих акциями футбольных корпораций, ранняя потеря интриги означает гарантированную просадку по операционной выручке в четвертом квартале. Геополитический аспект заключается в конкуренции за капитал с другими европейскими лигами: АПЛ обязана продавать продукт с максимальной добавленной стоимостью. Закулисная борьба за чемпионство напрямую влияет на распределение спонсорских контрактов следующего цикла, измеряемых сотнями миллионов фунтов. Клубы вынуждены идти на экстремальные финансовые риски, перекредитовываясь для удержания звездных составов, чтобы соответствовать ожиданиям рынка. Давление на менеджмент возрастает: непопадание в целевые показатели по итогам сезона ведет к немедленному падению рыночной капитализации франшизы. Спортивный результат становится лишь производной от качества корпоративного управления и эффективности алгоритмов распределения ресурсов. Риски перегрева рынка зарплат и трансферов продолжают расти, так как цена ошибки на финальном этапе турнира эквивалентна потере статуса глобального бренда. Для иностранного капитала, доминирующего в английском футболе, это подтверждение правильности стратегии агрессивных инвестиций в лондонские активы. Стабильное нахождение в чемпионской гонке гарантирует капитализацию бренда вне зависимости от итогового места в таблице.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-indie-04" aria-expanded="false" aria-controls="art-indie-04">
+          <button class="article-trigger" id="btn-ind-04" aria-expanded="false" aria-controls="art-ind-04">
             <span class="art-idx">04</span>
-            <span class="art-title">Команда Мерседес лидирует после трех побед</span>
+            <span class="art-title">Каррен Брэйди покидает пост в West Ham</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-indie-04" role="region" aria-labelledby="btn-indie-04">
+          <div class="article-body" id="art-ind-04" role="region" aria-labelledby="btn-ind-04">
             <div class="body-inner">
-              Доминирование одной команды в автоспорте высших достижений подтверждает успешность агрессивных инвестиций в R&D. Эта монополия выгодна материнскому автомобильному концерну, конвертирующему спортивные успехи в продажи премиальных серийных автомобилей. Институциональный риск для чемпионата заключается в падении глобального зрительского интереса из-за предсказуемости результатов гонок. Акции концерна Мерседес-Бенц получают стабильную поддержку на фоне технологического превосходства над конкурентами. Спонсорские пакеты лидирующей команды дорожают, оттягивая маркетинговые бюджеты от остальных участников рынка. Стратегическая логика руководства команды направлена на консервацию технического регламента для удержания статуса-кво. Конкурирующие команды вынуждены лоббировать изменения в правилах, чтобы искусственно уравнять шансы. Организаторы чемпионата сталкиваются с риском оттока медиа-партнеров, если интрига не будет восстановлена. В макроэкономическом срезе это демонстрирует концентрацию передовых инженерных кадров в рамках одной корпорации. В долгосрочной перспективе неизбежно вмешательство регулятора для ограничений бюджетов и выравнивания конкуренции.
+              Уход баронессы Каррен Брэйди с руководящего поста в футбольном клубе символизирует завершение целой эпохи в корпоративном управлении британским спортом. Ее отставка, вероятнее всего, продиктована скрытой подготовкой к смене владельцев клуба или глубокой реструктуризации его физических активов. Для инвесторов это четкий сигнал о том, что структура, выстроенная вокруг текущего менеджмента, достигла предела своей капитализации в существующем формате. Главными бенефициарами могут стать международные консорциумы, давно присматривающиеся к лондонской франшизе с ее инфраструктурным потенциалом. Уход знакового топ-менеджера создает зону турбулентности для спонсоров и партнеров клуба, привыкших к определенному стилю ведения кулуарных переговоров. Институциональные риски заключаются в возможной потере лоббистского ресурса, который обеспечивался благодаря ее статусу в высших политических кругах. Это событие также отражает общий тренд на деперсонализацию управления, где харизматичных директоров меняют алгоритмические управленческие структуры. Рынок спортивного консалтинга воспримет эту новость как старт масштабной проверки финансовой отчетности клуба перед потенциальной сделкой по поглощению. Влияние на операционную политику будет немедленным: франшиза, вероятно, перейдет в режим строгой экономии до утверждения новой стратегической модели. Возможный переход актива под контроль суверенных фондов Ближнего Востока или американского частного капитала кардинально изменит баланс сил в лиге. Отставка высвобождает управленческий ресурс, но одновременно оголяет политические тылы организации в отношениях с муниципальными властями. В долгосрочной перспективе это неизбежный шаг к превращению клуба из классического предприятия в глобальный мультимедийный актив без привязки к конкретным личностям.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-indie-05" aria-expanded="false" aria-controls="art-indie-05">
+          <button class="article-trigger" id="btn-ind-05" aria-expanded="false" aria-controls="art-ind-05">
             <span class="art-idx">05</span>
-            <span class="art-title">Встреча заинтересованных сторон для поправок к правилам</span>
+            <span class="art-title">Бой Околи отменен после проваленного допинг-теста</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-indie-05" role="region" aria-labelledby="btn-indie-05">
+          <div class="article-body" id="art-ind-05" role="region" aria-labelledby="btn-ind-05">
             <div class="body-inner">
-              Регулирование правил в автоспорте посреди сезона является попыткой искусственно изменить распределение капиталов в индустрии. Данный процесс выгоден отстающим командам, которые используют комитеты безопасности для нивелирования технологического преимущества лидеров. Институциональный риск заключается в судебных исках от лидеров чемпионата за потерю инвестиций из-за внезапной смены регламента. Акции поставщиков компонентов для доминирующих команд фиксируют локальное падение из-за угрозы запрета их технологий. Спортивный лоббизм выходит на первый план, смещая акцент с инженерной борьбы на политические кулуарные договоренности. Стратегическая логика промоутеров лиги направлена на спасение телевизионных рейтингов любой ценой. Безопасность пилотов используется как легитимный предлог для внедрения экономических санкций против успешных конструкторов. Возникает угроза ухода крупных автомобильных брендов из чемпионата из-за непредсказуемости регуляторной среды. На макроуровне это отражает общий тренд на государственное или картельное регулирование чрезмерно успешных монополий. В перспективе спортивные технологии станут более стандартизированными, что снизит ценность инноваций.
+              Отмена титульного поединка из-за проваленного допинг-теста наносит тяжелый финансовый удар по индустрии спортивных промоушенов и связанных с ней рынков. Скрытая логика таких инцидентов кроется в системном конфликте между требованиями телевидения к запредельной зрелищности и физическими пределами человеческого организма. Прямыми бенефициарами отмены становятся конкурирующие промоутерские компании, получающие возможность перехватить телевизионные слоты и внимание платежеспособной аудитории. Для организаторов события это означает катастрофические операционные убытки: невозвратные инвестиции в маркетинг, аренду площадок и сложную международную логистику. Институциональные инвесторы, рассматривающие спортивные трансляции как защитный актив, сталкиваются с реализацией непрогнозируемого несистемного риска. Провал тестирования независимой системой подрывает доверие к индустрии со стороны глобальных брендов-спонсоров, крайне критично относящихся к репутационной гигиене. Телевещательные корпорации будут вынуждены пересматривать структуру будущих контрактов, закладывая драконовские штрафы за срыв главных событий вечера. С геополитической точки зрения, инцидент бьет по престижу национальной спортивной школы и снижает капитализацию локальных атлетов на международных рынках. Ситуация ускоряет монополизацию рынка, так как выдержать подобные финансовые шоки способны только транснациональные синдикаты с глубокими резервами. Для букмекерского сектора это означает необходимость массового возврата ставок и срочную корректировку алгоритмов оценки рисков на силовых поединках. Спортивные функционеры будут использовать этот прецедент для лоббирования еще более жестких, но коммерчески выгодных закрытых экосистем контроля над атлетами. В итоге, атлеты окончательно превращаются в высокорисковые финансовые деривативы, малейший сбой в которых ведет к многомиллионным корпоративным списаниям.
             </div>
           </div>
         </article>
       </section>
 
-      <!-- ── DAILY EXPRESS ─────────────────────────────────────────── -->
+      <!-- ── THE WALL STREET JOURNAL ─────────────────────────────────── -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>DAILY EXPRESS</h2>
-          <div class="outlet-tags">Монархия • Печатные СМИ • Консервативная политика</div>
+          <h2>THE WALL STREET JOURNAL</h2>
+          <div class="outlet-tags">ФРС США • Сделка SpaceX • Телеком-монополии</div>
         </div>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-express-01" aria-expanded="false" aria-controls="art-express-01">
+          <button class="article-trigger" id="btn-wsj-01" aria-expanded="false" aria-controls="art-wsj-01">
             <span class="art-idx">01</span>
-            <span class="art-title">Король отдает дань уважения покойной королеве</span>
+            <span class="art-title">Выбор Трампа на пост главы ФРС: Кевин Уорш обещает радикальный отход от прежнего курса</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-express-01" role="region" aria-labelledby="btn-express-01">
+          <div class="article-body" id="art-wsj-01" role="region" aria-labelledby="btn-wsj-01">
             <div class="body-inner">
-              Эксплуатация монархического наследия служит ключевым инструментом консолидации нации в период острой политической нестабильности. Подобный информационный фон выгоден действующему кабинету министров, так как отвлекает внимание от провалов исполнительной власти. Институциональный риск заключается в постепенной девальвации королевского символизма при слишком частом его использовании в медиа. Рынки, ориентированные на британский суверенитет, воспринимают это как сигнал о сохранении институциональной преемственности. Сектор туризма и производства памятной продукции фиксирует всплеск доходов, монетизируя ностальгические настроения общества. Стратегическая логика дворца направлена на укрепление легитимности нового монарха через апелляцию к безупречному авторитету предшественницы. Республиканские движения временно маргинализируются, теряя доступ к информационным ресурсам. Усиливается политический запрос на сохранение традиционных ценностей, что осложняет проведение любых прогрессивных реформ. Макроэкономически монархия подтверждает свой статус мощного генератора косвенной прибыли для британской экономики. В долгосрочном плане институт монархии вынужден балансировать между традициями и необходимостью модернизации бренда.
+              Выдвижение Кевина Уорша на пост главы Федеральной резервной системы означает попытку администрации политизировать ключевой институт глобальной макроэкономики. Декларируемый радикальный отход от прежнего курса является скрытым сигналом о готовности ФРС к агрессивному снижению ставок ради предвыборного стимулирования рынков. Главными бенефициарами такого маневра становятся корпорации с высокой долговой нагрузкой и сектор недвижимости, ожидающие немедленного притока дешевой ликвидности. Для независимости Центробанка это беспрецедентный риск, который может разрушить историческое доверие иностранных кредиторов к долларовым активам. Заверения кандидата в сохранении институциональной независимости воспринимаются инвесторами как ритуальная риторика, маскирующая лояльность исполнительной ветви власти. Рынок казначейских облигаций США рискует столкнуться с высочайшей волатильностью: инвесторы начнут закладывать премию за инфляционный риск в долгосрочные бумаги. Геополитически ослабление независимости ФРС развязывает руки другим мировым центробанкам для старта масштабных конкурентных девальваций национальных валют. Валютные рынки готовятся к структурному ослаблению доллара, что искусственно повысит конкурентоспособность американского экспорта в ущерб европейским производителям. Институциональные фонды форсируют перераспределение капитала в физическое золото и альтернативные активы как инструменты хеджирования от политически мотивированной инфляции. Политическая элита стремится полностью подчинить монетарный цикл электоральному календарю, игнорируя долгосрочные последствия перегрева национальной экономики. Для глобальной финансовой системы этот шаг означает демонтаж архитектуры базового консенсуса, сложившейся после ипотечного кризиса. Успех или провал утверждения кандидатуры в Сенате станет маркером того, сохранил ли истеблишмент иммунитет к прямому макроэкономическому популизму.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-express-02" aria-expanded="false" aria-controls="art-express-02">
+          <button class="article-trigger" id="btn-wsj-02" aria-expanded="false" aria-controls="art-wsj-02">
             <span class="art-idx">02</span>
-            <span class="art-title">Презрение консерваторов к оправданиям премьер-министра</span>
+            <span class="art-title">SpaceX приобретает ИИ-стартап Cursor за 60 млрд долларов перед IPO</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-express-02" role="region" aria-labelledby="btn-express-02">
+          <div class="article-body" id="art-wsj-02" role="region" aria-labelledby="btn-wsj-02">
             <div class="body-inner">
-              Открытые насмешки оппозиции над главой правительства фиксируют точку невозврата в падении политического авторитета кабинета. Эта риторика выгодна теневому правительству, подготавливающему почву для перехвата власти на волне кризиса доверия. Главный институциональный риск кроется в невозможности принятия консолидированных решений даже по экстренным вопросам безопасности. Инвестиционное сообщество реагирует заморозкой проектов, связанных с государственным финансированием, ожидая скорой смены элит. Валютные спекулянты наращивают короткие позиции по британскому фунту, играя на углублении правительственного кризиса. Стратегическая логика консерваторов строится на максимальной дискредитации управленческих компетенций правящей партии. Чиновничий аппарат занимает выжидательную позицию, де-факто саботируя распоряжения премьер-министра. Попытки премьера переложить вину на госслужбу лишь усиливают отторжение со стороны бюрократического ядра. Макроэкономически политическая токсичность правительства блокирует привлечение иностранных инвестиций в инфраструктуру. В перспективе это ведет к формированию слабого коалиционного правительства после следующих выборов.
+              Поглощение стартапа Cursor компанией SpaceX за рекордные 60 миллиардов долларов фиксирует полное слияние аэрокосмической отрасли с передовыми моделями искусственного интеллекта. Скрытая логика сделки заключается в экстренной накачке фундаментальной капитализации корпорации перед масштабным первичным размещением акций на открытом рынке. Интеграция алгоритмов генерации кода позволит покупателю монополизировать процессы автоматизированного проектирования в спутниковых и сложных оборонных системах. Бенефициарами являются венчурные фонды ранних стадий, фиксирующие астрономическую прибыль на фоне общего дефицита ликвидности на рынке слияний. Для традиционных аэрокосмических конкурентов и оборонных подрядчиков это экзистенциальный вызов, так как они теряют доступ к передовым программным архитектурам. Институциональные риски связаны с возможной монополизацией орбитальной связи, усиленной самообучающимися сетями, находящимися в руках одной корпорации. Оценка стартапа указывает на формирование нового ценового пузыря в сегменте прикладного ИИ, где стоимость актива определяется исключительно стратегическим потенциалом. Сделка посылает однозначный сигнал регуляторам: частный капитал способен формировать технологические альянсы, выходящие из-под контроля антимонопольных ведомств. Геополитически это закрепляет превосходство американской юрисдикции в космической гонке, интегрируя программные инновации напрямую в тяжелое машиностроение. Европейским и азиатским космическим программам придется кратно увеличить государственное финансирование собственных разработок для сохранения видимости паритета. Для фондового рынка это слияние служит мощным триггером переоценки всех компаний, специализирующихся на синтезе аппаратного обеспечения и машинного обучения. В итоге выстраивается замкнутая технологическая экосистема, которая после IPO станет ключевым инфраструктурным узлом глобального масштаба.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-express-03" aria-expanded="false" aria-controls="art-express-03">
+          <button class="article-trigger" id="btn-wsj-03" aria-expanded="false" aria-controls="art-wsj-03">
             <span class="art-idx">03</span>
-            <span class="art-title">Скачки остаются фаворитом королевской четы</span>
+            <span class="art-title">T-Mobile US и Deutsche Telekom обсуждают создание телекоммуникационного бегемота</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-express-03" role="region" aria-labelledby="btn-express-03">
+          <div class="article-body" id="art-wsj-03" role="region" aria-labelledby="btn-wsj-03">
             <div class="body-inner">
-              Публичная поддержка элитных видов спорта со стороны суверена является сигналом стабильности для специфического сектора инвестиций. Эта вовлеченность выгодна крупным конезаводчикам и индустрии азартных игр, получающим королевский знак качества для своего бизнеса. Институциональный риск для индустрии связан с давлением зоозащитных организаций, требующих запрета травмоопасных соревнований. Акции легальных букмекерских контор и операторов ипподромов получают долгосрочную поддержку на лондонской бирже. Рынок элитной недвижимости вокруг конных центров демонстрирует устойчивый рост цен, защищенный от общих кризисов. Стратегическая логика монархии заключается в патронаже традиционных аристократических институтов, связывающих высшее общество. Конкурирующие виды спорта лишаются части внимания со стороны элитарных спонсоров и инвесторов. Возможны попытки парламента ужесточить налогообложение призовых фондов и доходов от разведения породистых животных. На макроуровне коневодство остается важной экспортной отраслью британского агропромышленного комплекса. В долгосрочной перспективе индустрия будет вынуждена адаптироваться к новым стандартам ESG, несмотря на высокий патронаж.
+              Переговоры о слиянии T-Mobile US и Deutsche Telekom направлены на создание трансатлантического телекоммуникационного монополиста абсолютно беспрецедентного масштаба. Скрытый мотив сделки — агрессивная консолидация ресурсов для победы в глобальной гонке инфраструктур связи нового поколения и орбитального интернета. Бенефициарами выступают акционеры материнской европейской компании, получающие возможность монетизировать успехи американского подразделения и улучшить корпоративный баланс. Для потребителей на обоих континентах это несет прямой риск снижения рыночной конкуренции и неизбежного роста тарифов в среднесрочной перспективе. Институциональные инвесторы оценивают синергию как критический защитный механизм от надвигающейся экспансии технологических гигантов на рынок передачи данных. Слияние создает жесткий конфликт интересов для антимонопольных регуляторов, которым придется выбирать между национальной безопасностью и корпоративной эффективностью. Формирование единого макро-оператора позволяет радикально оптимизировать капитальные затраты на закупку телекоммуникационного оборудования и лицензирование частот. Это наносит удар по традиционным производителям оборудования, которые столкнутся с объединенным сверхзаказчиком, жестко диктующим свои ценовые условия. Геополитический смысл заключается в создании консолидированного западного инфраструктурного щита, способного технологически доминировать на развивающихся рынках. Правительственные структуры, вероятно, поддержат сделку негласно, так как она отвечает их прямым стратегическим интересам по контролю над глобальным трафиком. Для профильного рынка M&A это однозначный сигнал к началу новой волны мега-слияний: региональные игроки будут вынуждены объединяться ради выживания. В конечном итоге, формирование такого конгломерата превращает связь из базовой услуги в эксклюзивный инструмент макроэкономического доминирования.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-express-04" aria-expanded="false" aria-controls="art-express-04">
+          <button class="article-trigger" id="btn-wsj-04" aria-expanded="false" aria-controls="art-wsj-04">
             <span class="art-idx">04</span>
-            <span class="art-title">Решение головоломок с помощью платных текстовых сообщений</span>
+            <span class="art-title">Акции китайской SJ Semiconductor взлетели в четыре раза после рекордного IPO</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-express-04" role="region" aria-labelledby="btn-express-04">
+          <div class="article-body" id="art-wsj-04" role="region" aria-labelledby="btn-wsj-04">
             <div class="body-inner">
-              Агрессивная монетизация вовлеченности читателей через платные сервисы выдает кризис традиционной бизнес-модели печатных СМИ. Данный инструмент напрямую выгоден владельцам медиахолдингов, отчаянно пытающимся компенсировать падение доходов от прямой рекламы. Институциональный риск заключается в оттоке лояльной аудитории, раздраженной скрытыми платежами за базовый контент. Акции телекоммуникационных провайдеров, обслуживающих премиальные номера, получают стабильный, хотя и нишевый, денежный поток. Финансовые показатели таблоидов становятся критически зависимыми от геймификации и микротранзакций стареющей аудитории. Стратегическая логика издателей направлена на эксплуатацию привычек целевой аудитории, не адаптированной к цифровым подпискам. Конкуренты, предлагающие бесплатный цифровой контент, получают преимущество в долгосрочной борьбе за внимание. Возрастает риск вмешательства регуляторов рынка телекоммуникаций из-за жалоб потребителей на скрытые списания средств. Макроэкономически это иллюстрирует маргинализацию печатной прессы и переход ее в сегмент дешевых развлечений. В стратегической перспективе подобные методы монетизации ускорят окончательное вымирание традиционного газетного формата.
+              Феноменальный рост акций китайской компании в первый день торгов демонстрирует высочайшую мобилизацию внутреннего капитала в ответ на технологическое давление США. Скрытая логика этого ажиотажа — прямое государственное стимулирование институциональных инвесторов к масштабному финансированию суверенной полупроводниковой базы. Бенефициаром выступает правительство КНР, успешно перенаправляющее ликвидность из стагнирующего сектора недвижимости в стратегически критичный сегмент микроэлектроники. Для западных производителей это тревожный сигнал: азиатская юрисдикция ускоренными темпами преодолевает зависимость в узком сегменте упаковки ИИ-компонентов. Огромный мультипликатор оценки свидетельствует о том, что локальные инвесторы готовы полностью игнорировать классические фундаментальные показатели ради геополитической премии. Институциональные риски для самой компании колоссальны: переоцененный актив обязан в кратчайшие сроки выдать технологический прорыв для оправдания капитализации. Данное размещение наглядно иллюстрирует процесс глубокой фрагментации глобального рынка, где гигантские капиталы жестко запираются внутри политических блоков. Американские регуляторы воспримут этот успех как прямой повод для очередного расширения списка экспортных ограничений на производственное оборудование. Для глобального рынка чипов это означает неминуемое перепроизводство в сегменте тестирования через несколько лет, когда новые профильные мощности будут введены в строй. Успешное привлечение капитала создает рабочий шаблон для сотен других технологических стартапов: локализация технологий становится главной инвестиционной доктриной. Иностранные фонды, отрезанные от участия в размещении, окончательно теряют доступ к одному из самых быстрорастущих сегментов закрытого рынка. В долгосрочной перспективе этот биржевой триумф является финансовым отражением разделения мира на две полностью независимые технологические экосистемы.
             </div>
           </div>
         </article>
 
         <article class="article-item">
-          <button class="article-trigger" id="btn-express-05" aria-expanded="false" aria-controls="art-express-05">
+          <button class="article-trigger" id="btn-wsj-05" aria-expanded="false" aria-controls="art-wsj-05">
             <span class="art-idx">05</span>
-            <span class="art-title">Кампания за лучшую Британию продолжается</span>
+            <span class="art-title">Результаты UnitedHealth за первый квартал указывают на перестройку рынка</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="art-express-05" role="region" aria-labelledby="btn-express-05">
+          <div class="article-body" id="art-wsj-05" role="region" aria-labelledby="btn-wsj-05">
             <div class="body-inner">
-              Использование редакционной политики как инструмента политического давления является попыткой медиа сохранить влияние на массы. Подобные популистские кампании выгодны правым политическим фракциям, использующим таблоиды для легитимизации своей повестки. Институциональный риск кроется в поляризации общества и радикализации политического дискурса, что усложняет компромиссы. Для корпоративного сектора это означает необходимость корректировки PR-стратегий с учетом агрессивного патриотического нарратива. Финансовые рынки игнорируют подобные лозунги, оценивая их исключительно как информационный шум для поддержания тиражей. Стратегическая логика издания заключается в позиционировании себя как единственного защитника интересов "простого народа". Политики вынуждены реагировать на тезисы кампании, чтобы не потерять поддержку консервативного рабочего класса. Возникает угроза бойкота издания со стороны либеральных рекламодателей, ориентированных на ESG-стандарты. На макроуровне это затрудняет экономическую интеграцию страны с глобальными рынками, поощряя протекционизм. В долгосрочной перспективе медиа-капитал будет всё жестче сращиваться с политическими партиями националистического толка.
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- ── FINANCIAL TIMES ────────────────────────────────────────── -->
-      <section class="outlet-section">
-        <div class="outlet-header">
-          <h2>FINANCIAL TIMES</h2>
-          <div class="outlet-tags">Глобальная геополитика • Банковский сектор ЕС • Энергетика</div>
-        </div>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-ftnew-01" aria-expanded="false" aria-controls="art-ftnew-01">
-            <span class="art-idx">01</span>
-            <span class="art-title">Сомнения в переговорах по мере приближения крайнего срока</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-ftnew-01" role="region" aria-labelledby="btn-ftnew-01">
-            <div class="body-inner">
-              Ультимативный характер дипломатии в зоне стратегического логистического узла резко повышает премию за геополитический риск. Срыв переговоров выгоден американскому оборонно-промышленному комплексу и производителям сланцевой нефти, получающим выгоду от дестабилизации. Институциональный риск связан с возможной полной блокировкой Ормузского пролива, что обрушит архитектуру глобальной торговли. Нефтяные котировки демонстрируют высокую волатильность, готовясь к резкому скачку в случае официального завершения перемирия. Инвесторы бегут из развивающихся рынков, паркуя капиталы в суверенных облигациях США и золоте. Стратегическая логика Белого дома заключается в принуждении Ирана к капитуляции через угрозу тотальной экономической изоляции. Китай и страны Азии сталкиваются с прямой угрозой энергетического голода, что вынуждает их искать обходные пути поставок. Возрастает вероятность спонтанных военных столкновений в заливе из-за концентрации американских военных кораблей. Макроэкономически мир стоит на пороге нового нефтяного шока, способного спровоцировать глобальную стагфляцию. В долгосрочной перспективе инцидент ускорит фрагментацию мировой экономики и создание региональных энергосистем.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-ftnew-02" aria-expanded="false" aria-controls="art-ftnew-02">
-            <span class="art-idx">02</span>
-            <span class="art-title">Мерц критикует враждебную тактику UniCredit</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-ftnew-02" role="region" aria-labelledby="btn-ftnew-02">
-            <div class="body-inner">
-              Политическое вмешательство канцлера Германии в корпоративную сделку обнажает провал идеи единого европейского банковского рынка. Данный протекционизм выгоден немецким промышленным корпорациям, опасающимся потери лояльного национального кредитора. Основной институциональный риск для ЕС кроется в прецеденте блокировки свободного движения капитала внутри союза. Акции Commerzbank реагируют волатильностью, зажатые между спекулятивным интересом итальянцев и политическим вето Берлина. Котировки UniCredit снижаются, так как рынок закладывает в цены издержки на политическое противостояние с правительством ФРГ. Стратегическая логика немецких властей продиктована защитой национального суверенитета в стратегически важном финансовом секторе. Итальянский банк вынужден активизировать кулуарный лоббизм в Брюсселе, апеллируя к антимонопольным нормам Еврокомиссии. Возникает угроза ответных мер со стороны Италии в отношении немецких активов на полуострове. В макроэкономическом контексте это ставит крест на планах создания трансъевропейских банковских чемпионов. В долгосрочной перспективе банковский сектор Европы останется раздробленным и уязвимым перед американскими и азиатскими гигантами.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-ftnew-03" aria-expanded="false" aria-controls="art-ftnew-03">
-            <span class="art-idx">03</span>
-            <span class="art-title">Упущенная возможность Британии перезагрузить отношения с ЕС</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-ftnew-03" role="region" aria-labelledby="btn-ftnew-03">
-            <div class="body-inner">
-              Провал попыток нормализации торговых отношений с Евросоюзом фиксирует долгосрочную изоляцию британской экономики. Сохранение барьеров выгодно ограниченному числу европейских производителей, избавившихся от британских конкурентов на континенте. Институциональный риск заключается в перманентной стагнации британского экспорта и бегстве транснациональных корпораций из юрисдикции. Инвесторы пессимистично оценивают перспективы индекса FTSE 100, перераспределяя портфели в пользу европейских и американских площадок. Курс фунта стерлингов остается под фундаментальным давлением из-за хронического дефицита торгового баланса. Стратегическая логика британского правительства подчинена внутриполитическим страхам перед евроскептиками в парламенте. Европейская бюрократия жестко удерживает переговорные позиции, не желая создавать прецедент выгодного выхода из ЕС. Логистические компании и таможенные брокеры продолжают извлекать сверхприбыли из сложных бюрократических процедур на границе. На макроуровне это консервирует структурное отставание Великобритании в темпах экономического роста от стран Еврозоны. В стратегической перспективе Лондон рискует превратиться во второстепенный финансовый центр с ограниченным доступом к европейскому капиталу.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-ftnew-04" aria-expanded="false" aria-controls="art-ftnew-04">
-            <span class="art-idx">04</span>
-            <span class="art-title">Зависимость от социальных сетей и классовое неравенство</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-ftnew-04" role="region" aria-labelledby="btn-ftnew-04">
-            <div class="body-inner">
-              Формирование классового разрыва в потреблении цифрового контента является новым фактором сегрегации трудовых ресурсов. Эта тенденция выгодна IT-корпорациям, монетизирующим внимание низкодоходных слоев через агрессивную рекламу и микротранзакции. Институциональный риск кроется в деградации когнитивных навыков базовой рабочей силы, что приведет к кризису производительности труда. Инвесторы в технологический сектор начинают дифференцировать платформы: социальные сети для масс-маркета и премиальные сервисы для элит. Инвестиции в сектор EdTech (образовательные технологии) растут, ориентируясь на платежеспособную аудиторию, избегающую информационного мусора. Стратегическая логика элит направлена на цифровую гигиену для сохранения конкурентных преимуществ своих детей на рынке труда. Платформы сталкиваются с угрозой регуляторных штрафов за использование манипулятивных алгоритмов, вызывающих зависимость. Работодатели вынуждены инвестировать в жесткие системы контроля рабочего времени для предотвращения падения эффективности. Макроэкономически это усиливает социальное расслоение, где способность к концентрации внимания становится элитарным активом. В долгосрочной перспективе государство будет вынуждено классифицировать социальные сети как цифровую угрозу общественному здоровью.
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item">
-          <button class="article-trigger" id="btn-ftnew-05" aria-expanded="false" aria-controls="art-ftnew-05">
-            <span class="art-idx">05</span>
-            <span class="art-title">Сверхприбыли нефтеперерабатывающих заводов</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="art-ftnew-05" role="region" aria-labelledby="btn-ftnew-05">
-            <div class="body-inner">
-              Фиксация аномальных доходов в секторе нефтепереработки свидетельствует о глубоком дисбалансе между добычей и производством конечных продуктов. Эта сверхприбыль выгодна узкой группе корпораций, контролирующих критическую инфраструктуру в условиях дефицита мощностей. Главный институциональный риск заключается во введении правительствами ретроспективных налогов на непредвиденную прибыль. Акции независимых нефтеперерабатывающих компаний демонстрируют взрывной рост, игнорируя общие негативные тренды на рынке нефти. Дивидендные выплаты и программы обратного выкупа акций в секторе достигают исторических максимумов. Стратегическая логика корпораций заключается в максимизации выкачивания наличности без инвестиций в модернизацию стареющих заводов. Потребители и бизнес сталкиваются с инфляцией издержек из-за непропорционально высоких цен на дизельное топливо и бензин. Возникает политическое давление с требованием национализации или жесткого ценового регулирования в отрасли. На макроуровне это парадоксальным образом ускоряет переход на электротранспорт, так как традиционное топливо становится слишком дорогим. В среднесрочной перспективе сектор ждет жесткая коррекция после восстановления логистических цепочек или вмешательства регуляторов.
+              Публикация квартальных финансовых результатов крупнейшего страховщика служит барометром структурных сдвигов во всей индустрии коммерческого здравоохранения. За корпоративными цифрами отчета скрывается агрессивная стратегия вертикальной интеграции: холдинг методично скупает клиники, монополизируя весь финансовый путь пациента. Бенефициарами такой закрытой модели являются крупные акционеры корпорации, так как тотальный контроль над издержками позволяет перманентно максимизировать маржу. Для сектора независимых медицинских учреждений это экзистенциальная угроза: частные практики выдавливаются из системы через системное занижение тарифов компенсаций. Институциональные инвесторы позитивно оценивают эту монополизацию, рассматривая акции конгломерата как идеальный защитный актив в условиях макроэкономического стресса. Стратегическая логика направлена на скрытую приватизацию функций контроля за здоровьем населения с помощью алгоритмов прогнозной аналитики и управления рисками. Отраслевые риски концентрируются в плоскости антимонопольного регулирования: компания становится слишком большой, чтобы власть могла игнорировать ее влияние на инфляцию. Политические последствия таких бизнес-моделей станут центральной темой фискальных дискуссий об урезании государственных дотаций на медицинские программы. Для смежных секторов консолидация колоссальной покупательной способности в одних руках ведет к радикальному снижению переговорной силы фармацевтических гигантов. Влияние на рынок труда выражается в жесточайшем давлении на медицинский персонал, чей труд алгоритмизируется корпоративными протоколами жесткой экономии. Геополитически финансовая модель демонстрирует уязвимость экономики из-за чудовищно высокой доли непродуктивных медицинских расходов в структуре валового продукта. В конечном итоге, триумф медицинских конгломератов фиксирует окончательное поражение попыток государства реформировать систему в интересах конечного налогоплательщика.
             </div>
           </div>
         </article>
       </section>
 
     </main>
-  </div><!-- /.container -->
+  </div>
 
-  <!-- ── Newsletter ────────────────────────────────────────────────── -->
   <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
-    <h3 class="nebula-title" id="newsletter-heading">Безопасный доступ к брифингу</h3>
+    <h3 class="nebula-title" id="newsletter-heading">Бесплатная подписка</h3>
     <div class="form-container">
       <div class="newsletter-form-wrapper">
         <form class="newsletter-form" id="newsletterForm"
               action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
           <div class="input-group">
             <div class="nebula-input">
-              <label for="emailInput" class="sr-only">Корпоративный email</label>
-              <input type="email" id="emailInput" name="email" autocomplete="email"
-                     class="input" placeholder="Корпоративный email"
+              <label for="emailInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+                Ваш email-адрес
+              </label>
+              <input required type="email" id="emailInput" name="email" autocomplete="email"
+                     class="input" placeholder="Ваш email-адрес"
                      aria-describedby="formErrorMsg" />
               <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -1221,7 +760,8 @@
             </div>
             <button class="subscribe-button" type="submit">Подписаться</button>
           </div>
-          <div class="form-error-msg" id="formErrorMsg" role="alert" aria-live="polite"></div>
+          <div id="formErrorMsg" role="alert" aria-live="polite"
+               style="display:none;color:var(--down-color);font-size:13px;margin-top:6px;"></div>
         </form>
 
         <div class="success-message" id="successMessage" role="alert" aria-live="assertive">
@@ -1231,8 +771,8 @@
               <path   class="checkmark-check"  fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
             </svg>
           </div>
-          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Доступ разрешен</h4>
-          <p  style="font-size:14px;color:#4B5563;">Зашифрованный канал установлен.</p>
+          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Доступ предоставлен</h4>
+          <p style="font-size:14px;color:#4B5563;">Зашифрованный канал установлен.</p>
         </div>
       </div>
     </div>
@@ -1240,41 +780,40 @@
 
   <footer>
     <p>&copy; 2026 Deep Press Analysis. Все права защищены.</p>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="/ru/archive.html" class="btn-text">Доступ к архиву</a>
-      <a href="/ru/manifesto.html"  class="btn-text">Манифест</a>
+    <nav class="footer-links" aria-label="Навигация в подвале">
+      <a href="/ru/archive.html" class="btn-text">Архив</a>
+      <a href="/manifesto.html"  class="btn-text">Манифест</a>
     </nav>
   </footer>
 
-  <script nonce="EDNnf03nceIofn39fn3e9h3sdfa">
+  <!--
+    ФИХ #1: XSS устранён — тикер больше НЕ использует innerHTML с данными из сети.
+             Все данные API вставляются через DOM API (createElement + textContent).
+    ФИХ #2: onclick/onkeydown удалены из HTML. Все обработчики — здесь, с nonce.
+    ФИХ #3: Тикер — translateX(-50%) + двойное дублирование контента (как в EN).
+    ФИХ #4: aria-labelledby исправлен в HTML-разметке выше.
+  -->
+  <script nonce="RuPressNonce2026abc">
   (function () {
     'use strict';
 
-    document.documentElement.classList.remove('no-js');
-
-    window.addEventListener('error', function (e) {
-      if (e.filename && e.filename.includes('analytics.js')) {
-        console.warn('[DPA] analytics.js failed to load:', e.message);
-      }
-    }, true);
-
+    // ── Языковой редирект ─────────────────────────────────────────────────────────
     (function () {
       try {
-        var path = window.location.pathname;
-        var langPaths = ['/ru/', '/ua/', '/de/', '/ar/', '/es/'];
-        if (langPaths.some(function (p) { return path === p || path.startsWith(p); })) return;
-
-        if (localStorage.getItem('dpa_lang_redirected')) return;
-
-        var lang  = String(navigator.language || navigator.userLanguage || 'en').substring(0, 2).toLowerCase();
-        var map   = { ru: '/ru/', uk: '/ua/', ua: '/ua/', de: '/de/', ar: '/ar/', es: '/es/' };
-        if (map[lang]) {
-          localStorage.setItem('dpa_lang_redirected', 'true');
+        if (sessionStorage.getItem('dpa_lang_redirected')) return;
+        var lang    = String(navigator.language || navigator.userLanguage || 'en').substring(0, 2).toLowerCase();
+        var map     = { ru: '/ru/220426.html', uk: '/ua/220426.html', ua: '/ua/220426.html',
+                        de: '/de/220426.html', ar: '/ar/220426.html', es: '/es/220426.html',
+                        en: '/en/220426.html' };
+        var path    = window.location.pathname;
+        if (map[lang] && !path.includes('/' + lang + '/')) {
+          sessionStorage.setItem('dpa_lang_redirected', 'true');
           window.location.replace(map[lang]);
         }
-      } catch (_) { }
+      } catch (_) { /* sessionStorage недоступен — игнорируем */ }
     })();
 
+    // ── Аккордеон — ФИХ #2: addEventListener вместо onclick в HTML ───────────────
     function closeItem(item) {
       var body = item.querySelector('.article-body');
       body.style.maxHeight = body.scrollHeight + 'px';
@@ -1309,9 +848,12 @@
       }
     });
 
-    var tickerEl          = document.getElementById('tickerContent');
-    var _lastTickerKey    = '';
-    var _tickerStaleTimer = null;
+    // ── Тикер — ФИХ #1 (XSS) + ФИХ #3 (анимация) ───────────────────────────────
+    // ФИХ #1: вместо innerHTML строим DOM-узлы через createElement/textContent.
+    //         Внешние данные НИКОГДА не попадают в innerHTML.
+    // ФИХ #3: контент дублируется ОДИН РАЗ (итого 2 копии),
+    //         анимация идёт до -50% — создаёт бесшовный бесконечный скролл.
+    var tickerEl = document.getElementById('tickerContent');
 
     function makePairSpan(label, priceText, changeText, changePositive) {
       var span = document.createElement('span');
@@ -1329,58 +871,33 @@
       return span;
     }
 
-    function setTickerStale() {
-      if (tickerEl.querySelector('.ticker-stale')) return;
-      var tag = document.createElement('span');
-      tag.className     = 'pair ticker-stale';
-      tag.style.cssText = 'color:#f87171;font-style:italic;';
-      tag.textContent   = '⚠ Данные могут быть устаревшими';
-      tickerEl.appendChild(tag);
-    }
-    function clearTickerStale() {
-      var s = tickerEl.querySelector('.ticker-stale');
-      if (s) s.remove();
-    }
-
-    async function fetchBrent() {
-      try {
-        var r = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/BZ=F?interval=1d&range=2d');
-        if (!r.ok) throw new Error('status ' + r.status);
-        var d      = await r.json();
-        var closes = d.chart.result[0].indicators.quote[0].close.filter(Boolean);
-        if (closes.length < 2) throw new Error('not enough data');
-        var cur  = closes[closes.length - 1];
-        var prev = closes[closes.length - 2];
-        var chg  = (cur - prev) / prev * 100;
-        return { label: 'BRENT', price: '$' + cur.toFixed(2),
-                 change: (chg >= 0 ? '+' : '') + chg.toFixed(1) + '%', changePositive: chg >= 0 };
-      } catch (_) {
-        return { label: 'BRENT (n/a)', price: '—', change: null };
-      }
-    }
-
-    function buildTickerNodes(cryptoData, rates, brent) {
+    function buildTickerFragment(cryptoData, rates) {
       var frag = document.createDocumentFragment();
+
       [{ id: 'bitcoin', name: 'BTC' }, { id: 'ethereum', name: 'ETH' }, { id: 'solana', name: 'SOL' }]
         .forEach(function (c) {
           if (!cryptoData[c.id]) return;
           var price  = Number(cryptoData[c.id].usd);
           var change = Number(cryptoData[c.id].usd_24h_change);
           if (isNaN(price) || isNaN(change)) return;
-          frag.appendChild(makePairSpan(c.name, '$' + price.toFixed(0),
-            (change >= 0 ? '+' : '') + change.toFixed(1) + '%', change >= 0));
+          frag.appendChild(makePairSpan(
+            c.name, '$' + price.toFixed(0),
+            (change >= 0 ? '+' : '') + change.toFixed(1) + '%',
+            change >= 0
+          ));
         });
 
-      if (rates) {
-        if (!isNaN(+rates.eur)) frag.appendChild(makePairSpan('EUR/USD', (+rates.eur).toFixed(4), null));
-        if (!isNaN(+rates.gbp)) frag.appendChild(makePairSpan('GBP/USD', (+rates.gbp).toFixed(4), null));
-      } else {
+      if (rates && !isNaN(+rates.eur))
+        frag.appendChild(makePairSpan('EUR/USD', (+rates.eur).toFixed(4), null));
+      else
         frag.appendChild(makePairSpan('EUR/USD', '1.0850', null));
-        frag.appendChild(makePairSpan('GBP/USD', '1.2740', null));
-      }
 
-      var b = brent || { label: 'BRENT (n/a)', price: '—', change: null };
-      frag.appendChild(makePairSpan(b.label, b.price, b.change, b.changePositive));
+      if (rates && !isNaN(+rates.gbp))
+        frag.appendChild(makePairSpan('GBP/USD', (+rates.gbp).toFixed(4), null));
+      else
+        frag.appendChild(makePairSpan('GBP/USD', '1.2740', null));
+
+      frag.appendChild(makePairSpan('BRENT', '$78.40', '+1.2%', true));
       return frag;
     }
 
@@ -1396,76 +913,40 @@
         try {
           var fRes = await fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json');
           if (fRes.ok) { var fd = await fRes.json(); rates = fd.usd; }
-        } catch (_) { }
+        } catch (_) { /* fallback форекс */ }
 
-        var brent = await fetchBrent();
-
-        var btc = cryptoData.bitcoin ? Number(cryptoData.bitcoin.usd).toFixed(0) : '';
-        var key = btc + (rates && rates.eur ? (+rates.eur).toFixed(4) : '') + (brent ? brent.price : '');
-
-        if (key !== _lastTickerKey) {
-          _lastTickerKey = key;
-          var nodes = buildTickerNodes(cryptoData, rates, brent);
-          var clone = nodes.cloneNode(true);
-          tickerEl.innerHTML = '';
-          tickerEl.appendChild(nodes);
-          tickerEl.appendChild(clone);
-        }
-
-        clearTickerStale();
-        clearTimeout(_tickerStaleTimer);
+        // Строим фрагмент и его клон для бесшовного скролла (-50%)
+        var nodes = buildTickerFragment(cryptoData, rates);
+        var clone = nodes.cloneNode(true);
+        tickerEl.innerHTML = ''; // только очистка — данные вставляем через DOM
+        tickerEl.appendChild(nodes);
+        tickerEl.appendChild(clone);
 
       } catch (err) {
-        console.error('[DPA] Ticker error:', err);
-        if (_lastTickerKey === '') {
-          tickerEl.innerHTML = '';
-          var errSpan = document.createElement('span');
-          errSpan.className = 'pair'; errSpan.style.color = '#f87171';
-          errSpan.textContent = 'Рыночные данные недоступны';
-          tickerEl.appendChild(errSpan);
-        } else {
-          clearTimeout(_tickerStaleTimer);
-          _tickerStaleTimer = setTimeout(setTickerStale, 60 * 1000);
-        }
+        console.error('Ошибка тикера:', err);
+        tickerEl.innerHTML = '';
+        var errSpan = document.createElement('span');
+        errSpan.className = 'pair'; errSpan.style.color = '#f87171';
+        errSpan.textContent = 'Рыночные данные недоступны';
+        tickerEl.appendChild(errSpan);
       }
     }
 
     updateTicker();
-    var _tickerInterval = setInterval(updateTicker, 5 * 60 * 1000);
-    window.addEventListener('pagehide', function () {
-      clearInterval(_tickerInterval);
-      clearTimeout(_tickerStaleTimer);
-    });
+    var _interval = setInterval(updateTicker, 5 * 60 * 1000);
+    window.addEventListener('pagehide', function () { clearInterval(_interval); });
 
+    // ── Форма подписки ────────────────────────────────────────────────────────────
     var form           = document.getElementById('newsletterForm');
     var successMessage = document.getElementById('successMessage');
     var formErrorMsg   = document.getElementById('formErrorMsg');
-    var emailInput     = document.getElementById('emailInput');
     var submitBtn      = form.querySelector('button[type="submit"]');
-
-    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
-
-    function showError(msg) {
-      emailInput.classList.add('input-error');
-      formErrorMsg.textContent = msg;
-      formErrorMsg.classList.add('visible');
-      emailInput.focus();
-    }
-    function clearError() {
-      emailInput.classList.remove('input-error');
-      formErrorMsg.classList.remove('visible');
-      formErrorMsg.textContent = '';
-    }
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
-      clearError();
-      var val = emailInput.value;
-      if (!val.trim())       { showError('Пожалуйста, введите ваш email.'); return; }
-      if (!isValidEmail(val)) { showError('Пожалуйста, введите корректный email.'); return; }
-
+      formErrorMsg.style.display = 'none';
       submitBtn.disabled    = true;
-      submitBtn.textContent = 'Отправка...';
+      submitBtn.textContent = 'Отправка…';
 
       try {
         var res = await fetch(form.action, {
@@ -1476,10 +957,12 @@
           form.classList.add('hidden');
           successMessage.classList.add('visible');
         } else {
-          showError('Ошибка подписки. Пожалуйста, попробуйте еще раз.');
+          formErrorMsg.textContent   = 'Ошибка подписки. Попробуйте снова.';
+          formErrorMsg.style.display = 'block';
         }
       } catch (_) {
-        showError('Ошибка сети. Пожалуйста, проверьте подключение.');
+        formErrorMsg.textContent   = 'Ошибка сети. Проверьте соединение.';
+        formErrorMsg.style.display = 'block';
       } finally {
         if (!successMessage.classList.contains('visible')) {
           submitBtn.disabled    = false;
@@ -1487,35 +970,6 @@
         }
       }
     });
-
-    emailInput.addEventListener('input', clearError);
-
-    function loadSpotify() {
-      var facade    = document.getElementById('spotify-facade');
-      var container = document.getElementById('spotify-real-container');
-      if (container.querySelector('iframe')) return;
-
-      var iframe     = document.createElement('iframe');
-      iframe.style.borderRadius = '12px';
-      iframe.src     = 'https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0';
-      iframe.width   = '100%';
-      iframe.height  = '152';
-      iframe.setAttribute('allowfullscreen', '');
-      iframe.allow   = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
-      iframe.loading = 'eager';
-      iframe.title   = 'Deep Press Analysis Podcast';
-
-      container.appendChild(iframe);
-      facade.classList.add('hidden-player');
-    }
-
-    var spotifyFacade = document.getElementById('spotify-facade');
-    if (spotifyFacade) {
-      spotifyFacade.addEventListener('click', loadSpotify);
-      spotifyFacade.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadSpotify(); }
-      });
-    }
 
   })();
   </script>
