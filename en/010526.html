@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
   ╔══════════════════════════════════════════════════════════════════════╗
-  ║  Deep Press Analysis — Strategic Assessment, 1-2 МАЯ, 2026         ║
-  ║  NONCE: Replace «EDNnf03nceIofn39fn3e9h3sdfa» with %%NONCE%%       ║
+  ║  Deep Press Analysis — Strategic Assessment, 1-2 МАЯ, 2026           ║
+  ║  NONCE: Replace «EDNnf03nceIofn39fn3e9h3sdfa» with %%NONCE%%         ║
   ╚══════════════════════════════════════════════════════════════════════╝
 -->
 <html lang="en" prefix="og: http://ogp.me/ns#">
@@ -450,6 +450,73 @@
       color: #fff;
     }
 
+    /* ─── Support Section (Integrated) ───────────────────────────────── */
+    .support-section {
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .support-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      animation: textPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes textPulse {
+      0%, 100% { color: #0F172A; } /* var(--brand-navy) */
+      50%      { color: #64748B; }
+    }
+
+    .crypto-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .crypto-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .crypto-item span {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      width: 75px;
+      text-align: right;
+    }
+
+    .crypto-item code {
+      background: var(--bg-body);
+      border: 1px solid #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: 'Inter', monospace;
+      font-size: 12px;
+      color: var(--brand-navy);
+      word-break: break-all;
+      user-select: all; 
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .crypto-item code:hover {
+      border-color: var(--brand-blue);
+      background: #fff;
+    }
+
     /* ─── Newsletter ─────────────────────────────────────────────────────── */
     .nebula-wrapper {
       background-color: var(--bg-body); width: 100%;
@@ -591,13 +658,17 @@
       .fake-title      { font-size: 16px; white-space: normal; }
       .fake-play-btn   { width: 40px; height: 40px; margin-right: 0; }
       .probability-grid { grid-template-columns: 1fr; }
+      
+      .crypto-item { flex-direction: column; gap: 4px; }
+      .crypto-item span { text-align: center; width: auto; }
+      .crypto-item code { font-size: 11px; padding: 6px 8px; }
     }
 
     /* ─── Print ──────────────────────────────────────────────────────────── */
     @media print {
       .ticker-container, .social-row, .lang-bar,
       .nebula-wrapper, footer, .spotify-fake-player,
-      #spotify-real-container { display: none; }
+      #spotify-real-container, .support-section { display: none; }
       body { background: white; }
     }
   </style>
@@ -899,6 +970,32 @@
       <a href="/en/archive.html" class="btn-text">Archive Access</a>
       <a href="/manifesto.html"  class="btn-text">Manifesto</a>
     </nav>
+
+    <div class="support-section">
+      <div class="support-title">support the independent project</div>
+      
+      <div class="crypto-list">
+        <div class="crypto-item">
+          <span>Ethereum</span>
+          <code>0x7b8318ce0788cAdDF398035A65EFDB30a262cae5</code>
+        </div>
+        
+        <div class="crypto-item">
+          <span>Bitcoin</span>
+          <code>bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu</code>
+        </div>
+        
+        <div class="crypto-item">
+          <span>Solana</span>
+          <code>98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq</code>
+        </div>
+        
+        <div class="crypto-item">
+          <span>Tron</span>
+          <code>TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z</code>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script nonce="EDNnf03nceIofn39fn3e9h3sdfa">
