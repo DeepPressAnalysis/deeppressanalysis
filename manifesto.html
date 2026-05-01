@@ -321,7 +321,7 @@
     .btn .arrow { opacity: .75; }
 
     .btn-home {
-      min-width: 320px;
+      width: 100%;
       border-color: rgba(100, 255, 218, .45);
       background: rgba(10, 10, 30, .50);
       box-shadow:
@@ -344,90 +344,79 @@
       text-shadow: 0 0 14px rgba(100, 255, 218, .25);
     }
 
-    /* DONATE BUTTON — сохраняем rainbow glow, но усиливаем Web3-вайб */
-    .donate-wrap { display: inline-flex; align-items: center; }
-    .donate-wrap form { margin: 0; }
-    .donate-btn.glow-on-hover {
-      width: 320px;
-      max-width: 100%;
-      height: 52px;
-      border: none;
-      outline: none;
-      color: rgba(240, 244, 255, .96);
-      background: rgba(10, 10, 30, .68);
-      cursor: pointer;
-      position: relative;
-      z-index: 0;
-      border-radius: 14px;
-      font: 900 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    /* --- СЕКЦИЯ КРИПТОДОНАТОВ WEB3 --- */
+    .crypto-support {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px dashed rgba(100, 255, 218, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .crypto-support__title {
+      font: 800 11px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       letter-spacing: .16em;
       text-transform: uppercase;
-      border: 1px solid rgba(100, 255, 218, .25);
-      box-shadow:
-        0 0 0 1px rgba(100, 255, 218, .12) inset,
-        0 20px 80px rgba(0,0,0,.60);
-      transition: transform .15s ease;
+      text-align: center;
+      animation: cryptoPulse 3s ease-in-out infinite;
     }
 
-    .donate-btn.glow-on-hover:before {
-      content: '';
-      background: linear-gradient(
-        45deg,
-        #64ffda, #a5d8ff, #c3a6ff, #ff99e6,
-        #ff6bcb, #ff4d94, #ff3366, #ff4d94, #ff6bcb
-      );
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      background-size: 400%;
-      z-index: -1;
-      filter: blur(8px);
-      width: calc(100% + 4px);
-      height: calc(100% + 4px);
-      animation: glowing 18s linear infinite;
-      opacity: 0;
-      transition: opacity .25s ease-in-out;
-      border-radius: 14px;
+    @keyframes cryptoPulse {
+      0%, 100% { color: rgba(100, 255, 218, 0.4); text-shadow: 0 0 0 rgba(100, 255, 218, 0); }
+      50%      { color: rgba(100, 255, 218, 1); text-shadow: 0 0 12px rgba(100, 255, 218, 0.4); }
     }
 
-    .donate-btn.glow-on-hover:hover:before { opacity: 1; }
-
-    .donate-btn.glow-on-hover:after {
-      z-index: -1;
-      content: '';
-      position: absolute;
+    .crypto-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      border-radius: 14px;
-      background: rgba(10, 10, 30, .55);
-      box-shadow: 0 2px 0 rgba(255,255,255,.05) inset;
     }
 
-    .donate-btn.glow-on-hover:active {
-      transform: translateY(1px);
-      color: rgba(0,0,0,.92);
+    .crypto-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
-    .donate-btn.glow-on-hover:active:after {
-      background: rgba(255,255,255,.22);
+    .crypto-item span {
+      font: 750 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: rgba(240, 244, 255, .78);
+      text-transform: uppercase;
+      width: 75px;
+      text-align: right;
     }
 
-    @keyframes glowing {
-      0%   { background-position: 0 0; }
-      50%  { background-position: 400% 0; }
-      100% { background-position: 0 0; }
+    .crypto-item code {
+      background: rgba(10, 10, 30, 0.45);
+      border: 1px solid rgba(100, 255, 218, 0.22);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font: 500 11px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: var(--neon);
+      word-break: break-all;
+      user-select: all;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
     }
 
-    @media (max-width: 520px) {
-      .donate-btn.glow-on-hover { width: 100%; }
-      .btn-home { width: 100%; min-width: 0; }
+    .crypto-item code:hover {
+      border-color: rgba(100, 255, 218, 0.6);
+      background: rgba(10, 10, 30, 0.7);
+      box-shadow: 0 0 16px rgba(100, 255, 218, 0.15);
+      cursor: copy;
+    }
+
+    @media (max-width: 600px) {
+      .crypto-item { flex-direction: column; align-items: stretch; gap: 6px; }
+      .crypto-item span { width: auto; text-align: center; }
+      .crypto-item code { width: 100%; text-align: center; font-size: 10px; padding: 10px; }
     }
 
     /* Signature — metallic gradient + glow */
     .signatureWrap {
-      margin-top: 18px;
+      margin-top: 32px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -489,7 +478,6 @@
   </style>
 </head>
 <body>
-  <!-- WORLD CLOCK BAR остаётся без изменений -->
   <div class="worldbar" aria-label="World clocks">
     <div class="worldbar__inner">
       <span class="worldbar__label">LIVE TIME</span>
@@ -530,11 +518,28 @@
             <a class="btn btn-home" href="/" title="Home">
               <span class="homeMark">HOME</span> <span class="arrow">↳</span>
             </a>
-            <div class="donate-wrap">
-              <form action="https://www.paypal.com/donate" method="post" target="_blank" rel="noopener">
-                <input type="hidden" name="hosted_button_id" value="ER23YUDGYSY9Y" />
-                <button type="submit" class="donate-btn glow-on-hover">Support independent analysis</button>
-              </form>
+          </div>
+
+          <!-- СЕКЦИЯ КОШЕЛЬКОВ -->
+          <div class="crypto-support">
+            <div class="crypto-support__title">Support independent project</div>
+            <div class="crypto-list">
+              <div class="crypto-item">
+                <span>Ethereum</span>
+                <code>0x7b8318ce0788cAdDF398035A65EFDB30a262cae5</code>
+              </div>
+              <div class="crypto-item">
+                <span>Bitcoin</span>
+                <code>bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu</code>
+              </div>
+              <div class="crypto-item">
+                <span>Solana</span>
+                <code>98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq</code>
+              </div>
+              <div class="crypto-item">
+                <span>Tron</span>
+                <code>TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z</code>
+              </div>
             </div>
           </div>
 
@@ -572,7 +577,6 @@
     </section>
   </main>
 
-  <!-- Скрипт world clocks остаётся без изменений -->
   <script>
     (function(){
       const clocks = [
