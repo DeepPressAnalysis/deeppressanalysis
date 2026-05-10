@@ -861,15 +861,26 @@
     (function () {
       try {
         var path = window.location.pathname;
-        var langPaths = ['/ru/', '/ua/', '/de/', '/ar/', '/es/', '/en/'];
-        if (langPaths.some(function (p) { return path === p || path.startsWith(p); })) return;
+        
+        // 1. Если путь уже содержит языковой код или это /en/ (куда пользователь зашел руками) — ничего не делаем.
+        var hasLangPath = ['/ru', '/ua', '/de', '/ar', '/es', '/en'].some(function(p) {
+            return path === p || path.startsWith(p + '/');
+        });
+        if (hasLangPath) return;
 
+        // 2. Если уже был редирект — ничего не делаем.
         if (localStorage.getItem('dpa_lang_redirected')) return;
+        localStorage.setItem('dpa_lang_redirected', 'true');
 
-        var lang  = String(navigator.language || navigator.userLanguage || 'en').substring(0, 2).toLowerCase();
-        var map   = { ru: '/ru/', uk: '/ua/', ua: '/ua/', de: '/de/', ar: '/ar/', es: '/es/', en: '/en/' };
+        // 3. Берем язык браузера
+        var lang = String(navigator.language || navigator.userLanguage || 'en').substring(0, 2).toLowerCase();
+        
+        // 4. Карта редиректов (АНГЛИЙСКОГО ТУТ НЕТ).
+        // Таким образом, если lang === 'en', то map['en'] выдаст undefined и редиректа не будет. 
+        // Англоязычный пользователь просто останется на главной странице (которая и так английская).
+        var map = { ru: '/ru/', uk: '/ua/', ua: '/ua/', de: '/de/', ar: '/ar/', es: '/es/' };
+        
         if (map[lang]) {
-          localStorage.setItem('dpa_lang_redirected', 'true');
           window.location.replace(map[lang]);
         }
       } catch (_) { }
@@ -994,7 +1005,7 @@
       });
     }
 
-    // Web3 Logic (Auto-select input field text on click)
+    // Web3 Logic
     document.querySelectorAll('.crypto-address').forEach(function(el) {
       el.addEventListener('click', function() {
         this.select();
