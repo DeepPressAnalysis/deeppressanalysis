@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  Deep Press Analysis — TEMPLATE                                      ║
+  ║  IMPORTANT: The nonce in CSP and <script> tags MUST be generated     ║
+  ║  dynamically by the server on each request (Node/PHP/Python/etc.).   ║
+  ║  Ensure your backend replaces {{NONCE}} with a secure random string. ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+<html lang="ru" class="no-js" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deep Press Analysis — Еженедельная карта рисков</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Еженедельная карта рисков: Анализ системных угроз и структурных сдвигов (Горизонт: 1–12 недель)" />
+  <meta name="author" content="Deep Press Analysis" />
+  <meta name="robots" content="index, follow" />
+
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'nonce-{{NONCE}}' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
+    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
+    form-action 'self' https://formspree.io;
+    object-src 'none';
+    base-uri 'self';
+    frame-src 'self' https://open.spotify.com;
+    media-src 'none';
+    upgrade-insecure-requests;
+  ">
+
+  <!-- SEO: Hreflang & Canonical -->
+  <link rel="canonical" href="https://deeppressanalysis.com/ru/index.html" />
+  <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/en/index.html" />
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/index.html" />
+  <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/index.html" />
+  <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/" />
+  <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/" />
+  <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/" />
+  <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Deep Press Analysis — Еженедельная карта рисков" />
+  <meta property="og:description" content="Еженедельная карта рисков: Анализ системных угроз и структурных сдвигов (Горизонт: 1–12 недель)" />
+  <meta property="og:url" content="https://deeppressanalysis.com/ru/index.html" />
+  <meta property="og:image" content="https://deeppressanalysis.com/assets/og-cover.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Deep Press Analysis — Еженедельная карта рисков" />
+  <meta name="twitter:description" content="Еженедельная карта рисков: Анализ системных угроз и структурных сдвигов (Горизонт: 1–12 недель)" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body:        #F2F4F7;
+      --bg-paper:       #FFFFFF;
+      --text-primary:   #111827;
+      --text-secondary: #4B5563;
+      --brand-navy:     #0F172A;
+      --brand-blue:     #2563EB;
+      --border-color:   #E5E7EB;
+      --up-color:       #059669;
+      --down-color:     #DC2626;
+      /* Risk Colors */
+      --risk-s4:        #7f1d1d;
+      --risk-s3:        #b45309;
+      --risk-s2:        #ca8a04;
+      --risk-s1:        #1d4ed8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Libre Baskerville', serif;
+      color: var(--brand-navy);
+      line-height: 1.3;
+    }
+
+    a { text-decoration: none; color: inherit; transition: color 0.2s, opacity 0.2s; }
+
+    *:focus-visible {
+      outline: 3px solid var(--brand-blue);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    .no-js .article-body {
+      max-height: none !important;
+      opacity: 1    !important;
+      visibility: visible !important;
+    }
+    .no-js .toggle-icon { display: none; }
+
+    /* ─── Layout ─── */
+    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .social-row { display: flex; gap: 10px; }
+    .social-btn {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .social-btn img { width: 16px; height: 16px; object-fit: contain; display: block; }
+    .social-btn:hover { background: var(--brand-navy); color: #fff; border-color: var(--brand-navy); }
+
+    .lang-bar {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      display: flex; gap: 12px;
+    }
+    .lang-link        { color: #9CA3AF; transition: color 0.2s; }
+    .lang-link:hover  { color: var(--brand-blue); }
+    .lang-link.active {
+      color: var(--brand-navy); font-weight: 800;
+      border-bottom: 2px solid var(--brand-blue); padding-bottom: 2px;
+    }
+
+    /* ─── Header ─── */
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #d1d5db;
+    }
+    .meta-issue {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+      color: var(--text-secondary); margin-bottom: 10px; font-weight: 700;
+    }
+    h1.site-title {
+      font-size: 48px; font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 8px;
+    }
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;
+    }
+    .briefing-summary {
+      background: #fff; border: 1px solid var(--border-color);
+      padding: 20px; margin-top: 30px; text-align: left;
+      border-left: 4px solid var(--down-color); /* Red accent for risk */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .briefing-summary p      { font-size: 15px; color: var(--text-secondary); margin: 0; }
+    .briefing-summary strong {
+      color: var(--brand-navy); font-weight: 700;
+      text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;
+    }
+
+    /* ─── Outlets / Sections ─── */
+    .outlet-section {
+      background: var(--bg-paper); border: 1px solid var(--border-color);
+      margin-bottom: 30px; border-radius: 6px; overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .outlet-header {
+      background: #f8fafc; padding: 15px 25px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .outlet-header h2 { font-size: 18px; margin: 0; font-weight: 700; color: var(--brand-navy); letter-spacing: 0.5px; }
+    .outlet-tags      { font-size: 10px; font-weight: 700; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 1px;}
+
+    /* ─── Accordion ─── */
+    .article-item             { border-bottom: 1px solid var(--border-color); }
+    .article-item:last-child { border-bottom: none; }
+
+    .article-trigger {
+      display: flex; align-items: baseline; width: 100%;
+      padding: 20px 25px; cursor: pointer; background: #fff;
+      transition: background 0.2s; border: none; text-align: left;
+    }
+    .article-trigger:hover { background: #f9fafb; }
+    .article-trigger:focus { background: #f0f9ff; }
+
+    .art-idx {
+      font-family: 'Inter', sans-serif; font-size: 13px; color: #9CA3AF;
+      width: 35px; flex-shrink: 0; font-weight: 600;
+    }
+    .art-title {
+      font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
+      color: var(--text-primary); flex-grow: 1; padding-right: 20px;
+      transition: color 0.2s; line-height: 1.4;
+    }
+    .toggle-icon {
+      color: var(--text-secondary); font-size: 12px; width: 20px; text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .article-item.active .art-title  { color: var(--brand-blue); }
+    .article-item.active .toggle-icon { transform: rotate(180deg); }
+
+    .article-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.4s;
+      background: #fff; opacity: 0; visibility: hidden;
+    }
+    .article-item.active .article-body { opacity: 1; visibility: visible; }
+
+    .body-inner {
+      padding: 5px 25px 25px 60px; font-size: 15px;
+      color: var(--text-secondary); max-width: 85ch; line-height: 1.7;
+    }
+    
+    /* Hedge Fund Formatting within body-inner */
+    .hf-label { font-weight: 700; color: var(--brand-navy); margin-top: 10px; display: inline-block;}
+    .hf-value { margin-bottom: 12px; display: block; }
+    .body-inner p { margin-bottom: 15px; }
+    .body-inner strong { color: var(--brand-navy); }
+
+    /* ─── HEDGE FUND STYLES & GRAPHS ─── */
+    .hedge-table-wrapper { padding: 0 25px 25px 25px; overflow-x: auto; }
+    .hedge-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; font-family: 'Inter', sans-serif; border: 1px solid var(--border-color); }
+    .hedge-table th { background: var(--brand-navy); color: #fff; padding: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; white-space: nowrap; }
+    .hedge-table td { padding: 12px; border-bottom: 1px solid var(--border-color); color: var(--text-primary); vertical-align: middle; }
+    .hedge-table tr:hover { background: #f8fafc; }
+    
+    .badge { padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 11px; text-transform: uppercase; display: inline-block; text-align: center; min-width: 36px; }
+    .badge-s4 { background: var(--risk-s4); color: #fff; }
+    .badge-s3 { background: var(--risk-s3); color: #fff; }
+    .badge-s2 { background: var(--risk-s2); color: #fff; }
+    
+    .trend-up { color: var(--down-color); font-weight: 900; font-size: 16px; } /* Red for risk increase */
+    .trend-flat { color: var(--text-secondary); font-weight: 900; font-size: 16px;}
+    .trend-down { color: var(--up-color); font-weight: 900; font-size: 16px;}
+
+    /* Risk Bar Chart (CSS Based) */
+    .risk-chart-container { margin: 25px; padding: 25px; border: 1px solid var(--border-color); background: #f8fafc; border-radius: 6px; }
+    .chart-header { margin-bottom: 20px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; color: var(--brand-navy); text-transform: uppercase; letter-spacing: 1px;}
+    .chart-row { display: flex; align-items: center; margin-bottom: 14px; }
+    .chart-label { width: 40%; font-size: 13px; font-weight: 600; color: var(--text-primary); flex-shrink: 0; padding-right: 15px; }
+    .chart-bar-wrapper { flex-grow: 1; background: #e2e8f0; height: 16px; border-radius: 2px; position: relative; display: flex; align-items: center;}
+    .chart-bar-fill { height: 100%; border-radius: 2px; transition: width 1s ease-in-out; position: relative;}
+    .fill-s4 { background: var(--risk-s4); width: 100%; }
+    .fill-s3 { background: var(--risk-s3); width: 75%; }
+    .fill-s2 { background: var(--risk-s2); width: 50%; }
+    .chart-value { width: 50px; text-align: right; font-size: 12px; font-weight: 700; color: var(--brand-navy); margin-left: 15px; flex-shrink: 0; }
+
+    /* Heatmap Grid */
+    .heatmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 25px; }
+    .heat-cell { padding: 15px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;}
+    .heat-high { background: #fee2e2; border-color: #fca5a5; }
+    .heat-med { background: #ffedd5; border-color: #fdba74; }
+    .heat-low { background: #fef9c3; border-color: #fde047; }
+    .heat-title { font-size: 11px; font-weight: 700; color: var(--brand-navy); text-transform: uppercase; margin-bottom: 5px; }
+    .heat-number { font-size: 24px; font-weight: 900; font-family: 'Libre Baskerville', serif; }
+    .heat-high .heat-number { color: var(--risk-s4); }
+    .heat-med .heat-number { color: var(--risk-s3); }
+    .heat-low .heat-number { color: var(--risk-s2); }
+
+    /* ─── Newsletter ─── */
+    .nebula-wrapper { background-color: var(--bg-body); width: 100%; padding: 60px 0; margin-top: 60px; border-top: 1px solid var(--border-color); }
+    .nebula-title { text-align: center; color: var(--brand-navy); font-family: 'Libre Baskerville', serif; margin-bottom: 10px; font-size: 24px; }
+    .form-container          { display: flex; justify-content: center; padding: 20px; }
+    .newsletter-form-wrapper { width: 100%; max-width: 500px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .input-group  { display: flex; width: 100%; align-items: center; }
+    .nebula-input { position: relative; flex: 1; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .nebula-input .input { width: 100%; padding: 12px 12px 12px 40px; border: 1px solid #cbd5e1; background: #fff; color: var(--brand-navy); font-size: 16px; outline: none; border-radius: 4px 0 0 4px; transition: border-color 0.2s; }
+    .nebula-input .input:focus         { border-color: var(--brand-blue); z-index: 2; position: relative; }
+    .nebula-input .input.input-error   { border-color: var(--down-color); }
+    .email-icon { position: absolute; top: 50%; left: 12px; transform: translateY(-50%); width: 20px; height: 20px; fill: #94a3b8; pointer-events: none; transition: fill 0.2s; }
+    .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
+    .subscribe-button { padding: 13px 24px; font-size: 14px; font-weight: 700; color: #fff; background: var(--brand-navy); border: 1px solid var(--brand-navy); border-radius: 0 4px 4px 0; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.2s, border-color 0.2s; }
+    .subscribe-button:disabled          { opacity: 0.7; cursor: not-allowed; }
+    .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
+    .form-error-msg { display: none; color: var(--down-color); font-size: 13px; margin-top: 6px; text-align: left; width: 100%; }
+    .form-error-msg.visible { display: block; }
+    .success-message           { display: none; text-align: center; color: var(--brand-navy); }
+    .success-message.visible   { display: block; }
+    .newsletter-form.hidden    { display: none; }
+    .checkmark-circle { stroke: var(--up-color); stroke-width: 2; fill: none; }
+    .checkmark-check  { stroke: var(--up-color); stroke-width: 2; }
+
+    /* ─── Footer ─── */
+    footer { text-align: center; padding: 30px 0 60px; color: var(--text-secondary); font-size: 13px; }
+    .footer-links { margin-top: 35px; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    .btn-text { font-weight: 900; text-transform: uppercase; font-size: 18px; letter-spacing: 1px; color: var(--brand-navy); border-bottom: 2px solid transparent; padding-bottom: 4px; transition: color 0.2s, border-color 0.2s; }
+    .btn-text:hover { color: var(--brand-blue); border-bottom-color: var(--brand-blue); }
+
+    /* ─── Spotify facade ─── */
+    .spotify-fake-player { background-color: #282828; border-radius: 12px; height: 152px; display: flex; align-items: center; cursor: pointer; overflow: hidden; transition: background-color 0.3s ease, box-shadow 0.3s ease; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 40px; }
+    .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
+    .fake-cover         { width: 152px; height: 152px; flex-shrink: 0; }
+    .fake-cover img     { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+    .fake-info          { padding: 0 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+    .fake-meta   { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .fake-title  { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
+    .fake-desc   { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
+    .fake-play-btn { background-color: #1ed760; color: #000; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; margin-right: 24px; cursor: pointer; flex-shrink: 0; transition: transform 0.2s, background-color 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    .fake-play-btn svg { fill: currentColor; margin-left: 2px; }
+    .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
+    .hidden-player { display: none !important; }
+
+    /* ─── Web3 Support Section ─── */
+    .support-section { padding-top: 40px; padding-bottom: 40px; border-top: 1px dashed var(--border-color); display: flex; flex-direction: column; align-items: center; gap: 24px; font-family: 'Inter', sans-serif; }
+    .support-title-wrapper { display: flex; align-items: center; gap: 10px; }
+    .live-dot { width: 8px; height: 8px; background-color: var(--brand-blue, #3b82f6); border-radius: 50%; animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+    @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); } 70% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); } }
+    .support-title { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--text-secondary); }
+    .crypto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; width: 100%; max-width: 800px; }
+    .crypto-card { position: relative; background: transparent; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+    .crypto-card:hover { border-color: var(--brand-blue); background: var(--bg-body); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04); transform: translateY(-2px); }
+    .crypto-header { display: flex; align-items: center; justify-content: space-between; }
+    .crypto-name { font-size: 13px; font-weight: 700; color: var(--brand-navy); display: flex; align-items: center; gap: 8px; }
+    .crypto-name::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; }
+    .eth::before { background-color: #627EEA; } .btc::before { background-color: #F7931A; } .sol::before { background-color: #14F195; } .trx::before { background-color: #FF060A; }
+    .crypto-address { width: 100%; background: var(--bg-body); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 12px; font-family: 'Inter', monospace; font-size: 11px; color: var(--text-secondary); transition: all 0.2s; outline: none; }
+    .crypto-card:hover .crypto-address { border-color: rgba(59, 130, 246, 0.3); color: var(--brand-navy); }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 768px) {
+      .chart-row { flex-direction: column; align-items: flex-start; gap: 5px; }
+      .chart-label { width: 100%; }
+      .chart-bar-wrapper { width: 100%; margin-bottom: 10px; }
+      .chart-value { margin-left: 0; text-align: left; }
+      .heatmap-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      h1.site-title    { font-size: 32px; }
+      .top-toolbar     { flex-direction: column-reverse; gap: 20px; align-items: center; }
+      .lang-bar        { flex-wrap: wrap; justify-content: center; }
+      .body-inner      { padding-left: 25px; }
+      .outlet-tags     { display: none; }
+      .input-group     { flex-direction: column; gap: 10px; }
+      .nebula-input .input  { border-radius: 4px; }
+      .subscribe-button     { border-radius: 4px; width: 100%; }
+      .footer-links    { flex-direction: column; gap: 20px; }
+      .spotify-fake-player  { height: auto; padding: 16px; flex-wrap: wrap; }
+      .fake-cover      { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
+      .fake-cover img  { border-radius: 4px; }
+      .fake-info       { padding: 0; width: calc(100% - 80px - 50px); }
+      .fake-title      { font-size: 16px; white-space: normal; }
+      .fake-play-btn   { width: 40px; height: 40px; margin-right: 0; }
+      .crypto-grid     { grid-template-columns: 1fr; }
+      .hedge-table-wrapper { padding: 0 15px 15px; }
+    }
+    @media print {
+      .social-row, .lang-bar, .nebula-wrapper, footer, .spotify-fake-player, #spotify-real-container, .support-section { display: none; }
+      body { background: white; }
+      .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    <style>
+      .article-body { max-height: none !important; opacity: 1 !important; visibility: visible !important; }
+      .toggle-icon  { display: none; }
+    </style>
+  </noscript>
+
+  <div class="container">
+
+    <div class="top-toolbar">
+      <nav class="lang-bar" aria-label="Выбор языка">
+        <a href="/ua/" class="lang-link" hreflang="uk">UA</a>
+        <a href="/en/" class="lang-link" hreflang="en">EN</a>
+        <a href="/es/" class="lang-link" hreflang="es">ES</a>
+        <a href="/ar/" class="lang-link" hreflang="ar">AR</a>
+        <a href="/ru/" class="lang-link active" hreflang="ru" aria-current="page">RU</a>
+        <a href="/de/" class="lang-link" hreflang="de">DE</a>
+      </nav>
+
+      <nav class="social-row" aria-label="Социальные сети">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email">
+          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
+        </a>
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram">
+          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
+        </a>
+        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads">
+          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16">
+        </a>
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube">
+          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
+        </a>
+      </nav>
+    </div>
+
+    <header>
+      <div class="meta-issue">
+        ТОМ 26 • ВЫПУСК 133 • <time datetime="2026-05-15">15-16 МАЯ 2026</time>
+      </div>
+      <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
+      <div class="subtitle">ЕЖЕНЕДЕЛЬНАЯ КАРТА РИСКОВ: Анализ системных угроз и структурных сдвигов</div>
+      <div class="briefing-summary">
+        <p><strong>Горизонт: 1–12 недель.</strong> Институционализация энергетического шока в Ормузском проливе и политическое давление на ФРС США формируют идеальный шторм глобальной стагфляции (уровень угрозы S4). Корпоративный сектор сталкивается с двойным ударом: кризисом ликвидности в секторе частного кредитования и критической уязвимостью перед автономными ИИ-агентами.</p>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ==========================================
+           SECTION 1 — WEEKLY SNAPSHOT
+           ========================================== -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>РАЗДЕЛ 1 — ИТОГИ НЕДЕЛИ</h2>
+          <div class="outlet-tags">МАКРОЭКОНОМИКА И ГЕОПОЛИТИКА</div>
+        </div>
+
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">01</span>
+            <span class="art-title">Институционализация энергетического шока и трансформация Ирана</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <span class="hf-label">Что изменилось:</span>
+              <span class="hf-value">Международное энергетическое агентство (IEA) констатировало крупнейший в истории сбой поставок на мировом рынке нефти: добыча в странах Персидского залива упала на 14,4 млн баррелей в сутки из-за фактического перекрытия Ормузского пролива. Несмотря на временные дипломатические паузы, накопленный дефицит достигнет 900 млн баррелей к сентябрю 2026 года. Параллельно внутри Ирана происходит консолидация власти вокруг Корпуса стражей исламской революции (КСИР), что знаменует переход к преторианскому государству («Третья Исламская Республика»).</span>
+              <span class="hf-label">Почему это важно:</span>
+              <span class="hf-value">Блокировка стратегического логистического узла перестает быть краткосрочным тактическим маневром в рамках военного конфликта и трансформируется в долгосрочный инструмент выживания иранского режима. Тегеран использует беспрецедентный глобальный экономический шантаж для компенсации внутренней нестабильности и закрепления власти силовиков, делая энергетический кризис структурным, а не конъюнктурным.</span>
+              <span class="hf-label">Какой риск это усиливает:</span>
+              <span class="hf-value">Риск перманентной фрагментации глобальных энергетических рынков, неконтролируемой глобальной стагфляции и принудительной реаллокации базовых логистических маршрутов (<strong>S4</strong>).</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">02</span>
+            <span class="art-title">Утверждение нового главы ФРС США в условиях инфляционного всплеска</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <span class="hf-label">Что изменилось:</span>
+              <span class="hf-value">Сенат США утвердил Кевина Уорша на посту главы ФРС исторически минимальным перевесом голосов (54–45). Смена руководства происходит на фоне скачка оптовой инфляции (PPI) до 6% в годовом исчислении, спровоцированного ростом цен на энергоносители.</span>
+              <span class="hf-label">Почему это важно:</span>
+              <span class="hf-value">ФРС оказывается в эпицентре беспрецедентного политического давления со стороны Белого дома, открыто требующего снижения процентных ставок. В то же время жесткие макроэкономические данные диктуют необходимость сохранения ограничительной монетарной политики. Узкий политический мандат Уорша ставит под угрозу институциональную независимость центрального банка.</span>
+              <span class="hf-label">Какой риск это усиливает:</span>
+              <span class="hf-value">Риск капитуляции ФРС перед политическим циклом, что приведет к отвязке инфляционных ожиданий, резкому росту доходностей казначейских облигаций США и обесцениванию долларовых активов (<strong>S4</strong>).</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">03</span>
+            <span class="art-title">Инфильтрация автономных ИИ-агентов и кризис теневых операций (Теневой ИИ)</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <span class="hf-label">Что изменилось:</span>
+              <span class="hf-value">88% корпораций зафиксировали инциденты безопасности, связанные с использованием автономных ИИ-агентов. Около 1,5 млн ИИ-агентов функционируют в сетях без контроля IT-служб (только 14,4% получают полное одобрение). Внедрение норм EU AI Act в 2026 году создает жесткие рамки комплаенса.</span>
+              <span class="hf-label">Почему это важно:</span>
+              <span class="hf-value">Проблема «теневого ИИ» эволюционировала к развертыванию мощных автономных агентов с правами администратора и доступом к критическим базам данных без ведения журналов аудита. Убытки от утечек данных через такие неучтенные системы уже увеличивают среднюю стоимость инцидента безопасности на $670 000.</span>
+              <span class="hf-label">Какой риск это усиливает:</span>
+              <span class="hf-value">Риск масштабной компрометации критической корпоративной инфраструктуры и неспособности компаний пройти аудит EU AI Act, что повлечет за собой регуляторные санкции и остановку бизнес-процессов (<strong>S3</strong>).</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">04</span>
+            <span class="art-title">Нарастание стресса в секторе частного кредитования и кризис BDC</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <span class="hf-label">Что изменилось:</span>
+              <span class="hf-value">Крупнейший японский банк MUFG инициировал беспрецедентную сделку по передаче риска на сумму $2 млрд, связанного с кредитованием фондов частного кредитования (Private Credit). Одновременно в секторе наблюдается всплеск заявок на вывод средств инвесторами.</span>
+              <span class="hf-label">Почему это важно:</span>
+              <span class="hf-value">Сектор альтернативного небанковского кредитования сталкивается с классическим кризисом ликвидности. Существенная проблема заключается в том, что значительная доля портфелей компаний по развитию бизнеса (BDC) — от 20 до 40% — сконцентрирована в софтверном секторе (SaaS), чья бизнес-модель сейчас подвергается жесточайшему подрыву со стороны генеративного ИИ.</span>
+              <span class="hf-label">Какой риск это усиливает:</span>
+              <span class="hf-value">Системный риск масштабной переоценки неликвидных активов, цепную реакцию дефолтов в альтернативном кредитовании и заморозку капиталовложений в технологическом и венчурном секторах (<strong>S3</strong>).</span>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- ==========================================
+           SECTION 2 — WEEKLY RISK MAP
+           ========================================== -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>РАЗДЕЛ 2 — МАТРИЦА КАРТЫ РИСКОВ</h2>
+          <div class="outlet-tags">КОЛИЧЕСТВЕННАЯ ОЦЕНКА</div>
+        </div>
+
+        <div class="heatmap-grid">
+          <div class="heat-cell heat-high">
+            <span class="heat-title">Критический уровень (S4)</span>
+            <span class="heat-number">3</span>
+            <span style="font-size: 11px; color: var(--text-secondary); margin-top: 5px;">R1, R2, R5</span>
+          </div>
+          <div class="heat-cell heat-med">
+            <span class="heat-title">Высокий уровень (S3)</span>
+            <span class="heat-number">5</span>
+            <span style="font-size: 11px; color: var(--text-secondary); margin-top: 5px;">R3, R4, R7, R8, R10</span>
+          </div>
+          <div class="heat-cell heat-low">
+            <span class="heat-title">Средний уровень (S2)</span>
+            <span class="heat-number">2</span>
+            <span style="font-size: 11px; color: var(--text-secondary); margin-top: 5px;">R6, R9</span>
+          </div>
+        </div>
+
+        <!-- CSS Bar Charts for Top Risks -->
+        <div class="risk-chart-container">
+          <div class="chart-header">Тепловая карта: Концентрация Системных Угроз</div>
+          
+          <div class="chart-row">
+            <div class="chart-label">R1. Глобальный энергетический тупик (Ормуз)</div>
+            <div class="chart-bar-wrapper"><div class="chart-bar-fill fill-s4"></div></div>
+            <div class="chart-value">S4 <span class="trend-up">↑</span></div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-label">R2. Капитуляция монетарной политики США</div>
+            <div class="chart-bar-wrapper"><div class="chart-bar-fill fill-s4"></div></div>
+            <div class="chart-value">S4 <span class="trend-up">↑</span></div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-label">R5. Переоценка госдолга Великобритании</div>
+            <div class="chart-bar-wrapper"><div class="chart-bar-fill fill-s4"></div></div>
+            <div class="chart-value">S4 <span class="trend-flat">→</span></div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-label">R3. Теневой ИИ и уязвимость корпораций</div>
+            <div class="chart-bar-wrapper"><div class="chart-bar-fill fill-s3"></div></div>
+            <div class="chart-value">S3 <span class="trend-up">↑</span></div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-label">R4. Кризис ликвидности частного кредитования</div>
+            <div class="chart-bar-wrapper"><div class="chart-bar-fill fill-s3"></div></div>
+            <div class="chart-value">S3 <span class="trend-up">↑</span></div>
+          </div>
+        </div>
+
+        <div class="hedge-table-wrapper">
+          <table class="hedge-table">
+            <thead>
+              <tr>
+                <th>ID Риска</th>
+                <th>Название Риска</th>
+                <th>Уровень</th>
+                <th>Тренд</th>
+                <th>Горизонт</th>
+                <th>Уверенность</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>R1</td><td>Глобальный энергетический тупик</td><td><span class="badge badge-s4">S4</span></td><td><span class="trend-up">↑</span></td><td>Дни / Недели</td><td>Высокая</td></tr>
+              <tr><td>R2</td><td>Капитуляция монетарной политики ФРС США</td><td><span class="badge badge-s4">S4</span></td><td><span class="trend-up">↑</span></td><td>Недели / Месяцы</td><td>Высокая</td></tr>
+              <tr><td>R3</td><td>Уязвимости перед теневым ИИ</td><td><span class="badge badge-s3">S3</span></td><td><span class="trend-up">↑</span></td><td>Дни / Недели</td><td>Высокая</td></tr>
+              <tr><td>R4</td><td>Кризис ликвидности частного кредитования</td><td><span class="badge badge-s3">S3</span></td><td><span class="trend-up">↑</span></td><td>Недели / Месяцы</td><td>Средняя</td></tr>
+              <tr><td>R5</td><td>Переоценка госдолга Великобритании</td><td><span class="badge badge-s4">S4</span></td><td><span class="trend-flat">→</span></td><td>Дни / Недели</td><td>Высокая</td></tr>
+              <tr><td>R6</td><td>Шок комплаенса (EU AI Act)</td><td><span class="badge badge-s2">S2</span></td><td><span class="trend-up">↑</span></td><td>Месяцы</td><td>Высокая</td></tr>
+              <tr><td>R7</td><td>Хрупкость перемирия США и КНР</td><td><span class="badge badge-s3">S3</span></td><td><span class="trend-flat">→</span></td><td>Недели / Месяцы</td><td>Высокая</td></tr>
+              <tr><td>R8</td><td>Отток капитала из Австралии</td><td><span class="badge badge-s3">S3</span></td><td><span class="trend-up">↑</span></td><td>Месяцы</td><td>Средняя</td></tr>
+              <tr><td>R9</td><td>Ухудшение потребительского кредита в США</td><td><span class="badge badge-s2">S2</span></td><td><span class="trend-up">↑</span></td><td>Месяцы</td><td>Средняя</td></tr>
+              <tr><td>R10</td><td>Региональное заражение на Ближнем Востоке</td><td><span class="badge badge-s3">S3</span></td><td><span class="trend-up">↑</span></td><td>Недели</td><td>Высокая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Structural Profiles -->
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">R1</span>
+            <span class="art-title">Структурный профиль: Глобальный энергетический тупик</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <p>Перекрытие Ормузского пролива перестало быть краткосрочным шоком и приобрело характеристики структурного сдвига. Физическое изъятие 14,4 млн баррелей нефти в сутки не может быть компенсировано никакими инструментами балансировки. Распечатывание стратегических нефтяных резервов (SPR) лишь откладывает кульминацию кризиса.</p>
+              <p>Риск оценен на уровне <strong>S4</strong>, так как он уже полностью интегрирован в текущее ценообразование деривативов, однако вторичные инфляционные шоки для мировой промышленности остаются глубоко недооцененными. Дефицит авиатоплива в Европе наглядно демонстрирует, как быстро первичный логистический шок транслируется в секторальные кризисы.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">R2</span>
+            <span class="art-title">Структурный профиль: Капитуляция монетарной политики ФРС США</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <p>Утверждение Кевина Уорша на посту главы ФРС США создает уникальную уязвимость для американской финансовой системы. Впервые за долгие десятилетия макроэкономическая статистика (инфляция PPI 6% г/г) жестко противоречит политическим императивам Белого дома, требующего безоговорочного снижения ставок.</p>
+              <p>Институциональный конфликт переводит риск классической стагфляции в полномасштабный кризис доверия. Если ФРС капитулирует под давлением, произойдет массовая распродажа казначейских облигаций, критическое удорожание обслуживания корпоративного долга и жесткая переоценка всех долларовых активов.</p>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- ==========================================
+           SECTION 3 — DRIVERS & MECHANISMS
+           ========================================== -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>РАЗДЕЛ 3 — ДРАЙВЕРЫ И МЕХАНИЗМЫ</h2>
+          <div class="outlet-tags">ИНСТИТУЦИОНАЛЬНЫЕ СТИМУЛЫ</div>
+        </div>
+
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">01</span>
+            <span class="art-title">Институциональные механизмы геополитического шока (Иран/КНР)</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <span class="hf-label">Стимулы иранского режима:</span>
+              <span class="hf-value">В условиях жесточайшего экономического давления Иран использует перекрытие пролива как критический механизм политического выживания. Экономический шантаж мирового сообщества позволяет режиму легитимизировать внутренние репрессии и окончательно консолидировать власть в руках силовиков (КСИР).</span>
+              <span class="hf-label">Институциональная позиция Китая:</span>
+              <span class="hf-value">Пекин имеет прямой стратегический стимул поддерживать статус-кво. Затяжной конфликт методично отвлекает ресурсы США от Индо-Тихоокеанского региона. Китай будет лишь имитировать конструктивное содействие в разблокировке пролива на саммите с Трампом.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">02</span>
+            <span class="art-title">Архитектура риска в секторе частного кредитования</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <span class="hf-label">Стимулы банков-спонсоров:</span>
+              <span class="hf-value">Транснациональные банки (например, MUFG) имеют сильнейший стимул сбросить эти риски с баланса перед квартальной отчетностью, чтобы не демонстрировать регуляторам высокую концентрацию в высокодоходном сегменте. Попытка синдицировать риск на $2 млрд — это классическая превентивная мера защиты капитала.</span>
+              <span class="hf-label">Конфликт инвесторов и уязвимость SaaS:</span>
+              <span class="hf-value">Бурное развитие ИИ радикально снижает барьеры входа в разработке программного обеспечения, ставя под прямую угрозу маржинальность софтверных компаний, которых активно кредитовали фонды развития бизнеса (BDC). Институциональные инвесторы массово подают заявки на досрочное погашение, вынуждая фонды продавать ликвидные активы с дисконтом и оставляя на балансе наименее надежный токсичный долг.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">03</span>
+            <span class="art-title">Парадокс корпоративного ИИ: автоматизация против управления</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <p>Линейные менеджеры жестко мотивированы на максимизацию производительности любой ценой. Для достижения KPI они самостоятельно развертывают автономные ИИ-агенты, предоставляя им широчайшие права доступа через API (к системам CRM и ERP), полностью минуя процедуры согласования с отделами IT-безопасности.</p>
+              <p>Проблема в том, что традиционные системы управления доступом (IAM) спроектированы исключительно для людей. ИИ-агенты функционируют в абсолютной слепой зоне, создавая идеальную среду для масштабных утечек данных именно в тот момент, когда вступающий в силу закон ЕС об ИИ (EU AI Act) требует абсолютной прозрачности и непрерывного ведения журналов аудита.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ==========================================
+           SECTION 4 & 5 — TRIGGERS & IMPLICATIONS
+           ========================================== -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>РАЗДЕЛЫ 4 И 5 — ТРИГГЕРЫ И ПОСЛЕДСТВИЯ ДЛЯ РУКОВОДСТВА</h2>
+          <div class="outlet-tags">ПРИКЛАДНАЯ АНАЛИТИКА</div>
+        </div>
+
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">T1</span>
+            <span class="art-title">Триггеры эскалации: Энергетика и политика ФРС</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <p><strong>Эскалация R1 (Ормузский пролив):</strong> Физические диверсионные или ракетные атаки на критическую инфраструктуру Саудовской Аравии, Катара или ОАЭ; попытки массового минирования альтернативных судоходных путей (Красное море, Баб-эль-Мандебский пролив).</p>
+              <p><strong>Эскалация R2 (ФРС США):</strong> Открытая, публичная конфронтация между новым главой К. Уоршем и членами комитета FOMC по вопросу изменения или временного отказа от целевого ориентира инфляции в 2% в угоду краткосрочным политическим требованиям.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item">
+          <button class="article-trigger" aria-expanded="false">
+            <span class="art-idx">IM</span>
+            <span class="art-title">Последствия для принятия решений: Распределение капитала и риски</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body">
+            <div class="body-inner">
+              <span class="hf-label">Распределение капитала:</span>
+              <span class="hf-value">Любые капиталоемкие (CAPEX) проекты, рентабельность которых математически рассчитана исходя из нефти <$100 за баррель или ожиданий возврата базовых процентных ставок на уровни 2024–2025 годов, должны быть немедленно и жестко пересмотрены под сценарий стагфляции. Агрессивный фокус корпоративных ИИ-бюджетов обязан сместиться на финансирование систем контроля доступа для машин (Non-human IAM) и укрепление инфраструктуры комплаенса.</span>
+              <span class="hf-label">Управление рисками (CISO):</span>
+              <span class="hf-value">Требуется провести тотальный аудит всего внедренного теневого ИИ. Критически важно развернуть специализированные инструменты мониторинга и обеспечить ведение неизменяемых журналов аудита (tamper-resistant logs) в точном соответствии с регламентами EU AI Act.</span>
+              <span class="hf-label">Синхронизация по времени:</span>
+              <span class="hf-value">Любые сделки слияния и поглощения (M&A), существенно зависящие от долгового финансирования в фунтах стерлингов, целесообразно заморозить и поставить на паузу до момента полного восстановления ликвидности и стабилизации рынка британских государственных облигаций (Gilts).</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+    </main>
+  </div><!-- /.container -->
+
+  <!-- ── Newsletter ── -->
+  <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
+    <h3 class="nebula-title" id="newsletter-heading">Защищенный доступ к терминалу</h3>
+    <div class="form-container">
+      <div class="newsletter-form-wrapper">
+        <form class="newsletter-form" id="newsletterForm"
+              action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
+          <div class="input-group">
+            <div class="nebula-input">
+              <label for="emailInput" class="sr-only">Email адрес</label>
+              <input type="email" id="emailInput" name="email" autocomplete="email"
+                     class="input" placeholder="Корпоративный Email"
+                     aria-describedby="formErrorMsg" />
+              <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <button class="subscribe-button" type="submit">Подписаться</button>
+          </div>
+          <div class="form-error-msg" id="formErrorMsg" role="alert" aria-live="polite"></div>
+        </form>
+
+        <div class="success-message" id="successMessage" role="alert" aria-live="assertive">
+          <div style="width:70px;height:70px;margin:0 auto 20px;">
+            <svg viewBox="0 0 52 52" aria-hidden="true">
+              <circle class="checkmark-circle" cx="26" cy="26" r="25"/>
+              <path   class="checkmark-check"  fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Доступ разрешен</h4>
+          <p  style="font-size:14px;color:#4B5563;">Зашифрованный аналитический канал установлен.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Deep Press Analysis. Все права защищены.</p>
+    <nav class="footer-links" aria-label="Навигация в подвале">
+      <a href="https://deeppressanalysis.com/ru/archive.html" class="btn-text">Архив Данных</a>
+      <a href="https://deeppressanalysis.com/manifesto"  class="btn-text">Манифест</a>
+    </nav>
+
+    <!-- ── Web3 Support Section ── -->
+    <div class="container" style="padding-top: 40px; padding-bottom: 0;">
+      <div class="support-section">
+        <div class="support-title-wrapper">
+          <div class="live-dot"></div>
+          <div class="support-title">Децентрализованный узел поддержки</div>
+        </div>
+        
+        <div class="crypto-grid">
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name eth">Ethereum</span>
+            </div>
+            <input type="text" class="crypto-address" value="0x7b8318ce0788cAdDF398035A65EFDB30a262cae5" aria-label="Адрес Ethereum" readonly />
+          </div>
+          
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name btc">Bitcoin</span>
+            </div>
+            <input type="text" class="crypto-address" value="bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu" aria-label="Адрес Bitcoin" readonly />
+          </div>
+          
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name sol">Solana</span>
+            </div>
+            <input type="text" class="crypto-address" value="98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq" aria-label="Адрес Solana" readonly />
+          </div>
+          
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name trx">Tron</span>
+            </div>
+            <input type="text" class="crypto-address" value="TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z" aria-label="Адрес Tron" readonly />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden SEO Links -->
+    <div style="display: none;" aria-hidden="true">
+      <a href="https://deeppressanalysis.com/editorial-policy.html">Редакционная политика</a>
+    </div>
+  </footer>
+
+  <script nonce="{{NONCE}}">
+  (function () {
+    'use strict';
+
+    document.documentElement.classList.remove('no-js');
+    
+    // Accordion Logic
+    function closeItem(item) {
+      var body = item.querySelector('.article-body');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(function () { body.style.maxHeight = '0px'; });
+      item.classList.remove('active');
+      item.querySelector('.article-trigger').setAttribute('aria-expanded', 'false');
+    }
+
+    function openItem(item) {
+      var body = item.querySelector('.article-body');
+      item.classList.add('active');
+      item.querySelector('.article-trigger').setAttribute('aria-expanded', 'true');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+
+    function toggleArt(btn) {
+      var parent   = btn.closest('.article-item');
+      var isActive = parent.classList.contains('active');
+      document.querySelectorAll('.article-item').forEach(function (it) {
+        if (it !== parent) closeItem(it);
+      });
+      isActive ? closeItem(parent) : openItem(parent);
+    }
+
+    document.querySelectorAll('.article-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () { toggleArt(btn); });
+    });
+    
+    document.addEventListener('keydown', function (e) {
+      if (e.target.classList.contains('article-trigger') && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        toggleArt(e.target);
+      }
+    });
+
+    // Form Logic
+    var form           = document.getElementById('newsletterForm');
+    var successMessage = document.getElementById('successMessage');
+    var formErrorMsg   = document.getElementById('formErrorMsg');
+    var emailInput     = document.getElementById('emailInput');
+    var submitBtn      = form.querySelector('button[type="submit"]');
+
+    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+
+    function showError(msg) {
+      emailInput.classList.add('input-error');
+      formErrorMsg.textContent = msg;
+      formErrorMsg.classList.add('visible');
+      emailInput.focus();
+    }
+    
+    function clearError() {
+      emailInput.classList.remove('input-error');
+      formErrorMsg.classList.remove('visible');
+      formErrorMsg.textContent = '';
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError();
+      var val = emailInput.value;
+      if (!val.trim())       { showError('Пожалуйста, введите ваш email.'); return; }
+      if (!isValidEmail(val)) { showError('Пожалуйста, введите корректный email.'); return; }
+
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Отправка…';
+
+      try {
+        var res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.classList.add('hidden');
+          successMessage.classList.add('visible');
+        } else {
+          showError('Ошибка подписки. Попробуйте еще раз.');
+        }
+      } catch (_) {
+        showError('Ошибка сети. Проверьте подключение.');
+      } finally {
+        if (!successMessage.classList.contains('visible')) {
+          submitBtn.disabled    = false;
+          submitBtn.textContent = 'Подписаться';
+        }
+      }
+    });
+
+    emailInput.addEventListener('input', clearError);
+
+    // Web3 Logic (Auto-select input field text on click)
+    document.querySelectorAll('.crypto-address').forEach(function(el) {
+      el.addEventListener('click', function() {
+        this.select();
+      });
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
