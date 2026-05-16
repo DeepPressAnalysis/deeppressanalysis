@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  Deep Press Analysis — PRODUCTION READY                              ║
+  ║  SEO FIXES APPLIED:                                                  ║
+  ║  1. Article content visible by default (JS collapses after load)     ║
+  ║  2. {{NONCE}} — сервер ОБЯЗАН заменять на криптографически           ║
+  ║     случайную строку при каждом запросе (Node/PHP/Python/etc.)       ║
+  ║  3. Schema.org @id исправлен на /ar/#webpage                         ║
+  ║  4. NewsArticle schema добавлена для каждой статьи                   ║
+  ║  5. hreflang — взаимные ссылки обязательны на всех языковых стр.     ║
+  ║  6. Canonical + 301 редирект с корня на /ar/ (настроить на сервере)  ║
+  ║  7. JS-редирект переработан (без localStorage)                       ║
+  ║  8. RSS-лента добавлена в <head>                                     ║
+  ║  9. OG/Twitter мета дополнены                                        ║
+  ║  10. datePublished/dateModified — генерировать динамически           ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+<html lang="ar" dir="rtl" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deep Press Analysis — 17 مايو 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ملخص يومي لأبرز المنشورات الدولية. محور التركيز اليوم: العلاقات التجارية بين الولايات المتحدة والصين، وكارثة الوظائف العالمية، والأزمة السياسية في إندونيسيا." />
+  <meta name="author" content="Deep Press Analysis" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <!--
+    ═══════════════════════════════════════════════════════════════
+    CSP: {{NONCE}} заменяется сервером при каждом запросе.
+    Пример Node.js:
+      const nonce = crypto.randomBytes(16).toString('base64');
+      res.setHeader('Content-Security-Policy', `script-src 'nonce-${nonce}'`);
+      html = html.replaceAll('{{NONCE}}', nonce);
+    ═══════════════════════════════════════════════════════════════
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'nonce-{{NONCE}}';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
+    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
+    form-action 'self' https://formspree.io;
+    object-src 'none';
+    base-uri 'self';
+    frame-src 'self' https://open.spotify.com;
+    media-src 'none';
+    upgrade-insecure-requests;
+  ">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Inter:wght@400;500;600;900&display=swap" rel="stylesheet">
+
+  <!-- ═══ SEO: Canonical ═══ -->
+  <link rel="canonical" href="https://deeppressanalysis.com/ar/" />
+
+  <!-- ═══ SEO: hreflang ═══ -->
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/" />
+  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/en/" />
+  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/" />
+  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/" />
+  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/" />
+  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/" />
+  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/" />
+
+  <!-- ═══ SEO FIX #8: RSS-лента — обязательна для Google News ═══ -->
+  <link rel="alternate" type="application/rss+xml"
+        title="Deep Press Analysis — Arabic Feed"
+        href="https://deeppressanalysis.com/ar/feed.xml" />
+
+  <!-- ═══ Open Graph (дополнено) ═══ -->
+  <meta property="og:type"                  content="article" />
+  <meta property="og:title"                 content="Deep Press Analysis — 17 مايو 2026" />
+  <meta property="og:description"           content="ملخص يومي لأبرز المنشورات الدولية. محور التركيز اليوم: العلاقات التجارية بين الولايات المتحدة والصين، وكارثة الوظائف العالمية، والأزمة السياسية في إندونيسيا." />
+  <meta property="og:url"                   content="https://deeppressanalysis.com/ar/" />
+  <meta property="og:image"                 content="https://deeppressanalysis.com/assets/og-cover.jpg" />
+  <meta property="og:image:width"           content="1200" />
+  <meta property="og:image:height"          content="630" />
+  <meta property="og:site_name"             content="Deep Press Analysis" />
+  <meta property="og:locale"                content="ar_AR" />
+  <!-- SEO FIX #9: article-specific OG мета -->
+  <meta property="article:published_time"   content="2026-05-17T05:00:00Z" />
+  <meta property="article:modified_time"    content="2026-05-17T05:00:00Z" />
+  <meta property="article:section"          content="Global Economy" />
+  <meta property="article:author"           content="https://deeppressanalysis.com/manifesto.html" />
+
+  <!-- ═══ Twitter Card (дополнено) ═══ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@DeepPressAnalysis" />
+  <meta name="twitter:creator"     content="@DeepPressAnalysis" />
+  <meta name="twitter:title"       content="Deep Press Analysis — 17 مايو 2026" />
+  <meta name="twitter:description" content="ملخص يومي لأبرز المنشورات الدولية. محور التركيز اليوم: العلاقات التجارية بين الولايات المتحدة والصين، وكارثة الوظائف العالمية، والأزمة السياسية في إندونيسيا." />
+  <meta name="twitter:image"       content="https://deeppressanalysis.com/assets/og-cover.jpg" />
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json" nonce="{{NONCE}}">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "@id": "https://deeppressanalysis.com/#newsmediaorganization",
+      "name": "Deep Press Analysis",
+      "url": "https://deeppressanalysis.com/ar/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://deeppressanalysis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://t.me/DeepPressAnalysis",
+        "https://www.threads.com/@deeppressanalysis",
+        "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
+        "https://www.pinterest.com/DeepPressAnalysis"
+      ],
+      "foundingDate": "2025-12-01",
+      "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
+      "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "masthead": "https://deeppressanalysis.com/manifesto.html",
+      "verificationFactCheckingPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Editorial",
+        "email": "info@deeppressanalysis.com",
+        "availableLanguage": ["English","Russian","Ukrainian","German","Arabic","Spanish"]
+      },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Worldwide" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://deeppressanalysis.com/ar/#webpage",
+      "url": "https://deeppressanalysis.com/ar/",
+      "name": "Deep Press Analysis — 17 مايو 2026",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "description": "ملخص يومي لأبرز المنشورات الدولية. محور التركيز اليوم: العلاقات التجارية بين الولايات المتحدة والصين، وكارثة الوظائف العالمية، والأزمة السياسية في إندونيسيا.",
+      "inLanguage": "ar",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://deeppressanalysis.com/ar/" }
+        ]
+      }
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-eco-1",
+      "headline": "دونالد ترامب يزور الصين لعقد قمة مع شي جين بينغ",
+      "description": "تمثل زيارة دونالد ترامب إلى بكين تحولاً نحو التسويق التجاري البراغماتي للعلاقات الثنائية، مع إعطاء الأولوية لمصالح الشركات على حساب الاختلافات الأيديولوجية.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Geopolitics",
+      "about": [
+        { "@type": "Person", "name": "Donald Trump" },
+        { "@type": "Person", "name": "Xi Jinping" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-eco-2",
+      "headline": "كارثة الوظائف: نأمل في الأفضل، ونستعد للأسوأ",
+      "description": "تتطلب أزمة سوق العمل المتنامية، والتي توصف بأنها نهاية العالم للوظائف، الاستعداد لأسوأ السيناريوهات المدفوعة بالتقدم التكنولوجي والأتمتة.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Global Economy"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-eco-3",
+      "headline": "إندونيسيا تضل الطريق",
+      "description": "تُظهر إندونيسيا انحرافاً مثيراً للقلق عن مسارها المقصود، مما يعرض استقرارها السياسي والاقتصادي الكلي للخطر من خلال الانجراف المؤسسي.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Geopolitics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-eco-4",
+      "headline": "عرض 'باوربوينت' من متمردي الكونغو",
+      "description": "تستخدم الجماعات المسلحة في الكونغو أدوات الشركات الحديثة مثل 'باوربوينت' لجذب استثمارات الظل، مما يشير إلى تحول عميق في تمويل الحرب الهجينة.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Geopolitics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-eco-5",
+      "headline": "نقص علم الرضاعة: عدم كفاية الرضاعة الطبيعية",
+      "description": "أصبح العجز العالمي في الرضاعة الطبيعية يمثل تحدياً رئيسياً للاقتصاد الكلي والسياسة الاجتماعية بسبب النقص المنهجي في الدعم المؤسسي للأمومة.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Global Economy"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-fl-1",
+      "headline": "ثم فازوا: خمسة انتخابات للجمعية وما يكمن وراء النتائج",
+      "description": "أكدت نتائج الانتخابات الإقليمية في الهند هيمنة الأجندات المحلية على الروايات السياسية الوطنية، لصالح النخب الإقليمية.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-fl-2",
+      "headline": "حزب 'عام آدمي': المكنسة بحاجة إلى تنظيف أيضاً",
+      "description": "سلطت الأزمة الداخلية داخل حزب 'عام آدمي' الضوء على المشاكل الإدارية المنهجية، مما أضر بسمعته في مكافحة الفساد.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-fl-3",
+      "headline": "لداخ: ترتيب غير ديمقراطي",
+      "description": "يتسم نظام الحكم الحالي في لداخ بأنه غير ديمقراطي إلى حد كبير، حيث يجرد المنطقة من التمثيل والاستقلال المالي.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-fl-4",
+      "headline": "البنجاب: الجريمة والأسطورة والدولة",
+      "description": "تواجه البنجاب أزمة حكم غير مسبوقة حيث تتشابك الجريمة المنظمة مع الأساطير الاجتماعية والخلل الوظيفي في الدولة.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-fl-5",
+      "headline": "خطة غير سليمة لسلسلة التلال المركزية في دلهي",
+      "description": "تمثل مبادرات التحول التجاري لمنطقة غابات 'سنترال ريدج' في نيودلهي مشروعاً حضرياً مدمراً بيئياً.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Ecology"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-wk-1",
+      "headline": "محو مقاطعات الأقليات",
+      "description": "تؤدي المبادرات التشريعية العدوانية لمحو دوائر تصويت الأقليات إلى تغيير جوهري في التمثيل الانتخابي في الولايات المتحدة.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "US Elections"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-wk-2",
+      "headline": "أنتِ تهمين يا مياه",
+      "description": "أصبحت ندرة المياه والمنافسة على الموارد العنصر الأكثر كثافة في أجندة الاقتصاد الكلي العالمي.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Global Economy"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-wk-3",
+      "headline": "هل هذا هو كوفيد الجديد؟ تفشي فيروس هانتا على متن السفينة إم في هونديوس",
+      "description": "أثار تفشي فيروس هانتا المفاجئ على متن سفينة سياحية الذعر بشأن مدى استعداد العالم لمواجهة جائحة أخرى.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Global Health"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-wk-4",
+      "headline": "تيد تيرنر: قطب الإعلام الذي أعاد صياغة الأخبار",
+      "description": "يمثل رحيل تيد تيرنر النهاية التاريخية لحقبة في تشكيل الأجندة السياسية من خلال البث الإخباري على مدار 24 ساعة.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Media"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/ar/#art-wk-5",
+      "headline": "من يملك الأوراق؟ لماذا لن تقبل إيران شروط ترامب",
+      "description": "يمثل رفض طهران الأساسي لشروط إدارة ترامب ركوداً خطيراً وطويل الأمد في الدبلوماسية الشرق أوسطية.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "ar",
+      "articleSection": "Geopolitics"
+    }
+  ]
+  </script>
+
+  <style>
+    :root {
+      --bg-body:        #F2F4F7;
+      --bg-paper:       #FFFFFF;
+      --text-primary:   #111827;
+      --text-secondary: #4B5563;
+      --brand-navy:     #0F172A;
+      --brand-blue:     #2563EB;
+      --border-color:   #E5E7EB;
+      --up-color:       #059669;
+      --down-color:     #DC2626;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      direction: rtl;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cairo', serif;
+      color: var(--brand-navy);
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    a { text-decoration: none; color: inherit; transition: color 0.2s, opacity 0.2s; }
+
+    *:focus-visible {
+      outline: 3px solid var(--brand-blue);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────
+       SEO FIX #1: АККОРДЕОН — КОНТЕНТ ВИДИМ ПО УМОЛЧАНИЮ
+    ────────────────────────────────────────────────────────────────── */
+
+    /* Состояние без JS — всё открыто */
+    .article-body {
+      overflow: hidden;
+      background: #fff;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+    }
+
+    /* Состояние с JS — аккордеон активен */
+    .js-accordion .article-body {
+      max-height: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .js-accordion .article-item.active .article-body {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* toggle-icon скрыт без JS */
+    .toggle-icon { display: none; }
+    .js-accordion .toggle-icon { display: block; }
+
+    /* Заголовок rotate при активном */
+    .js-accordion .article-item.active .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    /* ─── Layout ─── */
+    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .social-row { display: flex; gap: 10px; }
+    .social-btn {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .social-btn img { width: 16px; height: 16px; object-fit: contain; display: block; }
+    .social-btn:hover { background: var(--brand-navy); color: #fff; border-color: var(--brand-navy); }
+
+    .lang-bar {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      display: flex; gap: 12px;
+      font-family: 'Inter', sans-serif;
+    }
+    .lang-link        { color: #9CA3AF; transition: color 0.2s; }
+    .lang-link:hover  { color: var(--brand-blue); }
+    .lang-link.active {
+      color: var(--brand-navy); font-weight: 800;
+      border-bottom: 2px solid var(--brand-blue); padding-bottom: 2px;
+    }
+
+    /* ─── Header ─── */
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #d1d5db;
+    }
+    .meta-issue {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+      color: var(--text-secondary); margin-bottom: 10px;
+    }
+    h1.site-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 48px; font-weight: 900;
+      letter-spacing: -0.02em; margin-bottom: 8px;
+    }
+    .subtitle {
+      font-family: 'Cairo', sans-serif;
+      font-size: 16px; color: var(--text-secondary);
+      letter-spacing: 0.5px; font-weight: 500;
+    }
+    .briefing-summary {
+      background: #fff; border: 1px solid var(--border-color);
+      padding: 20px; margin-top: 30px; text-align: right;
+      border-right: 4px solid var(--brand-navy);
+      border-left: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .briefing-summary p      { font-size: 16px; color: var(--text-secondary); margin: 0; font-family: 'Cairo', sans-serif;}
+    .briefing-summary strong {
+      color: var(--brand-navy); font-weight: 700;
+      font-size: 14px; letter-spacing: 0.5px;
+    }
+
+    /* ─── Outlets (Newspapers) ─── */
+    .outlet-section {
+      background: var(--bg-paper); border: 1px solid var(--border-color);
+      margin-bottom: 30px; border-radius: 4px; overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .outlet-header {
+      background: #f8fafc; padding: 15px 25px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-direction: row-reverse;
+    }
+    .outlet-header h2 { font-family: 'Inter', sans-serif; font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
+    .outlet-tags      { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 1px;}
+
+    /* ─── Accordion Items ─── */
+    .article-item             { border-bottom: 1px solid var(--border-color); }
+    .article-item:last-child { border-bottom: none; }
+
+    .article-trigger {
+      display: flex; align-items: baseline; width: 100%;
+      padding: 20px 25px; cursor: pointer; background: #fff;
+      transition: background 0.2s; border: none; text-align: right;
+    }
+    .article-trigger:hover { background: #f9fafb; }
+    .article-trigger:focus { background: #f0f9ff; }
+
+    /* Без JS: убрать pointer-cursor у заголовка */
+    .article-trigger { cursor: default; }
+    .js-accordion .article-trigger { cursor: pointer; }
+
+    .art-idx {
+      font-family: 'Inter', sans-serif; font-size: 13px; color: #9CA3AF;
+      width: 35px; flex-shrink: 0; font-weight: 500;
+      text-align: left;
+    }
+    .art-title {
+      font-family: 'Cairo', serif; font-size: 18px; font-weight: 700;
+      color: var(--text-primary); flex-grow: 1; padding-left: 20px; padding-right: 0;
+      transition: color 0.2s; line-height: 1.5;
+    }
+    .toggle-icon {
+      color: var(--text-secondary); font-size: 12px; width: 20px; text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .js-accordion .article-item.active .art-title  { color: var(--brand-blue); }
+
+    .body-inner {
+      padding: 5px 60px 25px 25px; font-size: 16px;
+      color: var(--text-secondary); max-width: 85ch; line-height: 1.9;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    /* ─── Newsletter ─── */
+    .nebula-wrapper {
+      background-color: var(--bg-body); width: 100%;
+      padding: 60px 0; margin-top: 60px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nebula-title {
+      text-align: center; color: var(--brand-navy);
+      font-family: 'Cairo', serif; margin-bottom: 10px; font-size: 24px; font-weight: 700;
+    }
+    .form-container          { display: flex; justify-content: center; padding: 20px; }
+    .newsletter-form-wrapper {
+      width: 100%; max-width: 500px;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .input-group  { display: flex; width: 100%; align-items: center; flex-direction: row-reverse;}
+    .nebula-input { position: relative; flex: 1; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    .nebula-input .input {
+      width: 100%; padding: 12px 40px 12px 12px;
+      border: 1px solid #cbd5e1; background: #fff;
+      color: var(--brand-navy); font-size: 16px; outline: none;
+      border-radius: 0 4px 4px 0; transition: border-color 0.2s;
+      font-family: 'Cairo', sans-serif;
+    }
+    .nebula-input .input:focus         { border-color: var(--brand-blue); z-index: 2; position: relative; }
+    .nebula-input .input.input-error   { border-color: var(--down-color); }
+
+    .email-icon {
+      position: absolute; top: 50%; right: 12px; transform: translateY(-50%);
+      width: 20px; height: 20px; fill: #94a3b8; pointer-events: none;
+      transition: fill 0.2s;
+    }
+    .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
+
+    .subscribe-button {
+      padding: 13px 24px; font-size: 15px; font-weight: 700;
+      color: #fff; background: var(--brand-navy);
+      border: 1px solid var(--brand-navy); border-radius: 4px 0 0 4px;
+      cursor: pointer; letter-spacing: 0.5px;
+      transition: background 0.2s, border-color 0.2s;
+      font-family: 'Cairo', sans-serif;
+    }
+    .subscribe-button:disabled          { opacity: 0.7; cursor: not-allowed; }
+    .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
+
+    .form-error-msg {
+      display: none; color: var(--down-color);
+      font-size: 14px; margin-top: 6px; text-align: right; width: 100%;
+      font-family: 'Cairo', sans-serif;
+    }
+    .form-error-msg.visible { display: block; }
+
+    .success-message           { display: none; text-align: center; color: var(--brand-navy); font-family: 'Cairo', sans-serif; }
+    .success-message.visible   { display: block; }
+    .newsletter-form.hidden    { display: none; }
+
+    .checkmark-circle { stroke: var(--up-color); stroke-width: 2; fill: none; }
+    .checkmark-check  { stroke: var(--up-color); stroke-width: 2; }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 30px 0 60px;
+      color: var(--text-secondary); font-size: 14px;
+      font-family: 'Cairo', sans-serif;
+    }
+    .footer-links { margin-top: 35px; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    .btn-text {
+      font-weight: 700; font-size: 18px; letter-spacing: 0.5px;
+      color: var(--brand-navy); border-bottom: 2px solid transparent; padding-bottom: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-text:hover { color: var(--brand-blue); border-bottom-color: var(--brand-blue); }
+
+    /* ─── Spotify facade ─── */
+    .spotify-fake-player {
+      background-color: #282828; border-radius: 12px; height: 152px;
+      display: flex; align-items: center; cursor: pointer; overflow: hidden;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+      flex-direction: row-reverse;
+    }
+    .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
+
+    .fake-cover         { width: 152px; height: 152px; flex-shrink: 0; }
+    .fake-cover img     {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.95;
+      border-top-right-radius: 12px; border-bottom-right-radius: 12px;
+      border-top-left-radius: 0; border-bottom-left-radius: 0;
+    }
+    .fake-info          {
+      padding: 0 24px; flex-grow: 1;
+      display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+      text-align: right;
+    }
+    .fake-meta   { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .fake-title  { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Inter', serif; line-height: 1.2; }
+    .fake-desc   { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
+    .fake-play-btn {
+      background-color: #1ed760; color: #000; border: none; border-radius: 50%;
+      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+      margin-left: 24px; margin-right: 0; cursor: pointer; flex-shrink: 0;
+      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .fake-play-btn svg { fill: currentColor; margin-left: 0; margin-right: 2px; }
+    .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
+    .hidden-player { display: none !important; }
+
+    /* ─── Web3 Support Section ─── */
+    .support-section {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      border-top: 1px dashed var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .support-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--brand-blue, #3b82f6);
+      border-radius: 50%;
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes ping {
+      0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+      70% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+
+    .support-title {
+      font-size: 13px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .crypto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .crypto-card {
+      position: relative;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .crypto-card:hover {
+      border-color: var(--brand-blue);
+      background: var(--bg-body);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .crypto-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+
+    .crypto-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand-navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-direction: row-reverse;
+    }
+
+    .crypto-name::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .eth::before { background-color: #627EEA; }
+    .btc::before { background-color: #F7931A; }
+    .sol::before { background-color: #14F195; }
+    .trx::before { background-color: #FF060A; }
+
+    .crypto-address {
+      width: 100%;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-family: 'Inter', monospace;
+      font-size: 11px;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      outline: none;
+      cursor: text;
+      text-align: left;
+      direction: ltr;
+    }
+
+    .crypto-card:hover .crypto-address {
+      border-color: rgba(59, 130, 246, 0.3);
+      color: var(--brand-navy);
+    }
+
+    /* ─── Reduced motion ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .live-dot { animation: none; }
+    }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 600px) {
+      h1.site-title    { font-size: 32px; }
+      .top-toolbar     { flex-direction: column-reverse; gap: 20px; align-items: center; }
+      .lang-bar        { flex-wrap: wrap; justify-content: center; }
+      .body-inner      { padding-right: 25px; }
+      .outlet-tags     { display: none; }
+      .input-group     { flex-direction: column; gap: 10px; }
+      .nebula-input .input  { border-radius: 4px; padding-right: 40px; padding-left: 12px;}
+      .subscribe-button     { border-radius: 4px; width: 100%; }
+      .footer-links    { flex-direction: column; gap: 20px; }
+      .spotify-fake-player  { height: auto; padding: 16px; flex-wrap: wrap; flex-direction: row;}
+      .fake-cover      { width: 64px; height: 64px; border-radius: 4px; margin-left: 16px; margin-right: 0;}
+      .fake-cover img  { border-radius: 4px; }
+      .fake-info       { padding: 0; width: calc(100% - 80px - 50px); text-align: left;}
+      .fake-title      { font-size: 16px; white-space: normal; }
+      .fake-play-btn   { width: 40px; height: 40px; margin-left: 0; }
+      .crypto-grid     { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Print ─── */
+    @media print {
+      .social-row, .lang-bar,
+      .nebula-wrapper, footer, .spotify-fake-player,
+      #spotify-real-container, .support-section { display: none; }
+      body { background: white; }
+      /* Принт — весь контент открыт */
+      .js-accordion .article-body {
+        max-height: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="top-toolbar">
+      <nav class="lang-bar" aria-label="Language selection">
+        <a href="/ua/" class="lang-link" hreflang="uk" aria-label="Ukrainian version">UA</a>
+        <a href="/en/" class="lang-link" hreflang="en" aria-label="English version">EN</a>
+        <a href="/es/" class="lang-link" hreflang="es" aria-label="Spanish version">ES</a>
+        <a href="/ar/" class="lang-link active" hreflang="ar" aria-current="page" aria-label="Arabic version">AR</a>
+        <a href="/ru/" class="lang-link" hreflang="ru" aria-label="Russian version">RU</a>
+        <a href="/de/" class="lang-link" hreflang="de" aria-label="German version">DE</a>
+      </nav>
+
+      <nav class="social-row" aria-label="Social media links">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="البريد الإلكتروني" aria-label="إرسال بريد إلكتروني إلى Deep Press Analysis">
+          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
+        </a>
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="تيليجرام" aria-label="زيارة قناتنا على تيليجرام">
+          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
+        </a>
+        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="ثريدز" aria-label="زيارة ملفنا الشخصي على ثريدز">
+          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16">
+        </a>
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="يوتيوب" aria-label="زيارة قناتنا على يوتيوب">
+          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
+        </a>
+      </nav>
+    </div>
+
+    <header>
+      <div class="meta-issue">
+        المجلد 26 • العدد 133 • <time datetime="2026-05-17">17 مايو 2026</time>
+      </div>
+      <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
+      <div class="subtitle">ملخص يومي لأبرز المنشورات الدولية</div>
+      <div class="briefing-summary">
+        <p><strong>محور التركيز اليوم:</strong> تحولات في العلاقات التجارية بين الولايات المتحدة والصين، تحذيرات من كارثة وظائف عالمية، وعدم الاستقرار السياسي والاقتصادي الكلي في إندونيسيا.</p>
+      </div>
+    </header>
+
+    <main>
+
+      <div id="spotify-facade" class="spotify-fake-player"
+           role="button" tabindex="0"
+           aria-label="تشغيل بودكاست Deep Press Analysis على سبوتيفاي">
+        <div class="fake-cover">
+          <img src="https://deeppressanalysis.com/logo.png" alt="غلاف بودكاست Deep Press Analysis">
+        </div>
+        <div class="fake-info">
+          <div class="fake-meta">PODCAST SHOW</div>
+          <div class="fake-title">Deep Press Analysis</div>
+          <div class="fake-desc">Daily Audio Briefing</div>
+        </div>
+        <button class="fake-play-btn" aria-label="تشغيل البودكاست" tabindex="-1">
+          <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/>
+          </svg>
+        </button>
+      </div>
+      <div id="spotify-real-container" style="margin-bottom:40px;"></div>
+
+      <!-- ════════════════════════ THE ECONOMIST ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE ECONOMIST</h2>
+          <div class="outlet-tags">GEOPOLITICS • GLOBAL ECONOMY</div>
+        </div>
+
+        <article class="article-item" id="art-eco-1">
+          <button class="article-trigger" id="btn-eco-1" aria-expanded="true" aria-controls="body-eco-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">دونالد ترامب يزور الصين لعقد قمة مع شي جين بينغ</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-eco-1" role="region" aria-labelledby="btn-eco-1">
+            <div class="body-inner">
+              <p>تمثل زيارة دونالد ترامب إلى بكين للقاء شي جين بينغ تحولاً نحو التسويق التجاري البراغماتي للعلاقات الثنائية. الحدث الرئيسي كان الاتفاق على "تموضع جديد" للروابط وتوسيع التعاون التجاري بين الولايات المتحدة والصين. يؤكد حضور كبار المديرين التنفيذيين، بما في ذلك رئيسا 'إنفيديا' و'بوينغ'، على إعطاء الأولوية لمصالح الشركات على حساب الاختلافات الأيديولوجية. في هذا الموقف، المستفيدون الرئيسيون هم عمالقة التكنولوجيا والطيران الأمريكية، الذين يضمنون وصولاً مؤكداً إلى السوق الصينية. أما الخاسرون، فقد يكونون حلفاء الولايات المتحدة الاستراتيجيين، وفي مقدمتهم تايوان وأوكرانيا، حيث تتراجع القضايا السياسية إلى الخلفية. يكمن دافع واشنطن الأساسي في تحقيق انتصارات اقتصادية سريعة ودعم الشركات الكبرى. وتسعى بكين بدورها إلى استقرار التجارة الخارجية وضمان تدفق غير منقطع للتكنولوجيا الغربية. بالنسبة للأسواق العالمية، تُعد هذه القمة إشارة إيجابية قوية، حيث تقلل من المخاوف بشأن اندلاع حرب تجارية وشيكة. يتلقى المستثمرون المؤسسيون تأكيداً على أن البراغماتية الاقتصادية يمكن أن تخفف من حدة الخطاب الجيوسياسي. ومن الناحية السياسية، يُظهر هذا استعداد الإدارة لمراجعة التحالفات التقليدية من أجل إبرام صفقات ثنائية. يكمن الخطر الرئيسي في التصعيد المحتمل للصراعات الإقليمية بسبب ضعف الضمانات الأمنية الأمريكية. وإذا تحول تركيز القوى العظمى حصرياً إلى التجارة، فإن الفراغ الجيوسياسي قد يمتلئ بالإجراءات العدوانية لأطراف أخرى.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-eco-2">
+          <button class="article-trigger" id="btn-eco-2" aria-expanded="true" aria-controls="body-eco-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">كارثة الوظائف: نأمل في الأفضل، ونستعد للأسوأ</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-eco-2" role="region" aria-labelledby="btn-eco-2">
+            <div class="body-inner">
+              <p>تتطلب الأزمة المتنامية في سوق العمل، والتي توصف بأنها "نهاية العالم للوظائف"، من المؤسسات العالمية الاستعداد لأسوأ السيناريوهات. المحرك الرئيسي لهذه العملية هو التحول الهيكلي للتوظيف، مدفوعاً بالتقدم التكنولوجي وعدم استقرار الاقتصاد الكلي. يظل أصحاب رؤوس الأموال وشركات التكنولوجيا الفائقة القادرة على تحسين التكاليف من خلال الأتمتة العميقة هم الفائزون في الديناميكيات الحالية. وتتلقى العمالة التقليدية الضربة الأساسية، حيث تتراجع قيمة مهاراتها بسرعة في الواقع الجديد. إن دافع الشركات واضح للغاية: تعظيم الكفاءة التشغيلية وتقليل الاعتماد على العامل البشري وسط أزمة مستمرة. بالنسبة لأجهزة الدولة، يعني هذا الحاجة الملحة لمراجعة العقود الاجتماعية وبنية الدعم العام. وتُعد الإشارة الموجهة للأسواق مقلقة، حيث سيؤدي فقدان الوظائف على نطاق واسع حتماً إلى انكماش طويل الأجل في طلب المستهلكين. ويجب على المؤسسات المالية أن تأخذ في الحسبان مخاطر التخلف المتتالي عن سداد القروض الاستهلاكية والالتزامات العقارية. في المجال السياسي، تخلق مثل هذه الأزمة أرضاً خصبة لتطرف الناخبين والنمو المتفجر للمشاعر الشعبوية. وقد تشمل العواقب المنهجية استقطاباً اجتماعياً واقتصادياً عميقاً للمجتمع. وترتبط المخاطر طويلة الأجل بتشكيل طبقة دنيا دائمة تتطلب إعانات مباشرة ومستمرة. في النهاية، سيؤدي الافتقار إلى التخطيط الاستباقي إلى إخفاقات مؤسسية هائلة على نطاق عالمي.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-eco-3">
+          <button class="article-trigger" id="btn-eco-3" aria-expanded="true" aria-controls="body-eco-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">إندونيسيا تضل الطريق</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-eco-3" role="region" aria-labelledby="btn-eco-3">
+            <div class="body-inner">
+              <p>تُظهر إندونيسيا انحرافاً مقلقاً عن مسارها المقصود، مما يثير تساؤلات حول استقرارها السياسي والاقتصادي الكلي. الحدث الرئيسي هو تحول في المسار السياسي الداخلي يعطل المعايير المؤسسية والديمقراطية الراسخة للتنمية. المستفيدون الرئيسيون من هذا الانحراف قد يكونون مجموعات النخبة المحلية التي تعزز سلطتها ومواردها الإدارية بين يديها. ويخسر في هذا الموقف المستثمرون الدوليون والمؤسسات المدنية التي تعتمد على الشفافية والقدرة على التنبؤ في أكبر اقتصاد في جنوب شرق آسيا. ويكمن السبب الجذري في مصالح الدوائر الحاكمة التي تسعى إلى تقليل التدقيق الخارجي وتعزيز السيطرة اليدوية السيادية على الأسواق. بالنسبة لأسواق رأس المال الدولية، تُعد هذه إشارة هبوطية واضحة تدل على ارتفاع حاد في المخاطر السيادية والتنظيمية. وقد يبدأ المستثمرون المؤسسيون في إعادة تقييم واسعة النطاق لقيم الأصول ومراجعة الاستراتيجيات طويلة الأجل في المنطقة. في سياق جيوسياسي، يؤدي إضعاف المؤسسات الداخلية الإندونيسية إلى تغيير البنية الأمنية في منطقة المحيط الهندي والهادئ الكبرى. وتخاطر البلاد بفقدان مكانتها كثقل استثماري موثوق وسط التنافس المتزايد بين الولايات المتحدة والصين. وتشمل العواقب الاقتصادية المحتملة تباطؤاً في تدفقات الاستثمار الأجنبي المباشر وتوقف مشاريع البنية التحتية الرئيسية. ويكمن الخطر أيضاً في ارتفاع محتمل للتوتر الاجتماعي الخفي بسبب عدم كفاءة الإدارة العامة. ويهدد استمرار التهرب من الإصلاحات الهيكلية الاقتصاد الإندونيسي بالركود المنهجي.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-eco-4">
+          <button class="article-trigger" id="btn-eco-4" aria-expanded="true" aria-controls="body-eco-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">عرض "باوربوينت" من متمردي الكونغو</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-eco-4" role="region" aria-labelledby="btn-eco-4">
+            <div class="body-inner">
+              <p>ظاهرة غير متوقعة في منطقة الصراع الممتد في الكونغو تتمثل في استخدام الجماعات المسلحة لأدوات الشركات الحديثة، مثل عروض "باوربوينت". يشير هذا الواقع إلى تحول عميق في أساليب إدارة الحروب الهجينة والسعي للحصول على تمويل من قبل جهات فاعلة غير تقليدية. ويفوز المتمردون أنفسهم من هذا، حيث يكتسبون القدرة على جذب استثمارات الظل والدعم العسكري الخارجي باحترافية. الجانب الخاسر هو الحكومة الكونغولية الرسمية والسكان المدنيون، الذين يعانون من الإطالة التجارية للمواجهة المسلحة. الدافع الرئيسي للمسلحين هو إضفاء الشرعية على وضعهم أمام الرعاة الدوليين والشركات عبر الوطنية المهتمة بالمواد الخام. وهذه إشارة صارخة للمؤسسات الدولية بأن اقتصاد الظل للصراعات يصل إلى مستوى جديد تماماً من المأسسة. بالنسبة للدوائر السياسية، يعني هذا انهيار الأساليب التقليدية للعزل الدبلوماسي للتشكيلات المسلحة غير القانونية. ويتلقى المستثمرون في الصناعة الاستخراجية بالمنطقة تحذيراً حول ظهور شركاء بديلين على درجة عالية من التنظيم للسيطرة بالقوة على المناجم. ويكمن الخطر الرئيسي في أن يؤدي هذا الطابع المؤسسي للإرهاب إلى جذب رأس المال الاستثماري المنهجي إلى المناطق الرمادية للحرب. ونتيجة لذلك، قد تصبح الصراعات المحلية أطول أمداً، حيث تكتسب مبررات تجارية صلبة. وتثبت آليات القانون الدولي عجزها أمام هذا التكيف التسويقي والتشغيلي من قبل المسلحين. وعلى المدى الطويل، يهدد هذا بمحو كامل للحدود بين ضغوط الموارد وتمويل الإرهاب.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-eco-5">
+          <button class="article-trigger" id="btn-eco-5" aria-expanded="true" aria-controls="body-eco-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">نقص علم الرضاعة: عدم كفاية الرضاعة الطبيعية</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-eco-5" role="region" aria-labelledby="btn-eco-5">
+            <div class="body-inner">
+              <p>تتجاوز مشكلة العجز العالمي في الرضاعة الطبيعية الحدود الصارمة للطب، لتتحول إلى تحدٍ خطير لسياسة الاقتصاد الكلي والسياسة الاجتماعية. والعامل الرئيسي هو النقص المنهجي في الدعم المؤسسي للأمومة وسط المتطلبات القاسية لسوق العمل الحديث. وفي هذا الموقف، المستفيدون الواضحون هم الشركات عبر الوطنية التي تنتج كميات هائلة من حليب الأطفال الصناعي وبدائله. والخاسرون الأساسيون هم أنظمة الصحة العامة والأسر التي تواجه تدهوراً طويل الأمد في صحة الرضع. ويكمن أساس المشكلة في مصالح أصحاب العمل في الشركات الذين يسعون إلى أقصى حد لتقليص إجازات الأمومة وتكاليف البنية التحتية الاجتماعية. بالنسبة للمؤسسات السياسية، تُعد هذه إشارة سلبية تدل على تعارض أساسي بين الأهداف الديموغرافية والكفاءة الاقتصادية للدولة. والإشارة الموجهة لأسواق الرعاية الصحية هي توقع ارتفاع الطلب على خدمات طب الأطفال والأدوية الدوائية لعلاج قصور المناعة المبكر. وعلى العكس من ذلك، تتلقى صناعة أغذية الأطفال تأكيداً قاطعاً على النمو المستدام في حصتها السوقية لعقود قادمة. وترتبط المخاطر الرئيسية بتدهور جودة رأس المال البشري على المستوى الكلي بسبب انخفاض حرج في المناعة الأساسية بين الأجيال الجديدة. وعلاوة على ذلك، يفاقم الوضع من عدم المساواة الاجتماعية والاقتصادية، حيث تصبح التغذية المبكرة الجيدة امتيازاً حصرياً للطبقات الميسورة. ويجب أن تدرك الهيئات الحكومية أن الافتقار إلى ترتيبات عمل مرنة يضرب المورد البيولوجي الوطني مباشرة. وبدون إصلاح جذري لتشريعات العمل، فإن هذه الأزمة المؤسسية الخفية ستتفاقم بشكل كبير.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ FRONTLINE ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>FRONTLINE</h2>
+          <div class="outlet-tags">POLITICS • ECOLOGY</div>
+        </div>
+
+        <article class="article-item" id="art-fl-1">
+          <button class="article-trigger" id="btn-fl-1" aria-expanded="true" aria-controls="body-fl-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">ثم فازوا: خمسة انتخابات للجمعية وما يكمن وراء النتائج</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-fl-1" role="region" aria-labelledby="btn-fl-1">
+            <div class="body-inner">
+              <p>أكدت نتائج الانتخابات الإقليمية في البنغال الغربية وتاميل نادو وكيرالا وآسام وبودوتشيري الهيمنة المطلقة للأجندات المحلية على الروايات السياسية الوطنية. وظلت العوامل الرئيسية في تشكيل المشهد السياسي هي كفاءة تقديم المنافع الاجتماعية والمراعاة الدقيقة للنسب الطبقية المعقدة. ونتيجة لذلك، تبرز النخب الإقليمية كمستفيد رئيسي، حيث نجحت في الدفاع عن مواقفها السيادية ضد هجوم الآلات الانتخابية الفيدرالية. والجانب الخاسر هو الحزب الوطني الحاكم، الذي باءت محاولاته لتوحيد الساحة السياسية بقوة بالفشل. استند دافع الناخبين إلى حل مشاكل اقتصادية ملموسة والدفاع القوي عن الهوية الثقافية الإقليمية. بالنسبة للمؤسسة السياسية الهندية، تُعد هذه إشارة واضحة بأن التوحيد الفيدرالي له حدود مؤسسية لا يمكن تجاوزها. ويتلقى المستثمرون المؤسسيون تأكيداً إيجابياً على مرونة نموذج الحكم اللامركزي واستقلال الولايات. أما الإشارة الموجهة للأسواق فهي مختلطة: فمن ناحية، ينخفض خطر احتكار السلطة الاستبدادي؛ ومن ناحية أخرى، تصبح الإصلاحات السريعة على مستوى البلاد أكثر تعقيداً. وسيتعين على الشركات الاستمرار في بناء سلاسل ضغط معقدة ومتعددة المستويات، والتفاوض مباشرة مع إدارات إقليمية محددة. يكمن الخطر السياسي الرئيسي في التعزيز المحتمل للاتجاهات الانفصالية وتفاقم الصراعات على الميزانية بين المركز والولايات. وقد تتجلى العواقب المالية في زيادة الإنفاق الشعبوي محلياً، حيث تم تأمين الانتصارات تحديداً من خلال وعود ببرامج اجتماعية. وعلى المدى الطويل، يتطلب الوضع من الحكومة المركزية تطوير آليات أكثر دقة وغير توجيهية لدمج الاقتصادات الإقليمية.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-fl-2">
+          <button class="article-trigger" id="btn-fl-2" aria-expanded="true" aria-controls="body-fl-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">حزب "عام آدمي": المكنسة بحاجة إلى تنظيف أيضاً</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-fl-2" role="region" aria-labelledby="btn-fl-2">
+            <div class="body-inner">
+              <p>سلطت الأزمة داخل حزب "عام آدمي" (AAP) الضوء على مشاكل إدارية منهجية في منظمة بنت رأسمالها السياسي في الأصل على خطاب صارم مناهض للفساد. الحقيقة الأساسية هي الحاجة الملحة لتطهير داخلي جذري للحزب الذي يجب أن يُطبّق الآن "مكانسه" الرمزية على جهازه الخاص. ويفوز المنافسون السياسيون التقليديون في هذا الموقف، حيث يكتسبون فرصة مشروعة لتشويه سمعة المنافس الرئيسي على دور السلطة الأخلاقية للأمة. ويخسر مؤيدو السياسات الديمقراطية البديلة والناخبون الحضريون، الذين تحطمت توقعاتهم العالية لحكم شفاف. ينحصر دافع قيادة الحزب حالياً في البقاء البيروقراطي ومحاولات إعادة بناء الهيكل الحزبي في ظل ضرر بالغ بالسمعة. بالنسبة للمؤسسات الديمقراطية، تُعد هذه إشارة سلبية للغاية، توضح أن حتى الحركات الإصلاحية المثالية تستوعب بسرعة عيوب النظام القديم. في السوق السياسية، يقلل هذا الحدث بحدة من قيمة أي علامات تجارية "بديلة"، مما يرفع العلاوة الانتخابية لقدرة الأحزاب الراسخة على التنبؤ. وينظر المستثمرون المؤسسيون إلى هذه الأزمة على أنها انخفاض في مخاطر الاضطرابات التنظيمية المفاجئة، حيث يفقد الشعبويون المتطرفون نفوذهم. الخطر الرئيسي هو اللامبالاة العميقة للطبقة المتوسطة الحضرية المتعلمة، التي قد تنسحب تماماً من العملية الانتخابية. وعلى المدى الطويل، يهدد هذا بالعودة إلى نظام المحسوبية العشائرية الكلاسيكي لإدارة منطقة العاصمة والأراضي المحيطة بها. قد تؤدي عمليات التطهير الداخلية في الجهاز الحزبي إلى انقسام لا رجعة فيه وفقدان السيطرة على التدفقات المالية البلدية. هذا مثال كلاسيكي على التدهور المؤسسي، حيث يتم احتكار أدوات مكافحة الفساد وتصبح رهائن بحد ذاتها.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-fl-3">
+          <button class="article-trigger" id="btn-fl-3" aria-expanded="true" aria-controls="body-fl-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">لداخ: ترتيب غير ديمقراطي</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-fl-3" role="region" aria-labelledby="btn-fl-3">
+            <div class="body-inner">
+              <p>يتميز نظام الحكم الحالي في منطقة لداخ الاستراتيجية بأنه نموذج غير ديمقراطي إلى حد كبير ينتهك عمداً الحقوق الأساسية للسكان المدنيين المحليين. ويتمثل العامل الرئيسي في التوتر المتزايد في حرمان المنطقة من التمثيل الكامل والاستقلال المالي المؤسسي. المستفيدون غير المشروطين في هذا الشكل هم الهياكل البيروقراطية المركزية في نيودلهي، التي تعزز سيطرتها المباشرة والمطلقة على الإقليم. أما الطرف الخاسر فهو السكان الأصليون، المستبعدون إدارياً من عمليات صنع القرار السيادي فيما يتعلق بتخصيص الموارد والأراضي المحلية. ويُملى دافع المركز الفيدرالي بالكامل من خلال اعتبارات الأمن القومي وعسكرة المنطقة الحدودية على حساب القانون المدني الداخلي. وتُعد هذه إشارة سلبية للغاية للمؤسسات القضائية والحقوقية، حيث تشهد على استعداد الدولة للتضحية بالديمقراطية من أجل السيطرة الجيوسياسية الشاملة. بالنسبة للأسواق السياسية، يُعد هذا مؤشراً واضحاً على تصاعد التقلبات في المناطق الحدودية، حيث يمكن أن تؤدي الإملاءات الإدارية الصارمة إلى إثارة أعمال شغب في أي لحظة. ويتلقى المستثمرون في السياحة والبنية التحتية المحلية إشارة على وجود مخاطر باهظة مرتبطة بغياب قاعدة تعاقدية محلية شرعية. الخطر الرئيسي هو التطرف السريع لسكان لداخ، الذين أظهروا تاريخياً ولاءً عالياً للحكومة الهندية المركزية. إن القمع القسري والمصطنع للنشاط السياسي والاقتصادي سيؤدي حتماً إلى زعزعة استقرار اجتماعي خفي ولكنه قوي في المنطقة. وعلى المدى الطويل، فإن هذا الخلل المؤسسي المُصطنع يضعف بشكل حرج موقف الهند في مواجهة عسكرية افتراضية مع الدول المجاورة. إن الحكم من خلال الإدارة الاستعمارية المباشرة في منطقة عرقية معقدة يثبت فشله الاستراتيجي المطلق.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-fl-4">
+          <button class="article-trigger" id="btn-fl-4" aria-expanded="true" aria-controls="body-fl-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">البنجاب: الجريمة والأسطورة والدولة</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-fl-4" role="region" aria-labelledby="btn-fl-4">
+            <div class="body-inner">
+              <p>تتفاقم أزمة حكم غير مسبوقة في البنجاب، حيث تتشابك مشكلة الجريمة المنظمة عضوياً مع الأساطير الاجتماعية والخلل الوظيفي في أجهزة الدولة. الحدث الرئيسي هو عدم قدرة السلطات بحكم الواقع على الحفاظ على احتكار العنف، والتخلي عن المبادرة العملياتية لشبكات إجرامية مدججة بالسلاح. وتفوز هياكل الظل وسلطات القوة المحلية في هذا السياق، مستفيدة بشكل متسارع من نفوذها بسبب فساد وعدم كفاءة الشرطة المحلية. وتخسر مؤسسات الاقتصاد القانوني والمواطنون العاديون، الذين يضطرون إلى دفع إيجار مزدوج، إجرامي وبيروقراطي، بشكل يومي. يرتبط الدافع الاستراتيجي للجماعات الإجرامية بفرض سيطرة محكمة على التدفقات اللوجستية واقتصاد الظل في أغنى منطقة زراعية في البلاد. بالنسبة لمؤسسات الدولة، تُعد هذه إشارة إلى فشل منهجي حرج في بنية إنفاذ القانون وتغلغل أعمق للجريمة في المراتب العليا للسلطة. وعلى مستوى الاقتصاد الكلي، يعمل هذا كعلامة توقف تام لأي استثمار رأسمالي جاد في صناعة وتكنولوجيا الولاية. وتُضطر الشركات القانونية إلى إدراج تكاليف متضخمة للأمن الخاص والمدفوعات التشغيلية غير الرسمية في نماذجها المالية. يكمن خطر الدولة الرئيسي في الاندماج الحتمي لعصابات الجريمة المعززة مع الحركات الإقليمية الانفصالية أو السياسية المتطرفة. إن إضفاء الطابع الأسطوري والرومانسي على المجرمين في الوعي الجماهيري يخلق سابقة اجتماعية مدمرة للشباب المحرومين من آفاق الكسب القانوني. وإذا لم تستعد الدولة الفيدرالية سلطتها المؤسسية بشكل عاجل، فإن المنطقة تخاطر بالتحول إلى منطقة اقتصاد إجرامي سيادي. وهذا يهدد مباشرة الأمن اللوجستي والغذائي الداخلي للجزء الشمالي بأكمله من الدولة الهندية.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-fl-5">
+          <button class="article-trigger" id="btn-fl-5" aria-expanded="true" aria-controls="body-fl-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">خطة غير سليمة لسلسلة التلال المركزية في دلهي</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-fl-5" role="region" aria-labelledby="btn-fl-5">
+            <div class="body-inner">
+              <p>تمثل مبادرات التحول التجاري لمنطقة غابات "سنترال ريدج" (Central Ridge) في نيودلهي مشروعاً مدمراً بيئياً وغير سليم من الناحية الحضرية. الحقيقة الأساسية هي محاولة هجومية لتطوير البنية التحتية لآخر منطقة خضراء عازلة كبيرة في العاصمة، متجاوزة اللوائح البيئية الحالية. المستفيدون الرئيسيون من المشروع هم بشكل علني شركات البناء وجماعات الضغط من المطورين الذين يسعون للوصول إلى أراضي العاصمة النادرة والباهظة الثمن. الخاسر غير المشروط هو النظام البيئي الهش للمدينة وملايين من سكانها، الذين يفقدون بشكل دائم حاجز حماية بالغ الأهمية ضد تلوث الهواء. يعتمد دافع المسؤولين الذين يضغطون من أجل هذه الخطة بتهكم على تحقيق مكاسب رأسمالية قصيرة الأجل من الأراضي وامتصاص ميزانيات ضخمة للبنية التحتية. بالنسبة للمؤسسات المدنية، تُعد هذه إشارة مقلقة للغاية بأن المعايير البيئية الصارمة يتم تفكيكها بسهولة تحت ضغط مصالح رأس المال العقاري الكبير. في سوق العقارات بالعاصمة، يشير هذا إلى استعداد السلطات الفاسدة لمراجعة أي تقسيم للمناطق لصالح التنمية العمرانية الكثيفة. بالنسبة لمستثمري الحوكمة البيئية والاجتماعية وحوكمة الشركات (ESG) الغربيين، فإن المشاركة في مثل هذه المشاريع ستعني خسائر فادحة في السمعة وعقبات محتملة من قبل الهيئات التنظيمية البيئية الدولية. تشمل العواقب المباشرة المحتملة تدهوراً كارثياً لا رجعة فيه في المناخ المحلي واستنزاف إمدادات المياه الجوفية في واحدة من أكثر مدن العالم كثافة سكانية. إن خطر العوائق القضائية الحتمية لسنوات طويلة للمشروع من قبل نشطاء البيئة يجعل أي استثمارات في هذه المنطقة أصولاً شديدة السمية. يوضح هذا الصراع على الأراضي بوضوح وجود أزمة مؤسسية في التخطيط الحضري، حيث يقضي الربح اللحظي تماماً على أهداف التنمية المستدامة. وعلى المدى الطويل، يؤدي اتخاذ مثل هذه القرارات التخطيطية الحضرية إلى انخفاض سريع في الجاذبية الاستثمارية العالمية لنيودلهي.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ THE WEEK ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE WEEK</h2>
+          <div class="outlet-tags">US ELECTIONS • GLOBAL ECONOMY • MEDIA • GEOPOLITICS</div>
+        </div>
+
+        <article class="article-item" id="art-wk-1">
+          <button class="article-trigger" id="btn-wk-1" aria-expanded="true" aria-controls="body-wk-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">محو مقاطعات الأقليات</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wk-1" role="region" aria-labelledby="btn-wk-1">
+            <div class="body-inner">
+              <p>تؤدي المبادرات التشريعية العدوانية لمحو دوائر تصويت الأقليات إلى تغيير جوهري في بنية التمثيل الانتخابي في الولايات المتحدة. الحقيقة الأساسية هي التغييرات الإدارية المتعمدة للحدود (جيريمانديرنج) والتي تهدف إلى التخفيف المتعمد للوزن السياسي للجماعات العرقية والإثنية. المستفيد الرئيسي من هذه العملية هو الحزب السياسي المهيمن في الولاية، الذي يرسخ بشكل مصطنع ودائم أغلبيته المطلقة في الهيئات التشريعية. وتخسر الأقليات القومية، حيث يتم تقليص قدرتها الدستورية على التأثير في السياسة والضغط القانوني من أجل مصالح ميزانيتها إلى هامش خطأ إحصائي. الدافع الأساسي للمبادرين هو الاحتفاظ الإداري البحت بالسلطة وسط اتجاهات ديموغرافية غير مواتية وتحولات بين الأجيال. بالنسبة للمؤسسات السياسية الفيدرالية، تُعد هذه إشارة خطيرة للغاية على تدهور الضوابط والتوازنات الديمقراطية والانتقال إلى الحكم التلاعبي. على مستوى السوق والبلديات، سيعني هذا انخفاضاً حاداً في تمويل البنية التحتية والبرامج الاجتماعية في المناطق ذات الكثافة العالية للأقليات. يجب على المستثمرين المؤسسيين أن يأخذوا في الحسبان خطراً دائماً بعدم الاستقرار القانوني، حيث سيتم الطعن في مثل هذه القرارات إلى ما لا نهاية وصولاً إلى المحكمة العليا. يتمثل خطر الدولة الرئيسي في التطرف العميق للمجموعات الديموغرافية المهمشة، التي تفقد الثقة بشكل دائم في الأدوات الانتخابية العادلة. وعلى المدى الطويل، يضخم هذا بشكل جذري الاستقطاب السياسي الداخلي ويقلل بشكل حرج من مرونة نظام الحكم في البلاد. ويؤدي الاستبعاد المنهجي لطبقات انتخابية بأكملها من عملية اتخاذ القرارات التوزيعية إلى أزمة شرعية حادة للسلطة الإقليمية. وفي النهاية، فإن محاولات النخبة لتجميد هيمنتها السياسية إدارياً تخلق أرضية مثالية لصراعات مدنية واسعة النطاق.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wk-2">
+          <button class="article-trigger" id="btn-wk-2" aria-expanded="true" aria-controls="body-wk-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">أنتِ تهمين يا مياه</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wk-2" role="region" aria-labelledby="btn-wk-2">
+            <div class="body-inner">
+              <p>أصبحت ندرة المياه المتزايدة والمنافسة الشرسة على تخصيصها العنصر المركزي والأكثر كثافة في أجندة الاقتصاد الكلي العالمي. الحدث الرئيسي هو تحول مفاهيمي من النظر إلى المياه ليس فقط كحق أساسي من حقوق الإنسان، بل كأصل استراتيجي ذي هامش ربح مرتفع. المستفيدون الرئيسيون من هذه الأساليب الجديدة هم الشركات عبر الوطنية الكبيرة التي تمتلك تقنيات التنقية والمشترين المؤسسيين لحقوق المياه. وتخسر المناطق الزراعية التقليدية والمستهلكون العاديون، حيث سترتفع تكلفة هذا المورد الحيوي بشكل مضاعف دون بدائل. دافع المضاربين في السوق هو تعظيم الربح من خلال الاستفادة من الندرة المادية وسط تغير مناخي عالمي لا رجعة فيه. بالنسبة لمؤسسات الدولة، يمثل هذا جرس إنذار يشير إلى الحاجة الملحة لفرض حصص إدارية صارمة والتأميم المحتمل للبنية التحتية للمياه. في الأسواق المالية، تتشكل دورة فائقة جديدة الآن: تتحول المياه قانونياً إلى سلعة استثمارية، قابلة للمقارنة في الربحية والأهمية بالمواد الهيدروكربونية. ويتلقى القطاع الزراعي تحذيراً نهائياً من زيادة انفجارية وشيكة في التكاليف التشغيلية وضرورة الانتقال الطارئ إلى الزراعة المائية ذات الدورة المغلقة. تكمن المخاطر الرئيسية في الجغرافيا السياسية، حيث يؤدي استخدام المسطحات المائية العابرة للحدود بشكل متزايد إلى إثارة اشتباكات مسلحة مباشرة بين الدول. داخل الدول النامية، يهدد تسويق وخصخصة الوصول إلى مياه الشرب بإشعال أعمال شغب اجتماعية عارمة لا يمكن السيطرة عليها. وسيؤدي الافتقار إلى إطار تنظيمي متوازن دولياً إلى جعل قطاع المياه منطقة للمضاربات في الأسهم الأكثر عدوانية خلال العقد. ولن يتم تحديد الموارد السيادية والسياسية للدولة في السنوات القادمة من خلال احتياطيات النفط، بل حصرياً من خلال التوازنات المائية الداخلية.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wk-3">
+          <button class="article-trigger" id="btn-wk-3" aria-expanded="true" aria-controls="body-wk-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">هل هذا هو كوفيد الجديد؟ تفشي فيروس هانتا على متن السفينة إم في هونديوس</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wk-3" role="region" aria-labelledby="btn-wk-3">
+            <div class="body-inner">
+              <p>أثار تفشي فيروس هانتا المفاجئ على متن السفينة السياحية إم في هونديوس نقاشات سوقية مذعورة حول مدى استعداد العالم لمواجهة جائحة مدمرة أخرى. الحقيقة الأساسية هي الإجلاء السريع وغير المسبوق للركاب، مما كشف مرة أخرى عن الهشاشة الحرجة لبروتوكولات السلامة البيولوجية في لوجستيات السياحة. ويشمل المستفيدون في هذا الموقف على الفور شركات الأدوية والشركات المصنعة لمعدات الحماية الطبية، التي ارتفعت أسهمها بناءً على توقعات مضاربة. وتصبح شركات السياحة البحرية والطيران عبر الوطنية تلقائياً هي الخاسر، حيث تخاطر مرة أخرى بإغلاقات تدمر الأعمال. ينحصر دافع الهيئات التنظيمية الحكومية في أقصى درجات التأمين المفرط والاحتواء الصارم لأي تهديد محتمل لمنع الاتهامات السياسية بالتقاعس الجنائي. الإشارة الموجهة للأسواق متوترة للغاية: يقوم المستثمرون الخوارزميون على الفور بتسعير الحد الأقصى للقسط لخطورة شلل التجارة العالمية. وعلى العكس من ذلك، تتلقى مؤسسات الصحة العالمية ذريعة مثالية للمطالبة بزيادة الميزانيات بشكل كبير وتوسيع سلطات الرقابة فوق الوطنية. ستُضطر شركات التأمين الكبرى إلى مراجعة شروط العقود الأساسية بشكل عاجل، مع استبعاد أو زيادة تكلفة التغطية بشكل كبير لأي قوة قاهرة وبائية. الخطر الاقتصادي الكلي الرئيسي هو الانهيار المتسلسل المحتمل لسلاسل التوريد عبر الحدود بسبب ردود الفعل المذعورة غير المنسقة من قبل الحكومات الوطنية. وتهدد العواقب الاجتماعية لمثل هذه الحوادث بدورة مدمرة جديدة من الأوبئة المعلوماتية والذهان الجماعي، مما يقوض بشكل قاطع الثقة في الطب الرسمي. حتى لو تم احتواء هذا التفشي المحدد بنجاح، فإن السابقة نفسها تظهر عدم التسامح المطلق للاقتصاد المعولم مع مسببات الأمراض الجديدة. ويملي الوضع حاجة ملحة لتغيير جذري في بنية الأمن المعدي بأكملها في سفر الركاب الدولي.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wk-4">
+          <button class="article-trigger" id="btn-wk-4" aria-expanded="true" aria-controls="body-wk-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">تيد تيرنر: قطب الإعلام الذي أعاد صياغة الأخبار</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wk-4" role="region" aria-labelledby="btn-wk-4">
+            <div class="body-inner">
+              <p>يمثل رحيل تيد تيرنر، قطب الإعلام الذي غير بشكل جذري مشهد صناعة الأخبار، النهاية التاريخية القاطعة لحقبة في تشكيل الأجندة السياسية. الحقيقة الأساسية لإرث تيرنر هي التسويق الناجح لمفهوم البث الإخباري العالمي على مدار 24 ساعة، مما أدى إلى تسريع عمليات صنع القرار السياسي إلى الأبد. لعقود من الزمن، كانت النخب السياسية هي المستفيدة من هذا النموذج العدواني، حيث اكتسبت أداة غير مسبوقة للتأثير العاطفي اللحظي على عقول الناخبين عالمياً. وأثبتت مؤسسات التحليل الأكاديمي العميق والدبلوماسية التقليدية أنها الخاسرة، حيث تم تقليل قيمة عملها الدؤوب تماماً بسبب ضغط الأحداث الإخبارية العابرة والمثيرة. كان دافع تيرنر الأولي تجارياً بحتاً—احتكار اهتمام الجمهور وميزانيات المعلنين من خلال محتوى قلق مستمر يتم الحفاظ عليه بشكل مصطنع. بالنسبة لأسواق الأسهم الحديثة، يشير هذا النعي إلى أزمة عميقة في الشكل التلفزيوني الكلاسيكي، مما يؤدي بسرعة إلى التنازل عن القيمة الرأسمالية للشبكات الاجتماعية الخوارزمية. وتضطر المؤسسات السياسية إلى الاعتراف بألم بأن عصر احتكار المعلومات المركزي والخاضع للرقابة الذي أنشأه مثل هؤلاء الأقطاب قد ولى إلى الأبد. يقوم المستثمرون في قطاع الإعلام بإعادة تقييم واسعة النطاق لتقييم شركات الأخبار التقليدية، مدركين تماماً الاستنفاد التاريخي الكامل لنموذج أعمالهم الثقيل. الخطر هو أن التشرذم الحالي للمشهد الإعلامي في أعقاب انهيار الإمبراطوريات التلفزيونية يؤدي إلى تدمير خطير لنظرة موحدة قائمة على التوافق بين الجمهور. إن غياب أصحاب رؤى إعلامية جديدة على نطاق مماثل يترك سوق المعلومات في معركة فوضوية وغير منضبطة، وغالباً ما تكون مدمرة من أجل النقرات. إرث تيرنر متناقض بشدة: لقد وحّد العالم تكنولوجياً بتيار من الأخبار، لكنه أرسى أسساً صلبة لتصور مجتزأ وسطحي للواقع. إن وفاة مؤسس شبكة سي إن إن (CNN) تمثل رمزياً نقطة اللاعودة المطلقة للعصر الذهبي للضغط السياسي التلفزيوني المباشر.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wk-5">
+          <button class="article-trigger" id="btn-wk-5" aria-expanded="true" aria-controls="body-wk-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">من يملك الأوراق؟ لماذا لن تقبل إيران شروط ترامب</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wk-5" role="region" aria-labelledby="btn-wk-5">
+            <div class="body-inner">
+              <p>يشير رفض طهران الأساسي لقبول الشروط القاسية لإدارة دونالد ترامب القادمة إلى ركود خطير وطويل الأمد في اللعبة الدبلوماسية الشرق أوسطية. الحقيقة الأساسية هي عدم استعداد إيران المؤسسي لتقديم أي تنازلات استراتيجية أحادية الجانب تحت ضغط غير مسبوق من إنذارات العقوبات الأمريكية. ويفوز المنافسون المباشرون للولايات المتحدة، مثل الصين وروسيا، في هذا المأزق الجيوسياسي، حيث يكتسبون الفرصة لشراء نفط رخيص وزيادة نفوذهم في الخليج العربي. وتخسر المؤسسات السياسية الأوروبية وسوق الطاقة العالمية، وتبقى رهينة للتهديد المستمر بالتصعيد العسكري حول مضيق هرمز الحيوي. يعتمد دافع القيادة الإيرانية بالكامل على الحاجة إلى الحفاظ على الشرعية السياسية المحلية للنظام وحماية برنامجه النووي باعتباره الضامن الحقيقي الوحيد للسيادة. بالنسبة للمؤسسة السياسية في واشنطن، يشير عناد طهران إلى فشل كامل لاستراتيجية "الضغط الأقصى" واستنفاد أدوات الابتزاز الاقتصادي المتاحة. في أسواق الهيدروكربونات، تُعد هذه إشارة صعودية أساسية طويلة الأجل، تجبر المتداولين على تسعير علاوة جيوسياسية عالية باستمرار في كل برميل نفط. ويتلقى المستثمرون المؤسسيون تأكيداً واضحاً على عدم الاستقرار الدائم في الشرق الأوسط، مما يحفز هروب رأس المال الحر إلى الملاذات الآمنة التقليدية. وترتفع مخاطر السيناريو العسكري المباشر بشكل مضاعف، حيث إن الافتقار إلى مساحة للمناورة الدبلوماسية يترك الأطراف المتصارعة بخيارات قوة حصرية. بالنسبة لإسرائيل والملكيات العربية الموالية، يعني هذا المأزق حتمية اندلاع دورة جديدة من سباقات التسلح المدمرة وتصعيد حاد للصراعات بالوكالة على حدودها. توضح إيران للعالم أجمع أنها مستعدة لتحمل أي ضرر اقتصادي كارثي من أجل البقاء الاستراتيجي ووضع القوة الإقليمية. وبالتالي، فإن بنية حظر الانتشار النووي العالمية على وشك الانهيار النهائي الذي لا رجعة فيه تحت وطأة التناقضات غير القابلة للحل.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+    </main>
+  </div><!-- /.container -->
+
+  <!-- ── Newsletter ── -->
+  <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
+    <h3 class="nebula-title" id="newsletter-heading">وصول آمن للتقرير</h3>
+    <div class="form-container">
+      <div class="newsletter-form-wrapper">
+        <form class="newsletter-form" id="newsletterForm"
+              action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
+          <div class="input-group">
+            <div class="nebula-input">
+              <label for="emailInput" class="sr-only">البريد الإلكتروني</label>
+              <input type="email" id="emailInput" name="email" autocomplete="email"
+                     class="input" placeholder="البريد الإلكتروني"
+                     aria-describedby="formErrorMsg" />
+              <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <button class="subscribe-button" type="submit">اشتراك</button>
+          </div>
+          <div class="form-error-msg" id="formErrorMsg" role="alert" aria-live="polite"></div>
+        </form>
+
+        <div class="success-message" id="successMessage" role="alert" aria-live="assertive">
+          <div style="width:70px;height:70px;margin:0 auto 20px;">
+            <svg viewBox="0 0 52 52" aria-hidden="true">
+              <circle class="checkmark-circle" cx="26" cy="26" r="25"/>
+              <path   class="checkmark-check"  fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+          <h4 style="font-family:'Cairo';margin-bottom:5px;">تم منح الوصول</h4>
+          <p  style="font-size:14px;color:#4B5563;">تم إنشاء قناة مشفرة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Deep Press Analysis. جميع الحقوق محفوظة.</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="https://deeppressanalysis.com/ar/archive" class="btn-text">الوصول للأرشيف</a>
+      <a href="https://deeppressanalysis.com/manifesto"  class="btn-text">البيان</a>
+    </nav>
+
+    <!-- ── Web3 Support Section ── -->
+    <div class="container" style="padding-top: 40px; padding-bottom: 0;">
+      <div class="support-section">
+        <div class="support-title-wrapper">
+          <div class="live-dot"></div>
+          <div class="support-title">دعم المشروع المستقل</div>
+        </div>
+
+        <div class="crypto-grid">
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name eth">Ethereum</span>
+            </div>
+            <input type="text" class="crypto-address" value="0x7b8318ce0788cAdDF398035A65EFDB30a262cae5" aria-label="عنوان محفظة الإيثيريوم" readonly />
+          </div>
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name btc">Bitcoin</span>
+            </div>
+            <input type="text" class="crypto-address" value="bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu" aria-label="عنوان محفظة البيتكوين" readonly />
+          </div>
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name sol">Solana</span>
+            </div>
+            <input type="text" class="crypto-address" value="98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq" aria-label="عنوان محفظة سولانا" readonly />
+          </div>
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name trx">Tron</span>
+            </div>
+            <input type="text" class="crypto-address" value="TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z" aria-label="عنوان محفظة ترون" readonly />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden SEO Links -->
+    <div style="display: none;" aria-hidden="true">
+      <a href="https://deeppressanalysis.com/editorial-policy.html">السياسة التحريرية</a>
+    </div>
+  </footer>
+
+  <!--
+  ════════════════════════════════════════════════════════════════════════
+  SEO FIX #1: Accordion JS — контент открыт по умолчанию.
+  JS добавляет класс .js-accordion на <html>, и только ТОГДА CSS
+  скрывает тела статей. Googlebot видит страницу с открытым контентом.
+
+  SEO FIX #7: Языковой редирект — без localStorage.
+  Вместо этого использовать серверный редирект по Accept-Language.
+  Пример для Nginx:
+    map $http_accept_language $lang {
+      ~^ru  /ru/;  ~^uk  /ua/;  ~^de  /de/;
+      ~^ar  /ar/;  ~^es  /es/;  default /en/;
+    }
+    if ($request_uri = /) { return 302 $scheme://$host$lang; }
+  JS-редирект ниже — только запасной вариант, без localStorage.
+  ════════════════════════════════════════════════════════════════════════
+  -->
+  <script nonce="{{NONCE}}">
+  (function () {
+    'use strict';
+
+    /* ─── SEO FIX #1: Активируем аккордеон только после загрузки JS ─── */
+    document.documentElement.classList.add('js-accordion');
+
+    /* ─── SEO FIX #7: Языковой редирект — без localStorage ─────────────
+       РЕКОМЕНДАЦИЯ: Реализовать на сервере (Nginx/Apache/Node).
+       Этот JS-редирект — только запасной вариант.
+       Срабатывает только на корневом пути /, не на /ar/ и т.д.
+    ──────────────────────────────────────────────────────────────────── */
+    (function () {
+      try {
+        var path = window.location.pathname;
+        var langPaths = ['/ru/', '/ua/', '/de/', '/ar/', '/es/', '/en/'];
+        /* Не редиректим, если уже на языковой странице */
+        if (langPaths.some(function (p) { return path === p || path.startsWith(p); })) return;
+        /* Редиректим только с корня */
+        if (path !== '/' && path !== '') return;
+
+        var lang = String(navigator.language || '').substring(0, 2).toLowerCase();
+        var map  = { ru: '/ru/', uk: '/ua/', ua: '/ua/', de: '/de/', ar: '/ar/', es: '/es/' };
+        if (map[lang]) {
+          window.location.replace(map[lang]);
+        }
+      } catch (_) {}
+    })();
+
+    /* ─── Accordion Logic ─────────────────────────────────────────────── */
+    function closeItem(item) {
+      var body = item.querySelector('.article-body');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(function () { body.style.maxHeight = '0px'; });
+      item.classList.remove('active');
+      item.querySelector('.article-trigger').setAttribute('aria-expanded', 'false');
+    }
+
+    function openItem(item) {
+      var body = item.querySelector('.article-body');
+      item.classList.add('active');
+      item.querySelector('.article-trigger').setAttribute('aria-expanded', 'true');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+
+    function toggleArt(btn) {
+      var parent   = btn.closest('.article-item');
+      var isActive = parent.classList.contains('active');
+      document.querySelectorAll('.article-item').forEach(function (it) {
+        if (it !== parent) closeItem(it);
+      });
+      isActive ? closeItem(parent) : openItem(parent);
+    }
+
+    document.querySelectorAll('.article-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () { toggleArt(btn); });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.target.classList.contains('article-trigger') && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        toggleArt(e.target);
+      }
+    });
+
+    /* ─── Form Logic ──────────────────────────────────────────────────── */
+    var form           = document.getElementById('newsletterForm');
+    var successMessage = document.getElementById('successMessage');
+    var formErrorMsg   = document.getElementById('formErrorMsg');
+    var emailInput     = document.getElementById('emailInput');
+    var submitBtn      = form.querySelector('button[type="submit"]');
+
+    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+
+    function showError(msg) {
+      emailInput.classList.add('input-error');
+      formErrorMsg.textContent = msg;
+      formErrorMsg.classList.add('visible');
+      emailInput.focus();
+    }
+
+    function clearError() {
+      emailInput.classList.remove('input-error');
+      formErrorMsg.classList.remove('visible');
+      formErrorMsg.textContent = '';
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError();
+      var val = emailInput.value;
+      if (!val.trim())        { showError('يرجى إدخال عنوان بريدك الإلكتروني.'); return; }
+      if (!isValidEmail(val)) { showError('يرجى إدخال عنوان بريد إلكتروني صحيح.'); return; }
+
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'جاري الإرسال…';
+
+      try {
+        var res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.classList.add('hidden');
+          successMessage.classList.add('visible');
+        } else {
+          showError('خطأ في الاشتراك. يرجى المحاولة مرة أخرى.');
+        }
+      } catch (_) {
+        showError('خطأ في الشبكة. يرجى التحقق من اتصالك.');
+      } finally {
+        if (!successMessage.classList.contains('visible')) {
+          submitBtn.disabled    = false;
+          submitBtn.textContent = 'اشتراك';
+        }
+      }
+    });
+
+    emailInput.addEventListener('input', clearError);
+
+    /* ─── Spotify Facade Logic ────────────────────────────────────────── */
+    function loadSpotify() {
+      var facade    = document.getElementById('spotify-facade');
+      var container = document.getElementById('spotify-real-container');
+      if (container.querySelector('iframe')) return;
+
+      var iframe     = document.createElement('iframe');
+      iframe.style.borderRadius = '12px';
+      iframe.src     = 'https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0';
+      iframe.width   = '100%';
+      iframe.height  = '152';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.allow   = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      iframe.loading = 'eager';
+      iframe.title   = 'Deep Press Analysis Podcast';
+
+      container.appendChild(iframe);
+      facade.classList.add('hidden-player');
+    }
+
+    var spotifyFacade = document.getElementById('spotify-facade');
+    if (spotifyFacade) {
+      spotifyFacade.addEventListener('click', loadSpotify);
+      spotifyFacade.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadSpotify(); }
+      });
+    }
+
+    /* ─── Crypto Address: клик = выделение текста ─────────────────────── */
+    document.querySelectorAll('.crypto-address').forEach(function (el) {
+      el.addEventListener('click', function () { this.select(); });
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
