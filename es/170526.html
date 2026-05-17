@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  Deep Press Analysis — PRODUCTION READY                              ║
+  ║  SEO FIXES APPLIED:                                                  ║
+  ║  1. Article content visible by default (JS collapses after load)     ║
+  ║  2. {{NONCE}} — сервер ОБЯЗАН заменять на криптографически           ║
+  ║     случайную строку при каждом запросе (Node/PHP/Python/etc.)       ║
+  ║  3. Schema.org @id исправлен на /es/#webpage                         ║
+  ║  4. NewsArticle schema добавлена для каждой статьи                   ║
+  ║  5. hreflang — взаимные ссылки обязательны на всех языковых стр.     ║
+  ║  6. Canonical + 301 редирект с корня на /es/ (настроить на сервере)  ║
+  ║  7. JS-редирект переработан (без localStorage)                       ║
+  ║  8. RSS-лента добавлена в <head>                                     ║
+  ║  9. OG/Twitter мета дополнены                                        ║
+  ║  10. datePublished/dateModified — генерировать динамически           ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+<html lang="es-419" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deep Press Analysis — 17 de mayo de 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Síntesis diaria de las principales publicaciones internacionales. Enfoque de hoy: relaciones comerciales entre EE. UU. y China, apocalipsis laboral global y la crisis política en Indonesia." />
+  <meta name="author" content="Deep Press Analysis" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <!--
+    ═══════════════════════════════════════════════════════════════
+    CSP: {{NONCE}} заменяется сервером при каждом запросе.
+    Пример Node.js:
+      const nonce = crypto.randomBytes(16).toString('base64');
+      res.setHeader('Content-Security-Policy', `script-src 'nonce-${nonce}'`);
+      html = html.replaceAll('{{NONCE}}', nonce);
+    ═══════════════════════════════════════════════════════════════
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'nonce-{{NONCE}}';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
+    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
+    form-action 'self' https://formspree.io;
+    object-src 'none';
+    base-uri 'self';
+    frame-src 'self' https://open.spotify.com;
+    media-src 'none';
+    upgrade-insecure-requests;
+  ">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- ═══ SEO: Canonical ═══ -->
+  <link rel="canonical" href="https://deeppressanalysis.com/es/" />
+
+  <!-- ═══ SEO: hreflang ═══ -->
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/" />
+  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/en/" />
+  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/" />
+  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/" />
+  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/" />
+  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/" />
+  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/" />
+
+  <!-- ═══ SEO FIX #8: RSS-лента — обязательна для Google News ═══ -->
+  <link rel="alternate" type="application/rss+xml"
+        title="Deep Press Analysis — Spanish Feed"
+        href="https://deeppressanalysis.com/es/feed.xml" />
+
+  <!-- ═══ Open Graph (дополнено) ═══ -->
+  <meta property="og:type"                  content="article" />
+  <meta property="og:title"                 content="Deep Press Analysis — 17 de mayo de 2026" />
+  <meta property="og:description"           content="Síntesis diaria de las principales publicaciones internacionales. Enfoque de hoy: relaciones comerciales entre EE. UU. y China, apocalipsis laboral global y la crisis política en Indonesia." />
+  <meta property="og:url"                   content="https://deeppressanalysis.com/es/" />
+  <meta property="og:image"                 content="https://deeppressanalysis.com/assets/og-cover.jpg" />
+  <meta property="og:image:width"           content="1200" />
+  <meta property="og:image:height"          content="630" />
+  <meta property="og:site_name"             content="Deep Press Analysis" />
+  <meta property="og:locale"                content="es_LA" />
+  <!-- SEO FIX #9: article-specific OG мета -->
+  <meta property="article:published_time"   content="2026-05-17T05:00:00Z" />
+  <meta property="article:modified_time"    content="2026-05-17T05:00:00Z" />
+  <meta property="article:section"          content="Global Economy" />
+  <meta property="article:author"           content="https://deeppressanalysis.com/manifesto.html" />
+
+  <!-- ═══ Twitter Card (дополнено) ═══ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@DeepPressAnalysis" />
+  <meta name="twitter:creator"     content="@DeepPressAnalysis" />
+  <meta name="twitter:title"       content="Deep Press Analysis — 17 de mayo de 2026" />
+  <meta name="twitter:description" content="Síntesis diaria de las principales publicaciones internacionales. Enfoque de hoy: relaciones comerciales entre EE. UU. y China, apocalipsis laboral global y la crisis política en Indonesia." />
+  <meta name="twitter:image"       content="https://deeppressanalysis.com/assets/og-cover.jpg" />
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json" nonce="{{NONCE}}">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "@id": "https://deeppressanalysis.com/#newsmediaorganization",
+      "name": "Deep Press Analysis",
+      "url": "https://deeppressanalysis.com/es/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://deeppressanalysis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://t.me/DeepPressAnalysis",
+        "https://www.threads.com/@deeppressanalysis",
+        "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
+        "https://www.pinterest.com/DeepPressAnalysis"
+      ],
+      "foundingDate": "2025-12-01",
+      "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
+      "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "masthead": "https://deeppressanalysis.com/manifesto.html",
+      "verificationFactCheckingPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Editorial",
+        "email": "info@deeppressanalysis.com",
+        "availableLanguage": ["English","Russian","Ukrainian","German","Arabic","Spanish"]
+      },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Worldwide" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://deeppressanalysis.com/es/#webpage",
+      "url": "https://deeppressanalysis.com/es/",
+      "name": "Deep Press Analysis — 17 de mayo de 2026",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "description": "Síntesis diaria de las principales publicaciones internacionales. Enfoque de hoy: relaciones comerciales entre EE. UU. y China, apocalipsis laboral global y la crisis política en Indonesia.",
+      "inLanguage": "es-419",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://deeppressanalysis.com/es/" }
+        ]
+      }
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-eco-1",
+      "headline": "Donald Trump viajó a China para una cumbre con Xi Jinping",
+      "description": "La visita de Donald Trump a Pekín marca un giro hacia la comercialización pragmática de las relaciones bilaterales, priorizando los intereses corporativos sobre las diferencias ideológicas.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Geopolitics",
+      "about": [
+        { "@type": "Person", "name": "Donald Trump" },
+        { "@type": "Person", "name": "Xi Jinping" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-eco-2",
+      "headline": "El apocalipsis laboral: esperar lo mejor, prepararse para lo peor",
+      "description": "La creciente crisis en el mercado laboral exige prepararse para los peores escenarios, impulsados por el avance tecnológico y la automatización masiva.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Global Economy"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-eco-3",
+      "headline": "Indonesia pierde el rumbo",
+      "description": "Indonesia muestra un alarmante desvío de su curso democrático, poniendo en riesgo su estabilidad política y macroeconómica debido a una deriva institucional.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Geopolitics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-eco-4",
+      "headline": "La presentación de los rebeldes congoleños en PowerPoint",
+      "description": "Los grupos armados en el Congo utilizan herramientas corporativas modernas como PowerPoint para atraer inversiones en la sombra, lo que señala una profunda transformación en el financiamiento de guerras híbridas.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Geopolitics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-eco-5",
+      "headline": "Lactología: falta de lactancia materna",
+      "description": "El déficit global en la lactancia materna se está convirtiendo en un serio desafío macroeconómico y de política social debido a la falta sistémica de apoyo institucional a la maternidad.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Global Economy"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-fl-1",
+      "headline": "Luego ganaron: cinco elecciones regionales y lo que hay detrás de sus resultados",
+      "description": "Los resultados de las elecciones regionales en India confirmaron el predominio de las agendas locales sobre las narrativas políticas nacionales, favoreciendo a las élites regionales.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-fl-2",
+      "headline": "AAP: la escoba también necesita limpieza",
+      "description": "La crisis interna en el Partido del Hombre Común (AAP) puso en evidencia problemas gerenciales sistémicos, golpeando su reputación anticorrupción.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-fl-3",
+      "headline": "Ladakh: un arreglo no democrático",
+      "description": "El sistema de gobernanza actual en Ladakh se caracteriza por ser profundamente antidemocrático, despojando a la región de representación e independencia financiera.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-fl-4",
+      "headline": "Punjab: crimen, mito y el estado",
+      "description": "Punjab enfrenta una crisis de gobernanza sin precedentes donde el crimen organizado se entrelaza con mitos sociales y la disfunción del aparato estatal.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-fl-5",
+      "headline": "Un plan descabellado para el bosque Central Ridge de Delhi",
+      "description": "Las iniciativas de transformación comercial de la zona forestal de Central Ridge en Nueva Delhi representan un proyecto urbano ecológicamente destructivo.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Ecology"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-wk-1",
+      "headline": "Borrando los distritos de minorías",
+      "description": "Agresivas iniciativas legislativas destinadas a eliminar distritos electorales de minorías están cambiando fundamentalmente la arquitectura de la representación electoral en los EE. UU.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "US Elections"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-wk-2",
+      "headline": "Tú importas, agua",
+      "description": "La escasez de agua y la competencia por sus recursos se están convirtiendo en el elemento más tenso de la agenda macroeconómica global.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Global Economy"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-wk-3",
+      "headline": "¿Es este el nuevo Covid? Brote de hantavirus en el crucero MV Hondius",
+      "description": "Un repentino brote de hantavirus en un crucero ha desatado el pánico sobre la preparación del mundo para otra pandemia.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Global Health"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-wk-4",
+      "headline": "Ted Turner: el magnate que rehizo las noticias",
+      "description": "La muerte de Ted Turner marca el fin histórico de una era en la formación de la agenda política a través de transmisiones de noticias las 24 horas.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Media"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/es/#art-wk-5",
+      "headline": "¿Quién tiene las cartas? Por qué Irán no aceptará los términos de Trump",
+      "description": "El rechazo fundamental de Teherán a aceptar las condiciones de la administración Trump señala un estancamiento peligroso y prolongado en la diplomacia de Oriente Medio.",
+      "datePublished": "2026-05-17T05:00:00Z",
+      "dateModified":  "2026-05-17T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/es/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "es-419",
+      "articleSection": "Geopolitics"
+    }
+  ]
+  </script>
+
+  <style>
+    :root {
+      --bg-body:        #F2F4F7;
+      --bg-paper:       #FFFFFF;
+      --text-primary:   #111827;
+      --text-secondary: #4B5563;
+      --brand-navy:     #0F172A;
+      --brand-blue:     #2563EB;
+      --border-color:   #E5E7EB;
+      --up-color:       #059669;
+      --down-color:     #DC2626;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Libre Baskerville', serif;
+      color: var(--brand-navy);
+      line-height: 1.3;
+    }
+
+    a { text-decoration: none; color: inherit; transition: color 0.2s, opacity 0.2s; }
+
+    *:focus-visible {
+      outline: 3px solid var(--brand-blue);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────
+       SEO FIX #1: АККОРДЕОН — КОНТЕНТ ВИДИМ ПО УМОЛЧАНИЮ
+    ────────────────────────────────────────────────────────────────── */
+
+    /* Состояние без JS — всё открыто */
+    .article-body {
+      overflow: hidden;
+      background: #fff;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+    }
+
+    /* Состояние с JS — аккордеон активен */
+    .js-accordion .article-body {
+      max-height: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .js-accordion .article-item.active .article-body {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* toggle-icon скрыт без JS */
+    .toggle-icon { display: none; }
+    .js-accordion .toggle-icon { display: block; }
+
+    /* Заголовок rotate при активном */
+    .js-accordion .article-item.active .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    /* ─── Layout ─── */
+    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .social-row { display: flex; gap: 10px; }
+    .social-btn {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .social-btn img { width: 16px; height: 16px; object-fit: contain; display: block; }
+    .social-btn:hover { background: var(--brand-navy); color: #fff; border-color: var(--brand-navy); }
+
+    .lang-bar {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      display: flex; gap: 12px;
+    }
+    .lang-link        { color: #9CA3AF; transition: color 0.2s; }
+    .lang-link:hover  { color: var(--brand-blue); }
+    .lang-link.active {
+      color: var(--brand-navy); font-weight: 800;
+      border-bottom: 2px solid var(--brand-blue); padding-bottom: 2px;
+    }
+
+    /* ─── Header ─── */
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #d1d5db;
+    }
+    .meta-issue {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+      color: var(--text-secondary); margin-bottom: 10px;
+    }
+    h1.site-title {
+      font-size: 48px; font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 8px;
+    }
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
+    }
+    .briefing-summary {
+      background: #fff; border: 1px solid var(--border-color);
+      padding: 20px; margin-top: 30px; text-align: left;
+      border-left: 4px solid var(--brand-navy);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .briefing-summary p      { font-size: 15px; color: var(--text-secondary); margin: 0; }
+    .briefing-summary strong {
+      color: var(--brand-navy); font-weight: 700;
+      text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;
+    }
+
+    /* ─── Outlets (Newspapers) ─── */
+    .outlet-section {
+      background: var(--bg-paper); border: 1px solid var(--border-color);
+      margin-bottom: 30px; border-radius: 4px; overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .outlet-header {
+      background: #f8fafc; padding: 15px 25px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .outlet-header h2 { font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
+    .outlet-tags      { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; }
+
+    /* ─── Accordion Items ─── */
+    .article-item             { border-bottom: 1px solid var(--border-color); }
+    .article-item:last-child { border-bottom: none; }
+
+    .article-trigger {
+      display: flex; align-items: baseline; width: 100%;
+      padding: 20px 25px; cursor: pointer; background: #fff;
+      transition: background 0.2s; border: none; text-align: left;
+    }
+    .article-trigger:hover { background: #f9fafb; }
+    .article-trigger:focus { background: #f0f9ff; }
+
+    /* Без JS: убрать pointer-cursor у заголовка */
+    .article-trigger { cursor: default; }
+    .js-accordion .article-trigger { cursor: pointer; }
+
+    .art-idx {
+      font-family: 'Inter', sans-serif; font-size: 13px; color: #9CA3AF;
+      width: 35px; flex-shrink: 0; font-weight: 500;
+    }
+    .art-title {
+      font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
+      color: var(--text-primary); flex-grow: 1; padding-right: 20px;
+      transition: color 0.2s;
+    }
+    .toggle-icon {
+      color: var(--text-secondary); font-size: 12px; width: 20px; text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .js-accordion .article-item.active .art-title  { color: var(--brand-blue); }
+
+    .body-inner {
+      padding: 5px 25px 25px 60px; font-size: 16px;
+      color: var(--text-secondary); max-width: 85ch; line-height: 1.7;
+    }
+
+    /* ─── Newsletter ─── */
+    .nebula-wrapper {
+      background-color: var(--bg-body); width: 100%;
+      padding: 60px 0; margin-top: 60px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nebula-title {
+      text-align: center; color: var(--brand-navy);
+      font-family: 'Libre Baskerville', serif; margin-bottom: 10px; font-size: 24px;
+    }
+    .form-container          { display: flex; justify-content: center; padding: 20px; }
+    .newsletter-form-wrapper {
+      width: 100%; max-width: 500px;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .input-group  { display: flex; width: 100%; align-items: center; }
+    .nebula-input { position: relative; flex: 1; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    .nebula-input .input {
+      width: 100%; padding: 12px 12px 12px 40px;
+      border: 1px solid #cbd5e1; background: #fff;
+      color: var(--brand-navy); font-size: 16px; outline: none;
+      border-radius: 4px 0 0 4px; transition: border-color 0.2s;
+    }
+    .nebula-input .input:focus         { border-color: var(--brand-blue); z-index: 2; position: relative; }
+    .nebula-input .input.input-error   { border-color: var(--down-color); }
+
+    .email-icon {
+      position: absolute; top: 50%; left: 12px; transform: translateY(-50%);
+      width: 20px; height: 20px; fill: #94a3b8; pointer-events: none;
+      transition: fill 0.2s;
+    }
+    .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
+
+    .subscribe-button {
+      padding: 13px 24px; font-size: 14px; font-weight: 700;
+      color: #fff; background: var(--brand-navy);
+      border: 1px solid var(--brand-navy); border-radius: 0 4px 4px 0;
+      cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .subscribe-button:disabled          { opacity: 0.7; cursor: not-allowed; }
+    .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
+
+    .form-error-msg {
+      display: none; color: var(--down-color);
+      font-size: 13px; margin-top: 6px; text-align: left; width: 100%;
+    }
+    .form-error-msg.visible { display: block; }
+
+    .success-message           { display: none; text-align: center; color: var(--brand-navy); }
+    .success-message.visible   { display: block; }
+    .newsletter-form.hidden    { display: none; }
+
+    .checkmark-circle { stroke: var(--up-color); stroke-width: 2; fill: none; }
+    .checkmark-check  { stroke: var(--up-color); stroke-width: 2; }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 30px 0 60px;
+      color: var(--text-secondary); font-size: 13px;
+    }
+    .footer-links { margin-top: 35px; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    .btn-text {
+      font-weight: 900; text-transform: uppercase; font-size: 18px; letter-spacing: 1px;
+      color: var(--brand-navy); border-bottom: 2px solid transparent; padding-bottom: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-text:hover { color: var(--brand-blue); border-bottom-color: var(--brand-blue); }
+
+    /* ─── Spotify facade ─── */
+    .spotify-fake-player {
+      background-color: #282828; border-radius: 12px; height: 152px;
+      display: flex; align-items: center; cursor: pointer; overflow: hidden;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+    .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
+
+    .fake-cover         { width: 152px; height: 152px; flex-shrink: 0; }
+    .fake-cover img     {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.95;
+      border-top-left-radius: 12px; border-bottom-left-radius: 12px;
+    }
+    .fake-info          {
+      padding: 0 24px; flex-grow: 1;
+      display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+    }
+    .fake-meta   { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .fake-title  { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
+    .fake-desc   { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
+    .fake-play-btn {
+      background-color: #1ed760; color: #000; border: none; border-radius: 50%;
+      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+      margin-right: 24px; cursor: pointer; flex-shrink: 0;
+      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .fake-play-btn svg { fill: currentColor; margin-left: 2px; }
+    .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
+    .hidden-player { display: none !important; }
+
+    /* ─── Web3 Support Section ─── */
+    .support-section {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      border-top: 1px dashed var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .support-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--brand-blue, #3b82f6);
+      border-radius: 50%;
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes ping {
+      0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+      70% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+
+    .support-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .crypto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .crypto-card {
+      position: relative;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow: hidden;
+    }
+
+    .crypto-card:hover {
+      border-color: var(--brand-blue);
+      background: var(--bg-body);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .crypto-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .crypto-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand-navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .crypto-name::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .eth::before { background-color: #627EEA; }
+    .btc::before { background-color: #F7931A; }
+    .sol::before { background-color: #14F195; }
+    .trx::before { background-color: #FF060A; }
+
+    .crypto-address {
+      width: 100%;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-family: 'Inter', monospace;
+      font-size: 11px;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      outline: none;
+      cursor: text;
+    }
+
+    .crypto-card:hover .crypto-address {
+      border-color: rgba(59, 130, 246, 0.3);
+      color: var(--brand-navy);
+    }
+
+    /* ─── Reduced motion ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .live-dot { animation: none; }
+    }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 600px) {
+      h1.site-title    { font-size: 32px; }
+      .top-toolbar     { flex-direction: column-reverse; gap: 20px; align-items: center; }
+      .lang-bar        { flex-wrap: wrap; justify-content: center; }
+      .body-inner      { padding-left: 25px; }
+      .outlet-tags     { display: none; }
+      .input-group     { flex-direction: column; gap: 10px; }
+      .nebula-input .input  { border-radius: 4px; }
+      .subscribe-button     { border-radius: 4px; width: 100%; }
+      .footer-links    { flex-direction: column; gap: 20px; }
+      .spotify-fake-player  { height: auto; padding: 16px; flex-wrap: wrap; }
+      .fake-cover      { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
+      .fake-cover img  { border-radius: 4px; }
+      .fake-info       { padding: 0; width: calc(100% - 80px - 50px); }
+      .fake-title      { font-size: 16px; white-space: normal; }
+      .fake-play-btn   { width: 40px; height: 40px; margin-right: 0; }
+      .crypto-grid     { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Print ─── */
+    @media print {
+      .social-row, .lang-bar,
+      .nebula-wrapper, footer, .spotify-fake-player,
+      #spotify-real-container, .support-section { display: none; }
+      body { background: white; }
+      /* Принт — весь контент открыт */
+      .js-accordion .article-body {
+        max-height: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="top-toolbar">
+      <nav class="lang-bar" aria-label="Selección de idioma">
+        <a href="/ua/" class="lang-link" hreflang="uk" aria-label="Versión en ucraniano">UA</a>
+        <a href="/en/" class="lang-link" hreflang="en" aria-label="Versión en inglés">EN</a>
+        <a href="/es/" class="lang-link active" hreflang="es" aria-current="page" aria-label="Versión en español">ES</a>
+        <a href="/ar/" class="lang-link" hreflang="ar" aria-label="Versión en árabe">AR</a>
+        <a href="/ru/" class="lang-link" hreflang="ru" aria-label="Versión en ruso">RU</a>
+        <a href="/de/" class="lang-link" hreflang="de" aria-label="Versión en alemán">DE</a>
+      </nav>
+
+      <nav class="social-row" aria-label="Enlaces de redes sociales">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Correo electrónico" aria-label="Enviar correo electrónico a Deep Press Analysis">
+          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
+        </a>
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Visitar nuestro canal de Telegram">
+          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
+        </a>
+        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Visitar nuestro perfil de Threads">
+          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16">
+        </a>
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Visitar nuestro canal de YouTube">
+          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
+        </a>
+      </nav>
+    </div>
+
+    <header>
+      <div class="meta-issue">
+        VOL. 26 • NÚMERO 133 • <time datetime="2026-05-17">17 DE MAYO DE 2026</time>
+      </div>
+      <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
+      <div class="subtitle">Síntesis diaria de las principales publicaciones internacionales</div>
+      <div class="briefing-summary">
+        <p><strong>Enfoque de hoy:</strong> Cambio en las relaciones comerciales entre EE. UU. y China, advertencias sobre un apocalipsis laboral global y la inestabilidad política y macroeconómica en Indonesia.</p>
+      </div>
+    </header>
+
+    <main>
+
+      <div id="spotify-facade" class="spotify-fake-player"
+           role="button" tabindex="0"
+           aria-label="Escuchar el podcast de Deep Press Analysis en Spotify">
+        <div class="fake-cover">
+          <img src="https://deeppressanalysis.com/logo.png" alt="Portada del podcast de Deep Press Analysis">
+        </div>
+        <div class="fake-info">
+          <div class="fake-meta">PROGRAMA DE PODCAST</div>
+          <div class="fake-title">Deep Press Analysis</div>
+          <div class="fake-desc">Resumen de Audio Diario</div>
+        </div>
+        <button class="fake-play-btn" aria-label="Reproducir podcast" tabindex="-1">
+          <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/>
+          </svg>
+        </button>
+      </div>
+      <div id="spotify-real-container" style="margin-bottom:40px;"></div>
+
+      <!-- ════════════════════════ THE ECONOMIST ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE ECONOMIST</h2>
+          <div class="outlet-tags">GEOPOLÍTICA • ECONOMÍA GLOBAL</div>
+        </div>
+
+        <article class="article-item" id="art-eco-1">
+          <button class="article-trigger" id="btn-eco-1" aria-expanded="true" aria-controls="body-eco-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Donald Trump viajó a China para una cumbre con Xi Jinping</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-eco-1" role="region" aria-labelledby="btn-eco-1">
+            <div class="body-inner">
+              <p>La visita de Donald Trump a Pekín para reunirse con Xi Jinping indica un cambio hacia una comercialización pragmática de las relaciones bilaterales. El evento clave fue el acuerdo sobre un "nuevo posicionamiento" de los lazos y la expansión de la cooperación comercial entre Estados Unidos y China. La presencia de altos ejecutivos, incluidos los líderes de Nvidia y Boeing, subraya la prioridad que se le da a los intereses corporativos por encima de las diferencias ideológicas. En este escenario, los principales beneficiarios son los gigantes tecnológicos y de aviación estadounidenses, que obtienen acceso garantizado al mercado chino. Los perdedores resultan ser los aliados estratégicos de EE. UU., principalmente Taiwán y Ucrania, ya que los asuntos políticos quedan relegados a un segundo plano. La principal motivación de Washington consiste en asegurar victorias económicas rápidas y brindar apoyo a las grandes empresas. Pekín, por su parte, busca estabilizar el comercio exterior y garantizar un flujo ininterrumpido de tecnologías occidentales. Para los mercados globales, esta cumbre sirve como una señal muy positiva, mitigando los temores sobre una guerra comercial inminente. Los inversores institucionales reciben la confirmación de que el pragmatismo económico tiene la capacidad de suavizar la retórica geopolítica. En términos políticos, esto demuestra la disposición de la administración para replantear las alianzas tradicionales en aras de lograr acuerdos bilaterales. El principal riesgo radica en una posible escalada de los conflictos regionales debido al debilitamiento de las garantías de seguridad por parte de los estadounidenses. Si la atención de las superpotencias se centra exclusivamente en el ámbito comercial, el vacío geopolítico podría ser ocupado por las acciones agresivas de otros actores.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-eco-2">
+          <button class="article-trigger" id="btn-eco-2" aria-expanded="true" aria-controls="body-eco-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">El apocalipsis laboral: esperar lo mejor, prepararse para lo peor</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-eco-2" role="region" aria-labelledby="btn-eco-2">
+            <div class="body-inner">
+              <p>La creciente crisis en el mercado laboral, catalogada como un "apocalipsis laboral", exige que las instituciones globales se preparen para los peores escenarios. El principal motor de este proceso es la transformación estructural del empleo, impulsada por el progreso tecnológico y la inestabilidad macroeconómica. Los ganadores en la dinámica actual siguen siendo los dueños del capital y las corporaciones de alta tecnología, capaces de optimizar los costos a través de una profunda automatización. El impacto principal lo sufren los trabajadores tradicionales, cuyas habilidades se están devaluando rápidamente en esta nueva realidad. La motivación del sector empresarial es sumamente clara: maximizar la eficiencia operativa y reducir la dependencia del factor humano en un contexto de crisis permanente. Para el aparato estatal, esto implica una necesidad urgente de revisar los contratos sociales y la estructura del apoyo público. La señal para los mercados es preocupante, ya que los despidos masivos conducirán de manera inevitable a una contracción a largo plazo de la demanda de los consumidores. Las instituciones financieras deben tener en cuenta los riesgos de impagos en cadena en préstamos de consumo y obligaciones hipotecarias. En el ámbito político, esta crisis crea un terreno fértil para la radicalización del electorado y un crecimiento explosivo de los sentimientos populistas. Las consecuencias sistémicas podrían incluir una profunda polarización socioeconómica de la sociedad. Los riesgos a largo plazo están vinculados a la formación de una clase baja (subclase) permanente que requerirá de subsidios directos de forma continua. En última instancia, la falta de una planificación proactiva provocará fallos institucionales masivos a escala global.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-eco-3">
+          <button class="article-trigger" id="btn-eco-3" aria-expanded="true" aria-controls="body-eco-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Indonesia pierde el rumbo</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-eco-3" role="region" aria-labelledby="btn-eco-3">
+            <div class="body-inner">
+              <p>Indonesia está mostrando un alarmante desvío de su rumbo trazado, lo que pone en duda su estabilidad política y macroeconómica. El evento clave es un cambio en la dirección política interna que altera las normas institucionales y democráticas de desarrollo ya establecidas. Los principales beneficiarios de esta deriva podrían ser los grupos de la élite local, que están consolidando el poder y los recursos administrativos en sus manos. En esta situación, los que salen perdiendo son los inversores internacionales y las instituciones civiles, que dependen de la transparencia y la previsibilidad en la economía más grande del sudeste asiático. La causa de fondo reside en los intereses de los círculos gobernantes, que buscan minimizar el control externo y fortalecer el manejo manual soberano de los mercados. Para los mercados de capitales internacionales, esta es una clara señal bajista ("bearish") que indica un fuerte aumento en los riesgos soberanos y regulatorios. Los inversores institucionales podrían iniciar una reevaluación masiva del valor de los activos y una revisión de sus estrategias a largo plazo en la región. En el contexto geopolítico, el debilitamiento de las instituciones internas de Indonesia modifica la arquitectura de seguridad en la macrorregión del Indo-Pacífico. El país corre el riesgo de perder su estatus como un contrapeso de inversión confiable frente a la creciente rivalidad entre Estados Unidos y China. Las posibles consecuencias económicas incluyen una desaceleración en la entrada de inversión extranjera directa y la paralización de proyectos de infraestructura clave. El riesgo también radica en un posible aumento de la tensión social encubierta debido a una gestión pública ineficiente. Si se continúa evadiendo las reformas estructurales, la economía indonesia se enfrentará a la amenaza de un estancamiento sistémico.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-eco-4">
+          <button class="article-trigger" id="btn-eco-4" aria-expanded="true" aria-controls="body-eco-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">La presentación de los rebeldes congoleños en PowerPoint</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-eco-4" role="region" aria-labelledby="btn-eco-4">
+            <div class="body-inner">
+              <p>Un fenómeno inesperado en la prolongada zona de conflicto en el Congo es el uso de herramientas corporativas modernas, como las presentaciones en PowerPoint, por parte de los grupos armados. Este hecho evidencia una profunda transformación en los métodos para llevar a cabo guerras híbridas y buscar financiamiento por parte de actores no convencionales. Los propios rebeldes se benefician de esto, obteniendo la capacidad de atraer de manera profesional inversiones en la sombra y apoyo militar externo. El lado perdedor es el gobierno oficial del Congo y la población civil, que sufre por la prolongación comercial del enfrentamiento armado. La motivación clave de los militantes es legitimar su estatus ante los patrocinadores internacionales y las corporaciones transnacionales interesadas en las materias primas. Esta es una señal severa para las instituciones internacionales de que la economía sumergida de los conflictos está alcanzando un nivel de institucionalización fundamentalmente nuevo. Para los círculos políticos, esto significa el colapso de los métodos tradicionales de aislamiento diplomático de las formaciones armadas ilegales. Los inversores de la industria extractiva de la región reciben una advertencia sobre la aparición de socios alternativos altamente organizados para ejercer el control por la fuerza sobre las minas. El principal riesgo es que esta corporativización del terror atraiga capital de riesgo sistémico hacia las "zonas grises" de las operaciones militares. Como resultado, los conflictos locales podrían prolongarse aún más, al adquirir una sólida justificación comercial. Los mecanismos del derecho internacional se muestran impotentes ante esta adaptación de marketing y operativa de los militantes. A largo plazo, esto amenaza con desdibujar por completo los límites entre el cabildeo por los recursos naturales y el financiamiento del terrorismo.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-eco-5">
+          <button class="article-trigger" id="btn-eco-5" aria-expanded="true" aria-controls="body-eco-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Lactología: falta de lactancia materna</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-eco-5" role="region" aria-labelledby="btn-eco-5">
+            <div class="body-inner">
+              <p>El problema del déficit global de lactancia materna trasciende los estrictos límites de la medicina, transformándose en un serio desafío para las políticas macroeconómicas y sociales. Un factor clave es la falta sistémica de apoyo institucional a la maternidad frente a las exigencias agresivas del mercado laboral moderno. En este contexto, los beneficiarios evidentes son las corporaciones transnacionales que producen en masa fórmulas infantiles y sucedáneos. Los principales perdedores son los sistemas de salud pública y las familias, que se enfrentan a un deterioro a largo plazo en la salud de los bebés. En la raíz del problema se encuentran los intereses de los empleadores corporativos, que buscan reducir al máximo las licencias de maternidad y los costos de la infraestructura social. Para las instituciones políticas, esto representa una señal negativa que evidencia un conflicto fundamental entre los objetivos demográficos y la eficiencia económica del Estado. La señal para los mercados de la salud es un aumento esperado en la demanda de servicios pediátricos y medicamentos farmacológicos para tratar fallos inmunológicos tempranos. Por el contrario, la industria de alimentos para bebés recibe una confirmación irrefutable de un crecimiento sostenido en su nicho de mercado en las próximas décadas. Los riesgos principales están relacionados con el deterioro de la calidad del capital humano a nivel macro debido a una caída crítica en la inmunidad básica de las nuevas generaciones. Además, la situación agrava la desigualdad socioeconómica, ya que una nutrición temprana de calidad se convierte en prerrogativa exclusiva de las clases pudientes. Las autoridades gubernamentales deben tomar conciencia de que la falta de condiciones laborales flexibles impacta directamente en el recurso biológico nacional. Sin una reforma radical de la legislación laboral, esta crisis institucional oculta no hará más que aumentar a gran escala.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ FRONTLINE ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>FRONTLINE</h2>
+          <div class="outlet-tags">POLÍTICA • ECOLOGÍA</div>
+        </div>
+
+        <article class="article-item" id="art-fl-1">
+          <button class="article-trigger" id="btn-fl-1" aria-expanded="true" aria-controls="body-fl-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Luego ganaron: cinco elecciones regionales y lo que hay detrás de sus resultados</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-fl-1" role="region" aria-labelledby="btn-fl-1">
+            <div class="body-inner">
+              <p>Los resultados de las elecciones regionales en Bengala Occidental, Tamil Nadu, Kerala, Assam y Puducherry confirmaron el dominio absoluto de las agendas locales sobre las narrativas políticas nacionales. Los factores clave que moldearon el panorama político siguieron siendo la eficacia en la provisión de beneficios sociales y la consideración cuidadosa de las complejas proporciones de castas. Como resultado, las élites regionales emergen como las principales beneficiarias, logrando defender con éxito sus posiciones soberanas frente a la embestida de la maquinaria electoral federal. La parte perdedora es el partido gobernante a nivel nacional, cuyos intentos por unificar agresivamente el campo político terminaron en fracaso. La motivación de los votantes se basó en resolver problemas económicos específicos y en una firme defensa de la identidad cultural regional. Para el establishment político de la India, esto constituye una señal clara de que la consolidación federal tiene límites institucionales insuperables. Los inversores institucionales reciben una confirmación positiva respecto a la resiliencia del modelo de gobernanza descentralizada y la independencia de los estados. La señal para los mercados es mixta: por un lado, se reduce el riesgo de una monopolización dictatorial del poder; por otro, se complican las reformas rápidas a nivel nacional. Las empresas tendrán que seguir construyendo complejas cadenas de cabildeo en múltiples niveles, negociando directamente con administraciones regionales específicas. El principal riesgo político radica en el posible fortalecimiento de las tendencias centrífugas y el recrudecimiento de los conflictos presupuestarios entre el gobierno central y los estados. Las consecuencias financieras pueden reflejarse en un aumento del gasto populista a nivel local, dado que las victorias se obtuvieron precisamente a través de promesas de programas sociales. A largo plazo, esta situación exige que el gobierno central desarrolle mecanismos más sutiles y no impositivos para la integración de las economías regionales.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-fl-2">
+          <button class="article-trigger" id="btn-fl-2" aria-expanded="true" aria-controls="body-fl-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">AAP: la escoba también necesita limpieza</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-fl-2" role="region" aria-labelledby="btn-fl-2">
+            <div class="body-inner">
+              <p>La crisis interna en el Partido del Hombre Común (AAP) ha puesto en evidencia problemas sistémicos de gestión en una organización que, desde un principio, construyó su capital político basándose en una retórica anticorrupción intransigente. El dato clave es la necesidad imperiosa de llevar a cabo una limpieza interna radical del partido, cuyas "escobas" simbólicas ahora deben ser aplicadas a su propio aparato. Los competidores políticos tradicionales salen ganando en esta situación, ya que obtienen una oportunidad legítima para desacreditar al principal candidato al rol de autoridad moral de la nación. Los partidarios de la política democrática alternativa y los votantes urbanos, cuyas altas expectativas de una gestión transparente se han derrumbado, son los perdedores. La motivación de la cúpula directiva del AAP se reduce ahora a la supervivencia burocrática y a los intentos de reconstruir la estructura del partido en medio de pérdidas de reputación colosales. Para las instituciones democráticas, esta es una señal sumamente negativa, ya que demuestra que incluso los movimientos reformistas idealistas adoptan rápidamente los vicios del viejo sistema. En el mercado político, este suceso reduce drásticamente el valor de cualquier marca "alternativa", elevando la prima electoral por la previsibilidad de los partidos tradicionales. Los inversores institucionales perciben esta crisis como una disminución de los riesgos de fallos regulatorios repentinos, debido a que los populistas radicales pierden su influencia. El principal riesgo es la profunda apatía de la clase media urbana educada, que podría llegar a desvincularse por completo del proceso electoral. A largo plazo, esto amenaza con un regreso al clásico sistema de clanes y patronazgo para administrar el distrito de la capital y los territorios circundantes. Las purgas internas dentro del aparato del AAP podrían desencadenar una división irreversible en el partido y la pérdida de control sobre los flujos financieros municipales. Se trata de un ejemplo clásico de degeneración institucional, donde las herramientas de lucha contra la corrupción son monopolizadas y se convierten ellas mismas en rehenes de la situación.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-fl-3">
+          <button class="article-trigger" id="btn-fl-3" aria-expanded="true" aria-controls="body-fl-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Ladakh: un arreglo no democrático</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-fl-3" role="region" aria-labelledby="btn-fl-3">
+            <div class="body-inner">
+              <p>El sistema de gobernanza actual en la estratégica región de Ladakh se caracteriza por ser un modelo profundamente antidemocrático, que restringe deliberadamente los derechos fundamentales de la población civil local. Un factor clave en el aumento de la tensión es la privación a la región de una representación plena y de independencia financiera institucional. Los beneficiarios incuestionables bajo este formato son las estructuras burocráticas centrales de Nueva Delhi, que consolidan un control directo e ilimitado sobre el territorio. La parte perdedora es la población indígena, que queda excluida administrativamente de los procesos soberanos de toma de decisiones respecto a la asignación de tierras y recursos locales. La motivación del gobierno central federal está dictada exclusivamente por consideraciones de seguridad nacional y la militarización de la zona fronteriza a costa de los derechos civiles internos. Esta es una señal sumamente negativa para las instituciones judiciales y de derechos humanos, lo que demuestra la disposición del Estado a sacrificar la democracia en pro del control geopolítico total. Para los mercados políticos, este es un claro indicador de una mayor volatilidad en las regiones fronterizas, donde el estricto mandato administrativo puede desatar disturbios en cualquier momento. Los inversores en turismo e infraestructura local reciben una alerta sobre los riesgos desorbitados asociados con la falta de una base contractual local legítima. El principal riesgo es la rápida radicalización de la población de Ladakh, la cual históricamente había mostrado una gran lealtad al gobierno central indio. La represión forzada y artificial de la actividad política y económica conducirá inevitablemente a una desestabilización social encubierta pero poderosa en la región. A largo plazo, el desequilibrio institucional creado debilita de manera crítica la posición de la India ante una hipotética confrontación militar con los estados vecinos. Gobernar a través de una administración colonial directa en una región de gran complejidad étnica demuestra su absoluto fracaso estratégico.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-fl-4">
+          <button class="article-trigger" id="btn-fl-4" aria-expanded="true" aria-controls="body-fl-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Punjab: crimen, mito y el estado</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-fl-4" role="region" aria-labelledby="btn-fl-4">
+            <div class="body-inner">
+              <p>En Punjab, se está gestando una crisis de gobernanza sin precedentes, donde el problema del crimen organizado se entrelaza de manera orgánica con los mitos sociales y la disfunción del aparato estatal. El acontecimiento clave es la incapacidad real de las autoridades para mantener el monopolio de la violencia, cediendo la iniciativa operativa a redes criminales fuertemente armadas. Las estructuras en la sombra y las figuras locales de poder resultan ganadoras en este contexto, capitalizando rápidamente su influencia gracias a la corrupción y la ineficacia de la policía local. Las instituciones de la economía legal y los ciudadanos de a pie pierden, ya que se ven obligados a pagar una renta doble diaria, tanto criminal como burocrática. La motivación estratégica de los grupos delictivos está vinculada a establecer un control estricto sobre los flujos logísticos y la economía sumergida de la región agrícola más rica del país. Para las instituciones estatales, esta es una señal de un fallo sistémico crítico en la estructura de las fuerzas del orden y la penetración más profunda de la delincuencia en las más altas esferas del poder. A nivel macroeconómico, esto funciona como una dura señal de "alto" para cualquier inversión de capital significativa en la industria y tecnología del estado. Las empresas legales se ven forzadas a incorporar en sus modelos financieros los costos inflados de la seguridad privada y los pagos operativos informales. El principal riesgo para el Estado radica en la inminente fusión de estos sindicatos delictivos fortalecidos con movimientos regionales políticos radicales o separatistas. La mitificación y romantización de los criminales en la conciencia pública crea un precedente social destructivo para los jóvenes que no tienen perspectivas de ingresos legales. Si el Estado federal no restaura de inmediato su autoridad institucional, la región corre el riesgo de transformarse en una zona dominada por una economía criminal soberana. Esto supone una amenaza directa a la seguridad alimentaria y logística interna de toda la zona norte del estado indio.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-fl-5">
+          <button class="article-trigger" id="btn-fl-5" aria-expanded="true" aria-controls="body-fl-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Un plan descabellado para el bosque Central Ridge de Delhi</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-fl-5" role="region" aria-labelledby="btn-fl-5">
+            <div class="body-inner">
+              <p>Las iniciativas para la transformación comercial del área forestal de Central Ridge en Nueva Delhi representan un proyecto urbano ecológicamente destructivo e injustificado. El dato fundamental es el agresivo intento de desarrollo de infraestructuras en la última gran zona verde de amortiguamiento de la capital, eludiendo las normativas ambientales vigentes. Los principales beneficiarios del proyecto son abiertamente las corporaciones de construcción y los cabilderos inmobiliarios, quienes buscan tener acceso a los terrenos sumamente caros y escasos de la capital. El claro perdedor es el frágil ecosistema de la metrópoli y sus millones de residentes, quienes pierden de manera irreversible una barrera protectora esencial contra la contaminación del aire. La motivación de los funcionarios que impulsan este plan se fundamenta cínicamente en la monetización a corto plazo de los territorios y en la absorción de gigantescos presupuestos de infraestructura. Para las instituciones civiles, esta es una señal extremadamente alarmante de que los estrictos estándares ecológicos son fácilmente desmantelados bajo la presión de los intereses del gran capital constructor. En el mercado inmobiliario de la capital, esto indica la disposición de las autoridades corruptas a revisar cualquier tipo de zonificación para favorecer la construcción de alta densidad. Para los inversores occidentales en factores ASG (Ambientales, Sociales y de Gobernanza), participar en este tipo de proyectos significará pérdidas colosales de reputación y posibles bloqueos por parte de los reguladores ecológicos internacionales. Entre las posibles consecuencias directas se incluyen el deterioro catastrófico e irreversible del microclima y el agotamiento de las reservas de aguas subterráneas en una de las ciudades más pobladas del mundo. El riesgo de los inevitables bloqueos judiciales del proyecto por parte de los activistas medioambientales a lo largo de los años convierte a cualquier inversión en esta zona en activos altamente tóxicos. Este conflicto territorial evidencia de manera clara la crisis institucional en la planificación urbana, donde el beneficio inmediato anula por completo los objetivos de desarrollo sostenible. A largo plazo, la toma de tales decisiones urbanísticas conducirá a una caída estrepitosa del atractivo de Nueva Delhi para la inversión a nivel global.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ THE WEEK ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE WEEK</h2>
+          <div class="outlet-tags">ELECCIONES EN EE. UU. • ECONOMÍA GLOBAL • MEDIOS • GEOPOLÍTICA</div>
+        </div>
+
+        <article class="article-item" id="art-wk-1">
+          <button class="article-trigger" id="btn-wk-1" aria-expanded="true" aria-controls="body-wk-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Borrando los distritos de minorías</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wk-1" role="region" aria-labelledby="btn-wk-1">
+            <div class="body-inner">
+              <p>Las agresivas iniciativas legislativas destinadas a suprimir los distritos electorales con alta proporción de minorías están transformando de forma radical la arquitectura de la representación electoral en Estados Unidos. El hecho clave son los cambios intencionados en los límites administrativos (gerrymandering), dirigidos a diluir de manera cínica el peso político de los grupos étnicos y raciales. El principal beneficiario de este proceso es el partido político predominante en el estado, que cimenta de forma artificial y permanente su mayoría absoluta en los órganos legislativos. Las minorías nacionales son las que pierden, ya que su capacidad constitucional para influir en la política y presionar legalmente por sus intereses presupuestarios queda reducida a un margen de error estadístico. La motivación central de los impulsores es la mera retención administrativa del poder en un contexto de tendencias demográficas adversas y relevos generacionales. Para las instituciones políticas federales, esta es una señal sumamente peligrosa sobre la degradación de los sistemas democráticos de frenos y contrapesos, así como la transición hacia una gestión manipuladora. En el ámbito de los mercados y los municipios, esto se traducirá en una brusca disminución del financiamiento de los programas sociales y de infraestructura en las áreas con una gran concentración de minorías. Los inversores institucionales deben tener en cuenta el riesgo permanente de inestabilidad legal, ya que dichas decisiones serán impugnadas de manera interminable hasta llegar a la Corte Suprema. El principal riesgo para el Estado reside en la profunda radicalización de los grupos demográficos marginados, que pierden para siempre la confianza en la justicia de los instrumentos electorales. A largo plazo, esto intensificará fuertemente la polarización política interna y disminuirá críticamente la resiliencia del sistema de gobierno del país. La exclusión sistémica de estratos electorales completos del proceso de toma de decisiones desemboca en una grave crisis de legitimidad para las autoridades regionales. En definitiva, los intentos de las élites de congelar su dominio político por la vía administrativa están preparando el terreno ideal para conflictos civiles masivos.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wk-2">
+          <button class="article-trigger" id="btn-wk-2" aria-expanded="true" aria-controls="body-wk-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Tú importas, agua</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wk-2" role="region" aria-labelledby="btn-wk-2">
+            <div class="body-inner">
+              <p>La creciente escasez de agua y la feroz competencia por su distribución se están convirtiendo en el elemento central y más crítico de la agenda macroeconómica a nivel mundial. El acontecimiento clave es el cambio conceptual: se ha pasado de percibir el agua simplemente como un derecho humano básico a considerarla como un activo estratégico y de alto margen de beneficio. Los principales beneficiarios de estos nuevos enfoques son las grandes corporaciones transnacionales poseedoras de tecnologías de purificación, así como los compradores institucionales de los derechos sobre el agua. Las regiones agrícolas tradicionales y los consumidores habituales son los perdedores, ya que el precio de este recurso vital para ellos aumentará de forma exponencial sin que haya otra alternativa. La motivación de los especuladores del mercado es maximizar las ganancias capitalizando la escasez física frente a los cambios climáticos globales irreversibles. Para las instituciones del Estado, se trata de una señal de alarma sobre la necesidad urgente de establecer cuotas administrativas estrictas y la posible nacionalización de la infraestructura hídrica. En los mercados financieros, se está gestando un nuevo superciclo en este momento: el agua se está convirtiendo legalmente en un bien de inversión, comparable en rentabilidad e importancia a los hidrocarburos. El sector agrícola recibe una advertencia contundente acerca de un aumento inminente y explosivo en los costos operativos, y la necesidad de una transición de emergencia a la hidroponía de ciclo cerrado. Los principales riesgos se sitúan en el plano geopolítico, ya que el uso de los cuerpos de agua transfronterizos provoca cada vez más enfrentamientos armados directos entre estados. En los países en desarrollo, la comercialización y privatización del acceso al agua potable amenazan con desencadenar revueltas sociales masivas y descontroladas. La ausencia de un marco regulatorio y legal equilibrado a nivel internacional hará del sector hídrico la zona para las especulaciones bursátiles más agresivas de la década. La soberanía de los recursos y la política de los estados en los próximos años no se definirá por las reservas de petróleo, sino exclusivamente por los balances hídricos internos.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wk-3">
+          <button class="article-trigger" id="btn-wk-3" aria-expanded="true" aria-controls="body-wk-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">¿Es este el nuevo Covid? Brote de hantavirus en el crucero MV Hondius</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wk-3" role="region" aria-labelledby="btn-wk-3">
+            <div class="body-inner">
+              <p>El repentino brote de hantavirus a bordo del crucero MV Hondius ha desatado discusiones de pánico en los mercados acerca de la preparación del mundo para enfrentar otra pandemia devastadora. El dato clave es la evacuación rápida y sin precedentes de los pasajeros, que ha dejado nuevamente al descubierto la extrema fragilidad de los protocolos de bioseguridad en la logística turística. Los beneficiarios inmediatos en esta situación resultan ser las corporaciones farmacéuticas y los fabricantes de equipos de protección médica, cuyas acciones se dispararon en medio de expectativas especulativas. Las compañías transnacionales de turismo, cruceros y aerolíneas se convierten automáticamente en los perdedores, ya que corren el riesgo de enfrentarse una vez más a confinamientos destructivos para sus negocios. La motivación de los entes reguladores estatales se centra en cubrirse las espaldas al máximo y en la contención severa de cualquier amenaza potencial para evitar acusaciones políticas por inacción criminal. La señal para los mercados es de un gran nerviosismo: los inversores algorítmicos están incorporando de inmediato la prima máxima de riesgo frente a una parálisis del comercio mundial. Por su parte, las instituciones sanitarias mundiales obtienen el pretexto perfecto para exigir incrementos sustanciales de sus presupuestos y una ampliación de sus facultades de supervisión supranacionales. Las grandes empresas aseguradoras se verán forzadas a revisar urgentemente las condiciones básicas de sus contratos, para excluir o elevar fuertemente el coste de la cobertura ante cualquier evento epidemiológico de fuerza mayor. El principal riesgo macroeconómico reside en el potencial colapso en cadena de las redes de suministro transfronterizas debido a las reacciones de pánico descoordinadas por parte de los gobiernos nacionales. Las consecuencias sociales de tales incidentes amenazan con desencadenar un nuevo ciclo destructivo de infodemias y psicosis colectiva, lo que socavará de forma definitiva la confianza en la medicina oficial. Aun si este brote específico logra ser contenido con éxito, el precedente en sí mismo demuestra la tolerancia cero de la economía globalizada frente a nuevos patógenos. La situación exige la urgente necesidad de transformar de raíz toda la estructura de seguridad contra infecciones en el transporte internacional de pasajeros.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wk-4">
+          <button class="article-trigger" id="btn-wk-4" aria-expanded="true" aria-controls="body-wk-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Ted Turner: el magnate que rehizo las noticias</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wk-4" role="region" aria-labelledby="btn-wk-4">
+            <div class="body-inner">
+              <p>La muerte de Ted Turner, el magnate de los medios que alteró drásticamente el panorama de la industria de las noticias, señala el final histórico y definitivo de una era en la construcción de la agenda política. El aspecto central en el legado de Turner es la monetización exitosa del concepto de transmisión de noticias a nivel global durante las 24 horas, lo que aceleró para siempre la dinámica de la toma de decisiones políticas. Durante décadas, las élites políticas fueron las grandes beneficiadas por este modelo agresivo, obteniendo una herramienta sin precedentes para ejercer una influencia emocional instantánea sobre las mentes de los votantes en todo el mundo. Las instituciones de análisis académico profundo y la diplomacia tradicional resultaron ser las perdedoras, puesto que su arduo trabajo se vio totalmente devaluado por la presión constante de noticias efímeras e impactantes. La motivación inicial de Turner fue estrictamente comercial: monopolizar la atención de la audiencia y los presupuestos de los anunciantes mediante el mantenimiento artificial de un contenido que genera ansiedad de forma constante. Para los mercados bursátiles de hoy en día, este obituario es un indicio de una profunda crisis del modelo televisivo clásico, que cede rápidamente su valor de capitalización frente a las redes sociales manejadas por algoritmos. Las instituciones políticas se ven forzadas a aceptar dolorosamente que la era de los monopolios informativos centralizados y controlados, creados por este tipo de magnates, se ha extinguido para siempre. Los inversores del sector de los medios de comunicación están revisando de forma generalizada las valoraciones de las corporaciones de noticias tradicionales, plenamente conscientes del completo agotamiento histórico de su costoso modelo de negocio. El riesgo subyacente es que la fragmentación actual del panorama mediático tras el colapso de los imperios televisivos conduzca a una peligrosa fragmentación de una visión del mundo unificada y consensuada en la sociedad. La carencia de nuevos visionarios de los medios de un calibre similar deja al mercado de la información inmerso en una caótica, incontrolable y a menudo destructiva batalla por conseguir clics. El legado de Turner resulta ser profundamente paradójico: unió tecnológicamente al planeta con un flujo incesante de noticias, pero también sentó unas bases sólidas para una comprensión fragmentada y superficial de la realidad. El fallecimiento del fundador de CNN marca, de manera simbólica, el punto de no retorno absoluto hacia la época dorada del cabildeo político a través de la televisión en directo.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wk-5">
+          <button class="article-trigger" id="btn-wk-5" aria-expanded="true" aria-controls="body-wk-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">¿Quién tiene las cartas? Por qué Irán no aceptará los términos de Trump</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wk-5" role="region" aria-labelledby="btn-wk-5">
+            <div class="body-inner">
+              <p>La negativa categórica de Teherán a aceptar las exigentes condiciones de la próxima administración de Donald Trump advierte de un estancamiento peligroso y duradero en el juego diplomático de Oriente Medio. El aspecto principal es la reticencia institucional de Irán a hacer concesiones estratégicas unilaterales de cualquier índole frente a la presión sin precedentes que suponen los ultimátums y sanciones estadounidenses. Los adversarios directos de Estados Unidos, como China y Rusia, sacan ventaja en este pulso geopolítico al obtener la oportunidad de comprar petróleo a bajo costo y de incrementar su influencia en la región del Golfo Pérsico. Las instituciones políticas europeas y el mercado energético mundial se encuentran en desventaja, pues quedan como rehenes frente a la amenaza persistente de una escalada militar en los alrededores del crucial Estrecho de Ormuz. La motivación del gobierno iraní se fundamenta íntegramente en la necesidad de preservar la legitimidad política interna del régimen y de proteger su programa nuclear como el único garante efectivo de su soberanía. Para el círculo político de Washington, la obstinación de Teherán representa el colapso total de la estrategia de "máxima presión" y el agotamiento de los recursos disponibles para el chantaje económico. En los mercados de hidrocarburos, esto constituye una señal "alcista" (bullish) a largo plazo fundamental, lo cual obliga a los comerciantes a incorporar una prima geopolítica consistentemente alta en cada barril de crudo. Los inversores institucionales reciben una confirmación contundente de la inestabilidad permanente en Oriente Medio, lo que fomenta la fuga de capital libre hacia los clásicos refugios seguros. Los riesgos de un conflicto militar directo aumentan de forma exponencial, ya que la ausencia de margen para las maniobras diplomáticas les deja a las partes enfrentadas únicamente el uso de la fuerza como recurso. Para Israel y las monarquías árabes afines, este punto muerto representa la inevitabilidad de una nueva y destructiva carrera armamentística, así como una brusca intensificación de los conflictos "proxy" (por poderes) en sus fronteras. Irán transmite a todo el mundo un mensaje rotundo de que está preparado para soportar cualquier daño económico catastrófico con tal de asegurar su supervivencia estratégica y su posición como potencia regional. Como consecuencia, la estructura mundial para la no proliferación de armas nucleares se sitúa al borde de un colapso definitivo e irreversible bajo el peso de estas disputas irresolubles.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+    </main>
+  </div><!-- /.container -->
+
+  <!-- ── Newsletter ── -->
+  <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
+    <h3 class="nebula-title" id="newsletter-heading">Acceso Seguro al Resumen</h3>
+    <div class="form-container">
+      <div class="newsletter-form-wrapper">
+        <form class="newsletter-form" id="newsletterForm"
+              action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
+          <div class="input-group">
+            <div class="nebula-input">
+              <label for="emailInput" class="sr-only">Dirección de correo electrónico</label>
+              <input type="email" id="emailInput" name="email" autocomplete="email"
+                     class="input" placeholder="Dirección de correo electrónico"
+                     aria-describedby="formErrorMsg" />
+              <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <button class="subscribe-button" type="submit">Suscribirse</button>
+          </div>
+          <div class="form-error-msg" id="formErrorMsg" role="alert" aria-live="polite"></div>
+        </form>
+
+        <div class="success-message" id="successMessage" role="alert" aria-live="assertive">
+          <div style="width:70px;height:70px;margin:0 auto 20px;">
+            <svg viewBox="0 0 52 52" aria-hidden="true">
+              <circle class="checkmark-circle" cx="26" cy="26" r="25"/>
+              <path   class="checkmark-check"  fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Acceso Otorgado</h4>
+          <p  style="font-size:14px;color:#4B5563;">Canal encriptado establecido.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Deep Press Analysis. Todos los derechos reservados.</p>
+    <nav class="footer-links" aria-label="Navegación del pie de página">
+      <a href="https://deeppressanalysis.com/es/archive" class="btn-text">Acceso al archivo</a>
+      <a href="https://deeppressanalysis.com/manifesto"  class="btn-text">Manifiesto</a>
+    </nav>
+
+    <!-- ── Web3 Support Section ── -->
+    <div class="container" style="padding-top: 40px; padding-bottom: 0;">
+      <div class="support-section">
+        <div class="support-title-wrapper">
+          <div class="live-dot"></div>
+          <div class="support-title">Apoyar el proyecto independiente</div>
+        </div>
+
+        <div class="crypto-grid">
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name eth">Ethereum</span>
+            </div>
+            <input type="text" class="crypto-address" value="0x7b8318ce0788cAdDF398035A65EFDB30a262cae5" aria-label="Dirección de la billetera Ethereum" readonly />
+          </div>
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name btc">Bitcoin</span>
+            </div>
+            <input type="text" class="crypto-address" value="bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu" aria-label="Dirección de la billetera Bitcoin" readonly />
+          </div>
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name sol">Solana</span>
+            </div>
+            <input type="text" class="crypto-address" value="98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq" aria-label="Dirección de la billetera Solana" readonly />
+          </div>
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name trx">Tron</span>
+            </div>
+            <input type="text" class="crypto-address" value="TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z" aria-label="Dirección de la billetera Tron" readonly />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden SEO Links -->
+    <div style="display: none;" aria-hidden="true">
+      <a href="https://deeppressanalysis.com/editorial-policy.html">Política Editorial</a>
+    </div>
+  </footer>
+
+  <!--
+  ════════════════════════════════════════════════════════════════════════
+  SEO FIX #1: Accordion JS — контент открыт по умолчанию.
+  JS добавляет класс .js-accordion на <html>, и только ТОГДА CSS
+  скрывает тела статей. Googlebot видит страницу с открытым контентом.
+
+  SEO FIX #7: Языковой редирект — без localStorage.
+  Вместо этого использовать серверный редирект по Accept-Language.
+  Пример для Nginx:
+    map $http_accept_language $lang {
+      ~^ru  /ru/;  ~^uk  /ua/;  ~^de  /de/;
+      ~^ar  /ar/;  ~^es  /es/;  default /en/;
+    }
+    if ($request_uri = /) { return 302 $scheme://$host$lang; }
+  JS-редирект ниже — только запасной вариант, без localStorage.
+  ════════════════════════════════════════════════════════════════════════
+  -->
+  <script nonce="{{NONCE}}">
+  (function () {
+    'use strict';
+
+    /* ─── SEO FIX #1: Активируем аккордеон только после загрузки JS ─── */
+    document.documentElement.classList.add('js-accordion');
+
+    /* ─── SEO FIX #7: Языковой редирект — без localStorage ─────────────
+       РЕКОМЕНДАЦИЯ: Реализовать на сервере (Nginx/Apache/Node).
+       Этот JS-редирект — только запасной вариант.
+       Срабатывает только на корневом пути /, не на /es/ и т.д.
+    ──────────────────────────────────────────────────────────────────── */
+    (function () {
+      try {
+        var path = window.location.pathname;
+        var langPaths = ['/ru/', '/ua/', '/de/', '/ar/', '/es/', '/en/'];
+        /* Не редиректим, если уже на языковой странице */
+        if (langPaths.some(function (p) { return path === p || path.startsWith(p); })) return;
+        /* Редиректим только с корня */
+        if (path !== '/' && path !== '') return;
+
+        var lang = String(navigator.language || '').substring(0, 2).toLowerCase();
+        var map  = { ru: '/ru/', uk: '/ua/', ua: '/ua/', de: '/de/', ar: '/ar/', es: '/es/' };
+        if (map[lang]) {
+          window.location.replace(map[lang]);
+        }
+      } catch (_) {}
+    })();
+
+    /* ─── Accordion Logic ─────────────────────────────────────────────── */
+    function closeItem(item) {
+      var body = item.querySelector('.article-body');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(function () { body.style.maxHeight = '0px'; });
+      item.classList.remove('active');
+      item.querySelector('.article-trigger').setAttribute('aria-expanded', 'false');
+    }
+
+    function openItem(item) {
+      var body = item.querySelector('.article-body');
+      item.classList.add('active');
+      item.querySelector('.article-trigger').setAttribute('aria-expanded', 'true');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+
+    function toggleArt(btn) {
+      var parent   = btn.closest('.article-item');
+      var isActive = parent.classList.contains('active');
+      document.querySelectorAll('.article-item').forEach(function (it) {
+        if (it !== parent) closeItem(it);
+      });
+      isActive ? closeItem(parent) : openItem(parent);
+    }
+
+    document.querySelectorAll('.article-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () { toggleArt(btn); });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.target.classList.contains('article-trigger') && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        toggleArt(e.target);
+      }
+    });
+
+    /* ─── Form Logic ──────────────────────────────────────────────────── */
+    var form           = document.getElementById('newsletterForm');
+    var successMessage = document.getElementById('successMessage');
+    var formErrorMsg   = document.getElementById('formErrorMsg');
+    var emailInput     = document.getElementById('emailInput');
+    var submitBtn      = form.querySelector('button[type="submit"]');
+
+    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+
+    function showError(msg) {
+      emailInput.classList.add('input-error');
+      formErrorMsg.textContent = msg;
+      formErrorMsg.classList.add('visible');
+      emailInput.focus();
+    }
+
+    function clearError() {
+      emailInput.classList.remove('input-error');
+      formErrorMsg.classList.remove('visible');
+      formErrorMsg.textContent = '';
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError();
+      var val = emailInput.value;
+      if (!val.trim())        { showError('Por favor, ingresa tu dirección de correo electrónico.'); return; }
+      if (!isValidEmail(val)) { showError('Por favor, ingresa una dirección de correo electrónico válida.'); return; }
+
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Enviando…';
+
+      try {
+        var res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.classList.add('hidden');
+          successMessage.classList.add('visible');
+        } else {
+          showError('Error de suscripción. Por favor, inténtalo de nuevo.');
+        }
+      } catch (_) {
+        showError('Error de red. Por favor, comprueba tu conexión.');
+      } finally {
+        if (!successMessage.classList.contains('visible')) {
+          submitBtn.disabled    = false;
+          submitBtn.textContent = 'Suscribirse';
+        }
+      }
+    });
+
+    emailInput.addEventListener('input', clearError);
+
+    /* ─── Spotify Facade Logic ────────────────────────────────────────── */
+    function loadSpotify() {
+      var facade    = document.getElementById('spotify-facade');
+      var container = document.getElementById('spotify-real-container');
+      if (container.querySelector('iframe')) return;
+
+      var iframe     = document.createElement('iframe');
+      iframe.style.borderRadius = '12px';
+      iframe.src     = 'https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0';
+      iframe.width   = '100%';
+      iframe.height  = '152';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.allow   = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      iframe.loading = 'eager';
+      iframe.title   = 'Podcast de Deep Press Analysis';
+
+      container.appendChild(iframe);
+      facade.classList.add('hidden-player');
+    }
+
+    var spotifyFacade = document.getElementById('spotify-facade');
+    if (spotifyFacade) {
+      spotifyFacade.addEventListener('click', loadSpotify);
+      spotifyFacade.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadSpotify(); }
+      });
+    }
+
+    /* ─── Crypto Address: клик = выделение текста ─────────────────────── */
+    document.querySelectorAll('.crypto-address').forEach(function (el) {
+      el.addEventListener('click', function () { this.select(); });
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
