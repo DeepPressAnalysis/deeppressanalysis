@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  Deep Press Analysis — PRODUCTION READY                              ║
+  ║  SEO FIXES APPLIED:                                                  ║
+  ║  1. Article content visible by default (JS collapses after load)     ║
+  ║  2. {{NONCE}} — сервер ОБЯЗАН заменять на криптографически           ║
+  ║     случайную строку при каждом запросе (Node/PHP/Python/etc.)       ║
+  ║  3. Schema.org @id исправлен на /en/#webpage                         ║
+  ║  4. NewsArticle schema добавлена для каждой статьи                   ║
+  ║  5. hreflang — взаимные ссылки обязательны на всех языковых стр.     ║
+  ║  6. Canonical + 301 редирект с корня на /en/ (настроить на сервере)  ║
+  ║  7. JS-редирект переработан (без localStorage)                       ║
+  ║  8. RSS-лента добавлена в <head>                                     ║
+  ║  9. OG/Twitter мета дополнены                                        ║
+  ║  10. datePublished/dateModified — генерировать динамически           ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deep Press Analysis — May 12, 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Daily synthesis of leading international publications. Today's focus: UK political crisis, global fuel shortages, and shifting US electoral strategies." />
+  <meta name="author" content="Deep Press Analysis" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <!--
+    ═══════════════════════════════════════════════════════════════
+    CSP: {{NONCE}} заменяется сервером при каждом запросе.
+    Пример Node.js:
+      const nonce = crypto.randomBytes(16).toString('base64');
+      res.setHeader('Content-Security-Policy', `script-src 'nonce-${nonce}'`);
+      html = html.replaceAll('{{NONCE}}', nonce);
+    ═══════════════════════════════════════════════════════════════
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'nonce-{{NONCE}}';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
+    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
+    form-action 'self' https://formspree.io;
+    object-src 'none';
+    base-uri 'self';
+    frame-src 'self' https://open.spotify.com;
+    media-src 'none';
+    upgrade-insecure-requests;
+  ">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- ═══ SEO: Canonical ═══
+       ВАЖНО: настроить на сервере 301-редирект с / на /en/
+       чтобы не было дубля контента на корневом домене.
+  -->
+  <link rel="canonical" href="https://deeppressanalysis.com/en/" />
+
+  <!-- ═══ SEO: hreflang ═══
+       ВАЖНО: каждая из языковых страниц /ru/ /es/ /ua/ /ar/ /de/
+       ОБЯЗАНА содержать ИДЕНТИЧНЫЙ полный набор hreflang-тегов.
+       Без взаимных ссылок Google игнорирует весь кластер.
+  -->
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/" />
+  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/en/" />
+  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/" />
+  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/" />
+  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/" />
+  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/" />
+  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/" />
+
+  <!-- ═══ SEO FIX #8: RSS-лента — обязательна для Google News ═══ -->
+  <link rel="alternate" type="application/rss+xml"
+        title="Deep Press Analysis — English Feed"
+        href="https://deeppressanalysis.com/en/feed.xml" />
+
+  <!-- ═══ Open Graph (дополнено) ═══ -->
+  <meta property="og:type"                  content="article" />
+  <meta property="og:title"                 content="Deep Press Analysis — May 12, 2026" />
+  <meta property="og:description"           content="Daily synthesis of leading international publications. Today's focus: UK political crisis, global fuel shortages, and shifting US electoral strategies." />
+  <meta property="og:url"                   content="https://deeppressanalysis.com/en/" />
+  <meta property="og:image"                 content="https://deeppressanalysis.com/assets/og-cover.jpg" />
+  <meta property="og:image:width"           content="1200" />
+  <meta property="og:image:height"          content="630" />
+  <meta property="og:site_name"             content="Deep Press Analysis" />
+  <meta property="og:locale"                content="en_US" />
+  <!-- SEO FIX #9: article-specific OG мета -->
+  <meta property="article:published_time"   content="2026-05-12T05:00:00Z" />
+  <meta property="article:modified_time"    content="2026-05-12T05:00:00Z" />
+  <meta property="article:section"          content="Global Economy" />
+  <meta property="article:author"           content="https://deeppressanalysis.com/manifesto.html" />
+
+  <!-- ═══ Twitter Card (дополнено) ═══ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@DeepPressAnalysis" />
+  <meta name="twitter:creator"     content="@DeepPressAnalysis" />
+  <meta name="twitter:title"       content="Deep Press Analysis — May 12, 2026" />
+  <meta name="twitter:description" content="Daily synthesis of leading international publications. Today's focus: UK political crisis, global fuel shortages, and shifting US electoral strategies." />
+  <meta name="twitter:image"       content="https://deeppressanalysis.com/assets/og-cover.jpg" />
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+    SEO FIX #3: @id исправлен — /en/#webpage (не /#webpage)
+    SEO FIX #4: NewsArticle schema для каждой статьи
+    SEO FIX #10: datePublished/dateModified — генерировать динамически на сервере
+    Nonce на JSON-LD: браузеры не требуют nonce для type="application/ld+json",
+    но при строгом CSP некоторые реализации его проверяют — оставляем {{NONCE}}.
+  ════════════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json" nonce="{{NONCE}}">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "@id": "https://deeppressanalysis.com/#newsmediaorganization",
+      "name": "Deep Press Analysis",
+      "url": "https://deeppressanalysis.com/en/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://deeppressanalysis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://t.me/DeepPressAnalysis",
+        "https://www.threads.com/@deeppressanalysis",
+        "https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA",
+        "https://www.pinterest.com/DeepPressAnalysis"
+      ],
+      "foundingDate": "2025-12-01",
+      "publishingPrinciples": "https://deeppressanalysis.com/editorial-policy.html",
+      "ethicsPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "masthead": "https://deeppressanalysis.com/manifesto.html",
+      "verificationFactCheckingPolicy": "https://deeppressanalysis.com/editorial-policy.html",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Editorial",
+        "email": "info@deeppressanalysis.com",
+        "availableLanguage": ["English","Russian","Ukrainian","German","Arabic","Spanish"]
+      },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Worldwide" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://deeppressanalysis.com/en/#webpage",
+      "url": "https://deeppressanalysis.com/en/",
+      "name": "Deep Press Analysis — May 12, 2026",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "description": "Daily synthesis of leading international publications. Today's focus: UK political crisis, global fuel shortages, and shifting US electoral strategies.",
+      "inLanguage": "en",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://deeppressanalysis.com/en/" }
+        ]
+      }
+    },
+
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-ft-1",
+      "headline": "Fuel reserves near 'critically low' level, says Saudi Aramco",
+      "description": "Saudi Aramco CEO Amin Nasser issued an unprecedented warning about the critical depletion of global gasoline and jet fuel reserves amid the Strait of Hormuz conflict.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "Global Economy",
+      "about": [
+        { "@type": "Organization", "name": "Saudi Aramco" },
+        { "@type": "Place", "name": "Strait of Hormuz" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-ft-2",
+      "headline": "Trump administration signalled that it was looking for a resolution",
+      "description": "The Trump administration began sending open signals about seeking a diplomatic resolution to the armed conflict surrounding Iran amid catastrophic losses in oil volumes.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "Geopolitics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-ft-3",
+      "headline": "Oil prices have swung wildly since the war began",
+      "description": "Since the conflict began, the global energy market has faced unprecedented price volatility, with a barrel of oil peaking at $126 before dropping to $100.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "Energy Markets"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-ft-4",
+      "headline": "Saudi Aramco reported an increase in earnings in the first three months",
+      "description": "Saudi Aramco officially reported earnings growth for the first three months of the current year amid the global supply crisis.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "Corporate Earnings"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-ft-5",
+      "headline": "Has Trump lost his trade superpower?",
+      "description": "Expert and media communities debate the Trump administration's possible loss of its status as a global trade superpower amid the Middle East crisis.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "US Trade Policy"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-dt-1",
+      "headline": "Cabinet tells Starmer time to go",
+      "description": "The British cabinet entered open confrontation with the ruling party's leader, demanding that Keir Starmer consider stepping down.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "UK Politics",
+      "about": { "@type": "Person", "name": "Keir Starmer" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-dt-2",
+      "headline": "79 Labour MPs call on leader to quit and aides resign",
+      "description": "79 Labour Party MPs publicly demanded the prime minister's resignation, accompanied by the departure of ministerial aides.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "UK Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-dt-3",
+      "headline": "Blue Labour says Starmer should set out a timetable for his departure",
+      "description": "The right wing of the ruling party, represented by the Blue Labour faction, officially demanded that the leader establish a clear timetable for his departure.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "UK Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-dt-4",
+      "headline": "Rayner says Burnham must be brought back as leadership rivals circle",
+      "description": "Angela Rayner launched a campaign for the return of Andy Burnham, initiating a phase of public struggle for the prime minister's office.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "UK Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-dt-5",
+      "headline": "Grand tour of Peru & the Amazon / Iconic National Parks of America",
+      "description": "The UK is witnessing aggressive promotion of ultra-expensive travel packages despite macroeconomic and political crises.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "Tourism"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-gua-1",
+      "headline": "Starmer's survival on the line as cabinet ministers urge him to quit",
+      "description": "Prime Minister Keir Starmer found himself in deep political isolation, publicly refusing to step down under pressure from his own cabinet.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "UK Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-gua-2",
+      "headline": "Ministers told PM he should oversee an orderly transition of power",
+      "description": "Top cabinet officials moved to draft a plan for an orderly transition of power, attempting to force the leader into capitulation on soft terms.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "UK Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-gua-3",
+      "headline": "ECB is planning to bring in its own PSR rules for the counties",
+      "description": "The England and Wales Cricket Board initiated the implementation of Profitability and Sustainability Rules, requiring clubs to reach break-even by 2028.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "Sports Business"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-gua-4",
+      "headline": "Sussex docked 12 points after posting an operating loss",
+      "description": "Sussex County Cricket Club faced an unprecedented penalty, being docked 12 points at the start of the season for posting an operating loss of £1.33 million.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "Sports Business"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-gua-5",
+      "headline": "The Rivals season two: 'Exquisitely knowing escapism'",
+      "description": "Amid a deep socio-political crisis, the cultural agenda is shifting toward premium escapism, evidenced by the success of the second season of The Rivals.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "Media"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-ind-1",
+      "headline": "Trump says Iran ceasefire on 'massive life support' as talks stall",
+      "description": "The US administration's statement formalizes the failure of the diplomatic track, returning the region to a state of permanent military threat.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "Geopolitics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-ind-2",
+      "headline": "Greece vows to fast-track UK visitors until EU border system is fixed",
+      "description": "The Greek government unilaterally decided to fast-track British tourists, bypassing the malfunctioning European Union border control system.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "EU Borders"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-ind-3",
+      "headline": "Handing power to Nigel Farage would take the country 'down a dark path'",
+      "description": "Prime Minister Keir Starmer presented an apocalyptic scenario, stating that handing power to Nigel Farage would take the country down a dark path.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "UK Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-ind-4",
+      "headline": "King's Speech might coincide with the resignation of the premier",
+      "description": "The political crisis in the UK created an unprecedented constitutional collision, where the King's Speech coincides with the probable resignation of the prime minister.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "UK Politics"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-ind-5",
+      "headline": "Wales launch their summer with next year's World Cup in mind",
+      "description": "The Welsh Rugby Union launched a massive restructuring of the national squad, resting leading veterans before the summer tour to prepare for the 2027 World Cup.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "Sports"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-wp-1",
+      "headline": "Emergency appeal made to Supreme Court in hope of saving redrawn maps",
+      "description": "The Virginia Democratic Party initiated an emergency appeal to the US Supreme Court to save redrawn electoral maps that guaranteed four additional congressional seats.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "US Elections"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-wp-2",
+      "headline": "State's high court improperly overturned a redistricting referendum",
+      "description": "The Virginia State Supreme Court's ruling overturned the results of a redistricting referendum, triggering the current legal crisis.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "US Elections"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-wp-3",
+      "headline": "Practical realities of our election calendar will prevent candidates from running in new maps",
+      "description": "Practical realities of the election calendar are blocking the possibility of using new maps, as administrative deadlines have already expired.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "US Elections"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-wp-4",
+      "headline": "Virginia's elections software is antiquated and overdue for replacement",
+      "description": "State software for running elections in Virginia is officially recognized as antiquated and overdue for replacement.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "US Tech Policy"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": "https://deeppressanalysis.com/en/#art-wp-5",
+      "headline": "Since we can't control anything... let's mobilize and organize",
+      "description": "The Democratic Party leadership in Virginia made a pragmatic decision to radically change campaign tactics, shifting focus from court battles to grassroots voter outreach.",
+      "datePublished": "2026-05-12T05:00:00Z",
+      "dateModified":  "2026-05-12T05:00:00Z",
+      "isPartOf": { "@id": "https://deeppressanalysis.com/en/#webpage" },
+      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
+      "inLanguage": "en",
+      "articleSection": "US Elections"
+    }
+  ]
+  </script>
+
+  <style>
+    :root {
+      --bg-body:        #F2F4F7;
+      --bg-paper:       #FFFFFF;
+      --text-primary:   #111827;
+      --text-secondary: #4B5563;
+      --brand-navy:     #0F172A;
+      --brand-blue:     #2563EB;
+      --border-color:   #E5E7EB;
+      --up-color:       #059669;
+      --down-color:     #DC2626;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Libre Baskerville', serif;
+      color: var(--brand-navy);
+      line-height: 1.3;
+    }
+
+    a { text-decoration: none; color: inherit; transition: color 0.2s, opacity 0.2s; }
+
+    *:focus-visible {
+      outline: 3px solid var(--brand-blue);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────
+       SEO FIX #1: АККОРДЕОН — КОНТЕНТ ВИДИМ ПО УМОЛЧАНИЮ
+
+       Логика: По умолчанию (без JS) все статьи открыты и индексируются.
+       JS добавляет класс <html class="js-accordion"> ТОЛЬКО после загрузки,
+       и ТОЛЬКО тогда CSS скрывает тела статей.
+       Googlebot видит страницу без accordion-состояния → весь контент открыт.
+    ────────────────────────────────────────────────────────────────── */
+
+    /* Состояние без JS — всё открыто */
+    .article-body {
+      overflow: hidden;
+      background: #fff;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+    }
+
+    /* Состояние с JS — аккордеон активен */
+    .js-accordion .article-body {
+      max-height: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .js-accordion .article-item.active .article-body {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* toggle-icon скрыт без JS */
+    .toggle-icon { display: none; }
+    .js-accordion .toggle-icon { display: block; }
+
+    /* Заголовок rotate при активном */
+    .js-accordion .article-item.active .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    /* ─── Layout ─── */
+    .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .social-row { display: flex; gap: 10px; }
+    .social-btn {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .social-btn img { width: 16px; height: 16px; object-fit: contain; display: block; }
+    .social-btn:hover { background: var(--brand-navy); color: #fff; border-color: var(--brand-navy); }
+
+    .lang-bar {
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      display: flex; gap: 12px;
+    }
+    .lang-link        { color: #9CA3AF; transition: color 0.2s; }
+    .lang-link:hover  { color: var(--brand-blue); }
+    .lang-link.active {
+      color: var(--brand-navy); font-weight: 800;
+      border-bottom: 2px solid var(--brand-blue); padding-bottom: 2px;
+    }
+
+    /* ─── Header ─── */
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #d1d5db;
+    }
+    .meta-issue {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+      color: var(--text-secondary); margin-bottom: 10px;
+    }
+    h1.site-title {
+      font-size: 48px; font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 8px;
+    }
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
+    }
+    .briefing-summary {
+      background: #fff; border: 1px solid var(--border-color);
+      padding: 20px; margin-top: 30px; text-align: left;
+      border-left: 4px solid var(--brand-navy);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .briefing-summary p      { font-size: 15px; color: var(--text-secondary); margin: 0; }
+    .briefing-summary strong {
+      color: var(--brand-navy); font-weight: 700;
+      text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;
+    }
+
+    /* ─── Outlets (Newspapers) ─── */
+    .outlet-section {
+      background: var(--bg-paper); border: 1px solid var(--border-color);
+      margin-bottom: 30px; border-radius: 4px; overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .outlet-header {
+      background: #f8fafc; padding: 15px 25px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .outlet-header h2 { font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
+    .outlet-tags      { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; }
+
+    /* ─── Accordion Items ─── */
+    .article-item             { border-bottom: 1px solid var(--border-color); }
+    .article-item:last-child { border-bottom: none; }
+
+    .article-trigger {
+      display: flex; align-items: baseline; width: 100%;
+      padding: 20px 25px; cursor: pointer; background: #fff;
+      transition: background 0.2s; border: none; text-align: left;
+    }
+    .article-trigger:hover { background: #f9fafb; }
+    .article-trigger:focus { background: #f0f9ff; }
+
+    /* Без JS: убрать pointer-cursor у заголовка */
+    .article-trigger { cursor: default; }
+    .js-accordion .article-trigger { cursor: pointer; }
+
+    .art-idx {
+      font-family: 'Inter', sans-serif; font-size: 13px; color: #9CA3AF;
+      width: 35px; flex-shrink: 0; font-weight: 500;
+    }
+    .art-title {
+      font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
+      color: var(--text-primary); flex-grow: 1; padding-right: 20px;
+      transition: color 0.2s;
+    }
+    .toggle-icon {
+      color: var(--text-secondary); font-size: 12px; width: 20px; text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .js-accordion .article-item.active .art-title  { color: var(--brand-blue); }
+
+    .body-inner {
+      padding: 5px 25px 25px 60px; font-size: 16px;
+      color: var(--text-secondary); max-width: 85ch; line-height: 1.7;
+    }
+
+    /* ─── Newsletter ─── */
+    .nebula-wrapper {
+      background-color: var(--bg-body); width: 100%;
+      padding: 60px 0; margin-top: 60px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nebula-title {
+      text-align: center; color: var(--brand-navy);
+      font-family: 'Libre Baskerville', serif; margin-bottom: 10px; font-size: 24px;
+    }
+    .form-container          { display: flex; justify-content: center; padding: 20px; }
+    .newsletter-form-wrapper {
+      width: 100%; max-width: 500px;
+      display: flex; flex-direction: column; align-items: center; gap: 20px;
+    }
+    .input-group  { display: flex; width: 100%; align-items: center; }
+    .nebula-input { position: relative; flex: 1; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    .nebula-input .input {
+      width: 100%; padding: 12px 12px 12px 40px;
+      border: 1px solid #cbd5e1; background: #fff;
+      color: var(--brand-navy); font-size: 16px; outline: none;
+      border-radius: 4px 0 0 4px; transition: border-color 0.2s;
+    }
+    .nebula-input .input:focus         { border-color: var(--brand-blue); z-index: 2; position: relative; }
+    .nebula-input .input.input-error   { border-color: var(--down-color); }
+
+    .email-icon {
+      position: absolute; top: 50%; left: 12px; transform: translateY(-50%);
+      width: 20px; height: 20px; fill: #94a3b8; pointer-events: none;
+      transition: fill 0.2s;
+    }
+    .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
+
+    .subscribe-button {
+      padding: 13px 24px; font-size: 14px; font-weight: 700;
+      color: #fff; background: var(--brand-navy);
+      border: 1px solid var(--brand-navy); border-radius: 0 4px 4px 0;
+      cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .subscribe-button:disabled          { opacity: 0.7; cursor: not-allowed; }
+    .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
+
+    .form-error-msg {
+      display: none; color: var(--down-color);
+      font-size: 13px; margin-top: 6px; text-align: left; width: 100%;
+    }
+    .form-error-msg.visible { display: block; }
+
+    .success-message           { display: none; text-align: center; color: var(--brand-navy); }
+    .success-message.visible   { display: block; }
+    .newsletter-form.hidden    { display: none; }
+
+    .checkmark-circle { stroke: var(--up-color); stroke-width: 2; fill: none; }
+    .checkmark-check  { stroke: var(--up-color); stroke-width: 2; }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 30px 0 60px;
+      color: var(--text-secondary); font-size: 13px;
+    }
+    .footer-links { margin-top: 35px; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+    .btn-text {
+      font-weight: 900; text-transform: uppercase; font-size: 18px; letter-spacing: 1px;
+      color: var(--brand-navy); border-bottom: 2px solid transparent; padding-bottom: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-text:hover { color: var(--brand-blue); border-bottom-color: var(--brand-blue); }
+
+    /* ─── Spotify facade ─── */
+    .spotify-fake-player {
+      background-color: #282828; border-radius: 12px; height: 152px;
+      display: flex; align-items: center; cursor: pointer; overflow: hidden;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+    .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
+
+    .fake-cover         { width: 152px; height: 152px; flex-shrink: 0; }
+    .fake-cover img     {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.95;
+      border-top-left-radius: 12px; border-bottom-left-radius: 12px;
+    }
+    .fake-info          {
+      padding: 0 24px; flex-grow: 1;
+      display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+    }
+    .fake-meta   { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .fake-title  { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
+    .fake-desc   { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
+    .fake-play-btn {
+      background-color: #1ed760; color: #000; border: none; border-radius: 50%;
+      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+      margin-right: 24px; cursor: pointer; flex-shrink: 0;
+      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .fake-play-btn svg { fill: currentColor; margin-left: 2px; }
+    .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
+    .hidden-player { display: none !important; }
+
+    /* ─── Web3 Support Section ─── */
+    .support-section {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      border-top: 1px dashed var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .support-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--brand-blue, #3b82f6);
+      border-radius: 50%;
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes ping {
+      0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+      70% { box-shadow: 0 0 0 6px rgba(59, 130, 246, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+
+    .support-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .crypto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .crypto-card {
+      position: relative;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow: hidden;
+    }
+
+    .crypto-card:hover {
+      border-color: var(--brand-blue);
+      background: var(--bg-body);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .crypto-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .crypto-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand-navy);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .crypto-name::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .eth::before { background-color: #627EEA; }
+    .btc::before { background-color: #F7931A; }
+    .sol::before { background-color: #14F195; }
+    .trx::before { background-color: #FF060A; }
+
+    .crypto-address {
+      width: 100%;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-family: 'Inter', monospace;
+      font-size: 11px;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      outline: none;
+      cursor: text;
+    }
+
+    .crypto-card:hover .crypto-address {
+      border-color: rgba(59, 130, 246, 0.3);
+      color: var(--brand-navy);
+    }
+
+    /* ─── Reduced motion ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .live-dot { animation: none; }
+    }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 600px) {
+      h1.site-title    { font-size: 32px; }
+      .top-toolbar     { flex-direction: column-reverse; gap: 20px; align-items: center; }
+      .lang-bar        { flex-wrap: wrap; justify-content: center; }
+      .body-inner      { padding-left: 25px; }
+      .outlet-tags     { display: none; }
+      .input-group     { flex-direction: column; gap: 10px; }
+      .nebula-input .input  { border-radius: 4px; }
+      .subscribe-button     { border-radius: 4px; width: 100%; }
+      .footer-links    { flex-direction: column; gap: 20px; }
+      .spotify-fake-player  { height: auto; padding: 16px; flex-wrap: wrap; }
+      .fake-cover      { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
+      .fake-cover img  { border-radius: 4px; }
+      .fake-info       { padding: 0; width: calc(100% - 80px - 50px); }
+      .fake-title      { font-size: 16px; white-space: normal; }
+      .fake-play-btn   { width: 40px; height: 40px; margin-right: 0; }
+      .crypto-grid     { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Print ─── */
+    @media print {
+      .social-row, .lang-bar,
+      .nebula-wrapper, footer, .spotify-fake-player,
+      #spotify-real-container, .support-section { display: none; }
+      body { background: white; }
+      /* Принт — весь контент открыт */
+      .js-accordion .article-body {
+        max-height: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="top-toolbar">
+      <nav class="lang-bar" aria-label="Language selection">
+        <a href="/ua/" class="lang-link" hreflang="uk" aria-label="Ukrainian version">UA</a>
+        <a href="/en/" class="lang-link active" hreflang="en" aria-current="page" aria-label="English version">EN</a>
+        <a href="/es/" class="lang-link" hreflang="es" aria-label="Spanish version">ES</a>
+        <a href="/ar/" class="lang-link" hreflang="ar" aria-label="Arabic version">AR</a>
+        <a href="/ru/" class="lang-link" hreflang="ru" aria-label="Russian version">RU</a>
+        <a href="/de/" class="lang-link" hreflang="de" aria-label="German version">DE</a>
+      </nav>
+
+      <nav class="social-row" aria-label="Social media links">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Send email to Deep Press Analysis">
+          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
+        </a>
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Visit our Telegram channel">
+          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
+        </a>
+        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Visit our Threads profile">
+          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16">
+        </a>
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Visit our YouTube channel">
+          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
+        </a>
+      </nav>
+    </div>
+
+    <header>
+      <div class="meta-issue">
+        VOL. 26 • ISSUE 132 • <time datetime="2026-05-12">MAY 12, 2026</time>
+      </div>
+      <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
+      <div class="subtitle">Daily synthesis of leading international publications</div>
+      <div class="briefing-summary">
+        <p><strong>In focus today:</strong> Critical global fuel shortage warnings from Saudi Aramco, escalating UK political crisis surrounding PM Starmer, and shifting US electoral strategies in Virginia.</p>
+      </div>
+    </header>
+
+    <main>
+
+      <div id="spotify-facade" class="spotify-fake-player"
+           role="button" tabindex="0"
+           aria-label="Play Deep Press Analysis podcast on Spotify">
+        <div class="fake-cover">
+          <img src="https://deeppressanalysis.com/logo.png" alt="Deep Press Analysis Podcast Cover">
+        </div>
+        <div class="fake-info">
+          <div class="fake-meta">PODCAST SHOW</div>
+          <div class="fake-title">Deep Press Analysis</div>
+          <div class="fake-desc">Daily Audio Briefing</div>
+        </div>
+        <button class="fake-play-btn" aria-label="Play Podcast" tabindex="-1">
+          <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/>
+          </svg>
+        </button>
+      </div>
+      <div id="spotify-real-container" style="margin-bottom:40px;"></div>
+
+      <!-- ════════════════════════ FINANCIAL TIMES ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>FINANCIAL TIMES</h2>
+          <div class="outlet-tags">GLOBAL ECONOMY • ENERGY • GEOPOLITICS</div>
+        </div>
+
+        <article class="article-item" id="art-ft-1">
+          <button class="article-trigger" id="btn-ft-1" aria-expanded="true" aria-controls="body-ft-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Fuel reserves near 'critically low' level, says Saudi Aramco</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ft-1" role="region" aria-labelledby="btn-ft-1">
+            <div class="body-inner">
+              <p>Amin Nasser, CEO of Saudi Aramco, issued an unprecedented warning about the critical depletion of global gasoline and jet fuel reserves. The fundamental factor is the ongoing conflict with Iran and the closure of the Strait of Hormuz, resulting in the weekly withdrawal of one hundred million barrels from the global market. Corporations with spare capacity outside the conflict zone are winning in this situation, able to capitalize on the growing deficit. The losing side comprises global supply chains and the aviation industry, facing a physical shortage of critical resources. Aramco's motivation for publicly disclosing this data lies in an attempt to exert direct pressure on international political elites. This is a targeted informational strike intended to force a diplomatic resolution to the crisis. For commodity markets, a harsh signal has sounded: onshore buffer stocks are rapidly exhausted and can no longer absorb supply shocks. The institutional signal is the recognition of the complete failure of current mechanisms for ensuring global energy security. The main risk lies in the transition of the energy shock into a more destructive phase with a massive paralysis of commercial aviation. Possible consequences include the introduction of emergency fuel allocation quotas at the state level. Investors urgently need to reassess risks in sectors directly dependent on uninterrupted supplies of deep oil refining products.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ft-2">
+          <button class="article-trigger" id="btn-ft-2" aria-expanded="true" aria-controls="body-ft-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Trump administration signalled that it was looking for a resolution</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ft-2" role="region" aria-labelledby="btn-ft-2">
+            <div class="body-inner">
+              <p>The Trump administration has begun to send open signals about seeking a diplomatic resolution to the armed conflict surrounding Iran. The key event is the White House's shift in rhetoric from escalation to seeking a compromise amidst catastrophic losses in oil volumes. The main beneficiaries of this reversal are energy-dependent importers and global market speculators betting on a decline. Regional US allies expecting a harsher military scenario may emerge as the losing side. Washington's motivation is purely pragmatic: it is necessary to mitigate global economic damage before it strikes an irreparable blow to the American economy. For markets, this is a powerful signal of likely supply stabilization in the medium term, which has already begun to reflect in pricing. For Middle Eastern political institutions, this is an indicator that American support has clear financial limits. Risks of such diplomacy are associated with potentially making excessive concessions to opponents for the sake of quickly resuming transit through the Strait of Hormuz. Long-term consequences may include a weakening of American geopolitical influence in the region due to demonstrating vulnerability to oil blackmail. Investors should prepare for high diplomatic volatility, where each negotiation stage will trigger aggressive price fluctuations.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ft-3">
+          <button class="article-trigger" id="btn-ft-3" aria-expanded="true" aria-controls="body-ft-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Oil prices have swung wildly since the war began</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ft-3" role="region" aria-labelledby="btn-ft-3">
+            <div class="body-inner">
+              <p>Since the start of the conflict, the global energy market has faced unprecedented price volatility, with a barrel of oil peaking at $126. The key fact is the subsequent sharp rollback of quotes to the $100 level, triggered solely by statements about possible peace talks. High-frequency traders and hedge funds whose algorithms are tuned to extract profit from geopolitical news are winning in this amplitude. Long-term strategic investors and industrial consumers, deprived of the ability to adequately plan operational expenses, are losing. The main motivation of market players is built on the fear of physical deficit, which instantly converts into a speculative premium. The signal for markets is crystal clear: current pricing is detached from fundamental production metrics and entirely subordinated to the political narrative. For financial institutions, this indicates the inefficiency of standard risk management models under war conditions. The risk lies in the probability of new price shocks if the US-announced settlement reaches a dead end. Possible consequences for the global economy include a surge in secondary inflation caused by the instability of transportation costs. Investors in the real sector must actively hedge price risks rather than relying on the current downward trend.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ft-4">
+          <button class="article-trigger" id="btn-ft-4" aria-expanded="true" aria-controls="body-ft-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Company reported an increase in earnings in the first three months</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ft-4" role="region" aria-labelledby="btn-ft-4">
+            <div class="body-inner">
+              <p>Amidst the global supply crisis, Saudi Aramco has officially reported earnings growth for the first three months of the current year. The key fact is the corporation's ability to increase financial performance during military operations and the blockade of transport arteries. The beneficiaries are shareholders and the state of Saudi Arabia itself, receiving additional windfall revenues. Importing nations lose as their capital rapidly flows onto the balance sheets of Middle Eastern national oil companies. Aramco's motivation in publishing positive earnings alongside a deficit warning is to demonstrate its exceptional market power. This is a signal to global capital markets that commodity giants remain a safe haven for investments even during geopolitical catastrophes. Institutionally, this underscores the imbalance of the global economy, where a crisis in one point enriches monopolists at the expense of global growth. The risks of such excess profitability lie in the possible tightening of antitrust and sanctions pressure from Western regulators in the future. Consequences may manifest in the form of emergency windfall taxes in jurisdictions where the corporation's subsidiaries operate. For investors, this report provides a clear marker that the commodity sector retains its defensive properties under any logistical collapse scenarios.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ft-5">
+          <button class="article-trigger" id="btn-ft-5" aria-expanded="true" aria-controls="body-ft-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Has Trump lost his trade superpower?</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ft-5" role="region" aria-labelledby="btn-ft-5">
+            <div class="body-inner">
+              <p>The expert and media community has initiated a deep discussion about the Trump administration's possible loss of its status as a global "trade superpower." The key analytical fact becomes the public doubt regarding the effectiveness of the sanctions and tariff toolkit, previously considered Washington's flawless weapon. US global competitors and transnational corporations interested in dismantling protectionist barriers benefit from this narrative. The economic bloc of the American government loses, as its authority on the international stage undergoes systemic erosion. The motivation behind such discussions lies in testing the limits of American economic dominance against the backdrop of its inability to quickly resolve the Middle East crisis. For currency and stock markets, this is a macroeconomic signal of a likely weakening of pressure on US trade partners in the near term. The institutional signal points to the global economy transitioning into a multipolar phase, where unilateral tariff threats no longer work. The risk lies in an unpredictable reaction from the White House, which may attempt to restore the status quo through a series of radical economic measures. In the long run, this threatens the architecture of global supply chains built with an orientation toward American markets. Major portfolio investors should diversify assets, factoring in a scenario of a gradual decline in the hegemony of US trade regulators.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ DAILY TELEGRAPH ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE DAILY TELEGRAPH</h2>
+          <div class="outlet-tags">UK POLITICS • TOURISM • LEADERSHIP</div>
+        </div>
+
+        <article class="article-item" id="art-dt-1">
+          <button class="article-trigger" id="btn-dt-1" aria-expanded="true" aria-controls="body-dt-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Cabinet tells Starmer time to go</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-dt-1" role="region" aria-labelledby="btn-dt-1">
+            <div class="body-inner">
+              <p>The British cabinet has entered into open confrontation with the ruling party's leader, demanding that Keir Starmer consider stepping down. The key event is the direct intervention of top officials, including Home Secretary Shabana Mahmood, in the process of ousting the head of government. Inner-party factions seeking a redistribution of power and access to administrative resources emerge as winners. The UK state machinery loses, plunging into systemic managerial paralysis. The ministers' motivation is dictated by the instinct of political self-preservation: they strive to distance themselves from a toxic leader following a series of catastrophic defeats. For sovereign debt markets and currency speculators, this is a signal of the onset of high political turbulence and the loss of economic manageability. Political institutions receive confirmation of the complete degradation of party discipline and the absence of strategic consensus among elites. Risks are tied to the potential shutdown of government departments paralyzed by the expectation of a leadership change. Long-term consequences include a profound undermining of business confidence in the state's ability to implement promised reforms. Investors in British assets are advised to price in a political risk premium until the leadership crisis is fully resolved.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-dt-2">
+          <button class="article-trigger" id="btn-dt-2" aria-expanded="true" aria-controls="body-dt-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">79 Labour MPs call on leader to quit and aides resign</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-dt-2" role="region" aria-labelledby="btn-dt-2">
+            <div class="body-inner">
+              <p>The political crisis has gained avalanche-like momentum: 79 Labour Party MPs have publicly demanded the prime minister's resignation, accompanied by the departure of ministerial aides. The key fact is the coordination and scale of the parliamentary rebellion, which makes further governance mathematically impossible. Opposition forces win, gaining an ideal backdrop to criticize the complete collapse of the government coalition. The prime minister loses, having definitively lost basic parliamentary support to pass any legislative initiatives. The motivation of the parliamentarians lies in the urgent need to rebrand the party in the face of an angry electorate. This rebellion serves as a clear signal to businesses that no law or budget can be guaranteed to pass through parliament in its current configuration. For the institutions of monarchy and parliamentarianism, this is a marker of a deep crisis of representative democracy in the country. The risk lies in the likelihood of early general elections, which the ruling party approaches in a fractured state. Consequences may manifest in a prolonged period of forming temporary minority governments. Investors should suspend capital-intensive projects in the UK until the new configuration of power becomes clear.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-dt-3">
+          <button class="article-trigger" id="btn-dt-3" aria-expanded="true" aria-controls="body-dt-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Blue Labour says Starmer should set out a timetable for his departure</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-dt-3" role="region" aria-labelledby="btn-dt-3">
+            <div class="body-inner">
+              <p>The right wing of the ruling party, represented by the Blue Labour faction, has officially demanded that the leader establish a clear timetable for his departure. The key event is an articulated ideological split, in which conservative-leaning Labour members dictate the terms of the political transition. Hard-line centrism ideologues win, gaining the opportunity to rewrite the party platform to their liking. The party's left wing loses, risking isolation in the formation of a new ideological vector. Blue Labour's motivation is to seize control of the power transition process to prevent radical populists from taking leadership. The signal for markets is moderately positive: pressure from the right wing may mean the party's future rejection of excessive tax regulations. For political institutions, this signifies a shift in the center of decision-making from government cabinets to shadow factional structures. The main risk is that the ideological war within the party will completely eclipse the national agenda. Possible consequences include the ultimate fragmentation of the party into several independent political movements. Investors should closely monitor Blue Labour's program, as it is highly likely to become the foundation of future state policy.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-dt-4">
+          <button class="article-trigger" id="btn-dt-4" aria-expanded="true" aria-controls="body-dt-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Rayner says Burnham must be brought back as leadership rivals circle</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-dt-4" role="region" aria-labelledby="btn-dt-4">
+            <div class="body-inner">
+              <p>Amid the agony of the current leadership, Angela Rayner has launched a campaign for the return of Andy Burnham, initiating a phase of public struggle for the prime minister's office. The key fact is the formation of coalitions around alternative power centers even before the official announcement of the current leader's resignation. Regional elites win, as their representative gets a chance to lead the country's government. The integrity of the government apparatus loses, torn between loyalty to the incumbent prime minister and future candidates. Rayner's motivation is to create a powerful alliance capable of securing her a place in the new government in exchange for supporting Burnham. For markets, this is an indicator of the start of a prolonged period of uncertainty until competing factions agree on a new economic course. The institutional signal points to the weakness of the talent pool in Westminster, forcing the party to turn to regional leaders. The risk to the national economy is that, in the heat of the leadership battle, candidates will begin making unfulfillable populist promises. Long-term consequences signify a reassessment of the balance of power between the central authority in London and regional centers of influence. Businesses must promptly establish contacts with the entourages of potential successors to hedge regulatory risks.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-dt-5">
+          <button class="article-trigger" id="btn-dt-5" aria-expanded="true" aria-controls="body-dt-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Grand tour of Peru & the Amazon / Iconic National Parks of America</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-dt-5" role="region" aria-labelledby="btn-dt-5">
+            <div class="body-inner">
+              <p>Despite macroeconomic and political crises, the UK is witnessing aggressive promotion of ultra-expensive travel packages, including expeditions to the Galapagos, Kenya, and Peru. The key fact is the explicit orientation of advertising budgets toward consumers willing to spend upwards of five thousand pounds on ecological and adventure tourism. Transnational tour operators and niche agencies specializing in creating exclusive experiences for the ultra-wealthy are winning. The mass tourism industry loses, its margins dropping amid inflation and shrinking middle-class budgets. The motivation of travel conglomerates is remarkably clear: maximizing profit via a client segment with absolutely inelastic demand. For retail and service markets, this is a clear signal of the persistence of deep consumption stratification, where the premium segment remains immune to crises. Institutionally, this is a marker of significant capital concentration remaining within a narrow stratum of the population. Risks for investors in this sector are tied solely to geopolitical shocks and natural disasters in destination locales. Consequences include further consolidation of the premium services market around a few global operators. For investment portfolios, the luxury tourism sector continues to be an effective defensive asset against inflationary pressure.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ THE GUARDIAN ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE GUARDIAN UK</h2>
+          <div class="outlet-tags">UK POLITICS • SPORTS BUSINESS • MEDIA</div>
+        </div>
+
+        <article class="article-item" id="art-gua-1">
+          <button class="article-trigger" id="btn-gua-1" aria-expanded="true" aria-controls="body-gua-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Starmer's survival on the line as cabinet ministers urge him to quit</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-gua-1" role="region" aria-labelledby="btn-gua-1">
+            <div class="body-inner">
+              <p>Prime Minister Keir Starmer finds himself in deep political isolation, publicly refusing to step down under pressure from his own cabinet and warning of the consequences. The key event is the leader's attempt to hold onto power by blackmailing the party with the threat of massive electoral chaos in the event of an election. Radical anti-system opponents win, leveraging the paralysis of power to boost their own ratings. The state governance system loses, becoming hostage to the ambitions of a single politician. The prime minister's motivation is built on the belief that only he can keep the party from total collapse, despite total rejection of his course. For financial markets, this is the worst possible scenario: uncertainty with no clear resolution, which provokes capital flight from British assets. The institutional signal points to a breakdown of internal party democracy mechanisms and leadership accountability. The risk lies in the transition from a bureaucratic conflict to street clashes between government supporters and opponents. Long-term consequences carry the threat of the Labour Party completely losing its status as a systemic political force. Investors should shift British portfolios into maximum hedging mode against currency and sovereign risks.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-gua-2">
+          <button class="article-trigger" id="btn-gua-2" aria-expanded="true" aria-controls="body-gua-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Ministers told PM he should oversee an orderly transition of power</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-gua-2" role="region" aria-labelledby="btn-gua-2">
+            <div class="body-inner">
+              <p>Top cabinet officials have moved to draft a plan for an "orderly transition of power," attempting to force the leader into capitulation on soft terms. The key fact is the state apparatus's attempt to take control of the spontaneous political collapse by bureaucratizing the resignation process. Representatives of the shadow bureaucracy and moderate politicians seeking to prevent a power vacuum emerge as winners. Proponents of a sharp course change lose, as their initiatives will be blocked during the extended transition period. The ministers' motivation lies in saving the government's reputation and preventing panic in sovereign debt markets. For investors, this is a signal that internal safeguards capable of ensuring the continuity of the state's basic financial obligations are still functioning. For institutions, this is an attempt to maintain a facade of constitutional order amid a de facto coup. The main risk of such an approach is that the "orderly transition" turns into prolonged stagnation with no vital decisions being made. Possible consequences include a slowdown of all public investment programs until a new cabinet is confirmed. Large businesses need to account for the fact that in the coming months, the government will operate exclusively in technical administration mode.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-gua-3">
+          <button class="article-trigger" id="btn-gua-3" aria-expanded="true" aria-controls="body-gua-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">ECB is planning to bring in its own PSR rules for the counties</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-gua-3" role="region" aria-labelledby="btn-gua-3">
+            <div class="body-inner">
+              <p>The England and Wales Cricket Board (ECB) has initiated the implementation of Profitability and Sustainability Rules (PSR), requiring clubs to reach break-even by 2028. The key event is the forced transformation of historically subsidized sports organizations into independent commercial enterprises under the threat of sanctions. Financial regulators and large investors win, gaining transparent and predictable assets in the sports industry market. Traditional regional clubs lose, lacking the necessary marketing base for self-sufficiency. The ECB's motivation is dictated by the need to halt the uncontrolled growth of operating losses and relieve the parent organization of its role as a permanent sponsor. For sports management markets, this is a signal of British sports transitioning to strict American franchise and financial control models. Institutionally, this marks the end of an era when sports structures existed as social institutions outside strict market logic. Risks include the possible bankruptcy of the oldest cricket clubs unable to adapt to the new realities. Long-term consequences will lead to a massive redistribution of property in cricket and the arrival of global private equity funds. An opportunity window opens for investors to buy undervalued sports assets for commercial restructuring.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-gua-4">
+          <button class="article-trigger" id="btn-gua-4" aria-expanded="true" aria-controls="body-gua-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Sussex docked 12 points after posting an operating loss</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-gua-4" role="region" aria-labelledby="btn-gua-4">
+            <div class="body-inner">
+              <p>Sussex County Cricket Club faced an unprecedented penalty, being docked 12 points at the start of the season for posting an operating loss of £1.33 million. The key fact is the integration of severe corporate fines directly into sporting results, which directly impacts asset value. Clubs with a conservative financial model win, gaining a competitive edge on the field due to others' balance sheet issues. The management of the penalized teams loses, as their sporting strategy is destroyed by errors in financial planning. The regulator's motivation is to create a conspicuous precedent that forces other market participants to take the new rules seriously. The signal for markets: financial discipline is now as much a success factor as investments in infrastructure or players. For institutional sponsors, this is an indicator of increased transparency regarding how their funds are spent in the sports industry. The risk lies in the marginalization of unprofitable teams, leading to a decline in the tournament's overall entertainment value and TV ratings. Consequences include inevitable optimization of wage bills and clubs abandoning aggressive growth strategies fueled by credit. Investors should evaluate sports franchises exclusively through the lens of their operating profitability.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-gua-5">
+          <button class="article-trigger" id="btn-gua-5" aria-expanded="true" aria-controls="body-gua-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">The Rivals season two: 'Exquisitely knowing escapism'</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-gua-5" role="region" aria-labelledby="btn-gua-5">
+            <div class="body-inner">
+              <p>Amidst a deep socio-political crisis, the cultural agenda is shifting toward premium escapism, evidenced by the success of the second season of "The Rivals." The key analytical fact is the highly pronounced market demand for distraction from the news agenda through high-quality entertainment content. Streaming platforms and production studios capable of satisfying the need for psychological distancing from reality are the winners. Producers of political and documentary analytics lose, with their ratings plummeting amid audience fatigue with negative news. Media corporations' motivation is built on exploiting consumer stress to monetize subscriptions and ad inventory. For media markets, this is a clear signal of the need to reallocate budgets toward light yet high-budget entertainment formats. Institutionally, this is a marker of social exhaustion, where society refuses to reflect on current crises. The main risk for media investors is market oversaturation with cookie-cutter projects and the subsequent decline in production margins. Possible consequences include increased investments in historical and sci-fi franchises completely detached from the modern agenda. Funds should build up positions in the shares of major content aggregators demonstrating resilience during periods of social depression.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ THE INDEPENDENT ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE INDEPENDENT</h2>
+          <div class="outlet-tags">GEOPOLITICS • EU BORDERS • UK POLITICS • SPORTS</div>
+        </div>
+
+        <article class="article-item" id="art-ind-1">
+          <button class="article-trigger" id="btn-ind-1" aria-expanded="true" aria-controls="body-ind-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Trump says Iran ceasefire on 'massive life support' as talks stall</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ind-1" role="region" aria-labelledby="btn-ind-1">
+            <div class="body-inner">
+              <p>The US administration's statement that the Iran ceasefire is on "massive life support" formalizes the failure of the diplomatic track. The key event is the stalling of the negotiation process, which returns the region to a state of permanent military threat. The military-industrial complex enterprises and commodity speculators win, extracting direct benefit from the escalation of geopolitical tension. European region countries lose, being critically dependent on the security of maritime logistics corridors. Donald Trump's motivation in such statements may be to prepare public opinion for a military scenario or to exert psychological pressure on Tehran. For markets, this is an unambiguous signal that a geopolitical risk premium must once again be factored into all macroeconomic models. For international institutions, this signifies the collapse of the security architecture and global players' inability to guarantee peace agreements. The risk is an uncontrolled escalation that could lead to direct clashes outside proxy zones. Long-term consequences include the accelerated militarization of regional budgets and the outflow of foreign direct investment from Middle Eastern countries. Investors must reduce the share of high-risk emerging market assets in favor of gold instruments and the defense sector.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ind-2">
+          <button class="article-trigger" id="btn-ind-2" aria-expanded="true" aria-controls="body-ind-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Greece vows to fast-track UK visitors until EU border system is fixed</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ind-2" role="region" aria-labelledby="btn-ind-2">
+            <div class="body-inner">
+              <p>The Greek government has unilaterally decided to fast-track British tourists, bypassing the malfunctioning European Union border control system. The key fact is the open sabotage of pan-European bureaucratic procedures to save the national tourist season and ensure capital inflow. The main beneficiary of this decision is the Greek tourism sector, guaranteeing continuous cash flow during the peak holiday period. The losing side is the institutional integrity of the EU, whose security infrastructure demonstrates critical technological dysfunction. Athens' underlying motivation is dictated purely by economic interests: to prevent logistical collapse at airports and retain solvent traffic. For markets, this is a positive signal that the pragmatism of protecting national revenues outweighs adherence to rigid supranational IT regulations. For Europe's political institutions, this step is an alarming indicator of growing decentralization within the bloc. The hidden motive of the Greek authorities is to exert unprecedented pressure on Brussels to accelerate the repair of shared digital infrastructure. For investors in the Southern European hospitality sector, this decision guarantees operational stability for the current quarter. Risks are associated with a potential domino effect, where other EU countries begin introducing their own exemptions, undermining the foundations of the Schengen Agreement.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ind-3">
+          <button class="article-trigger" id="btn-ind-3" aria-expanded="true" aria-controls="body-ind-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Handing power to Nigel Farage would take the country 'down a dark path'</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ind-3" role="region" aria-labelledby="btn-ind-3">
+            <div class="body-inner">
+              <p>In an attempt to retain control, Prime Minister Keir Starmer presented an apocalyptic scenario, stating that handing power to Nigel Farage would take the country "down a dark path." The key event is the official recognition of radical right-wing forces as a major and real threat to the current state system. Radical right parties win, being legitimized at the highest level as the main alternative to bankrupt centrism. The political establishment loses, forced to use fear rhetoric due to the lack of a positive economic agenda. Starmer's motivation is built on an attempt to consolidate the moderate electorate in the face of a hypothetical catastrophe. For investors, this is a signal of an extremely high level of alarm: if the country's leadership seriously discusses the ascension of anti-system players, political risks have reached a critical point. The institutional signal points to deep societal disillusionment with traditional parties unable to solve structural economic problems. The main risk is that the scare strategy may backfire, mobilizing the protest electorate around Farage. Consequences could manifest in a sharp shift in the state's trade and migration policies if this scenario materializes. Investment funds should develop exit strategies in case of a radical change in UK tax legislation.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ind-4">
+          <button class="article-trigger" id="btn-ind-4" aria-expanded="true" aria-controls="body-ind-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">King's Speech might coincide with the resignation of the premier</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ind-4" role="region" aria-labelledby="btn-ind-4">
+            <div class="body-inner">
+              <p>The political crisis in the UK has created an unprecedented constitutional collision, where the King's Speech coincides with the probable resignation of the prime minister. The key fact is the complete paralysis of the legislative process, as the new parliament's program is presented by a leader with no mandate to execute it. Law and consulting firms win, reaping super-profits from interpreting constitutional norms amid managerial chaos. The real economy loses, deprived of any understanding of the state's strategic priorities for the coming year. Political elites' motivation to drag out the crisis lies in attempts to observe procedural formalities at the expense of common sense. For markets, this is a clear signal that the state machinery is idling, producing declarative documents without an implementation mechanism. For the monarchical institution, this is a serious reputational blow, as the King is forced to read the program of a dead government. The risk is that any legislative acts passed during this period will be immediately challenged or repealed by the next cabinet. Consequences include the suspension of all major government contracts and infrastructure tenders. Investors must ignore any declarations from the current government until a new power structure is definitively formed.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ind-5">
+          <button class="article-trigger" id="btn-ind-5" aria-expanded="true" aria-controls="body-ind-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Wales launch their summer... with next year's World Cup in mind</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ind-5" role="region" aria-labelledby="btn-ind-5">
+            <div class="body-inner">
+              <p>The Welsh Rugby Union has launched a massive restructuring of the national squad, resting leading veterans before the summer tour to prepare for the 2027 World Cup. The key analytical fact is the deliberate sacrifice of short-term victories in commercial matches to protect main personnel assets in the long term. Sports medics and the reserve player pool win, gaining access to elite-level competition to build their own capitalization. Summer match organizers and broadcasters lose, with profits dropping due to the absence of main stars on the field. The coaching staff's motivation is dictated by asset management principles: minimizing the injury risk to key figures before the four-year cycle's main tournament. The signal for sports management markets points to a shift toward strict planning of peak form cycles, similar to corporate project management. Institutionally, this means a change in the federation's priorities from local revenues to global reputational and financial dividends from the World Cup. The risks of this strategy are tied to probable reputational losses in the event of crushing defeats for the experimental squad in summer test games. In the long run, this approach ensures the sustainability of the Welsh sports franchise in the international arena. Sponsors and investors should evaluate the effectiveness of sports management not by local matches, but by long four-year cycles.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ WASHINGTON POST ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE WASHINGTON POST</h2>
+          <div class="outlet-tags">US POLITICS • ELECTIONS • TECH</div>
+        </div>
+
+        <article class="article-item" id="art-wp-1">
+          <button class="article-trigger" id="btn-wp-1" aria-expanded="true" aria-controls="body-wp-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Emergency appeal made to Supreme Court in hope of saving redrawn maps</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wp-1" role="region" aria-labelledby="btn-wp-1">
+            <div class="body-inner">
+              <p>The Virginia Democratic Party initiated an emergency appeal to the US Supreme Court to save redrawn electoral maps that guaranteed them four additional congressional seats. The key fact is the attempt by political forces to use the highest federal judicial body to directly alter the balance of power in the legislature. Lawyers and lobbyists providing legal support for such a massive constitutional process are the winners. The transparency of the state's electoral system loses, as its rules are changed immediately ahead of the elections. The Democrats' motivation is crystal clear: retaining control of the House of Representatives through any administrative methods amid unfavorable polls. For political markets, this is a powerful signal that district boundaries have become a key instrument for retaining power, supplanting real competition of ideas. Institutionally, this is a marker of sharp confrontation between the legislative and judicial branches at the state and federal levels. The risk lies in the complete discrediting of the electoral process in the eyes of voters if court decisions are perceived as politically biased. Possible consequences include retaliatory aggressive map redrawing by Republicans in jurisdictions they control. Investors in companies reliant on federal contracts should factor maximum instability of the future Congress's composition into their strategies.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wp-2">
+          <button class="article-trigger" id="btn-wp-2" aria-expanded="true" aria-controls="body-wp-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">State's high court improperly overturned a redistricting referendum</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wp-2" role="region" aria-labelledby="btn-wp-2">
+            <div class="body-inner">
+              <p>The Virginia State Supreme Court's ruling overturned the results of a redistricting referendum, triggering the current legal crisis. The key event is the direct annulment of the citizens' will by a judicial body based on formal procedural grounds. The state's political conservatives win, having managed to block disadvantageous changes in political geography through the judicial system. Direct democracy mechanisms lose, proving vulnerable to legal sophistry and judicial activism. The motivation behind the court decision is based on a strict interpretation of state laws, but it is inextricably linked to the political preferences of the judiciary. For the consulting markets, this is a signal that investments in referendums do not guarantee a result without total control over the judicial system. For political institutions, this is a precedent that solidifies the right of courts to radically intervene in the formation of legislative bodies. The primary risk is the escalation of distrust in justice institutions, leading to the radicalization of political discourse. Consequences may manifest in attempts to reform the courts themselves by altering their size and partisan makeup. Investors whose interests depend on local legislation must consider state courts as the primary arbiters of political disputes.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wp-3">
+          <button class="article-trigger" id="btn-wp-3" aria-expanded="true" aria-controls="body-wp-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Practical realities of our election calendar will prevent candidates from running in new maps</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wp-3" role="region" aria-labelledby="btn-wp-3">
+            <div class="body-inner">
+              <p>The practical realities of the election calendar are blocking the possibility of using new maps, as administrative deadlines for printing ballots and configuring systems have already expired. The key fact is the technical impossibility of implementing any judicial decisions due to the rigid bureaucratic constraints of the electoral process. The existing status quo wins, as the administrative apparatus has proven incapable of rapid changes under stress. Initiators of reforms lose, as their legal victories are nullified by a sheer lack of time for implementation. Election commissions' motivation boils down to self-protection from liability for a potential disruption of the vote, hence they flatly refuse to change formats at the last minute. For markets, this is a signal of the colossal inertia of state structures, which are incapable of responding to crisis inputs. Institutionally, this means that bureaucratic procedures de facto carry more weight than political or judicial decisions. Risks are tied to possible mass lawsuits from candidates who failed to register within the new boundaries due to temporal confusion. In the long term, this will require a complete overhaul of electoral legislation to synchronize judicial and electoral calendars. For investors, this case demonstrates the impenetrability of American bureaucracy in the face of political pressure.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wp-4">
+          <button class="article-trigger" id="btn-wp-4" aria-expanded="true" aria-controls="body-wp-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Virginia's elections software is antiquated and overdue for replacement</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wp-4" role="region" aria-labelledby="btn-wp-4">
+            <div class="body-inner">
+              <p>Amid the legal battles, a critical infrastructural fact has surfaced: the state software for running elections in Virginia is officially recognized as antiquated and overdue for replacement. Tech contractors stand to win from this situation, potentially securing billion-dollar contracts to modernize the state's digital foundation. The losing side includes election commissions and ordinary voters, whose trust in the electoral process is being eroded. The political elites' core motivation for publicly voicing this issue lies in laying the groundwork to potentially contest the upcoming election results. On the other hand, officials seek to absolve themselves of responsibility for potential technical glitches on voting day. For IT markets and cybersecurity firms, this is a direct signal of impending growth in government investment to protect critical systems. For political institutions, documenting technological backwardness signifies a systemic managerial failure in servicing fundamental democratic procedures. The main risk is that vulnerabilities will be used to justify external cyber interference or internal manipulation. In the short term, the administrative apparatus faces the risk of voting tabulation systems crashing. Investors should pay close attention to stocks of companies specializing in upgrading outdated government IT systems.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-wp-5">
+          <button class="article-trigger" id="btn-wp-5" aria-expanded="true" aria-controls="body-wp-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Since we can't control anything... let's mobilize and organize</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-wp-5" role="region" aria-labelledby="btn-wp-5">
+            <div class="body-inner">
+              <p>The Democratic Party leadership in Virginia has made a pragmatic decision to radically change its campaign tactics, shifting focus from court battles to grassroots voter outreach. The key event is the public rejection of administrative resources in favor of classic grassroots mobilization within existing district boundaries. Local campaign organizers and political technologists win, receiving reallocated budgets for direct canvassing. Party headquarters strategists lose, as their bet on judicial map-redrawing suffered a crushing fiasco. The motivation of political leaders, such as Senator Surovell, lies in a pragmatic acceptance of reality and the need to preserve remaining political capital. For political consulting markets, this is a signal of a return to classic voter engagement methods, increasing the demand for advertising agency services. The institutional signal consists of establishing the limits of the legal lobby's influence on current electoral cycles. The main risk of this approach is the loss of guaranteed mandates and the necessity to spend resources in highly competitive territories. Possible consequences include a sharp increase in societal polarization at the grassroots level due to aggressive mobilization tactics. Investors in lobbying entities should revise their budgets to account for operations in unfavorable electoral geography.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+    </main>
+  </div><!-- /.container -->
+
+  <!-- ── Newsletter ── -->
+  <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
+    <h3 class="nebula-title" id="newsletter-heading">Secure Briefing Access</h3>
+    <div class="form-container">
+      <div class="newsletter-form-wrapper">
+        <form class="newsletter-form" id="newsletterForm"
+              action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
+          <div class="input-group">
+            <div class="nebula-input">
+              <label for="emailInput" class="sr-only">Email Address</label>
+              <input type="email" id="emailInput" name="email" autocomplete="email"
+                     class="input" placeholder="Email Address"
+                     aria-describedby="formErrorMsg" />
+              <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <button class="subscribe-button" type="submit">Subscribe</button>
+          </div>
+          <div class="form-error-msg" id="formErrorMsg" role="alert" aria-live="polite"></div>
+        </form>
+
+        <div class="success-message" id="successMessage" role="alert" aria-live="assertive">
+          <div style="width:70px;height:70px;margin:0 auto 20px;">
+            <svg viewBox="0 0 52 52" aria-hidden="true">
+              <circle class="checkmark-circle" cx="26" cy="26" r="25"/>
+              <path   class="checkmark-check"  fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Access Granted</h4>
+          <p  style="font-size:14px;color:#4B5563;">Encrypted channel established.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Deep Press Analysis. All Rights Reserved.</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="https://deeppressanalysis.com/en/archive" class="btn-text">Archive Access</a>
+      <a href="https://deeppressanalysis.com/manifesto"  class="btn-text">Manifesto</a>
+    </nav>
+
+    <!-- ── Web3 Support Section ── -->
+    <div class="container" style="padding-top: 40px; padding-bottom: 0;">
+      <div class="support-section">
+        <div class="support-title-wrapper">
+          <div class="live-dot"></div>
+          <div class="support-title">Support independent project</div>
+        </div>
+
+        <div class="crypto-grid">
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name eth">Ethereum</span>
+            </div>
+            <input type="text" class="crypto-address" value="0x7b8318ce0788cAdDF398035A65EFDB30a262cae5" aria-label="Ethereum wallet address" readonly />
+          </div>
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name btc">Bitcoin</span>
+            </div>
+            <input type="text" class="crypto-address" value="bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu" aria-label="Bitcoin wallet address" readonly />
+          </div>
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name sol">Solana</span>
+            </div>
+            <input type="text" class="crypto-address" value="98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq" aria-label="Solana wallet address" readonly />
+          </div>
+          <div class="crypto-card">
+            <div class="crypto-header">
+              <span class="crypto-name trx">Tron</span>
+            </div>
+            <input type="text" class="crypto-address" value="TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z" aria-label="Tron wallet address" readonly />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden SEO Links -->
+    <div style="display: none;" aria-hidden="true">
+      <a href="https://deeppressanalysis.com/editorial-policy.html">Editorial Policy</a>
+    </div>
+  </footer>
+
+  <!--
+  ════════════════════════════════════════════════════════════════════════
+  SEO FIX #1: Accordion JS — контент открыт по умолчанию.
+  JS добавляет класс .js-accordion на <html>, и только ТОГДА CSS
+  скрывает тела статей. Googlebot видит страницу с открытым контентом.
+
+  SEO FIX #7: Языковой редирект — без localStorage.
+  Вместо этого использовать серверный редирект по Accept-Language.
+  Пример для Nginx:
+    map $http_accept_language $lang {
+      ~^ru  /ru/;  ~^uk  /ua/;  ~^de  /de/;
+      ~^ar  /ar/;  ~^es  /es/;  default /en/;
+    }
+    if ($request_uri = /) { return 302 $scheme://$host$lang; }
+  JS-редирект ниже — только запасной вариант, без localStorage.
+  ════════════════════════════════════════════════════════════════════════
+  -->
+  <script nonce="{{NONCE}}">
+  (function () {
+    'use strict';
+
+    /* ─── SEO FIX #1: Активируем аккордеон только после загрузки JS ─── */
+    document.documentElement.classList.add('js-accordion');
+
+    /* ─── SEO FIX #7: Языковой редирект — без localStorage ─────────────
+       РЕКОМЕНДАЦИЯ: Реализовать на сервере (Nginx/Apache/Node).
+       Этот JS-редирект — только запасной вариант.
+       Срабатывает только на корневом пути /, не на /en/ и т.д.
+    ──────────────────────────────────────────────────────────────────── */
+    (function () {
+      try {
+        var path = window.location.pathname;
+        var langPaths = ['/ru/', '/ua/', '/de/', '/ar/', '/es/', '/en/'];
+        /* Не редиректим, если уже на языковой странице */
+        if (langPaths.some(function (p) { return path === p || path.startsWith(p); })) return;
+        /* Редиректим только с корня */
+        if (path !== '/' && path !== '') return;
+
+        var lang = String(navigator.language || '').substring(0, 2).toLowerCase();
+        var map  = { ru: '/ru/', uk: '/ua/', ua: '/ua/', de: '/de/', ar: '/ar/', es: '/es/' };
+        if (map[lang]) {
+          window.location.replace(map[lang]);
+        }
+      } catch (_) {}
+    })();
+
+    /* ─── Accordion Logic ─────────────────────────────────────────────── */
+    function closeItem(item) {
+      var body = item.querySelector('.article-body');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(function () { body.style.maxHeight = '0px'; });
+      item.classList.remove('active');
+      item.querySelector('.article-trigger').setAttribute('aria-expanded', 'false');
+    }
+
+    function openItem(item) {
+      var body = item.querySelector('.article-body');
+      item.classList.add('active');
+      item.querySelector('.article-trigger').setAttribute('aria-expanded', 'true');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+
+    function toggleArt(btn) {
+      var parent   = btn.closest('.article-item');
+      var isActive = parent.classList.contains('active');
+      document.querySelectorAll('.article-item').forEach(function (it) {
+        if (it !== parent) closeItem(it);
+      });
+      isActive ? closeItem(parent) : openItem(parent);
+    }
+
+    document.querySelectorAll('.article-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () { toggleArt(btn); });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.target.classList.contains('article-trigger') && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        toggleArt(e.target);
+      }
+    });
+
+    /* ─── Form Logic ──────────────────────────────────────────────────── */
+    var form           = document.getElementById('newsletterForm');
+    var successMessage = document.getElementById('successMessage');
+    var formErrorMsg   = document.getElementById('formErrorMsg');
+    var emailInput     = document.getElementById('emailInput');
+    var submitBtn      = form.querySelector('button[type="submit"]');
+
+    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+
+    function showError(msg) {
+      emailInput.classList.add('input-error');
+      formErrorMsg.textContent = msg;
+      formErrorMsg.classList.add('visible');
+      emailInput.focus();
+    }
+
+    function clearError() {
+      emailInput.classList.remove('input-error');
+      formErrorMsg.classList.remove('visible');
+      formErrorMsg.textContent = '';
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError();
+      var val = emailInput.value;
+      if (!val.trim())        { showError('Please enter your email address.'); return; }
+      if (!isValidEmail(val)) { showError('Please enter a valid email address.'); return; }
+
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        var res = await fetch(form.action, {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.classList.add('hidden');
+          successMessage.classList.add('visible');
+        } else {
+          showError('Subscription error. Please try again.');
+        }
+      } catch (_) {
+        showError('Network error. Please check your connection.');
+      } finally {
+        if (!successMessage.classList.contains('visible')) {
+          submitBtn.disabled    = false;
+          submitBtn.textContent = 'Subscribe';
+        }
+      }
+    });
+
+    emailInput.addEventListener('input', clearError);
+
+    /* ─── Spotify Facade Logic ────────────────────────────────────────── */
+    function loadSpotify() {
+      var facade    = document.getElementById('spotify-facade');
+      var container = document.getElementById('spotify-real-container');
+      if (container.querySelector('iframe')) return;
+
+      var iframe     = document.createElement('iframe');
+      iframe.style.borderRadius = '12px';
+      // Added &autoplay=1 to attempt automatic playback
+      iframe.src     = 'https://open.spotify.com/embed/show/7adw7VzurKPgbTbfAE1X1T?utm_source=generator&theme=0&autoplay=1';
+      iframe.width   = '100%';
+      iframe.height  = '152';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.allow   = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      iframe.loading = 'eager';
+      iframe.title   = 'Deep Press Analysis Podcast';
+
+      container.appendChild(iframe);
+      facade.classList.add('hidden-player');
+    }
+
+    var spotifyFacade = document.getElementById('spotify-facade');
+    if (spotifyFacade) {
+      spotifyFacade.addEventListener('click', loadSpotify);
+      spotifyFacade.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadSpotify(); }
+      });
+    }
+
+    /* ─── Crypto Address: клик = выделение текста ─────────────────────── */
+    document.querySelectorAll('.crypto-address').forEach(function (el) {
+      el.addEventListener('click', function () { this.select(); });
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
