@@ -4,43 +4,32 @@
   ║  Deep Press Analysis — PRODUCTION READY                              ║
   ║  SEO FIXES APPLIED:                                                  ║
   ║  1. Article content visible by default (JS collapses after load)     ║
-  ║  2. {{NONCE}} — сервер ОБЯЗАН заменять на криптографически           ║
-  ║     случайную строку при каждом запросе (Node/PHP/Python/etc.)       ║
-  ║  3. Schema.org @id исправлен на /de/#webpage                         ║
-  ║  4. NewsArticle schema добавлена для каждой статьи                   ║
-  ║  5. hreflang — взаимные ссылки обязательны на всех языковых стр.     ║
-  ║  6. Canonical + 301 редирект с корня на /de/ (настроить на сервере)  ║
-  ║  7. JS-редирект переработан (без localStorage)                       ║
-  ║  8. RSS-лента добавлена в <head>                                     ║
-  ║  9. OG/Twitter мета дополнены                                        ║
-  ║  10. datePublished/dateModified — генерировать динамически           ║
+  ║  2. Schema.org @id исправлен на /en/#webpage                         ║
+  ║  3. NewsArticle schema добавлена для каждой статьи                   ║
+  ║  4. hreflang — взаимные ссылки обязательны на всех языковых стр.     ║
+  ║  5. Canonical + 301 редирект с корня на /en/ (настроить на сервере)  ║
+  ║  6. JS-редирект переработан (без localStorage)                       ║
+  ║  7. RSS-лента добавлена в <head>                                     ║
+  ║  8. OG/Twitter мета дополнены                                        ║
+  ║  9. datePublished/dateModified — генерировать динамически            ║
   ╚══════════════════════════════════════════════════════════════════════╝
 -->
 <html lang="de" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
-  <title>Deep Press Analysis — 17. Mai 2026</title>
+  <title>Deep Press Analysis — 18. Mai 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tägliche Zusammenfassung der führenden internationalen Publikationen. Fokus heute: Handelsbeziehungen zwischen den USA und China, drohende Job-Apokalypse und politische Krise in Indonesien." />
+  <meta name="description" content="Tägliche Analyse führender internationaler Publikationen. Heute im Fokus: die anhaltende Krise der Energiemärkte, Investitionen in KI und Quantencomputing, globale politische Polarisierung sowie der Aufstieg der neuen Raumfahrt- und Erlebnisökonomie." />
   <meta name="author" content="Deep Press Analysis" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-  <!--
-    ═══════════════════════════════════════════════════════════════
-    CSP: {{NONCE}} заменяется сервером при каждом запросе.
-    Пример Node.js:
-      const nonce = crypto.randomBytes(16).toString('base64');
-      res.setHeader('Content-Security-Policy', `script-src 'nonce-${nonce}'`);
-      html = html.replaceAll('{{NONCE}}', nonce);
-    ═══════════════════════════════════════════════════════════════
-  -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'nonce-{{NONCE}}';
+    script-src 'self' 'nonce-EDNnf03nceIofn39fn3e9h3sdfa';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
     img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
-    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
+    connect-src 'self' https://formspree.io;
     form-action 'self' https://formspree.io;
     object-src 'none';
     base-uri 'self';
@@ -53,56 +42,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <!-- ═══ SEO: Canonical ═══ -->
-  <link rel="canonical" href="https://deeppressanalysis.com/de/" />
+  <link rel="canonical" href="https://deeppressanalysis.com/de/index.html" />
 
-  <!-- ═══ SEO: hreflang ═══ -->
-  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/" />
-  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/en/" />
-  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/" />
-  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/" />
-  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/" />
-  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/" />
-  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/" />
+  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/index.html" />
+  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/en/index.html" />
+  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/index.html" />
+  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/index.html" />
+  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/index.html" />
+  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/index.html" />
+  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/index.html" />
 
-  <!-- ═══ SEO FIX #8: RSS-лента — обязательна для Google News ═══ -->
   <link rel="alternate" type="application/rss+xml"
-        title="Deep Press Analysis — German Feed"
+        title="Deep Press Analysis — Deutscher Feed"
         href="https://deeppressanalysis.com/de/feed.xml" />
 
-  <!-- ═══ Open Graph (дополнено) ═══ -->
   <meta property="og:type"                  content="article" />
-  <meta property="og:title"                 content="Deep Press Analysis — 17. Mai 2026" />
-  <meta property="og:description"           content="Tägliche Zusammenfassung der führenden internationalen Publikationen. Fokus heute: Handelsbeziehungen zwischen den USA und China, drohende Job-Apokalypse und politische Krise in Indonesien." />
-  <meta property="og:url"                   content="https://deeppressanalysis.com/de/" />
+  <meta property="og:title"                 content="Deep Press Analysis — 18. Mai 2026" />
+  <meta property="og:description"           content="Tägliche Analyse führender internationaler Publikationen. Heute im Fokus: die anhaltende Krise der Energiemärkte, Investitionen in KI und Quantencomputing, globale politische Polarisierung sowie der Aufstieg der neuen Raumfahrt- und Erlebnisökonomie." />
+  <meta property="og:url"                   content="https://deeppressanalysis.com/de/index.html" />
   <meta property="og:image"                 content="https://deeppressanalysis.com/assets/og-cover.jpg" />
   <meta property="og:image:width"           content="1200" />
   <meta property="og:image:height"          content="630" />
   <meta property="og:site_name"             content="Deep Press Analysis" />
   <meta property="og:locale"                content="de_DE" />
-  <!-- SEO FIX #9: article-specific OG мета -->
-  <meta property="article:published_time"   content="2026-05-17T05:00:00Z" />
-  <meta property="article:modified_time"    content="2026-05-17T05:00:00Z" />
+  <meta property="article:published_time"   content="2026-05-18T05:00:00Z" />
+  <meta property="article:modified_time"    content="2026-05-18T05:00:00Z" />
   <meta property="article:section"          content="Global Economy" />
   <meta property="article:author"           content="https://deeppressanalysis.com/manifesto.html" />
 
-  <!-- ═══ Twitter Card (дополнено) ═══ -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:site"        content="@DeepPressAnalysis" />
   <meta name="twitter:creator"     content="@DeepPressAnalysis" />
-  <meta name="twitter:title"       content="Deep Press Analysis — 17. Mai 2026" />
-  <meta name="twitter:description" content="Tägliche Zusammenfassung der führenden internationalen Publikationen. Fokus heute: Handelsbeziehungen zwischen den USA und China, drohende Job-Apokalypse und politische Krise in Indonesien." />
+  <meta name="twitter:title"       content="Deep Press Analysis — 18. Mai 2026" />
+  <meta name="twitter:description" content="Tägliche Analyse führender internationaler Publikationen. Heute im Fokus: die anhaltende Krise der Energiemärkte, Investitionen in KI und Quantencomputing, globale politische Polarisierung sowie der Aufstieg der neuen Raumfahrt- und Erlebnisökonomie." />
   <meta name="twitter:image"       content="https://deeppressanalysis.com/assets/og-cover.jpg" />
 
-  <!-- JSON-LD Schema -->
-  <script type="application/ld+json" nonce="{{NONCE}}">
+  <script type="application/ld+json" nonce="EDNnf03nceIofn39fn3e9h3sdfa">
   [
     {
       "@context": "https://schema.org",
       "@type": "NewsMediaOrganization",
       "@id": "https://deeppressanalysis.com/#newsmediaorganization",
       "name": "Deep Press Analysis",
-      "url": "https://deeppressanalysis.com/de/",
+      "url": "https://deeppressanalysis.com/de/index.html",
       "logo": {
         "@type": "ImageObject",
         "url": "https://deeppressanalysis.com/logo.png",
@@ -131,221 +113,66 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": "https://deeppressanalysis.com/de/#webpage",
-      "url": "https://deeppressanalysis.com/de/",
-      "name": "Deep Press Analysis — 17. Mai 2026",
+      "@id": "https://deeppressanalysis.com/de/index.html#webpage",
+      "url": "https://deeppressanalysis.com/de/index.html",
+      "name": "Deep Press Analysis — 18. Mai 2026",
       "isPartOf": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "description": "Tägliche Zusammenfassung der führenden internationalen Publikationen. Fokus heute: Handelsbeziehungen zwischen den USA und China, drohende Job-Apokalypse und politische Krise in Indonesien.",
+      "datePublished": "2026-05-18T05:00:00Z",
+      "dateModified":  "2026-05-18T05:00:00Z",
+      "description": "Tägliche Synthese führender internationaler Publikationen. Today's focus: The prolonged energy market crisis, AI and quantum computing investments, global political polarization, and the rise of the new space and experiential economies.",
       "inLanguage": "de",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://deeppressanalysis.com/de/" }
+          { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://deeppressanalysis.com/de/index.html" }
         ]
       }
     },
-
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-eco-1",
-      "headline": "Donald Trump reist zu einem Gipfel mit Xi Jinping nach China",
-      "description": "Der Besuch von Donald Trump in Peking markiert einen Wandel hin zu einer pragmatischen Kommerzialisierung der bilateralen Beziehungen, bei der Unternehmensinteressen Vorrang vor ideologischen Differenzen haben.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Geopolitics",
-      "about": [
-        { "@type": "Person", "name": "Donald Trump" },
-        { "@type": "Person", "name": "Xi Jinping" }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-eco-2",
-      "headline": "Die Job-Apokalypse: Auf das Beste hoffen, für das Schlimmste planen",
-      "description": "Die wachsende Arbeitsmarktkrise, die als Job-Apokalypse bezeichnet wird, erfordert Vorbereitungen auf Worst-Case-Szenarien, die durch den technologischen Fortschritt und die Automatisierung vorangetrieben werden.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Global Economy"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-eco-3",
-      "headline": "Indonesien kommt vom Weg ab",
-      "description": "Indonesien zeigt eine alarmierende Abweichung von seinem eingeschlagenen Kurs und gefährdet durch einen institutionellen Drift seine politische und makroökonomische Stabilität.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Geopolitics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-eco-4",
-      "headline": "Die PowerPoint-Präsentation der kongolesischen Rebellen",
-      "description": "Bewaffnete Gruppen im Kongo nutzen moderne Unternehmenswerkzeuge wie PowerPoint, um Schatteninvestitionen anzuziehen, was auf eine tiefgreifende Transformation bei der Finanzierung hybrider Kriege hindeutet.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Geopolitics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-eco-5",
-      "headline": "Laktologie: Nicht genug Stillen",
-      "description": "Das weltweite Defizit beim Stillen entwickelt sich aufgrund des systematischen Mangels an institutioneller Unterstützung für die Mutterschaft zu einer großen makroökonomischen und sozialpolitischen Herausforderung.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Global Economy"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-fl-1",
-      "headline": "Dann siegten sie: Fünf Regionalwahlen und was hinter den Ergebnissen steckt",
-      "description": "Die Ergebnisse der Regionalwahlen in Indien bestätigten die Dominanz lokaler Agenden über nationale politische Narrative und begünstigten regionale Eliten.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-fl-2",
-      "headline": "AAP: Der Besen muss auch gereinigt werden",
-      "description": "Die interne Krise innerhalb der Aam Aadmi Party warf ein Schlaglicht auf systemische Managementprobleme und beschädigte ihren Ruf bei der Korruptionsbekämpfung.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-fl-3",
-      "headline": "Ladakh: Eine undemokratische Vereinbarung",
-      "description": "Das derzeitige Regierungssystem in Ladakh wird als zutiefst undemokratisch charakterisiert, da es der Region Repräsentation und finanzielle Unabhängigkeit entzieht.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-fl-4",
-      "headline": "Punjab: Kriminalität, Mythos und der Staat",
-      "description": "Der Punjab ist mit einer beispiellosen Regierungskrise konfrontiert, in der sich das organisierte Verbrechen mit sozialen Mythen und staatlicher Dysfunktion verflechtet.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-fl-5",
-      "headline": "Ein unsinniger Plan für Delhis Central Ridge",
-      "description": "Initiativen zur kommerziellen Umgestaltung des Waldgebiets Central Ridge in Neu-Delhi stellen ein ökologisch zerstörerisches Stadtentwicklungsprojekt dar.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Ecology"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-wk-1",
-      "headline": "Die Auslöschung von Minderheitenbezirken",
-      "description": "Aggressive legislative Initiativen zur Löschung von Wahlbezirken für Minderheiten verändern die Architektur der Wählerrepräsentation in den USA grundlegend.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "US Elections"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-wk-2",
-      "headline": "Du zählst, Wasser",
-      "description": "Die Wasserknappheit und der Kampf um Ressourcen werden zum intensivsten Element auf der globalen makroökonomischen Agenda.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Global Economy"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-wk-3",
-      "headline": "Ist das das neue Covid? Hantavirus-Ausbruch auf der MV Hondius",
-      "description": "Ein plötzlicher Hantavirus-Ausbruch auf einem Kreuzfahrtschiff hat Panik über die Bereitschaft der Welt für eine weitere Pandemie ausgelöst.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Global Health"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-wk-4",
-      "headline": "Ted Turner: Der Mogul, der die Nachrichten neu erfand",
-      "description": "Der Tod von Ted Turner markiert das historische Ende einer Ära bei der Gestaltung der politischen Agenda durch 24-Stunden-Nachrichtenübertragungen.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Media"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/de/#art-wk-5",
-      "headline": "Wer hält die Karten in der Hand? Warum der Iran die Bedingungen von Trump nicht akzeptieren wird",
-      "description": "Teherans grundlegende Weigerung, die Bedingungen der Trump-Regierung zu akzeptieren, deutet auf eine gefährliche und langanhaltende Stagnation in der Diplomatie im Nahen Osten hin.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/de/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "de",
-      "articleSection": "Geopolitics"
-    }
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-bar-1","headline":"Die Ölkrise ist noch lange nicht vorbei","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Global Economy"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-bar-2","headline":"Sechs Wege, auf die Zukunft des Quantencomputings zu setzen","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Technology"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-bar-3","headline":"Es ist noch nicht zu spät, in Nvidias KI-Wachstumsstory einzusteigen","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Markets"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-bar-4","headline":"Wie Krypto-Wähler den Ausgang von Polymarket-Debatten bestimmen","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Markets"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-bar-5","headline":"Explodierende Kunststoffpreise setzen Unternehmen unter Druck","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Global Economy"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-fl-1","headline":"Westbengalen: Stiller Tsunami","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-fl-2","headline":"Kerala: Die letzte linke Bastion fällt","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-fl-3","headline":"Assam: Ein polarisiertes Mandat","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-fl-4","headline":"Ladakh: Eine undemokratische Ordnung","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-fl-5","headline":"Biennale von Venedig: Indien kehrt nach sieben Jahren zurück","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Culture"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-geo-1","headline":"Indiens Aufschwung bei heimischen Drohnen","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Defence"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-geo-2","headline":"Stahlrevolution: Der Panzer des Kalten Krieges weicht zurück","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Defence"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-geo-3","headline":"Algorithmische Kriegsführung: Künstliche Intelligenz schreibt die Regeln neu","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Technology"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-geo-4","headline":"Narrative Eingreiftruppe: Wahrnehmung als Waffe","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Geopolitics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-geo-5","headline":"Bereit zum Abheben: Adanis Flughafenprojekt","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Geopolitics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-nr-1","headline":"Die Geißel linker Gewalt","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-nr-2","headline":"Kontinentale Verschiebung: Wie die amerikanische Rechte europäisch wurde","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-nr-3","headline":"Die NATO reparieren: Das Bündnis stärken, nicht zerstören","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Geopolitics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-nr-4","headline":"Alaska, die Rohstoffgrenze","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Global Economy"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-nr-5","headline":"Neuer Weltraumkapitalismus: Der unternehmerische Weg zu den Sternen","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Business"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-nw-1","headline":"Fool Britannia: Warum Großbritannien nicht mehr groß ist","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Geopolitics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-nw-2","headline":"Die intelligente Infrastruktur von morgen","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Global Economy"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-nw-3","headline":"Mit Aurigo Masterworks Cloud eine bessere Zukunft bauen","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Technology"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-nw-4","headline":"Airline-Technologie, die die Welt des E-Commerce-Versands öffnet","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Logistics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-nw-5","headline":"Nachfrage mit den Kapazitäten einer Airline verbinden","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Logistics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-out-1","headline":"Niedergewalzt: TMC, AAP","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-out-2","headline":"Niedergewalzt: JDU, BSP, BJD","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-out-3","headline":"Ehrlichkeit und Hedonismus: Ein Nachtclub um 3 Uhr morgens","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Culture"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-out-4","headline":"Fundraising und Stroboskoplicht koexistieren ohne Ironie","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Society"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-out-5","headline":"Die Erlaubnis, genau das zu sein, was man ist — ohne Inszenierung und Entschuldigung","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Society"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-ebr-1","headline":"Wie Arbeiten von überall Ihre Organisation zukunftssicher macht","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Business"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-ebr-2","headline":"KI-Müdigkeit: Die verborgene Herausforderung im Rennen um KI-Einführung","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Technology"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-ebr-3","headline":"Das wahre Potenzial agentischer KI erschließen","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Technology"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-ebr-4","headline":"Ihre Immobilie ist Millionen wert — nutzen Sie diesen Wert jetzt","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Real Estate"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-ebr-5","headline":"Luxusstrategie: Strategische Oszillation","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Business"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-wk-1","headline":"Minderheitenwahlkreise ausradieren","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"US Elections"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-wk-2","headline":"Kontroverse: Ist das das neue Covid?","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Global Health"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-wk-3","headline":"Warum Iran Trumps Bedingungen nicht akzeptieren wird","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Geopolitics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-wk-4","headline":"Ted Turner: Der Medienmogul, der die Nachrichten neu erfand","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Media"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-wk-5","headline":"Halten Sie Ihre Lebensgeschichte in Memoiren fest","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Lifestyle"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-time-1","headline":"Hasbros unkonventionelle Lizenzdeals","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Business"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-time-2","headline":"Lektionen des Spiels — Warum Monopoly wie das Leben ist","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Culture"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-time-3","headline":"Eine Monopoly-Ausgabe von 1933 wurde für 146.500 Dollar verkauft","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Markets"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-time-4","headline":"Monopoly Steakhouse in Mexiko, 2026","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Business"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/de/index.html#art-time-5","headline":"Der Guinness-Weltrekord für die größte Monopoly-Sammlung","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/de/index.html#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"en","articleSection":"Culture"}
   ]
   </script>
 
@@ -388,6 +215,11 @@
 
     /* ─────────────────────────────────────────────────────────────────
        SEO FIX #1: АККОРДЕОН — КОНТЕНТ ВИДИМ ПО УМОЛЧАНИЮ
+
+       Логика: По умолчанию (без JS) все статьи открыты и индексируются.
+       JS добавляет класс <html class="js-accordion"> ТОЛЬКО после загрузки,
+       и ТОЛЬКО тогда CSS скрывает тела статей.
+       Googlebot видит страницу без accordion-состояния → весь контент открыт.
     ────────────────────────────────────────────────────────────────── */
 
     /* Состояние без JS — всё открыто */
@@ -824,16 +656,16 @@
       </nav>
 
       <nav class="social-row" aria-label="Social media links">
-        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="E-Mail" aria-label="Senden Sie eine E-Mail an Deep Press Analysis">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Send email to Deep Press Analysis">
           <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
         </a>
-        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Besuchen Sie unseren Telegram-Kanal">
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Visit our Telegram channel">
           <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
         </a>
-        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Besuchen Sie unser Threads-Profil">
+        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Visit our Threads profile">
           <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16">
         </a>
-        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Besuchen Sie unseren YouTube-Kanal">
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Visit our YouTube channel">
           <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
         </a>
       </nav>
@@ -841,12 +673,12 @@
 
     <header>
       <div class="meta-issue">
-        JAHRGANG 26 • AUSGABE 133 • <time datetime="2026-05-17">17. MAI 2026</time>
+        Jg. 26 • Ausgabe 134 • <time datetime="2026-05-18">18. MAI 2026</time>
       </div>
       <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
-      <div class="subtitle">Tägliche Zusammenfassung der führenden internationalen Publikationen</div>
+      <div class="subtitle">Daily synthesis of leading international publications</div>
       <div class="briefing-summary">
-        <p><strong>Fokus heute:</strong> Neue Entwicklungen in den Handelsbeziehungen zwischen den USA und China, Warnungen vor einer globalen Job-Apokalypse sowie politische und makroökonomische Instabilität in Indonesien.</p>
+        <p><strong>Heute im Fokus:</strong> die langanhaltenden Auswirkungen der Sperrung der Straße von Hormus auf die globalen Energiemärkte, die Hinwendung amerikanischer Konservativer zu europäisch geprägtem Protektionismus, die Monetarisierung privater Raumfahrt und Hasbros aggressive Ausweitung der Marke Monopoly auf weltweite Erlebnismärkte.</p>
       </div>
     </header>
 
@@ -854,16 +686,16 @@
 
       <div id="spotify-facade" class="spotify-fake-player"
            role="button" tabindex="0"
-           aria-label="Deep Press Analysis Podcast auf Spotify abspielen">
+           aria-label="Play Deep Press Analysis podcast on Spotify">
         <div class="fake-cover">
           <img src="https://deeppressanalysis.com/logo.png" alt="Deep Press Analysis Podcast Cover">
         </div>
         <div class="fake-info">
-          <div class="fake-meta">PODCAST SHOW</div>
+          <div class="fake-meta">PODCAST-SHOW</div>
           <div class="fake-title">Deep Press Analysis</div>
-          <div class="fake-desc">Daily Audio Briefing</div>
+          <div class="fake-desc">Tägliches Audio-Briefing</div>
         </div>
-        <button class="fake-play-btn" aria-label="Podcast abspielen" tabindex="-1">
+        <button class="fake-play-btn" aria-label="Play Podcast" tabindex="-1">
           <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/>
           </svg>
@@ -871,74 +703,74 @@
       </div>
       <div id="spotify-real-container" style="margin-bottom:40px;"></div>
 
-      <!-- ════════════════════════ THE ECONOMIST ════════════════════════ -->
+      <!-- ════════════════════════ BARRON'S ════════════════════════ -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>THE ECONOMIST</h2>
-          <div class="outlet-tags">GEOPOLITICS • GLOBAL ECONOMY</div>
+          <h2>BARRON'S</h2>
+          <div class="outlet-tags">WELTWIRTSCHAFT • TECHNOLOGIE • MÄRKTE</div>
         </div>
 
-        <article class="article-item" id="art-eco-1">
-          <button class="article-trigger" id="btn-eco-1" aria-expanded="true" aria-controls="body-eco-1">
+        <article class="article-item" id="art-bar-1">
+          <button class="article-trigger" id="btn-bar-1" aria-expanded="true" aria-controls="body-bar-1">
             <span class="art-idx">01</span>
-            <span class="art-title">Donald Trump reist zu einem Gipfel mit Xi Jinping nach China</span>
+            <span class="art-title">The Oil Crisis Isn't Ending Soon</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="body-eco-1" role="region" aria-labelledby="btn-eco-1">
+          <div class="article-body" id="body-bar-1" role="region" aria-labelledby="btn-bar-1">
             <div class="body-inner">
-              <p>Der Besuch von Donald Trump in Peking zu einem Treffen mit Xi Jinping signalisiert eine Hinwendung zur pragmatischen Kommerzialisierung der bilateralen Beziehungen. Das zentrale Ereignis war die Einigung auf eine "Neupositionierung" der Verbindungen und der Ausbau der Handelskooperation zwischen den USA und China. Die Anwesenheit hochrangiger Führungskräfte, darunter die Chefs von Nvidia und Boeing, unterstreicht, dass Unternehmensinteressen Vorrang vor ideologischen Differenzen haben. Die Hauptgewinner in dieser Situation sind amerikanische Technologie- und Luftfahrtgiganten, die sich einen garantierten Zugang zum chinesischen Markt sichern. Die Verlierer könnten strategische US-Verbündete sein, allen voran Taiwan und die Ukraine, da politische Fragen in den Hintergrund rücken. Washingtons Hauptmotivation besteht darin, schnelle wirtschaftliche Erfolge zu erzielen und die Großindustrie zu unterstützen. Peking strebt im Gegenzug danach, seinen Außenhandel zu stabilisieren und einen ununterbrochenen Fluss westlicher Technologien sicherzustellen. Für die globalen Märkte ist dieser Gipfel ein starkes positives Signal, das die Angst vor einem drohenden Handelskrieg mindert. Institutionelle Investoren erhalten die Bestätigung, dass wirtschaftlicher Pragmatismus die geopolitische Rhetorik entschärfen kann. Politisch zeigt dies die Bereitschaft der Regierung, traditionelle Allianzen zugunsten bilateraler Abkommen zu überdenken. Das Hauptrisiko besteht in der potenziellen Eskalation regionaler Konflikte aufgrund geschwächter amerikanischer Sicherheitsgarantien. Wenn sich der Fokus der Supermächte ausschließlich auf den Handel verlagert, könnte das entstehende geopolitische Vakuum durch aggressive Handlungen anderer Akteure gefüllt werden.</p>
+              <p>Der zentrale Befund lautet the realization that the fallout from the Strait of Hormuz closure will be deeper and more prolonged than expected. This logistical collapse will maintain its impact even if the military conflict with Iran concludes quickly. Primary beneficiaries include eleven specialized energy companies whose stocks are receiving a powerful Wachstumsimpuls. Ihr strategischer Vorteil wird gesichert durch diversified assets and the ability to extract windfall profits during a Rekord-Angebotsschock. Umgekehrt, global energy importers and industrial sectors face significant losses. Ihre Verwundbarkeit ergibt sich aus a critical dependence on uninterrupted, cheap Middle Eastern oil. Tiefe geopolitische Interessen of regional actors, utilizing energy infrastructure as a pressure tool, drive this event. The initiators' core motivation is to inflict irreparable economic damage on adversaries by paralyzing a vital maritime artery. Für die globalen Märkte, this signals that a geopolitical risk premium will now be structurally embedded into hydrocarbon prices. Institutionelle Akteure verstehen diesen Trend als the end of an era of global energy stability. Potential risks involve a massive inflationary spike and cascading bankruptcies across adjacent industries. Long-term, droht dies a forced, yet economically painful, transformation of global Lieferketten.</p>
             </div>
           </div>
         </article>
 
-        <article class="article-item" id="art-eco-2">
-          <button class="article-trigger" id="btn-eco-2" aria-expanded="true" aria-controls="body-eco-2">
+        <article class="article-item" id="art-bar-2">
+          <button class="article-trigger" id="btn-bar-2" aria-expanded="true" aria-controls="body-bar-2">
             <span class="art-idx">02</span>
-            <span class="art-title">Die Job-Apokalypse: Auf das Beste hoffen, für das Schlimmste planen</span>
+            <span class="art-title">6 Ways to Play the Future of Quantum Computing</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="body-eco-2" role="region" aria-labelledby="btn-eco-2">
+          <div class="article-body" id="body-bar-2" role="region" aria-labelledby="btn-bar-2">
             <div class="body-inner">
-              <p>Die sich zuspitzende Krise auf dem Arbeitsmarkt, die als "Job-Apokalypse" bezeichnet wird, erfordert von globalen Institutionen die Vorbereitung auf Worst-Case-Szenarien. Der Haupttreiber dieses Prozesses ist der strukturelle Wandel der Beschäftigung, der durch den technologischen Fortschritt und makroökonomische Instabilität beschleunigt wird. Die Gewinner dieser Dynamik bleiben Kapitalbesitzer und High-Tech-Unternehmen, die in der Lage sind, ihre Kosten durch umfassende Automatisierung zu optimieren. Den größten Rückschlag erleiden traditionelle Arbeitnehmer, deren Fähigkeiten in der neuen Realität rasant an Wert verlieren. Die Motivation der Wirtschaft ist mehr als deutlich: Maximierung der betrieblichen Effizienz und Verringerung der Abhängigkeit vom Faktor Mensch in Zeiten dauerhafter Krisen. Für den Staatsapparat bedeutet dies die dringende Notwendigkeit, Gesellschaftsverträge und die Architektur der staatlichen Unterstützung grundlegend zu überarbeiten. Das Signal an die Märkte ist besorgniserregend, da massenhafte Arbeitsplatzverluste unweigerlich zu einem langfristigen Rückgang der Konsumnachfrage führen werden. Finanzinstitute müssen die Risiken von kaskadenartigen Ausfällen bei Verbraucherkrediten und Hypothekenverpflichtungen einkalkulieren. In der Politik schafft eine solche Krise einen fruchtbaren Boden für die Radikalisierung der Wählerschaft und ein explosives Wachstum populistischer Strömungen. Zu den systemischen Folgen könnte eine tiefe sozioökonomische Polarisierung der Gesellschaft gehören. Langfristige Risiken sind mit der Entstehung einer dauerhaften Unterschicht verbunden, die auf permanente direkte Subventionen angewiesen ist. Letztendlich wird das Fehlen einer vorausschauenden Planung zu massiven institutionellen Ausfällen auf globaler Ebene führen.</p>
+              <p>Der zentrale Befund ist the identification of six investment strategies for entering the emerging Quantencomputing market. Dieser Präzedenzfall schafft a new reality within the high-tech sector, transitioning the technology from a laboratory stage to an investable asset. Die wichtigsten Nutznießer are specialized tech corporations and Venture-Fonds that placed early bets on quantum architectures. Sie gewinnen einen strategischen Vorteil, indem sie monopolizing patents and attracting institutional capital at the onset of the industry's exponential growth. Umgekehrt, significant strategic risks are borne by companies relying solely on classical computing power. Ihre Verwundbarkeit ergibt sich aus the imminent obsolescence of traditional encryption algorithms and data processing methods. Deep financial interests of Nationalstaaten and transnational corporations drive the development of this sector. Die zentrale Motivation of key actors is to achieve absolute technological superiority and cybernetic dominance. Für die globalen Märkte, this serves as a direct signal initiating a new supercycle of capital expenditures in next-generation hardware. Institutionelle Akteure verstehen diesen Trend als a call to rebalance portfolios in favor of deep tech. Zu den potenziellen Risiken gehören the inflation of a Technologieblase around companies lacking viable commercial prototypes. Langfristig, droht dies a sharp market division into quantum-era monopolists and Außenseiter des traditionellen IT-Sektors.</p>
             </div>
           </div>
         </article>
 
-        <article class="article-item" id="art-eco-3">
-          <button class="article-trigger" id="btn-eco-3" aria-expanded="true" aria-controls="body-eco-3">
+        <article class="article-item" id="art-bar-3">
+          <button class="article-trigger" id="btn-bar-3" aria-expanded="true" aria-controls="body-bar-3">
             <span class="art-idx">03</span>
-            <span class="art-title">Indonesien kommt vom Weg ab</span>
+            <span class="art-title">It's Not Too Late to Buy Into Nvidia's Al Growth Story</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="body-eco-3" role="region" aria-labelledby="btn-eco-3">
+          <div class="article-body" id="body-bar-3" role="region" aria-labelledby="btn-bar-3">
             <div class="body-inner">
-              <p>Indonesien zeigt eine besorgniserregende Abweichung von seinem geplanten Kurs, was seine politische und makroökonomische Stabilität infrage stellt. Das Schlüsselereignis ist eine Verschiebung der innenpolitischen Ausrichtung, die etablierte institutionelle und demokratische Entwicklungsnormen stört. Die Hauptnutznießer einer solchen Entwicklung könnten lokale Elitengruppen sein, die ihre Macht und administrativen Ressourcen zentralisieren. Verlierer dieser Situation sind internationale Investoren und zivilgesellschaftliche Institutionen, die auf Transparenz und Verlässlichkeit in der größten Volkswirtschaft Südostasiens angewiesen sind. Die tieferliegende Ursache liegt in den Interessen der herrschenden Kreise, die externe Kontrollen minimieren und die souveräne, manuelle Kontrolle über die Märkte stärken wollen. Für die internationalen Kapitalmärkte ist dies ein klares Verkaufssignal, das auf einen starken Anstieg der souveränen und regulatorischen Risiken hindeutet. Institutionelle Anleger könnten eine massenhafte Neubewertung von Vermögenswerten sowie eine Überarbeitung ihrer langfristigen Strategien in der Region einleiten. Im geopolitischen Kontext verändert die Schwächung der internen Institutionen Indonesiens die Sicherheitsarchitektur in der gesamten indopazifischen Makroregion. Das Land riskiert, seinen Status als verlässliches investitionspolitisches Gegengewicht inmitten der wachsenden Rivalität zwischen den USA und China zu verlieren. Mögliche wirtschaftliche Folgen umfassen eine Verlangsamung der ausländischen Direktinvestitionen und das Stagnieren wichtiger Infrastrukturprojekte. Ein weiteres Risiko besteht in einer potenziellen Zunahme latenter sozialer Spannungen aufgrund ineffizienter öffentlicher Verwaltung. Ein weiteres Hinauszögern von Strukturreformen droht der indonesischen Wirtschaft mit einer systemischen Stagnation.</p>
+              <p>Der zentrale Befund ist the analytical forecast projecting a potential 50% surge in Nvidia's Aktienkurs. Diese Prognose bestätigt the continuation of an unprecedented capitalization growth cycle for the leading AI chip manufacturer. Die wichtigsten Nutznießer are current Nvidia shareholders and funds focused on the Halbleitersektor. Sie sichern sich einen finanziellen Vorteil, indem sie maintaining the company's monopolistic position in the Hochleistungsrechnen market. Unterdessen, significant losses could be incurred by institutional investors who prematurely bet on a Aktienrückgang or asset overvaluation. Their vulnerability lies in underestimating the genuine demand for neural network hardware infrastructure. Massive investment interests from tech giants aggressively acquiring computing power stand behind this phenomenon. Die Hauptmotivation of these corporations is the race for dominance in generative künstliche Intelligenz. Für die Kapitalmärkte, sendet dies ein direktes Signal that the technological boom's ceiling has not yet been reached. Institutional investors receive an indicator of the resilience of a business model selling tools for the digital gold rush. Zu den potenziellen Risiken gehören a sharp correction should the pace of Rechenzentrum expansion slightly decelerate. Long-term, this risks overheating the entire semiconductor index if AI algorithmic architectures fundamentally change.</p>
             </div>
           </div>
         </article>
 
-        <article class="article-item" id="art-eco-4">
-          <button class="article-trigger" id="btn-eco-4" aria-expanded="true" aria-controls="body-eco-4">
+        <article class="article-item" id="art-bar-4">
+          <button class="article-trigger" id="btn-bar-4" aria-expanded="true" aria-controls="body-bar-4">
             <span class="art-idx">04</span>
-            <span class="art-title">Die PowerPoint-Präsentation der kongolesischen Rebellen</span>
+            <span class="art-title">How Crypto Voters Decide the Outcome of Polymarket Debates</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="body-eco-4" role="region" aria-labelledby="btn-eco-4">
+          <div class="article-body" id="body-bar-4" role="region" aria-labelledby="btn-bar-4">
             <div class="body-inner">
-              <p>Ein unerwartetes Phänomen im langwierigen Konfliktgebiet im Kongo ist die Nutzung moderner Unternehmenswerkzeuge, wie PowerPoint-Präsentationen, durch bewaffnete Gruppen. Diese Tatsache weist auf eine tiefgreifende Transformation der Methoden zur Kriegsführung und Finanzierungsbeschaffung durch nicht-konventionelle Akteure hin. Die Rebellen selbst profitieren davon und gewinnen die Fähigkeit, professionell Schatteninvestitionen und externe militärische Unterstützung einzuwerben. Die Verlierer sind die offizielle kongolesische Regierung und die Zivilbevölkerung, die unter der kommerziellen Verlängerung der bewaffneten Auseinandersetzung leiden. Die Hauptmotivation der militanten Gruppen besteht darin, ihren Status gegenüber internationalen Sponsoren und transnationalen, an Rohstoffen interessierten Konzernen zu legitimieren. Dies ist ein deutliches Signal an internationale Institutionen, dass die Schattenwirtschaft von Konflikten eine völlig neue Ebene der Institutionalisierung erreicht. Für politische Kreise bedeutet dies das Scheitern traditioneller Methoden zur diplomatischen Isolation illegaler bewaffneter Formationen. Investoren in die Rohstoffindustrie der Region erhalten eine Warnung vor dem Aufkommen hochorganisierter, alternativer Partner für die gewaltsame Kontrolle von Minen. Das Hauptrisiko besteht darin, dass eine solche "Korporatisierung des Terrors" systematisch Risikokapital in die Grauzonen von Kriegen zieht. Infolgedessen könnten lokale Konflikte noch langwieriger werden, da sie eine solide kommerzielle Rechtfertigung erhalten. Die Mechanismen des Völkerrechts erweisen sich als machtlos gegenüber einer derartigen Marketing- und operativen Anpassung durch militante Gruppen. Langfristig droht dies die Grenzen zwischen Ressourcen-Lobbyismus und Terrorismusfinanzierung vollständig verschwimmen zu lassen.</p>
+              <p>Der zentrale Befund des analysierten Materials ist the growing influence of Kryptowährung holders on the outcomes of political and social debates through the Prognoseplattform Polymarket. Dieser Präzedenzfall formt a fundamentally new reality where decentralized finance directly intersects with political forecasting. Die wichtigsten Nutznießer in this situation are Kryptowährung traders and the architects of decentralized Prognoseplattforms. Sie gewinnen einen strategischen Vorteil, indem sie monetizing political turbulence and aggregating insider information in the format of market bets. Gleichzeitig, significant reputational costs are borne by traditional polling agencies and public opinion institutes. Their vulnerability is due to the sluggishness of their methodologies compared to the instantaneous reaction of a financially motivated crowd. Hinter diesem Prozess stehen the interests of large crypto whales capable of shifting prediction odds with massive liquidity injections. Die zentrale Motivation of such actors is extracting arbitrage profits and shaping a desired informational backdrop around candidates. Für politische Institutionen, ist dies ein klares Signal of the emergence of a new tool for manipulation or evaluating true electoral chances. Finanzaufsichtsbehörden betrachten diesen Trend als a threat to the integrity of Wahlprozesse due to the uncontrolled influence of capital. Zu den potenziellen Risiken gehören intentional distortion of political reality through coordinated market attacks. Langfristig, droht dies complete gamification and commercialization of demokratische Verfahren.</p>
             </div>
           </div>
         </article>
 
-        <article class="article-item" id="art-eco-5">
-          <button class="article-trigger" id="btn-eco-5" aria-expanded="true" aria-controls="body-eco-5">
+        <article class="article-item" id="art-bar-5">
+          <button class="article-trigger" id="btn-bar-5" aria-expanded="true" aria-controls="body-bar-5">
             <span class="art-idx">05</span>
-            <span class="art-title">Laktologie: Nicht genug Stillen</span>
+            <span class="art-title">Sky-High Plastic Prices Put the Squeeze on Companies</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="body-eco-5" role="region" aria-labelledby="btn-eco-5">
+          <div class="article-body" id="body-bar-5" role="region" aria-labelledby="btn-bar-5">
             <div class="body-inner">
-              <p>Das Problem des weltweiten Defizits beim Stillen sprengt die engen Grenzen der Medizin und entwickelt sich zu einer ernsthaften Herausforderung für die makroökonomische und sozialpolitische Agenda. Ein wesentlicher Faktor ist der systematische Mangel an institutioneller Unterstützung für Mutterschaft angesichts der aggressiven Anforderungen des modernen Arbeitsmarktes. In dieser Situation sind die offensichtlichen Profiteure transnationale Konzerne, die in großen Mengen Säuglingsnahrung und Ersatzprodukte herstellen. Die Hauptverlierer sind die öffentlichen Gesundheitssysteme sowie Familien, die mit einer langfristigen Verschlechterung der Säuglingsgesundheit konfrontiert sind. Die Wurzel des Problems liegt in den Interessen von Unternehmensarbeitgebern, die nach einer maximalen Reduzierung von Mutterschaftsurlauben und den Kosten für soziale Infrastruktur streben. Für politische Institutionen ist dies ein negatives Signal, das auf einen grundlegenden Konflikt zwischen demografischen Zielen und der wirtschaftlichen Effizienz des Staates hinweist. Das Signal für den Gesundheitsmarkt ist ein zu erwartender Anstieg der Nachfrage nach pädiatrischen Leistungen und pharmakologischen Medikamenten zur Behandlung frühzeitiger Immunschwächen. Die Babynahrungsindustrie hingegen erhält die felsenfeste Bestätigung für ein anhaltendes Wachstum in ihrer Marktnische für die kommenden Jahrzehnte. Die größten Risiken bestehen in einer Verschlechterung der Qualität des Humankapitals auf Makroebene, bedingt durch einen kritischen Rückgang der Grundimmunität bei neuen Generationen. Darüber hinaus verschärft die Situation die sozioökonomische Ungleichheit, da eine hochwertige frühe Ernährung zunehmend zum exklusiven Privileg wohlhabenderer Schichten wird. Staatliche Stellen müssen erkennen, dass der Mangel an flexiblen Arbeitsmodellen eine direkte Bedrohung für die biologische Ressource der Nation darstellt. Ohne eine grundlegende Reform der Arbeitsgesetzgebung wird sich diese versteckte institutionelle Krise nur noch weiter ausbreiten.</p>
+              <p>The key event of the material is the sharp spike in plastic prices, which exerts critical pressure on the corporate sector. This macroeconomic anomaly disrupts established Lieferketten in the packaging and consumer goods segments. Die wichtigsten Nutznießer in this situation are petrochemical corporations and primary polymer producers. They gain a financial advantage through the ability to dictate prices amidst raw material shortages and rising costs. Simultaneously, substantial financial losses are incurred by mass consumer goods manufacturers and retail chains. Ihre Verwundbarkeit ergibt sich aus the inability to instantly pass increased costs onto the end consumer without losing market share. Behind the price shock lie global logistical disruptions and the speculative interests of commodity traders. Die Hauptmotivation of raw material suppliers is maximizing margins under limited supply conditions. Für die globalen Märkte, this serves as an alarming signal regarding the formation of new pockets of industrial inflation. Institutional investors perceive this trend as a threat of declining corporate profits in the consumer goods sector in upcoming quarters. Potential macroeconomic risks include accelerating an inflationary spiral that forces central banks to maintain tight monetary policies. Looking ahead, this could provoke an accelerated transition by companies to alternative packaging materials to protect their margins.</p>
             </div>
           </div>
         </article>
@@ -948,18 +780,18 @@
       <section class="outlet-section">
         <div class="outlet-header">
           <h2>FRONTLINE</h2>
-          <div class="outlet-tags">POLITICS • ECOLOGY</div>
+          <div class="outlet-tags">POLITIK • GESELLSCHAFT • KULTUR</div>
         </div>
 
         <article class="article-item" id="art-fl-1">
           <button class="article-trigger" id="btn-fl-1" aria-expanded="true" aria-controls="body-fl-1">
             <span class="art-idx">01</span>
-            <span class="art-title">Dann siegten sie: Fünf Regionalwahlen und was hinter den Ergebnissen steckt</span>
+            <span class="art-title">West Bengal: Silent tsunami</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-fl-1" role="region" aria-labelledby="btn-fl-1">
             <div class="body-inner">
-              <p>Die Ergebnisse der Regionalwahlen in Westbengalen, Tamil Nadu, Kerala, Assam und Puducherry bestätigten die absolute Dominanz lokaler Agenden über nationale politische Narrative. Die bestimmenden Faktoren der politischen Landschaft blieben die Effizienz bei der Bereitstellung sozialer Güter sowie die sorgfältige Berücksichtigung komplexer Kastenverhältnisse. Als Folge gehen regionale Eliten als Hauptgewinner hervor, die ihre souveränen Positionen erfolgreich gegen den Ansturm föderaler Wahlmaschinerien verteidigen konnten. Verlierer ist die regierende nationale Partei, deren Versuche einer aggressiven Vereinheitlichung der politischen Landschaft gescheitert sind. Die Motivation der Wähler basierte auf der Lösung konkreter wirtschaftlicher Probleme und der entschlossenen Verteidigung regionaler kultureller Identitäten. Für das politische Establishment Indiens ist dies ein klares Signal, dass die föderale Konsolidierung unüberwindbare institutionelle Grenzen hat. Institutionelle Investoren erhalten eine positive Bestätigung für die Widerstandsfähigkeit des dezentralen Regierungsmodells und die Unabhängigkeit der Bundesstaaten. Das Signal für die Märkte ist gemischt: Einerseits sinkt das Risiko einer diktatorischen Machtmonopolisierung, andererseits werden schnelle, landesweite Reformen schwieriger. Unternehmen werden weiterhin komplexe, mehrstufige Lobbying-Netzwerke aufbauen müssen und direkt mit den spezifischen regionalen Regierungen verhandeln. Das wesentliche politische Risiko liegt in der möglichen Verstärkung zentrifugaler Tendenzen und der Verschärfung von Budgetkonflikten zwischen der Zentralregierung und den Bundesstaaten. Die finanziellen Auswirkungen könnten sich in erhöhten populistischen Ausgaben auf lokaler Ebene zeigen, da Wahlsiege vor allem durch Versprechen zu Sozialprogrammen errungen wurden. Langfristig erfordert die Situation von der Zentralregierung die Entwicklung feinerer, nicht-direktiver Mechanismen zur Integration regionaler Volkswirtschaften.</p>
+              <p>The key fact of the material is the victory of regional political forces in West Bengal, driven by the successful delivery of social goods and local alliances. This precedent confirms the resilience of regional currents in India capable of overriding national political narratives. Die wichtigsten Nutznießer in this situation are local party leaders who strengthened their mandate of trust through social programs. They secure a strategic advantage by effectively utilizing caste equations and targeted economic assistance to the population. Umgekehrt, the ruling federal party suffers significant reputational and electoral losses. Its vulnerability stems from an inability to offer regions an agenda capable of outweighing the effectiveness of local governance and the resolution of everyday problems. Behind this electoral outcome lie the consolidated interests of local elites seeking to preserve political autonomy from the center. Die zentrale Motivation of voters is dictated by a strictly pragmatic approach to wealth distribution and the protection of local identity. For national governing institutions, this serves as a direct signal regarding the limits of centralization and the necessity to respect regional sovereignty. Investors perceive this outcome as a marker of the preservation of a complex federal structure that hinders rapid legislative unification. Zu den potenziellen Risiken gehören heightened political confrontation between the regional government and the federal center. Langfristig, droht dies financial imbalance due to a populist race of social promises at the regional level.</p>
             </div>
           </div>
         </article>
@@ -967,12 +799,12 @@
         <article class="article-item" id="art-fl-2">
           <button class="article-trigger" id="btn-fl-2" aria-expanded="true" aria-controls="body-fl-2">
             <span class="art-idx">02</span>
-            <span class="art-title">AAP: Der Besen muss auch gereinigt werden</span>
+            <span class="art-title">Kerala: Last Left citadel falls</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-fl-2" role="region" aria-labelledby="btn-fl-2">
             <div class="body-inner">
-              <p>Die Krise innerhalb der Aam Aadmi Party (AAP) hat systematische Managementprobleme in einer Organisation offengelegt, die ihr politisches Kapital ursprünglich auf kompromissloser Anti-Korruptionsrhetorik aufgebaut hat. Im Kern geht es um die dringende Notwendigkeit einer radikalen inneren Säuberung einer Partei, deren symbolische "Besen" nun am eigenen Apparat angesetzt werden müssen. Traditionelle politische Wettbewerber profitieren von dieser Situation und erhalten eine legitime Möglichkeit, den Hauptkonkurrenten um die Rolle der moralischen Autorität der Nation zu diskreditieren. Zu den Verlierern zählen die Anhänger einer alternativen demokratischen Politik sowie städtische Wähler, deren hohe Erwartungen an eine transparente Regierungsführung enttäuscht wurden. Die Motivation der AAP-Führung beschränkt sich derzeit auf das bürokratische Überleben und den Versuch, die Parteistruktur angesichts massiver Reputationsschäden neu aufzubauen. Für demokratische Institutionen ist dies ein höchst negatives Signal, das zeigt, dass selbst idealistische Reformbewegungen schnell die Fehler des alten Systems übernehmen. Auf dem politischen Markt senkt dieses Ereignis den Wert jedweder "alternativer" Marken drastisch und erhöht gleichzeitig die Wahlprämie für die Vorhersehbarkeit etablierter Parteien. Institutionelle Anleger werten diese Krise als Verringerung des Risikos plötzlicher regulatorischer Störungen, da radikale Populisten an Einfluss verlieren. Das Hauptrisiko besteht in der tiefgreifenden Apathie der gebildeten städtischen Mittelschicht, die sich möglicherweise vollständig aus dem Wahlprozess zurückzieht. Langfristig droht eine Rückkehr zum klassischen Clan-Patronage-System bei der Verwaltung des Hauptstadtbezirks und der angrenzenden Gebiete. Interne Apparatsäuberungen in der AAP könnten eine unumkehrbare Spaltung der Partei und den Verlust der Kontrolle über kommunale Finanzströme provozieren. Dies ist ein klassisches Beispiel für institutionelle Degeneration, bei der Instrumente der Korruptionsbekämpfung monopolisiert und selbst zu Geiseln werden.</p>
+              <p>The key political fact is the defeat of the leftist coalition in the state of Kerala, historically considered their main stronghold. This event marks a fundamental shift in the ideological landscape of Indian regional politics. Die wichtigsten Nutznießer in this situation are centrist and right-wing forces that managed to dismantle the multi-year political monopoly of the communist alliance. They secure a strategic advantage by capitalizing on voter fatigue from the traditional leftist apparatus and local grievances. Gleichzeitig, catastrophic political losses are suffered by the institutional structures of leftist parties. Their vulnerability is rooted in ideological ossification, a crisis of leadership, and an inability to adapt to the demands of a new electorate. Behind this event lie the interests of Kerala's emerging middle class, demanding economic pragmatism instead of ideological dogmas. Die zentrale Motivation of those voting for a change in power lies in the desire to modernize the economy and overcome structural unemployment in the state. For Indian politics, ist dies ein klares Signal of the final twilight of the classic leftist movement in the country. Investors receive a positive indicator of potential labor law liberalization and business climate improvement in the region. Potential risks are associated with a period of political instability during the dismantling of deeply entrenched union structures. Looking ahead, this could provoke a complete restructuring of the state's social model toward market capitalism.</p>
             </div>
           </div>
         </article>
@@ -980,12 +812,12 @@
         <article class="article-item" id="art-fl-3">
           <button class="article-trigger" id="btn-fl-3" aria-expanded="true" aria-controls="body-fl-3">
             <span class="art-idx">03</span>
-            <span class="art-title">Ladakh: Eine undemokratische Vereinbarung</span>
+            <span class="art-title">Assam: Polarised mandate</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-fl-3" role="region" aria-labelledby="btn-fl-3">
             <div class="body-inner">
-              <p>Das aktuelle Regierungssystem in der strategisch wichtigen Region Ladakh lässt sich als zutiefst undemokratisches Modell charakterisieren, das die Grundrechte der lokalen Zivilbevölkerung absichtlich beschneidet. Ein Schlüsselfaktor für die wachsenden Spannungen ist der Entzug einer vollwertigen Repräsentation und der institutionellen finanziellen Unabhängigkeit der Region. Die bedingungslosen Nutznießer dieses Formats sind die zentralen bürokratischen Strukturen in Neu-Delhi, die ihre direkte und unbegrenzte Kontrolle über das Territorium festigen. Die Verliererseite ist die indigene Bevölkerung, die administrativ von souveränen Entscheidungsprozessen über die Verteilung lokaler Ressourcen und Ländereien ausgeschlossen ist. Die Motivation der föderalen Zentrale wird ausschließlich durch nationale Sicherheitsinteressen und die Militarisierung des Grenzgebiets auf Kosten des internen Zivilrechts diktiert. Dies ist ein extrem negatives Signal für Justiz- und Menschenrechtsinstitutionen, das die Bereitschaft des Staates belegt, die Demokratie für eine totale geopolitische Kontrolle zu opfern. Für die politischen Märkte ist dies ein klarer Indikator für eine erhöhte Volatilität in den Grenzregionen, wo strikte administrative Vorgaben jederzeit Aufstände provozieren können. Investoren in den Tourismus und die lokale Infrastruktur erhalten das Signal exorbitanter Risiken, die mit dem Fehlen einer legitimen, lokalen Vertragsgrundlage einhergehen. Das Hauptrisiko besteht in einer raschen Radikalisierung der Bevölkerung Ladakhs, die historisch stets eine hohe Loyalität zur indischen Zentralregierung gezeigt hat. Die künstliche, gewaltsame Unterdrückung politischer und wirtschaftlicher Aktivitäten wird unweigerlich zu einer verborgenen, aber starken sozialen Destabilisierung der Region führen. Langfristig schwächt dieses geschaffene institutionelle Ungleichgewicht die Position Indiens in einer hypothetischen militärischen Konfrontation mit Nachbarstaaten entscheidend. Das Regieren durch direkte koloniale Verwaltung in einer ethnisch komplexen Region erweist sich als absolutes strategisches Versagen.</p>
+              <p>Der zentrale Befund des vorgestellten Materials ist the formation of a rigidly polarized mandate in the state of Assam following regional elections. This outcome was a direct consequence of utilizing constituency delimitation processes and applying the National Register of Citizens. Die wichtigsten Nutznießer in this situation are nationalist and ruling political forces that successfully consolidated their base electorate. They gain a strategic advantage through the legal engineering of electoral district boundaries and playing the identity card. Umgekehrt, significant political rights and representation are lost by the state's religious and ethnic minorities. Ihre Verwundbarkeit ergibt sich aus vote fragmentation and systemic administrative pressure through citizenship verification mechanisms. Behind this polarization lie the deep institutional interests of the central government aiming to assimilate border and ethnically complex regions. Die Hauptmotivation of the victorious forces is dictated by a desire to establish unchallengeable control over a strategically critical state. For India's democratic institutions, this serves as an alarming signal about the successful use of administrative resources to legally alter the demographic weight of the opposition. Markets perceive this as a guarantee of iron-fisted political stability but ignore accumulating social tension. Zu den potenziellen Risiken gehören the radicalization of minorities excluded from the political process and localized outbreaks of violence. Langfristig, droht dies to undermine trust in federal electoral mechanisms on the country's periphery.</p>
             </div>
           </div>
         </article>
@@ -993,12 +825,12 @@
         <article class="article-item" id="art-fl-4">
           <button class="article-trigger" id="btn-fl-4" aria-expanded="true" aria-controls="body-fl-4">
             <span class="art-idx">04</span>
-            <span class="art-title">Punjab: Kriminalität, Mythos und der Staat</span>
+            <span class="art-title">Ladakh: An undemocratic arrangement</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-fl-4" role="region" aria-labelledby="btn-fl-4">
             <div class="body-inner">
-              <p>Im Punjab spitzt sich eine beispiellose Regierungskrise zu, in der das Problem des organisierten Verbrechens organisch mit sozialen Mythen und der Dysfunktion des Staatsapparates verschmilzt. Das Schlüsselereignis ist die faktische Unfähigkeit der Behörden, das Gewaltmonopol aufrechtzuerhalten, wobei die operative Initiative an schwer bewaffnete kriminelle Netzwerke abgetreten wird. Schattenstrukturen und lokale Machtinstanzen profitieren von diesem Kontext und bauen ihre Macht aufgrund der Korruption und Ineffizienz der lokalen Polizei rasend schnell aus. Verlierer sind die Institutionen der legalen Wirtschaft sowie gewöhnliche Bürger, die gezwungen sind, täglich eine doppelte – kriminelle und bürokratische – Pacht zu zahlen. Die strategische Motivation der kriminellen Gruppen besteht in der Etablierung einer strengen Kontrolle über Logistikströme und die Schattenwirtschaft in der reichsten Agrarregion des Landes. Für die staatlichen Institutionen ist dies das Signal eines kritischen, systemischen Versagens der Strafverfolgungsarchitektur sowie des tiefsten Eindringens der Kriminalität in die obersten Machtebenen. Auf makroökonomischer Ebene wirkt dies wie ein hartes Stoppsignal für ernsthafte Kapitalinvestitionen in die Industrie und Technologie des Bundesstaates. Legale Unternehmen sind gezwungen, überhöhte Kosten für private Sicherheitsdienste und informelle Betriebszahlungen in ihre Finanzmodelle aufzunehmen. Das zentrale staatliche Risiko liegt in der unvermeidlichen Verschmelzung gestärkter krimineller Syndikate mit radikalen politischen oder separatistischen regionalen Bewegungen. Die Mythologisierung und Romantisierung von Kriminellen im Massenbewusstsein schafft einen destruktiven sozialen Präzedenzfall für junge Menschen, denen es an legalen Erwerbsperspektiven mangelt. Wenn der föderale Staat seine institutionelle Autorität nicht umgehend wiederherstellt, droht die Region in eine Zone souveräner krimineller Wirtschaft abzugleiten. Dies bedroht unmittelbar die interne logistische Sicherheit sowie die Ernährungssicherheit des gesamten nördlichen Teils des indischen Staates.</p>
+              <p>Der zentrale Befund des analysierten Materials ist the sharp criticism of the current governance model in Ladakh, characterized as an undemocratic arrangement. This underscores the population's growing discontent with the lack of direct political representation after the region's status was altered. Die wichtigsten Nutznießer of maintaining the current status quo are federal bureaucratic apparatuses and the security sector. They gain unconstrained operational control over a strategically vital border territory without the need to coordinate decisions with a local parliament. Unterdessen, critical losses are suffered by Ladakh's indigenous population, stripped of constitutional guarantees protecting their lands and cultural identity. Ihre Verwundbarkeit ergibt sich aus direct subordination of the region to the center and the absence of legitimate levers of influence on the administration. Behind this arrangement lie India's rigid geopolitical interests in the context of military confrontation in the Himalayan sector. The central authority's primary motivation is dictated by prioritizing national security over local demokratische Verfahren. For international and domestic human rights institutions, this serves as a signal of rolling back autonomy in strategic zones. Political elites of other border states view this case as a potential scenario for the revocation of their own governing powers. Potential risks involve mass civil disobedience and the alienation of a previously loyal population. Langfristig, droht dies to create a new point of internal tension in close proximity to a military conflict zone.</p>
             </div>
           </div>
         </article>
@@ -1006,33 +838,398 @@
         <article class="article-item" id="art-fl-5">
           <button class="article-trigger" id="btn-fl-5" aria-expanded="true" aria-controls="body-fl-5">
             <span class="art-idx">05</span>
-            <span class="art-title">Ein unsinniger Plan für Delhis Central Ridge</span>
+            <span class="art-title">Venice Biennale: India returns after a gap of seven years</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-fl-5" role="region" aria-labelledby="btn-fl-5">
             <div class="body-inner">
-              <p>Initiativen zur kommerziellen Transformation des Waldgebiets Central Ridge in Neu-Delhi stellen ein ökologisch zerstörerisches und städtebaulich fragwürdiges Projekt dar. Im Kern handelt es sich um den aggressiven Versuch, die letzte große grüne Pufferzone der Hauptstadt infrastrukturell zu erschließen und dabei geltende Umweltauflagen zu umgehen. Die Hauptnutznießer des Projekts sind offenkundig Baukonzerne und Immobilien-Lobbyisten, die sich Zugang zu extrem teuren und raren Hauptstadtgrundstücken verschaffen wollen. Verlierer ist bedingungslos das fragile ökologische System der Metropole sowie Millionen ihrer Einwohner, die eine essenzielle Schutzbarriere gegen die Luftverschmutzung dauerhaft verlieren. Die Motivation der Beamten, die diesen Plan vorantreiben, basiert zynischerweise auf der kurzfristigen Monetarisierung von Flächen und der Abschöpfung kolossaler Infrastrukturbudgets. Für zivilgesellschaftliche Institutionen ist dies ein äußerst alarmierendes Signal, dass strenge Umweltstandards unter dem Druck großer Baukapitalinteressen mühelos demontiert werden können. Auf dem Immobilienmarkt der Hauptstadt signalisiert dies die Bereitschaft korrupter Behörden, jede Flächennutzungsplanung zugunsten dichter Bebauung zu revidieren. Für westliche ESG-Investoren würde die Beteiligung an solchen Projekten kolossale Reputationsschäden und mögliche Blockaden durch internationale Umweltbehörden bedeuten. Zu den potenziellen direkten Folgen zählen eine katastrophale, irreversible Verschlechterung des Mikroklimas und die Erschöpfung der Grundwasservorräte in einer der am dichtesten besiedelten Städte der Welt. Das Risiko unvermeidbarer, jahrelanger juristischer Blockaden des Projekts durch Umweltaktivisten macht jegliche Investitionen in dieser Zone zu hochgiftigen Anlagen. Dieser Landkonflikt verdeutlicht drastisch eine institutionelle Krise in der Stadtplanung, in der kurzfristige Profite die Ziele einer nachhaltigen Entwicklung vollständig außer Kraft setzen. Langfristig führt das Treffen derartiger städtebaulicher Entscheidungen zu einem rasanten Rückgang der globalen Investitionsattraktivität Neu-Delhis.</p>
+              <p>The key event of the material is the return of the Indian national pavilion to the Venice Biennale of Art with an exhibition dedicated to the memory of home and ecology. This step marks the resumption of active cultural diplomacy on one of the world's primary intellectual platforms. Die wichtigsten Nutznießer in this situation are Indian curators and contemporary artists gaining direct access to the global art market. They acquire a strategic advantage by legitimizing their discourse on rootedness and traditions at an international level. Gleichzeitig, a certain challenge is posed to Western-centric narratives in art, whose monopoly is diluted by the presence of large-scale concepts from the Global South. Their vulnerability lies in the necessity to compete for attention with authentic ecological and cultural meanings from emerging economies. Behind this return are clear political interests of the government in shaping a positive "soft power" image of the Indian state. The initiators' core motivation is driven by the need to project an image of civilizational depth and ecological awareness to a Western audience. For the global cultural market, this signals India's readiness to invest in symbolic capital on par with economic capital. Institutional investors in the art sector receive an indicator of the growing capitalization of contemporary South Asian art. Zu den potenziellen Risiken gehören ideological censorship during the selection of artists representing the official state pavilion. Mit Blick nach vorn, this cements the role of cultural expansion as an integral part of the country's foreign policy doctrine.</p>
             </div>
           </div>
         </article>
       </section>
 
-      <!-- ════════════════════════ THE WEEK ════════════════════════ -->
+      <!-- ════════════════════════ GEOPOLITIK ════════════════════════ -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>THE WEEK</h2>
-          <div class="outlet-tags">US ELECTIONS • GLOBAL ECONOMY • MEDIA • GEOPOLITICS</div>
+          <h2>GEOPOLITICS</h2>
+          <div class="outlet-tags">VERTEIDIGUNG • TECHNOLOGIE • GEOPOLITIK</div>
+        </div>
+
+        <article class="article-item" id="art-geo-1">
+          <button class="article-trigger" id="btn-geo-1" aria-expanded="true" aria-controls="body-geo-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">India's Indigenous Drone Power Surge</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-geo-1" role="region" aria-labelledby="btn-geo-1">
+            <div class="body-inner">
+              <p>The key fact of the material is India's accelerated development of its own military drone industry as part of its strategy leading up to 2047. Dieser Präzedenzfall schafft a new vector of technological sovereignty for the country in the aerospace sphere. Die wichtigsten Nutznießer in this situation are national defense contractors and local robotics startups. They secure a strategic advantage through massive government contracts and the protectionist policies of the Ministry of Defense. Umgekehrt, traditional foreign arms exporters, who historically dominated the Indian market, suffer significant losses. Ihre Verwundbarkeit ergibt sich aus New Delhi's direct course toward import substitution and bans on procuring foreign ready-made platforms. Behind this technological leap lie India's firm geopolitical interests in ensuring independence amidst regional instability. Die zentrale Motivation of the military leadership is dictated by the need for an asymmetric response to threats along vast and complex borders. For global arms markets, ist dies ein klares Signal of India definitively shedding its status as a docile buyer of foreign technologies. Institutional investors perceive this trend as the launch of explosive growth within the domestic Indian military-industrial complex. Die Hauptrisiken bestehen in technological defects and budget overruns during R&D phases due to a shortage of indigenous engineering foundation. Langfristig, droht dies to transform India from an importer into an aggressive exporter of low-cost military drones.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-geo-2">
+          <button class="article-trigger" id="btn-geo-2" aria-expanded="true" aria-controls="body-geo-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Steel Revolution: The Cold War tank is giving way</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-geo-2" role="region" aria-labelledby="btn-geo-2">
+            <div class="body-inner">
+              <p>The key event of the material is the strategic abandonment by the Indian army of the Cold War-era tank concept in favor of next-generation combat vehicles. This transformation underscores a fundamental revision of ground operation doctrines in the context of modern warfare. Die wichtigsten Nutznießer are technological corporations specializing in the integration of digital systems, composite armor, and mobility. They secure long-term contracts for the modernization of the entire armored fleet in accordance with new network-centric requirements. Gleichzeitig, the biggest losers turn out to be heavy machinery plants geared toward the mass production of outdated heavy armor. Their positions weaken due to a lack of competencies in electronics and the creation of highly maneuverable light platforms. The basic interests of the generals are focused on increasing equipment survivability in environments dominated by drones and precision weapons. The clients' motivation is dictated by the need to create an agile, logistically flexible, and intelligent ground strike force. This case transmits a signal to defense markets about the total obsolescence of classic heavy armor in high-intensity conflicts. Foreign partners receive an indicator of the necessity to transfer technologies for creating intelligent defense systems, not just metal. The main risks are associated with the complexity of integrating new platforms into the army's existing conservative logistical and repair infrastructure. Looking ahead, this may provoke the complete write-off of thousands of old vehicles, requiring colossal financial write-downs.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-geo-3">
+          <button class="article-trigger" id="btn-geo-3" aria-expanded="true" aria-controls="body-geo-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Algorithmic Warfare: Artificial Intelligence rewriting rules</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-geo-3" role="region" aria-labelledby="btn-geo-3">
+            <div class="body-inner">
+              <p>The key fact of the analyzed text is the integration of künstliche Intelligenz into battle management systems, which radically rewrites the rules of modern warfare. This technological shift creates a reality where the speed of decision-making is delegated to machine algorithms. Die wichtigsten Nutznießer in this situation are IT consortiums and developers of special-purpose software. They gain unprecedented access to defense budgets, becoming just as vital as kinetic weapons manufacturers. Gleichzeitig, systemic vulnerability is demonstrated by traditional command structures relying on classic human staff analysis. Their positions weaken due to an inability to process terabytes of battlefield data at the speed required to counter an adversary's AI. Behind this transition are the interests of defense departments seeking to achieve total network dominance over potential adversaries. Die zentrale Motivation for implementing algorithms is driven by the desire to eliminate human error and reaction time from the target engagement cycle. For geopolitical institutions, this serves as an alarming signal regarding the onset of an uncontrolled algorithmic arms race. Technology markets perceive this as a trigger for massive mergers between civilian AI labs and the military sector. Zu den potenziellen Risiken gehören catastrophic algorithm failures capable of triggering unauthorized fatal strikes. Langfristig, droht dies the loss of political control over the escalation of machine-driven conflicts.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-geo-4">
+          <button class="article-trigger" id="btn-geo-4" aria-expanded="true" aria-controls="body-geo-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Narrative Strike Force: Weaponising Perception</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-geo-4" role="region" aria-labelledby="btn-geo-4">
+            <div class="body-inner">
+              <p>The key fact of the material is the analysis of lessons learned from the first year of warfare and the successful deployment of "narrative strike forces" to weaponize perception. This event confirms that informational dominance has become a strategic military success component equivalent to kinetic strikes. Die wichtigsten Nutznießer are psychological operations structures and cyber-influence specialists within military departments. They secure expanded budgets and unprecedented influence over operational planning, shaping the picture of reality for a global audience. Umgekehrt, significant strategic losses are borne by conflicting parties relying solely on traditional military censorship and state propaganda. Ihre Verwundbarkeit ergibt sich aus an inability to counter decentralized viral informational attacks and cognitive manipulations. Behind these processes are the interests of political leadership ensuring the legitimacy of their actions in the eyes of the international community. Die zentrale Motivation of actors is driven by the need to demoralize the enemy and mobilize allies through managed semantic constructs. For media institutions, this serves as a direct signal that civilian information platforms have definitively become a fully-fledged theater of war. Investors in cybersecurity receive an indicator of growing demand for cognitive defense tools and big data analysis. Potential risks involve the complete blurring of boundaries between truth and synthetic narratives, complicating any peace negotiations. Mit Blick nach vorn, droht dies the institutionalization of permanent cognitive warfare that does not cease even after physical combat concludes.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-geo-5">
+          <button class="article-trigger" id="btn-geo-5" aria-expanded="true" aria-controls="body-geo-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Ready for Take-Off: Adani's airport venture</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-geo-5" role="region" aria-labelledby="btn-geo-5">
+            <div class="body-inner">
+              <p>The key fact of the presented text is the massive consolidation of Indian airports by private corporations, particularly Adani structures. Dieser Präzedenzfall formt a monopolistic reality in the management of critical transport infrastructure in a rapidly growing market. Die wichtigsten Nutznießer in this situation are the largest private conglomerates, securing long-term concessions for the most profitable aviation hubs. They ensure a strategic financial advantage through guaranteed non-aeronautical revenue and passenger traffic monetization. Gleichzeitig, substantial infrastructure risks are borne by the state and ordinary airline passengers, who become dependent on monopolist pricing. The positions of state operators weaken due to a lack of capital for modernization and the transfer of prime assets into private hands. Behind the privatization process are colossal financial interests of elites seeking to convert infrastructure facilities into stable cash flows. Die Hauptmotivation of investors is dictated by betting on the explosive growth of the Indian middle class and domestic tourism. Für die globalen Märkte, ist dies ein klares Signal of the liberalization of the Indian economy and its readiness to hand over strategic assets to transnational capital. Institutionelle Akteure verstehen diesen Trend als a green light for investments in adjacent sectors: logistics, hotels, and retail. Die Hauptrisiken bestehen in potential delays in fulfilling corporate infrastructure obligations due to heavy debt loads. Langfristig, droht dies political backlash in the event of unjustified hikes in airport fees for airlines and citizens.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ NATIONAL REVIEW ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>NATIONAL REVIEW</h2>
+          <div class="outlet-tags">POLITIK • US-WAHLEN • GEOPOLITIK</div>
+        </div>
+
+        <article class="article-item" id="art-nr-1">
+          <button class="article-trigger" id="btn-nr-1" aria-expanded="true" aria-controls="body-nr-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">The Scourge of Left-Wing Violence</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nr-1" role="region" aria-labelledby="btn-nr-1">
+            <div class="body-inner">
+              <p>The key fact of this material is the institutional analysis of the destructive consequences of left-wing violence, exemplified by the 2020 protests. Dieser Präzedenzfall schafft a strict conservative consensus regarding the necessity of suppressing street anarchy with the force of law. Die wichtigsten Nutznießer of this discourse are conservative politicians and law enforcement structures demanding an expansion of their authority. They secure a strategic electoral advantage by positioning themselves as the sole guarantors of social stability and private property protection. Umgekehrt, political losses are incurred by liberal and progressive forces that previously sympathized with protest movements. Their vulnerability is due to their association with chaos, looting, and the undermining of the foundational pillars of the American social contract. Behind the resurgence of this theme are the interests of right-wing elites mobilizing their electorate amid growing social tension. Die zentrale Motivation of the authors is driven by the need to criminalize left-leaning political activism in the mass consciousness. Für politische Institutionen, ist dies ein klares Signal preparing the ground for stricter federal legislation counteracting domestic terrorism. Investors in private security and insurance sectors perceive this narrative as a guarantee of long-term demand for their services. The main risks are associated with further deep polarization of society and the marginalization of any forms of peaceful civil protest. Mit Blick nach vorn, this could provoke a harsh, forceful response to any social unrest, threatening civil liberties.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nr-2">
+          <button class="article-trigger" id="btn-nr-2" aria-expanded="true" aria-controls="body-nr-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Continental Shift: How the American right went European</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nr-2" role="region" aria-labelledby="btn-nr-2">
+            <div class="body-inner">
+              <p>The key event of the material is the fundamental ideological shift of American conservatives toward European national-populist models. This process underscores the departure of the American right from traditional libertarianism and free-market ideas in favor of state protectionism. Die wichtigsten Nutznießer of this transformation are leaders of the Republican Party's populist wing, successfully seizing the agenda from the establishment. They gain an electoral advantage by consolidating the working class through promises of cultural defense and trade barriers. Gleichzeitig, catastrophic losses are suffered by classic Reagan-era conservatives and proponents of neoliberal globalization. Their positions are rapidly weakening due to a loss of control over the party apparatus and the ideological mainstream of the right-wing movement. Behind this shift lie the interests of US industrial capital, demanding protection from international competition, alongside cultural traditionalists. Die Hauptmotivation of the New Right is driven by the desire to build a national state with a strong social base that rejects cosmopolitanism. Für die globalen Märkte, this transmits a signal that the bipartisan consensus in the US regarding free trade is definitively dead. International institutions receive an indicator of the inevitable rise of American isolationism regardless of the outcome of future elections. Zu den potenziellen Risiken gehören unleashing massive trade wars initiated by ideologically motivated protectionists. Langfristig, droht dies the defragmentation of the global economy into closed national blocs.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nr-3">
+          <button class="article-trigger" id="btn-nr-3" aria-expanded="true" aria-controls="body-nr-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Fixing NATO: Strengthen the alliance, don't wreck it</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nr-3" role="region" aria-labelledby="btn-nr-3">
+            <div class="body-inner">
+              <p>The key fact of the material is a call for pragmatic reform of the North Atlantic Alliance, as opposed to ideas advocating its complete dismantling. This thesis forms a moderate-conservative position recognizing NATO's flaws but defending its strategic value for the US. Die wichtigsten Nutznießer of this approach are the American military-industrial complex and defense elites. They secure a long-term guarantee of preserving multi-billion-dollar contracts for rearming European allies within a revamped alliance. Umgekehrt, political losses are borne by radical isolationists advocating for the complete withdrawal of American troops from Europe. Their arguments weaken against the backdrop of a pragmatic logic of burden-sharing without losing geopolitical control. Behind this narrative are the interests of the transatlantic establishment, striving to preserve the institutional framework of Western hegemony. Die zentrale Motivation of reform advocates lies in compelling Europe to exponentially increase defense spending while retaining Washington's leadership. Für die globalen Märkte, this serves as a direct signal of continued large-scale militarization across the European continent. EU political institutions receive an unambiguous indicator: American protection will endure only on the condition of paying the bills. Potential risks are associated with the resistance of European voters to cutting social budgets in favor of military appropriations. Mit Blick nach vorn, this will lead to NATO's transformation into a more transactional structure, where security is strictly tied to finances.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nr-4">
+          <button class="article-trigger" id="btn-nr-4" aria-expanded="true" aria-controls="body-nr-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Alaska, the Minerals Frontier</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nr-4" role="region" aria-labelledby="btn-nr-4">
+            <div class="body-inner">
+              <p>The key fact of the analyzed text is the proposal to utilize market mechanisms for rare earth metal mining in Alaska to counter China. This event highlights the onset of an active phase of resource confrontation between Washington and Beijing within the US domestic sphere. Die wichtigsten Nutznießer in this situation are American mining corporations and infrastructure funds. They gain a strategic advantage through federal support and potential deregulation of environmental standards in the interest of national strategy. Unterdessen, substantial political and reputational losses are suffered by environmental organizations and green initiative lobbyists. Their positions are radically weakened due to the imperative of national security, which now outweighs ecological arguments. The fundamental interests of American elites are focused on eliminating critical dependence on Chinese raw materials essential for the military-industrial complex and microelectronics. Politicians' motivation is driven by the desire to secure complete sovereignty over the technological Lieferketten of coming decades. This case transmits a clear signal to commodity markets about the US readiness to heavily invest in its own resource base. Institutional investors receive an indicator of an imminent boom in geological exploration and extraction in Alaska's undeveloped territories. Die Hauptrisiken bestehen in multi-year legal battles with eco-activists, capable of delaying the launch of mining sites. Langfristig, droht dies the fragmentation of the global critical minerals market into hostile spheres of influence.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nr-5">
+          <button class="article-trigger" id="btn-nr-5" aria-expanded="true" aria-controls="body-nr-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">New Space Capitalism: The Entrepreneurial Path to the Stars</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nr-5" role="region" aria-labelledby="btn-nr-5">
+            <div class="body-inner">
+              <p>The key fact of the material is the acknowledgment of the absolute dominance of private corporations, such as SpaceX, in the realm of space launches. Dieser Präzedenzfall schafft a fundamentally new paradigm where space becomes an arena for aggressive private commerce rather than state-run programs. Die wichtigsten Nutznießer in this situation are billionaire visionaries and Venture-Fonds financing aerospace startups. They secure a monopolistic advantage in shaping future markets for extraterrestrial logistics, satellite communications, and resource extraction. Gleichzeitig, colossal reputational and institutional losses are suffered by traditional government space agencies. Ihre Verwundbarkeit ergibt sich aus bureaucratic sluggishness and an inability to compete with the efficiency of private capital. Behind this phenomenon lie the interests of a new generation of capitalists striving to privatize extraterrestrial spaces and orbital infrastructure. Die zentrale Motivation of these corporations is to create legal and economic frameworks for the future trade in rights to mine asteroids. Für die globalen Märkte, this serves as a signal legitimizing the "space economy" as a fully-fledged and highly profitable investment sector. Institutional players receive an indicator of the necessity to forge new legal instruments for protecting property rights in space. Zu den potenziellen Risiken gehören the monopolization of low Earth orbit by a single private company capable of dictating terms to entire nations. Mit Blick nach vorn, this provokes an uncontrolled space race lacking coherent international regulatory mechanisms.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ NEWSWEEK ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>NEWSWEEK</h2>
+          <div class="outlet-tags">WELTWIRTSCHAFT • TECHNOLOGIE • LOGISTIK</div>
+        </div>
+
+        <article class="article-item" id="art-nw-1">
+          <button class="article-trigger" id="btn-nw-1" aria-expanded="true" aria-controls="body-nw-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Fool Britannia: Why Britain Is No Longer Great</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nw-1" role="region" aria-labelledby="btn-nw-1">
+            <div class="body-inner">
+              <p>Der zentrale Befund des vorgestellten Materials ist the stark assessment of Great Britain's loss of great power status on the global stage. Dieser Präzedenzfall prägt a new geopolitical reality wherein London ceases to be a defining center of power. Die wichtigsten Nutznießer in this situation are competing global hubs, such as the US, China, and the leadership of the European Union. Sie gewinnen einen strategischen Vorteil, indem sie filling the diplomatic and economic vacuum left by the self-isolation of British institutions. Umgekehrt, catastrophic political and reputational losses are borne by the British ruling establishment. Their vulnerability is rooted in the consequences of deep structural crises and an inability to offer a viable economic model under new conditions. Behind this discourse lie the interests of international markets, downgrading the sovereign risks of the island nation. Die Hauptmotivation of those making this assessment is to solidify an accomplished historical fact to realign foreign policy priorities. For global investors, this serves as a direct signal of declining investment attractiveness in British assets over the long term. Continental Europe's political elites perceive this trend as confirmation of the correctness of their integrationist policies. Zu den potenziellen Risiken gehören further internal disintegration of the United Kingdom and a rise in radical separatism. Looking ahead, droht dies to transform Britain into a secondary regional player with a heavily overinflated financial sector.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nw-2">
+          <button class="article-trigger" id="btn-nw-2" aria-expanded="true" aria-controls="body-nw-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Tomorrow's smart infrastructure</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nw-2" role="region" aria-labelledby="btn-nw-2">
+            <div class="body-inner">
+              <p>The key fact of the material is the rollout of a massive US government program investing trillions of dollars into capital infrastructure projects. This event kicks off one of the largest cycles of state funding into the domestic market in recent history. Die wichtigsten Nutznießer in this situation are massive construction contractors and industrial material suppliers. They secure a strategic financial advantage through a guaranteed portfolio of government orders for the next decade. Unterdessen, losses in the form of hidden taxes and inflationary pressure are borne by ordinary taxpayers and the consumer sector. Their financial standing weakens due to the redistribution of colossal budgetary funds toward industrial giants. Behind this investment boom lie the administration's political interests in reindustrializing the country and creating jobs. Die zentrale Motivation of key political actors is driven by the desire to maintain America's global competitiveness in the face of China's infrastructure might. For stock markets, this broadcasts an unambiguous signal initiating a growth supercycle in the heavy machinery and construction sectors. Institutional investors receive an indicator of the reliability of investments in infrastructure company stocks, backed by sovereign guarantees. The main macroeconomic risks involve inefficient spending, corruption, and an overheated labor market in construction. Langfristig, droht dies a sharp increase in national debt and prolonged structural inflation.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nw-3">
+          <button class="article-trigger" id="btn-nw-3" aria-expanded="true" aria-controls="body-nw-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Build a better tomorrow with Aurigo Masterworks Cloud</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nw-3" role="region" aria-labelledby="btn-nw-3">
+            <div class="body-inner">
+              <p>The key fact of this material is the mass transition of government and private entities away from fragmented legacy systems in infrastructure management. This process marks the total digitization of trillion-dollar budgets through cloud-based solutions. Die wichtigsten Nutznießer in this situation are IT corporations and developers of specialized capital planning software. Sie gewinnen einen strategischen Vorteil, indem sie imposing their subscription standards on the industry and consolidating control over data flows. Gleichzeitig, significant technological and personnel losses are suffered by conservative design bureaus and regional administrations. Ihre Verwundbarkeit ergibt sich aus an inability to quickly adapt to cloud platforms and a loss of control over traditional approval processes. Behind this digital transformation are the rigid interests of fiscal authorities demanding absolute transparency in the expenditure of infrastructure trillions. Die zentrale Motivation of cloud platform developers lies in monopolizing access to big data within the US construction industry. For venture capital markets, ist dies ein klares Signal of the profitability of investments in the B2G (business-to-government) sector. Technological institutions perceive this trend as a step toward the total algorithmic management of urban development. Zu den potenziellen Risiken gehören the threat of cyberattacks on unified cloud repositories holding critical national infrastructure data. Looking forward, this could provoke a systemic paralysis of construction sites nationwide in the event of a critical platform provider failure.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nw-4">
+          <button class="article-trigger" id="btn-nw-4" aria-expanded="true" aria-controls="body-nw-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Airline technology that opens the world of e-commerce shipping</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nw-4" role="region" aria-labelledby="btn-nw-4">
+            <div class="body-inner">
+              <p>The key event of the analyzed text is the implementation of specialized IT solutions allowing airlines to directly service e-commerce logistics. This development eliminates traditional intermediaries between air carriers and the online retail market. Die wichtigsten Nutznießer in this configuration are classic passenger and cargo airlines desperately seeking new revenue streams. Sie gewinnen einen strategischen Vorteil, indem sie diversifying their income via the rapidly growing traffic of small parcels. Umgekehrt, critical losses are sustained by traditional logistics operators and major postal services. Their positions weaken as airlines begin to integrate directly into the Lieferketten of online retailers. Behind this technological shift are the financial interests of the aviation industry aiming to maximize the load factor of every flight. Die Hauptmotivation of software developers lies in creating a global gateway that extracts a commission for every transaction between the store and the aircraft. This case transmits a direct signal to the retail market about a radical reduction in delivery times and costs for intercontinental goods. Institutional investors receive an indicator of an imminent surge in airline profitability due to hidden cargo capacities. Die Hauptrisiken bestehen in legal and customs barriers during the mass cross-border transportation of retail items. In the long run, droht dies the transformation of passenger airlines into global courier services, prioritizing cargo over passengers.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nw-5">
+          <button class="article-trigger" id="btn-nw-5" aria-expanded="true" aria-controls="body-nw-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Connecting demand with an airline's supply of capacity</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nw-5" role="region" aria-labelledby="btn-nw-5">
+            <div class="body-inner">
+              <p>The key fact of the material is the monetization of airlines' unused cargo capacities through directly linking retailer demand with carrier supply. Dieser Präzedenzfall schafft a new "desktop to the doorstep" logistics business model. Die wichtigsten Nutznießer in this situation are global e-commerce platforms and end consumers demanding instantaneous delivery. They secure a financial advantage through reduced transactional costs and direct access to aviation assets. Concurrently, substantial losses are borne by freight forwarding agencies, whose role as cargo aggregators becomes technologically obsolete. Ihre Verwundbarkeit ergibt sich aus lacking their own transport assets and losing out to automated booking software algorithms. The fundamental interests of the actors are focused on the complete, real-time automation of air freight pricing. The airlines' motivation is dictated by the need to survive volatile passenger demand by capturing a share of the courier delivery market. Für die Logistikmärkte, ist dies ein klares Signal of the inevitable uberization of air cargo transport. Investors in the IT sector perceive this trend as confirmation that software is capable of entirely swallowing the traditional logistics industry. Potential risks are associated with disruptions in sorting chains due to airport infrastructure being unready to process millions of small parcels. Mit Blick nach vorn, this could provoke a complete reconfiguration of terminal architecture tailored to the needs of automated e-commerce.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ OUTLOOK ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>OUTLOOK</h2>
+          <div class="outlet-tags">POLITIK • GESELLSCHAFT • KULTUR</div>
+        </div>
+
+        <article class="article-item" id="art-out-1">
+          <button class="article-trigger" id="btn-out-1" aria-expanded="true" aria-controls="body-out-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Bulldozed: TMC, AAP</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-out-1" role="region" aria-labelledby="btn-out-1">
+            <div class="body-inner">
+              <p>Der zentrale Befund des vorgestellten Materials ist the unprecedented administrative and political pressure applied to leading regional parties, such as TMC and AAP. Dieser Präzedenzfall prägt a reality of rigid power centralization and the systemic extrusion of opposition forces from the legal arena. Die wichtigsten Nutznießer in this situation are the national ruling elites, monopolizing control over the political process. They secure a strategic advantage by employing the state's security and judicial apparatus to neutralize electoral competitors. Gleichzeitig, critical losses are suffered by democratic opposition institutions and voters in states traditionally independent of the center. Ihre Verwundbarkeit ergibt sich aus the lack of symmetrical resources to withstand the federal authority's "bulldozer". Hinter diesem Druck stehen the profound ideological interests of the ruling party to construct a unitary state dominated by a single force. Die zentrale Motivation of those initiating the purge is driven by the fear of regional leaders uniting into a cohesive front. For political markets, this serves as a direct signal indicating the erosion of federalism and the dismantling of coalitional governance practices. Internationale Menschenrechtsinstitutionen sehen diesen Trend als an indicator of the system sliding into electoral authoritarianism. Die Hauptrisiken bestehen in the radicalization of protest movements in states stripped of legitimate political representation. Langfristig, droht dies centrifugal tendencies and jeopardizes territorial integrity due to the disregard of regional identities.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-out-2">
+          <button class="article-trigger" id="btn-out-2" aria-expanded="true" aria-controls="body-out-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Bulldozed: JDU, BSP, BJD</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-out-2" role="region" aria-labelledby="btn-out-2">
+            <div class="body-inner">
+              <p>The key event of the analyzed text is the decimation of the electoral influence of older caste-based and regional parties (JDU, BSP, BJD). This process underscores the collapse of traditional Indian political arithmetic, which historically relied on local identities and caste quotas. Die wichtigsten Nutznießer in this situation are proponents of a hyper-nationalist agenda, successfully absorbing the fragmented electorate. Sie gewinnen einen strategischen Vorteil, indem sie consolidating voters across traditional social and caste barriers. Umgekehrt, leaders of once-powerful social movements advocating for marginalized castes face historical political bankruptcy. Their positions are definitively weakened due to the obsolescence of their rhetoric and an inability to compete with an effective state propaganda machine. The central authority's basic interests are focused on purging the political landscape of unreliable allies and independent regional barons. The motivation of the strategy's architects is dictated by the imperative of securing an absolute constitutional majority in the national parliament. This case transmits a clear signal to society that the era of petty political bargaining and compromise is over. Institutional observers receive an indicator of the formation of a new social reality where caste loyalty yields to religious or national unity. Zu den potenziellen Risiken gehören the aggravation of latent social conflicts due to the absence of institutional release valves for minority discontent. Looking forward, this may provoke the emergence of new, more radical forms of extra-systemic social struggle.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-out-3">
+          <button class="article-trigger" id="btn-out-3" aria-expanded="true" aria-controls="body-out-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Honesty and Hedonism: A night club at 3 am</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-out-3" role="region" aria-labelledby="btn-out-3">
+            <div class="body-inner">
+              <p>The key fact of the material is the documentation of a unique symbiosis between overt hedonism and high social awareness within Berlin's club culture. Dieser Präzedenzfall schafft an alternative socio-cultural reality rejecting traditional conservative behavioral norms. Die wichtigsten Nutznießer in this configuration are members of the creative class and organizers of the alternative urban economy. They gain a social and psychological advantage by creating autonomous spaces free from state moralizing. Simultaneously, ideological losses are suffered by traditional institutions of family, church, and the conservative state. Their positions are rapidly deteriorating due to an inability to impose feelings of guilt and standardized behavioral models on a new generation. Behind the phenomenon of Berlin's nightlife lie profound societal interests in seeking new forms of collective therapy and authenticity. Die zentrale Motivation of the participants is driven by an escape from capitalist alienation and the hypocrisy of daytime corporate culture. For sociologists and politicians, ist dies ein klares Signal of the dawn of a fundamentally new social contract in European metropolises. Investors in the experience economy perceive this trend as a guarantee of long-term capitalization for the entertainment and tourism industries. Potential risks are tied to the marginalization of such subcultures in the eyes of right-wing political forces gaining momentum in Europe. In the long run, droht dies a cultural rift between liberal megacities and conservative provinces.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-out-4">
+          <button class="article-trigger" id="btn-out-4" aria-expanded="true" aria-controls="body-out-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Fundraising and strobe lights coexist without irony</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-out-4" role="region" aria-labelledby="btn-out-4">
+            <div class="body-inner">
+              <p>The key fact of the text is the phenomenon of discussing global humanitarian issues equally alongside engaging in hedonistic practices inside nightclubs. This event highlights the blurring of boundaries between the entertainment industry and civic activism. Die wichtigsten Nutznießer in this situation are grassroots charitable foundations and new-style non-profit organizations. They secure a strategic financial advantage via direct access to a wealthy, empathetic, and loyal audience outside traditional fundraising channels. Umgekehrt, institutional losses are borne by classic bureaucratic charities and state development agencies. Ihre Verwundbarkeit ergibt sich aus the dreariness and formality of their formats, which are rejected by the younger generation of donors. Behind this convergence are the interests of a new urban bourgeoisie seeking to justify its consumption with social impact. Die Hauptmotivation of nightclub owners is dictated by the need to legitimize their business in the eyes of authorities by linking it to socially significant projects. For the philanthropic sector, this broadcasts a signal regarding the need for a radical shift in tone when communicating with sponsors. Institutional investors receive an indicator marking the formation of a powerful "club economy" capable of generating not just profit, but political significance. Die Hauptrisiken bestehen in the superficiality of such activism, which may vanish alongside shifting musical or fashion trends. Mit Blick nach vorn, this leads to the total commercialization of social protest, embedding it into the entertainment industry.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-out-5">
+          <button class="article-trigger" id="btn-out-5" aria-expanded="true" aria-controls="body-out-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Permission to be exactly what you are, without performance or apology</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-out-5" role="region" aria-labelledby="btn-out-5">
+            <div class="body-inner">
+              <p>Der zentrale Befund des analysierten Materials ist the emergence of a society based on the absolute right to be oneself without the need for a social performance. This precedent signifies a radical rejection of stigmatization and shame as tools of societal control. Die wichtigsten Nutznießer in this situation are individuals previously pushed to the margins of society for failing to conform to traditional standards of success or behavior. They acquire an unprecedented psychological advantage by legalizing their lifestyle and gaining social visibility. Gleichzeitig, institutions whose business models or policies were built on managing the complexes and fears of the masses irretrievably lose power and control. The positions of corporations selling status symbols and the beauty industry weaken due to a dropping demand for conformity. Behind this transformation lie the deep interests of a post-industrial society seeking to unleash creative energy previously suppressed by neuroses. Die zentrale Motivation for this cultural shift is driven by collective exhaustion from endless competition and self-presentation on social networks. For the corporate management market, this serves as a signal to adapt HR strategies for employees who reject corporate dress codes and hypocrisy. Governing institutions receive an indicator that manipulating such a society through traditional propaganda clichés is no longer viable. Zu den potenziellen Risiken gehören the atomization of society and the breakdown of fundamental collective narratives that hold the state together. Langfristig, droht dies the formation of a hyper-fragmented culture where absolute individualism remains the sole value.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ THE EUROPEAN WIRTSCHAFT REVIEW ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE EUROPEAN BUSINESS REVIEW</h2>
+          <div class="outlet-tags">WIRTSCHAFT • TECHNOLOGIE • IMMOBILIEN</div>
+        </div>
+
+        <article class="article-item" id="art-ebr-1">
+          <button class="article-trigger" id="btn-ebr-1" aria-expanded="true" aria-controls="body-ebr-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">How Work from Anywhere Can Futureproof Your Organisation</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ebr-1" role="region" aria-labelledby="btn-ebr-1">
+            <div class="body-inner">
+              <p>The key fact of the material is the establishment of the "work from anywhere" model as the primary instrument for protecting corporations from future shocks. This precedent decisively shapes a new normality in the labor market, abandoning traditional geographic ties to offices. Die wichtigsten Nutznießer in this situation are transnational corporations and skilled professionals gaining boundaryless access to the global market. Corporations secure a strategic advantage through a radical reduction in real estate operational costs and the ability to hire affordable talent worldwide. Umgekehrt, catastrophic financial losses are borne by commercial real estate developers and the economies of classic business districts in megacities. Their vulnerability is due to the irreversible plunge in demand for office space and the destruction of urban service infrastructure. Behind this shift lie the interests of tech giants providing software for remote communication and employee monitoring. Die Hauptmotivation of corporate leadership is driven by the desire to maximize profits via global wage arbitrage. For labor markets, ist dies ein klares Signal of the onset of brutal international competition for white-collar jobs. Government institutions receive an indicator of an impending tax revenue crisis in megacities losing their residents. Potential risks are linked to the erosion of corporate culture, loss of innovativeness, and the burnout of isolated employees. Long-term, droht dies to completely alter the demographics of major cities and overhaul personal taxation principles.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ebr-2">
+          <button class="article-trigger" id="btn-ebr-2" aria-expanded="true" aria-controls="body-ebr-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">AI Fatigue: The Hidden Challenge in the Race for AI Adoption</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ebr-2" role="region" aria-labelledby="btn-ebr-2">
+            <div class="body-inner">
+              <p>The key fact of the analyzed text is the recognition of the "AI fatigue" phenomenon as the main hidden barrier to corporate digitalization. This event underscores the gap between the aggressive marketing of neural network developers and the actual capacity of companies to integrate these solutions. Die wichtigsten Nutznießer in this situation are highly specialized IT consultancies and integrators assisting businesses in overcoming staff resistance. They gain a strategic financial advantage by monetizing the chaos resulting from the overly rapid deployment of raw technologies. Unterdessen, significant financial losses are incurred by companies that invested millions into AI products that end up sabotaged or ignored by employees. Ihre Verwundbarkeit ergibt sich aus underestimating the human factor and the cognitive overload placed on teams forced into perpetual retraining. Behind this disillusionment lie the interests of top management demanding immediate productivity gains and developers rushing releases to boost Aktienkurss. Die zentrale Motivation of exhausted personnel is driven by the fear of job loss and algorithmic pressure on their psyche. For tech markets, this broadcasts a sobering signal that the exponential growth in AI license sales is nearing its ceiling. Institutional investors receive an indicator to revise profitability timelines for corporate AI budgets, expecting longer horizons. Die Hauptrisiken bestehen in a drop in actual labor productivity due to employee disorientation in new digital environments. Mit Blick nach vorn, this may provoke a mass rollback of the corporate sector toward hybrid or traditional forms of operational activity.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ebr-3">
+          <button class="article-trigger" id="btn-ebr-3" aria-expanded="true" aria-controls="body-ebr-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Unlocking Agentic AI's True Potential</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ebr-3" role="region" aria-labelledby="btn-ebr-3">
+            <div class="body-inner">
+              <p>The key event of the material is the transition from generative algorithms to agentic künstliche Intelligenz, capable of autonomously making and executing decisions. This technological leap establishes a new reality where neural networks evolve from advisors into independent corporate agents. Die wichtigsten Nutznießer in this situation are corporations that are the first to implement autonomous systems for routine managerial decisions. They secure a strategic advantage through the complete elimination of middle management layers and the acceleration of business processes. Umgekehrt, office administrators, analysts, and project coordinators perceive a critical threat to their existence. Their positions rapidly weaken because their functions are entirely replaced by a cheaper algorithm that requires no rest. The fundamental interests of IT giants are focused on monopolizing access to agentic systems and turning them into a universal business operational standard. Investors' motivation is dictated by a drive to drastically reduce corporate reliance on human error within Lieferketten and customer service. This case transmits a clear signal to markets regarding an impending structural shock in the intellectual labor market. Government regulators receive an alarming indicator of losing control over how corporations execute financial or logistical decisions. The main risks relate to the "black box" effect, where an error by an autonomous AI agent could trigger instantaneous cascading losses without the possibility of human intervention. Long-term, droht dies the rise of corporate structures where management is completely delegated to machine intelligence.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ebr-4">
+          <button class="article-trigger" id="btn-ebr-4" aria-expanded="true" aria-controls="body-ebr-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Your Property is Worth Millions NOW ACCESS IT</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ebr-4" role="region" aria-labelledby="btn-ebr-4">
+            <div class="body-inner">
+              <p>The key fact of the presented text is the launch of a global platform by financiers Robert Chadwick and Donald Klip aimed at unlocking frozen capital in international real estate. Dieser Präzedenzfall schafft a fundamentally new financial mechanism for the securitization of private assets on a transnational level. Die wichtigsten Nutznießer in this situation are wealthy investors and owners of illiquid premium real estate worldwide. They gain a strategic advantage with the ability to quickly convert "concrete" into liquid capital for reinvestment without selling the underlying asset. Gleichzeitig, significant market losses may be suffered by conservative banks and traditional mortgage brokers. Their vulnerability is rooted in strict regulations, bureaucracy, and an inability to swiftly value and finance cross-border real estate portfolios. Behind the creation of this platform are the interests of large speculative capital searching for novel ways to mobilize trillions of dollars deadlocked in brick-and-mortar assets. The developers' primary motivation is dictated by monopolizing a vacant niche in global lending against foreign property collateral. For financial markets, this serves as a direct signal of the democratization of access to complex leverage instruments for private individuals. Institutionelle Akteure verstehen diesen Trend als a threat of inflating a new credit bubble within the luxury real estate market. Die Hauptrisiken bestehen in systemic defaults in the event of a synchronized plunge in property prices across various jurisdictions. Looking ahead, this may provoke strict regulatory intervention by central banks to curtail non-banking transnational lending.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ebr-5">
+          <button class="article-trigger" id="btn-ebr-5" aria-expanded="true" aria-controls="body-ebr-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Luxury Strategy: Strategic oscillation</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ebr-5" role="region" aria-labelledby="btn-ebr-5">
+            <div class="body-inner">
+              <p>The key fact of the material is the adoption of the "strategic oscillation" concept by luxury brands to balance historical heritage with digital innovations. This event confirms elite retail's adaptation to the demands of a new generation through the integration of blockchain, Web3, and virtual collections. Die wichtigsten Nutznießer in this situation are legacy fashion houses (such as Prada and Balmain) that successfully monetize their history in a digital environment. Sie gewinnen einen strategischen Vorteil, indem sie rejuvenating their audience and creating highly profitable new revenue streams from the sale of virtual assets. Umgekehrt, reputational and financial losses hit conservative brands that reject digital experimentation in the name of preserving exclusivity. Their positions weaken due to losing touch with wealthy millennials and zoomers, for whom digital identity is equal to physical identity. Behind this trend are the interests of consortiums (like the Aura Blockchain Consortium) aiming to establish a monopoly over the authentication of luxury goods. Die zentrale Motivation of brands is driven by protection against counterfeiting on the secondary market and capitalizing on the gamification of consumption. This case broadcasts a clear signal to the retail market that the boundaries between physical luxury and digital avatars are definitively erased. Investors receive an indicator of capital migration from traditional retail into metaverses and crypto collections. The main risks are tied to the volatility of Kryptowährung markets and potential reputational damage to the brand if the prices of their NFT assets collapse. Long-term, droht dies a complete reevaluation of the concept of "luxury," where a physical object becomes merely a supplement to a digital token.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ THE WEEK US ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE WEEK US</h2>
+          <div class="outlet-tags">US-WAHLEN • GLOBALE GESUNDHEIT • GEOPOLITIK • MEDIEN</div>
         </div>
 
         <article class="article-item" id="art-wk-1">
           <button class="article-trigger" id="btn-wk-1" aria-expanded="true" aria-controls="body-wk-1">
             <span class="art-idx">01</span>
-            <span class="art-title">Die Auslöschung von Minderheitenbezirken</span>
+            <span class="art-title">Erasing Minority Districts</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-wk-1" role="region" aria-labelledby="btn-wk-1">
             <div class="body-inner">
-              <p>Aggressive Gesetzesinitiativen zur Auslöschung von Wahlbezirken mit Minderheitenanteil verändern die Architektur der politischen Repräsentation in den USA von Grund auf. Der zentrale Aspekt liegt in gezielten administrativen Grenzziehungen (Gerrymandering), die darauf abzielen, das politische Gewicht ethnischer und rassistischer Gruppen zynisch zu schwächen. Der Hauptprofiteur dieses Prozesses ist die in einem Bundesstaat dominierende politische Partei, die ihre absolute Mehrheit in den gesetzgebenden Organen künstlich und dauerhaft zementiert. Nationale Minderheiten verlieren, da ihre verfassungsmäßige Möglichkeit, Einfluss auf die Politik zu nehmen und ihre haushaltspolitischen Interessen legal zu vertreten, auf eine statistische Fehlermarge reduziert wird. Die Hauptmotivation der Initiatoren besteht im rein administrativen Machterhalt angesichts ungünstiger demografischer Entwicklungen und Generationswechsel. Für die föderalen politischen Institutionen ist dies ein äußerst gefährliches Signal für die Erosion demokratischer Kontrollmechanismen und den Übergang zu einem manipulativen Regierungssystem. Auf Markt- und Gemeindeebene wird dies eine drastische Kürzung der Mittel für Infrastruktur und Sozialprogramme in stark von Minderheiten bewohnten Gebieten bedeuten. Institutionelle Investoren müssen das permanente Risiko rechtlicher Instabilität einkalkulieren, da solche Entscheidungen endlos bis vor den Obersten Gerichtshof angefochten werden. Das wichtigste staatliche Risiko ist die tiefgreifende Radikalisierung marginalisierter Bevölkerungsgruppen, die das Vertrauen in faire Wahlinstrumente dauerhaft verlieren. Langfristig verstärkt dies die innenpolitische Polarisierung drastisch und verringert die Resilienz des Regierungssystems des Landes auf ein kritisches Niveau. Der systematische Ausschluss ganzer Wählerschichten von der Entscheidungsfindung führt zu einer schweren Legitimationskrise für regionale Regierungen. Letztendlich schaffen die Versuche der Elite, ihre politische Dominanz administrativ einzufrieren, den idealen Nährboden für massive zivile Konflikte.</p>
+              <p>The key event of the analyzed text is a deliberate process of eliminating or redrawing electoral districts where minority groups traditionally dominate. Dieser Präzedenzfall schafft an aggressive political reality aimed at altering the demographic balance of power in legislative bodies. Die wichtigsten Nutznießer in this situation are the ruling conservative political elites initiating the gerrymandering process. They secure a strategic advantage by legally cementing their power through diluting the votes of opposition-leaning demographic groups. Unterdessen, catastrophic political losses are suffered by ethnic and racial minorities losing adequate representation. Their positions are critically weakened because their consolidated electoral base is artificially splintered into insignificant fractions within new districts. The initiators' basic interests focus on maintaining a parliamentary majority even when facing a loss of overall popular support. The politicians' motivation is driven by fear of demographic changes that inevitably threaten them with a future loss of power. This case transmits a clear signal to civil society institutions about a severe crisis of representative democracy and the erosion of voting rights. Institutional observers receive an indicator that the courts are ceasing to be a reliable barrier against political boundary manipulations. The primary risks relate to the delegitimization of the electoral system and a rise in radical, extra-systemic protests by marginalized groups. Long-term, droht dies a deep civil schism and a constitutional crisis fueled by unrepresentative government.</p>
             </div>
           </div>
         </article>
@@ -1040,12 +1237,12 @@
         <article class="article-item" id="art-wk-2">
           <button class="article-trigger" id="btn-wk-2" aria-expanded="true" aria-controls="body-wk-2">
             <span class="art-idx">02</span>
-            <span class="art-title">Du zählst, Wasser</span>
+            <span class="art-title">Controversy: Is this the new Covid?</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-wk-2" role="region" aria-labelledby="btn-wk-2">
             <div class="body-inner">
-              <p>Die zunehmende Wasserknappheit und der harte Wettbewerb um dessen Verteilung entwickeln sich zum zentralen und spannungsreichsten Thema der globalen makroökonomischen Agenda. Das Schlüsselereignis ist ein konzeptioneller Wandel, bei dem Wasser nicht mehr nur als grundlegendes Menschenrecht betrachtet wird, sondern als strategischer, margenstarker Vermögenswert. Die Hauptnutznießer dieser neuen Ansätze sind große transnationale Konzerne, die Wasseraufbereitungstechnologien besitzen, sowie institutionelle Käufer von Wasserrechten. Traditionelle landwirtschaftliche Regionen und normale Verbraucher sind die Verlierer, da die Kosten für diese lebenswichtige Ressource ohne Alternativen exponentiell steigen werden. Marktspekulanten werden durch die Maximierung von Gewinnen motiviert, indem sie aus der physischen Knappheit angesichts des irreversiblen globalen Klimawandels Kapital schlagen. Für staatliche Institutionen ist dies ein Alarmsignal für die dringende Notwendigkeit strenger administrativer Quoten und einer potenziellen Verstaatlichung der Wasserinfrastruktur. Auf den Finanzmärkten bildet sich genau jetzt ein neuer Superzyklus: Wasser wird legal zu einem Investitionsgut, das in Rentabilität und Bedeutung mit Kohlenwasserstoffen vergleichbar ist. Der Agrarsektor erhält die ultimative Warnung vor einem bevorstehenden explosiven Anstieg der Betriebskosten und der Notwendigkeit eines sofortigen Übergangs zur Hydrokultur in geschlossenen Kreisläufen. Die größten Risiken liegen in der Geopolitik, da die Nutzung grenzüberschreitender Gewässer zunehmend direkte bewaffnete zwischenstaatliche Konflikte provoziert. In Entwicklungsländern droht die Kommerzialisierung und Privatisierung des Zugangs zu Trinkwasser massenhafte, unkontrollierte soziale Unruhen auszulösen. Das Fehlen eines ausgewogenen Regulierungsrahmens auf internationaler Ebene wird den Wassersektor zu einem Bereich der aggressivsten Aktienspekulation des Jahrzehnts machen. Die staatliche Ressourcenkontrolle und die politische Souveränität werden in den kommenden Jahren nicht durch Ölreserven, sondern ausschließlich durch interne Wasserbilanzen bestimmt.</p>
+              <p>The key fact of the material is a high-profile hantavirus outbreak aboard the cruise ship MV Hondius, resulting in the emergency evacuation of passengers. This event instantly provokes panicked associations with the start of the COVID-19 pandemic and tests the readiness of global epidemiological infrastructure. Die wichtigsten Nutznießer in the informational sphere are pharmaceutical companies, testing manufacturers, and medical insurance corporations. They secure a financial advantage via a sharp spike in product demand and surging Aktienkurss driven by global anxiety. Umgekehrt, colossal financial losses and reputational damage hit the cruise industry and the international tourism sector. Their positions weaken due to an immediate plunge in bookings and consumer fear of becoming trapped in floating quarantine zones. Behind the media amplification of this theme are the interests of media conglomerates capitalizing on mass anxiety to drive traffic. Government motivation is dictated by over-insurance and a desire to demonstrate strict sanitary control to avoid repeating past mistakes. For financial markets, this acts as a trigger to quickly lock in transport sector profits and prompts investors to flee to safe-haven assets. Institutional players perceive this incident as a test drive of new global protocols for border closures and isolation. Potential macroeconomic risks involve unjustified travel bans capable of paralyzing logistics and tourism across entire regions. Looking forward, this may provoke the regular use of harsh sanitary barriers as a tool for political and economic leverage.</p>
             </div>
           </div>
         </article>
@@ -1053,12 +1250,12 @@
         <article class="article-item" id="art-wk-3">
           <button class="article-trigger" id="btn-wk-3" aria-expanded="true" aria-controls="body-wk-3">
             <span class="art-idx">03</span>
-            <span class="art-title">Ist das das neue Covid? Hantavirus-Ausbruch auf der MV Hondius</span>
+            <span class="art-title">Why Iran won't accept Trump's terms</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-wk-3" role="region" aria-labelledby="btn-wk-3">
             <div class="body-inner">
-              <p>Ein plötzlicher Ausbruch des Hantavirus an Bord des Kreuzfahrtschiffs MV Hondius hat panische Marktdiskussionen über die Bereitschaft der Welt für eine weitere verheerende Pandemie ausgelöst. Die zentrale Tatsache ist die schnelle, beispiellose Evakuierung von Passagieren, die einmal mehr die kritische Fragilität der Biosicherheitsprotokolle in der Tourismuslogistik offenbart. Zu den Profiteuren dieser Situation zählen augenblicklich Pharmakonzerne und Hersteller medizinischer Schutzausrüstung, deren Aktienkurse aufgrund spekulativer Erwartungen in die Höhe schnellten. Transnationale Tourismus-, Kreuzfahrt- und Luftfahrtunternehmen werden automatisch zu Verlierern und riskieren erneut geschäftsschädigende Lockdowns. Die Motivation der staatlichen Aufsichtsbehörden läuft auf maximale Überversicherung und eine strikte Eindämmung jedweder potenziellen Bedrohung hinaus, um politische Vorwürfe wegen strafrechtlicher Untätigkeit zu vermeiden. Das Signal an die Märkte ist extrem nervös: Algorithmische Investoren preisen sofort eine maximale Prämie für das Risiko einer Lähmung des Welthandels ein. Globale Gesundheitsinstitutionen hingegen erhalten einen perfekten Vorwand, um massiv erhöhte Budgets und erweiterte supranationale Kontrollbefugnisse zu fordern. Die großen Versicherungsgesellschaften werden gezwungen sein, grundlegende Vertragsbedingungen umgehend zu überarbeiten, indem sie den Deckungsschutz für epidemiologische höhere Gewalt ausschließen oder die Kosten dafür drastisch erhöhen. Das größte makroökonomische Risiko ist ein potenzieller kaskadenartiger Zusammenbruch grenzüberschreitender Lieferketten aufgrund unkoordinierter, panischer Reaktionen nationaler Regierungen. Die sozialen Folgen solcher Vorfälle drohen einen neuen destruktiven Zyklus von Infodemien und Massenpsychosen auszulösen, der das Vertrauen in die offizielle Medizin endgültig untergräbt. Selbst wenn dieser spezifische Ausbruch erfolgreich eingedämmt wird, demonstriert der Präzedenzfall selbst die Nulltoleranz einer globalisierten Wirtschaft gegenüber neuen Erregern. Die Situation erfordert einen dringenden, grundlegenden Wandel der gesamten Architektur der Infektionssicherheit im internationalen Personenverkehr.</p>
+              <p>The key fact of the analyzed text is Tehran's fundamental refusal to accept the strict diplomatic conditions set by the Trump administration. This precedent underscores the dead-end nature of ultimatum-based diplomacy and a shifting balance of power in the Middle East. Die wichtigsten Nutznießer in this situation are Iran and its regional allies, demonstrating resilience against unprecedented political pressure. Sie gewinnen einen strategischen Vorteil, indem sie consolidating anti-American forces and buying time to advance their nuclear or missile programs. Simultaneously, political losses are borne by the US administration, whose "maximum pressure" strategy fails to force the adversary to capitulate. American diplomacy's position weakens due to an unwillingness to deploy ultimate military force to back up its ultimatums. Behind Tehran's refusal lie the survival interests of the ruling regime, for whom capitulation would mean internal delegitimization and systemic collapse. Die zentrale Motivation of Iranian elites is driven by betting on a shift in Washington's political climate and divisions among Western allies. This case transmits a clear signal to energy markets that the sanctions regime and regional tension will persist long-term. Institutional investors receive an indicator of the high probability of asymmetric Iranian strikes against US allies' oil infrastructure. Die Hauptrisiken bestehen in uncontrolled military escalation in the Persian Gulf due to an accidental clash or miscalculation by either side. Long-term, droht dies an accelerated alignment of Iran with China and Russia to establish an alternative politico-economic bloc.</p>
             </div>
           </div>
         </article>
@@ -1066,12 +1263,12 @@
         <article class="article-item" id="art-wk-4">
           <button class="article-trigger" id="btn-wk-4" aria-expanded="true" aria-controls="body-wk-4">
             <span class="art-idx">04</span>
-            <span class="art-title">Ted Turner: Der Mogul, der die Nachrichten neu erfand</span>
+            <span class="art-title">Ted Turner: The mogul who remade the news</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-wk-4" role="region" aria-labelledby="btn-wk-4">
             <div class="body-inner">
-              <p>Der Tod von Ted Turner, dem Medienmogul, der die Landschaft der Nachrichtenindustrie radikal veränderte, markiert das endgültige historische Ende einer Ära bei der Gestaltung der politischen Agenda. Die wichtigste Tatsache in Turners Vermächtnis ist die erfolgreiche Monetarisierung des Konzepts der globalen 24-Stunden-Nachrichtenübertragung, die politische Entscheidungsprozesse für immer beschleunigte. Jahrzehntelang profitierten politische Eliten von diesem aggressiven Modell und erhielten ein beispielloses Instrument zur momentanen emotionalen Beeinflussung der Wähler weltweit. Institutionen der tiefgreifenden akademischen Analyse und der traditionellen Diplomatie erwiesen sich als Verlierer, da ihre akribische Arbeit durch den Druck flüchtiger, reißerischer Nachrichtenereignisse völlig entwertet wurde. Turners anfängliche Motivation war rein kommerzieller Natur — die Aufmerksamkeit des Publikums und die Budgets der Werbetreibenden durch künstlich aufrechterhaltenen, ständigen Angst-Content zu monopolisieren. Für moderne Aktienmärkte signalisiert dieser Nachruf eine tiefgreifende Krise im klassischen Fernsehformat, das seine Kapitalisierung zusehends an algorithmische soziale Netzwerke verliert. Politische Institutionen sind gezwungen, schmerzlich anzuerkennen, dass die Ära der zentralisierten, kontrollierten Informationsmonopole, die von solchen Mogulen geschaffen wurden, endgültig vorbei ist. Investoren im Mediensektor nehmen derzeit eine massive Neubewertung traditioneller Nachrichtenkonzerne vor, wohl wissend um die vollständige historische Erschöpfung ihres trägen Geschäftsmodells. Das Risiko besteht darin, dass die aktuelle Zersplitterung der Medienlandschaft nach dem Zusammenbruch von TV-Imperien zu einer gefährlichen Zerstörung eines einheitlichen, auf Konsens basierenden Weltbildes in der Öffentlichkeit führt. Das Fehlen neuer Medien-Visionäre in vergleichbarem Maßstab überlässt den Informationsmarkt einem chaotischen, unkontrollierten und oft destruktiven Kampf um Klicks. Turners Vermächtnis ist zutiefst paradox: Er vereinte die Welt technologisch durch einen Nachrichtenstrom, legte aber solide Grundlagen für eine fragmentarische, oberflächliche Wahrnehmung der Realität. Der Tod des CNN-Gründers markiert symbolisch den absoluten Point of no Return für das goldene Zeitalter des direkten politischen Fernseh-Lobbyismus.</p>
+              <p>The key fact of the material is an analysis of media mogul Ted Turner's historical legacy in relation to the transformation of the global news industry. This event summarizes the era that spawned 24-hour news channels, radically altering media consumption and political processes. Die wichtigsten Nutznießer of the system he built were transnational media corporations that monopolized the production and broadcasting of global narratives. They secured a strategic financial advantage by turning news into a continuous stream of entertaining content that generated massive advertising revenues. Umgekehrt, fundamental losses were suffered by traditional fact-based journalism and objective analysis. The positions of legacy publications weakened due to an inability to compete with the speed, visualization, and emotional intensity of television news cycles. Behind the creation of this industry were the ambitions of media moguls to convert the speed of information delivery into absolute power over voter minds and markets. Die Hauptmotivation of continuous news architects was to maximize audience retention by keeping viewers in a state of perpetual anxiety. Für politische Institutionen, this obituary signals that the era of classic television is definitively giving way to even faster formats. Media investors view this history as confirmation of the need for aggressive asset consolidation against digital competitors. The main risks of this inherited system relate to the superficiality of political discourse and a constant hunt for sensation at the expense of common sense. Looking back, this directly fueled the current polarization of a society raised on emotional talk shows rather than thoughtful analysis.</p>
             </div>
           </div>
         </article>
@@ -1079,12 +1276,85 @@
         <article class="article-item" id="art-wk-5">
           <button class="article-trigger" id="btn-wk-5" aria-expanded="true" aria-controls="body-wk-5">
             <span class="art-idx">05</span>
-            <span class="art-title">Wer hält die Karten in der Hand? Warum der Iran die Bedingungen von Trump nicht akzeptieren wird</span>
+            <span class="art-title">Capture your life story in a memoir</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-wk-5" role="region" aria-labelledby="btn-wk-5">
             <div class="body-inner">
-              <p>Teherans prinzipielle Weigerung, die harten Bedingungen der künftigen Regierung unter Donald Trump zu akzeptieren, signalisiert eine gefährliche und lang anhaltende Stagnation im diplomatischen Spiel im Nahen Osten. Die Kernsache ist die institutionelle Weigerung Irans, unter dem beispiellosen Druck amerikanischer Sanktionsultimaten irgendwelche einseitigen strategischen Zugeständnisse zu machen. Direkte US-Konkurrenten wie China und Russland profitieren in diesem geopolitischen Clinch und erhalten die Möglichkeit, billiges Öl zu kaufen und ihren Einfluss am Persischen Golf auszubauen. Europäische politische Institutionen und der globale Energiemarkt ziehen den Kürzeren und bleiben Geiseln der ständigen Bedrohung durch eine militärische Eskalation rund um die kritische Straße von Hormus. Die Motivation der iranischen Führung beruht ausschließlich auf der Notwendigkeit, die innenpolitische Legitimität des Regimes zu wahren und sein Atomprogramm als einzigen wirklichen Garanten für Souveränität zu schützen. Für das politische Establishment in Washington bedeutet die Sturheit Teherans ein komplettes Scheitern der "Maximaler Druck"-Strategie sowie die Erschöpfung der verfügbaren Instrumente wirtschaftlicher Erpressung. Auf den Kohlenwasserstoffmärkten ist dies ein fundamental langfristiges Bullen-Signal, das Händler dazu zwingt, konstant eine hohe geopolitische Prämie in jedes Barrel Öl einzupreisen. Institutionelle Investoren erhalten die klare Bestätigung einer permanenten Instabilität im Nahen Osten, was die Flucht freien Kapitals in traditionelle sichere Häfen stimuliert. Die Risiken eines direkten militärischen Szenarios steigen exponentiell an, da der fehlende Spielraum für diplomatisches Manövrieren den unversöhnlichen Parteien ausschließlich Argumente der Stärke lässt. Für Israel und loyale arabische Monarchien bedeutet diese Sackgasse die Unvermeidbarkeit einer neuen Runde ruinöser Rüstungswettläufe und eine scharfe Eskalation von Stellvertreterkriegen an ihren Grenzen. Der Iran macht der ganzen Welt unmissverständlich klar, dass er bereit ist, jeden katastrophalen wirtschaftlichen Schaden für sein strategisches Überleben und seinen Status als Regionalmacht zu ertragen. Folglich steht die globale Architektur zur Nichtverbreitung von Kernwaffen unter der Last unlösbarer Widersprüche kurz vor dem endgültigen, unumkehrbaren Zusammenbruch.</p>
+              <p>The key fact of the presented text is the commercialization of personal memoir writing by the LifeBook project for individuals without writing skills. Dieser Präzedenzfall schafft a new service market transforming private memories into consumer products via professional ghostwriters. Die wichtigsten Nutznießer in this situation are specialized publishing services and custom-writing agencies. Sie gewinnen einen strategischen Vorteil, indem sie monetizing the psychological need of elderly and wealthy clients to preserve their legacies. Gleichzeitig, authenticity suffers a loss, as the concept of family history is subjected to literary processing and standardization. The integrity of historical truth weakens since hired writers smooth over rough edges to deliver an aesthetically pleasing, comfortable narrative to the client. Behind this business venture are the interests of a growing service industry catering to an aging population with high savings ("the silver economy"). Die zentrale Motivation of these companies is driven by the high profit margins of a service that packages ordinary life into a premium physical object. This case broadcasts a clear signal to the market that vanity and the fear of being forgotten have become a reliable source of corporate revenue. Investors receive an indicator showing the formation of a new niche intersecting psychotherapy, publishing, and geriatric care. Zu den potenziellen Risiken gehören the total devaluation of the autobiography genre due to the mass production of synthetic texts. Langfristig, droht dies the replacement of actual family histories with edited, glossy simulacra crafted by hired copywriters.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ TIME ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>TIME</h2>
+          <div class="outlet-tags">WIRTSCHAFT • KULTUR • LIFESTYLE</div>
+        </div>
+
+        <article class="article-item" id="art-time-1">
+          <button class="article-trigger" id="btn-time-1" aria-expanded="true" aria-controls="body-time-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Hasbro's out-of-the-box licensing deals</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-time-1" role="region" aria-labelledby="btn-time-1">
+            <div class="body-inner">
+              <p>Der zentrale Befund des analysierten Materials ist the massive licensing expansion of the Monopoly brand far beyond the classic board game (into cereals, pizza, steakhouses). This precedent highlights the Hasbro corporation's strategy of totally converting historical intellectual property into a global lifestyle brand. Die wichtigsten Nutznießer in this situation are the rights holders and transnational franchisees capitalizing on consumer nostalgia. They secure a strategic financial advantage via the ability to sell everyday goods at massive markups simply through logo recognition. Simultaneously, losses are borne by independent producers and local businesses in those identical economic sectors. Ihre Verwundbarkeit ergibt sich aus an inability to compete with the marketing machine of a global brand monopolizing attention via childhood associations. Behind this expansion are the aggressive interests of Hasbro's corporate management to diversify revenues amid a stagnating traditional toy market. The company's core motivation is driven by the necessity to ensure continuous capitalization growth through aggressive licensing and collaborations. Für die globalen Märkte, ist dies ein klares Signal that any successful intellectual property will be exploited to its absolute limits across all accessible spheres. Institutional investors perceive this trend as a symptom of core business stagnation requiring life support from external industries. The primary risks involve the dilution and devaluation of the original brand's core value due to its presence on mundane food packaging. Langfristig, droht dies consumer backlash and the collapse of the licensing pyramid if the market becomes oversaturated.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-time-2">
+          <button class="article-trigger" id="btn-time-2" aria-expanded="true" aria-controls="body-time-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Lessons of the Game - Why Monopoly Is Like Life</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-time-2" role="region" aria-labelledby="btn-time-2">
+            <div class="body-inner">
+              <p>The key fact of the text is the philosophical assertion that Monopoly's game mechanics are a direct simulation of real-life economic processes. This event underscores the game's function as an instrument for early socialization and training in the patterns of cutthroat capitalism. Die wichtigsten Nutznießer of this narrative are free-market ideologues and corporations using the game to normalize concepts of bankruptcy and rent extraction in the mass consciousness. They secure a long-term ideological advantage because generations of consumers absorb the inevitability of financial inequality from childhood. Umgekehrt, ethical losses are suffered by advocates of a socially oriented economy and fair resource distribution. Their positions weaken as the game cultivates an aggressive individualism where one person's success inherently relies on the financial ruin of everyone else. Behind this concept's popularity lie the foundational laws of capitalist society, requiring the preparation of competitive and ruthless economic agents. Society's core motivation in upholding the game's status is the safe sublimation of poverty fears and wealth ambitions through an interactive format. For sociological institutions, this transmits a signal demonstrating how deeply capitalist dogmas are embedded into the Western world's basic cultural code. Political elites receive an indicator that the public tolerates monopolization as long as it is perceived as a fair game played by the rules. Potential risks involve transferring these ruthless game strategies into actual social and business communications. Mit Blick nach vorn, this cements the cultural hegemony of financial Darwinism, blocking the development of alternative models of solidarity.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-time-3">
+          <button class="article-trigger" id="btn-time-3" aria-expanded="true" aria-controls="body-time-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">A 1933 edition of Monopoly sold for $146,500</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-time-3" role="region" aria-labelledby="btn-time-3">
+            <div class="body-inner">
+              <p>The key event of the material is the documentation of an original 1933 copy of Monopoly selling for a record $146,500. This precedent indicates the formation of a powerful alternative investment market centered around pop culture objects and vintage artifacts. Die wichtigsten Nutznießer in this situation are auction houses, speculators, and professional collectors. They acquire a colossal financial advantage by generating windfall profits from items that originally held zero investment value. Unterdessen, financial risks fall squarely on new, non-professional investors entering this overheated market segment. Ihre Verwundbarkeit ergibt sich aus the absence of actual fundamental value in such objects, whose pricing is sustained entirely by hype. Behind these transactions are the interests of the ultra-rich class seeking unconventional ways to park excess liquidity during periods of macroeconomic turbulence. The buyers' primary motivation is driven less by a passion for the game than by a need to diversify portfolios with defensive assets uncorrelated to the stock market. For global financial markets, this serves as a direct signal of an overabundance of cheap money and the inflation of traditional assets. Institutionelle Akteure verstehen diesen Trend als an indicator of yet another financial bubble forming within the emotional purchasing segment. The main risks are linked to a sudden collapse in market liquidity in the event of a severe global economic crisis. Long-term, droht dies to transform cultural heritage into an exclusively speculative financial instrument utterly inaccessible to the average person.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-time-4">
+          <button class="article-trigger" id="btn-time-4" aria-expanded="true" aria-controls="body-time-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Monopoly Steakhouse in Mexico, 2026</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-time-4" role="region" aria-labelledby="btn-time-4">
+            <div class="body-inner">
+              <p>The key fact of the analyzed text is the announcement of a premium Monopoly Steakhouse opening in Mexico in 2026. This event shapes a new business strategy transitioning from selling physical goods to selling immersive spatial experiences within the experiential economy. Die wichtigsten Nutznießer in this situation are premium real estate developers and franchise restaurateurs utilizing a powerful brand for rapid ROI. They secure a strategic advantage through the guaranteed attraction of a wealthy audience craving status-driven consumption in unique locations. Gleichzeitig, competitive losses are sustained by classic, independent premium restaurants lacking the formidable marketing support of a transnational corporation. Their positions weaken due to an exodus of clients who prefer theatrical branding over a traditional gastronomic experience. Behind this project are the interests of global corporations aiming to deeply monetize intellectual property in emerging Latin American markets. The initiators' core motivation is driven by a desire to convert the game's fantasy of being an elite tycoon into the real-world, elite consumption of expensive steaks. For the hospitality industry, this transmits a signal regarding the necessity of transforming standard restaurants into conceptual amusement parks for adults. Investors receive an indicator that consumer demand is pivoting from acquiring items to purchasing exclusive social experiences. Potential risks involve the service quality failing to meet the lofty expectations tied to the brand, potentially damaging the game's reputation. Looking ahead, this could provoke a wave of classic restaurant acquisitions by massive media conglomerates building their own immersive venues.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-time-5">
+          <button class="article-trigger" id="btn-time-5" aria-expanded="true" aria-controls="body-time-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">The Guinness World Record for most monopoly memorabilia</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-time-5" role="region" aria-labelledby="btn-time-5">
+            <div class="body-inner">
+              <p>The key fact of the material is Briton Neil Scallan setting a record by amassing a collection of 4,379 items related to Monopoly. This precedent highlights an extreme manifestation of hyper-consumption and compulsive hoarding, legitimized through the records industry. Die wichtigsten Nutznießer in this configuration are niche merchandise manufacturers and Hasbro itself, which receives massive, free advertising reach. They extract a long-term financial advantage by manufacturing artificial scarcity and releasing endless limited editions targeting such obsessed consumers. Umgekehrt, psychological and financial losses are borne by the super-collectors themselves, who invest fortunes into highly illiquid mountains of homogenized goods. Their positions are incredibly vulnerable because it is virtually impossible to liquidate such a niche mega-collection without a massive discount in a crisis. Supporting such records aligns with global marketing interests that normalize the concept of endless consumption and blind loyalty to a single corporate brand. The individual actor's primary motivation is driven by a quest for social uniqueness and recognition through sheer quantitative dominance in a narrow sphere. For consumer goods markets, this serves as a cynical signal that customer loyalty can be exploited indefinitely simply by changing a box's color. Institutional psychologists view this trend as a troubling indicator of society's deeper social issues being sublimated into material hoarding. Die Hauptrisiken bestehen in producing tons of ecologically harmful and functionally useless products destined solely to gather dust on shelves. Langfristig, droht dies an overproduction crisis in the collectibles segment once generational interests inevitably shift.</p>
             </div>
           </div>
         </article>
@@ -1095,16 +1365,16 @@
 
   <!-- ── Newsletter ── -->
   <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
-    <h3 class="nebula-title" id="newsletter-heading">Sicherer Zugang zum Briefing</h3>
+    <h3 class="nebula-title" id="newsletter-heading">Secure Briefing Access</h3>
     <div class="form-container">
       <div class="newsletter-form-wrapper">
         <form class="newsletter-form" id="newsletterForm"
               action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
           <div class="input-group">
             <div class="nebula-input">
-              <label for="emailInput" class="sr-only">E-Mail Adresse</label>
+              <label for="emailInput" class="sr-only">E-Mail Address</label>
               <input type="email" id="emailInput" name="email" autocomplete="email"
-                     class="input" placeholder="E-Mail Adresse"
+                     class="input" placeholder="Email Address"
                      aria-describedby="formErrorMsg" />
               <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -1122,17 +1392,18 @@
               <path   class="checkmark-check"  fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
             </svg>
           </div>
-          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Zugriff Gewährt</h4>
-          <p  style="font-size:14px;color:#4B5563;">Verschlüsselter Kanal eingerichtet.</p>
+          <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">Access Granted</h4>
+          <p  style="font-size:14px;color:#4B5563;">Encrypted channel established.
+        </p>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2026 Deep Press Analysis. Alle Rechte vorbehalten.</p>
+    <p>&copy; 2026 Deep Press Analysis. All Rights Reserved.</p>
     <nav class="footer-links" aria-label="Footer navigation">
-      <a href="https://deeppressanalysis.com/de/archive" class="btn-text">Archivzugriff</a>
+      <a href="https://deeppressanalysis.com/de/archive.html" class="btn-text">Archivzugang</a>
       <a href="https://deeppressanalysis.com/manifesto"  class="btn-text">Manifest</a>
     </nav>
 
@@ -1141,7 +1412,7 @@
       <div class="support-section">
         <div class="support-title-wrapper">
           <div class="live-dot"></div>
-          <div class="support-title">Unabhängiges Projekt unterstützen</div>
+          <div class="support-title">Support independent project</div>
         </div>
 
         <div class="crypto-grid">
@@ -1149,25 +1420,25 @@
             <div class="crypto-header">
               <span class="crypto-name eth">Ethereum</span>
             </div>
-            <input type="text" class="crypto-address" value="0x7b8318ce0788cAdDF398035A65EFDB30a262cae5" aria-label="Ethereum Wallet-Adresse" readonly />
+            <input type="text" class="crypto-address" value="0x7b8318ce0788cAdDF398035A65EFDB30a262cae5" aria-label="Ethereum wallet address" readonly />
           </div>
           <div class="crypto-card">
             <div class="crypto-header">
               <span class="crypto-name btc">Bitcoin</span>
             </div>
-            <input type="text" class="crypto-address" value="bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu" aria-label="Bitcoin Wallet-Adresse" readonly />
+            <input type="text" class="crypto-address" value="bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu" aria-label="Bitcoin wallet address" readonly />
           </div>
           <div class="crypto-card">
             <div class="crypto-header">
               <span class="crypto-name sol">Solana</span>
             </div>
-            <input type="text" class="crypto-address" value="98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq" aria-label="Solana Wallet-Adresse" readonly />
+            <input type="text" class="crypto-address" value="98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq" aria-label="Solana wallet address" readonly />
           </div>
           <div class="crypto-card">
             <div class="crypto-header">
               <span class="crypto-name trx">Tron</span>
             </div>
-            <input type="text" class="crypto-address" value="TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z" aria-label="Tron Wallet-Adresse" readonly />
+            <input type="text" class="crypto-address" value="TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z" aria-label="Tron wallet address" readonly />
           </div>
         </div>
       </div>
@@ -1175,7 +1446,7 @@
 
     <!-- Hidden SEO Links -->
     <div style="display: none;" aria-hidden="true">
-      <a href="https://deeppressanalysis.com/editorial-policy.html">Redaktionelle Richtlinien</a>
+      <a href="https://deeppressanalysis.com/editorial-policy.html">Redaktionsrichtlinie</a>
     </div>
   </footer>
 
@@ -1196,7 +1467,7 @@
   JS-редирект ниже — только запасной вариант, без localStorage.
   ════════════════════════════════════════════════════════════════════════
   -->
-  <script nonce="{{NONCE}}">
+  <script nonce="EDNnf03nceIofn39fn3e9h3sdfa">
   (function () {
     'use strict';
 
@@ -1206,7 +1477,7 @@
     /* ─── SEO FIX #7: Языковой редирект — без localStorage ─────────────
        РЕКОМЕНДАЦИЯ: Реализовать на сервере (Nginx/Apache/Node).
        Этот JS-редирект — только запасной вариант.
-       Срабатывает только на корневом пути /, не на /de/ и т.д.
+       Срабатывает только на корневом пути /, не на /en/ и т.д.
     ──────────────────────────────────────────────────────────────────── */
     (function () {
       try {
@@ -1287,11 +1558,11 @@
       e.preventDefault();
       clearError();
       var val = emailInput.value;
-      if (!val.trim())        { showError('Bitte geben Sie Ihre E-Mail-Adresse ein.'); return; }
-      if (!isValidEmail(val)) { showError('Bitte geben Sie eine gültige E-Mail-Adresse ein.'); return; }
+      if (!val.trim())        { showError('Please enter your email address.'); return; }
+      if (!isValidEmail(val)) { showError('Please enter a valid email address.'); return; }
 
       submitBtn.disabled    = true;
-      submitBtn.textContent = 'Wird gesendet…';
+      submitBtn.textContent = 'Sending…';
 
       try {
         var res = await fetch(form.action, {
@@ -1302,14 +1573,14 @@
           form.classList.add('hidden');
           successMessage.classList.add('visible');
         } else {
-          showError('Fehler beim Abonnieren. Bitte versuchen Sie es erneut.');
+          showError('Subscription error. Please try again.');
         }
       } catch (_) {
-        showError('Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.');
+        showError('Network error. Please check your connection.');
       } finally {
         if (!successMessage.classList.contains('visible')) {
           submitBtn.disabled    = false;
-          submitBtn.textContent = 'Abonnieren';
+          submitBtn.textContent = 'Subscribe';
         }
       }
     });
