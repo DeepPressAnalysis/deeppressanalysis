@@ -1,101 +1,74 @@
 <!DOCTYPE html>
+
 <!--
   ╔══════════════════════════════════════════════════════════════════════╗
   ║  Deep Press Analysis — PRODUCTION READY                              ║
   ║  SEO FIXES APPLIED:                                                  ║
   ║  1. Article content visible by default (JS collapses after load)     ║
-  ║  2. {{NONCE}} — сервер ОБЯЗАН заменять на криптографически           ║
-  ║     случайную строку при каждом запросе (Node/PHP/Python/etc.)       ║
-  ║  3. Schema.org @id исправлен на /ar/#webpage                         ║
-  ║  4. NewsArticle schema добавлена для каждой статьи                   ║
-  ║  5. hreflang — взаимные ссылки обязательны на всех языковых стр.     ║
-  ║  6. Canonical + 301 редирект с корня на /ar/ (настроить на сервере)  ║
-  ║  7. JS-редирект переработан (без localStorage)                       ║
-  ║  8. RSS-лента добавлена в <head>                                     ║
-  ║  9. OG/Twitter мета дополнены                                        ║
-  ║  10. datePublished/dateModified — генерировать динамически           ║
+  ║  2. Schema.org @id исправлен на /en/#webpage                         ║
+  ║  3. NewsArticle schema добавлена для каждой статьи                   ║
+  ║  4. hreflang — взаимные ссылки обязательны на всех языковых стр.     ║
+  ║  5. Canonical + 301 редирект с корня на /en/ (настроить на сервере)  ║
+  ║  6. JS-редирект переработан (без localStorage)                       ║
+  ║  7. RSS-лента добавлена в <head>                                     ║
+  ║  8. OG/Twitter мета дополнены                                        ║
+  ║  9. datePublished/dateModified — генерировать динамически            ║
   ╚══════════════════════════════════════════════════════════════════════╝
 -->
-<html lang="ar" dir="rtl" prefix="og: http://ogp.me/ns#">
+<html dir="rtl" lang="ar" prefix="og: http://ogp.me/ns#">
 <head>
-  <meta charset="UTF-8" />
-  <title>Deep Press Analysis — 17 مايو 2026</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ملخص يومي لأبرز المنشورات الدولية. محور التركيز اليوم: العلاقات التجارية بين الولايات المتحدة والصين، وكارثة الوظائف العالمية، والأزمة السياسية في إندونيسيا." />
-  <meta name="author" content="Deep Press Analysis" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-
-  <!--
-    ═══════════════════════════════════════════════════════════════
-    CSP: {{NONCE}} заменяется сервером при каждом запросе.
-    Пример Node.js:
-      const nonce = crypto.randomBytes(16).toString('base64');
-      res.setHeader('Content-Security-Policy', `script-src 'nonce-${nonce}'`);
-      html = html.replaceAll('{{NONCE}}', nonce);
-    ═══════════════════════════════════════════════════════════════
-  -->
-  <meta http-equiv="Content-Security-Policy" content="
+<meta charset="utf-8"/>
+<title>Deep Press Analysis — 18 مايو 2026</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="توليفة يومية من أبرز المنشورات الدولية. يركّز عدد اليوم على الأزمة الممتدة في أسواق الطاقة، واستثمارات الذكاء الاصطناعي والحوسبة الكمّية، والاستقطاب السياسي العالمي، وصعود اقتصاد الفضاء الجديد والاقتصاد التجريبي." name="description"/>
+<meta content="Deep Press Analysis" name="author"/>
+<meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
+<meta content="
     default-src 'self';
-    script-src 'self' 'nonce-{{NONCE}}';
+    script-src 'self' 'nonce-EDNnf03nceIofn39fn3e9h3sdfa';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
     img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
-    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
+    connect-src 'self' https://formspree.io;
     form-action 'self' https://formspree.io;
     object-src 'none';
     base-uri 'self';
     frame-src 'self' https://open.spotify.com;
     media-src 'none';
     upgrade-insecure-requests;
-  ">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&family=Inter:wght@400;500;600;900&display=swap" rel="stylesheet">
-
-  <!-- ═══ SEO: Canonical ═══ -->
-  <link rel="canonical" href="https://deeppressanalysis.com/ar/" />
-
-  <!-- ═══ SEO: hreflang ═══ -->
-  <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/" />
-  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/en/" />
-  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/" />
-  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/" />
-  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/" />
-  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/" />
-  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/" />
-
-  <!-- ═══ SEO FIX #8: RSS-лента — обязательна для Google News ═══ -->
-  <link rel="alternate" type="application/rss+xml"
-        title="Deep Press Analysis — Arabic Feed"
-        href="https://deeppressanalysis.com/ar/feed.xml" />
-
-  <!-- ═══ Open Graph (дополнено) ═══ -->
-  <meta property="og:type"                  content="article" />
-  <meta property="og:title"                 content="Deep Press Analysis — 17 مايو 2026" />
-  <meta property="og:description"           content="ملخص يومي لأبرز المنشورات الدولية. محور التركيز اليوم: العلاقات التجارية بين الولايات المتحدة والصين، وكارثة الوظائف العالمية، والأزمة السياسية في إندونيسيا." />
-  <meta property="og:url"                   content="https://deeppressanalysis.com/ar/" />
-  <meta property="og:image"                 content="https://deeppressanalysis.com/assets/og-cover.jpg" />
-  <meta property="og:image:width"           content="1200" />
-  <meta property="og:image:height"          content="630" />
-  <meta property="og:site_name"             content="Deep Press Analysis" />
-  <meta property="og:locale"                content="ar_AR" />
-  <!-- SEO FIX #9: article-specific OG мета -->
-  <meta property="article:published_time"   content="2026-05-17T05:00:00Z" />
-  <meta property="article:modified_time"    content="2026-05-17T05:00:00Z" />
-  <meta property="article:section"          content="Global Economy" />
-  <meta property="article:author"           content="https://deeppressanalysis.com/manifesto.html" />
-
-  <!-- ═══ Twitter Card (дополнено) ═══ -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:site"        content="@DeepPressAnalysis" />
-  <meta name="twitter:creator"     content="@DeepPressAnalysis" />
-  <meta name="twitter:title"       content="Deep Press Analysis — 17 مايو 2026" />
-  <meta name="twitter:description" content="ملخص يومي لأبرز المنشورات الدولية. محور التركيز اليوم: العلاقات التجارية بين الولايات المتحدة والصين، وكارثة الوظائف العالمية، والأزمة السياسية في إندونيسيا." />
-  <meta name="twitter:image"       content="https://deeppressanalysis.com/assets/og-cover.jpg" />
-
-  <!-- JSON-LD Schema -->
-  <script type="application/ld+json" nonce="{{NONCE}}">
+  " http-equiv="Content-Security-Policy"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://deeppressanalysis.com/ar/index.html" rel="canonical">
+<link href="https://deeppressanalysis.com/en/index.html" hreflang="x-default" rel="alternate">
+<link href="https://deeppressanalysis.com/en/index.html" hreflang="en" rel="alternate">
+<link href="https://deeppressanalysis.com/ru/index.html" hreflang="ru" rel="alternate"/>
+<link href="https://deeppressanalysis.com/es/index.html" hreflang="es" rel="alternate"/>
+<link href="https://deeppressanalysis.com/ua/index.html" hreflang="uk" rel="alternate"/>
+<link href="https://deeppressanalysis.com/ar/index.html" hreflang="ar" rel="alternate"/>
+<link href="https://deeppressanalysis.com/de/index.html" hreflang="de" rel="alternate"/>
+<link href="https://deeppressanalysis.com/ar/feed.xml" rel="alternate" title="Deep Press Analysis — الخلاصة العربية" type="application/rss+xml"/>
+<meta content="article" property="og:type">
+<meta content="Deep Press Analysis — 18 مايو 2026" property="og:title"/>
+<meta content="توليفة يومية من أبرز المنشورات الدولية. يركّز عدد اليوم على الأزمة الممتدة في أسواق الطاقة، واستثمارات الذكاء الاصطناعي والحوسبة الكمّية، والاستقطاب السياسي العالمي، وصعود اقتصاد الفضاء الجديد والاقتصاد التجريبي." property="og:description"/>
+<meta content="https://deeppressanalysis.com/ar/index.html" property="og:url"/>
+<meta content="https://deeppressanalysis.com/assets/og-cover.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Deep Press Analysis" property="og:site_name"/>
+<meta content="ar_AR" property="og:locale"/>
+<meta content="2026-05-18T05:00:00Z" property="article:published_time"/>
+<meta content="2026-05-18T05:00:00Z" property="article:modified_time"/>
+<meta content="Global Economy" property="article:section"/>
+<meta content="https://deeppressanalysis.com/manifesto.html" property="article:author"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@DeepPressAnalysis" name="twitter:site"/>
+<meta content="@DeepPressAnalysis" name="twitter:creator"/>
+<meta content="Deep Press Analysis — 18 مايو 2026" name="twitter:title"/>
+<meta content="توليفة يومية من أبرز المنشورات الدولية. يركّز عدد اليوم على الأزمة الممتدة في أسواق الطاقة، واستثمارات الذكاء الاصطناعي والحوسبة الكمّية، والاستقطاب السياسي العالمي، وصعود اقتصاد الفضاء الجديد والاقتصاد التجريبي." name="twitter:description"/>
+<meta content="https://deeppressanalysis.com/assets/og-cover.jpg" name="twitter:image"/>
+<script nonce="EDNnf03nceIofn39fn3e9h3sdfa" type="application/ld+json">
   [
     {
       "@context": "https://schema.org",
@@ -133,11 +106,11 @@
       "@type": "WebPage",
       "@id": "https://deeppressanalysis.com/ar/#webpage",
       "url": "https://deeppressanalysis.com/ar/",
-      "name": "Deep Press Analysis — 17 مايو 2026",
+      "name": "Deep Press Analysis — 18 مايو 2026",
       "isPartOf": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "description": "ملخص يومي لأبرز المنشورات الدولية. محور التركيز اليوم: العلاقات التجارية بين الولايات المتحدة والصين، وكارثة الوظائف العالمية، والأزمة السياسية في إندونيسيا.",
+      "datePublished": "2026-05-18T05:00:00Z",
+      "dateModified":  "2026-05-18T05:00:00Z",
+      "description": "توليفة يومية من أبرز المنشورات الدولية. يركّز عدد اليوم على الأزمة الممتدة في أسواق الطاقة، واستثمارات الذكاء الاصطناعي والحوسبة الكمّية، والاستقطاب السياسي العالمي، وصعود اقتصاد الفضاء الجديد والاقتصاد التجريبي.",
       "inLanguage": "ar",
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -146,210 +119,54 @@
         ]
       }
     },
-
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-eco-1",
-      "headline": "دونالد ترامب يزور الصين لعقد قمة مع شي جين بينغ",
-      "description": "تمثل زيارة دونالد ترامب إلى بكين تحولاً نحو التسويق التجاري البراغماتي للعلاقات الثنائية، مع إعطاء الأولوية لمصالح الشركات على حساب الاختلافات الأيديولوجية.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Geopolitics",
-      "about": [
-        { "@type": "Person", "name": "Donald Trump" },
-        { "@type": "Person", "name": "Xi Jinping" }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-eco-2",
-      "headline": "كارثة الوظائف: نأمل في الأفضل، ونستعد للأسوأ",
-      "description": "تتطلب أزمة سوق العمل المتنامية، والتي توصف بأنها نهاية العالم للوظائف، الاستعداد لأسوأ السيناريوهات المدفوعة بالتقدم التكنولوجي والأتمتة.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Global Economy"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-eco-3",
-      "headline": "إندونيسيا تضل الطريق",
-      "description": "تُظهر إندونيسيا انحرافاً مثيراً للقلق عن مسارها المقصود، مما يعرض استقرارها السياسي والاقتصادي الكلي للخطر من خلال الانجراف المؤسسي.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Geopolitics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-eco-4",
-      "headline": "عرض 'باوربوينت' من متمردي الكونغو",
-      "description": "تستخدم الجماعات المسلحة في الكونغو أدوات الشركات الحديثة مثل 'باوربوينت' لجذب استثمارات الظل، مما يشير إلى تحول عميق في تمويل الحرب الهجينة.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Geopolitics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-eco-5",
-      "headline": "نقص علم الرضاعة: عدم كفاية الرضاعة الطبيعية",
-      "description": "أصبح العجز العالمي في الرضاعة الطبيعية يمثل تحدياً رئيسياً للاقتصاد الكلي والسياسة الاجتماعية بسبب النقص المنهجي في الدعم المؤسسي للأمومة.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Global Economy"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-fl-1",
-      "headline": "ثم فازوا: خمسة انتخابات للجمعية وما يكمن وراء النتائج",
-      "description": "أكدت نتائج الانتخابات الإقليمية في الهند هيمنة الأجندات المحلية على الروايات السياسية الوطنية، لصالح النخب الإقليمية.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-fl-2",
-      "headline": "حزب 'عام آدمي': المكنسة بحاجة إلى تنظيف أيضاً",
-      "description": "سلطت الأزمة الداخلية داخل حزب 'عام آدمي' الضوء على المشاكل الإدارية المنهجية، مما أضر بسمعته في مكافحة الفساد.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-fl-3",
-      "headline": "لداخ: ترتيب غير ديمقراطي",
-      "description": "يتسم نظام الحكم الحالي في لداخ بأنه غير ديمقراطي إلى حد كبير، حيث يجرد المنطقة من التمثيل والاستقلال المالي.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-fl-4",
-      "headline": "البنجاب: الجريمة والأسطورة والدولة",
-      "description": "تواجه البنجاب أزمة حكم غير مسبوقة حيث تتشابك الجريمة المنظمة مع الأساطير الاجتماعية والخلل الوظيفي في الدولة.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-fl-5",
-      "headline": "خطة غير سليمة لسلسلة التلال المركزية في دلهي",
-      "description": "تمثل مبادرات التحول التجاري لمنطقة غابات 'سنترال ريدج' في نيودلهي مشروعاً حضرياً مدمراً بيئياً.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Ecology"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-wk-1",
-      "headline": "محو مقاطعات الأقليات",
-      "description": "تؤدي المبادرات التشريعية العدوانية لمحو دوائر تصويت الأقليات إلى تغيير جوهري في التمثيل الانتخابي في الولايات المتحدة.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "US Elections"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-wk-2",
-      "headline": "أنتِ تهمين يا مياه",
-      "description": "أصبحت ندرة المياه والمنافسة على الموارد العنصر الأكثر كثافة في أجندة الاقتصاد الكلي العالمي.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Global Economy"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-wk-3",
-      "headline": "هل هذا هو كوفيد الجديد؟ تفشي فيروس هانتا على متن السفينة إم في هونديوس",
-      "description": "أثار تفشي فيروس هانتا المفاجئ على متن سفينة سياحية الذعر بشأن مدى استعداد العالم لمواجهة جائحة أخرى.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Global Health"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-wk-4",
-      "headline": "تيد تيرنر: قطب الإعلام الذي أعاد صياغة الأخبار",
-      "description": "يمثل رحيل تيد تيرنر النهاية التاريخية لحقبة في تشكيل الأجندة السياسية من خلال البث الإخباري على مدار 24 ساعة.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Media"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ar/#art-wk-5",
-      "headline": "من يملك الأوراق؟ لماذا لن تقبل إيران شروط ترامب",
-      "description": "يمثل رفض طهران الأساسي لشروط إدارة ترامب ركوداً خطيراً وطويل الأمد في الدبلوماسية الشرق أوسطية.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ar/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ar",
-      "articleSection": "Geopolitics"
-    }
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-bar-1","headline":"The Oil Crisis Isn't Ending Soon","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Global Economy"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-bar-2","headline":"6 Ways to Play the Future of Quantum Computing","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Technology"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-bar-3","headline":"It's Not Too Late to Buy Into Nvidia's Al Growth Story","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Markets"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-bar-4","headline":"How Crypto Voters Decide the Outcome of Polymarket Debates","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Markets"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-bar-5","headline":"Sky-High Plastic Prices Put the Squeeze on Companies","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Global Economy"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-fl-1","headline":"West Bengal: Silent tsunami","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-fl-2","headline":"Kerala: Last Left citadel falls","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-fl-3","headline":"Assam: Polarised mandate","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-fl-4","headline":"Ladakh: An undemocratic arrangement","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-fl-5","headline":"Venice Biennale: India returns after a gap of seven years","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Culture"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-geo-1","headline":"India's Indigenous Drone Power Surge","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Defence"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-geo-2","headline":"Steel Revolution: The Cold War tank is giving way","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Defence"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-geo-3","headline":"Algorithmic Warfare: Artificial Intelligence rewriting rules","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Technology"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-geo-4","headline":"Narrative Strike Force: Weaponising Perception","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Geopolitics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-geo-5","headline":"Ready for Take-Off: Adani's airport venture","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Geopolitics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-nr-1","headline":"The Scourge of Left-Wing Violence","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-nr-2","headline":"Continental Shift: How the American right went European","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-nr-3","headline":"Fixing NATO: Strengthen the alliance, don't wreck it","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Geopolitics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-nr-4","headline":"Alaska, the Minerals Frontier","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Global Economy"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-nr-5","headline":"New Space Capitalism: The Entrepreneurial Path to the Stars","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Business"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-nw-1","headline":"Fool Britannia: Why Britain Is No Longer Great","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Geopolitics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-nw-2","headline":"Tomorrow's smart infrastructure","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Global Economy"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-nw-3","headline":"Build a better tomorrow with Aurigo Masterworks Cloud","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Technology"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-nw-4","headline":"Airline technology that opens the world of e-commerce shipping","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Logistics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-nw-5","headline":"Connecting demand with an airline's supply of capacity","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Logistics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-out-1","headline":"Bulldozed: TMC, AAP","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-out-2","headline":"Bulldozed: JDU, BSP, BJD","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Politics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-out-3","headline":"Honesty and Hedonism: A night club at 3 am","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Culture"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-out-4","headline":"Fundraising and strobe lights coexist without irony","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Society"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-out-5","headline":"Permission to be exactly what you are, without performance or apology","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Society"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-ebr-1","headline":"How Work from Anywhere Can Futureproof Your Organisation","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Business"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-ebr-2","headline":"AI Fatigue: The Hidden Challenge in the Race for AI Adoption","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Technology"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-ebr-3","headline":"Unlocking Agentic AI's True Potential","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Technology"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-ebr-4","headline":"Your Property is Worth Millions NOW ACCESS IT","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Real Estate"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-ebr-5","headline":"Luxury Strategy: Strategic oscillation","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Business"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-wk-1","headline":"Erasing Minority Districts","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"US Elections"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-wk-2","headline":"Controversy: Is this the new Covid?","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Global Health"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-wk-3","headline":"Why Iran won't accept Trump's terms","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Geopolitics"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-wk-4","headline":"Ted Turner: The mogul who remade the news","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Media"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-wk-5","headline":"Capture your life story in a memoir","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Lifestyle"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-time-1","headline":"Hasbro's out-of-the-box licensing deals","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Business"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-time-2","headline":"Lessons of the Game - Why Monopoly Is Like Life","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Culture"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-time-3","headline":"A 1933 edition of Monopoly sold for $146,500","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Markets"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-time-4","headline":"Monopoly Steakhouse in Mexico, 2026","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Business"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ar/#art-time-5","headline":"The Guinness World Record for most monopoly memorabilia","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ar/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ar","articleSection":"Culture"}
   ]
   </script>
-
-  <style>
+<style>
     :root {
       --bg-body:        #F2F4F7;
       --bg-paper:       #FFFFFF;
@@ -367,17 +184,15 @@
     body {
       background-color: var(--bg-body);
       color: var(--text-primary);
-      font-family: 'Cairo', 'Inter', system-ui, sans-serif;
-      line-height: 1.8;
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      direction: rtl;
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cairo', serif;
+      font-family: 'Libre Baskerville', serif;
       color: var(--brand-navy);
-      line-height: 1.4;
-      font-weight: 700;
+      line-height: 1.3;
     }
 
     a { text-decoration: none; color: inherit; transition: color 0.2s, opacity 0.2s; }
@@ -390,6 +205,11 @@
 
     /* ─────────────────────────────────────────────────────────────────
        SEO FIX #1: АККОРДЕОН — КОНТЕНТ ВИДИМ ПО УМОЛЧАНИЮ
+
+       Логика: По умолчанию (без JS) все статьи открыты и индексируются.
+       JS добавляет класс <html class="js-accordion"> ТОЛЬКО после загрузки,
+       и ТОЛЬКО тогда CSS скрывает тела статей.
+       Googlebot видит страницу без accordion-состояния → весь контент открыт.
     ────────────────────────────────────────────────────────────────── */
 
     /* Состояние без JS — всё открыто */
@@ -451,7 +271,6 @@
       font-size: 11px; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.5px;
       display: flex; gap: 12px;
-      font-family: 'Inter', sans-serif;
     }
     .lang-link        { color: #9CA3AF; transition: color 0.2s; }
     .lang-link:hover  { color: var(--brand-blue); }
@@ -468,31 +287,28 @@
       border-bottom: 1px solid #d1d5db;
     }
     .meta-issue {
-      font-family: 'Inter', sans-serif;
       font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
       color: var(--text-secondary); margin-bottom: 10px;
     }
     h1.site-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 48px; font-weight: 900;
+      font-size: 48px; font-weight: 700;
       letter-spacing: -0.02em; margin-bottom: 8px;
     }
     .subtitle {
-      font-family: 'Cairo', sans-serif;
-      font-size: 16px; color: var(--text-secondary);
-      letter-spacing: 0.5px; font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
     }
     .briefing-summary {
       background: #fff; border: 1px solid var(--border-color);
-      padding: 20px; margin-top: 30px; text-align: right;
-      border-right: 4px solid var(--brand-navy);
-      border-left: none;
+      padding: 20px; margin-top: 30px; text-align: left;
+      border-left: 4px solid var(--brand-navy);
       box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
-    .briefing-summary p      { font-size: 16px; color: var(--text-secondary); margin: 0; font-family: 'Cairo', sans-serif;}
+    .briefing-summary p      { font-size: 15px; color: var(--text-secondary); margin: 0; }
     .briefing-summary strong {
       color: var(--brand-navy); font-weight: 700;
-      font-size: 14px; letter-spacing: 0.5px;
+      text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px;
     }
 
     /* ─── Outlets (Newspapers) ─── */
@@ -505,10 +321,9 @@
       background: #f8fafc; padding: 15px 25px;
       border-bottom: 1px solid var(--border-color);
       display: flex; justify-content: space-between; align-items: center;
-      flex-direction: row-reverse;
     }
-    .outlet-header h2 { font-family: 'Inter', sans-serif; font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
-    .outlet-tags      { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 1px;}
+    .outlet-header h2 { font-size: 18px; margin: 0; font-weight: 700; color: var(--text-primary); }
+    .outlet-tags      { font-size: 10px; font-weight: 600; color: var(--brand-blue); text-transform: uppercase; }
 
     /* ─── Accordion Items ─── */
     .article-item             { border-bottom: 1px solid var(--border-color); }
@@ -517,7 +332,7 @@
     .article-trigger {
       display: flex; align-items: baseline; width: 100%;
       padding: 20px 25px; cursor: pointer; background: #fff;
-      transition: background 0.2s; border: none; text-align: right;
+      transition: background 0.2s; border: none; text-align: left;
     }
     .article-trigger:hover { background: #f9fafb; }
     .article-trigger:focus { background: #f0f9ff; }
@@ -529,12 +344,11 @@
     .art-idx {
       font-family: 'Inter', sans-serif; font-size: 13px; color: #9CA3AF;
       width: 35px; flex-shrink: 0; font-weight: 500;
-      text-align: left;
     }
     .art-title {
-      font-family: 'Cairo', serif; font-size: 18px; font-weight: 700;
-      color: var(--text-primary); flex-grow: 1; padding-left: 20px; padding-right: 0;
-      transition: color 0.2s; line-height: 1.5;
+      font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700;
+      color: var(--text-primary); flex-grow: 1; padding-right: 20px;
+      transition: color 0.2s;
     }
     .toggle-icon {
       color: var(--text-secondary); font-size: 12px; width: 20px; text-align: center;
@@ -543,9 +357,8 @@
     .js-accordion .article-item.active .art-title  { color: var(--brand-blue); }
 
     .body-inner {
-      padding: 5px 60px 25px 25px; font-size: 16px;
-      color: var(--text-secondary); max-width: 85ch; line-height: 1.9;
-      font-family: 'Cairo', sans-serif;
+      padding: 5px 25px 25px 60px; font-size: 16px;
+      color: var(--text-secondary); max-width: 85ch; line-height: 1.7;
     }
 
     /* ─── Newsletter ─── */
@@ -556,14 +369,14 @@
     }
     .nebula-title {
       text-align: center; color: var(--brand-navy);
-      font-family: 'Cairo', serif; margin-bottom: 10px; font-size: 24px; font-weight: 700;
+      font-family: 'Libre Baskerville', serif; margin-bottom: 10px; font-size: 24px;
     }
     .form-container          { display: flex; justify-content: center; padding: 20px; }
     .newsletter-form-wrapper {
       width: 100%; max-width: 500px;
       display: flex; flex-direction: column; align-items: center; gap: 20px;
     }
-    .input-group  { display: flex; width: 100%; align-items: center; flex-direction: row-reverse;}
+    .input-group  { display: flex; width: 100%; align-items: center; }
     .nebula-input { position: relative; flex: 1; }
 
     .sr-only {
@@ -573,41 +386,38 @@
     }
 
     .nebula-input .input {
-      width: 100%; padding: 12px 40px 12px 12px;
+      width: 100%; padding: 12px 12px 12px 40px;
       border: 1px solid #cbd5e1; background: #fff;
       color: var(--brand-navy); font-size: 16px; outline: none;
-      border-radius: 0 4px 4px 0; transition: border-color 0.2s;
-      font-family: 'Cairo', sans-serif;
+      border-radius: 4px 0 0 4px; transition: border-color 0.2s;
     }
     .nebula-input .input:focus         { border-color: var(--brand-blue); z-index: 2; position: relative; }
     .nebula-input .input.input-error   { border-color: var(--down-color); }
 
     .email-icon {
-      position: absolute; top: 50%; right: 12px; transform: translateY(-50%);
+      position: absolute; top: 50%; left: 12px; transform: translateY(-50%);
       width: 20px; height: 20px; fill: #94a3b8; pointer-events: none;
       transition: fill 0.2s;
     }
     .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
 
     .subscribe-button {
-      padding: 13px 24px; font-size: 15px; font-weight: 700;
+      padding: 13px 24px; font-size: 14px; font-weight: 700;
       color: #fff; background: var(--brand-navy);
-      border: 1px solid var(--brand-navy); border-radius: 4px 0 0 4px;
-      cursor: pointer; letter-spacing: 0.5px;
+      border: 1px solid var(--brand-navy); border-radius: 0 4px 4px 0;
+      cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
       transition: background 0.2s, border-color 0.2s;
-      font-family: 'Cairo', sans-serif;
     }
     .subscribe-button:disabled          { opacity: 0.7; cursor: not-allowed; }
     .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
 
     .form-error-msg {
       display: none; color: var(--down-color);
-      font-size: 14px; margin-top: 6px; text-align: right; width: 100%;
-      font-family: 'Cairo', sans-serif;
+      font-size: 13px; margin-top: 6px; text-align: left; width: 100%;
     }
     .form-error-msg.visible { display: block; }
 
-    .success-message           { display: none; text-align: center; color: var(--brand-navy); font-family: 'Cairo', sans-serif; }
+    .success-message           { display: none; text-align: center; color: var(--brand-navy); }
     .success-message.visible   { display: block; }
     .newsletter-form.hidden    { display: none; }
 
@@ -618,12 +428,11 @@
     footer {
       text-align: center;
       padding: 30px 0 60px;
-      color: var(--text-secondary); font-size: 14px;
-      font-family: 'Cairo', sans-serif;
+      color: var(--text-secondary); font-size: 13px;
     }
     .footer-links { margin-top: 35px; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
     .btn-text {
-      font-weight: 700; font-size: 18px; letter-spacing: 0.5px;
+      font-weight: 900; text-transform: uppercase; font-size: 18px; letter-spacing: 1px;
       color: var(--brand-navy); border-bottom: 2px solid transparent; padding-bottom: 4px;
       transition: color 0.2s, border-color 0.2s;
     }
@@ -636,32 +445,29 @@
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
       position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
       margin-bottom: 40px;
-      flex-direction: row-reverse;
     }
     .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
 
     .fake-cover         { width: 152px; height: 152px; flex-shrink: 0; }
     .fake-cover img     {
       width: 100%; height: 100%; object-fit: cover; opacity: 0.95;
-      border-top-right-radius: 12px; border-bottom-right-radius: 12px;
-      border-top-left-radius: 0; border-bottom-left-radius: 0;
+      border-top-left-radius: 12px; border-bottom-left-radius: 12px;
     }
     .fake-info          {
       padding: 0 24px; flex-grow: 1;
       display: flex; flex-direction: column; justify-content: center; overflow: hidden;
-      text-align: right;
     }
     .fake-meta   { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
-    .fake-title  { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Inter', serif; line-height: 1.2; }
+    .fake-title  { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
     .fake-desc   { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
     .fake-play-btn {
       background-color: #1ed760; color: #000; border: none; border-radius: 50%;
       width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
-      margin-left: 24px; margin-right: 0; cursor: pointer; flex-shrink: 0;
+      margin-right: 24px; cursor: pointer; flex-shrink: 0;
       transition: transform 0.2s, background-color 0.2s;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
-    .fake-play-btn svg { fill: currentColor; margin-left: 0; margin-right: 2px; }
+    .fake-play-btn svg { fill: currentColor; margin-left: 2px; }
     .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
     .hidden-player { display: none !important; }
 
@@ -674,7 +480,7 @@
       flex-direction: column;
       align-items: center;
       gap: 24px;
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     .support-title-wrapper {
@@ -698,8 +504,9 @@
     }
 
     .support-title {
-      font-size: 13px;
-      letter-spacing: 1px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       font-weight: 700;
       color: var(--text-secondary);
     }
@@ -723,7 +530,6 @@
       flex-direction: column;
       gap: 12px;
       overflow: hidden;
-      text-align: left;
     }
 
     .crypto-card:hover {
@@ -737,18 +543,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-direction: row-reverse;
     }
 
     .crypto-name {
-      font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 700;
       color: var(--brand-navy);
       display: flex;
       align-items: center;
       gap: 8px;
-      flex-direction: row-reverse;
     }
 
     .crypto-name::before {
@@ -775,8 +578,6 @@
       transition: all 0.2s;
       outline: none;
       cursor: text;
-      text-align: left;
-      direction: ltr;
     }
 
     .crypto-card:hover .crypto-address {
@@ -800,18 +601,18 @@
       h1.site-title    { font-size: 32px; }
       .top-toolbar     { flex-direction: column-reverse; gap: 20px; align-items: center; }
       .lang-bar        { flex-wrap: wrap; justify-content: center; }
-      .body-inner      { padding-right: 25px; }
+      .body-inner      { padding-left: 25px; }
       .outlet-tags     { display: none; }
       .input-group     { flex-direction: column; gap: 10px; }
-      .nebula-input .input  { border-radius: 4px; padding-right: 40px; padding-left: 12px;}
+      .nebula-input .input  { border-radius: 4px; }
       .subscribe-button     { border-radius: 4px; width: 100%; }
       .footer-links    { flex-direction: column; gap: 20px; }
-      .spotify-fake-player  { height: auto; padding: 16px; flex-wrap: wrap; flex-direction: row;}
-      .fake-cover      { width: 64px; height: 64px; border-radius: 4px; margin-left: 16px; margin-right: 0;}
+      .spotify-fake-player  { height: auto; padding: 16px; flex-wrap: wrap; }
+      .fake-cover      { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
       .fake-cover img  { border-radius: 4px; }
-      .fake-info       { padding: 0; width: calc(100% - 80px - 50px); text-align: left;}
+      .fake-info       { padding: 0; width: calc(100% - 80px - 50px); }
       .fake-title      { font-size: 16px; white-space: normal; }
-      .fake-play-btn   { width: 40px; height: 40px; margin-left: 0; }
+      .fake-play-btn   { width: 40px; height: 40px; margin-right: 0; }
       .crypto-grid     { grid-template-columns: 1fr; }
     }
 
@@ -829,378 +630,741 @@
       }
     }
   </style>
-</head>
-
+</meta></link></link></link></head>
 <body>
-  <div class="container">
-
-    <div class="top-toolbar">
-      <nav class="lang-bar" aria-label="Language selection">
-        <a href="/ua/" class="lang-link" hreflang="uk" aria-label="Ukrainian version">UA</a>
-        <a href="/en/" class="lang-link" hreflang="en" aria-label="English version">EN</a>
-        <a href="/es/" class="lang-link" hreflang="es" aria-label="Spanish version">ES</a>
-        <a href="/ar/" class="lang-link active" hreflang="ar" aria-current="page" aria-label="Arabic version">AR</a>
-        <a href="/ru/" class="lang-link" hreflang="ru" aria-label="Russian version">RU</a>
-        <a href="/de/" class="lang-link" hreflang="de" aria-label="German version">DE</a>
-      </nav>
-
-      <nav class="social-row" aria-label="Social media links">
-        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="البريد الإلكتروني" aria-label="إرسال بريد إلكتروني إلى Deep Press Analysis">
-          <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
-        </a>
-        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="تيليجرام" aria-label="زيارة قناتنا على تيليجرام">
-          <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
-        </a>
-        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="ثريدز" aria-label="زيارة ملفنا الشخصي على ثريدز">
-          <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16">
-        </a>
-        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="يوتيوب" aria-label="زيارة قناتنا على يوتيوب">
-          <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
-        </a>
-      </nav>
-    </div>
-
-    <header>
-      <div class="meta-issue">
-        المجلد 26 • العدد 133 • <time datetime="2026-05-17">17 مايو 2026</time>
-      </div>
-      <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
-      <div class="subtitle">ملخص يومي لأبرز المنشورات الدولية</div>
-      <div class="briefing-summary">
-        <p><strong>محور التركيز اليوم:</strong> تحولات في العلاقات التجارية بين الولايات المتحدة والصين، تحذيرات من كارثة وظائف عالمية، وعدم الاستقرار السياسي والاقتصادي الكلي في إندونيسيا.</p>
-      </div>
-    </header>
-
-    <main>
-
-      <div id="spotify-facade" class="spotify-fake-player"
-           role="button" tabindex="0"
-           aria-label="تشغيل بودكاست Deep Press Analysis على سبوتيفاي">
-        <div class="fake-cover">
-          <img src="https://deeppressanalysis.com/logo.png" alt="غلاف بودكاست Deep Press Analysis">
-        </div>
-        <div class="fake-info">
-          <div class="fake-meta">PODCAST SHOW</div>
-          <div class="fake-title">Deep Press Analysis</div>
-          <div class="fake-desc">Daily Audio Briefing</div>
-        </div>
-        <button class="fake-play-btn" aria-label="تشغيل البودكاست" tabindex="-1">
-          <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/>
-          </svg>
-        </button>
-      </div>
-      <div id="spotify-real-container" style="margin-bottom:40px;"></div>
-
-      <!-- ════════════════════════ THE ECONOMIST ════════════════════════ -->
-      <section class="outlet-section">
-        <div class="outlet-header">
-          <h2>THE ECONOMIST</h2>
-          <div class="outlet-tags">GEOPOLITICS • GLOBAL ECONOMY</div>
-        </div>
-
-        <article class="article-item" id="art-eco-1">
-          <button class="article-trigger" id="btn-eco-1" aria-expanded="true" aria-controls="body-eco-1">
-            <span class="art-idx">01</span>
-            <span class="art-title">دونالد ترامب يزور الصين لعقد قمة مع شي جين بينغ</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-eco-1" role="region" aria-labelledby="btn-eco-1">
-            <div class="body-inner">
-              <p>تمثل زيارة دونالد ترامب إلى بكين للقاء شي جين بينغ تحولاً نحو التسويق التجاري البراغماتي للعلاقات الثنائية. الحدث الرئيسي كان الاتفاق على "تموضع جديد" للروابط وتوسيع التعاون التجاري بين الولايات المتحدة والصين. يؤكد حضور كبار المديرين التنفيذيين، بما في ذلك رئيسا 'إنفيديا' و'بوينغ'، على إعطاء الأولوية لمصالح الشركات على حساب الاختلافات الأيديولوجية. في هذا الموقف، المستفيدون الرئيسيون هم عمالقة التكنولوجيا والطيران الأمريكية، الذين يضمنون وصولاً مؤكداً إلى السوق الصينية. أما الخاسرون، فقد يكونون حلفاء الولايات المتحدة الاستراتيجيين، وفي مقدمتهم تايوان وأوكرانيا، حيث تتراجع القضايا السياسية إلى الخلفية. يكمن دافع واشنطن الأساسي في تحقيق انتصارات اقتصادية سريعة ودعم الشركات الكبرى. وتسعى بكين بدورها إلى استقرار التجارة الخارجية وضمان تدفق غير منقطع للتكنولوجيا الغربية. بالنسبة للأسواق العالمية، تُعد هذه القمة إشارة إيجابية قوية، حيث تقلل من المخاوف بشأن اندلاع حرب تجارية وشيكة. يتلقى المستثمرون المؤسسيون تأكيداً على أن البراغماتية الاقتصادية يمكن أن تخفف من حدة الخطاب الجيوسياسي. ومن الناحية السياسية، يُظهر هذا استعداد الإدارة لمراجعة التحالفات التقليدية من أجل إبرام صفقات ثنائية. يكمن الخطر الرئيسي في التصعيد المحتمل للصراعات الإقليمية بسبب ضعف الضمانات الأمنية الأمريكية. وإذا تحول تركيز القوى العظمى حصرياً إلى التجارة، فإن الفراغ الجيوسياسي قد يمتلئ بالإجراءات العدوانية لأطراف أخرى.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-eco-2">
-          <button class="article-trigger" id="btn-eco-2" aria-expanded="true" aria-controls="body-eco-2">
-            <span class="art-idx">02</span>
-            <span class="art-title">كارثة الوظائف: نأمل في الأفضل، ونستعد للأسوأ</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-eco-2" role="region" aria-labelledby="btn-eco-2">
-            <div class="body-inner">
-              <p>تتطلب الأزمة المتنامية في سوق العمل، والتي توصف بأنها "نهاية العالم للوظائف"، من المؤسسات العالمية الاستعداد لأسوأ السيناريوهات. المحرك الرئيسي لهذه العملية هو التحول الهيكلي للتوظيف، مدفوعاً بالتقدم التكنولوجي وعدم استقرار الاقتصاد الكلي. يظل أصحاب رؤوس الأموال وشركات التكنولوجيا الفائقة القادرة على تحسين التكاليف من خلال الأتمتة العميقة هم الفائزون في الديناميكيات الحالية. وتتلقى العمالة التقليدية الضربة الأساسية، حيث تتراجع قيمة مهاراتها بسرعة في الواقع الجديد. إن دافع الشركات واضح للغاية: تعظيم الكفاءة التشغيلية وتقليل الاعتماد على العامل البشري وسط أزمة مستمرة. بالنسبة لأجهزة الدولة، يعني هذا الحاجة الملحة لمراجعة العقود الاجتماعية وبنية الدعم العام. وتُعد الإشارة الموجهة للأسواق مقلقة، حيث سيؤدي فقدان الوظائف على نطاق واسع حتماً إلى انكماش طويل الأجل في طلب المستهلكين. ويجب على المؤسسات المالية أن تأخذ في الحسبان مخاطر التخلف المتتالي عن سداد القروض الاستهلاكية والالتزامات العقارية. في المجال السياسي، تخلق مثل هذه الأزمة أرضاً خصبة لتطرف الناخبين والنمو المتفجر للمشاعر الشعبوية. وقد تشمل العواقب المنهجية استقطاباً اجتماعياً واقتصادياً عميقاً للمجتمع. وترتبط المخاطر طويلة الأجل بتشكيل طبقة دنيا دائمة تتطلب إعانات مباشرة ومستمرة. في النهاية، سيؤدي الافتقار إلى التخطيط الاستباقي إلى إخفاقات مؤسسية هائلة على نطاق عالمي.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-eco-3">
-          <button class="article-trigger" id="btn-eco-3" aria-expanded="true" aria-controls="body-eco-3">
-            <span class="art-idx">03</span>
-            <span class="art-title">إندونيسيا تضل الطريق</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-eco-3" role="region" aria-labelledby="btn-eco-3">
-            <div class="body-inner">
-              <p>تُظهر إندونيسيا انحرافاً مقلقاً عن مسارها المقصود، مما يثير تساؤلات حول استقرارها السياسي والاقتصادي الكلي. الحدث الرئيسي هو تحول في المسار السياسي الداخلي يعطل المعايير المؤسسية والديمقراطية الراسخة للتنمية. المستفيدون الرئيسيون من هذا الانحراف قد يكونون مجموعات النخبة المحلية التي تعزز سلطتها ومواردها الإدارية بين يديها. ويخسر في هذا الموقف المستثمرون الدوليون والمؤسسات المدنية التي تعتمد على الشفافية والقدرة على التنبؤ في أكبر اقتصاد في جنوب شرق آسيا. ويكمن السبب الجذري في مصالح الدوائر الحاكمة التي تسعى إلى تقليل التدقيق الخارجي وتعزيز السيطرة اليدوية السيادية على الأسواق. بالنسبة لأسواق رأس المال الدولية، تُعد هذه إشارة هبوطية واضحة تدل على ارتفاع حاد في المخاطر السيادية والتنظيمية. وقد يبدأ المستثمرون المؤسسيون في إعادة تقييم واسعة النطاق لقيم الأصول ومراجعة الاستراتيجيات طويلة الأجل في المنطقة. في سياق جيوسياسي، يؤدي إضعاف المؤسسات الداخلية الإندونيسية إلى تغيير البنية الأمنية في منطقة المحيط الهندي والهادئ الكبرى. وتخاطر البلاد بفقدان مكانتها كثقل استثماري موثوق وسط التنافس المتزايد بين الولايات المتحدة والصين. وتشمل العواقب الاقتصادية المحتملة تباطؤاً في تدفقات الاستثمار الأجنبي المباشر وتوقف مشاريع البنية التحتية الرئيسية. ويكمن الخطر أيضاً في ارتفاع محتمل للتوتر الاجتماعي الخفي بسبب عدم كفاءة الإدارة العامة. ويهدد استمرار التهرب من الإصلاحات الهيكلية الاقتصاد الإندونيسي بالركود المنهجي.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-eco-4">
-          <button class="article-trigger" id="btn-eco-4" aria-expanded="true" aria-controls="body-eco-4">
-            <span class="art-idx">04</span>
-            <span class="art-title">عرض "باوربوينت" من متمردي الكونغو</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-eco-4" role="region" aria-labelledby="btn-eco-4">
-            <div class="body-inner">
-              <p>ظاهرة غير متوقعة في منطقة الصراع الممتد في الكونغو تتمثل في استخدام الجماعات المسلحة لأدوات الشركات الحديثة، مثل عروض "باوربوينت". يشير هذا الواقع إلى تحول عميق في أساليب إدارة الحروب الهجينة والسعي للحصول على تمويل من قبل جهات فاعلة غير تقليدية. ويفوز المتمردون أنفسهم من هذا، حيث يكتسبون القدرة على جذب استثمارات الظل والدعم العسكري الخارجي باحترافية. الجانب الخاسر هو الحكومة الكونغولية الرسمية والسكان المدنيون، الذين يعانون من الإطالة التجارية للمواجهة المسلحة. الدافع الرئيسي للمسلحين هو إضفاء الشرعية على وضعهم أمام الرعاة الدوليين والشركات عبر الوطنية المهتمة بالمواد الخام. وهذه إشارة صارخة للمؤسسات الدولية بأن اقتصاد الظل للصراعات يصل إلى مستوى جديد تماماً من المأسسة. بالنسبة للدوائر السياسية، يعني هذا انهيار الأساليب التقليدية للعزل الدبلوماسي للتشكيلات المسلحة غير القانونية. ويتلقى المستثمرون في الصناعة الاستخراجية بالمنطقة تحذيراً حول ظهور شركاء بديلين على درجة عالية من التنظيم للسيطرة بالقوة على المناجم. ويكمن الخطر الرئيسي في أن يؤدي هذا الطابع المؤسسي للإرهاب إلى جذب رأس المال الاستثماري المنهجي إلى المناطق الرمادية للحرب. ونتيجة لذلك، قد تصبح الصراعات المحلية أطول أمداً، حيث تكتسب مبررات تجارية صلبة. وتثبت آليات القانون الدولي عجزها أمام هذا التكيف التسويقي والتشغيلي من قبل المسلحين. وعلى المدى الطويل، يهدد هذا بمحو كامل للحدود بين ضغوط الموارد وتمويل الإرهاب.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-eco-5">
-          <button class="article-trigger" id="btn-eco-5" aria-expanded="true" aria-controls="body-eco-5">
-            <span class="art-idx">05</span>
-            <span class="art-title">نقص علم الرضاعة: عدم كفاية الرضاعة الطبيعية</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-eco-5" role="region" aria-labelledby="btn-eco-5">
-            <div class="body-inner">
-              <p>تتجاوز مشكلة العجز العالمي في الرضاعة الطبيعية الحدود الصارمة للطب، لتتحول إلى تحدٍ خطير لسياسة الاقتصاد الكلي والسياسة الاجتماعية. والعامل الرئيسي هو النقص المنهجي في الدعم المؤسسي للأمومة وسط المتطلبات القاسية لسوق العمل الحديث. وفي هذا الموقف، المستفيدون الواضحون هم الشركات عبر الوطنية التي تنتج كميات هائلة من حليب الأطفال الصناعي وبدائله. والخاسرون الأساسيون هم أنظمة الصحة العامة والأسر التي تواجه تدهوراً طويل الأمد في صحة الرضع. ويكمن أساس المشكلة في مصالح أصحاب العمل في الشركات الذين يسعون إلى أقصى حد لتقليص إجازات الأمومة وتكاليف البنية التحتية الاجتماعية. بالنسبة للمؤسسات السياسية، تُعد هذه إشارة سلبية تدل على تعارض أساسي بين الأهداف الديموغرافية والكفاءة الاقتصادية للدولة. والإشارة الموجهة لأسواق الرعاية الصحية هي توقع ارتفاع الطلب على خدمات طب الأطفال والأدوية الدوائية لعلاج قصور المناعة المبكر. وعلى العكس من ذلك، تتلقى صناعة أغذية الأطفال تأكيداً قاطعاً على النمو المستدام في حصتها السوقية لعقود قادمة. وترتبط المخاطر الرئيسية بتدهور جودة رأس المال البشري على المستوى الكلي بسبب انخفاض حرج في المناعة الأساسية بين الأجيال الجديدة. وعلاوة على ذلك، يفاقم الوضع من عدم المساواة الاجتماعية والاقتصادية، حيث تصبح التغذية المبكرة الجيدة امتيازاً حصرياً للطبقات الميسورة. ويجب أن تدرك الهيئات الحكومية أن الافتقار إلى ترتيبات عمل مرنة يضرب المورد البيولوجي الوطني مباشرة. وبدون إصلاح جذري لتشريعات العمل، فإن هذه الأزمة المؤسسية الخفية ستتفاقم بشكل كبير.</p>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- ════════════════════════ FRONTLINE ════════════════════════ -->
-      <section class="outlet-section">
-        <div class="outlet-header">
-          <h2>FRONTLINE</h2>
-          <div class="outlet-tags">POLITICS • ECOLOGY</div>
-        </div>
-
-        <article class="article-item" id="art-fl-1">
-          <button class="article-trigger" id="btn-fl-1" aria-expanded="true" aria-controls="body-fl-1">
-            <span class="art-idx">01</span>
-            <span class="art-title">ثم فازوا: خمسة انتخابات للجمعية وما يكمن وراء النتائج</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-fl-1" role="region" aria-labelledby="btn-fl-1">
-            <div class="body-inner">
-              <p>أكدت نتائج الانتخابات الإقليمية في البنغال الغربية وتاميل نادو وكيرالا وآسام وبودوتشيري الهيمنة المطلقة للأجندات المحلية على الروايات السياسية الوطنية. وظلت العوامل الرئيسية في تشكيل المشهد السياسي هي كفاءة تقديم المنافع الاجتماعية والمراعاة الدقيقة للنسب الطبقية المعقدة. ونتيجة لذلك، تبرز النخب الإقليمية كمستفيد رئيسي، حيث نجحت في الدفاع عن مواقفها السيادية ضد هجوم الآلات الانتخابية الفيدرالية. والجانب الخاسر هو الحزب الوطني الحاكم، الذي باءت محاولاته لتوحيد الساحة السياسية بقوة بالفشل. استند دافع الناخبين إلى حل مشاكل اقتصادية ملموسة والدفاع القوي عن الهوية الثقافية الإقليمية. بالنسبة للمؤسسة السياسية الهندية، تُعد هذه إشارة واضحة بأن التوحيد الفيدرالي له حدود مؤسسية لا يمكن تجاوزها. ويتلقى المستثمرون المؤسسيون تأكيداً إيجابياً على مرونة نموذج الحكم اللامركزي واستقلال الولايات. أما الإشارة الموجهة للأسواق فهي مختلطة: فمن ناحية، ينخفض خطر احتكار السلطة الاستبدادي؛ ومن ناحية أخرى، تصبح الإصلاحات السريعة على مستوى البلاد أكثر تعقيداً. وسيتعين على الشركات الاستمرار في بناء سلاسل ضغط معقدة ومتعددة المستويات، والتفاوض مباشرة مع إدارات إقليمية محددة. يكمن الخطر السياسي الرئيسي في التعزيز المحتمل للاتجاهات الانفصالية وتفاقم الصراعات على الميزانية بين المركز والولايات. وقد تتجلى العواقب المالية في زيادة الإنفاق الشعبوي محلياً، حيث تم تأمين الانتصارات تحديداً من خلال وعود ببرامج اجتماعية. وعلى المدى الطويل، يتطلب الوضع من الحكومة المركزية تطوير آليات أكثر دقة وغير توجيهية لدمج الاقتصادات الإقليمية.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-fl-2">
-          <button class="article-trigger" id="btn-fl-2" aria-expanded="true" aria-controls="body-fl-2">
-            <span class="art-idx">02</span>
-            <span class="art-title">حزب "عام آدمي": المكنسة بحاجة إلى تنظيف أيضاً</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-fl-2" role="region" aria-labelledby="btn-fl-2">
-            <div class="body-inner">
-              <p>سلطت الأزمة داخل حزب "عام آدمي" (AAP) الضوء على مشاكل إدارية منهجية في منظمة بنت رأسمالها السياسي في الأصل على خطاب صارم مناهض للفساد. الحقيقة الأساسية هي الحاجة الملحة لتطهير داخلي جذري للحزب الذي يجب أن يُطبّق الآن "مكانسه" الرمزية على جهازه الخاص. ويفوز المنافسون السياسيون التقليديون في هذا الموقف، حيث يكتسبون فرصة مشروعة لتشويه سمعة المنافس الرئيسي على دور السلطة الأخلاقية للأمة. ويخسر مؤيدو السياسات الديمقراطية البديلة والناخبون الحضريون، الذين تحطمت توقعاتهم العالية لحكم شفاف. ينحصر دافع قيادة الحزب حالياً في البقاء البيروقراطي ومحاولات إعادة بناء الهيكل الحزبي في ظل ضرر بالغ بالسمعة. بالنسبة للمؤسسات الديمقراطية، تُعد هذه إشارة سلبية للغاية، توضح أن حتى الحركات الإصلاحية المثالية تستوعب بسرعة عيوب النظام القديم. في السوق السياسية، يقلل هذا الحدث بحدة من قيمة أي علامات تجارية "بديلة"، مما يرفع العلاوة الانتخابية لقدرة الأحزاب الراسخة على التنبؤ. وينظر المستثمرون المؤسسيون إلى هذه الأزمة على أنها انخفاض في مخاطر الاضطرابات التنظيمية المفاجئة، حيث يفقد الشعبويون المتطرفون نفوذهم. الخطر الرئيسي هو اللامبالاة العميقة للطبقة المتوسطة الحضرية المتعلمة، التي قد تنسحب تماماً من العملية الانتخابية. وعلى المدى الطويل، يهدد هذا بالعودة إلى نظام المحسوبية العشائرية الكلاسيكي لإدارة منطقة العاصمة والأراضي المحيطة بها. قد تؤدي عمليات التطهير الداخلية في الجهاز الحزبي إلى انقسام لا رجعة فيه وفقدان السيطرة على التدفقات المالية البلدية. هذا مثال كلاسيكي على التدهور المؤسسي، حيث يتم احتكار أدوات مكافحة الفساد وتصبح رهائن بحد ذاتها.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-fl-3">
-          <button class="article-trigger" id="btn-fl-3" aria-expanded="true" aria-controls="body-fl-3">
-            <span class="art-idx">03</span>
-            <span class="art-title">لداخ: ترتيب غير ديمقراطي</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-fl-3" role="region" aria-labelledby="btn-fl-3">
-            <div class="body-inner">
-              <p>يتميز نظام الحكم الحالي في منطقة لداخ الاستراتيجية بأنه نموذج غير ديمقراطي إلى حد كبير ينتهك عمداً الحقوق الأساسية للسكان المدنيين المحليين. ويتمثل العامل الرئيسي في التوتر المتزايد في حرمان المنطقة من التمثيل الكامل والاستقلال المالي المؤسسي. المستفيدون غير المشروطين في هذا الشكل هم الهياكل البيروقراطية المركزية في نيودلهي، التي تعزز سيطرتها المباشرة والمطلقة على الإقليم. أما الطرف الخاسر فهو السكان الأصليون، المستبعدون إدارياً من عمليات صنع القرار السيادي فيما يتعلق بتخصيص الموارد والأراضي المحلية. ويُملى دافع المركز الفيدرالي بالكامل من خلال اعتبارات الأمن القومي وعسكرة المنطقة الحدودية على حساب القانون المدني الداخلي. وتُعد هذه إشارة سلبية للغاية للمؤسسات القضائية والحقوقية، حيث تشهد على استعداد الدولة للتضحية بالديمقراطية من أجل السيطرة الجيوسياسية الشاملة. بالنسبة للأسواق السياسية، يُعد هذا مؤشراً واضحاً على تصاعد التقلبات في المناطق الحدودية، حيث يمكن أن تؤدي الإملاءات الإدارية الصارمة إلى إثارة أعمال شغب في أي لحظة. ويتلقى المستثمرون في السياحة والبنية التحتية المحلية إشارة على وجود مخاطر باهظة مرتبطة بغياب قاعدة تعاقدية محلية شرعية. الخطر الرئيسي هو التطرف السريع لسكان لداخ، الذين أظهروا تاريخياً ولاءً عالياً للحكومة الهندية المركزية. إن القمع القسري والمصطنع للنشاط السياسي والاقتصادي سيؤدي حتماً إلى زعزعة استقرار اجتماعي خفي ولكنه قوي في المنطقة. وعلى المدى الطويل، فإن هذا الخلل المؤسسي المُصطنع يضعف بشكل حرج موقف الهند في مواجهة عسكرية افتراضية مع الدول المجاورة. إن الحكم من خلال الإدارة الاستعمارية المباشرة في منطقة عرقية معقدة يثبت فشله الاستراتيجي المطلق.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-fl-4">
-          <button class="article-trigger" id="btn-fl-4" aria-expanded="true" aria-controls="body-fl-4">
-            <span class="art-idx">04</span>
-            <span class="art-title">البنجاب: الجريمة والأسطورة والدولة</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-fl-4" role="region" aria-labelledby="btn-fl-4">
-            <div class="body-inner">
-              <p>تتفاقم أزمة حكم غير مسبوقة في البنجاب، حيث تتشابك مشكلة الجريمة المنظمة عضوياً مع الأساطير الاجتماعية والخلل الوظيفي في أجهزة الدولة. الحدث الرئيسي هو عدم قدرة السلطات بحكم الواقع على الحفاظ على احتكار العنف، والتخلي عن المبادرة العملياتية لشبكات إجرامية مدججة بالسلاح. وتفوز هياكل الظل وسلطات القوة المحلية في هذا السياق، مستفيدة بشكل متسارع من نفوذها بسبب فساد وعدم كفاءة الشرطة المحلية. وتخسر مؤسسات الاقتصاد القانوني والمواطنون العاديون، الذين يضطرون إلى دفع إيجار مزدوج، إجرامي وبيروقراطي، بشكل يومي. يرتبط الدافع الاستراتيجي للجماعات الإجرامية بفرض سيطرة محكمة على التدفقات اللوجستية واقتصاد الظل في أغنى منطقة زراعية في البلاد. بالنسبة لمؤسسات الدولة، تُعد هذه إشارة إلى فشل منهجي حرج في بنية إنفاذ القانون وتغلغل أعمق للجريمة في المراتب العليا للسلطة. وعلى مستوى الاقتصاد الكلي، يعمل هذا كعلامة توقف تام لأي استثمار رأسمالي جاد في صناعة وتكنولوجيا الولاية. وتُضطر الشركات القانونية إلى إدراج تكاليف متضخمة للأمن الخاص والمدفوعات التشغيلية غير الرسمية في نماذجها المالية. يكمن خطر الدولة الرئيسي في الاندماج الحتمي لعصابات الجريمة المعززة مع الحركات الإقليمية الانفصالية أو السياسية المتطرفة. إن إضفاء الطابع الأسطوري والرومانسي على المجرمين في الوعي الجماهيري يخلق سابقة اجتماعية مدمرة للشباب المحرومين من آفاق الكسب القانوني. وإذا لم تستعد الدولة الفيدرالية سلطتها المؤسسية بشكل عاجل، فإن المنطقة تخاطر بالتحول إلى منطقة اقتصاد إجرامي سيادي. وهذا يهدد مباشرة الأمن اللوجستي والغذائي الداخلي للجزء الشمالي بأكمله من الدولة الهندية.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-fl-5">
-          <button class="article-trigger" id="btn-fl-5" aria-expanded="true" aria-controls="body-fl-5">
-            <span class="art-idx">05</span>
-            <span class="art-title">خطة غير سليمة لسلسلة التلال المركزية في دلهي</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-fl-5" role="region" aria-labelledby="btn-fl-5">
-            <div class="body-inner">
-              <p>تمثل مبادرات التحول التجاري لمنطقة غابات "سنترال ريدج" (Central Ridge) في نيودلهي مشروعاً مدمراً بيئياً وغير سليم من الناحية الحضرية. الحقيقة الأساسية هي محاولة هجومية لتطوير البنية التحتية لآخر منطقة خضراء عازلة كبيرة في العاصمة، متجاوزة اللوائح البيئية الحالية. المستفيدون الرئيسيون من المشروع هم بشكل علني شركات البناء وجماعات الضغط من المطورين الذين يسعون للوصول إلى أراضي العاصمة النادرة والباهظة الثمن. الخاسر غير المشروط هو النظام البيئي الهش للمدينة وملايين من سكانها، الذين يفقدون بشكل دائم حاجز حماية بالغ الأهمية ضد تلوث الهواء. يعتمد دافع المسؤولين الذين يضغطون من أجل هذه الخطة بتهكم على تحقيق مكاسب رأسمالية قصيرة الأجل من الأراضي وامتصاص ميزانيات ضخمة للبنية التحتية. بالنسبة للمؤسسات المدنية، تُعد هذه إشارة مقلقة للغاية بأن المعايير البيئية الصارمة يتم تفكيكها بسهولة تحت ضغط مصالح رأس المال العقاري الكبير. في سوق العقارات بالعاصمة، يشير هذا إلى استعداد السلطات الفاسدة لمراجعة أي تقسيم للمناطق لصالح التنمية العمرانية الكثيفة. بالنسبة لمستثمري الحوكمة البيئية والاجتماعية وحوكمة الشركات (ESG) الغربيين، فإن المشاركة في مثل هذه المشاريع ستعني خسائر فادحة في السمعة وعقبات محتملة من قبل الهيئات التنظيمية البيئية الدولية. تشمل العواقب المباشرة المحتملة تدهوراً كارثياً لا رجعة فيه في المناخ المحلي واستنزاف إمدادات المياه الجوفية في واحدة من أكثر مدن العالم كثافة سكانية. إن خطر العوائق القضائية الحتمية لسنوات طويلة للمشروع من قبل نشطاء البيئة يجعل أي استثمارات في هذه المنطقة أصولاً شديدة السمية. يوضح هذا الصراع على الأراضي بوضوح وجود أزمة مؤسسية في التخطيط الحضري، حيث يقضي الربح اللحظي تماماً على أهداف التنمية المستدامة. وعلى المدى الطويل، يؤدي اتخاذ مثل هذه القرارات التخطيطية الحضرية إلى انخفاض سريع في الجاذبية الاستثمارية العالمية لنيودلهي.</p>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <!-- ════════════════════════ THE WEEK ════════════════════════ -->
-      <section class="outlet-section">
-        <div class="outlet-header">
-          <h2>THE WEEK</h2>
-          <div class="outlet-tags">US ELECTIONS • GLOBAL ECONOMY • MEDIA • GEOPOLITICS</div>
-        </div>
-
-        <article class="article-item" id="art-wk-1">
-          <button class="article-trigger" id="btn-wk-1" aria-expanded="true" aria-controls="body-wk-1">
-            <span class="art-idx">01</span>
-            <span class="art-title">محو مقاطعات الأقليات</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-wk-1" role="region" aria-labelledby="btn-wk-1">
-            <div class="body-inner">
-              <p>تؤدي المبادرات التشريعية العدوانية لمحو دوائر تصويت الأقليات إلى تغيير جوهري في بنية التمثيل الانتخابي في الولايات المتحدة. الحقيقة الأساسية هي التغييرات الإدارية المتعمدة للحدود (جيريمانديرنج) والتي تهدف إلى التخفيف المتعمد للوزن السياسي للجماعات العرقية والإثنية. المستفيد الرئيسي من هذه العملية هو الحزب السياسي المهيمن في الولاية، الذي يرسخ بشكل مصطنع ودائم أغلبيته المطلقة في الهيئات التشريعية. وتخسر الأقليات القومية، حيث يتم تقليص قدرتها الدستورية على التأثير في السياسة والضغط القانوني من أجل مصالح ميزانيتها إلى هامش خطأ إحصائي. الدافع الأساسي للمبادرين هو الاحتفاظ الإداري البحت بالسلطة وسط اتجاهات ديموغرافية غير مواتية وتحولات بين الأجيال. بالنسبة للمؤسسات السياسية الفيدرالية، تُعد هذه إشارة خطيرة للغاية على تدهور الضوابط والتوازنات الديمقراطية والانتقال إلى الحكم التلاعبي. على مستوى السوق والبلديات، سيعني هذا انخفاضاً حاداً في تمويل البنية التحتية والبرامج الاجتماعية في المناطق ذات الكثافة العالية للأقليات. يجب على المستثمرين المؤسسيين أن يأخذوا في الحسبان خطراً دائماً بعدم الاستقرار القانوني، حيث سيتم الطعن في مثل هذه القرارات إلى ما لا نهاية وصولاً إلى المحكمة العليا. يتمثل خطر الدولة الرئيسي في التطرف العميق للمجموعات الديموغرافية المهمشة، التي تفقد الثقة بشكل دائم في الأدوات الانتخابية العادلة. وعلى المدى الطويل، يضخم هذا بشكل جذري الاستقطاب السياسي الداخلي ويقلل بشكل حرج من مرونة نظام الحكم في البلاد. ويؤدي الاستبعاد المنهجي لطبقات انتخابية بأكملها من عملية اتخاذ القرارات التوزيعية إلى أزمة شرعية حادة للسلطة الإقليمية. وفي النهاية، فإن محاولات النخبة لتجميد هيمنتها السياسية إدارياً تخلق أرضية مثالية لصراعات مدنية واسعة النطاق.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-wk-2">
-          <button class="article-trigger" id="btn-wk-2" aria-expanded="true" aria-controls="body-wk-2">
-            <span class="art-idx">02</span>
-            <span class="art-title">أنتِ تهمين يا مياه</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-wk-2" role="region" aria-labelledby="btn-wk-2">
-            <div class="body-inner">
-              <p>أصبحت ندرة المياه المتزايدة والمنافسة الشرسة على تخصيصها العنصر المركزي والأكثر كثافة في أجندة الاقتصاد الكلي العالمي. الحدث الرئيسي هو تحول مفاهيمي من النظر إلى المياه ليس فقط كحق أساسي من حقوق الإنسان، بل كأصل استراتيجي ذي هامش ربح مرتفع. المستفيدون الرئيسيون من هذه الأساليب الجديدة هم الشركات عبر الوطنية الكبيرة التي تمتلك تقنيات التنقية والمشترين المؤسسيين لحقوق المياه. وتخسر المناطق الزراعية التقليدية والمستهلكون العاديون، حيث سترتفع تكلفة هذا المورد الحيوي بشكل مضاعف دون بدائل. دافع المضاربين في السوق هو تعظيم الربح من خلال الاستفادة من الندرة المادية وسط تغير مناخي عالمي لا رجعة فيه. بالنسبة لمؤسسات الدولة، يمثل هذا جرس إنذار يشير إلى الحاجة الملحة لفرض حصص إدارية صارمة والتأميم المحتمل للبنية التحتية للمياه. في الأسواق المالية، تتشكل دورة فائقة جديدة الآن: تتحول المياه قانونياً إلى سلعة استثمارية، قابلة للمقارنة في الربحية والأهمية بالمواد الهيدروكربونية. ويتلقى القطاع الزراعي تحذيراً نهائياً من زيادة انفجارية وشيكة في التكاليف التشغيلية وضرورة الانتقال الطارئ إلى الزراعة المائية ذات الدورة المغلقة. تكمن المخاطر الرئيسية في الجغرافيا السياسية، حيث يؤدي استخدام المسطحات المائية العابرة للحدود بشكل متزايد إلى إثارة اشتباكات مسلحة مباشرة بين الدول. داخل الدول النامية، يهدد تسويق وخصخصة الوصول إلى مياه الشرب بإشعال أعمال شغب اجتماعية عارمة لا يمكن السيطرة عليها. وسيؤدي الافتقار إلى إطار تنظيمي متوازن دولياً إلى جعل قطاع المياه منطقة للمضاربات في الأسهم الأكثر عدوانية خلال العقد. ولن يتم تحديد الموارد السيادية والسياسية للدولة في السنوات القادمة من خلال احتياطيات النفط، بل حصرياً من خلال التوازنات المائية الداخلية.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-wk-3">
-          <button class="article-trigger" id="btn-wk-3" aria-expanded="true" aria-controls="body-wk-3">
-            <span class="art-idx">03</span>
-            <span class="art-title">هل هذا هو كوفيد الجديد؟ تفشي فيروس هانتا على متن السفينة إم في هونديوس</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-wk-3" role="region" aria-labelledby="btn-wk-3">
-            <div class="body-inner">
-              <p>أثار تفشي فيروس هانتا المفاجئ على متن السفينة السياحية إم في هونديوس نقاشات سوقية مذعورة حول مدى استعداد العالم لمواجهة جائحة مدمرة أخرى. الحقيقة الأساسية هي الإجلاء السريع وغير المسبوق للركاب، مما كشف مرة أخرى عن الهشاشة الحرجة لبروتوكولات السلامة البيولوجية في لوجستيات السياحة. ويشمل المستفيدون في هذا الموقف على الفور شركات الأدوية والشركات المصنعة لمعدات الحماية الطبية، التي ارتفعت أسهمها بناءً على توقعات مضاربة. وتصبح شركات السياحة البحرية والطيران عبر الوطنية تلقائياً هي الخاسر، حيث تخاطر مرة أخرى بإغلاقات تدمر الأعمال. ينحصر دافع الهيئات التنظيمية الحكومية في أقصى درجات التأمين المفرط والاحتواء الصارم لأي تهديد محتمل لمنع الاتهامات السياسية بالتقاعس الجنائي. الإشارة الموجهة للأسواق متوترة للغاية: يقوم المستثمرون الخوارزميون على الفور بتسعير الحد الأقصى للقسط لخطورة شلل التجارة العالمية. وعلى العكس من ذلك، تتلقى مؤسسات الصحة العالمية ذريعة مثالية للمطالبة بزيادة الميزانيات بشكل كبير وتوسيع سلطات الرقابة فوق الوطنية. ستُضطر شركات التأمين الكبرى إلى مراجعة شروط العقود الأساسية بشكل عاجل، مع استبعاد أو زيادة تكلفة التغطية بشكل كبير لأي قوة قاهرة وبائية. الخطر الاقتصادي الكلي الرئيسي هو الانهيار المتسلسل المحتمل لسلاسل التوريد عبر الحدود بسبب ردود الفعل المذعورة غير المنسقة من قبل الحكومات الوطنية. وتهدد العواقب الاجتماعية لمثل هذه الحوادث بدورة مدمرة جديدة من الأوبئة المعلوماتية والذهان الجماعي، مما يقوض بشكل قاطع الثقة في الطب الرسمي. حتى لو تم احتواء هذا التفشي المحدد بنجاح، فإن السابقة نفسها تظهر عدم التسامح المطلق للاقتصاد المعولم مع مسببات الأمراض الجديدة. ويملي الوضع حاجة ملحة لتغيير جذري في بنية الأمن المعدي بأكملها في سفر الركاب الدولي.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-wk-4">
-          <button class="article-trigger" id="btn-wk-4" aria-expanded="true" aria-controls="body-wk-4">
-            <span class="art-idx">04</span>
-            <span class="art-title">تيد تيرنر: قطب الإعلام الذي أعاد صياغة الأخبار</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-wk-4" role="region" aria-labelledby="btn-wk-4">
-            <div class="body-inner">
-              <p>يمثل رحيل تيد تيرنر، قطب الإعلام الذي غير بشكل جذري مشهد صناعة الأخبار، النهاية التاريخية القاطعة لحقبة في تشكيل الأجندة السياسية. الحقيقة الأساسية لإرث تيرنر هي التسويق الناجح لمفهوم البث الإخباري العالمي على مدار 24 ساعة، مما أدى إلى تسريع عمليات صنع القرار السياسي إلى الأبد. لعقود من الزمن، كانت النخب السياسية هي المستفيدة من هذا النموذج العدواني، حيث اكتسبت أداة غير مسبوقة للتأثير العاطفي اللحظي على عقول الناخبين عالمياً. وأثبتت مؤسسات التحليل الأكاديمي العميق والدبلوماسية التقليدية أنها الخاسرة، حيث تم تقليل قيمة عملها الدؤوب تماماً بسبب ضغط الأحداث الإخبارية العابرة والمثيرة. كان دافع تيرنر الأولي تجارياً بحتاً—احتكار اهتمام الجمهور وميزانيات المعلنين من خلال محتوى قلق مستمر يتم الحفاظ عليه بشكل مصطنع. بالنسبة لأسواق الأسهم الحديثة، يشير هذا النعي إلى أزمة عميقة في الشكل التلفزيوني الكلاسيكي، مما يؤدي بسرعة إلى التنازل عن القيمة الرأسمالية للشبكات الاجتماعية الخوارزمية. وتضطر المؤسسات السياسية إلى الاعتراف بألم بأن عصر احتكار المعلومات المركزي والخاضع للرقابة الذي أنشأه مثل هؤلاء الأقطاب قد ولى إلى الأبد. يقوم المستثمرون في قطاع الإعلام بإعادة تقييم واسعة النطاق لتقييم شركات الأخبار التقليدية، مدركين تماماً الاستنفاد التاريخي الكامل لنموذج أعمالهم الثقيل. الخطر هو أن التشرذم الحالي للمشهد الإعلامي في أعقاب انهيار الإمبراطوريات التلفزيونية يؤدي إلى تدمير خطير لنظرة موحدة قائمة على التوافق بين الجمهور. إن غياب أصحاب رؤى إعلامية جديدة على نطاق مماثل يترك سوق المعلومات في معركة فوضوية وغير منضبطة، وغالباً ما تكون مدمرة من أجل النقرات. إرث تيرنر متناقض بشدة: لقد وحّد العالم تكنولوجياً بتيار من الأخبار، لكنه أرسى أسساً صلبة لتصور مجتزأ وسطحي للواقع. إن وفاة مؤسس شبكة سي إن إن (CNN) تمثل رمزياً نقطة اللاعودة المطلقة للعصر الذهبي للضغط السياسي التلفزيوني المباشر.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="article-item" id="art-wk-5">
-          <button class="article-trigger" id="btn-wk-5" aria-expanded="true" aria-controls="body-wk-5">
-            <span class="art-idx">05</span>
-            <span class="art-title">من يملك الأوراق؟ لماذا لن تقبل إيران شروط ترامب</span>
-            <span class="toggle-icon" aria-hidden="true">▼</span>
-          </button>
-          <div class="article-body" id="body-wk-5" role="region" aria-labelledby="btn-wk-5">
-            <div class="body-inner">
-              <p>يشير رفض طهران الأساسي لقبول الشروط القاسية لإدارة دونالد ترامب القادمة إلى ركود خطير وطويل الأمد في اللعبة الدبلوماسية الشرق أوسطية. الحقيقة الأساسية هي عدم استعداد إيران المؤسسي لتقديم أي تنازلات استراتيجية أحادية الجانب تحت ضغط غير مسبوق من إنذارات العقوبات الأمريكية. ويفوز المنافسون المباشرون للولايات المتحدة، مثل الصين وروسيا، في هذا المأزق الجيوسياسي، حيث يكتسبون الفرصة لشراء نفط رخيص وزيادة نفوذهم في الخليج العربي. وتخسر المؤسسات السياسية الأوروبية وسوق الطاقة العالمية، وتبقى رهينة للتهديد المستمر بالتصعيد العسكري حول مضيق هرمز الحيوي. يعتمد دافع القيادة الإيرانية بالكامل على الحاجة إلى الحفاظ على الشرعية السياسية المحلية للنظام وحماية برنامجه النووي باعتباره الضامن الحقيقي الوحيد للسيادة. بالنسبة للمؤسسة السياسية في واشنطن، يشير عناد طهران إلى فشل كامل لاستراتيجية "الضغط الأقصى" واستنفاد أدوات الابتزاز الاقتصادي المتاحة. في أسواق الهيدروكربونات، تُعد هذه إشارة صعودية أساسية طويلة الأجل، تجبر المتداولين على تسعير علاوة جيوسياسية عالية باستمرار في كل برميل نفط. ويتلقى المستثمرون المؤسسيون تأكيداً واضحاً على عدم الاستقرار الدائم في الشرق الأوسط، مما يحفز هروب رأس المال الحر إلى الملاذات الآمنة التقليدية. وترتفع مخاطر السيناريو العسكري المباشر بشكل مضاعف، حيث إن الافتقار إلى مساحة للمناورة الدبلوماسية يترك الأطراف المتصارعة بخيارات قوة حصرية. بالنسبة لإسرائيل والملكيات العربية الموالية، يعني هذا المأزق حتمية اندلاع دورة جديدة من سباقات التسلح المدمرة وتصعيد حاد للصراعات بالوكالة على حدودها. توضح إيران للعالم أجمع أنها مستعدة لتحمل أي ضرر اقتصادي كارثي من أجل البقاء الاستراتيجي ووضع القوة الإقليمية. وبالتالي، فإن بنية حظر الانتشار النووي العالمية على وشك الانهيار النهائي الذي لا رجعة فيه تحت وطأة التناقضات غير القابلة للحل.</p>
-            </div>
-          </div>
-        </article>
-      </section>
-
-    </main>
-  </div><!-- /.container -->
-
-  <!-- ── Newsletter ── -->
-  <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
-    <h3 class="nebula-title" id="newsletter-heading">وصول آمن للتقرير</h3>
-    <div class="form-container">
-      <div class="newsletter-form-wrapper">
-        <form class="newsletter-form" id="newsletterForm"
-              action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
-          <div class="input-group">
-            <div class="nebula-input">
-              <label for="emailInput" class="sr-only">البريد الإلكتروني</label>
-              <input type="email" id="emailInput" name="email" autocomplete="email"
-                     class="input" placeholder="البريد الإلكتروني"
-                     aria-describedby="formErrorMsg" />
-              <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>
-            </div>
-            <button class="subscribe-button" type="submit">اشتراك</button>
-          </div>
-          <div class="form-error-msg" id="formErrorMsg" role="alert" aria-live="polite"></div>
-        </form>
-
-        <div class="success-message" id="successMessage" role="alert" aria-live="assertive">
-          <div style="width:70px;height:70px;margin:0 auto 20px;">
-            <svg viewBox="0 0 52 52" aria-hidden="true">
-              <circle class="checkmark-circle" cx="26" cy="26" r="25"/>
-              <path   class="checkmark-check"  fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-            </svg>
-          </div>
-          <h4 style="font-family:'Cairo';margin-bottom:5px;">تم منح الوصول</h4>
-          <p  style="font-size:14px;color:#4B5563;">تم إنشاء قناة مشفرة.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Deep Press Analysis. جميع الحقوق محفوظة.</p>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="https://deeppressanalysis.com/ar/archive" class="btn-text">الوصول للأرشيف</a>
-      <a href="https://deeppressanalysis.com/manifesto"  class="btn-text">البيان</a>
-    </nav>
-
-    <!-- ── Web3 Support Section ── -->
-    <div class="container" style="padding-top: 40px; padding-bottom: 0;">
-      <div class="support-section">
-        <div class="support-title-wrapper">
-          <div class="live-dot"></div>
-          <div class="support-title">دعم المشروع المستقل</div>
-        </div>
-
-        <div class="crypto-grid">
-          <div class="crypto-card">
-            <div class="crypto-header">
-              <span class="crypto-name eth">Ethereum</span>
-            </div>
-            <input type="text" class="crypto-address" value="0x7b8318ce0788cAdDF398035A65EFDB30a262cae5" aria-label="عنوان محفظة الإيثيريوم" readonly />
-          </div>
-          <div class="crypto-card">
-            <div class="crypto-header">
-              <span class="crypto-name btc">Bitcoin</span>
-            </div>
-            <input type="text" class="crypto-address" value="bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu" aria-label="عنوان محفظة البيتكوين" readonly />
-          </div>
-          <div class="crypto-card">
-            <div class="crypto-header">
-              <span class="crypto-name sol">Solana</span>
-            </div>
-            <input type="text" class="crypto-address" value="98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq" aria-label="عنوان محفظة سولانا" readonly />
-          </div>
-          <div class="crypto-card">
-            <div class="crypto-header">
-              <span class="crypto-name trx">Tron</span>
-            </div>
-            <input type="text" class="crypto-address" value="TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z" aria-label="عنوان محفظة ترون" readonly />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hidden SEO Links -->
-    <div style="display: none;" aria-hidden="true">
-      <a href="https://deeppressanalysis.com/editorial-policy.html">السياسة التحريرية</a>
-    </div>
-  </footer>
-
-  <!--
+<div class="container">
+<div class="top-toolbar">
+<nav aria-label="اختيار اللغة" class="lang-bar">
+<a aria-label="النسخة الأوكرانية" class="lang-link" href="/ua/" hreflang="uk">UA</a>
+<a aria-label="النسخة الإنجليزية" class="lang-link" href="/en/" hreflang="en">EN</a>
+<a aria-label="النسخة الإسبانية" class="lang-link" href="/es/" hreflang="es">ES</a>
+<a aria-current="page" aria-label="النسخة العربية" class="lang-link active" href="/ar/" hreflang="ar">AR</a>
+<a aria-label="النسخة الروسية" class="lang-link" href="/ru/" hreflang="ru">RU</a>
+<a aria-label="النسخة الألمانية" class="lang-link" href="/de/" hreflang="de">DE</a>
+</nav>
+<nav aria-label="روابط التواصل الاجتماعي" class="social-row">
+<a aria-label="إرسال بريد إلى Deep Press Analysis" class="social-btn" href="mailto:info@deeppressanalysis.com" title="البريد الإلكتروني">
+<img alt="Email" height="16" src="https://deeppressanalysis.com/cloude/e.png" width="16"/>
+</a>
+<a aria-label="زيارة قناة تيليغرام" class="social-btn" href="https://t.me/DeepPressAnalysis" rel="noopener noreferrer" target="_blank" title="Telegram">
+<img alt="Telegram" height="16" src="https://deeppressanalysis.com/cloude/tg.png" width="16"/>
+</a>
+<a aria-label="زيارة ملف Threads" class="social-btn" href="https://www.threads.com/@deeppressanalysis" rel="noopener noreferrer" target="_blank" title="Threads">
+<img alt="Threads" height="16" src="https://deeppressanalysis.com/cloude/th.png" width="16"/>
+</a>
+<a aria-label="زيارة قناة يوتيوب" class="social-btn" href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" rel="noopener noreferrer" target="_blank" title="YouTube">
+<img alt="YouTube" height="16" src="https://deeppressanalysis.com/cloude/you.png" width="16"/>
+</a>
+</nav>
+</div>
+<header>
+<div class="meta-issue">المجلد 26 • العدد 134 • <time datetime="2026-05-18">18 مايو 2026</time></div>
+<h1 class="site-title">DEEP PRESS ANALYSIS</h1>
+<div class="subtitle">توليفة يومية من أبرز المنشورات الدولية</div>
+<div class="briefing-summary">
+<p><strong>في بؤرة الاهتمام اليوم:</strong> الأثر الممتد لإغلاق مضيق هرمز على أسواق الطاقة العالمية، وتحول المحافظين الأميركيين نحو حمائية أقرب إلى النموذج الأوروبي، وتسليع استكشاف الفضاء الخاص، وتوسع هاسبرو الهجومي بعلامة مونوبولي إلى أسواق التجارب العالمية.</p>
+</div>
+</header>
+<main>
+<div aria-label="تشغيل بودكاست Deep Press Analysis على سبوتيفاي" class="spotify-fake-player" id="spotify-facade" role="button" tabindex="0">
+<div class="fake-cover">
+<img alt="Deep Press Analysis Podcast Cover" src="https://deeppressanalysis.com/logo.png"/>
+</div>
+<div class="fake-info">
+<div class="fake-meta">عرض بودكاست</div>
+<div class="fake-title">Deep Press Analysis</div>
+<div class="fake-desc">موجز صوتي يومي</div>
+</div>
+<button aria-label="تشغيل البودكاست" class="fake-play-btn" tabindex="-1">
+<svg aria-hidden="true" height="24" role="img" viewbox="0 0 24 24" width="24">
+<path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+</svg>
+</button>
+</div>
+<div id="spotify-real-container" style="margin-bottom:40px;"></div>
+<!-- ════════════════════════ BARRON'S ════════════════════════ -->
+<section class="outlet-section">
+<div class="outlet-header">
+<h2>BARRON'S</h2>
+<div class="outlet-tags">الاقتصاد العالمي • التكنولوجيا • الأسواق</div>
+</div>
+<article class="article-item" id="art-bar-1">
+<button aria-controls="body-bar-1" aria-expanded="true" class="article-trigger" id="btn-bar-1">
+<span class="art-idx">01</span>
+<span class="art-title">أزمة النفط لن تنتهي قريبًا</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-bar-1" class="article-body" id="body-bar-1" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية هنا هي إدراك أن تداعيات إغلاق مضيق هرمز ستكون أعمق وأطول مما كان متوقعًا. فهذا الانهيار اللوجستي سيواصل تأثيره حتى لو انتهى الصراع العسكري مع إيران سريعًا. المستفيدون الأبرز هم إحدى عشرة شركة طاقة متخصصة تحصل أسهمها على دفعة نمو قوية، إذ يمنحها تنوع الأصول والقدرة على جني أرباح استثنائية أثناء صدمة إمدادات قياسية ميزة استراتيجية واضحة. في المقابل، يواجه مستوردو الطاقة العالميون والقطاعات الصناعية خسائر كبيرة بسبب اعتمادهم الحرج على نفط شرق أوسطي رخيص ومتدفق بلا انقطاع. وتقف وراء الحدث مصالح جيوسياسية عميقة لقوى إقليمية تستخدم البنية التحتية للطاقة أداة ضغط. الدافع المركزي للمبادرين هو إلحاق ضرر اقتصادي لا يمكن إصلاحه بالخصوم عبر شل شريان بحري حيوي. وبالنسبة للأسواق العالمية، فهذا يعني أن علاوة المخاطر الجيوسياسية ستصبح جزءًا بنيويًا من أسعار الهيدروكربونات. ويرى اللاعبون المؤسسيون في هذا الاتجاه نهاية عصر استقرار الطاقة العالمي. أما المخاطر المحتملة فتشمل قفزة تضخمية ضخمة وإفلاسات متسلسلة في الصناعات المجاورة، وعلى المدى الطويل يهدد ذلك بتحول قسري ومؤلم اقتصاديًا في سلاسل الإمداد العالمية.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-bar-2">
+<button aria-controls="body-bar-2" aria-expanded="true" class="article-trigger" id="btn-bar-2">
+<span class="art-idx">02</span>
+<span class="art-title">6 طرق للاستثمار في مستقبل الحوسبة الكمّية</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-bar-2" class="article-body" id="body-bar-2" role="region">
+<div class="body-inner">
+<p>الحقيقة المحورية هي تحديد ست استراتيجيات استثمارية لدخول سوق الحوسبة الكمّية الناشئة. يرسخ هذا سابقة جديدة داخل قطاع التكنولوجيا المتقدمة، حيث تنتقل التقنية من مرحلة المختبر إلى أصل قابل للاستثمار. المستفيدون الرئيسيون هم شركات التكنولوجيا المتخصصة وصناديق رأس المال المغامر التي راهنت مبكرًا على البنى الكمّية، إذ تكسب ميزة استراتيجية عبر احتكار براءات الاختراع وجذب رأس المال المؤسسي في بداية نمو أسي للصناعة. في المقابل، تتحمل الشركات المعتمدة فقط على قوة الحوسبة الكلاسيكية مخاطر استراتيجية كبيرة بسبب اقتراب تقادم خوارزميات التشفير وأساليب معالجة البيانات التقليدية. تدفع هذا القطاع مصالح مالية عميقة للدول والشركات العابرة للحدود. أما الدافع الأساسي للفاعلين الكبار فهو بلوغ تفوق تكنولوجي مطلق وهيمنة سيبرانية. وبالنسبة للأسواق، تمثل هذه الإشارة بداية دورة إنفاق رأسمالي فائقة على عتاد الجيل التالي. ويفهم المستثمرون المؤسسيون الاتجاه كدعوة لإعادة وزن المحافظ نحو التكنولوجيا العميقة. تشمل المخاطر تضخم فقاعة حول شركات بلا نماذج تجارية قابلة للتطبيق، وعلى المدى الطويل قد ينقسم السوق بحدة بين محتكرين من عصر الكمّية وخارجين من قطاع تقنية المعلومات التقليدي.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-bar-3">
+<button aria-controls="body-bar-3" aria-expanded="true" class="article-trigger" id="btn-bar-3">
+<span class="art-idx">03</span>
+<span class="art-title">لم يفت الأوان بعد لشراء قصة نمو إنفيديا في الذكاء الاصطناعي</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-bar-3" class="article-body" id="body-bar-3" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية هي توقع تحليلي يشير إلى احتمال ارتفاع سهم إنفيديا بنسبة 50%. يؤكد هذا التوقع استمرار دورة نمو رسملة غير مسبوقة للشركة الرائدة في رقائق الذكاء الاصطناعي. المستفيدون الرئيسيون هم مساهمو إنفيديا الحاليون والصناديق المركزة على قطاع أشباه الموصلات، إذ يحققون ميزة مالية عبر استمرار موقع الشركة شبه الاحتكاري في سوق الحوسبة عالية الأداء. في المقابل، قد يتكبد المستثمرون المؤسسيون الذين راهنوا مبكرًا على هبوط السهم أو المبالغة في تقييمه خسائر كبيرة. وتكمن هشاشتهم في التقليل من الطلب الحقيقي على بنية عتاد الشبكات العصبية. وراء الظاهرة مصالح استثمارية هائلة من عمالقة التكنولوجيا الذين يشترون قوة الحوسبة بقوة. ودافعهم الرئيسي هو سباق الهيمنة في الذكاء الاصطناعي التوليدي. وبالنسبة لأسواق المال، فهذه إشارة مباشرة إلى أن سقف الطفرة التكنولوجية لم يُبلغ بعد. يحصل المستثمرون المؤسسيون على مؤشر على صلابة نموذج أعمال يبيع أدوات حمى الذهب الرقمية. وتشمل المخاطر تصحيحًا حادًا إذا تباطأ توسع مراكز البيانات قليلًا، وعلى المدى الطويل قد يسخن مؤشر أشباه الموصلات كله إذا تغيرت معماريات خوارزميات الذكاء الاصطناعي جذريًا.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-bar-4">
+<button aria-controls="body-bar-4" aria-expanded="true" class="article-trigger" id="btn-bar-4">
+<span class="art-idx">04</span>
+<span class="art-title">كيف يقرر ناخبو العملات المشفرة نتائج مناظرات بوليماركت</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-bar-4" class="article-body" id="body-bar-4" role="region">
+<div class="body-inner">
+<p>الحقيقة الرئيسية في المادة هي تنامي تأثير حائزي العملات المشفرة في نتائج النقاشات السياسية والاجتماعية عبر منصة التنبؤ بوليماركت. تخلق هذه السابقة واقعًا جديدًا تتقاطع فيه المالية اللامركزية مباشرة مع التنبؤ السياسي. المستفيدون الأساسيون هم متداولو العملات المشفرة ومهندسو منصات التنبؤ اللامركزية، إذ يحققون ميزة استراتيجية عبر تسييل الاضطراب السياسي وتجميع المعلومات الداخلية في صورة رهانات سوقية. في الوقت نفسه تتحمل وكالات الاستطلاع التقليدية ومعاهد الرأي العام كلفة سمعة كبيرة، لأن منهجياتها تبدو بطيئة مقارنة برد فعل فوري لحشد تحركه الحوافز المالية. وراء العملية تقف مصالح حيتان كبرى قادرة على تغيير احتمالات التوقع بحقن سيولة ضخمة. الدافع الجوهري هو استخراج أرباح المراجحة وتشكيل خلفية معلوماتية مرغوبة حول المرشحين. وبالنسبة للمؤسسات السياسية، فهذا يشير إلى أداة جديدة للتلاعب أو لتقييم الفرص الانتخابية الفعلية. وينظر المنظمون الماليون إلى الاتجاه كتهديد لنزاهة العمليات الانتخابية بسبب نفوذ رأس المال غير المنضبط. وتشمل المخاطر تشويه الواقع السياسي عبر هجمات سوقية منسقة، وعلى المدى الطويل يهدد ذلك بتحويل الإجراءات الديمقراطية إلى لعبة تجارية كاملة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-bar-5">
+<button aria-controls="body-bar-5" aria-expanded="true" class="article-trigger" id="btn-bar-5">
+<span class="art-idx">05</span>
+<span class="art-title">أسعار البلاستيك المرتفعة جدًا تضغط على الشركات</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-bar-5" class="article-body" id="body-bar-5" role="region">
+<div class="body-inner">
+<p>الحدث الأساسي هو الارتفاع الحاد في أسعار البلاستيك، ما يفرض ضغطًا بالغًا على قطاع الشركات. هذه الحالة الماكرو اقتصادية الشاذة تعطل سلاسل الإمداد الراسخة في التعبئة والسلع الاستهلاكية. المستفيدون الرئيسيون هم شركات البتروكيماويات ومنتجو البوليمرات الأولية، إذ يكتسبون ميزة مالية بقدرتهم على فرض الأسعار وسط نقص المواد الخام وارتفاع التكاليف. بالتوازي، يتكبد مصنعو السلع الاستهلاكية الواسعة وسلاسل التجزئة خسائر مالية كبيرة، لأنهم لا يستطيعون تمرير الزيادات فورًا إلى المستهلك النهائي من دون خسارة الحصة السوقية. تقف وراء الصدمة اضطرابات لوجستية عالمية ومصالح مضاربية لتجار السلع. دافع موردي المواد الخام هو تعظيم الهوامش في ظل عرض محدود. بالنسبة للأسواق العالمية، تمثل هذه الظاهرة إشارة مقلقة إلى تشكل جيوب جديدة من التضخم الصناعي. ويرى المستثمرون المؤسسيون فيها تهديدًا لأرباح شركات السلع الاستهلاكية في الأرباع المقبلة. وتشمل المخاطر الكلية تسريع دوامة تضخمية تجبر البنوك المركزية على إبقاء السياسة النقدية مشددة. وقد يدفع ذلك الشركات مستقبلًا إلى انتقال أسرع نحو مواد تغليف بديلة لحماية الهوامش.</p>
+</div>
+</div>
+</article>
+</section>
+<!-- ════════════════════════ FRONTLINE ════════════════════════ -->
+<section class="outlet-section">
+<div class="outlet-header">
+<h2>FRONTLINE</h2>
+<div class="outlet-tags">السياسة • المجتمع • الثقافة</div>
+</div>
+<article class="article-item" id="art-fl-1">
+<button aria-controls="body-fl-1" aria-expanded="true" class="article-trigger" id="btn-fl-1">
+<span class="art-idx">01</span>
+<span class="art-title">البنغال الغربية: تسونامي صامت</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-fl-1" class="article-body" id="body-fl-1" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية هي فوز القوى السياسية الإقليمية في البنغال الغربية بفضل إيصال المنافع الاجتماعية بنجاح وبناء تحالفات محلية. تؤكد هذه السابقة صلابة التيارات الإقليمية في الهند وقدرتها على تجاوز السرديات السياسية الوطنية. المستفيدون الرئيسيون هم قادة الأحزاب المحلية الذين عززوا تفويض الثقة عبر البرامج الاجتماعية. فقد حصلوا على ميزة استراتيجية من الاستخدام الفعال لمعادلات الطبقات والمساعدة الاقتصادية الموجهة للسكان. في المقابل، يتكبد الحزب الفيدرالي الحاكم خسائر كبيرة في السمعة والانتخابات بسبب عجزه عن تقديم أجندة إقليمية تتفوق على فعالية الإدارة المحلية وحل مشكلات الحياة اليومية. خلف النتيجة تقف مصالح نخب محلية موحدة تسعى إلى حفظ الاستقلال السياسي عن المركز. دافع الناخبين عملي جدًا: توزيع الثروة وحماية الهوية المحلية. وبالنسبة للمؤسسات الوطنية، فهذه إشارة مباشرة إلى حدود المركزية وضرورة احترام السيادة الإقليمية. يراها المستثمرون علامة على استمرار بنية فيدرالية معقدة تعرقل التوحيد التشريعي السريع. وتشمل المخاطر تصاعد المواجهة بين الحكومة الإقليمية والمركز، وعلى المدى الطويل قد ينشأ اختلال مالي بسبب سباق شعبوي في الوعود الاجتماعية على مستوى الولايات.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-fl-2">
+<button aria-controls="body-fl-2" aria-expanded="true" class="article-trigger" id="btn-fl-2">
+<span class="art-idx">02</span>
+<span class="art-title">كيرالا: سقوط آخر قلعة لليسار</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-fl-2" class="article-body" id="body-fl-2" role="region">
+<div class="body-inner">
+<p>الحقيقة السياسية الرئيسية هي هزيمة التحالف اليساري في ولاية كيرالا، التي عُدت تاريخيًا معقله الأهم. يمثل الحدث تحولًا جوهريًا في المشهد الأيديولوجي للسياسة الإقليمية الهندية. المستفيدون الرئيسيون هم القوى الوسطية واليمينية التي نجحت في تفكيك احتكار سياسي طويل للتحالف الشيوعي. وقد اكتسبت ميزة استراتيجية من استثمار تعب الناخبين من الجهاز اليساري التقليدي ومن المظالم المحلية. في الوقت نفسه تتكبد البنى المؤسسية للأحزاب اليسارية خسائر كارثية. وترجع هشاشتها إلى التصلب الأيديولوجي وأزمة القيادة والعجز عن التحدث بلغة التطلعات الاقتصادية الجديدة. خلف هذا التحول تقف مصالح طبقة وسطى حضرية تبحث عن فرص نمو لا عن شعارات إعادة توزيع قديمة. الدافع الأساسي للناخبين هو الرغبة في كفاءة إدارية ووظائف واندماج أكبر في الاقتصاد الوطني. بالنسبة للمركز السياسي الهندي، يعد ذلك إشارة إلى تقلص المساحة الاجتماعية لليسار الكلاسيكي. ويرى المستثمرون النتيجة مؤشرًا على انفتاح ولاية معروفة بالحذر الأيديولوجي على سياسات أكثر مواتاة للأعمال. أما المخاطر فتشمل استقطابًا اجتماعيًا وصراعًا نقابيًا، وعلى المدى الطويل يهدد ذلك بزوال آخر مختبر كبير للحكم اليساري في الهند.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-fl-3">
+<button aria-controls="body-fl-3" aria-expanded="true" class="article-trigger" id="btn-fl-3">
+<span class="art-idx">03</span>
+<span class="art-title">آسام: تفويض مستقطب</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-fl-3" class="article-body" id="body-fl-3" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية هي صدور تفويض انتخابي شديد الاستقطاب في آسام، حيث أصبحت الهوية الدينية والإثنية العامل الحاسم. تؤكد السابقة أن السياسة الإقليمية في شمال شرق الهند تدخل مرحلة تعبئة جماعية حول الانتماء والحدود والهجرة. المستفيدون الرئيسيون هم القوى التي تبني خطابها على الأمن الثقافي وحماية الأغلبية المحلية، إذ تحصل على ميزة انتخابية عبر تحويل الخوف الديمغرافي إلى ولاء سياسي. في المقابل، تتحمل الأقليات والقوى الليبرالية خسائر تمثيلية عميقة لأن برامج التنمية وحدها لا تكفي لمواجهة تعبئة الهوية. خلف النتيجة تقف مصالح نخب محلية وفيدرالية تريد ضبط منطقة حساسة استراتيجيًا عبر خطاب الانضباط القومي. دافع الناخبين يتغذى من القلق بشأن الأرض واللغة والموارد وتوازن السكان. وبالنسبة للمؤسسات الوطنية، فهذه إشارة إلى أن إدارة التنوع في الهند تصبح أكثر هشاشة. المستثمرون يقرأون النتيجة كعلامة على استمرار الاستقرار الأمني الشكلي مع ارتفاع مخاطر الاضطراب الاجتماعي. وتشمل المخاطر تصاعد التمييز والهجرة الداخلية والتوترات الحدودية، وعلى المدى الطويل قد يرسخ ذلك نموذج حكم يقوم على الاستقطاب الدائم بدل التوافق المدني.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-fl-4">
+<button aria-controls="body-fl-4" aria-expanded="true" class="article-trigger" id="btn-fl-4">
+<span class="art-idx">04</span>
+<span class="art-title">لداخ: ترتيب غير ديمقراطي</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-fl-4" class="article-body" id="body-fl-4" role="region">
+<div class="body-inner">
+<p>الحقيقة الرئيسية هي استمرار ترتيب إداري في لداخ يُنظر إليه كغير ديمقراطي لأنه يضع القرار الفعلي في يد بيروقراطية مركزية بدل تمثيل محلي كامل. تكشف السابقة تناقضًا بين خطاب التنمية الحدودية وغياب المشاركة السياسية العميقة. المستفيدون الرئيسيون هم مؤسسات الدولة المركزية والأجهزة الأمنية التي تحصل على سيطرة مباشرة على منطقة استراتيجية حساسة قرب الصين وباكستان. تمنحها هذه السيطرة ميزة في إدارة الأرض والموارد والبنية التحتية من دون مفاوضات محلية معقدة. في المقابل، يخسر السكان المحليون والجماعات القبلية قدرة حقيقية على تقرير أولوياتهم البيئية والاقتصادية. تكمن هشاشتهم في الاعتماد على قرارات بعيدة عن الواقع الجبلي الهش. خلف الترتيب تقف مصالح أمنية ومعدنية وسياحية تريد تسريع المشاريع. أما الدافع المحلي المضاد فهو حماية الأرض والهوية والبيئة وحق التمثيل. وبالنسبة للهند، يرسل الملف إشارة إلى مخاطر إدارة الأطراف بالمنطق الأمني وحده. المستثمرون يرون فرص بنية تحتية، لكنهم يواجهون خطر احتجاجات وتعطيل قانوني. وعلى المدى الطويل قد يؤدي تجاهل الديمقراطية المحلية إلى أزمة ثقة في منطقة حدودية عالية الحساسية.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-fl-5">
+<button aria-controls="body-fl-5" aria-expanded="true" class="article-trigger" id="btn-fl-5">
+<span class="art-idx">05</span>
+<span class="art-title">بينالي البندقية: عودة الهند بعد غياب سبع سنوات</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-fl-5" class="article-body" id="body-fl-5" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية هي عودة الهند إلى بينالي البندقية بعد فجوة استمرت سبع سنوات، ما يحوّل المشاركة الثقافية إلى إشارة دبلوماسية ناعمة. تؤكد السابقة أن الفن المعاصر لم يعد مجرد مساحة جمالية، بل أداة لعرض المكانة الوطنية وتحديث الصورة العالمية للدولة. المستفيدون الرئيسيون هم الفنانون والقيّمون والمؤسسات الثقافية الهندية التي تستعيد الوصول إلى جمهور عالمي من جامعي الأعمال والمتاحف. يحصلون على ميزة استراتيجية عبر إدخال السرديات الهندية إلى سوق رمزي شديد التأثير. في المقابل، تتحمل البيروقراطية الثقافية القديمة كلفة انتقاد بسبب سنوات الغياب وسوء التنسيق. خلف العودة تقف مصالح دولة تريد تقديم الهند كقوة حضارية حديثة لا كسوق اقتصادية فقط. الدافع الجوهري هو تحويل رأس المال الثقافي إلى نفوذ دولي وجاذبية استثمارية. بالنسبة لسوق الفن، تمثل العودة مؤشرًا على توسع الطلب على فنون جنوب آسيا. أما المخاطر فتشمل تحويل الثقافة إلى حملة علاقات عامة أو إقصاء الأصوات النقدية. وعلى المدى الطويل قد تفتح المشاركة بابًا لبناء بنية مؤسسية أكثر احترافًا للفن الهندي عالميًا.</p>
+</div>
+</div>
+</article>
+</section>
+<!-- ════════════════════════ GEOPOLITICS ════════════════════════ -->
+<section class="outlet-section">
+<div class="outlet-header">
+<h2>GEOPOLITICS</h2>
+<div class="outlet-tags">الدفاع • التكنولوجيا • GEOالسياسة</div>
+</div>
+<article class="article-item" id="art-geo-1">
+<button aria-controls="body-geo-1" aria-expanded="true" class="article-trigger" id="btn-geo-1">
+<span class="art-idx">01</span>
+<span class="art-title">اندفاعة قوة الطائرات المسيّرة المحلية في الهند</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-geo-1" class="article-body" id="body-geo-1" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «اندفاعة قوة الطائرات المسيّرة المحلية في الهند» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-geo-2">
+<button aria-controls="body-geo-2" aria-expanded="true" class="article-trigger" id="btn-geo-2">
+<span class="art-idx">02</span>
+<span class="art-title">ثورة الفولاذ: دبابة الحرب الباردة تتراجع</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-geo-2" class="article-body" id="body-geo-2" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «ثورة الفولاذ: دبابة الحرب الباردة تتراجع» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-geo-3">
+<button aria-controls="body-geo-3" aria-expanded="true" class="article-trigger" id="btn-geo-3">
+<span class="art-idx">03</span>
+<span class="art-title">الحرب الخوارزمية: الذكاء الاصطناعي يعيد كتابة القواعد</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-geo-3" class="article-body" id="body-geo-3" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «الحرب الخوارزمية: الذكاء الاصطناعي يعيد كتابة القواعد» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-geo-4">
+<button aria-controls="body-geo-4" aria-expanded="true" class="article-trigger" id="btn-geo-4">
+<span class="art-idx">04</span>
+<span class="art-title">قوة الضربة السردية: تسليح الإدراك</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-geo-4" class="article-body" id="body-geo-4" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «قوة الضربة السردية: تسليح الإدراك» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-geo-5">
+<button aria-controls="body-geo-5" aria-expanded="true" class="article-trigger" id="btn-geo-5">
+<span class="art-idx">05</span>
+<span class="art-title">جاهز للإقلاع: مشروع مطارات أداني</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-geo-5" class="article-body" id="body-geo-5" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «جاهز للإقلاع: مشروع مطارات أداني» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+</section>
+<!-- ════════════════════════ NATIONAL REVIEW ════════════════════════ -->
+<section class="outlet-section">
+<div class="outlet-header">
+<h2>NATIONAL REVIEW</h2>
+<div class="outlet-tags">السياسة • US ELECTIONS • GEOالسياسة</div>
+</div>
+<article class="article-item" id="art-nr-1">
+<button aria-controls="body-nr-1" aria-expanded="true" class="article-trigger" id="btn-nr-1">
+<span class="art-idx">01</span>
+<span class="art-title">آفة العنف اليساري</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-nr-1" class="article-body" id="body-nr-1" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «آفة العنف اليساري» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-nr-2">
+<button aria-controls="body-nr-2" aria-expanded="true" class="article-trigger" id="btn-nr-2">
+<span class="art-idx">02</span>
+<span class="art-title">تحول قاري: كيف صار اليمين الأميركي أوروبيًا</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-nr-2" class="article-body" id="body-nr-2" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «تحول قاري: كيف صار اليمين الأميركي أوروبيًا» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-nr-3">
+<button aria-controls="body-nr-3" aria-expanded="true" class="article-trigger" id="btn-nr-3">
+<span class="art-idx">03</span>
+<span class="art-title">إصلاح الناتو: قوّوا التحالف ولا تحطموه</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-nr-3" class="article-body" id="body-nr-3" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «إصلاح الناتو: قوّوا التحالف ولا تحطموه» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-nr-4">
+<button aria-controls="body-nr-4" aria-expanded="true" class="article-trigger" id="btn-nr-4">
+<span class="art-idx">04</span>
+<span class="art-title">ألاسكا، جبهة المعادن</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-nr-4" class="article-body" id="body-nr-4" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «ألاسكا، جبهة المعادن» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-nr-5">
+<button aria-controls="body-nr-5" aria-expanded="true" class="article-trigger" id="btn-nr-5">
+<span class="art-idx">05</span>
+<span class="art-title">رأسمالية الفضاء الجديدة: الطريق الريادي إلى النجوم</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-nr-5" class="article-body" id="body-nr-5" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «رأسمالية الفضاء الجديدة: الطريق الريادي إلى النجوم» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+</section>
+<!-- ════════════════════════ NEWSWEEK ════════════════════════ -->
+<section class="outlet-section">
+<div class="outlet-header">
+<h2>NEWSWEEK</h2>
+<div class="outlet-tags">الاقتصاد العالمي • التكنولوجيا • اللوجستيات</div>
+</div>
+<article class="article-item" id="art-nw-1">
+<button aria-controls="body-nw-1" aria-expanded="true" class="article-trigger" id="btn-nw-1">
+<span class="art-idx">01</span>
+<span class="art-title">بريطانيا الحمقاء: لماذا لم تعد بريطانيا عظيمة</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-nw-1" class="article-body" id="body-nw-1" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «بريطانيا الحمقاء: لماذا لم تعد بريطانيا عظيمة» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-nw-2">
+<button aria-controls="body-nw-2" aria-expanded="true" class="article-trigger" id="btn-nw-2">
+<span class="art-idx">02</span>
+<span class="art-title">البنية التحتية الذكية للغد</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-nw-2" class="article-body" id="body-nw-2" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «البنية التحتية الذكية للغد» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-nw-3">
+<button aria-controls="body-nw-3" aria-expanded="true" class="article-trigger" id="btn-nw-3">
+<span class="art-idx">03</span>
+<span class="art-title">ابنِ غدًا أفضل مع Aurigo Masterworks Cloud</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-nw-3" class="article-body" id="body-nw-3" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «ابنِ غدًا أفضل مع Aurigo Masterworks Cloud» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-nw-4">
+<button aria-controls="body-nw-4" aria-expanded="true" class="article-trigger" id="btn-nw-4">
+<span class="art-idx">04</span>
+<span class="art-title">تقنية طيران تفتح عالم شحن التجارة الإلكترونية</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-nw-4" class="article-body" id="body-nw-4" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «تقنية طيران تفتح عالم شحن التجارة الإلكترونية» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-nw-5">
+<button aria-controls="body-nw-5" aria-expanded="true" class="article-trigger" id="btn-nw-5">
+<span class="art-idx">05</span>
+<span class="art-title">ربط الطلب بسعة شركات الطيران</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-nw-5" class="article-body" id="body-nw-5" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «ربط الطلب بسعة شركات الطيران» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+</section>
+<!-- ════════════════════════ OUTLOOK ════════════════════════ -->
+<section class="outlet-section">
+<div class="outlet-header">
+<h2>OUTLOOK</h2>
+<div class="outlet-tags">السياسة • المجتمع • الثقافة</div>
+</div>
+<article class="article-item" id="art-out-1">
+<button aria-controls="body-out-1" aria-expanded="true" class="article-trigger" id="btn-out-1">
+<span class="art-idx">01</span>
+<span class="art-title">مُجرفون: TMC وAAP</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-out-1" class="article-body" id="body-out-1" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «مُجرفون: TMC وAAP» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-out-2">
+<button aria-controls="body-out-2" aria-expanded="true" class="article-trigger" id="btn-out-2">
+<span class="art-idx">02</span>
+<span class="art-title">مُجرفون: JDU وBSP وBJD</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-out-2" class="article-body" id="body-out-2" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «مُجرفون: JDU وBSP وBJD» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-out-3">
+<button aria-controls="body-out-3" aria-expanded="true" class="article-trigger" id="btn-out-3">
+<span class="art-idx">03</span>
+<span class="art-title">الصدق والمتعة: نادٍ ليلي عند الثالثة صباحًا</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-out-3" class="article-body" id="body-out-3" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «الصدق والمتعة: نادٍ ليلي عند الثالثة صباحًا» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-out-4">
+<button aria-controls="body-out-4" aria-expanded="true" class="article-trigger" id="btn-out-4">
+<span class="art-idx">04</span>
+<span class="art-title">جمع التبرعات وأضواء الستروب يتعايشان بلا مفارقة</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-out-4" class="article-body" id="body-out-4" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «جمع التبرعات وأضواء الستروب يتعايشان بلا مفارقة» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-out-5">
+<button aria-controls="body-out-5" aria-expanded="true" class="article-trigger" id="btn-out-5">
+<span class="art-idx">05</span>
+<span class="art-title">إذن بأن تكون كما أنت تمامًا، بلا تمثيل أو اعتذار</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-out-5" class="article-body" id="body-out-5" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «إذن بأن تكون كما أنت تمامًا، بلا تمثيل أو اعتذار» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+</section>
+<!-- ════════════════════════ THE EUROPEAN BUSINESS REVIEW ════════════════════════ -->
+<section class="outlet-section">
+<div class="outlet-header">
+<h2>THE EUROPEAN BUSINESS REVIEW</h2>
+<div class="outlet-tags">الأعمال • التكنولوجيا • REAL ESTATE</div>
+</div>
+<article class="article-item" id="art-ebr-1">
+<button aria-controls="body-ebr-1" aria-expanded="true" class="article-trigger" id="btn-ebr-1">
+<span class="art-idx">01</span>
+<span class="art-title">كيف يحصّن العمل من أي مكان مؤسستك للمستقبل</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-ebr-1" class="article-body" id="body-ebr-1" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «كيف يحصّن العمل من أي مكان مؤسستك للمستقبل» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-ebr-2">
+<button aria-controls="body-ebr-2" aria-expanded="true" class="article-trigger" id="btn-ebr-2">
+<span class="art-idx">02</span>
+<span class="art-title">إرهاق الذكاء الاصطناعي: التحدي الخفي في سباق التبني</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-ebr-2" class="article-body" id="body-ebr-2" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «إرهاق الذكاء الاصطناعي: التحدي الخفي في سباق التبني» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-ebr-3">
+<button aria-controls="body-ebr-3" aria-expanded="true" class="article-trigger" id="btn-ebr-3">
+<span class="art-idx">03</span>
+<span class="art-title">إطلاق الإمكانات الحقيقية للذكاء الاصطناعي الوكيلي</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-ebr-3" class="article-body" id="body-ebr-3" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «إطلاق الإمكانات الحقيقية للذكاء الاصطناعي الوكيلي» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-ebr-4">
+<button aria-controls="body-ebr-4" aria-expanded="true" class="article-trigger" id="btn-ebr-4">
+<span class="art-idx">04</span>
+<span class="art-title">عقارك يساوي الملايين — حان وقت الوصول إليه</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-ebr-4" class="article-body" id="body-ebr-4" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «عقارك يساوي الملايين — حان وقت الوصول إليه» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-ebr-5">
+<button aria-controls="body-ebr-5" aria-expanded="true" class="article-trigger" id="btn-ebr-5">
+<span class="art-idx">05</span>
+<span class="art-title">استراتيجية الرفاهية: تذبذب استراتيجي</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-ebr-5" class="article-body" id="body-ebr-5" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «استراتيجية الرفاهية: تذبذب استراتيجي» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+</section>
+<!-- ════════════════════════ THE WEEK US ════════════════════════ -->
+<section class="outlet-section">
+<div class="outlet-header">
+<h2>THE WEEK US</h2>
+<div class="outlet-tags">US ELECTIONS • GLOBAL HEALTH • GEOالسياسة • MEDIA</div>
+</div>
+<article class="article-item" id="art-wk-1">
+<button aria-controls="body-wk-1" aria-expanded="true" class="article-trigger" id="btn-wk-1">
+<span class="art-idx">01</span>
+<span class="art-title">محو دوائر الأقليات</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-wk-1" class="article-body" id="body-wk-1" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «محو دوائر الأقليات» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-wk-2">
+<button aria-controls="body-wk-2" aria-expanded="true" class="article-trigger" id="btn-wk-2">
+<span class="art-idx">02</span>
+<span class="art-title">جدل: هل هذا كوفيد الجديد؟</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-wk-2" class="article-body" id="body-wk-2" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «جدل: هل هذا كوفيد الجديد؟» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-wk-3">
+<button aria-controls="body-wk-3" aria-expanded="true" class="article-trigger" id="btn-wk-3">
+<span class="art-idx">03</span>
+<span class="art-title">لماذا لن تقبل إيران شروط ترامب</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-wk-3" class="article-body" id="body-wk-3" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «لماذا لن تقبل إيران شروط ترامب» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-wk-4">
+<button aria-controls="body-wk-4" aria-expanded="true" class="article-trigger" id="btn-wk-4">
+<span class="art-idx">04</span>
+<span class="art-title">تيد تيرنر: قطب الإعلام الذي أعاد تشكيل الأخبار</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-wk-4" class="article-body" id="body-wk-4" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «تيد تيرنر: قطب الإعلام الذي أعاد تشكيل الأخبار» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-wk-5">
+<button aria-controls="body-wk-5" aria-expanded="true" class="article-trigger" id="btn-wk-5">
+<span class="art-idx">05</span>
+<span class="art-title">حوّل قصة حياتك إلى مذكرات</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-wk-5" class="article-body" id="body-wk-5" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «حوّل قصة حياتك إلى مذكرات» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+</section>
+<!-- ════════════════════════ TIME ════════════════════════ -->
+<section class="outlet-section">
+<div class="outlet-header">
+<h2>TIME</h2>
+<div class="outlet-tags">الأعمال • الثقافة • نمط الحياة</div>
+</div>
+<article class="article-item" id="art-time-1">
+<button aria-controls="body-time-1" aria-expanded="true" class="article-trigger" id="btn-time-1">
+<span class="art-idx">01</span>
+<span class="art-title">صفقات ترخيص هاسبرو الخارجة عن المألوف</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-time-1" class="article-body" id="body-time-1" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «صفقات ترخيص هاسبرو الخارجة عن المألوف» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-time-2">
+<button aria-controls="body-time-2" aria-expanded="true" class="article-trigger" id="btn-time-2">
+<span class="art-idx">02</span>
+<span class="art-title">دروس اللعبة — لماذا تشبه مونوبولي الحياة</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-time-2" class="article-body" id="body-time-2" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «دروس اللعبة — لماذا تشبه مونوبولي الحياة» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-time-3">
+<button aria-controls="body-time-3" aria-expanded="true" class="article-trigger" id="btn-time-3">
+<span class="art-idx">03</span>
+<span class="art-title">نسخة مونوبولي من عام 1933 بيعت بـ146,500 دولار</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-time-3" class="article-body" id="body-time-3" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «نسخة مونوبولي من عام 1933 بيعت بـ146,500 دولار» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-time-4">
+<button aria-controls="body-time-4" aria-expanded="true" class="article-trigger" id="btn-time-4">
+<span class="art-idx">04</span>
+<span class="art-title">مطعم Monopoly Steakhouse في المكسيك، 2026</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-time-4" class="article-body" id="body-time-4" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «مطعم Monopoly Steakhouse في المكسيك، 2026» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+<article class="article-item" id="art-time-5">
+<button aria-controls="body-time-5" aria-expanded="true" class="article-trigger" id="btn-time-5">
+<span class="art-idx">05</span>
+<span class="art-title">رقم غينيس لأكبر مجموعة تذكارات مونوبولي</span>
+<span aria-hidden="true" class="toggle-icon">▼</span>
+</button>
+<div aria-labelledby="btn-time-5" class="article-body" id="body-time-5" role="region">
+<div class="body-inner">
+<p>الحقيقة الأساسية في هذه المادة هي أن موضوع «رقم غينيس لأكبر مجموعة تذكارات مونوبولي» لم يعد تفصيلًا معزولًا، بل مؤشرًا على تحول أوسع في السياسة والاقتصاد والثقافة العالمية. يوضح النص كيف تتحول القرارات المؤسسية والتكنولوجية والسوقية إلى أدوات لإعادة توزيع القوة بين الفاعلين الكبار والجهات الأضعف. المستفيدون الرئيسيون هم الأطراف القادرة على امتلاك البنية التحتية أو السردية أو رأس المال اللازم للتحرك مبكرًا، بينما تتحمل الجهات المتأخرة أو الأقل تمثيلًا خسائر في النفوذ والموارد والقدرة على المناورة. خلف هذا المسار تقف مصالح استراتيجية واضحة: تعظيم العوائد، تثبيت السيطرة، حماية الهوية أو تحويل الانتباه العام إلى اتجاه يخدم أصحاب المبادرة. بالنسبة للأسواق والمؤسسات العامة، يرسل الحدث إشارة إلى أن المخاطر لم تعد مالية فقط، بل تمتد إلى الثقة والشرعية وسلاسل الإمداد والأمن الاجتماعي. وتكمن المخاطر المحتملة في تضخم التوقعات، أو تسييس القرارات، أو خلق فقاعة حول سردية تبدو جذابة أكثر مما هي مستدامة. وعلى المدى الطويل، قد يفرض هذا التحول إعادة تقييم كاملة لطريقة عمل الحكومات والشركات والمجتمعات مع التكنولوجيا والسلطة والثقافة.</p>
+</div>
+</div>
+</article>
+</section>
+</main>
+</div><!-- /.container -->
+<!-- ── Newsletter ── -->
+<section aria-labelledby="newsletter-heading" class="nebula-wrapper">
+<h3 class="nebula-title" id="newsletter-heading">Secure Briefing Access</h3>
+<div class="form-container">
+<div class="newsletter-form-wrapper">
+<form action="https://formspree.io/f/xeeezjyb" class="newsletter-form" id="newsletterForm" method="POST" novalidate="">
+<div class="input-group">
+<div class="nebula-input">
+<label class="sr-only" for="emailInput">البريد الإلكتروني</label>
+<input aria-describedby="formErrorMsg" autocomplete="email" class="input" id="emailInput" name="email" placeholder="Email Address" type="email"/>
+<svg aria-hidden="true" class="email-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+</svg>
+</div>
+<button class="subscribe-button" type="submit">اشترك</button>
+</div>
+<div aria-live="polite" class="form-error-msg" id="formErrorMsg" role="alert"></div>
+</form>
+<div aria-live="assertive" class="success-message" id="successMessage" role="alert">
+<div style="width:70px;height:70px;margin:0 auto 20px;">
+<svg aria-hidden="true" viewbox="0 0 52 52">
+<circle class="checkmark-circle" cx="26" cy="26" r="25"></circle>
+<path class="checkmark-check" d="M14.1 27.2l7.1 7.2 16.7-16.8" fill="none"></path>
+</svg>
+</div>
+<h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">تم منح الوصول</h4>
+<p style="font-size:14px;color:#4B5563;">تم إنشاء قناة مشفرة.</p>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<p>© 2026 Deep Press Analysis. جميع الحقوق محفوظة.</p>
+<nav aria-label="Footer navigation" class="footer-links">
+<a class="btn-text" href="ar/archive.html">الوصول إلى الأرشيف</a>
+<a class="btn-text" href="https://deeppressanalysis.com/manifesto">البيان</a>
+</nav>
+<!-- ── Web3 Support Section ── -->
+<div class="container" style="padding-top: 40px; padding-bottom: 0;">
+<div class="support-section">
+<div class="support-title-wrapper">
+<div class="live-dot"></div>
+<div class="support-title">ادعم المشروع المستقل</div>
+</div>
+<div class="crypto-grid">
+<div class="crypto-card">
+<div class="crypto-header">
+<span class="crypto-name eth">Ethereum</span>
+</div>
+<input aria-label="Ethereum wallet address" class="crypto-address" readonly="" type="text" value="0x7b8318ce0788cAdDF398035A65EFDB30a262cae5"/>
+</div>
+<div class="crypto-card">
+<div class="crypto-header">
+<span class="crypto-name btc">Bitcoin</span>
+</div>
+<input aria-label="Bitcoin wallet address" class="crypto-address" readonly="" type="text" value="bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu"/>
+</div>
+<div class="crypto-card">
+<div class="crypto-header">
+<span class="crypto-name sol">Solana</span>
+</div>
+<input aria-label="Solana wallet address" class="crypto-address" readonly="" type="text" value="98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq"/>
+</div>
+<div class="crypto-card">
+<div class="crypto-header">
+<span class="crypto-name trx">Tron</span>
+</div>
+<input aria-label="Tron wallet address" class="crypto-address" readonly="" type="text" value="TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Hidden SEO Links -->
+<div aria-hidden="true" style="display: none;">
+<a href="https://deeppressanalysis.com/editorial-policy.html">السياسة التحريرية</a>
+</div>
+</footer>
+<!--
   ════════════════════════════════════════════════════════════════════════
   SEO FIX #1: Accordion JS — контент открыт по умолчанию.
   JS добавляет класс .js-accordion на <html>, и только ТОГДА CSS
@@ -1217,7 +1381,7 @@
   JS-редирект ниже — только запасной вариант, без localStorage.
   ════════════════════════════════════════════════════════════════════════
   -->
-  <script nonce="{{NONCE}}">
+<script nonce="EDNnf03nceIofn39fn3e9h3sdfa">
   (function () {
     'use strict';
 
@@ -1227,7 +1391,7 @@
     /* ─── SEO FIX #7: Языковой редирект — без localStorage ─────────────
        РЕКОМЕНДАЦИЯ: Реализовать на сервере (Nginx/Apache/Node).
        Этот JS-редирект — только запасной вариант.
-       Срабатывает только на корневом пути /, не на /ar/ и т.д.
+       Срабатывает только на корневом пути /, не на /en/ и т.д.
     ──────────────────────────────────────────────────────────────────── */
     (function () {
       try {
@@ -1308,11 +1472,11 @@
       e.preventDefault();
       clearError();
       var val = emailInput.value;
-      if (!val.trim())        { showError('يرجى إدخال عنوان بريدك الإلكتروني.'); return; }
-      if (!isValidEmail(val)) { showError('يرجى إدخال عنوان بريد إلكتروني صحيح.'); return; }
+      if (!val.trim())        { showError('Please enter your email address.'); return; }
+      if (!isValidEmail(val)) { showError('Please enter a valid email address.'); return; }
 
       submitBtn.disabled    = true;
-      submitBtn.textContent = 'جاري الإرسال…';
+      submitBtn.textContent = 'Sending…';
 
       try {
         var res = await fetch(form.action, {
@@ -1323,14 +1487,14 @@
           form.classList.add('hidden');
           successMessage.classList.add('visible');
         } else {
-          showError('خطأ في الاشتراك. يرجى المحاولة مرة أخرى.');
+          showError('Subscription error. Please try again.');
         }
       } catch (_) {
-        showError('خطأ في الشبكة. يرجى التحقق من اتصالك.');
+        showError('Network error. Please check your connection.');
       } finally {
         if (!successMessage.classList.contains('visible')) {
           submitBtn.disabled    = false;
-          submitBtn.textContent = 'اشتراك';
+          submitBtn.textContent = 'Subscribe';
         }
       }
     });
@@ -1372,6 +1536,5 @@
 
   })();
   </script>
-
 </body>
 </html>
