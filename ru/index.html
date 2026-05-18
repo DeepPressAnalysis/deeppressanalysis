@@ -4,43 +4,32 @@
   ║  Deep Press Analysis — PRODUCTION READY                              ║
   ║  SEO FIXES APPLIED:                                                  ║
   ║  1. Article content visible by default (JS collapses after load)     ║
-  ║  2. {{NONCE}} — сервер ОБЯЗАН заменять на криптографически           ║
-  ║     случайную строку при каждом запросе (Node/PHP/Python/etc.)       ║
-  ║  3. Schema.org @id исправлен на /ru/#webpage                         ║
-  ║  4. NewsArticle schema добавлена для каждой статьи                   ║
-  ║  5. hreflang — взаимные ссылки обязательны на всех языковых стр.     ║
-  ║  6. Canonical + 301 редирект с корня на /ru/ (настроить на сервере)  ║
-  ║  7. JS-редирект переработан (без localStorage)                       ║
-  ║  8. RSS-лента добавлена в <head>                                     ║
-  ║  9. OG/Twitter мета дополнены                                        ║
-  ║  10. datePublished/dateModified — генерировать динамически           ║
+  ║  2. Schema.org @id исправлен на /ru/#webpage                         ║
+  ║  3. NewsArticle schema добавлена для каждой статьи                   ║
+  ║  4. hreflang — взаимные ссылки обязательны на всех языковых стр.     ║
+  ║  5. Canonical + 301 редирект с корня на /ru/ (настроить на сервере)  ║
+  ║  6. JS-редирект переработан (без localStorage)                       ║
+  ║  7. RSS-лента добавлена в <head>                                     ║
+  ║  8. OG/Twitter мета дополнены                                        ║
+  ║  9. datePublished/dateModified — генерировать динамически            ║
   ╚══════════════════════════════════════════════════════════════════════╝
 -->
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
-  <title>Deep Press Analysis — 17 мая 2026 года</title>
+  <title>Deep Press Analysis — 18 мая 2026 г.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ежедневный синтез ведущих международных публикаций. В центре внимания сегодня: торговые отношения США и Китая, глобальный апокалипсис на рынке труда и политический кризис в Индонезии." />
+  <meta name="description" content="Ежедневный анализ ведущих мировых изданий. В центре внимания: затяжной кризис на энергетическом рынке, инвестиции в ИИ и квантовые вычисления, глобальная политическая поляризация, а также развитие новой космической экономики и экономики впечатлений." />
   <meta name="author" content="Deep Press Analysis" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-  <!--
-    ═══════════════════════════════════════════════════════════════
-    CSP: {{NONCE}} заменяется сервером при каждом запросе.
-    Пример Node.js:
-      const nonce = crypto.randomBytes(16).toString('base64');
-      res.setHeader('Content-Security-Policy', `script-src 'nonce-${nonce}'`);
-      html = html.replaceAll('{{NONCE}}', nonce);
-    ═══════════════════════════════════════════════════════════════
-  -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'nonce-{{NONCE}}';
+    script-src 'self' 'nonce-EDNnf03nceIofn39fn3e9h3sdfa';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
     img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
-    connect-src 'self' https://api.coingecko.com https://cdn.jsdelivr.net https://formspree.io https://query1.finance.yahoo.com;
+    connect-src 'self' https://formspree.io;
     form-action 'self' https://formspree.io;
     object-src 'none';
     base-uri 'self';
@@ -53,49 +42,42 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <!-- ═══ SEO: Canonical ═══ -->
   <link rel="canonical" href="https://deeppressanalysis.com/ru/" />
 
-  <!-- ═══ SEO: hreflang ═══ -->
   <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/" />
-  <link rel="alternate" hreflang="en"        href="https://deeppressanalysis.com/en/" />
-  <link rel="alternate" hreflang="ru"        href="https://deeppressanalysis.com/ru/" />
-  <link rel="alternate" hreflang="es"        href="https://deeppressanalysis.com/es/" />
-  <link rel="alternate" hreflang="uk"        href="https://deeppressanalysis.com/ua/" />
-  <link rel="alternate" hreflang="ar"        href="https://deeppressanalysis.com/ar/" />
-  <link rel="alternate" hreflang="de"        href="https://deeppressanalysis.com/de/" />
+  <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/en/" />
+  <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/" />
+  <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/" />
+  <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/" />
+  <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/" />
+  <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/" />
 
-  <!-- ═══ SEO FIX #8: RSS-лента — обязательна для Google News ═══ -->
   <link rel="alternate" type="application/rss+xml"
         title="Deep Press Analysis — Russian Feed"
         href="https://deeppressanalysis.com/ru/feed.xml" />
 
-  <!-- ═══ Open Graph (дополнено) ═══ -->
-  <meta property="og:type"                  content="article" />
-  <meta property="og:title"                 content="Deep Press Analysis — 17 мая 2026 года" />
-  <meta property="og:description"           content="Ежедневный синтез ведущих международных публикаций. В центре внимания сегодня: торговые отношения США и Китая, глобальный апокалипсис на рынке труда и политический кризис в Индонезии." />
-  <meta property="og:url"                   content="https://deeppressanalysis.com/ru/" />
-  <meta property="og:image"                 content="https://deeppressanalysis.com/assets/og-cover.jpg" />
-  <meta property="og:image:width"           content="1200" />
-  <meta property="og:image:height"          content="630" />
-  <meta property="og:site_name"             content="Deep Press Analysis" />
-  <meta property="og:locale"                content="ru_RU" />
-  <!-- SEO FIX #9: article-specific OG мета -->
-  <meta property="article:published_time"   content="2026-05-17T05:00:00Z" />
-  <meta property="article:modified_time"    content="2026-05-17T05:00:00Z" />
-  <meta property="article:section"          content="Global Economy" />
-  <meta property="article:author"           content="https://deeppressanalysis.com/manifesto.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Deep Press Analysis — 18 мая 2026 г." />
+  <meta property="og:description" content="Ежедневный анализ ведущих мировых изданий. В центре внимания: затяжной кризис на энергетическом рынке, инвестиции в ИИ и квантовые вычисления, глобальная политическая поляризация, а также развитие новой космической экономики и экономики впечатлений." />
+  <meta property="og:url" content="https://deeppressanalysis.com/ru/" />
+  <meta property="og:image" content="https://deeppressanalysis.com/assets/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Deep Press Analysis" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="article:published_time" content="2026-05-18T05:00:00Z" />
+  <meta property="article:modified_time" content="2026-05-18T05:00:00Z" />
+  <meta property="article:section" content="Мировая экономика" />
+  <meta property="article:author" content="https://deeppressanalysis.com/manifesto.html" />
 
-  <!-- ═══ Twitter Card (дополнено) ═══ -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:site"        content="@DeepPressAnalysis" />
-  <meta name="twitter:creator"     content="@DeepPressAnalysis" />
-  <meta name="twitter:title"       content="Deep Press Analysis — 17 мая 2026 года" />
-  <meta name="twitter:description" content="Ежедневный синтез ведущих международных публикаций. В центре внимания сегодня: торговые отношения США и Китая, глобальный апокалипсис на рынке труда и политический кризис в Индонезии." />
-  <meta name="twitter:image"       content="https://deeppressanalysis.com/assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@DeepPressAnalysis" />
+  <meta name="twitter:creator" content="@DeepPressAnalysis" />
+  <meta name="twitter:title" content="Deep Press Analysis — 18 мая 2026 г." />
+  <meta name="twitter:description" content="Ежедневный анализ ведущих мировых изданий. В центре внимания: затяжной кризис на энергетическом рынке, инвестиции в ИИ и квантовые вычисления, глобальная политическая поляризация, а также развитие новой космической экономики и экономики впечатлений." />
+  <meta name="twitter:image" content="https://deeppressanalysis.com/assets/og-cover.jpg" />
 
-  <!-- JSON-LD Schema -->
-  <script type="application/ld+json" nonce="{{NONCE}}">
+  <script type="application/ld+json" nonce="EDNnf03nceIofn39fn3e9h3sdfa">
   [
     {
       "@context": "https://schema.org",
@@ -133,11 +115,11 @@
       "@type": "WebPage",
       "@id": "https://deeppressanalysis.com/ru/#webpage",
       "url": "https://deeppressanalysis.com/ru/",
-      "name": "Deep Press Analysis — 17 мая 2026 года",
+      "name": "Deep Press Analysis — 18 мая 2026 г.",
       "isPartOf": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "description": "Ежедневный синтез ведущих международных публикаций. В центре внимания сегодня: торговые отношения США и Китая, глобальный апокалипсис на рынке труда и политический кризис в Индонезии.",
+      "datePublished": "2026-05-18T05:00:00Z",
+      "dateModified":  "2026-05-18T05:00:00Z",
+      "description": "Ежедневный анализ ведущих мировых изданий. В центре внимания: затяжной кризис на энергетическом рынке, инвестиции в ИИ и квантовые вычисления, глобальная политическая поляризация, а также развитие новой космической экономики и экономики впечатлений.",
       "inLanguage": "ru",
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -146,206 +128,51 @@
         ]
       }
     },
-
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-eco-1",
-      "headline": "Дональд Трамп отправился в Китай на саммит с Си Цзиньпином",
-      "description": "Визит Дональда Трампа в Пекин знаменует собой сдвиг в сторону прагматичной коммерциализации двусторонних отношений, ставя корпоративные интересы выше идеологических разногласий.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Geopolitics",
-      "about": [
-        { "@type": "Person", "name": "Donald Trump" },
-        { "@type": "Person", "name": "Xi Jinping" }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-eco-2",
-      "headline": "Апокалипсис на рынке труда: надейтесь на лучшее, готовьтесь к худшему",
-      "description": "Нарастающий кризис на рынке труда требует подготовки к наихудшим сценариям, вызванным техническим прогрессом и массовой автоматизацией.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Global Economy"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-eco-3",
-      "headline": "Индонезия сбивается с курса",
-      "description": "Индонезия демонстрирует тревожное отклонение от намеченного демократического курса, ставя под угрозу свою политическую и макроэкономическую стабильность из-за институционального дрейфа.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Geopolitics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-eco-4",
-      "headline": "Презентация конголезских повстанцев в PowerPoint",
-      "description": "Вооруженные группировки в Конго используют современные корпоративные инструменты, такие как PowerPoint, для привлечения теневых инвестиций, что свидетельствует о глубокой трансформации финансирования гибридных войн.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Geopolitics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-eco-5",
-      "headline": "Лактология: нехватка грудного вскармливания",
-      "description": "Глобальный дефицит грудного вскармливания становится серьезной макроэкономической и социально-политической проблемой из-за системного отсутствия институциональной поддержки материнства.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Global Economy"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-fl-1",
-      "headline": "Затем они победили: пять региональных выборов и что стоит за их результатами",
-      "description": "Результаты региональных выборов в Индии подтвердили доминирование местной повестки дня над национальными политическими нарративами, что благоприятствует региональным элитам.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-fl-2",
-      "headline": "AAP: метлу тоже нужно чистить",
-      "description": "Внутренний кризис в Партии простого человека (AAP) высветил системные управленческие проблемы, нанеся удар по ее антикоррупционной репутации.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-fl-3",
-      "headline": "Ладакх: недемократичное устройство",
-      "description": "Нынешняя система управления в Ладакхе характеризуется как глубоко недемократичная, лишающая регион представительства и финансовой независимости.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-fl-4",
-      "headline": "Пенджаб: преступность, мифы и государство",
-      "description": "Пенджаб столкнулся с беспрецедентным кризисом управления, где организованная преступность переплетается с социальными мифами и дисфункцией государственного аппарата.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Politics"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-fl-5",
-      "headline": "Непродуманный план для леса Сентрал Ридж в Дели",
-      "description": "Инициативы по коммерческой трансформации лесной зоны Сентрал Ридж в Нью-Дели представляют собой экологически разрушительный урбанистический проект.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Ecology"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-wk-1",
-      "headline": "Стирая округа меньшинств",
-      "description": "Агрессивные законодательные инициативы, направленные на ликвидацию избирательных округов меньшинств, фундаментально меняют архитектуру электорального представительства в США.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "US Elections"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-wk-2",
-      "headline": "Ты имеешь значение, вода",
-      "description": "Нехватка воды и конкуренция за ее распределение становятся самым напряженным элементом глобальной макроэкономической повестки дня.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Global Economy"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-wk-3",
-      "headline": "Это новый Covid? Вспышка хантавируса на круизном лайнере MV Hondius",
-      "description": "Внезапная вспышка хантавируса на круизном лайнере вызвала панику по поводу готовности мира к очередной пандемии.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Global Health"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-wk-4",
-      "headline": "Тед Тернер: магнат, который переделал новости",
-      "description": "Смерть Теда Тернера знаменует собой исторический конец эпохи формирования политической повестки через круглосуточное новостное вещание.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Media"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "@id": "https://deeppressanalysis.com/ru/#art-wk-5",
-      "headline": "У кого на руках карты? Почему Иран не примет условия Трампа",
-      "description": "Принципиальный отказ Тегерана от условий администрации Трампа сигнализирует об опасной и продолжительной стагнации в ближневосточной дипломатии.",
-      "datePublished": "2026-05-17T05:00:00Z",
-      "dateModified":  "2026-05-17T05:00:00Z",
-      "isPartOf": { "@id": "https://deeppressanalysis.com/ru/#webpage" },
-      "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-      "inLanguage": "ru",
-      "articleSection": "Geopolitics"
-    }
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-bar-1","headline":"Нефтяной кризис далек от завершения","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Мировая экономика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-bar-2","headline":"6 способов инвестировать в будущее квантовых вычислений","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Технологии"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-bar-3","headline":"Еще не поздно вложиться в рост ИИ от Nvidia","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Рынки"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-bar-4","headline":"Как криптоинвесторы решают исход дебатов на Polymarket","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Рынки"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-bar-5","headline":"Заоблачные цены на пластик давят на компании","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Мировая экономика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-fl-1","headline":"Западная Бенгалия: тихое цунами","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Политика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-fl-2","headline":"Керала: пала последняя цитадель левых","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Политика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-fl-3","headline":"Ассам: поляризованный мандат","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Политика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-fl-4","headline":"Ладакх: недемократическое устройство","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Политика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-fl-5","headline":"Венецианская биеннале: Индия возвращается после семилетнего перерыва","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Культура"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-geo-1","headline":"Всплеск развития отечественных беспилотников в Индии","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Оборона"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-geo-2","headline":"Стальная революция: танки времен холодной войны уступают место","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Оборона"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-geo-3","headline":"Алгоритмическая война: искусственный интеллект переписывает правила","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Технологии"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-geo-4","headline":"Ударные нарративы: превращение восприятия в оружие","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Геополитика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-geo-5","headline":"Готовность к взлету: аэропортовый бизнес Адани","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Геополитика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-nr-1","headline":"Бич левого насилия","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Политика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-nr-2","headline":"Континентальный сдвиг: как американские правые стали европейскими","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Политика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-nr-3","headline":"Исправление НАТО: укреплять альянс, а не разрушать его","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Геополитика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-nr-4","headline":"Аляска — новый рубеж добычи полезных ископаемых","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Мировая экономика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-nr-5","headline":"Новый космический капитализм: предпринимательский путь к звездам","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Бизнес"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-nw-1","headline":"Одураченная Британия: почему она больше не великая","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Геополитика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-nw-2","headline":"Умная инфраструктура завтрашнего дня","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Мировая экономика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-nw-3","headline":"Создаем лучшее будущее с помощью облака Aurigo Masterworks","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Технологии"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-nw-4","headline":"Авиационные технологии открывают мир доставки для электронной коммерции","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Логистика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-nw-5","headline":"Связующее звено: спрос и грузовые мощности авиакомпаний","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Логистика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-out-1","headline":"Снесены бульдозером: партии TMC и AAP","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Политика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-out-2","headline":"Снесены бульдозером: партии JDU, BSP, BJD","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Политика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-out-3","headline":"Честность и гедонизм: ночной клуб в 3 часа ночи","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Культура"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-out-4","headline":"Сбор средств и стробоскопы сосуществуют без иронии","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Общество"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-out-5","headline":"Право быть собой — без игры и извинений","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Общество"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-ebr-1","headline":"Как работа из любой точки мира может обезопасить вашу организацию в будущем","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Бизнес"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-ebr-2","headline":"Усталость от ИИ: скрытая проблема в гонке за внедрением искусственного интеллекта","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Технологии"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-ebr-3","headline":"Раскрытие истинного потенциала агентного ИИ","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Технологии"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-ebr-4","headline":"Ваша недвижимость стоит миллионы. ПОЛУЧИТЕ К НИМ ДОСТУП ПРЯМО СЕЙЧАС","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Недвижимость"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-ebr-5","headline":"Стратегия роскоши: стратегические колебания","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Бизнес"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-wk-1","headline":"Стирание округов меньшинств","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Выборы в США"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-wk-2","headline":"Спорный вопрос: это новый ковид?","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Глобальное здравоохранение"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-wk-3","headline":"Почему Иран не примет условия Трампа","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Геополитика"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-wk-4","headline":"Тед Тернер: магнат, который переделал новости","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Медиа"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-wk-5","headline":"Запечатлейте историю своей жизни в мемуарах","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Стиль жизни"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-time-1","headline":"Нестандартные лицензионные соглашения Hasbro","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Бизнес"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-time-2","headline":"Уроки игры — почему «Монополия» похожа на жизнь","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Культура"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-time-3","headline":"Издание «Монополии» 1933 года продано за $146 500","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Рынки"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-time-4","headline":"Стейк-хаус «Монополия» в Мексике, 2026 год","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Бизнес"},
+    {"@context":"https://schema.org","@type":"NewsArticle","@id":"https://deeppressanalysis.com/ru/#art-time-5","headline":"Книга рекордов Гиннесса за самое большое количество памятных вещей «Монополии»","datePublished":"2026-05-18T05:00:00Z","dateModified":"2026-05-18T05:00:00Z","isPartOf":{"@id":"https://deeppressanalysis.com/ru/#webpage"},"publisher":{"@id":"https://deeppressanalysis.com/#newsmediaorganization"},"inLanguage":"ru","articleSection":"Культура"}
   ]
   </script>
 
@@ -388,6 +215,10 @@
 
     /* ─────────────────────────────────────────────────────────────────
        SEO FIX #1: АККОРДЕОН — КОНТЕНТ ВИДИМ ПО УМОЛЧАНИЮ
+       Логика: По умолчанию (без JS) все статьи открыты и индексируются.
+       JS добавляет класс <html class="js-accordion"> ТОЛЬКО после загрузки,
+       и ТОЛЬКО тогда CSS скрывает тела статей.
+       Googlebot видит страницу без accordion-состояния → весь контент открыт.
     ────────────────────────────────────────────────────────────────── */
 
     /* Состояние без JS — всё открыто */
@@ -814,26 +645,26 @@
   <div class="container">
 
     <div class="top-toolbar">
-      <nav class="lang-bar" aria-label="Выбор языка">
-        <a href="/ua/" class="lang-link" hreflang="uk" aria-label="Украинская версия">UA</a>
-        <a href="/en/" class="lang-link" hreflang="en" aria-label="Английская версия">EN</a>
-        <a href="/es/" class="lang-link" hreflang="es" aria-label="Испанская версия">ES</a>
-        <a href="/ar/" class="lang-link" hreflang="ar" aria-label="Арабская версия">AR</a>
-        <a href="/ru/" class="lang-link active" hreflang="ru" aria-current="page" aria-label="Русская версия">RU</a>
-        <a href="/de/" class="lang-link" hreflang="de" aria-label="Немецкая версия">DE</a>
+      <nav class="lang-bar" aria-label="Language selection">
+        <a href="/ua/" class="lang-link" hreflang="uk" aria-label="Ukrainian version">UA</a>
+        <a href="/en/" class="lang-link" hreflang="en" aria-label="English version">EN</a>
+        <a href="/es/" class="lang-link" hreflang="es" aria-label="Spanish version">ES</a>
+        <a href="/ar/" class="lang-link" hreflang="ar" aria-label="Arabic version">AR</a>
+        <a href="/ru/" class="lang-link active" hreflang="ru" aria-current="page" aria-label="Russian version">RU</a>
+        <a href="/de/" class="lang-link" hreflang="de" aria-label="German version">DE</a>
       </nav>
 
-      <nav class="social-row" aria-label="Ссылки на социальные сети">
-        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Написать в Deep Press Analysis">
+      <nav class="social-row" aria-label="Social media links">
+        <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="Email" aria-label="Send email to Deep Press Analysis">
           <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
         </a>
-        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Посетить наш Telegram канал">
+        <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Visit our Telegram channel">
           <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
         </a>
-        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Посетить наш профиль в Threads">
+        <a href="https://www.threads.com/@deeppressanalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="Threads" aria-label="Visit our Threads profile">
           <img src="https://deeppressanalysis.com/cloude/th.png" alt="Threads" width="16" height="16">
         </a>
-        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Посетить наш YouTube канал">
+        <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="Visit our YouTube channel">
           <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
         </a>
       </nav>
@@ -841,12 +672,12 @@
 
     <header>
       <div class="meta-issue">
-        ТОМ 26 • ВЫПУСК 133 • <time datetime="2026-05-17">17 МАЯ 2026 ГОДА</time>
+        ТОМ 26 • ВЫПУСК 134 • <time datetime="2026-05-18">18 МАЯ 2026</time>
       </div>
       <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
-      <div class="subtitle">Ежедневный синтез ведущих международных публикаций</div>
+      <div class="subtitle">Ежедневный анализ ведущих мировых изданий</div>
       <div class="briefing-summary">
-        <p><strong>В центре внимания сегодня:</strong> Сдвиг в торговых отношениях США и Китая, предупреждения о глобальном апокалипсисе на рынке труда, а также политическая и макроэкономическая нестабильность в Индонезии.</p>
+        <p><strong>В центре внимания:</strong> затяжные последствия перекрытия Ормузского пролива для мировых энергетических рынков, сдвиг американских консерваторов в сторону протекционизма европейского типа, монетизация частного освоения космоса и агрессивная экспансия бренда «Монополия» от Hasbro на глобальный рынок экономики впечатлений.</p>
       </div>
     </header>
 
@@ -854,16 +685,16 @@
 
       <div id="spotify-facade" class="spotify-fake-player"
            role="button" tabindex="0"
-           aria-label="Слушать подкаст Deep Press Analysis в Spotify">
+           aria-label="Слушать подкаст Deep Press Analysis на Spotify">
         <div class="fake-cover">
           <img src="https://deeppressanalysis.com/logo.png" alt="Обложка подкаста Deep Press Analysis">
         </div>
         <div class="fake-info">
-          <div class="fake-meta">ПОДКАСТ-ШОУ</div>
+          <div class="fake-meta">ПОДКАСТ</div>
           <div class="fake-title">Deep Press Analysis</div>
-          <div class="fake-desc">Ежедневный аудио-брифинг</div>
+          <div class="fake-desc">Ежедневный аудиобрифинг</div>
         </div>
-        <button class="fake-play-btn" aria-label="Воспроизвести подкаст" tabindex="-1">
+        <button class="fake-play-btn" aria-label="Слушать подкаст" tabindex="-1">
           <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/>
           </svg>
@@ -871,74 +702,74 @@
       </div>
       <div id="spotify-real-container" style="margin-bottom:40px;"></div>
 
-      <!-- ════════════════════════ THE ECONOMIST ════════════════════════ -->
+      <!-- ════════════════════════ BARRON'S ════════════════════════ -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>THE ECONOMIST</h2>
-          <div class="outlet-tags">ГЕОПОЛИТИКА • ГЛОБАЛЬНАЯ ЭКОНОМИКА</div>
+          <h2>BARRON'S</h2>
+          <div class="outlet-tags">МИРОВАЯ ЭКОНОМИКА • ТЕХНОЛОГИИ • РЫНКИ</div>
         </div>
 
-        <article class="article-item" id="art-eco-1">
-          <button class="article-trigger" id="btn-eco-1" aria-expanded="true" aria-controls="body-eco-1">
+        <article class="article-item" id="art-bar-1">
+          <button class="article-trigger" id="btn-bar-1" aria-expanded="true" aria-controls="body-bar-1">
             <span class="art-idx">01</span>
-            <span class="art-title">Дональд Трамп отправился в Китай на саммит с Си Цзиньпином</span>
+            <span class="art-title">Нефтяной кризис далек от завершения</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="body-eco-1" role="region" aria-labelledby="btn-eco-1">
+          <div class="article-body" id="body-bar-1" role="region" aria-labelledby="btn-bar-1">
             <div class="body-inner">
-              <p>Визит Дональда Трампа в Пекин для встречи с Си Цзиньпином свидетельствует о смещении вектора двусторонних отношений в сторону прагматичной коммерциализации. Ключевым событием стало соглашение о «новом позиционировании» связей и расширении торгового сотрудничества между США и Китаем. Присутствие топ-менеджеров, включая руководителей Nvidia и Boeing, подчеркивает приоритет корпоративных интересов над идеологическими разногласиями. В этой ситуации главными бенефициарами становятся американские технологические и авиационные гиганты, получающие гарантированный доступ на китайский рынок. Проигравшей стороной могут оказаться стратегические союзники США, прежде всего Тайвань и Украина, поскольку политические вопросы отходят на второй план. Основная мотивация Вашингтона заключается в обеспечении быстрых экономических побед и поддержке крупного бизнеса. Пекин, в свою очередь, стремится стабилизировать внешнюю торговлю и обеспечить бесперебойный приток западных технологий. Для глобальных рынков этот саммит служит мощным позитивным сигналом, снижающим опасения по поводу немедленной торговой войны. Институциональные инвесторы получают подтверждение того, что экономический прагматизм способен смягчить геополитическую риторику. В политическом плане это демонстрирует готовность администрации пересмотреть традиционные альянсы ради двусторонних сделок. Главный риск заключается в потенциальной эскалации региональных конфликтов из-за ослабления американских гарантий безопасности. Если фокус внимания сверхдержав сместится исключительно в торговую плоскость, геополитический вакуум может быть заполнен агрессивными действиями других игроков.</p>
+              <p>Ключевым фактом здесь является осознание того, что последствия закрытия Ормузского пролива будут более глубокими и продолжительными, чем ожидалось. Этот логистический коллапс сохранит свое влияние даже в случае быстрого завершения военного конфликта с Ираном. Основными выгодоприобретателями выступают одиннадцать специализированных энергетических компаний, чьи акции получают мощный стимул к росту. Их стратегическое преимущество обеспечивается диверсифицированными активами и способностью извлекать сверхприбыли в условиях рекордного шока предложения. И наоборот, мировые импортеры энергоносителей и промышленные секторы несут значительные потери. Их уязвимость проистекает из критической зависимости от бесперебойных поставок дешевой ближневосточной нефти. Этим событием движут глубокие геополитические интересы региональных игроков, использующих энергетическую инфраструктуру как инструмент давления. Основная мотивация инициаторов — нанести непоправимый экономический ущерб противникам путем парализации жизненно важной морской артерии. Для мировых рынков это сигнал о том, что премия за геополитический риск теперь будет структурно заложена в цены на углеводороды. Институциональные игроки воспринимают эту тенденцию как конец эпохи глобальной энергетической стабильности. Потенциальные риски включают масштабный инфляционный всплеск и каскадные банкротства в смежных отраслях. В долгосрочной перспективе это грозит вынужденной, но экономически болезненной трансформацией глобальных цепочек поставок.</p>
             </div>
           </div>
         </article>
 
-        <article class="article-item" id="art-eco-2">
-          <button class="article-trigger" id="btn-eco-2" aria-expanded="true" aria-controls="body-eco-2">
+        <article class="article-item" id="art-bar-2">
+          <button class="article-trigger" id="btn-bar-2" aria-expanded="true" aria-controls="body-bar-2">
             <span class="art-idx">02</span>
-            <span class="art-title">Апокалипсис на рынке труда: надейтесь на лучшее, готовьтесь к худшему</span>
+            <span class="art-title">6 способов инвестировать в будущее квантовых вычислений</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="body-eco-2" role="region" aria-labelledby="btn-eco-2">
+          <div class="article-body" id="body-bar-2" role="region" aria-labelledby="btn-bar-2">
             <div class="body-inner">
-              <p>Нарастающий кризис на рынке труда, охарактеризованный как «апокалипсис рабочих мест», требует от глобальных институтов подготовки к наихудшим сценариям. Главным драйвером этого процесса является структурная трансформация занятости, подстегиваемая техническим прогрессом и макроэкономической нестабильностью. Победителями в текущей динамике остаются владельцы капитала и высокотехнологичные корпорации, способные оптимизировать издержки за счет глубокой автоматизации. Основной удар принимают на себя традиционные работники, чьи навыки стремительно обесцениваются в новой реальности. Мотивация бизнеса предельно ясна: максимизация операционной эффективности и снижение зависимости от человеческого фактора в условиях перманентного кризиса. Для государственного аппарата это означает острую необходимость пересмотра социальных контрактов и архитектуры общественной поддержки. Сигнал для рынков носит тревожный характер, поскольку массовые увольнения неизбежно приведут к долгосрочному сокращению потребительского спроса. Финансовые институты должны учитывать риски каскадных дефолтов по потребительским кредитам и ипотечным обязательствам. В политической сфере такой кризис создает благодатную почву для радикализации электората и взрывного роста популистских настроений. Системные последствия могут включать глубокую социально-экономическую поляризацию общества. Долгосрочные риски связаны с формированием постоянного низшего класса (андеркласса), требующего непрерывных прямых субсидий. В конечном итоге, отсутствие проактивного планирования приведет к массовым институциональным сбоям в глобальном масштабе.</p>
+              <p>Главный факт — определение шести инвестиционных стратегий для выхода на развивающийся рынок квантовых вычислений. Этот прецедент формирует новую реальность в высокотехнологичном секторе, переводя технологию из лабораторной стадии в статус инвестиционного актива. Главными выгодоприобретателями становятся специализированные технологические корпорации и венчурные фонды, сделавшие ранние ставки на квантовые архитектуры. Они получают стратегическое преимущество за счет монополизации патентов и привлечения институционального капитала в самом начале экспоненциального роста отрасли. И наоборот, значительные стратегические риски несут компании, опирающиеся исключительно на классические вычислительные мощности. Их уязвимость связана с неизбежным устареванием традиционных алгоритмов шифрования и методов обработки данных. За развитием этого сектора стоят глубокие финансовые интересы национальных государств и транснациональных корпораций. Основная мотивация ключевых игроков — достижение абсолютного технологического превосходства и кибернетического доминирования. Для глобальных рынков это служит прямым сигналом, запускающим новый суперцикл капитальных затрат в оборудование следующего поколения. Институциональные игроки воспринимают эту тенденцию как призыв к ребалансировке портфелей в пользу deep tech. Потенциальные риски включают раздувание технологического пузыря вокруг компаний, не имеющих жизнеспособных коммерческих прототипов. В долгосрочной перспективе это грозит резким разделением рынка на монополистов квантовой эры и аутсайдеров традиционного IT-сектора.</p>
             </div>
           </div>
         </article>
 
-        <article class="article-item" id="art-eco-3">
-          <button class="article-trigger" id="btn-eco-3" aria-expanded="true" aria-controls="body-eco-3">
+        <article class="article-item" id="art-bar-3">
+          <button class="article-trigger" id="btn-bar-3" aria-expanded="true" aria-controls="body-bar-3">
             <span class="art-idx">03</span>
-            <span class="art-title">Индонезия сбивается с курса</span>
+            <span class="art-title">Еще не поздно вложиться в рост ИИ от Nvidia</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="body-eco-3" role="region" aria-labelledby="btn-eco-3">
+          <div class="article-body" id="body-bar-3" role="region" aria-labelledby="btn-bar-3">
             <div class="body-inner">
-              <p>Индонезия демонстрирует тревожное отклонение от намеченного курса, ставя под сомнение свою политическую и макроэкономическую стабильность. Ключевым событием является смещение внутриполитического вектора, нарушающее устоявшиеся институциональные и демократические нормы развития. Главными бенефициарами такого дрейфа могут стать группы местной элиты, консолидирующие власть и административный ресурс в своих руках. Проигравшей стороной в этой ситуации оказываются международные инвесторы и гражданские институты, полагающиеся на прозрачность и предсказуемость в крупнейшей экономике Юго-Восточной Азии. Первопричина кроется в интересах правящих кругов, стремящихся минимизировать внешний аудит и усилить суверенное ручное управление рынками. Для международных рынков капитала это четкий медвежий (bearish) сигнал, указывающий на резкий рост суверенных и регуляторных рисков. Институциональные инвесторы могут начать массовую переоценку стоимости активов и пересмотр долгосрочных стратегий в регионе. В геополитическом контексте ослабление внутренних институтов Индонезии меняет архитектуру безопасности в Индо-Тихоокеанском макрорегионе. Страна рискует потерять статус надежного инвестиционного противовеса на фоне растущего соперничества между США и Китаем. Потенциальные экономические последствия включают замедление притока прямых иностранных инвестиций и торможение ключевых инфраструктурных проектов. Риск также заключается в потенциальном росте скрытой социальной напряженности из-за неэффективного государственного управления. Дальнейшее уклонение от структурных реформ грозит индонезийской экономике системной стагнацией.</p>
+              <p>Ключевым фактом является аналитический прогноз, предсказывающий потенциальный 50-процентный скачок курса акций Nvidia. Этот прогноз подтверждает продолжение беспрецедентного цикла роста капитализации ведущего производителя ИИ-чипов. Главными бенефициарами выступают нынешние акционеры Nvidia и фонды, ориентированные на полупроводниковый сектор. Они обеспечивают себе финансовое преимущество, сохраняя монопольное положение компании на рынке высокопроизводительных вычислений. Между тем, существенные потери могут понести институциональные инвесторы, преждевременно сделавшие ставку на падение акций или переоценку активов. Их уязвимость кроется в недооценке реального спроса на аппаратную инфраструктуру нейросетей. За этим феноменом стоят масштабные инвестиционные интересы технологических гигантов, агрессивно скупающих вычислительные мощности. Основная мотивация этих корпораций — гонка за доминирование в сфере генеративного искусственного интеллекта. Для рынков капитала это служит прямым сигналом о том, что потолок технологического бума еще не достигнут. Институциональные инвесторы получают индикатор устойчивости бизнес-модели, продающей инструменты для цифровой золотой лихорадки. Потенциальные риски включают резкую коррекцию в случае даже незначительного замедления темпов расширения дата-центров. В долгосрочной перспективе это грозит перегревом всего полупроводникового индекса, если алгоритмические архитектуры ИИ фундаментально изменятся.</p>
             </div>
           </div>
         </article>
 
-        <article class="article-item" id="art-eco-4">
-          <button class="article-trigger" id="btn-eco-4" aria-expanded="true" aria-controls="body-eco-4">
+        <article class="article-item" id="art-bar-4">
+          <button class="article-trigger" id="btn-bar-4" aria-expanded="true" aria-controls="body-bar-4">
             <span class="art-idx">04</span>
-            <span class="art-title">Презентация конголезских повстанцев в PowerPoint</span>
+            <span class="art-title">Как криптоинвесторы решают исход дебатов на Polymarket</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="body-eco-4" role="region" aria-labelledby="btn-eco-4">
+          <div class="article-body" id="body-bar-4" role="region" aria-labelledby="btn-bar-4">
             <div class="body-inner">
-              <p>Неожиданным феноменом в затяжной зоне конфликта в Конго стало использование вооруженными группировками современных корпоративных инструментов, таких как презентации в PowerPoint. Этот факт свидетельствует о глубокой трансформации методов ведения гибридных войн и поиска финансирования неконвенциональными акторами. От этого выигрывают сами повстанцы, получая возможность профессионально привлекать теневые инвестиции и внешнюю военную поддержку. Проигравшей стороной является официальное конголезское правительство и гражданское население, страдающие от коммерческого затягивания вооруженного противостояния. Ключевая мотивация боевиков заключается в легитимизации своего статуса перед международными спонсорами и транснациональными корпорациями, заинтересованными в сырье. Это жесткий сигнал для международных институтов о том, что теневая экономика конфликтов выходит на принципиально новый уровень институционализации. Для политических кругов это означает крах традиционных методов дипломатической изоляции незаконных вооруженных формирований. Инвесторы добывающей отрасли региона получают предупреждение о появлении высокоорганизованных альтернативных партнеров по силовому контролю над рудниками. Главный риск заключается в том, что подобная корпоратизация террора привлечет системный венчурный капитал в «серые зоны» боевых действий. В результате локальные конфликты могут стать еще более затяжными, поскольку они обретают солидное коммерческое обоснование. Механизмы международного права оказываются бессильными против такой маркетинговой и операционной адаптации боевиков. В долгосрочной перспективе это грозит полным стиранием границ между сырьевым лоббизмом и финансированием терроризма.</p>
+              <p>Ключевым фактом проанализированного материала является растущее влияние держателей криптовалют на исходы политических и социальных дебатов через платформу прогнозирования Polymarket. Этот прецедент формирует принципиально новую реальность, в которой децентрализованные финансы напрямую пересекаются с политическим прогнозированием. Главными бенефициарами в этой ситуации становятся криптовалютные трейдеры и архитекторы децентрализованных платформ предсказаний. Они получают стратегическое преимущество, монетизируя политическую турбулентность и агрегируя инсайдерскую информацию в формате рыночных ставок. В то же время значительные репутационные издержки несут традиционные социологические агентства и институты изучения общественного мнения. Их уязвимость обусловлена медлительностью их методологий по сравнению с мгновенной реакцией финансово мотивированной толпы. За этим процессом стоят интересы крупных криптокитов, способных сдвигать коэффициенты прогнозов масштабными вливаниями ликвидности. Основная мотивация таких игроков — извлечение арбитражной прибыли и формирование нужного информационного фона вокруг кандидатов. Для политических институтов это служит четким сигналом о появлении нового инструмента для манипуляций или оценки истинных электоральных шансов. Финансовые регуляторы воспринимают эту тенденцию как угрозу чистоте избирательных процессов из-за неконтролируемого влияния капитала. Потенциальные риски включают намеренное искажение политической реальности посредством скоординированных рыночных атак. В долгосрочной перспективе это грозит полной геймификацией и коммерциализацией демократических процедур.</p>
             </div>
           </div>
         </article>
 
-        <article class="article-item" id="art-eco-5">
-          <button class="article-trigger" id="btn-eco-5" aria-expanded="true" aria-controls="body-eco-5">
+        <article class="article-item" id="art-bar-5">
+          <button class="article-trigger" id="btn-bar-5" aria-expanded="true" aria-controls="body-bar-5">
             <span class="art-idx">05</span>
-            <span class="art-title">Лактология: нехватка грудного вскармливания</span>
+            <span class="art-title">Заоблачные цены на пластик давят на компании</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
-          <div class="article-body" id="body-eco-5" role="region" aria-labelledby="btn-eco-5">
+          <div class="article-body" id="body-bar-5" role="region" aria-labelledby="btn-bar-5">
             <div class="body-inner">
-              <p>Проблема глобального дефицита грудного вскармливания выходит за строгие рамки медицины, превращаясь в серьезный вызов для макроэкономической и социальной политики. Ключевым фактором является системное отсутствие институциональной поддержки материнства в условиях агрессивных требований современного рынка труда. В этой ситуации очевидными бенефициарами являются транснациональные корпорации, массово производящие детские смеси и заменители. Основными проигравшими становятся системы общественного здравоохранения и семьи, сталкивающиеся с долгосрочным ухудшением здоровья младенцев. В корне проблемы лежат интересы корпоративных работодателей, стремящихся к максимальному сокращению декретных отпусков и затрат на социальную инфраструктуру. Для политических институтов это негативный сигнал, свидетельствующий о фундаментальном конфликте между демографическими целями и экономической эффективностью государства. Сигналом для рынков здравоохранения является ожидаемый рост спроса на педиатрические услуги и фармакологические препараты для лечения ранних сбоев в иммунной системе. Индустрия детского питания, напротив, получает железное подтверждение устойчивого роста в своей рыночной нише на десятилетия вперед. Основные риски связаны с ухудшением качества человеческого капитала на макроуровне из-за критического снижения базового иммунитета у новых поколений. Кроме того, ситуация усугубляет социально-экономическое неравенство, так как качественное раннее питание становится исключительной прерогативой состоятельных классов. Государственные органы должны осознать, что отсутствие гибких условий труда напрямую бьет по национальному биологическому ресурсу. Без радикального пересмотра трудового законодательства этот скрытый институциональный кризис будет только масштабироваться.</p>
+              <p>Ключевым событием материала является резкий скачок цен на пластик, оказывающий критическое давление на корпоративный сектор. Эта макроэкономическая аномалия разрушает устоявшиеся цепочки поставок в сегментах упаковки и потребительских товаров. Главными выгодоприобретателями в данной ситуации выступают нефтехимические корпорации и производители первичных полимеров. Они получают финансовое преимущество за счет возможности диктовать цены в условиях дефицита сырья и роста издержек. Одновременно с этим существенные финансовые потери несут производители товаров массового спроса и розничные сети. Их уязвимость связана с невозможностью мгновенно переложить возросшие издержки на конечного потребителя без потери доли рынка. За ценовым шоком стоят глобальные логистические сбои и спекулятивные интересы сырьевых трейдеров. Основная мотивация поставщиков сырья — максимизация маржи в условиях ограниченного предложения. Для мировых рынков это служит тревожным сигналом о формировании новых очагов промышленной инфляции. Институциональные инвесторы воспринимают эту тенденцию как угрозу снижения корпоративных прибылей в секторе потребительских товаров в ближайшие кварталы. Потенциальные макроэкономические риски включают ускорение инфляционной спирали, вынуждающей центральные банки сохранять жесткую денежно-кредитную политику. В перспективе это может спровоцировать ускоренный переход компаний на альтернативные упаковочные материалы для защиты своей маржи.</p>
             </div>
           </div>
         </article>
@@ -948,18 +779,18 @@
       <section class="outlet-section">
         <div class="outlet-header">
           <h2>FRONTLINE</h2>
-          <div class="outlet-tags">ПОЛИТИКА • ЭКОЛОГИЯ</div>
+          <div class="outlet-tags">ПОЛИТИКА • ОБЩЕСТВО • КУЛЬТУРА</div>
         </div>
 
         <article class="article-item" id="art-fl-1">
           <button class="article-trigger" id="btn-fl-1" aria-expanded="true" aria-controls="body-fl-1">
             <span class="art-idx">01</span>
-            <span class="art-title">Затем они победили: пять региональных выборов и что стоит за их результатами</span>
+            <span class="art-title">Западная Бенгалия: тихое цунами</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-fl-1" role="region" aria-labelledby="btn-fl-1">
             <div class="body-inner">
-              <p>Результаты региональных выборов в Западной Бенгалии, Тамил Наду, Керале, Ассаме и Пудучерри подтвердили абсолютное доминирование местной повестки дня над национальными политическими нарративами. Ключевыми факторами, формирующими политический ландшафт, остались эффективность предоставления социальных благ и тщательный учет сложных кастовых пропорций. В результате главными бенефициарами оказываются региональные элиты, успешно отстоявшие свои суверенные позиции перед натиском федеральной избирательной машины. Проигравшей стороной выступает правящая на национальном уровне партия, чьи попытки агрессивно унифицировать политическое поле потерпели неудачу. Мотивация избирателей базировалась на решении конкретных экономических проблем и стойкой защите региональной культурной идентичности. Для политического истеблишмента Индии это четкий сигнал о том, что федеральная консолидация имеет непреодолимые институциональные пределы. Институциональные инвесторы получают позитивное подтверждение устойчивости децентрализованной модели управления и самостоятельности штатов. Сигнал для рынков носит смешанный характер: с одной стороны, снижается риск диктаторской монополизации власти; с другой — усложняется проведение быстрых общенациональных реформ. Бизнесу придется и дальше выстраивать сложные многоуровневые цепочки лоббирования, договариваясь напрямую с конкретными региональными администрациями. Главный политический риск заключается в возможном усилении центробежных тенденций и обострении бюджетных конфликтов между центром и штатами. Финансовые последствия могут проявиться в росте популистских расходов на местах, поскольку победы были обеспечены именно обещаниями социальных программ. В долгосрочной перспективе ситуация требует от центрального правительства выработки более тонких, недирективных механизмов интеграции региональных экономик.</p>
+              <p>Ключевым фактом материала является победа региональных политических сил в Западной Бенгалии, обусловленная успешным предоставлением социальных благ и местными альянсами. Этот прецедент подтверждает устойчивость региональных течений в Индии, способных переломить национальные политические нарративы. Главными бенефициарами в этой ситуации являются местные партийные лидеры, укрепившие свой мандат доверия за счет социальных программ. Они получают стратегическое преимущество, эффективно используя кастовые уравнения и адресную экономическую помощь населению. И наоборот, правящая федеральная партия несет значительные репутационные и электоральные потери. Ее уязвимость проистекает из неспособности предложить регионам повестку, способную перевесить эффективность местного управления и решение повседневных проблем. За этим электоральным исходом стоят консолидированные интересы местных элит, стремящихся сохранить политическую автономию от центра. Основная мотивация избирателей продиктована сугубо прагматичным подходом к распределению благ и защите местной идентичности. Для национальных институтов управления это служит прямым сигналом о пределах централизации и необходимости уважать региональный суверенитет. Инвесторы воспринимают этот исход как маркер сохранения сложной федеративной структуры, препятствующей быстрой законодательной унификации. Потенциальные риски включают обострение политического противостояния между региональным правительством и федеральным центром. В долгосрочной перспективе это грозит финансовым дисбалансом из-за популистской гонки социальных обещаний на региональном уровне.</p>
             </div>
           </div>
         </article>
@@ -967,12 +798,12 @@
         <article class="article-item" id="art-fl-2">
           <button class="article-trigger" id="btn-fl-2" aria-expanded="true" aria-controls="body-fl-2">
             <span class="art-idx">02</span>
-            <span class="art-title">AAP: метлу тоже нужно чистить</span>
+            <span class="art-title">Керала: пала последняя цитадель левых</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-fl-2" role="region" aria-labelledby="btn-fl-2">
             <div class="body-inner">
-              <p>Внутренний кризис в Партии простого человека (AAP) высветил системные управленческие проблемы в организации, которая изначально строила свой политический капитал на бескомпромиссной антикоррупционной риторике. Ключевым фактом является острая необходимость радикальной внутренней чистки партии, чьи символические «метлы» теперь должны быть применены к ее собственному аппарату. Традиционные политические конкуренты выигрывают в этой ситуации, получая легитимную возможность дискредитировать главного претендента на роль морального авторитета нации. Сторонники альтернативной демократической политики и городские избиратели, чьи высокие ожидания относительно прозрачного управления рухнули, оказываются в проигрыше. Мотивация руководства AAP в настоящее время сводится к бюрократическому выживанию и попыткам перестроить структуру партии в условиях колоссальных репутационных потерь. Для демократических институтов это крайне негативный сигнал, демонстрирующий, что даже идеалистические реформистские движения быстро перенимают пороки старой системы. На политическом рынке это событие резко снижает ценность любых «альтернативных» брендов, повышая электоральную премию за предсказуемость традиционных партий. Институциональные инвесторы воспринимают этот кризис как снижение рисков внезапных регуляторных сбоев, поскольку радикальные популисты теряют рычаги влияния. Главный риск заключается в глубокой апатии образованного городского среднего класса, который может полностью отстраниться от избирательного процесса. В долгосрочной перспективе это грозит возвратом к классической кланово-патронажной системе управления столичным округом и прилегающими территориями. Внутренние аппаратные чистки в AAP могут спровоцировать необратимый раскол партии и потерю контроля над муниципальными финансовыми потоками. Это классический пример институционального вырождения, когда инструменты борьбы с коррупцией монополизируются и сами становятся заложниками ситуации.</p>
+              <p>Ключевым политическим фактом является поражение левой коалиции в штате Керала, который исторически считался ее главной опорой. Это событие знаменует фундаментальный сдвиг в идеологическом ландшафте индийской региональной политики. Главными бенефициарами в этой ситуации выступают центристские и правые силы, сумевшие разрушить многолетнюю политическую монополию коммунистического альянса. Они обеспечивают себе стратегическое преимущество, извлекая выгоду из усталости избирателей от традиционного левого аппарата и местных проблем. В то же время катастрофические политические потери несут институциональные структуры левых партий. Их уязвимость кроется в идеологической косности, кризисе лидерства и неспособности адаптироваться к запросам нового электората. За этим событием стоят интересы зарождающегося среднего класса Кералы, требующего экономического прагматизма вместо идеологических догм. Основная мотивация голосовавших за смену власти заключается в желании модернизировать экономику и преодолеть структурную безработицу в штате. Для индийской политики это служит четким сигналом об окончательном закате классического левого движения в стране. Инвесторы получают позитивный индикатор потенциальной либерализации трудового законодательства и улучшения делового климата в регионе. Потенциальные риски связаны с периодом политической нестабильности в ходе демонтажа глубоко укоренившихся профсоюзных структур. В перспективе это может спровоцировать полную перестройку социальной модели штата в сторону рыночного капитализма.</p>
             </div>
           </div>
         </article>
@@ -980,12 +811,12 @@
         <article class="article-item" id="art-fl-3">
           <button class="article-trigger" id="btn-fl-3" aria-expanded="true" aria-controls="body-fl-3">
             <span class="art-idx">03</span>
-            <span class="art-title">Ладакх: недемократичное устройство</span>
+            <span class="art-title">Ассам: поляризованный мандат</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-fl-3" role="region" aria-labelledby="btn-fl-3">
             <div class="body-inner">
-              <p>Нынешняя система управления в стратегически важном регионе Ладакх характеризуется как глубоко недемократичная модель, преднамеренно ущемляющая базовые права местного гражданского населения. Ключевым фактором нарастания напряженности является лишение региона полноценного представительства и институциональной финансовой независимости. Безоговорочными бенефициарами в таком формате выступают центральные бюрократические структуры Нью-Дели, консолидирующие прямой и неограниченный контроль над территорией. Проигравшей стороной является коренное население, административно исключенное из суверенных процессов принятия решений по распределению местных ресурсов и земель. Мотивация федерального центра продиктована исключительно соображениями национальной безопасности и милитаризацией приграничной зоны за счет ущемления внутренних гражданских прав. Это крайне негативный сигнал для судебных и правозащитных институтов, свидетельствующий о готовности государства пожертвовать демократией ради тотального геополитического контроля. Для политических рынков это явный маркер повышенной волатильности в приграничных регионах, где жесткий административный диктат может спровоцировать беспорядки в любой момент. Инвесторы в туристическую и местную инфраструктуру получают сигнал о запредельных рисках, связанных с отсутствием легитимной местной договорной базы. Главный риск заключается в стремительной радикализации населения Ладакха, которое исторически демонстрировало высокую лояльность центральному индийскому правительству. Искусственное силовое подавление политической и экономической активности неизбежно приведет к скрытой, но мощной социальной дестабилизации региона. В долгосрочной перспективе созданный институциональный дисбаланс критически ослабляет позиции Индии в гипотетическом военном противостоянии с соседними государствами. Управление посредством прямой колониальной администрации в сложном этническом регионе доказывает свою абсолютную стратегическую несостоятельность.</p>
+              <p>Главным фактом представленного материала является формирование жестко поляризованного мандата в штате Ассам по итогам региональных выборов. Этот результат стал прямым следствием использования процессов разграничения избирательных округов и применения Национального реестра граждан. Главными выгодоприобретателями в этой ситуации становятся националистические и правящие политические силы, успешно консолидировавшие свой базовый электорат. Они получают стратегическое преимущество за счет юридического конструирования границ избирательных округов и разыгрывания карты идентичности. И наоборот, значительные политические права и представительство теряют религиозные и этнические меньшинства штата. Их уязвимость связана с фрагментацией голосов и системным административным давлением через механизмы проверки гражданства. За этой поляризацией стоят глубокие институциональные интересы центрального правительства, стремящегося ассимилировать приграничные и этнически сложные регионы. Основная мотивация победивших сил продиктована желанием установить неоспоримый контроль над стратегически важным штатом. Для демократических институтов Индии это служит тревожным сигналом об успешном использовании административного ресурса для легального изменения демографического веса оппозиции. Рынки воспринимают это как гарантию жесткой политической стабильности, но игнорируют накапливающуюся социальную напряженность. Потенциальные риски включают радикализацию меньшинств, исключенных из политического процесса, и локальные вспышки насилия. В долгосрочной перспективе это грозит подрывом доверия к федеральным избирательным механизмам на периферии страны.</p>
             </div>
           </div>
         </article>
@@ -993,12 +824,12 @@
         <article class="article-item" id="art-fl-4">
           <button class="article-trigger" id="btn-fl-4" aria-expanded="true" aria-controls="body-fl-4">
             <span class="art-idx">04</span>
-            <span class="art-title">Пенджаб: преступность, мифы и государство</span>
+            <span class="art-title">Ладакх: недемократическое устройство</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-fl-4" role="region" aria-labelledby="btn-fl-4">
             <div class="body-inner">
-              <p>В Пенджабе разрастается беспрецедентный кризис управления, где проблема организованной преступности органично переплетается с социальными мифами и дисфункцией государственного аппарата. Ключевым событием является фактическая неспособность властей удерживать монополию на насилие, уступая оперативную инициативу хорошо вооруженным криминальным сетям. Теневые структуры и местные силовые авторитеты выигрывают в этом контексте, стремительно капитализируя свое влияние за счет коррупции и неэффективности местной полиции. Институты легальной экономики и простые граждане оказываются в проигрыше, вынужденные ежедневно платить двойную ренту — криминальную и бюрократическую. Стратегическая мотивация преступных группировок связана с установлением жесткого контроля над логистическими потоками и теневой экономикой самого богатого сельскохозяйственного региона страны. Для государственных институтов это сигнал о критическом системном сбое в архитектуре правоохранительных органов и глубочайшем проникновении криминала в высшие эшелоны власти. На макроэкономическом уровне это действует как жесткий знак «стоп» для любых серьезных капиталовложений в промышленность и технологии штата. Легальный бизнес вынужден закладывать в свои финансовые модели раздутые расходы на частную охрану и неформальные операционные платежи. Главный риск для государства заключается в неизбежном слиянии окрепших преступных синдикатов с радикальными политическими или сепаратистскими региональными движениями. Мифологизация и романтизация криминалитета в массовом сознании создает разрушительный социальный прецедент для молодежи, лишенной перспектив легального заработка. Если федеральное государство срочно не восстановит свой институциональный авторитет, регион рискует превратиться в зону суверенной криминальной экономики. Это напрямую угрожает внутренней логистической и продовольственной безопасности всей северной части индийского государства.</p>
+              <p>Ключевым фактом проанализированного материала является резкая критика нынешней модели управления в Ладакхе, охарактеризованной как недемократическое устройство. Это подчеркивает растущее недовольство населения отсутствием прямого политического представительства после изменения статуса региона. Главными бенефициарами сохранения нынешнего статус-кво выступают федеральные бюрократические аппараты и силовой сектор. Они получают беспрепятственный оперативный контроль над стратегически важной приграничной территорией без необходимости согласовывать решения с местным парламентом. Тем временем критические потери несет коренное население Ладакха, лишенное конституционных гарантий защиты своих земель и культурной идентичности. Их уязвимость обусловлена прямым подчинением региона центру и отсутствием легитимных рычагов влияния на администрацию. За таким устройством стоят жесткие геополитические интересы Индии в контексте военного противостояния в гималайском секторе. Основная мотивация центральной власти продиктована приоритетом национальной безопасности над местными демократическими процедурами. Для международных и внутренних правозащитных институтов это служит сигналом о свертывании автономии в стратегических зонах. Политические элиты других приграничных штатов рассматривают этот случай как потенциальный сценарий отзыва их собственных властных полномочий. Потенциальные риски связаны с массовым гражданским неповиновением и отчуждением ранее лояльного населения. В долгосрочной перспективе это грозит созданием новой точки внутреннего напряжения в непосредственной близости от зоны военного конфликта.</p>
             </div>
           </div>
         </article>
@@ -1006,33 +837,398 @@
         <article class="article-item" id="art-fl-5">
           <button class="article-trigger" id="btn-fl-5" aria-expanded="true" aria-controls="body-fl-5">
             <span class="art-idx">05</span>
-            <span class="art-title">Непродуманный план для леса Сентрал Ридж в Дели</span>
+            <span class="art-title">Венецианская биеннале: Индия возвращается после семилетнего перерыва</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-fl-5" role="region" aria-labelledby="btn-fl-5">
             <div class="body-inner">
-              <p>Инициативы по коммерческой трансформации лесной зоны Сентрал Ридж в Нью-Дели представляют собой экологически разрушительный и урбанистически необоснованный проект. Ключевым фактом является агрессивная попытка инфраструктурного освоения последней крупной буферной зеленой зоны столицы в обход действующих экологических норм. Главными бенефициарами проекта откровенно выступают строительные корпорации и девелоперские лоббисты, стремящиеся получить доступ к сверхдорогой и дефицитной столичной земле. Безоговорочно проигравшей стороной оказывается хрупкая экологическая система мегаполиса и миллионы его жителей, навсегда теряющие критически важный защитный барьер от загрязнения воздуха. Мотивация чиновников, продвигающих этот план, цинично строится на краткосрочной капитальной монетизации территорий и освоении колоссальных инфраструктурных бюджетов. Для гражданских институтов это крайне тревожный сигнал о том, что строгие экологические стандарты легко демонтируются под давлением интересов крупного строительного капитала. На столичном рынке недвижимости это сигнализирует о готовности коррумпированных властей пересмотреть любое зонирование в пользу плотной точечной застройки. Для западных ESG-инвесторов участие в подобных проектах будет означать колоссальные репутационные потери и возможные блокировки со стороны международных эко-регуляторов. Потенциальные прямые последствия включают катастрофическое, необратимое ухудшение микроклимата и истощение запасов подземных вод в одном из самых густонаселенных городов мира. Риск неизбежных многолетних судебных блокировок проекта со стороны экологических активистов делает любые инвестиции в эту зону высокотоксичными активами. Этот земельный конфликт ярко демонстрирует институциональный кризис в городском планировании, где сиюминутная прибыль полностью перечеркивает цели устойчивого развития. В долгосрочной перспективе принятие таких градостроительных решений ведет к стремительному падению глобальной инвестиционной привлекательности Нью-Дели.</p>
+              <p>Главным событием материала является возвращение национального павильона Индии на Венецианскую биеннале искусств с выставкой, посвященной памяти о доме и экологии. Этот шаг знаменует собой возобновление активной культурной дипломатии на одной из главных интеллектуальных площадок мира. Основными выгодоприобретателями в данной ситуации становятся индийские кураторы и современные художники, получающие прямой доступ к мировому арт-рынку. Они приобретают стратегическое преимущество, легитимизируя свой дискурс об укорененности и традициях на международном уровне. В то же время брошен определенный вызов западноцентричным нарративам в искусстве, монополия которых размывается присутствием масштабных концепций стран Глобального Юга. Их уязвимость заключается в необходимости конкурировать за внимание с аутентичными экологическими и культурными смыслами развивающихся экономик. За этим возвращением стоят явные политические интересы правительства по формированию позитивного имиджа «мягкой силы» индийского государства. Основная мотивация инициаторов продиктована необходимостью транслировать западной аудитории образ цивилизационной глубины и экологической осознанности. Для мирового культурного рынка это сигнал о готовности Индии инвестировать в символический капитал наравне с экономическим. Институциональные инвесторы в секторе искусства получают индикатор растущей капитализации современного южноазиатского искусства. Потенциальные риски включают идеологическую цензуру при отборе художников, представляющих официальный государственный павильон. В дальнейшем это закрепляет роль культурной экспансии как неотъемлемой части внешнеполитической доктрины страны.</p>
             </div>
           </div>
         </article>
       </section>
 
-      <!-- ════════════════════════ THE WEEK ════════════════════════ -->
+      <!-- ════════════════════════ GEOPOLITICS ════════════════════════ -->
       <section class="outlet-section">
         <div class="outlet-header">
-          <h2>THE WEEK</h2>
-          <div class="outlet-tags">ВЫБОРЫ В США • ГЛОБАЛЬНАЯ ЭКОНОМИКА • МЕДИА • ГЕОПОЛИТИКА</div>
+          <h2>GEOPOLITICS</h2>
+          <div class="outlet-tags">ОБОРОНА • ТЕХНОЛОГИИ • ГЕОПОЛИТИКА</div>
+        </div>
+
+        <article class="article-item" id="art-geo-1">
+          <button class="article-trigger" id="btn-geo-1" aria-expanded="true" aria-controls="body-geo-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Всплеск развития отечественных беспилотников в Индии</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-geo-1" role="region" aria-labelledby="btn-geo-1">
+            <div class="body-inner">
+              <p>Ключевым фактом материала является ускоренное развитие Индией собственной индустрии военных беспилотников в рамках стратегии до 2047 года. Этот прецедент устанавливает новый вектор технологического суверенитета страны в аэрокосмической сфере. Главными выгодоприобретателями в этой ситуации выступают национальные оборонные подрядчики и местные робототехнические стартапы. Они обеспечивают себе стратегическое преимущество за счет масштабных госзаказов и протекционистской политики Министерства обороны. И наоборот, традиционные иностранные экспортеры вооружений, исторически доминировавшие на индийском рынке, несут значительные потери. Их уязвимость проистекает из прямого курса Нью-Дели на импортозамещение и запретов на закупку готовых зарубежных платформ. За этим технологическим скачком стоят твердые геополитические интересы Индии по обеспечению независимости в условиях региональной нестабильности. Основная мотивация военного руководства продиктована необходимостью асимметричного ответа на угрозы вдоль обширных и сложных границ. Для мировых рынков вооружений это служит четким сигналом о том, что Индия окончательно избавляется от статуса покорного покупателя иностранных технологий. Институциональные инвесторы воспринимают эту тенденцию как старт взрывного роста внутри индийского ВПК. Основные риски связаны с технологическими дефектами и перерасходом бюджета на этапах НИОКР из-за нехватки собственной инженерной базы. В долгосрочной перспективе это грозит превращением Индии из импортера в агрессивного экспортера недорогих военных беспилотников.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-geo-2">
+          <button class="article-trigger" id="btn-geo-2" aria-expanded="true" aria-controls="body-geo-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Стальная революция: танки времен холодной войны уступают место</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-geo-2" role="region" aria-labelledby="btn-geo-2">
+            <div class="body-inner">
+              <p>Главным событием материала является стратегический отказ индийской армии от концепции танков времен холодной войны в пользу боевых машин нового поколения. Эта трансформация подчеркивает фундаментальный пересмотр доктрин наземных операций в контексте современной войны. Основными выгодоприобретателями становятся технологические корпорации, специализирующиеся на интеграции цифровых систем, композитной броне и мобильности. Они получают долгосрочные контракты на модернизацию всего парка бронетехники в соответствии с новыми сетецентрическими требованиями. В то же время главными проигравшими оказываются заводы тяжелого машиностроения, ориентированные на массовое производство устаревшей тяжелой брони. Их позиции слабеют из-за нехватки компетенций в области электроники и создания высокоманевренных легких платформ. Базовые интересы генералитета сфокусированы на повышении живучести техники в условиях доминирования беспилотников и высокоточного оружия. Мотивация заказчиков продиктована необходимостью создания маневренной, логистически гибкой и интеллектуальной наземной ударной силы. Этот кейс транслирует рынкам вооружений сигнал о полном устаревании классической тяжелой брони в конфликтах высокой интенсивности. Иностранные партнеры получают индикатор необходимости передачи технологий создания интеллектуальных систем защиты, а не просто металла. Основные риски связаны со сложностью интеграции новых платформ в существующую консервативную логистическую и ремонтную инфраструктуру армии. В перспективе это может спровоцировать полное списание тысяч старых машин, что потребует колоссальных финансовых списаний.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-geo-3">
+          <button class="article-trigger" id="btn-geo-3" aria-expanded="true" aria-controls="body-geo-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Алгоритмическая война: искусственный интеллект переписывает правила</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-geo-3" role="region" aria-labelledby="btn-geo-3">
+            <div class="body-inner">
+              <p>Ключевым фактом проанализированного текста является интеграция искусственного интеллекта в системы управления боем, что радикально переписывает правила современной войны. Этот технологический сдвиг создает реальность, в которой скорость принятия решений делегируется машинным алгоритмам. Главными бенефициарами в этой ситуации выступают IT-консорциумы и разработчики специализированного программного обеспечения. Они получают беспрецедентный доступ к оборонным бюджетам, становясь столь же жизненно важными, как и производители кинетического оружия. В то же время системную уязвимость демонстрируют традиционные командные структуры, полагающиеся на классический анализ силами человеческого штаба. Их позиции слабеют из-за неспособности обрабатывать терабайты данных о поле боя с необходимой скоростью, чтобы противостоять ИИ противника. За этим переходом стоят интересы оборонных ведомств, стремящихся к достижению тотального сетевого доминирования над потенциальными противниками. Основная мотивация внедрения алгоритмов продиктована желанием исключить человеческую ошибку и время реакции из цикла поражения целей. Для геополитических институтов это служит тревожным сигналом о начале неконтролируемой алгоритмической гонки вооружений. Технологические рынки воспринимают это как триггер для масштабных слияний гражданских лабораторий ИИ и военного сектора. Потенциальные риски включают катастрофические сбои алгоритмов, способные спровоцировать несанкционированные фатальные удары. В долгосрочной перспективе это грозит потерей политического контроля над эскалацией конфликтов, управляемых машинами.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-geo-4">
+          <button class="article-trigger" id="btn-geo-4" aria-expanded="true" aria-controls="body-geo-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Ударные нарративы: превращение восприятия в оружие</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-geo-4" role="region" aria-labelledby="btn-geo-4">
+            <div class="body-inner">
+              <p>Ключевым фактом материала является анализ уроков первого года войны и успешного развертывания «ударных сил нарративов» для превращения восприятия в оружие. Это событие подтверждает, что информационное доминирование стало стратегической составляющей военного успеха, равноценной кинетическим ударам. Главными выгодоприобретателями выступают структуры психологических операций и специалисты по кибервлиянию внутри военных ведомств. Они обеспечивают себе расширенные бюджеты и беспрецедентное влияние на оперативное планирование, формируя картину реальности для глобальной аудитории. И наоборот, значительные стратегические потери несут конфликтующие стороны, полагающиеся исключительно на традиционную военную цензуру и государственную пропаганду. Их уязвимость проистекает из неспособности противостоять децентрализованным вирусным информационным атакам и когнитивным манипуляциям. За этими процессами стоят интересы политического руководства, обеспечивающего легитимность своих действий в глазах международного сообщества. Основная мотивация игроков продиктована необходимостью деморализовать врага и мобилизовать союзников с помощью управляемых смысловых конструкций. Для медийных институтов это служит прямым сигналом о том, что гражданские информационные платформы окончательно превратились в полноценный театр военных действий. Инвесторы в кибербезопасность получают индикатор растущего спроса на инструменты когнитивной защиты и анализ больших данных. Потенциальные риски связаны с полным размыванием границ между правдой и синтетическими нарративами, что осложняет любые мирные переговоры. В дальнейшем это грозит институционализацией перманентной когнитивной войны, которая не прекращается даже после завершения физических боевых действий.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-geo-5">
+          <button class="article-trigger" id="btn-geo-5" aria-expanded="true" aria-controls="body-geo-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Готовность к взлету: аэропортовый бизнес Адани</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-geo-5" role="region" aria-labelledby="btn-geo-5">
+            <div class="body-inner">
+              <p>Ключевым фактом представленного текста является масштабная консолидация индийских аэропортов частными корпорациями, в частности структурами Адани. Этот прецедент формирует монополистическую реальность в управлении критической транспортной инфраструктурой на быстрорастущем рынке. Основными бенефициарами в этой ситуации становятся крупнейшие частные конгломераты, получающие долгосрочные концессии на самые прибыльные авиационные узлы. Они обеспечивают себе стратегическое финансовое преимущество за счет гарантированных неавиационных доходов и монетизации пассажиропотока. В то же время существенные инфраструктурные риски несут государство и рядовые пассажиры авиалиний, которые попадают в зависимость от ценообразования монополиста. Позиции государственных операторов слабеют из-за нехватки капитала для модернизации и передачи первоклассных активов в частные руки. За процессом приватизации стоят колоссальные финансовые интересы элит, стремящихся конвертировать инфраструктурные объекты в стабильные денежные потоки. Основная мотивация инвесторов продиктована ставкой на взрывной рост индийского среднего класса и внутреннего туризма. Для глобальных рынков это служит четким сигналом о либерализации индийской экономики и ее готовности передать стратегические активы транснациональному капиталу. Институциональные игроки воспринимают эту тенденцию как зеленый свет для инвестиций в смежные сектора: логистику, отели и ритейл. Основные риски связаны с потенциальными задержками в выполнении корпоративных инфраструктурных обязательств из-за высокой долговой нагрузки. В долгосрочной перспективе это грозит политической реакцией в случае необоснованного повышения аэропортовых сборов для авиакомпаний и граждан.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ NATIONAL REVIEW ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>NATIONAL REVIEW</h2>
+          <div class="outlet-tags">ПОЛИТИКА • ВЫБОРЫ В США • ГЕОПОЛИТИКА</div>
+        </div>
+
+        <article class="article-item" id="art-nr-1">
+          <button class="article-trigger" id="btn-nr-1" aria-expanded="true" aria-controls="body-nr-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Бич левого насилия</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nr-1" role="region" aria-labelledby="btn-nr-1">
+            <div class="body-inner">
+              <p>Ключевым фактом данного материала является институциональный анализ разрушительных последствий левого насилия на примере протестов 2020 года. Этот прецедент формирует жесткий консервативный консенсус относительно необходимости подавления уличной анархии силой закона. Главными выгодоприобретателями этого дискурса выступают консервативные политики и силовые структуры, требующие расширения своих полномочий. Они обеспечивают себе стратегическое электоральное преимущество, позиционируя себя как единственных гарантов социальной стабильности и защиты частной собственности. И наоборот, политические потери несут либеральные и прогрессивные силы, ранее симпатизировавшие протестным движениям. Их уязвимость обусловлена ассоциацией с хаосом, мародерством и подрывом основополагающих столпов американского общественного договора. За возрождением этой темы стоят интересы правых элит, мобилизующих свой электорат на фоне растущей социальной напряженности. Основная мотивация авторов продиктована необходимостью криминализировать левый политический активизм в массовом сознании. Для политических институтов это служит четким сигналом, подготавливающим почву для ужесточения федерального законодательства по противодействию внутреннему терроризму. Инвесторы в частные охранные и страховые сектора воспринимают этот нарратив как гарантию долгосрочного спроса на их услуги. Основные риски связаны с дальнейшей глубокой поляризацией общества и маргинализацией любых форм мирного гражданского протеста. В дальнейшем это может спровоцировать жесткий, силовой ответ на любые социальные волнения, что ставит под угрозу гражданские свободы.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nr-2">
+          <button class="article-trigger" id="btn-nr-2" aria-expanded="true" aria-controls="body-nr-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Континентальный сдвиг: как американские правые стали европейскими</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nr-2" role="region" aria-labelledby="btn-nr-2">
+            <div class="body-inner">
+              <p>Главным событием материала является фундаментальный идеологический сдвиг американских консерваторов в сторону европейских национал-популистских моделей. Этот процесс подчеркивает отход американских правых от традиционного либертарианства и идей свободного рынка в пользу государственного протекционизма. Главными бенефициарами этой трансформации становятся лидеры популистского крыла Республиканской партии, успешно перехватывающие повестку у истеблишмента. Они получают электоральное преимущество, консолидируя рабочий класс с помощью обещаний защиты культуры и торговых барьеров. В то же время катастрофические потери несут классические консерваторы эпохи Рейгана и сторонники неолиберальной глобализации. Их позиции стремительно слабеют из-за потери контроля над партийным аппаратом и идеологическим мейнстримом правого движения. За этим сдвигом стоят интересы американского промышленного капитала, требующего защиты от международной конкуренции, наряду с культурными традиционалистами. Основная мотивация новых правых продиктована желанием построить национальное государство с сильной социальной базой, отвергающее космополитизм. Для глобальных рынков это транслирует сигнал о том, что двухпартийный консенсус в США относительно свободной торговли окончательно мертв. Международные институты получают индикатор неизбежного роста американского изоляционизма независимо от исхода будущих выборов. Потенциальные риски включают развязывание масштабных торговых войн, инициированных идеологически мотивированными протекционистами. В долгосрочной перспективе это грозит дефрагментацией глобальной экономики на закрытые национальные блоки.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nr-3">
+          <button class="article-trigger" id="btn-nr-3" aria-expanded="true" aria-controls="body-nr-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Исправление НАТО: укреплять альянс, а не разрушать его</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nr-3" role="region" aria-labelledby="btn-nr-3">
+            <div class="body-inner">
+              <p>Ключевым фактом материала является призыв к прагматичному реформированию Североатлантического альянса в противовес идеям, выступающим за его полный демонтаж. Этот тезис формирует умеренно-консервативную позицию, признающую недостатки НАТО, но отстаивающую его стратегическую ценность для США. Основными выгодоприобретателями такого подхода выступают американский военно-промышленный комплекс и оборонные элиты. Они получают долгосрочную гарантию сохранения многомиллиардных контрактов на перевооружение европейских союзников в рамках обновленного альянса. И наоборот, политические потери несут радикальные изоляционисты, выступающие за полный вывод американских войск из Европы. Их аргументы слабеют на фоне прагматичной логики разделения бремени без потери геополитического контроля. За этим нарративом стоят интересы трансатлантического истеблишмента, стремящегося сохранить институциональные рамки западной гегемонии. Основная мотивация сторонников реформ заключается в принуждении Европы к экспоненциальному увеличению расходов на оборону при сохранении лидерства Вашингтона. Для глобальных рынков это служит прямым сигналом о продолжении масштабной милитаризации европейского континента. Политические институты ЕС получают недвусмысленный индикатор: американская защита сохранится только при условии оплаты счетов. Потенциальные риски связаны с сопротивлением европейских избирателей сокращению социальных бюджетов в пользу военных ассигнований. В дальнейшем это приведет к трансформации НАТО в более транзакционную структуру, где безопасность жестко привязана к финансам.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nr-4">
+          <button class="article-trigger" id="btn-nr-4" aria-expanded="true" aria-controls="body-nr-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Аляска — новый рубеж добычи полезных ископаемых</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nr-4" role="region" aria-labelledby="btn-nr-4">
+            <div class="body-inner">
+              <p>Ключевым фактом проанализированного текста является предложение использовать рыночные механизмы для добычи редкоземельных металлов на Аляске в целях противодействия Китаю. Это событие подчеркивает начало активной фазы ресурсного противостояния между Вашингтоном и Пекином во внутриамериканской сфере. Основными выгодоприобретателями в этой ситуации выступают американские горнодобывающие корпорации и инфраструктурные фонды. Они получают стратегическое преимущество за счет федеральной поддержки и потенциального дерегулирования экологических стандартов в интересах национальной стратегии. Тем временем существенные политические и репутационные потери несут экологические организации и лоббисты «зеленых» инициатив. Их позиции радикально ослабевают из-за императива национальной безопасности, который теперь перевешивает экологические аргументы. Фундаментальные интересы американских элит сосредоточены на устранении критической зависимости от китайского сырья, необходимого для ВПК и микроэлектроники. Мотивация политиков продиктована желанием обеспечить полный суверенитет над технологическими цепочками поставок в предстоящие десятилетия. Этот кейс транслирует сырьевым рынкам четкий сигнал о готовности США масштабно инвестировать в собственную ресурсную базу. Институциональные инвесторы получают индикатор неминуемого бума геологоразведки и добычи на неосвоенных территориях Аляски. Основные риски включают многолетние судебные тяжбы с экоактивистами, способные задержать запуск добывающих объектов. В долгосрочной перспективе это грозит фрагментацией глобального рынка критически важных минералов на враждебные сферы влияния.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nr-5">
+          <button class="article-trigger" id="btn-nr-5" aria-expanded="true" aria-controls="body-nr-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Новый космический капитализм: предпринимательский путь к звездам</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nr-5" role="region" aria-labelledby="btn-nr-5">
+            <div class="body-inner">
+              <p>Ключевым фактом материала является признание абсолютного доминирования частных корпораций, таких как SpaceX, в сфере космических запусков. Этот прецедент устанавливает принципиально новую парадигму, где космос становится ареной для агрессивной частной коммерции, а не государственных программ. Основными бенефициарами в этой ситуации становятся миллиардеры-визионеры и венчурные фонды, финансирующие аэрокосмические стартапы. Они обеспечивают себе монопольное преимущество в формировании будущих рынков внеземной логистики, спутниковой связи и добычи ресурсов. В то же время колоссальные репутационные и институциональные потери несут традиционные правительственные космические агентства. Их уязвимость проистекает из бюрократической неповоротливости и неспособности конкурировать с эффективностью частного капитала. За этим феноменом стоят интересы нового поколения капиталистов, стремящихся приватизировать внеземные пространства и орбитальную инфраструктуру. Основная мотивация этих корпораций — создание правовых и экономических рамок для будущей торговли правами на добычу ископаемых на астероидах. Для глобальных рынков это служит сигналом, легитимизирующим «космическую экономику» как полноценный и высокодоходный инвестиционный сектор. Институциональные игроки получают индикатор необходимости создания новых правовых инструментов для защиты прав собственности в космосе. Потенциальные риски включают монополизацию низкой околоземной орбиты одной частной компанией, способной диктовать условия целым государствам. В дальнейшем это провоцирует неконтролируемую космическую гонку при отсутствии внятных международных механизмов регулирования.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ NEWSWEEK ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>NEWSWEEK</h2>
+          <div class="outlet-tags">МИРОВАЯ ЭКОНОМИКА • ТЕХНОЛОГИИ • ЛОГИСТИКА</div>
+        </div>
+
+        <article class="article-item" id="art-nw-1">
+          <button class="article-trigger" id="btn-nw-1" aria-expanded="true" aria-controls="body-nw-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Одураченная Британия: почему она больше не великая</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nw-1" role="region" aria-labelledby="btn-nw-1">
+            <div class="body-inner">
+              <p>Ключевым фактом представленного материала является жесткая констатация утраты Великобританией статуса великой державы на мировой арене. Этот прецедент формирует новую геополитическую реальность, в которой Лондон перестает быть определяющим центром силы. Главными бенефициарами в этой ситуации становятся конкурирующие мировые центры, такие как США, Китай и руководство Европейского Союза. Они получают стратегическое преимущество, заполняя дипломатический и экономический вакуум, образовавшийся в результате самоизоляции британских институтов. И наоборот, катастрофические политические и репутационные потери несет британский правящий истеблишмент. Их уязвимость кроется в последствиях глубоких структурных кризисов и неспособности предложить жизнеспособную экономическую модель в новых условиях. За этим дискурсом стоят интересы международных рынков, понижающих оценку суверенных рисков островного государства. Основная мотивация авторов подобной оценки — зафиксировать свершившийся исторический факт для пересмотра внешнеполитических приоритетов. Для глобальных инвесторов это служит прямым сигналом о снижении инвестиционной привлекательности британских активов в долгосрочной перспективе. Политические элиты континентальной Европы воспринимают эту тенденцию как подтверждение правильности их интеграционной политики. Потенциальные риски включают дальнейшую внутреннюю дезинтеграцию Соединенного Королевства и рост радикального сепаратизма. В перспективе это грозит превращением Британии во второстепенного регионального игрока с сильно раздутым финансовым сектором.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nw-2">
+          <button class="article-trigger" id="btn-nw-2" aria-expanded="true" aria-controls="body-nw-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Умная инфраструктура завтрашнего дня</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nw-2" role="region" aria-labelledby="btn-nw-2">
+            <div class="body-inner">
+              <p>Ключевым фактом материала является развертывание масштабной правительственной программы США по инвестированию триллионов долларов в проекты капитальной инфраструктуры. Это событие дает старт одному из крупнейших в новейшей истории циклов государственного финансирования внутреннего рынка. Основными выгодоприобретателями в этой ситуации становятся крупные строительные подрядчики и поставщики промышленных материалов. Они обеспечивают себе стратегическое финансовое преимущество за счет гарантированного портфеля госзаказов на ближайшее десятилетие. Тем временем потери в виде скрытых налогов и инфляционного давления несут рядовые налогоплательщики и потребительский сектор. Их финансовое положение ухудшается из-за перераспределения колоссальных бюджетных средств в пользу промышленных гигантов. За этим инвестиционным бумом стоят политические интересы администрации по реиндустриализации страны и созданию рабочих мест. Основная мотивация ключевых политических игроков продиктована желанием сохранить глобальную конкурентоспособность Америки перед лицом инфраструктурной мощи Китая. Для фондовых рынков это транслирует недвусмысленный сигнал, запускающий суперцикл роста в секторах тяжелого машиностроения и строительства. Институциональные инвесторы получают индикатор надежности вложений в акции инфраструктурных компаний, подкрепленных суверенными гарантиями. Основные макроэкономические риски включают неэффективное расходование средств, коррупцию и перегрев рынка труда в строительстве. В долгосрочной перспективе это грозит резким увеличением государственного долга и продолжительной структурной инфляцией.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nw-3">
+          <button class="article-trigger" id="btn-nw-3" aria-expanded="true" aria-controls="body-nw-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Создаем лучшее будущее с помощью облака Aurigo Masterworks</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nw-3" role="region" aria-labelledby="btn-nw-3">
+            <div class="body-inner">
+              <p>Ключевым фактом данного материала является массовый отказ государственных и частных структур от разрозненных устаревших систем управления инфраструктурой. Этот процесс знаменует собой тотальную цифровизацию триллионных бюджетов через облачные решения. Главными бенефициарами в этой ситуации становятся IT-корпорации и разработчики специализированного программного обеспечения для капитального планирования. Они получают стратегическое преимущество, навязывая отрасли свои стандарты подписки и консолидируя контроль над потоками данных. В то же время значительные технологические и кадровые потери несут консервативные проектные бюро и региональные администрации. Их уязвимость проистекает из неспособности быстро адаптироваться к облачным платформам и потери контроля над традиционными процессами согласования. За этой цифровой трансформацией стоят жесткие интересы фискальных органов, требующих абсолютной прозрачности в расходовании инфраструктурных триллионов. Основная мотивация разработчиков облачных платформ заключается в монополизации доступа к больших данных в строительной отрасли США. Для рынков венчурного капитала это служит четким сигналом о прибыльности инвестиций в сектор B2G (business-to-government). Технологические институты воспринимают эту тенденцию как шаг к тотальному алгоритмическому управлению городским развитием. Потенциальные риски включают угрозу кибератак на единые облачные хранилища, содержащие данные критически важной национальной инфраструктуры. В перспективе это может спровоцировать системный паралич строек в масштабах всей страны в случае сбоя платформы ключевого провайдера.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nw-4">
+          <button class="article-trigger" id="btn-nw-4" aria-expanded="true" aria-controls="body-nw-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Авиационные технологии открывают мир доставки для электронной коммерции</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nw-4" role="region" aria-labelledby="btn-nw-4">
+            <div class="body-inner">
+              <p>Ключевым событием проанализированного текста является внедрение специализированных IT-решений, позволяющих авиакомпаниям напрямую обслуживать логистику электронной коммерции. Это новшество устраняет традиционных посредников между авиаперевозчиками и рынком онлайн-ритейла. Главными выгодоприобретателями в этой конфигурации выступают классические пассажирские и грузовые авиакомпании, отчаянно ищущие новые источники дохода. Они получают стратегическое преимущество, диверсифицируя свои доходы за счет быстрорастущего трафика мелких посылок. И наоборот, критические потери несут традиционные логистические операторы и крупные почтовые службы. Их позиции слабеют по мере того, как авиакомпании начинают напрямую интегрироваться в цепочки поставок интернет-магазинов. За этим технологическим сдвигом стоят финансовые интересы авиационной отрасли, стремящейся максимально увеличить коэффициент загрузки каждого рейса. Основная мотивация разработчиков программного обеспечения заключается в создании глобального шлюза, взимающего комиссию за каждую транзакцию между магазином и самолетом. Этот кейс транслирует прямой сигнал розничному рынку о радикальном сокращении сроков и стоимости межконтинентальной доставки товаров. Институциональные инвесторы получают индикатор неминуемого скачка прибыльности авиакомпаний за счет использования скрытых грузовых емкостей. Основные риски связаны с правовыми и таможенными барьерами при массовой трансграничной перевозке розничных товаров. В долгосрочной перспективе это грозит трансформацией пассажирских авиакомпаний в глобальные курьерские службы, отдающие приоритет грузам перед пассажирами.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-nw-5">
+          <button class="article-trigger" id="btn-nw-5" aria-expanded="true" aria-controls="body-nw-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Связующее звено: спрос и грузовые мощности авиакомпаний</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-nw-5" role="region" aria-labelledby="btn-nw-5">
+            <div class="body-inner">
+              <p>Ключевым фактом материала является монетизация неиспользуемых грузовых емкостей авиакомпаний путем прямого связывания спроса ритейлеров с предложением перевозчиков. Этот прецедент устанавливает новую бизнес-модель логистики «от рабочего стола до порога». Основными бенефициарами в этой ситуации становятся глобальные платформы электронной коммерции и конечные потребители, требующие мгновенной доставки. Они обеспечивают себе финансовое преимущество за счет снижения транзакционных издержек и прямого доступа к авиационным активам. Одновременно с этим существенные убытки несут экспедиторские агентства, чья роль в качестве агрегаторов грузов становится технологически устаревшей. Их уязвимость обусловлена отсутствием собственных транспортных активов и проигрышем алгоритмам автоматизированного бронирования. Фундаментальные интересы игроков сосредоточены на полной автоматизации ценообразования на авиаперевозки в режиме реального времени. Мотивация авиакомпаний продиктована необходимостью выживать в условиях волатильного пассажирского спроса путем захвата доли рынка курьерской доставки. Для логистических рынков это служит четким сигналом о неизбежной уберизации грузовых авиаперевозок. Инвесторы в IT-сектор воспринимают эту тенденцию как подтверждение того, что программное обеспечение способно полностью поглотить традиционную логистическую индустрию. Потенциальные риски связаны со сбоями в сортировочных цепочках из-за неготовности инфраструктуры аэропортов к обработке миллионов мелких посылок. В дальнейшем это может спровоцировать полную реконфигурацию архитектуры терминалов под нужды автоматизированной электронной коммерции.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ OUTLOOK ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>OUTLOOK</h2>
+          <div class="outlet-tags">ПОЛИТИКА • ОБЩЕСТВО • КУЛЬТУРА</div>
+        </div>
+
+        <article class="article-item" id="art-out-1">
+          <button class="article-trigger" id="btn-out-1" aria-expanded="true" aria-controls="body-out-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Снесены бульдозером: партии TMC и AAP</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-out-1" role="region" aria-labelledby="btn-out-1">
+            <div class="body-inner">
+              <p>Ключевым фактом представленного материала является беспрецедентное административное и политическое давление, оказываемое на ведущие региональные партии, такие как TMC и AAP. Этот прецедент формирует реальность жесткой централизации власти и системного выдавливания оппозиционных сил из легального поля. Главными бенефициарами в этой ситуации становятся национальные правящие элиты, монополизирующие контроль над политическим процессом. Они обеспечивают себе стратегическое преимущество, используя силовой и судебный аппарат государства для нейтрализации конкурентов на выборах. В то же время критические потери несут демократические институты оппозиции и избиратели в штатах, традиционно независимых от центра. Их уязвимость проистекает из отсутствия симметричных ресурсов для противостояния «бульдозеру» федеральной власти. За этим давлением стоят глубокие идеологические интересы правящей партии по построению унитарного государства, в котором доминирует единственная политическая сила. Основная мотивация инициаторов зачистки продиктована страхом перед объединением региональных лидеров в единый фронт. Для политических рынков это служит прямым сигналом, указывающим на эрозию федерализма и демонтаж практик коалиционного управления. Международные правозащитные институты воспринимают эту тенденцию как индикатор сползания системы к электоральному авторитаризму. Основные риски включают радикализацию протестных движений в штатах, лишенных легитимного политического представительства. В долгосрочной перспективе это чревато центробежными тенденциями и ставит под угрозу территориальную целостность из-за игнорирования региональных идентичностей.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-out-2">
+          <button class="article-trigger" id="btn-out-2" aria-expanded="true" aria-controls="body-out-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Снесены бульдозером: партии JDU, BSP, BJD</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-out-2" role="region" aria-labelledby="btn-out-2">
+            <div class="body-inner">
+              <p>Ключевым событием проанализированного текста является уничтожение электорального влияния старых кастовых и региональных партий (JDU, BSP, BJD). Этот процесс подчеркивает крах традиционной индийской политической арифметики, исторически опиравшейся на местные идентичности и кастовые квоты. Основными выгодоприобретателями в этой ситуации выступают сторонники гипернационалистической повестки, успешно поглощающие фрагментированный электорат. Они получают стратегическое преимущество, консолидируя избирателей поверх традиционных социальных и кастовых барьеров. И наоборот, лидеры некогда мощных социальных движений, выступавших в защиту маргинализированных каст, сталкиваются с историческим политическим банкротством. Их позиции окончательно ослабевают из-за устаревания риторики и неспособности конкурировать с эффективной машиной государственной пропаганды. Базовые интересы центральной власти сфокусированы на зачистке политического ландшафта от ненадежных союзников и независимых региональных баронов. Мотивация архитекторов стратегии продиктована императивом получения абсолютного конституционного большинства в национальном парламенте. Этот кейс транслирует обществу четкий сигнал о том, что эпоха мелких политических торгов и компромиссов завершена. Институциональные наблюдатели получают индикатор формирования новой социальной реальности, где кастовая лояльность уступает место религиозному или национальному единству. Потенциальные риски включают обострение скрытых социальных конфликтов из-за отсутствия институциональных клапанов для сброса недовольства меньшинств. В перспективе это может спровоцировать появление новых, более радикальных форм внесистемной социальной борьбы.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-out-3">
+          <button class="article-trigger" id="btn-out-3" aria-expanded="true" aria-controls="body-out-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Честность и гедонизм: ночной клуб в 3 часа ночи</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-out-3" role="region" aria-labelledby="btn-out-3">
+            <div class="body-inner">
+              <p>Ключевым фактом материала является документальная фиксация уникального симбиоза откровенного гедонизма и высокой социальной осознанности в рамках берлинской клубной культуры. Этот прецедент формирует альтернативную социокультурную реальность, отвергающую традиционные консервативные нормы поведения. Главными бенефициарами в этой конфигурации выступают представители креативного класса и организаторы альтернативной городской экономики. Они получают социальное и психологическое преимущество, создавая автономные пространства, свободные от государственного морализаторства. Одновременно с этим идеологические потери несут традиционные институты семьи, церкви и консервативного государства. Их позиции стремительно ухудшаются из-за неспособности навязать новому поколению чувство вины и стандартизированные модели поведения. За феноменом ночной жизни Берлина стоят глубокие общественные интересы в поиске новых форм коллективной терапии и аутентичности. Основная мотивация участников продиктована бегством от капиталистического отчуждения и лицемерия дневной корпоративной культуры. Для социологов и политиков это служит четким сигналом о зарождении принципиально нового общественного договора в европейских метрополиях. Инвесторы в экономику впечатлений воспринимают эту тенденцию как гарантию долгосрочной капитализации индустрии развлечений и туризма. Потенциальные риски связаны с маргинализацией подобных субкультур в глазах правых политических сил, набирающих вес в Европе. В долгосрочной перспективе это грозит культурным разломом между либеральными мегаполисами и консервативной провинцией.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-out-4">
+          <button class="article-trigger" id="btn-out-4" aria-expanded="true" aria-controls="body-out-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Сбор средств и стробоскопы сосуществуют без иронии</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-out-4" role="region" aria-labelledby="btn-out-4">
+            <div class="body-inner">
+              <p>Ключевым фактом текста является феномен равноправного обсуждения глобальных гуманитарных проблем наряду с гедонистическими практиками в стенах ночных клубов. Это событие подчеркивает размывание границ между индустрией развлечений и гражданским активизмом. Основными выгодоприобретателями в этой ситуации выступают низовые благотворительные фонды и некоммерческие организации нового типа. Они обеспечивают себе стратегическое финансовое преимущество через прямой доступ к обеспеченной, эмпатичной и лояльной аудитории в обход традиционных каналов фандрайзинга. И наоборот, институциональные потери несут классические бюрократические благотворительные организации и государственные агентства развития. Их уязвимость обусловлена скучностью и формальностью их форматов, которые отторгаются молодым поколением доноров. За этой конвергенцией стоят интересы новой городской буржуазии, стремящейся оправдать свое потребление социальным эффектом. Основная мотивация владельцев ночных клубов продиктована необходимостью легитимизировать свой бизнес в глазах властей путем привязки его к социально значимым проектам. Для филантропического сектора это транслирует сигнал о необходимости радикальной смены тональности в коммуникации со спонсорами. Институциональные инвесторы получают индикатор, фиксирующий формирование мощной «клубной экономики», способной генерировать не только прибыль, но и политический вес. Основные риски связаны с поверхностностью такого активизма, который может исчезнуть вместе со сменой музыкальных или модных трендов. В дальнейшем это ведет к тотальной коммерциализации социального протеста, встраивая его в индустрию развлечений.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-out-5">
+          <button class="article-trigger" id="btn-out-5" aria-expanded="true" aria-controls="body-out-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Право быть собой — без игры и извинений</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-out-5" role="region" aria-labelledby="btn-out-5">
+            <div class="body-inner">
+              <p>Ключевым фактом проанализированного материала является становление общества, основанного на абсолютном праве быть собой без необходимости социального перформанса. Этот прецедент означает радикальный отказ от стигматизации и стыда как инструментов общественного контроля. Главными бенефициарами в этой ситуации становятся люди, ранее вытесненные на обочину общества из-за несоответствия традиционным стандартам успеха или поведения. Они обретают беспрецедентное психологическое преимущество, легализуя свой образ жизни и получая социальную видимость. В то же время институты, чьи бизнес-модели или политика строились на управлении комплексами и страхами масс, безвозвратно теряют власть и контроль. Позиции корпораций, продающих статусные символы, и индустрии красоты слабеют из-за падения спроса на конформизм. За этой трансформацией стоят глубокие интересы постиндустриального общества, стремящегося высвободить творческую энергию, ранее подавляемую неврозами. Основная мотивация этого культурного сдвига продиктована коллективной усталостью от бесконечной конкуренции и самопрезентации в социальных сетях. Для рынка корпоративного управления это служит сигналом к адаптации HR-стратегий для сотрудников, отвергающих корпоративные дресс-коды и лицемерие. Институты власти получают индикатор того, что манипулировать таким обществом через традиционные пропагандистские клише больше невозможно. Потенциальные риски включают атомизацию общества и распад фундаментальных коллективных нарративов, скрепляющих государство. В долгосрочной перспективе это грозит формированием гиперфрагментированной культуры, где абсолютный индивидуализм остается единственной ценностью.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ THE EUROPEAN BUSINESS REVIEW ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE EUROPEAN BUSINESS REVIEW</h2>
+          <div class="outlet-tags">БИЗНЕС • ТЕХНОЛОГИИ • НЕДВИЖИМОСТЬ</div>
+        </div>
+
+        <article class="article-item" id="art-ebr-1">
+          <button class="article-trigger" id="btn-ebr-1" aria-expanded="true" aria-controls="body-ebr-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Как работа из любой точки мира может обезопасить вашу организацию в будущем</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ebr-1" role="region" aria-labelledby="btn-ebr-1">
+            <div class="body-inner">
+              <p>Ключевым фактом материала является утверждение модели «работы из любой точки мира» в качестве основного инструмента защиты корпораций от будущих потрясений. Этот прецедент решительно формирует новую нормальность на рынке труда, отказываясь от традиционной географической привязки к офисам. Главными выгодоприобретателями в этой ситуации становятся транснациональные корпорации и квалифицированные специалисты, получающие безграничный доступ к глобальному рынку. Корпорации обеспечивают себе стратегическое преимущество за счет радикального сокращения операционных расходов на недвижимость и возможности нанимать недорогие таланты по всему миру. И наоборот, катастрофические финансовые потери несут девелоперы коммерческой недвижимости и экономики классических деловых районов в мегаполисах. Их уязвимость обусловлена необратимым падением спроса на офисные площади и разрушением городской сервисной инфраструктуры. За этим сдвигом стоят интересы технологических гигантов, предоставляющих программное обеспечение для удаленной коммуникации и мониторинга сотрудников. Основная мотивация корпоративного руководства продиктована желанием максимизировать прибыль за счет глобального зарплатного арбитража. Для рынков труда это служит четким сигналом о начале жестокой международной конкуренции за рабочие места «белых воротничков». Государственные институты получают индикатор надвигающегося кризиса налоговых поступлений в мегаполисах, теряющих своих жителей. Потенциальные риски связаны с размыванием корпоративной культуры, потерей инновационности и выгоранием изолированных сотрудников. В долгосрочной перспективе это грозит полностью изменить демографию крупных городов и пересмотреть принципы налогообложения физических лиц.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ebr-2">
+          <button class="article-trigger" id="btn-ebr-2" aria-expanded="true" aria-controls="body-ebr-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Усталость от ИИ: скрытая проблема в гонке за внедрением искусственного интеллекта</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ebr-2" role="region" aria-labelledby="btn-ebr-2">
+            <div class="body-inner">
+              <p>Ключевым фактом проанализированного текста является признание феномена «усталости от ИИ» как главного скрытого барьера на пути корпоративной цифровизации. Это событие подчеркивает разрыв между агрессивным маркетингом разработчиков нейросетей и реальной способностью компаний интегрировать эти решения. Основными выгодоприобретателями в данной ситуации выступают узкоспециализированные IT-консалтинговые компании и интеграторы, помогающие бизнесу преодолеть сопротивление персонала. Они получают стратегическое финансовое преимущество, монетизируя хаос, возникающий в результате слишком поспешного развертывания сырых технологий. Тем временем значительные финансовые потери несут компании, инвестировавшие миллионы в ИИ-продукты, которые в итоге саботируются или игнорируются сотрудниками. Их уязвимость проистекает из недооценки человеческого фактора и когнитивной перегрузки команд, вынужденных постоянно переобучаться. За этим разочарованием стоят интересы топ-менеджмента, требующего немедленного повышения производительности, и разработчиков, торопящихся с релизами для повышения цен на акции. Основная мотивация измученного персонала продиктована страхом потери работы и алгоритмическим давлением на психику. Для технологических рынков это транслирует отрезвляющий сигнал о том, что экспоненциальный рост продаж ИИ-лицензий близок к потолку. Институциональные инвесторы получают индикатор для пересмотра сроков окупаемости корпоративных бюджетов на ИИ, ожидая более длительных горизонтов. Основные риски включают падение фактической производительности труда из-за дезориентации сотрудников в новых цифровых средах. В дальнейшем это может спровоцировать массовый откат корпоративного сектора к гибридным или традиционным формам операционной деятельности.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ebr-3">
+          <button class="article-trigger" id="btn-ebr-3" aria-expanded="true" aria-controls="body-ebr-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Раскрытие истинного потенциала агентного ИИ</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ebr-3" role="region" aria-labelledby="btn-ebr-3">
+            <div class="body-inner">
+              <p>Главным событием материала является переход от генеративных алгоритмов к агентному искусственному интеллекту, способному автономно принимать и исполнять решения. Этот технологический скачок устанавливает новую реальность, в которой нейросети эволюционируют из советников в независимых корпоративных агентов. Основными бенефициарами в этой ситуации становятся корпорации, первыми внедрившие автономные системы для принятия рутинных управленческих решений. Они обеспечивают себе стратегическое преимущество за счет полного устранения слоев менеджеров среднего звена и ускорения бизнес-процессов. И наоборот, офисные администраторы, аналитики и координаторы проектов воспринимают это как критическую угрозу своему существованию. Их позиции стремительно слабеют, поскольку их функции полностью заменяются более дешевым алгоритмом, не требующим отдыха. Фундаментальные интересы IT-гигантов сфокусированы на монополизации доступа к агентным системам и превращении их в универсальный корпоративный стандарт. Мотивация инвесторов продиктована стремлением кардинально снизить зависимость корпораций от человеческого фактора в цепочках поставок и обслуживании клиентов. Этот кейс транслирует рынкам четкий сигнал о надвигающемся структурном шоке на рынке интеллектуального труда. Государственные регуляторы получают тревожный индикатор потери контроля над тем, как корпорации принимают финансовые или логистические решения. Основные риски связаны с эффектом «черного ящика», когда ошибка автономного ИИ-агента может спровоцировать мгновенные каскадные убытки без возможности вмешательства человека. В долгосрочной перспективе это грозит появлением корпоративных структур, где управление полностью делегировано машинному интеллекту.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ebr-4">
+          <button class="article-trigger" id="btn-ebr-4" aria-expanded="true" aria-controls="body-ebr-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Ваша недвижимость стоит миллионы. ПОЛУЧИТЕ К НИМ ДОСТУП ПРЯМО СЕЙЧАС</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ebr-4" role="region" aria-labelledby="btn-ebr-4">
+            <div class="body-inner">
+              <p>Ключевым фактом представленного текста является запуск глобальной платформы финансистами Робертом Чадвиком и Дональдом Клипом, направленной на разблокировку замороженного капитала в международной недвижимости. Этот прецедент формирует принципиально новый финансовый механизм секьюритизации частных активов на транснациональном уровне. Главными выгодоприобретателями в этой ситуации выступают состоятельные инвесторы и владельцы неликвидной элитной недвижимости по всему миру. Они получают стратегическое преимущество в виде возможности быстро конвертировать «бетон» в ликвидный капитал для реинвестирования без продажи базового актива. В то же время значительные рыночные потери могут понести консервативные банки и традиционные ипотечные брокеры. Их уязвимость кроется в жестком регулировании, бюрократии и неспособности быстро оценивать и финансировать трансграничные портфели недвижимости. За созданием этой платформы стоят интересы крупного спекулятивного капитала, ищущего новые способы мобилизации триллионов долларов, омертвленных в физических активах. Основная мотивация разработчиков продиктована монополизацией пустующей ниши глобального кредитования под залог зарубежной недвижимости. Для финансовых рынков это служит прямым сигналом о демократизации доступа к сложным кредитным инструментам для частных лиц. Институциональные игроки воспринимают эту тенденцию как угрозу надувания нового кредитного пузыря на рынке элитной недвижимости. Основные риски включают системные дефолты в случае синхронного падения цен на недвижимость в различных юрисдикциях. В перспективе это может спровоцировать жесткое вмешательство регуляторов со стороны центральных банков с целью ограничения небанковского транснационального кредитования.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-ebr-5">
+          <button class="article-trigger" id="btn-ebr-5" aria-expanded="true" aria-controls="body-ebr-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Стратегия роскоши: стратегические колебания</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-ebr-5" role="region" aria-labelledby="btn-ebr-5">
+            <div class="body-inner">
+              <p>Ключевым фактом материала является принятие люксовыми брендами концепции «стратегических колебаний» для балансирования между историческим наследием и цифровыми инновациями. Это событие подтверждает адаптацию элитного ритейла к запросам нового поколения через интеграцию блокчейна, Web3 и виртуальных коллекций. Основными бенефициарами в этой ситуации становятся старые дома моды (такие как Prada и Balmain), успешно монетизирующие свою историю в цифровой среде. Они получают стратегическое преимущество, омолаживая свою аудиторию и создавая высокодоходные новые потоки выручки от продажи виртуальных активов. И наоборот, репутационные и финансовые потери бьют по консервативным брендам, отвергающим цифровые эксперименты во имя сохранения эксклюзивности. Их позиции слабеют из-за потери связи с состоятельными миллениалами и зумерами, для которых цифровая идентичность равна физической. За этой тенденцией стоят интересы консорциумов (таких как Aura Blockchain Consortium), стремящихся установить монополию на аутентификацию предметов роскоши. Основная мотивация брендов продиктована защитой от контрафакта на вторичном рынке и капитализацией геймификации потребления. Этот кейс транслирует рынку ритейла четкий сигнал о том, что границы между физической роскошью и цифровыми аватарами окончательно стерты. Инвесторы получают индикатор миграции капитала из традиционного ритейла в метавселенные и криптоколлекции. Основные риски связаны с волатильностью криптовалютных рынков и потенциальным репутационным ущербом для бренда в случае обвала цен на их NFT-активы. В долгосрочной перспективе это грозит полной переоценкой понятия «роскошь», где физический объект становится лишь дополнением к цифровому токену.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ THE WEEK US ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>THE WEEK US</h2>
+          <div class="outlet-tags">ВЫБОРЫ В США • ГЛОБАЛЬНОЕ ЗДРАВООХРАНЕНИЕ • ГЕОПОЛИТИКА • МЕДИА</div>
         </div>
 
         <article class="article-item" id="art-wk-1">
           <button class="article-trigger" id="btn-wk-1" aria-expanded="true" aria-controls="body-wk-1">
             <span class="art-idx">01</span>
-            <span class="art-title">Стирая округа меньшинств</span>
+            <span class="art-title">Стирание округов меньшинств</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-wk-1" role="region" aria-labelledby="btn-wk-1">
             <div class="body-inner">
-              <p>Агрессивные законодательные инициативы, направленные на ликвидацию избирательных округов с высокой долей меньшинств, фундаментально меняют архитектуру электорального представительства в США. Ключевым фактом являются целенаправленные изменения административных границ (джерримендеринг), направленные на циничное размывание политического веса расовых и этнических групп. Главным бенефициаром этого процесса выступает доминирующая в штате политическая партия, искусственно и перманентно цементирующая свое абсолютное большинство в законодательных органах. Национальные меньшинства проигрывают, поскольку их конституционная возможность влиять на политику и легально лоббировать свои бюджетные интересы сводится к статистической погрешности. Основная мотивация инициаторов — это чисто административное удержание власти на фоне неблагоприятных демографических тенденций и смены поколений. Для федеральных политических институтов это крайне опасный сигнал о деградации демократической системы сдержек и противовесов и переходе к манипулятивному управлению. На уровне рынков и муниципалитетов это будет означать резкое сокращение финансирования инфраструктурных и социальных программ в районах компактного проживания меньшинств. Институциональные инвесторы должны учитывать перманентный риск правовой нестабильности, поскольку подобные решения будут бесконечно оспариваться вплоть до Верховного суда. Главный риск для государства заключается в глубокой радикализации маргинализированных демографических групп, навсегда теряющих веру в справедливость электоральных инструментов. В долгосрочной перспективе это резко усиливает внутриполитическую поляризацию и критически снижает устойчивость системы управления страной. Системное исключение целых электоральных пластов из процесса принятия распределительных решений ведет к тяжелому кризису легитимности региональной власти. В конечном итоге попытки элит административно заморозить свое политическое доминирование создают идеальную почву для массовых гражданских конфликтов.</p>
+              <p>Главным событием проанализированного текста является целенаправленный процесс ликвидации или перекройки избирательных округов, где традиционно доминируют группы меньшинств. Этот прецедент формирует агрессивную политическую реальность, направленную на изменение демографического баланса сил в законодательных органах. Основными выгодоприобретателями в этой ситуации выступают правящие консервативные политические элиты, инициирующие процесс джерримендеринга. Они обеспечивают себе стратегическое преимущество, законодательно цементируя свою власть через размывание голосов оппозиционно настроенных демографических групп. Тем временем катастрофические политические потери несут этнические и расовые меньшинства, лишающиеся адекватного представительства. Их позиции критически ослабевают, поскольку их консолидированная электоральная база искусственно дробится на незначительные фрагменты внутри новых округов. Базовые интересы инициаторов сосредоточены на сохранении парламентского большинства даже в условиях потери общей поддержки избирателей. Мотивация политиков продиктована страхом перед демографическими изменениями, которые неизбежно грозят им будущей потерей власти. Этот кейс транслирует институтам гражданского общества четкий сигнал о жесточайшем кризисе представительной демократии и эрозии избирательных прав. Институциональные наблюдатели получают индикатор того, что суды перестают быть надежным барьером против манипуляций с политическими границами. Основные риски связаны с делегитимизацией избирательной системы и ростом радикальных, внесистемных протестов маргинализированных групп. В долгосрочной перспективе это грозит глубоким гражданским расколом и конституционным кризисом, подогреваемым нерепрезентативным правительством.</p>
             </div>
           </div>
         </article>
@@ -1040,12 +1236,12 @@
         <article class="article-item" id="art-wk-2">
           <button class="article-trigger" id="btn-wk-2" aria-expanded="true" aria-controls="body-wk-2">
             <span class="art-idx">02</span>
-            <span class="art-title">Ты имеешь значение, вода</span>
+            <span class="art-title">Спорный вопрос: это новый ковид?</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-wk-2" role="region" aria-labelledby="btn-wk-2">
             <div class="body-inner">
-              <p>Нарастающая нехватка воды и ожесточенная конкуренция за ее распределение становятся центральным и самым напряженным элементом глобальной макроэкономической повестки дня. Ключевым событием является концептуальный сдвиг: от восприятия воды как базового права человека к рассмотрению ее в качестве стратегического высокомаржинального актива. Главными бенефициарами этих новых подходов становятся крупные транснациональные корпорации, владеющие технологиями очистки, и институциональные покупатели прав на воду. Проигравшими оказываются традиционные сельскохозяйственные регионы и рядовые потребители, для которых стоимость этого жизненно важного ресурса будет расти по экспоненте без наличия альтернатив. Мотивация рыночных спекулянтов заключается в максимизации прибыли за счет капитализации физического дефицита на фоне необратимых глобальных изменений климата. Для государственных институтов это сигнал тревоги о срочной необходимости введения жестких административных квот и потенциальной национализации водной инфраструктуры. На финансовых рынках прямо сейчас формируется новый суперцикл: вода легально превращается в инвестиционный товар, сопоставимый по доходности и значимости с углеводородами. Аграрный сектор получает ультимативное предупреждение о надвигающемся взрывном росте операционных издержек и необходимости экстренного перехода на замкнутые циклы гидропоники. Главные риски лежат в плоскости геополитики, поскольку использование трансграничных водоемов все чаще провоцирует прямые вооруженные межгосударственные столкновения. Внутри развивающихся стран коммерциализация и приватизация доступа к питьевой воде грозят спровоцировать массовые неконтролируемые социальные бунты. Отсутствие сбалансированной нормативно-правовой базы на международном уровне сделает водный сектор зоной самых агрессивных биржевых спекуляций десятилетия. Ресурсный суверенитет и политика государств в ближайшие годы будут определяться не запасами нефти, а исключительно внутренними водными балансами.</p>
+              <p>Ключевым фактом материала является резонансная вспышка хантавируса на борту круизного лайнера MV Hondius, приведшая к экстренной эвакуации пассажиров. Это событие мгновенно провоцирует панические ассоциации с началом пандемии COVID-19 и проверяет на прочность глобальную эпидемиологическую инфраструктуру. Главными бенефициарами в информационном поле становятся фармацевтические компании, производители тестов и корпорации медицинского страхования. Они обеспечивают себе финансовое преимущество за счет резкого скачка спроса на продукцию и роста цен на акции на волне глобальной тревоги. И наоборот, колоссальные финансовые потери и репутационный ущерб бьют по круизной индустрии и сектору международного туризма. Их позиции слабеют из-за немедленного обвала бронирований и страха потребителей оказаться запертыми в плавучих карантинных зонах. За медийным раздуванием этой темы стоят интересы медиаконгломератов, капитализирующих массовую тревогу для привлечения трафика. Мотивация правительств продиктована перестраховкой и желанием продемонстрировать жесткий санитарный контроль, чтобы избежать повторения прошлых ошибок. Для финансовых рынков это служит триггером для быстрой фиксации прибыли в транспортном секторе и побуждает инвесторов бежать в защитные активы. Институциональные игроки воспринимают этот инцидент как тест-драйв новых глобальных протоколов закрытия границ и изоляции. Потенциальные макроэкономические риски включают необоснованные запреты на поездки, способные парализовать логистику и туризм в целых регионах. В перспективе это может спровоцировать регулярное использование жестких санитарных барьеров как инструмента политического и экономического давления.</p>
             </div>
           </div>
         </article>
@@ -1053,12 +1249,12 @@
         <article class="article-item" id="art-wk-3">
           <button class="article-trigger" id="btn-wk-3" aria-expanded="true" aria-controls="body-wk-3">
             <span class="art-idx">03</span>
-            <span class="art-title">Это новый Covid? Вспышка хантавируса на круизном лайнере MV Hondius</span>
+            <span class="art-title">Почему Иран не примет условия Трампа</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-wk-3" role="region" aria-labelledby="btn-wk-3">
             <div class="body-inner">
-              <p>Внезапная вспышка хантавируса на борту круизного лайнера MV Hondius спровоцировала панические обсуждения на рынках о готовности мира к очередной разрушительной пандемии. Ключевым фактом стала стремительная и беспрецедентная эвакуация пассажиров, в очередной раз обнажившая критическую хрупкость протоколов биобезопасности в туристической логистике. Бенефициарами в этой ситуации моментально оказываются фармацевтические корпорации и производители медицинских средств защиты, чьи акции взлетели на спекулятивных ожиданиях. Транснациональные туристические, круизные и авиационные компании автоматически становятся проигравшими, вновь рискуя столкнуться с убийственными для бизнеса локдаунами. Мотивация государственных регуляторов сводится к максимальной перестраховке и жесткому купированию любой потенциальной угрозы во избежание политических обвинений в преступном бездействии. Сигнал для рынков носит крайне нервозный характер: алгоритмические инвесторы моментально закладывают максимальную премию за риск паралича мировой торговли. Мировые институты здравоохранения, напротив, получают идеальный повод для требований о многократном увеличении бюджетов и расширении наднациональных контрольных полномочий. Крупный страховой бизнес будет вынужден срочно пересмотреть базовые условия контрактов, исключая или жестко удорожая покрытие любых эпидемиологических форс-мажоров. Главный макроэкономический риск заключается в потенциальном каскадном обрушении трансграничных цепочек поставок из-за нескоординированных панических реакций национальных правительств. Социальные последствия таких инцидентов грозят запустить новый разрушительный цикл инфодемий и массовых психозов, окончательно подрывая доверие к официальной медицине. Даже если эту конкретную вспышку удастся успешно локализовать, сам прецедент демонстрирует нулевую толерантность глобализированной экономики к новым патогенам. Ситуация диктует острую необходимость фундаментально изменить всю архитектуру инфекционной безопасности в международных пассажирских перевозках.</p>
+              <p>Ключевым фактом проанализированного текста является принципиальный отказ Тегерана принять жесткие дипломатические условия, выдвинутые администрацией Трампа. Этот прецедент подчеркивает тупиковый характер ультимативной дипломатии и изменение баланса сил на Ближнем Востоке. Основными выгодоприобретателями в этой ситуации выступают Иран и его региональные союзники, демонстрирующие устойчивость перед беспрецедентным политическим давлением. Они получают стратегическое преимущество, консолидируя антиамериканские силы и выигрывая время для продвижения своих ядерных или ракетных программ. Одновременно с этим политические потери несет американская администрация, чья стратегия «максимального давления» не в состоянии заставить противника капитулировать. Позиция американской дипломатии ослабевает из-за нежелания применять ультимативную военную силу для подкрепления своих требований. За отказом Тегерана стоят интересы выживания правящего режима, для которого капитуляция означала бы внутреннюю делегитимизацию и системный крах. Основная мотивация иранских элит продиктована ставкой на смену политического климата в Вашингтоне и разногласия среди западных союзников. Этот кейс транслирует энергетическим рынкам четкий сигнал о том, что режим санкций и региональная напряженность сохранятся в долгосрочной перспективе. Институциональные инвесторы получают индикатор высокой вероятности асимметричных ударов Ирана по нефтяной инфраструктуре союзников США. Основные риски связаны с неконтролируемой военной эскалацией в Персидском заливе из-за случайного столкновения или просчета любой из сторон. В долгосрочной перспективе это грозит ускоренным сближением Ирана с Китаем и Россией для создания альтернативного политико-экономического блока.</p>
             </div>
           </div>
         </article>
@@ -1071,7 +1267,7 @@
           </button>
           <div class="article-body" id="body-wk-4" role="region" aria-labelledby="btn-wk-4">
             <div class="body-inner">
-              <p>Смерть Теда Тернера, медиамагната, радикально изменившего ландшафт индустрии новостей, знаменует собой окончательный исторический конец эпохи формирования политической повестки дня. Ключевым фактом в наследии Тернера является успешная монетизация концепции круглосуточного глобального новостного вещания, навсегда ускорившего процессы принятия политических решений. На протяжении десятилетий политические элиты были бенефициарами этой агрессивной модели, получив беспрецедентный инструмент сиюминутного эмоционального воздействия на умы избирателей по всему миру. Институты глубокого академического анализа и традиционной дипломатии оказались проигравшими, поскольку их кропотливая работа была полностью обесценена давлением мимолетных кричащих новостных поводов. Первоначальная мотивация Тернера была сугубо коммерческой — монополизировать внимание аудитории и бюджеты рекламодателей за счет искусственного поддержания контента непрерывной тревожности. Для современных фондовых рынков этот некролог — сигнал о глубоком кризисе классического телевизионного формата, стремительно уступающего капитализацию алгоритмическим социальным сетям. Политические институты вынуждены болезненно признать, что эпоха централизованных управляемых информационных монополий, созданных подобными магнатами, ушла безвозвратно. Инвесторы медийного сектора массово пересматривают оценку стоимости традиционных новостных корпораций, прекрасно понимая полную историческую исчерпанность их тяжеловесной бизнес-модели. Риск заключается в том, что нынешняя фрагментация медиаландшафта после крушения телеимперий ведет к опасному разрушению единой консенсусной картины мира в обществе. Отсутствие новых медийных визионеров сопоставимого масштаба оставляет информационный рынок в состоянии хаотичной, неконтролируемой и зачастую деструктивной битвы за клики. Наследие Тернера глубоко парадоксально: он технологически объединил планету потоком новостей, но заложил прочный фундамент для клипового, поверхностного восприятия реальности. Смерть основателя CNN символически фиксирует абсолютную точку невозврата к золотому веку прямого телевизионного политического лоббизма.</p>
+              <p>Ключевым фактом материала является анализ исторического наследия медиамагната Теда Тернера в контексте трансформации глобальной индустрии новостей. Это событие подводит итог эпохе, породившей круглосуточные новостные телеканалы, которые радикально изменили потребление медиа и политические процессы. Главными бенефициарами выстроенной им системы стали транснациональные медиакорпорации, монополизировавшие производство и трансляцию глобальных нарративов. Они обеспечили себе стратегическое финансовое преимущество, превратив новости в непрерывный поток развлекательного контента, генерирующий гигантские доходы от рекламы. И наоборот, фундаментальные потери понесла традиционная журналистика, основанная на фактах и объективном анализе. Позиции классических изданий ослабли из-за неспособности конкурировать со скоростью, визуализацией и эмоциональным накалом телевизионных новостных циклов. За созданием этой индустрии стояли амбиции медиамагнатов конвертировать скорость доставки информации в абсолютную власть над умами избирателей и рынками. Основной мотивацией архитекторов непрерывных новостей была максимизация удержания аудитории путем поддержания зрителей в состоянии постоянной тревоги. Для политических институтов этот некролог сигнализирует о том, что эпоха классического телевидения окончательно уступает место еще более быстрым форматам. Инвесторы в медиа рассматривают эту историю как подтверждение необходимости агрессивной консолидации активов против цифровых конкурентов. Основные риски унаследованной системы связаны с поверхностностью политического дискурса и постоянной погоней за сенсацией в ущерб здравому смыслу. Оглядываясь назад, это напрямую подпитывает нынешнюю поляризацию общества, воспитанного на эмоциональных ток-шоу, а не на вдумчивом анализе.</p>
             </div>
           </div>
         </article>
@@ -1079,12 +1275,85 @@
         <article class="article-item" id="art-wk-5">
           <button class="article-trigger" id="btn-wk-5" aria-expanded="true" aria-controls="body-wk-5">
             <span class="art-idx">05</span>
-            <span class="art-title">У кого на руках карты? Почему Иран не примет условия Трампа</span>
+            <span class="art-title">Запечатлейте историю своей жизни в мемуарах</span>
             <span class="toggle-icon" aria-hidden="true">▼</span>
           </button>
           <div class="article-body" id="body-wk-5" role="region" aria-labelledby="btn-wk-5">
             <div class="body-inner">
-              <p>Принципиальный отказ Тегерана принять жесткие условия грядущей администрации Дональда Трампа сигнализирует об опасной и продолжительной стагнации в ближневосточной дипломатической игре. Ключевым фактом является институциональное нежелание Ирана идти на какие-либо односторонние стратегические уступки под беспрецедентным давлением американских санкционных ультиматумов. Прямые конкуренты США, такие как Китай и Россия, выигрывают в этом геополитическом клинче, получая возможность закупать дешевую нефть и наращивать влияние в зоне Персидского залива. Европейские политические институты и мировой энергетический рынок оказываются в проигрыше, оставаясь заложниками постоянной угрозы военной эскалации вокруг критически важного Ормузского пролива. Мотивация иранского руководства всецело опирается на необходимость сохранения внутриполитической легитимности режима и защиты своей ядерной программы как единственного реального гаранта суверенитета. Для политического истеблишмента Вашингтона неуступчивость Тегерана означает полный провал стратегии «максимального давления» и исчерпание доступных инструментов экономического шантажа. На рынках углеводородов это фундаментальный долгосрочный бычий (bullish) сигнал, заставляющий трейдеров закладывать стабильно высокую геополитическую премию в каждый баррель нефти. Институциональные инвесторы получают четкое подтверждение перманентной нестабильности на Ближнем Востоке, что стимулирует бегство свободного капитала в классические защитные активы. Риски развития событий по прямому военному сценарию возрастают по экспоненте, так как отсутствие пространства для дипломатического маневрирования оставляет непримиримым сторонам исключительно силовые аргументы. Для Израиля и лояльных арабских монархий этот тупик означает неизбежность нового витка разорительной гонки вооружений и резкое обострение прокси-конфликтов на своих границах. Иран дает предельно ясно понять всему миру, что готов терпеть любой катастрофический экономический ущерб ради стратегического выживания и статуса региональной державы. Как следствие, глобальная архитектура ядерного нераспространения оказывается на грани окончательного, необратимого коллапса под тяжестью неразрешимых противоречий.</p>
+              <p>Ключевым фактом представленного текста является коммерциализация написания личных мемуаров проектом LifeBook для людей, не обладающих писательскими навыками. Этот прецедент формирует новый рынок услуг, превращающий частные воспоминания в потребительский продукт с помощью профессиональных гострайтеров (писателей-призраков). Основными выгодоприобретателями в этой ситуации выступают специализированные издательские сервисы и агентства по написанию текстов на заказ. Они получают стратегическое преимущество, монетизируя психологическую потребность пожилых и состоятельных клиентов сохранить свое наследие. В то же время страдает аутентичность, поскольку концепция семейной истории подвергается литературной обработке и стандартизации. Целостность исторической правды ослабевает, так как наемные писатели сглаживают острые углы, чтобы предоставить клиенту эстетически привлекательное, комфортное повествование. За этим бизнес-начинанием стоят интересы растущей индустрии услуг, обслуживающей стареющее население с высокими сбережениями («серебряная экономика»). Основная мотивация этих компаний продиктована высокой нормой прибыли услуги, которая упаковывает обычную жизнь в премиальный физический объект. Этот кейс транслирует рынку четкий сигнал о том, что тщеславие и страх быть забытым стали надежным источником корпоративных доходов. Инвесторы получают индикатор, указывающий на формирование новой ниши на стыке психотерапии, издательского дела и гериатрической помощи. Потенциальные риски включают полное обесценивание жанра автобиографии из-за массового производства синтетических текстов. В долгосрочной перспективе это грозит заменой реальных семейных историй отредактированными, глянцевыми симулякрами, созданными наемными копирайтерами.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════ TIME ════════════════════════ -->
+      <section class="outlet-section">
+        <div class="outlet-header">
+          <h2>TIME</h2>
+          <div class="outlet-tags">БИЗНЕС • КУЛЬТУРА • СТИЛЬ ЖИЗНИ</div>
+        </div>
+
+        <article class="article-item" id="art-time-1">
+          <button class="article-trigger" id="btn-time-1" aria-expanded="true" aria-controls="body-time-1">
+            <span class="art-idx">01</span>
+            <span class="art-title">Нестандартные лицензионные соглашения Hasbro</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-time-1" role="region" aria-labelledby="btn-time-1">
+            <div class="body-inner">
+              <p>Ключевым фактом проанализированного материала является масштабная лицензионная экспансия бренда «Монополия» далеко за пределы классической настольной игры (в хлопья, пиццу, стейк-хаусы). Этот прецедент подчеркивает стратегию корпорации Hasbro по тотальной конвертации исторической интеллектуальной собственности в глобальный лайфстайл-бренд. Основными выгодоприобретателями в этой ситуации выступают правообладатели и транснациональные франчайзи, капитализирующие ностальгию потребителей. Они обеспечивают себе стратегическое финансовое преимущество за счет возможности продавать товары повседневного спроса с гигантской наценкой просто благодаря узнаваемости логотипа. Одновременно с этим убытки несут независимые производители и местный бизнес в тех же секторах экономики. Их уязвимость проистекает из неспособности конкурировать с маркетинговой машиной мирового бренда, монополизирующего внимание через детские ассоциации. За этой экспансией стоят агрессивные интересы корпоративного менеджмента Hasbro диверсифицировать доходы на фоне стагнирующего рынка традиционных игрушек. Основная мотивация компании продиктована необходимостью обеспечения непрерывного роста капитализации за счет агрессивного лицензирования и коллабораций. Для глобальных рынков это служит четким сигналом о том, что любая успешная интеллектуальная собственность будет эксплуатироваться до абсолютного предела во всех доступных сферах. Институциональные инвесторы воспринимают эту тенденцию как симптом стагнации основного бизнеса, требующего жизнеобеспечения из смежных отраслей. Основные риски связаны с размыванием и обесцениванием ключевой ценности оригинального бренда из-за его присутствия на упаковках повседневной еды. В долгосрочной перспективе это грозит отторжением со стороны потребителей и обрушением лицензионной пирамиды в случае перенасыщения рынка.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-time-2">
+          <button class="article-trigger" id="btn-time-2" aria-expanded="true" aria-controls="body-time-2">
+            <span class="art-idx">02</span>
+            <span class="art-title">Уроки игры — почему «Монополия» похожа на жизнь</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-time-2" role="region" aria-labelledby="btn-time-2">
+            <div class="body-inner">
+              <p>Ключевым фактом текста является философское утверждение о том, что игровые механики «Монополии» — это прямая симуляция реальных экономических процессов. Это событие подчеркивает функцию игры как инструмента ранней социализации и обучения паттернам беспощадного капитализма. Главными бенефициарами этого нарратива выступают идеологи свободного рынка и корпорации, использующие игру для нормализации концепций банкротства и извлечения ренты в массовом сознании. Они обеспечивают себе долгосрочное идеологическое преимущество, поскольку поколения потребителей с детства впитывают неизбежность финансового неравенства. И наоборот, этические потери несут сторонники социально ориентированной экономики и справедливого распределения ресурсов. Их позиции слабеют, поскольку игра культивирует агрессивный индивидуализм, где успех одного человека неизбежно опирается на финансовый крах всех остальных. За популярностью этой концепции стоят фундаментальные законы капиталистического общества, требующие подготовки конкурентоспособных и безжалостных экономических агентов. Основная мотивация общества в поддержании статуса игры — безопасная сублимация страха бедности и амбиций богатства через интерактивный формат. Для социологических институтов это транслирует сигнал, демонстрирующий, насколько глубоко капиталистические догмы внедрены в базовый культурный код западного мира. Политические элиты получают индикатор того, что общество терпит монополизацию до тех пор, пока она воспринимается как честная игра по правилам. Потенциальные риски включают перенос этих безжалостных игровых стратегий в реальные социальные и деловые коммуникации. В дальнейшем это цементирует культурную гегемонию финансового дарвинизма, блокируя развитие альтернативных моделей солидарности.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-time-3">
+          <button class="article-trigger" id="btn-time-3" aria-expanded="true" aria-controls="body-time-3">
+            <span class="art-idx">03</span>
+            <span class="art-title">Издание «Монополии» 1933 года продано за $146 500</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-time-3" role="region" aria-labelledby="btn-time-3">
+            <div class="body-inner">
+              <p>Главным событием материала является фиксация продажи оригинального экземпляра «Монополии» 1933 года за рекордные 146 500 долларов. Этот прецедент свидетельствует о формировании мощного рынка альтернативных инвестиций, сосредоточенного вокруг объектов поп-культуры и винтажных артефактов. Основными выгодоприобретателями в этой ситуации выступают аукционные дома, спекулянты и профессиональные коллекционеры. Они получают колоссальное финансовое преимущество, извлекая сверхприбыль из предметов, которые изначально имели нулевую инвестиционную ценность. Тем временем финансовые риски ложатся непосредственно на новых, непрофессиональных инвесторов, выходящих в этот перегретый сегмент рынка. Их уязвимость связана с отсутствием реальной фундаментальной стоимости у подобных объектов, ценообразование которых поддерживается исключительно хайпом. За этими транзакциями стоят интересы класса сверхбогатых, ищущих нетрадиционные способы парковки избыточной ликвидности в периоды макроэкономической турбулентности. Основная мотивация покупателей продиктована не столько страстью к игре, сколько необходимостью диверсифицировать портфели защитными активами, не коррелирующими с фондовым рынком. Для глобальных финансовых рынков это служит прямым сигналом об избытке дешевых денег и инфляции традиционных активов. Институциональные игроки воспринимают эту тенденцию как индикатор формирования очередного финансового пузыря в сегменте эмоциональных покупок. Основные риски связаны с внезапным обвалом ликвидности рынка в случае тяжелого глобального экономического кризиса. В долгосрочной перспективе это грозит превращением культурного наследия в исключительно спекулятивный финансовый инструмент, совершенно недоступный для обычного человека.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-time-4">
+          <button class="article-trigger" id="btn-time-4" aria-expanded="true" aria-controls="body-time-4">
+            <span class="art-idx">04</span>
+            <span class="art-title">Стейк-хаус «Монополия» в Мексике, 2026 год</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-time-4" role="region" aria-labelledby="btn-time-4">
+            <div class="body-inner">
+              <p>Ключевым фактом проанализированного текста является анонс открытия премиального стейк-хауса «Монополия» в Мексике в 2026 году. Это событие формирует новую бизнес-стратегию перехода от продажи физических товаров к продаже иммерсивного пространственного опыта в рамках экономики впечатлений. Основными выгодоприобретателями в этой ситуации выступают девелоперы премиальной недвижимости и рестораторы-франчайзи, использующие мощный бренд для быстрого возврата инвестиций. Они обеспечивают себе стратегическое преимущество за счет гарантированного привлечения состоятельной аудитории, жаждущей статусного потребления в уникальных локациях. В то же время конкурентные потери несут классические, независимые премиальные рестораны, не обладающие колоссальной маркетинговой поддержкой транснациональной корпорации. Их позиции слабеют из-за оттока клиентов, предпочитающих театрализованный брендинг традиционному гастрономическому опыту. За этим проектом стоят интересы глобальных корпораций, стремящихся к глубокой монетизации интеллектуальной собственности на развивающихся рынках Латинской Америки. Основная мотивация инициаторов продиктована желанием конвертировать игровую фантазию о статусе элитного магната в реальное, элитное потребление дорогих стейков. Для индустрии гостеприимства это транслирует сигнал о необходимости трансформации стандартных ресторанов в концептуальные парки развлечений для взрослых. Инвесторы получают индикатор того, что потребительский спрос смещается от приобретения вещей к покупке эксклюзивных социальных впечатлений. Потенциальные риски связаны с тем, что качество обслуживания может не оправдать высоких ожиданий, возлагаемых на бренд, что потенциально нанесет ущерб репутации игры. В перспективе это может спровоцировать волну поглощений классических ресторанов крупными медиаконгломератами, создающими собственные иммерсивные площадки.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-item" id="art-time-5">
+          <button class="article-trigger" id="btn-time-5" aria-expanded="true" aria-controls="body-time-5">
+            <span class="art-idx">05</span>
+            <span class="art-title">Книга рекордов Гиннесса за самое большое количество памятных вещей «Монополии»</span>
+            <span class="toggle-icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="article-body" id="body-time-5" role="region" aria-labelledby="btn-time-5">
+            <div class="body-inner">
+              <p>Ключевым фактом материала является установление британцем Нилом Скалланом рекорда по сбору коллекции из 4379 предметов, связанных с «Монополией». Этот прецедент высвечивает крайнее проявление гиперпотребления и компульсивного накопительства, легитимизированное индустрией рекордов. Главными бенефициарами в этой конфигурации выступают производители нишевого мерчандайза и сама компания Hasbro, получающая масштабный бесплатный рекламный охват. Они извлекают долгосрочную финансовую выгоду, создавая искусственный дефицит и выпуска бесконечные лимитированные серии, нацеленные на таких одержимых потребителей. И наоборот, психологические и финансовые потери несут сами суперколлекционеры, вкладывающие состояния в крайне неликвидные горы однотипных товаров. Их позиции невероятно уязвимы, поскольку ликвидировать такую нишевую мега-коллекцию в кризис без гигантского дисконта практически невозможно. Поддержка таких рекордов отвечает глобальным маркетинговым интересам, нормализующим концепцию бесконечного потребления и слепой лояльности к единому корпоративному бренду. Основная мотивация отдельного игрока продиктована поиском социальной уникальности и признания через абсолютное количественное доминирование в узкой сфере. Для рынков потребительских товаров это служит циничным сигналом о том, что лояльность клиентов можно эксплуатировать до бесконечности, просто меняя цвет коробки. Институциональные психологи рассматривают эту тенденцию как тревожный индикатор того, что глубокие социальные проблемы общества сублимируются в материальное накопительство. Основные риски связаны с производством тонн экологически вредных и функционально бесполезных продуктов, предназначенных исключительно для того, чтобы пылиться на полках. В долгосрочной перспективе это грозит кризисом перепроизводства в сегменте предметов коллекционирования, когда интересы поколений неизбежно изменятся.</p>
             </div>
           </div>
         </article>
@@ -1095,16 +1364,16 @@
 
   <!-- ── Newsletter ── -->
   <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
-    <h3 class="nebula-title" id="newsletter-heading">Безопасный доступ к сводке</h3>
+    <h3 class="nebula-title" id="newsletter-heading">Получить защищенный доступ</h3>
     <div class="form-container">
       <div class="newsletter-form-wrapper">
         <form class="newsletter-form" id="newsletterForm"
               action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
           <div class="input-group">
             <div class="nebula-input">
-              <label for="emailInput" class="sr-only">Адрес электронной почты</label>
+              <label for="emailInput" class="sr-only">Email адрес</label>
               <input type="email" id="emailInput" name="email" autocomplete="email"
-                     class="input" placeholder="Адрес электронной почты"
+                     class="input" placeholder="Email адрес"
                      aria-describedby="formErrorMsg" />
               <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
@@ -1131,9 +1400,9 @@
 
   <footer>
     <p>&copy; 2026 Deep Press Analysis. Все права защищены.</p>
-    <nav class="footer-links" aria-label="Навигация в подвале">
-      <a href="https://deeppressanalysis.com/ru/archive" class="btn-text">Доступ к архиву</a>
-      <a href="https://deeppressanalysis.com/manifesto"  class="btn-text">Манифест</a>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="https://deeppressanalysis.com/ru/archive.html" class="btn-text">Архив</a>
+      <a href="https://deeppressanalysis.com/manifesto.html"  class="btn-text">Манифест</a>
     </nav>
 
     <!-- ── Web3 Support Section ── -->
@@ -1149,25 +1418,25 @@
             <div class="crypto-header">
               <span class="crypto-name eth">Ethereum</span>
             </div>
-            <input type="text" class="crypto-address" value="0x7b8318ce0788cAdDF398035A65EFDB30a262cae5" aria-label="Адрес кошелька Ethereum" readonly />
+            <input type="text" class="crypto-address" value="0x7b8318ce0788cAdDF398035A65EFDB30a262cae5" aria-label="Ethereum wallet address" readonly />
           </div>
           <div class="crypto-card">
             <div class="crypto-header">
               <span class="crypto-name btc">Bitcoin</span>
             </div>
-            <input type="text" class="crypto-address" value="bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu" aria-label="Адрес кошелька Bitcoin" readonly />
+            <input type="text" class="crypto-address" value="bc1ql2hr6vghzs0vrsu76qmxezazj3apeh0c4alzwu" aria-label="Bitcoin wallet address" readonly />
           </div>
           <div class="crypto-card">
             <div class="crypto-header">
               <span class="crypto-name sol">Solana</span>
             </div>
-            <input type="text" class="crypto-address" value="98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq" aria-label="Адрес кошелька Solana" readonly />
+            <input type="text" class="crypto-address" value="98q5Zgvaus7E4PFuaPSdhTEHTRPxFsYUVYwHPc539sQq" aria-label="Solana wallet address" readonly />
           </div>
           <div class="crypto-card">
             <div class="crypto-header">
               <span class="crypto-name trx">Tron</span>
             </div>
-            <input type="text" class="crypto-address" value="TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z" aria-label="Адрес кошелька Tron" readonly />
+            <input type="text" class="crypto-address" value="TRaHtYVKx1hGaLQCWFFMzcqL138oba8L1z" aria-label="Tron wallet address" readonly />
           </div>
         </div>
       </div>
@@ -1179,24 +1448,7 @@
     </div>
   </footer>
 
-  <!--
-  ════════════════════════════════════════════════════════════════════════
-  SEO FIX #1: Accordion JS — контент открыт по умолчанию.
-  JS добавляет класс .js-accordion на <html>, и только ТОГДА CSS
-  скрывает тела статей. Googlebot видит страницу с открытым контентом.
-
-  SEO FIX #7: Языковой редирект — без localStorage.
-  Вместо этого использовать серверный редирект по Accept-Language.
-  Пример для Nginx:
-    map $http_accept_language $lang {
-      ~^ru  /ru/;  ~^uk  /ua/;  ~^de  /de/;
-      ~^ar  /ar/;  ~^es  /es/;  default /en/;
-    }
-    if ($request_uri = /) { return 302 $scheme://$host$lang; }
-  JS-редирект ниже — только запасной вариант, без localStorage.
-  ════════════════════════════════════════════════════════════════════════
-  -->
-  <script nonce="{{NONCE}}">
+  <script nonce="EDNnf03nceIofn39fn3e9h3sdfa">
   (function () {
     'use strict';
 
@@ -1206,7 +1458,7 @@
     /* ─── SEO FIX #7: Языковой редирект — без localStorage ─────────────
        РЕКОМЕНДАЦИЯ: Реализовать на сервере (Nginx/Apache/Node).
        Этот JS-редирект — только запасной вариант.
-       Срабатывает только на корневом пути /, не на /ru/ и т.д.
+       Срабатывает только на корневом пути /, не на /en/ и т.д.
     ──────────────────────────────────────────────────────────────────── */
     (function () {
       try {
@@ -1287,8 +1539,8 @@
       e.preventDefault();
       clearError();
       var val = emailInput.value;
-      if (!val.trim())        { showError('Пожалуйста, введите адрес электронной почты.'); return; }
-      if (!isValidEmail(val)) { showError('Пожалуйста, введите корректный адрес электронной почты.'); return; }
+      if (!val.trim())        { showError('Пожалуйста, введите ваш email.'); return; }
+      if (!isValidEmail(val)) { showError('Пожалуйста, введите корректный email.'); return; }
 
       submitBtn.disabled    = true;
       submitBtn.textContent = 'Отправка…';
@@ -1330,7 +1582,7 @@
       iframe.setAttribute('allowfullscreen', '');
       iframe.allow   = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
       iframe.loading = 'eager';
-      iframe.title   = 'Подкаст Deep Press Analysis';
+      iframe.title   = 'Deep Press Analysis Podcast';
 
       container.appendChild(iframe);
       facade.classList.add('hidden-player');
