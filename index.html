@@ -7,7 +7,7 @@
      ║ 3. NewsArticle schema added for each analytical section              ║
      ║ 4. hreflang mutual links                                             ║
      ║ 5. Canonical + 301 redirect ready                                    ║
-     ║ 6. JS-redirect updated (SMART REDIRECT)                              ║
+     ║ 6. JS-redirect updated (SMART REDIRECT FIXED LOOP)                   ║
      ║ 7. RSS feed added to <head>                                          ║
      ║ 8. OG/Twitter meta updated for May 21, 2026                          ║
      ║ 9. Bloomberg-style terminal dashboard integrated                     ║
@@ -481,7 +481,8 @@
     <div class="top-toolbar">
         <nav class="lang-bar" aria-label="Language selection">
             <a href="/ua/" class="lang-link" hreflang="uk" aria-label="Ukrainian version">UA</a>
-            <a href="/en/" class="lang-link active" hreflang="en" aria-current="page" aria-label="English version">EN</a>
+            <!-- ИСПРАВЛЕНО: Ссылка для английского теперь ведет прямо на корень `/`, минуя заглушку `/en/` -->
+            <a href="/" class="lang-link active" hreflang="en" aria-current="page" aria-label="English version">EN</a>
             <a href="/es/" class="lang-link" hreflang="es" aria-label="Spanish version">ES</a>
             <a href="/ar/" class="lang-link" hreflang="ar" aria-label="Arabic version">AR</a>
             <a href="/ru/" class="lang-link" hreflang="ru" aria-label="Russian version">RU</a>
@@ -859,11 +860,14 @@
 (function () {
     'use strict';
 
-    /* ─── SMART LANGUAGE REDIRECT ───────────────────────────────────── */
+    /* ─── SMART LANGUAGE REDIRECT FIXED ─────────────────────────────── */
     (function () {
         try {
             var path = window.location.pathname;
-            var langPaths = ['/ru/', '/ua/', '/de/', '/ar/', '/es/', '/en/'];
+            
+            // ИСПРАВЛЕНО: Убрали '/en/' из списка для авто-редиректа, 
+            // так как корень '/' и есть наша рабочая английская версия.
+            var langPaths = ['/ru/', '/ua/', '/de/', '/ar/', '/es/'];
 
             var isOnLangPage = langPaths.some(function (p) { return path === p || path.startsWith(p); });
             if (isOnLangPage) {
@@ -872,8 +876,17 @@
                 return; 
             }
 
+            // Логика только для главной страницы (корень сайта)
             if (path === '/' || path === '' || path === '/index.html') {
                 var savedLang = localStorage.getItem('dpa_saved_lang');
+                
+                // ИСПРАВЛЕНО: Если сохранен '/en/' (например, был клик по старой ссылке) 
+                // или '/', мы просто остаемся на текущей странице, прерывая цикл.
+                if (savedLang === '/en/' || savedLang === '/') {
+                    localStorage.setItem('dpa_saved_lang', '/'); // Фиксируем корень
+                    return;
+                }
+
                 if (savedLang && langPaths.includes(savedLang)) {
                     window.location.replace(savedLang);
                     return;
@@ -881,10 +894,15 @@
 
                 var browserLang = String(navigator.language || '').substring(0, 2).toLowerCase();
                 var map = { ru: '/ru/', uk: '/ua/', ua: '/ua/', de: '/de/', ar: '/ar/', es: '/es/' };
-                var targetLang = map[browserLang] || '/en/'; 
+                var targetLang = map[browserLang]; 
 
-                localStorage.setItem('dpa_saved_lang', targetLang);
-                window.location.replace(targetLang);
+                if (targetLang) {
+                    localStorage.setItem('dpa_saved_lang', targetLang);
+                    window.location.replace(targetLang);
+                } else {
+                    // ИСПРАВЛЕНО: Если язык английский или неизвестный, остаемся на главной и сохраняем '/'
+                    localStorage.setItem('dpa_saved_lang', '/');
+                }
             }
         } catch (_) {}
     })();
