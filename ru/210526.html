@@ -375,7 +375,7 @@
         }
         .body-inner p { margin-bottom: 15px; }
         .body-inner p:last-child { margin-bottom: 0; }
-        .body-inner ul { margin-left: 20px; margin-bottom: 15px; }
+        .body-inner ul, .body-inner ol { margin-left: 20px; margin-bottom: 15px; }
         .body-inner li { margin-bottom: 8px; }
 
         /* ─── Newsletter ─── */
@@ -481,10 +481,11 @@
     <div class="top-toolbar">
         <nav class="lang-bar" aria-label="Выбор языка">
             <a href="/ua/" class="lang-link" hreflang="uk" aria-label="Украинская версия">UA</a>
-            <a href="/en/" class="lang-link active" hreflang="en" aria-current="page" aria-label="Английская версия">EN</a>
+            <a href="/en/" class="lang-link" hreflang="en" aria-label="Английская версия">EN</a>
             <a href="/es/" class="lang-link" hreflang="es" aria-label="Испанская версия">ES</a>
             <a href="/ar/" class="lang-link" hreflang="ar" aria-label="Арабская версия">AR</a>
-            <a href="/ru/" class="lang-link" hreflang="ru" aria-label="Русская версия">RU</a>
+            <!-- FIX: Added 'active' class and 'aria-current' to RU link -->
+            <a href="/ru/" class="lang-link active" hreflang="ru" aria-current="page" aria-label="Русская версия">RU</a>
             <a href="/de/" class="lang-link" hreflang="de" aria-label="Немецкая версия">DE</a>
         </nav>
         <nav class="social-row" aria-label="Ссылки на социальные сети">
@@ -926,10 +927,12 @@
         e.preventDefault();
         clearError();
         var val = emailInput.value;
-        if (!val.trim()) { showError('Please enter your email address.'); return; }
-        if (!isValidEmail(val)) { showError('Please enter a valid email address.'); return; }
+        // FIX: Translated error strings to Russian
+        if (!val.trim()) { showError('Пожалуйста, введите ваш адрес электронной почты.'); return; }
+        if (!isValidEmail(val)) { showError('Пожалуйста, введите корректный адрес электронной почты.'); return; }
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending…';
+        // FIX: Button text translates to Russian while sending
+        submitBtn.textContent = 'Отправка…';
         try {
             var res = await fetch(form.action, {
                 method: 'POST',
@@ -940,14 +943,17 @@
                 form.classList.add('hidden');
                 successMessage.classList.add('visible');
             } else {
-                showError('Subscription error. Please try again.');
+                // FIX: Translated error string
+                showError('Ошибка подписки. Пожалуйста, попробуйте еще раз.');
             }
         } catch (_) {
-            showError('Network error. Please check your connection.');
+            // FIX: Translated error string
+            showError('Ошибка сети. Пожалуйста, проверьте подключение.');
         } finally {
             if (!successMessage.classList.contains('visible')) {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Subscribe';
+                // FIX: Button text returns to Russian
+                submitBtn.textContent = 'Подписаться';
             }
         }
     });
