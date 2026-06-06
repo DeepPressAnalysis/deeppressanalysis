@@ -38,7 +38,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;900&family=Noto+Naskh+Arabic:wght@400;600;700&family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- ═══ SEO: Canonical ═══ -->
     <link rel="canonical" href="https://deeppressanalysis.com/ar/index.html" />
@@ -52,8 +52,8 @@
     <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/index.html" />
     <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/index.html" />
 
-    <!-- ═══ SEO FIX #8: RSS-лента ═══ -->
-    <link rel="alternate" type="application/rss+xml" title="Deep Press Analysis — الخلاصة العربية" href="https://deeppressanalysis.com/en/feed.xml" />
+    <!-- ═══ SEO FIX #8: خلاصة RSS العربية ═══ -->
+    <link rel="alternate" type="application/rss+xml" title="Deep Press Analysis — الخلاصة العربية" href="https://deeppressanalysis.com/ar/feed.xml" />
 
     <!-- ═══ Open Graph ═══ -->
     <meta property="og:type" content="article" />
@@ -203,12 +203,12 @@
         body {
             background-color: var(--bg-body);
             color: var(--text-primary);
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Noto Sans Arabic', 'Inter', system-ui, sans-serif;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
         h1, h2, h3, h4 {
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'Noto Naskh Arabic', 'Libre Baskerville', serif;
             color: var(--brand-navy);
             line-height: 1.3;
         }
@@ -255,7 +255,7 @@
         }
         .briefing-summary {
             background: #fff; border: 1px solid var(--border-color); padding: 20px;
-            margin-top: 30px; text-align: left; border-left: 4px solid var(--brand-navy);
+            margin-top: 30px; text-align: right; border-right: 4px solid var(--brand-navy);
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
         .briefing-summary p { font-size: 15px; color: var(--text-secondary); margin: 0; }
@@ -369,17 +369,17 @@
 
         .article-header {
             display: flex; align-items: baseline; width: 100%; padding: 25px 25px 10px;
-            background: #fff; border: none; text-align: left;
+            background: #fff; border: none; text-align: right;
         }
         .art-idx { font-family: 'Inter', sans-serif; font-size: 13px; color: #9CA3AF; width: 35px; flex-shrink: 0; font-weight: 500; }
         .art-title {
             font-family: 'Libre Baskerville', serif; font-size: 18px; font-weight: 700;
-            color: var(--text-primary); flex-grow: 1; padding-right: 20px;
+            color: var(--text-primary); flex-grow: 1; padding-left: 20px;
         }
 
         .article-body { background: #fff; }
         .body-inner {
-            padding: 10px 25px 30px 60px;
+            padding: 10px 60px 30px 25px;
             font-size: 16px;
             color: var(--text-secondary);
             max-width: 85ch;
@@ -387,7 +387,7 @@
         }
         .body-inner p { margin-bottom: 15px; }
         .body-inner p:last-child { margin-bottom: 0; }
-        .body-inner ul { margin-left: 20px; margin-bottom: 15px; }
+        .body-inner ul { margin-right: 20px; margin-left: 0; margin-bottom: 15px; }
         .body-inner li { margin-bottom: 8px; }
 
         /* ─── Newsletter ─── */
@@ -398,15 +398,15 @@
         .input-group { display: flex; width: 100%; align-items: center; }
         .nebula-input { position: relative; flex: 1; }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-        .nebula-input .input { width: 100%; padding: 12px 12px 12px 40px; border: 1px solid #cbd5e1; background: #fff; color: var(--brand-navy); font-size: 16px; outline: none; border-radius: 4px 0 0 4px; transition: border-color 0.2s; }
+        .nebula-input .input { width: 100%; padding: 12px 40px 12px 12px; border: 1px solid #cbd5e1; background: #fff; color: var(--brand-navy); font-size: 16px; outline: none; border-radius: 0 4px 4px 0; transition: border-color 0.2s; }
         .nebula-input .input:focus { border-color: var(--brand-blue); z-index: 2; position: relative; }
         .nebula-input .input.input-error { border-color: var(--down-color); }
-        .email-icon { position: absolute; top: 50%; left: 12px; transform: translateY(-50%); width: 20px; height: 20px; fill: #94a3b8; pointer-events: none; transition: fill 0.2s; }
+        .email-icon { position: absolute; top: 50%; right: 12px; left: auto; transform: translateY(-50%); width: 20px; height: 20px; fill: #94a3b8; pointer-events: none; transition: fill 0.2s; }
         .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
-        .subscribe-button { padding: 13px 24px; font-size: 14px; font-weight: 700; color: #fff; background: var(--brand-navy); border: 1px solid var(--brand-navy); border-radius: 0 4px 4px 0; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.2s, border-color 0.2s; }
+        .subscribe-button { padding: 13px 24px; font-size: 14px; font-weight: 700; color: #fff; background: var(--brand-navy); border: 1px solid var(--brand-navy); border-radius: 4px 0 0 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.2s, border-color 0.2s; }
         .subscribe-button:disabled { opacity: 0.7; cursor: not-allowed; }
         .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
-        .form-error-msg { display: none; color: var(--down-color); font-size: 13px; margin-top: 6px; text-align: left; width: 100%; }
+        .form-error-msg { display: none; color: var(--down-color); font-size: 13px; margin-top: 6px; text-align: right; width: 100%; }
         .form-error-msg.visible { display: block; }
         .success-message { display: none; text-align: center; color: var(--brand-navy); }
         .success-message.visible { display: block; }
@@ -424,13 +424,13 @@
         .spotify-fake-player { background-color: #282828; border-radius: 12px; height: 152px; display: flex; align-items: center; cursor: pointer; overflow: hidden; transition: background-color 0.3s ease, box-shadow 0.3s ease; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 40px; }
         .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
         .fake-cover { width: 152px; height: 152px; flex-shrink: 0; }
-        .fake-cover img { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+        .fake-cover img { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
         .fake-info { padding: 0 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
         .fake-meta { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
         .fake-title { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
         .fake-desc { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
-        .fake-play-btn { background-color: #1ed760; color: #000; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; margin-right: 24px; cursor: pointer; flex-shrink: 0; transition: transform 0.2s, background-color 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .fake-play-btn svg { fill: currentColor; margin-left: 2px; }
+        .fake-play-btn { background-color: #1ed760; color: #000; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; margin-left: 24px; cursor: pointer; flex-shrink: 0; transition: transform 0.2s, background-color 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .fake-play-btn svg { fill: currentColor; margin-right: 2px; }
         .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
         .hidden-player { display: none !important; }
 
@@ -464,14 +464,14 @@
             h1.site-title { font-size: 32px; }
             .top-toolbar { flex-direction: column-reverse; gap: 20px; align-items: center; }
             .lang-bar { flex-wrap: wrap; justify-content: center; }
-            .body-inner { padding-left: 25px; }
+            .body-inner { padding-right: 25px; padding-left: 25px; }
             .outlet-tags { display: none; }
             .input-group { flex-direction: column; gap: 10px; }
             .nebula-input .input { border-radius: 4px; }
             .subscribe-button { border-radius: 4px; width: 100%; }
             .footer-links { flex-direction: column; gap: 20px; }
             .spotify-fake-player { height: auto; padding: 16px; flex-wrap: wrap; }
-            .fake-cover { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
+            .fake-cover { width: 64px; height: 64px; border-radius: 4px; margin-left: 16px; margin-right: 0; }
             .fake-cover img { border-radius: 4px; }
             .fake-info { padding: 0; width: calc(100% - 80px - 50px); }
             .fake-title { font-size: 16px; white-space: normal; }
@@ -493,9 +493,9 @@
     <div class="top-toolbar">
         <nav class="lang-bar" aria-label="اختيار اللغة">
             <a href="/ua/" class="lang-link" hreflang="uk" aria-label="النسخة الأوكرانية">UA</a>
-            <a href="/" class="lang-link active" hreflang="en" aria-current="page" aria-label="النسخة الإنجليزية">EN</a>
+            <a href="/" class="lang-link" hreflang="en" aria-label="النسخة الإنجليزية">EN</a>
             <a href="/es/" class="lang-link" hreflang="es" aria-label="النسخة الإسبانية">ES</a>
-            <a href="/ar/" class="lang-link" hreflang="ar" aria-label="النسخة العربية">AR</a>
+            <a href="/ar/" class="lang-link active" hreflang="ar" aria-current="page" aria-label="النسخة العربية">AR</a>
             <a href="/ru/" class="lang-link" hreflang="ru" aria-label="النسخة الروسية">RU</a>
             <a href="/de/" class="lang-link" hreflang="de" aria-label="النسخة الألمانية">DE</a>
         </nav>
@@ -887,7 +887,7 @@
         });
     }
 
-    /* ─── Crypto Address: клик = выделение текста ─────────────────────── */
+    /* ─── عناوين العملات الرقمية: الضغط يحدد النص ─────────────────────── */
     document.querySelectorAll('.crypto-address').forEach(function (el) {
         el.addEventListener('click', function () { this.select(); });
     });
