@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>বাংলাদেশ — মানব পুঁজি | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Serif Bengali', 'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Noto Serif Bengali', 'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Noto Serif Bengali', 'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-weight:400; }
+  .masthead .tagline{
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Noto Serif Bengali', 'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Noto Serif Bengali', 'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    padding:4px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Noto Serif Bengali', 'Old Standard TT', serif;
+    font-weight:700;
+    font-size:42px;
+    line-height:1.1;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Noto Serif Bengali', 'Source Serif 4',serif;
+    font-size:18px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Noto Serif Bengali', 'Special Elite',monospace;
+    font-size:11.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Noto Serif Bengali', 'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Noto Serif Bengali', 'Old Standard TT',serif;
+    font-weight:700;
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Noto Serif Bengali', 'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Noto Serif Bengali', 'Old Standard TT',serif;
+    font-weight:700;
+    font-size:20px;
+    line-height:1.4;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Noto Serif Bengali', 'Special Elite',monospace;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:13px;
+  }
+  .keybox-grid b{font-family:'Noto Serif Bengali', 'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Noto Serif Bengali', 'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }
+  
+  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Noto Serif Bengali', 'Special Elite',monospace;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← প্রধান পাতা</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">স্বাধীন কাঠামোগত বুদ্ধিমত্তা · প্রতিষ্ঠিত ২০২৬</div>
+    <div class="nameplate">ডিপ প্রেস <span>অ্যানালাইসিস</span></div>
+    <div class="tagline">"গল্প নয়, কাঠামোর বিশ্লেষণ।"</div>
+  </div>
+  <div class="dateline-bar">
+    <span>বাংলাদেশ ডেস্ক</span>
+    <span>১৩ আগস্ট ২০২৬</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / মানব পুঁজি বণ্টন</span>
+
+  <h1 class="headline">কে আসলে বাংলাদেশের প্রবাসী শ্রমবাজার নিয়ন্ত্রণ করে</h1>
+  <p class="deck">রেমিট্যান্স অর্থনীতির নেপথ্যের কাঠামো বিশ্লেষণ — রাষ্ট্রীয় নীতি, মধ্যস্বত্বভোগীদের ভূমিকা এবং কীভাবে অভিবাসী শ্রমিকরা দীর্ঘমেয়াদী ঋণজালে আবদ্ধ হন তার বিস্তারিত চিত্র।</p>
+  <div class="byline">বাংলাদেশ ডেস্ক থেকে — মানব পুঁজি বণ্টন বিভাগ</div>
+
+  <div class="columns">
+
+    <p class="lead">বাংলাদেশের অভ্যন্তরীণ শ্রমবাজারে কাঠামোগতভাবে কৃষিখাতে শ্রমিকের আধিক্য এবং অনানুষ্ঠানিক খাতে কম উৎপাদনশীলতা রয়েছে। এই কাঠামোর প্রধান রফতানি পণ্য হলো অদক্ষ এবং আধা-দক্ষ মানব পুঁজি।</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ সত্য</span>
+      প্রধান বাহ্যিক গ্রাহকরা হলো নির্মাণ খাত, মেগা পরিকাঠামো প্রকল্প, সেবা খাত এবং উপসাগরীয় দেশগুলোর (সৌদি আরব, সংযুক্ত আরব আমিরাত, কাতার, কুয়েত) এবং দক্ষিণ-পূর্ব এশিয়ার (মালয়েশিয়া, সিঙ্গাপুর) পরিষেবা কর্মী।
+    </div>
+    
+    <div class="stamp-note fact">
+      <span class="k">■ সত্য</span>
+      বাংলাদেশের অর্থনীতির অভ্যন্তরেই অনানুষ্ঠানিক কর্মসংস্থানের হার ৮০% এরও বেশি।
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণমূলক উপসংহার</span>
+      বিদেশে অভিবাসীদের বাছাই ও প্রেরণের প্রক্রিয়াটি সরকারি বিধিবিধান এবং শক্তিশালী ছায়া মধ্যস্বত্বভোগীদের (ব্রোকার এবং সাব-এজেন্ট) একটি নেটওয়ার্কের মধ্যে পরিচালিত হয়, যারা অঞ্চলগুলোতে শ্রমশক্তি একত্রীকরণ নিয়ন্ত্রণ করে।
+    </div>
+
+    <p>অভিবাসীদের মূল অংশটি কর্মসংস্থানের ঘাটতি থাকা গ্রামীণ এবং ছোট শহর থেকে আসে, অথচ আর্থিক ও প্রাতিষ্ঠানিক প্রবাহ ঢাকা এবং প্রধান বন্দর কেন্দ্রগুলোতে (চট্টগ্রাম) ঘনীভূত।</p>
+
+    <div class="subhead">অভিবাসনের মডেল</div>
+    
+    <div class="stamp-note fact">
+      <span class="k">■ সত্য</span>
+      রাষ্ট্র ইচ্ছাকৃতভাবে রেমিট্যান্সের উপর ভিত্তি করে সামষ্টিক-অর্থনৈতিক স্থিতিশীলতা বজায় রাখতে এবং বেকারত্বের চাপ কমানোর হাতিয়ার হিসাবে শ্রম রফতানি ব্যবহার করে। এই মডেলটি গ্রহণকারী দেশগুলোতে দীর্ঘমেয়াদী একীকরণ বা নাগরিকত্ব পাওয়ার পথ পুরোপুরি অবরুদ্ধ করে দেয়।
+    </div>
+
+    <div class="subhead">যোগ্যতার অবমূল্যায়ন</div>
+    <p>সরকারি ব্যুরো (BMET) এবং অনুমোদিত কেন্দ্রগুলির মাধ্যমে দক্ষতার শংসাপত্র প্রদান করা হয়। তবে বিদেশী নিয়োগকর্তাদের প্রকৃত চাহিদা প্রায়শই পেশাদার মানের পরিবর্তে সর্বনিম্ন মজুরির উপর নির্ভর করে।</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণমূলক উপসংহার</span>
+      বাংলাদেশের মানদণ্ড আন্তর্জাতিক বাজারে প্রতিযোগিতামূলক না হওয়ায়, মাধ্যমিক বা উচ্চশিক্ষা থাকা সত্ত্বেও অনেক অভিবাসী অদক্ষ শ্রমিকের কাজ (নির্মাণ শ্রমিক, পরিচ্ছন্নতাকর্মী) নিতে বাধ্য হয়। এটি নির্দিষ্ট আর্থিক আয়ের জন্য মানব পুঁজির কাঠামোগত অবক্ষয়।
+    </div>
+
+    <blockquote class="pull">"বাংলাদেশের অভিবাসন ব্যবস্থা হলো জনমিতিক উদ্বৃত্তকে নগদায়নের একটি রফতানি-মুখী কনভেয়ার বেল্ট, যেখানে রাষ্ট্র সস্তা মানব পুঁজি সরবরাহের গ্যারান্টি দেয়।"</blockquote>
+
+    <div class="subhead">কে নিয়ম ঠিক করে</div>
+    
+    <div class="stamp-note fact">
+      <span class="k">■ সত্য</span>
+      প্রবাসী কল্যাণ মন্ত্রণালয় এবং BMET নিয়ন্ত্রক ও হিসাবরক্ষণের কাজ করে। তাদের লক্ষ্য বৈদেশিক মুদ্রা প্রবাহ বজায় রাখা এবং প্রাপক দেশগুলোর সাথে কূটনৈতিক সংঘাত কমানো। তবে রিক্রুটিং এজেন্সিগুলোর সংগঠন (BAIRA) এবং বেসরকারি রিক্রুটাররাই হলো প্রধান বাণিজ্যিক সুবিধাভোগী।
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণমূলক উপসংহার</span>
+      প্রায়শই বেসরকারি মধ্যস্থতাকারীরাই প্রবেশের প্রকৃত বাধা (নিয়োগ খরচ, ভিসা প্রসেসিং) নির্ধারণ করে এবং অভিবাসীদের ঘাড়ে ঋণের বিশাল বোঝা চাপিয়ে দেয়। 
+    </div>
+
+    <div class="subhead">স্পনসরশিপ সিস্টেম ও নিয়ন্ত্রণ</div>
+    
+    <div class="stamp-note fact">
+      <span class="k">■ সত্য</span>
+      'কাফালা' পদ্ধতি এবং এর সমতুল্য ব্যবস্থা উপসাগরীয় দেশ ও মালয়েশিয়ায় শ্রমিকের আইনি মর্যাদাকে নির্দিষ্ট নিয়োগকর্তার সাথে কঠোরভাবে যুক্ত করে। নিয়োগকর্তার সম্মতি ছাড়া কর্মী পরিবর্তন করা যায় না। উপরন্তু, স্থানীয় শ্রমিক ইউনিয়ন গঠন আইনগতভাবে নিষিদ্ধ।
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণমূলক উপসংহার</span>
+      এটি গ্রহণকারী দেশগুলোর জন্য সস্তা এবং নিয়ন্ত্রিত শ্রমশক্তির একটি বাধ্য মজুত নিশ্চিত করে।
+    </div>
+
+    <div class="subhead">ছায়া অর্থনীতি ও আর্থিক প্রবাহ</div>
+    
+    <div class="stamp-note insight">
+      <span class="k">■ ভেতরের খবর</span>
+      অনানুষ্ঠানিক আর্থিক স্থানান্তর ('হুন্ডি' বা হাওয়ালা) আনুষ্ঠানিক ব্যাংকিং ব্যবস্থার পাশাপাশি কাজ করে, যা দ্রুত লেনদেন এবং কম খরচ নিশ্চিত করে। এটি প্রচুর অর্থ সরকারি নিয়ন্ত্রণের বাইরে নিয়ে যায়, যা আমদানির পরিমাণ এবং রেমিট্যান্সের আনুষ্ঠানিক পরিসংখ্যানের ফারাক থেকে নিশ্চিত হওয়া যায়।
+    </div>
+
+    <div class="subhead">অর্থনৈতিক ও সামাজিক চাপের কেন্দ্র</div>
+    
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণমূলক উপসংহার</span>
+      রিক্রুটিং এজেন্সির ফি এবং ভিসা খরচ মেটাতে অভিবাসীরা চড়া সুদে ঋণ নেয় বা সম্পত্তি বিক্রি করে। এর ফলে একটি দীর্ঘমেয়াদী ঋণের ফাঁদ তৈরি হয়, যেখানে কাজের প্রথম কয়েকটি বছর শুধুই ঋণ শোধ করতে ব্যয় হয়।
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ সত্য</span>
+      বাজেট এবং জাতীয় মুদ্রার স্থিতিশীলতা রেমিট্যান্সের উপর ব্যাপকভাবে নির্ভরশীল, যা মোট রফতানি আয়ের প্রায় এক-তৃতীয়াংশ।
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ জনসংযোগ সংস্করণ</span>
+      সরকার বিদেশে শোষণের ঘটনাগুলো আড়াল করার চেষ্টা করে, যাতে শ্রম রফতানির কোটা হুমকির মুখে না পড়ে। আনুষ্ঠানিক ভাষ্য হলো— শ্রম রফতানি দারিদ্র্য বিমোচন ও দক্ষতা বৃদ্ধির একটি হাতিয়ার।
+    </div>
+
+    <p>দীর্ঘমেয়াদে পরিবার বিচ্ছিন্ন থাকা এবং নারী কর্মীদের আইনি সুরক্ষার অভাব স্থানীয় পর্যায়ে সামাজিক সংঘাতের জন্ম দিচ্ছে। পাশাপাশি উপসাগরীয় দেশগুলোর 'সৌদিকরণ' এর মতো স্থানীয়করণ কর্মসূচির কারণে বাংলাদেশের অদক্ষ শ্রমিকের কোটা কমে যাওয়ার কাঠামোগত ঝুঁকি বাড়ছে।</p>
+
+    <div class="subhead">চূড়ান্ত মূল্যায়ন</div>
+    <p>দাতা দেশ হিসেবে বাংলাদেশ বিপুল বৈদেশিক মুদ্রা পায় এবং বেকার যুবকদের রফতানি করে সামাজিক বিস্ফোরণ থেকে রক্ষা পায়। বেসরকারি রিক্রুটিং এজেন্সিগুলো নিয়োগ প্রক্রিয়ার একচেটিয়া নিয়ন্ত্রণ থেকে মুনাফা লুটে নেয়। আর মধ্যপ্রাচ্যের নিয়োগকর্তারা এমন এক নিয়ন্ত্রিত শ্রমশক্তি পান, যারা নূন্যতম মজুরিতে চরম বৈরী পরিবেশে কাজ করতে বাধ্য।</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণমূলক উপসংহার</span>
+      সবচেয়ে সম্ভাব্য পরিস্থিতি হলো বর্তমান অবস্থারই ধারাবাহিকতা। রাষ্ট্র ধীরে ধীরে আরও দক্ষ কর্মী রফতানির চেষ্টা করবে, তবে বিকল্প আয়ের উৎসের অভাবে অর্থনীতিতে কাঠামোগত বড় কোনো পরিবর্তন হওয়ার সম্ভাবনা কম।
+    </div>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">চিহ্নের ব্যাখ্যা — যাচাইকরণের মানদণ্ড</div>
+    <div class="keybox-grid">
+      <div><b>সত্য</b> — সরকারি পরিসংখ্যান, নিবন্ধন ও দাফতরিক নথিপত্রের মাধ্যমে যাচাইকৃত</div>
+      <div><b>জনসংযোগ সংস্করণ</b> — সংশ্লিষ্ট কর্তৃপক্ষ বা সংস্থার আনুষ্ঠানিক অবস্থান</div>
+      <div><b>বিশ্লেষণমূলক উপসংহার</b> — যৌক্তিক অনুমান ও কাঠামোগত বিশ্লেষণ</div>
+      <div><b>ভেতরের খবর / কোন তথ্য নেই</b> — গোপন উৎস থেকে প্রাপ্ত বা অপর্যাপ্ত তথ্য</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>ডিপ প্রেস অ্যানালাইসিস</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

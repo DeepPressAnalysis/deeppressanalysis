@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Việt Nam — Đất đai và Đặc quyền Hành chính | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400,8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← TRANG CHỦ</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Tình báo cấu trúc độc lập · Thành lập 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">"Cấu trúc thay cho tự sự."</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>VĂN PHÒNG VIỆT NAM</span>
+    <span>13 THÁNG 8 NĂM 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / ĐẶC QUYỀN HÀNH CHÍNH</span>
+
+  <h1 class="headline">Ai thực sự kiểm soát đất đai của Việt Nam?</h1>
+
+  <p class="deck">Phân tích cơ chế thu hồi đất bắt buộc, chênh lệch giữa giá bồi thường và giá thương mại, cùng cấu trúc quyền lực hành chính — doanh nghiệp đứng sau những cuộc xung đột đất đai lớn của Việt Nam.</p>
+
+  <div class="byline">Văn phòng Việt Nam — Chuyên mục Đặc quyền hành chính và đất đai</div>
+
+  <div class="columns">
+
+    <p class="lead">Đất đai nằm ở trung tâm của mô hình phát triển Việt Nam. Nghiên cứu được gửi đi cho thấy quá trình công nghiệp hóa, đô thị hóa và mở rộng hạ tầng đã đi cùng một hệ thống thu hồi đất có thể tạo ra xung đột xã hội, chênh lệch lớn giữa giá bồi thường và giá thương mại, cùng các cơ hội đặc biệt cho tham nhũng và tích tụ quyền lực.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Tác giả nghiên cứu xem đất đai không chỉ là một tài sản kinh tế mà là nền tảng vật chất của “phép màu kinh tế” Việt Nam, đồng thời là điểm giao nhau giữa quyền hành chính, vốn tư nhân và xung đột xã hội.
+    </div>
+
+    <div class="subhead">Nghịch lý pháp lý</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Hiến pháp năm 2013 quy định toàn bộ đất đai ở Việt Nam thuộc “sở hữu toàn dân”, trong đó Nhà nước là đại diện chủ sở hữu và thống nhất quản lý.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Công dân và doanh nghiệp không sở hữu đất theo chế độ sở hữu tư nhân mà nắm quyền sử dụng đất, được xác nhận bằng giấy chứng nhận quyền sử dụng đất, thường gọi là “sổ đỏ”.
+    </div>
+
+    <p>Sau khi chấm dứt mô hình tập thể hóa cứng nhắc, chính sách Đổi Mới từ cuối thập niên 1980 đã mở đường cho việc cấp quyền sử dụng đất dài hạn cho nông dân.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Theo tài liệu nghiên cứu, quyền sử dụng đất được cấp trong thời hạn 20 năm đối với cây hàng năm và tối đa 50 năm đối với cây lâu năm.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Nghiên cứu dẫn quy mô khoảng 14 triệu hộ nông dân nhỏ, mỗi hộ canh tác dưới một hecta, tạo nền tảng việc làm cho gần một nửa lực lượng lao động.
+    </div>
+
+    <p>Khi công nghiệp hóa tăng tốc, mô hình này thay đổi cùng với chính sách “tích tụ, tập trung đất đai”.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Nghiên cứu dẫn chủ trương tập trung và tích tụ đất đai nhằm mở rộng quy mô sử dụng đất trong nông nghiệp và phát triển các dự án lớn.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Tài liệu cho rằng quá trình này đã làm dịch chuyển trọng tâm từ mô hình “đất cho người cày” sang việc tập trung quỹ đất vào các tập đoàn nông nghiệp, nhà phát triển bất động sản và nhà vận hành khu công nghiệp.
+    </div>
+
+    <blockquote class="pull">“Từ ‘đất cho người cày’ đến ‘những địa chủ mới’.”</blockquote>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Những người chỉ trích trong tài liệu gọi các nhóm hưởng lợi từ quá trình tập trung đất đai là “địa chủ mới”, như một cách mô tả sự tái tập trung quyền lực đối với đất.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Theo nghiên cứu, chính quyền địa phương có quyền thu hồi đất với lý do “phát triển kinh tế — xã hội”, qua đó mở rộng phạm vi sử dụng cơ chế thu hồi bắt buộc.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tài liệu cho rằng trong lịch sử, giá bồi thường hành chính có thể chỉ bằng khoảng 20–30% giá trị thị trường thực tế, trong khi đất sau đó có thể được chuyển giao hoặc bán đấu giá ở mức cao hơn nhiều lần.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Khoảng chênh giữa giá bồi thường và giá thương mại được nghiên cứu xem là một nguồn lợi cực lớn, có thể tạo động lực cho sự liên kết giữa bộ máy hành chính và vốn lớn.
+    </div>
+
+    <div class="subhead">Quy mô của khiếu kiện đất đai</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Theo các báo cáo chính thức được tài liệu dẫn lại, các khiếu nại liên quan đến thu hồi đất và bồi thường không công bằng có thể chiếm tới 70% tổng số khiếu nại của công dân gửi tới các cơ quan nhà nước và Quốc hội.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Nghiên cứu dẫn các khảo sát cho thấy khoảng một phần tư người Việt Nam bày tỏ lo ngại cá nhân về nguy cơ mất đất do hành động của chính quyền.
+    </div>
+
+    <p>Hàng trăm nghìn nông dân sau khi mất nguồn sinh kế và không nhận được mức bồi thường đủ để mua nhà hoặc mở một hoạt động kinh doanh mới ở thành phố có thể trở thành một bộ phận lao động đô thị bị gạt ra bên lề.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Nghiên cứu liên hệ quá trình mất đất và thiếu bồi thường đủ với sự gia tăng tình trạng dễ tổn thương kinh tế và sự cực đoan hóa của các cuộc phản đối.
+    </div>
+
+    <p>Những người mất đất thường được gọi là <i>dân oan</i>. Các cuộc phản đối từng tập trung nhiều ở Tây Nguyên và những khu vực có cộng đồng dân tộc thiểu số, nhưng sau đó lan tới vùng ven các đô thị lớn như Hà Nội, Thành phố Hồ Chí Minh và Đà Nẵng.</p>
+
+    <div class="subhead">Cơ chế thu hồi</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Về nguyên tắc, pháp luật phân biệt việc thu hồi đất phục vụ quốc phòng, an ninh hoặc hạ tầng công cộng với các dự án thương mại thuần túy.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Theo tài liệu, trong trường hợp dự án hoàn toàn thương mại, nhà đầu tư về nguyên tắc phải trực tiếp thương lượng với người sử dụng đất để nhận chuyển nhượng quyền sử dụng đất theo giá thị trường.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Nghiên cứu cho rằng việc phân loại các dự án như khu dân cư cao cấp, khu nghỉ dưỡng, sân golf và khu thương mại là “phát triển kinh tế — xã hội vì lợi ích quốc gia” có thể biến các dự án mang tính thương mại thành đối tượng của cơ chế thu hồi bắt buộc.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Theo lập luận của tài liệu, cách phân loại này cho phép áp dụng mức bồi thường do Nhà nước xác định và huy động lực lượng thực thi pháp luật để xử lý phản đối, qua đó giảm nhu cầu đàm phán trực tiếp giữa nhà đầu tư và hàng nghìn hộ dân.
+    </div>
+
+    <div class="subhead">Cơ chế Xây dựng — Chuyển giao</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Hợp đồng Xây dựng — Chuyển giao (BT) được nghiên cứu xác định là một cơ chế trong đó chính quyền địa phương có thể thanh toán cho việc xây dựng cầu, đường hoặc công trình hành chính bằng việc giao quỹ đất.
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ KHÔNG CÓ DỮ LIỆU</span>
+      Tài liệu cho biết việc định giá cả công trình xây dựng lẫn quỹ đất đối ứng trong các giao dịch BT thường thiếu minh bạch và không phải mọi điều khoản đều được công khai.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Nghiên cứu lập luận rằng việc đánh giá chi phí công trình cao hơn trong khi định giá thấp quỹ đất đối ứng có thể làm giảm thu ngân sách, tạo lợi ích cho các nhóm liên quan và làm giảm khả năng bồi thường đầy đủ cho người bị thu hồi đất.
+    </div>
+
+    <div class="subhead">Áp lực và hình sự hóa phản đối</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Theo nghiên cứu, những người từ chối bán đất theo mức giá đề xuất có thể chịu các biện pháp gây áp lực hành chính như cắt điện, cắt nước hoặc hạn chế đường tiếp cận.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Tài liệu mô tả việc chuyển từ thương lượng kinh tế sang các biện pháp hành chính và hình sự như một cơ chế biến sự phản đối dân sự thành vấn đề trật tự công cộng.
+    </div>
+
+    <div class="subhead">Thủ Thiêm</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Khu đô thị mới Thủ Thiêm tại Thành phố Hồ Chí Minh được quy hoạch trên diện tích 657 hecta, với mục tiêu hình thành một trung tâm tài chính, thương mại và giải trí quy mô lớn.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Nghiên cứu cho rằng hàng chục nghìn cư dân bị ảnh hưởng bởi quá trình triển khai dự án và chính quyền địa phương đã thu hồi một số khu đất nằm ngoài ranh giới quy hoạch được phê duyệt.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tài liệu ghi nhận phản ánh của người dân rằng khoản bồi thường không đủ để mua một căn hộ nhỏ ở vùng ven thành phố, khiến nhiều hộ sống trong điều kiện tạm bợ trong nhiều năm.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Công ty Dai Quang Minh được tài liệu nêu là đã nhận 13,6 hecta đất để đổi lấy việc xây cầu Thủ Thiêm 2 trị giá 145 triệu USD, sau đó ký thêm các hợp đồng trị giá 569,4 triệu USD để xây bốn tuyến đường và 12 cây cầu đổi lấy các khu đất mới.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tại thời điểm cao điểm đầu cơ, tài liệu ghi nhận giá đấu giá tại Thủ Thiêm đạt tới 2,4 tỷ đồng, tương đương khoảng 100.000 USD, cho mỗi mét vuông.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Cuối năm 2021, Tân Hoàng Minh Group đã thắng đấu giá một khu đất 10.000 mét vuông với giá khoảng 1 tỷ USD rồi rút khỏi giao dịch sau đó.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Sau sự can thiệp của các cơ quan thanh tra trung ương, chính quyền Thành phố Hồ Chí Minh thừa nhận tính bất hợp pháp của một phần việc thu hồi đất và cam kết bồi thường theo giá thị trường.
+    </div>
+
+    <div class="subhead">Văn Giang — EcoPark</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Dự án EcoPark tại Văn Giang, Hưng Yên, cần thu hồi khoảng 500 hecta đất nông nghiệp của hàng nghìn hộ dân.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Nghiên cứu ghi nhận mức bồi thường bị người dân phản đối vì không phản ánh đầy đủ giá trị đất và thu nhập tương lai bị mất.
+    </div>
+
+    <blockquote class="pull">“Nông dân cần đất cũng như công nhân nhà máy cần nhà máy. Bây giờ mất đất rồi, chúng tôi phải làm gì?”</blockquote>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Ngày 24 tháng 4 năm 2012, chính quyền triển khai lực lượng lớn công an và cảnh sát cơ động để cưỡng chế đất; tài liệu mô tả việc sử dụng hơi cay, dùi cui và súng bắn đạn thật lên không trung.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tài liệu cho biết hàng chục người bị đánh và hơn 20 nông dân bị bắt trong cuộc đối đầu kéo dài nhiều giờ.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Các nhà báo tìm cách ghi nhận cuộc cưỡng chế cũng bị bắt giữ hoặc đánh đập theo mô tả trong nghiên cứu.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Nghiên cứu xem sự chuyển đổi từ ruộng lúa sang các khu đô thị khép kín cao cấp là biểu hiện rõ ràng của việc tái phân bổ giá trị đất từ cư dân địa phương sang các dự án đô thị.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tài liệu liên hệ quá trình mở rộng quỹ đất với các doanh nghiệp bất động sản như Vingroup, FLC Group và Sun Group, đặc biệt trong các dự án sân golf và khu nghỉ dưỡng.
+    </div>
+
+    <div class="subhead">Đồng Tâm</div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ PHIÊN BẢN CHÍNH THỨC</span>
+      Bộ Quốc phòng tuyên bố khu đất Sên, gần sân bay quân sự Miếu Môn, thuộc quân đội từ năm 1968.
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ PHIÊN BẢN CHÍNH THỨC</span>
+      Theo tài liệu, khu đất được dự kiến giao cho Viettel, tập đoàn viễn thông do quân đội Việt Nam quản lý, để xây dựng cơ sở sản xuất.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Người dân địa phương phản đối và cho rằng khu đất tranh chấp không thuộc khu vực quân sự; họ xuất trình tài liệu và cho biết đã canh tác tại đây từ thập niên 1980 và nộp thuế đất.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Năm 2017, một nhóm cư dân Đồng Tâm đã bắt giữ một số cảnh sát trong nỗ lực buộc chính quyền Hà Nội đối thoại.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Rạng sáng ngày 9 tháng 1 năm 2020, khoảng 3.000 cảnh sát vũ trang tiến hành cuộc đột kích vào khu dân cư; tài liệu cho rằng liên lạc di động, internet và các tuyến đường tiếp cận đã bị phong tỏa trước đó.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Ông Lê Đình Kình, 84 tuổi, bị bắn chết trong cuộc đột kích. Ba cảnh sát cũng thiệt mạng trong cùng sự kiện.
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ PHIÊN BẢN CHÍNH THỨC</span>
+      Truyền thông nhà nước cho rằng ông Lê Đình Kình chống trả bằng vũ khí và Bộ Công an tuyên bố những người bảo vệ làng đã làm ba cảnh sát chết cháy sau khi đổ xăng.
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ PHIÊN BẢN CHÍNH THỨC</span>
+      Theo phiên bản được tài liệu dẫn lại, ba cảnh sát rơi xuống một giếng thông gió và tử vong do hỏa hoạn.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Tài liệu mô tả cuộc đột kích Đồng Tâm như một điểm mà tranh chấp dân sự về đất đai chuyển thành đối đầu giữa cư dân và một cấu trúc an ninh vũ trang quy mô lớn.
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ KHÔNG CÓ DỮ LIỆU</span>
+      Tài liệu nêu rằng yêu cầu triệu tập các quan chức cấp cao của Đảng để làm rõ nguyên nhân và bối cảnh cuộc đột kích đã bị bác; do đó các câu hỏi về toàn bộ chuỗi quyết định chính trị không được giải quyết đầy đủ trong hồ sơ được trình bày.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tháng 9 năm 2020, hai người con trai của ông Lê Đình Kình bị tuyên án tử hình; một người cháu bị tuyên án tù chung thân; những người khác nhận các mức án từ 15 tháng tù treo tới 16 năm tù.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Human Rights Watch, Amnesty International và đại diện Liên minh châu Âu lên án các phán quyết, viện dẫn các vấn đề liên quan đến quyền được xét xử công bằng và cáo buộc tra tấn người bị giam giữ.
+    </div>
+
+    <div class="subhead">Kiểm soát thông tin</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Nghiên cứu cho biết Điều 117 của Bộ luật Hình sự liên quan đến việc tạo lập, lưu giữ hoặc phát tán thông tin, tài liệu nhằm chống Nhà nước và có thể dẫn tới mức án từ 5 đến 20 năm tù.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Điều 331 liên quan đến việc lợi dụng các quyền tự do dân chủ gây thiệt hại đến lợi ích của Nhà nước hoặc quyền, lợi ích hợp pháp của tổ chức và cá nhân; mức án có thể lên tới 7 năm tù.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Tài liệu cho rằng phạm vi áp dụng rộng của các điều khoản này khiến việc chỉ trích chính quyền địa phương, đăng video về cưỡng chế đất hoặc hoạt động bảo vệ quyền của các nhóm dễ bị tổn thương có thể trở thành đối tượng truy tố.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Từ năm 2018 đến đầu năm 2024, nghiên cứu dẫn số liệu cho biết hơn 124 người đã bị bỏ tù theo Điều 331.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Nghiên cứu cho biết Nghị định 53 về an ninh mạng, có hiệu lực từ năm 2022, yêu cầu các công ty công nghệ lưu trữ dữ liệu người dùng tại Việt Nam và cung cấp dữ liệu cho cơ quan an ninh.
+    </div>
+
+    <div class="subhead">Gia đình Trịnh Bá</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Gia đình Trịnh Bá trở thành một biểu tượng của hoạt động bảo vệ quyền đất đai sau khi đất nông nghiệp của gia đình tại ngoại ô Hà Nội bị thu hồi năm 2007 cho mục đích phát triển thương mại.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Cấn Thị Thêu tổ chức các cuộc phản đối và ghi lại các vụ thu hồi đất; bà từng chấp hành án tù vào các năm 2014 và 2016 với các cáo buộc liên quan đến chống người thi hành công vụ và gây rối trật tự công cộng.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Trịnh Bá Phương tham gia biên soạn “Báo cáo Đồng Tâm”, tập hợp lời khai nhân chứng và đưa thông tin về cuộc đột kích Đồng Tâm tới cộng đồng quốc tế.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Ngày 24 tháng 6 năm 2020, công an bắt đồng thời bà Cấn Thị Thêu và hai con trai; cả ba bị truy tố theo Điều 117.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Cấn Thị Thêu và Trịnh Bá Tư mỗi người bị tuyên 8 năm tù.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Trịnh Bá Phương ban đầu bị tuyên 10 năm tù; tháng 9 năm 2025, một bản án mới cộng thêm 11 năm, đưa tổng mức án được tài liệu ghi nhận lên 21 năm tù.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tài liệu ghi nhận các cuộc tuyệt thực của Trịnh Bá Phương trong tù, trong đó có một cuộc tuyệt thực kéo dài hơn 20 ngày vào tháng 11 năm 2024 để phản đối việc tịch thu sách và giấy.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Theo tài liệu, sau một cuộc khám xét buồng giam vào tháng 11 năm 2024, nhà chức trách phát hiện một mảnh giấy có nội dung phản đối Đảng Cộng sản Việt Nam và hệ thống tòa án; sự việc dẫn tới một vụ án mới và một mức án bổ sung vào năm 2025.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Trịnh Bá Khiêm từng thụ án 14 tháng tù liên quan tới các cuộc phản đối năm 2014 và sau đó bị giám sát, thẩm vấn và hạn chế hoạt động. Vợ của Trịnh Bá Phương, Đỗ Thị Thu, được tài liệu mô tả là chịu sự theo dõi thường xuyên của công an.
+    </div>
+
+    <div class="subhead">“Đốt lò”</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tổng Bí thư Nguyễn Phú Trọng khởi xướng chiến dịch chống tham nhũng được biết đến với tên gọi “đốt lò”; nghiên cứu cho biết chiến dịch tiếp tục dưới thời Tô Lâm.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Hàng nghìn quan chức các cấp bị xử lý trong chiến dịch; nghiên cứu ghi nhận hai Phó Thủ tướng và Chủ tịch nước Nguyễn Xuân Phúc rời vị trí.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tài liệu cho biết lĩnh vực bất động sản là một tâm điểm của chiến dịch chống tham nhũng.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Trương Mỹ Lan, người đứng đầu Van Thinh Phat Group, bị tuyên án tử hình tháng 4 năm 2024 trong vụ án liên quan đến việc chiếm đoạt hơn 12,5 tỷ USD từ Ngân hàng Thương mại Cổ phần Sài Gòn.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tháng 9 năm 2024, một phiên tòa khác liên quan đến cáo buộc rửa 4,5 tỷ USD và gian lận trái phiếu doanh nghiệp bắt đầu; tài liệu cho biết hơn 35.000 nhà đầu tư bị ảnh hưởng.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Nghiên cứu lập luận rằng “đốt lò” có thể vừa là chiến dịch chống tham nhũng vừa là công cụ đấu tranh phe phái và thanh lọc chính trị trước Đại hội Đảng lần thứ XIV.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Tài liệu cho rằng áp lực điều tra quá lớn đã tạo ra “tê liệt ra quyết định” trong một bộ phận bộ máy hành chính, khi quan chức địa phương ngần ngại ký các quyết định liên quan tới định giá đất, cấp phép và dự án.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Nghiên cứu dẫn tình trạng trì hoãn tại một số dự án công nghiệp, trong đó có VSIP tại Cần Thơ và Quảng Ngãi, liên quan tới chứng nhận quyền sử dụng đất, bồi thường và giải phóng mặt bằng.
+    </div>
+
+    <blockquote class="pull">“Nếu không thay đổi độc quyền hành chính đối với đất đai, xử lý các quan chức tham nhũng chỉ giải quyết phần ngọn.”</blockquote>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Kết luận cốt lõi của tài liệu là chiến dịch chống tham nhũng đang xử lý các hành vi sai phạm của cá nhân nhưng chưa loại bỏ cấu trúc quyền lực cho phép một bộ máy hành chính quyết định việc thu hồi đất và định giá đất.
+    </div>
+
+    <div class="subhead">Luật Đất đai 2024</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Luật Đất đai 2024 được thông qua trong bối cảnh Việt Nam tìm cách hiện đại hóa khung pháp lý đất đai và có hiệu lực từ năm 2025.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tài liệu dẫn các khuyến nghị của World Bank và UNDP về cơ chế bồi thường theo thị trường, thương lượng tự nguyện, hệ thống giải quyết khiếu nại độc lập và chia sẻ lợi ích với người dân.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Luật mới chuyển định hướng từ “khung giá đất” cứng sang xác định giá theo nguyên tắc thị trường và cập nhật thường xuyên.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Theo nghiên cứu, thay đổi về phương pháp định giá có tiềm năng làm tăng mức bồi thường và giảm căng thẳng xã hội, nhưng hiệu quả thực tế còn phụ thuộc vào người kiểm soát quá trình định giá.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Luật khuyến khích chuyển từ thanh toán tiền thuê đất một lần sang thanh toán hàng năm và quy định cơ chế xử lý khi người sử dụng đất chậm thanh toán.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Đối với dự án nhà ở thuần túy thương mại, luật quy định Nhà nước không thu hồi đất chỉ để phục vụ dự án; nhà đầu tư phải thỏa thuận với người sử dụng đất để nhận quyền sử dụng đất.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Điều 79 của Luật Đất đai 2024 vẫn quy định 32 trường hợp Nhà nước có thể thu hồi đất bắt buộc cho mục đích “phát triển kinh tế — xã hội”.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Nghiên cứu cho rằng dù danh sách đã được đóng lại, các tiêu chí vẫn bao gồm những dự án công nghiệp, hạ tầng và năng lượng quy mô lớn, do đó vẫn giữ lại không gian đáng kể cho việc vận động lợi ích.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Luật mới mở rộng giới hạn tích tụ và tập trung quyền sử dụng đất nông nghiệp và đất rừng.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Theo tài liệu, trong điều kiện hiểu biết pháp lý của người dân nông thôn còn hạn chế, đặc biệt ở các cộng đồng dân tộc thiểu số, việc nới giới hạn tích tụ có thể thúc đẩy quá trình chuyển đất sang khu vực vốn lớn.
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ KHÔNG CÓ DỮ LIỆU</span>
+      Tài liệu không đưa ra bằng chứng đủ để xác định tác động thực tế dài hạn của toàn bộ các thay đổi của Luật Đất đai 2024 sau khi luật có hiệu lực; phần đánh giá này chủ yếu mang tính phân tích và dự báo.
+    </div>
+
+    <div class="subhead">Bốn điểm nghẽn</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Tài liệu đánh giá rằng cải cách về định giá đất là một bước tiến trên giấy tờ nhưng chưa loại bỏ được quyền kiểm soát đáng kể của các cơ quan địa phương đối với quá trình xác định giá.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Việc yêu cầu thương lượng trực tiếp đối với nhà ở thương mại làm giảm quyền thu hồi chính thức của Nhà nước, nhưng nghiên cứu cảnh báo về khả năng tiếp tục tồn tại áp lực hành chính đối với những người không đồng ý.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Việc mở rộng giới hạn tích tụ có thể thúc đẩy hình thành các tập đoàn nông nghiệp quy mô lớn và đẩy nhanh quá trình mất đất của nông hộ nhỏ.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Việc duy trì 32 trường hợp thu hồi bắt buộc theo Điều 79 được nghiên cứu xem là điểm tiếp tục mở ra khoảng trống cho vận động lợi ích của các tập đoàn công nghiệp và năng lượng.
+    </div>
+
+    <div class="subhead">Kết luận</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Tài liệu xem việc duy trì nguyên tắc “sở hữu toàn dân về đất đai” trong một nền kinh tế thị trường phát triển nhanh là một mâu thuẫn thể chế căn bản.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Theo nghiên cứu, cấu trúc này có thể đồng thời tạo điều kiện cho tham nhũng, phân tầng tài sản và quá trình tích lũy vốn thông qua chuyển giao đất khỏi các nhóm dễ bị tổn thương.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Các sự kiện tại Đồng Tâm và Văn Giang, cùng với tranh chấp kéo dài tại Thủ Thiêm, được tài liệu xem là dấu hiệu của sự xói mòn “hợp đồng xã hội” giữa Nhà nước và người dân.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Nghiên cứu cho rằng “đốt lò” và Luật Đất đai 2024 cho thấy Nhà nước nhận thức được mức độ nghiêm trọng của khủng hoảng nhưng chưa xử lý căn nguyên là độc quyền hành chính đối với quyền quyết định về đất.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ THỰC TẾ</span>
+      Tài liệu ghi nhận việc sử dụng Điều 117 và Điều 331 để xử lý các nhà hoạt động và những người lên tiếng về quyền đất đai.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Tác giả nghiên cứu xem các bản án nghiêm khắc đối với các nhà hoạt động đất đai, trong đó có mức án tổng cộng 21 năm đối với Trịnh Bá Phương, như dấu hiệu cho thấy hệ thống ưu tiên cưỡng chế hơn đối thoại xã hội.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Theo kết luận của tài liệu, nếu tăng trưởng tiếp tục phụ thuộc vào thu hồi đất cưỡng chế và hạn chế các quyền cơ bản, áp lực phản đối có thể tích tụ trong xã hội.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KẾT LUẬN PHÂN TÍCH</span>
+      Nghiên cứu kết luận rằng thượng tôn pháp luật, thị trường đất đai minh bạch và cơ chế trách nhiệm thực chất của các nhóm tinh hoa địa phương là những điều kiện cần để giảm các mâu thuẫn cấu trúc.
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ KHÔNG CÓ DỮ LIỆU</span>
+      Tài liệu không cung cấp một mô hình định lượng để xác định xác suất cụ thể của một cuộc khủng hoảng xã hội hoặc sự “sụp đổ” của mô hình kinh tế Việt Nam; các dự báo về mức độ rủi ro trong tương lai là kết luận phân tích của tác giả.
+    </div>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Chú giải — Tiêu chuẩn xác minh</div>
+    <div class="keybox-grid">
+      <div><b>THỰC TẾ</b> — thông tin được tài liệu trình bày như sự kiện hoặc số liệu đã được xác minh</div>
+      <div><b>PHIÊN BẢN CHÍNH THỨC</b> — lập trường chính thức của cơ quan hoặc chủ thể liên quan</div>
+      <div><b>KẾT LUẬN PHÂN TÍCH</b> — suy luận, đánh giá hoặc diễn giải được rút ra từ chuỗi lập luận của tài liệu</div>
+      <div><b>KHÔNG CÓ DỮ LIỆU</b> — thông tin không được công bố, không thể xác minh hoặc chưa đủ để kết luận</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan — Media Ownership | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  
+  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← メインサイトへ</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Independent Structural Intelligence · Est. 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">"Structure over narrative."</div>
+  </div>
+  <div class="dateline-bar">
+    <span>日本デスク</span>
+    <span>2026年8月13日</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / メディア所有権</span>
+
+  <h1 class="headline">誰が本当にNHKを支配しているのか</h1>
+  <p class="deck">独立した公共放送としての地位と、制度的な国家統制の間で揺れ動くメディア権力構造としての日本放送協会のシステム分析。</p>
+  <div class="byline">日本デスクより — メディア所有権部</div>
+
+  <div class="columns">
+
+    <p class="lead">NHKの基本的な構造は、国家統制への制度的な傾斜を持つ「バランスの取れた仲介者」であり、危機的状況下においては国家や行政の拡声器として機能する。</p>
+
+    <div class="stamp-note pr">
+      <span class="k">■ [PR公式見解]</span>
+      NHKは日本の市民が所有し、完全な政治的・商業的中立性を確保するために、純粋に受信料のみで運営される独立した公共テレビ局である。
+    </div>
+
+    <div class="subhead">意思決定と所有構造</div>
+    <p>企業統治と資金調達のシステムは日本の法律によって厳密に規制され、公開されているため、その基本構造における確証度は極めて高い。</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ [事実]</span>
+      1950年の放送法に基づき、NHKの予算と事業計画は毎年国会で承認されなければならない。なお、国会は1955年以降、ほぼ継続して自由民主党（自民党）によって支配されている。
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ [事実]</span>
+      最高意思決定機関は「経営委員会」（12名）である。委員は衆参両議院の同意を得て、内閣総理大臣が任命する。経営委員がNHK会長を任命する。
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ [分析的結論]</span>
+      民間株主が不在であることは、NHKが完全に独立していることを意味しない。国会への規制および予算の依存は、与党に対する構造的な従属を生み出している。NHKは、予算承認が否決されるリスクを避けるため、自民党と組織的に対立する余裕はない。
+    </div>
+
+    <blockquote class="pull">「首相官邸からの直接的な電話は必要ない。上層部への人事配置が、自己検閲のシグナルを連鎖させる。」</blockquote>
+
+    <div class="subhead">忖度と編集への介入</div>
+    <p>敏感なテーマに関する決定は、資金調達の安定と引き換えにした政治的な計算と、「忖度（そんたく）」と呼ばれる予防的な自己検閲メカニズムに基づいている。</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ [事実]</span>
+      2014年、政府によって任命された籾井勝人NHK会長は、就任時の記者会見で領土問題や国際政治に関して「政府が『右』と言っているものを、我々が『左』と言うわけにはいかない」と発言した。
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ [事実]</span>
+      2001年、NHKは放送直前に第二次世界大戦中の「慰安婦」に関するドキュメンタリー番組のトーンを修正し、一部を検閲した。2007年の東京高等裁判所では、NHK幹部が政治家の反応を恐れて意図的に番組内容を改変・削除したことが認定された。
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ [未確認情報]</span>
+      当時の番組プロデューサーや野党は、この改変が当時の内閣官房副長官であった安倍晋三氏からの直接的な圧力によるものだと主張したが、裁判では直接的な指示があったことまでは証明されなかった。
+    </div>
+
+    <div class="subhead">記者クラブと情報の独占</div>
+    <p>アジェンダは放送枠の購入によって形成されるのではなく、国家機構との制度的な同期によって形成される。NHKの記者は、省庁、警察、内閣への特権的なアクセス（記者クラブ）を保持している。公式情報の独占と引き換えに、NHKの編集局は暗黙のルールに従い、体制を不安定にするような質問を控える義務を負う。</p>
+
+    <div class="subhead">今後の脆弱性と展望</div>
+    <p>権力の相互依存関係は明白である。自民党はNHKを権力の正当化（国会中継や保守的な安定の形成）に利用するが、災害時における国民の命綱としての信頼を崩壊させないよう、露骨なプロパガンダ機関にすることは避けている。</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ [分析的結論]</span>
+      若い世代のテレビ離れと受信料不払いが、NHKの財政的基盤を脅かしている。このため、NHKは今後も「国家の安全保障」や「自然災害」など、国民が資金提供（受信料）に納得しやすい無難で親政府的なコンテンツを最大化していくだろう。内部の調査報道は、安全なドキュメンタリーへと完全に置き換えられていく運命にある。
+    </div>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">記号の凡例 — 検証基準</div>
+    <div class="keybox-grid">
+      <div><b>[事実]</b> — 公的記録、提出書類、公式統計により検証済み</div>
+      <div><b>[PR公式見解]</b> — 対象組織の公式な立場・主張</div>
+      <div><b>[分析的結論]</b> — 論理的な推論、情報連鎖の開示に基づく結論</div>
+      <div><b>[未確認情報]</b> — 検証不可能、非公開、または情報不足</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

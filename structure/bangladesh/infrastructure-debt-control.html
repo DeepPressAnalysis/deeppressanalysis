@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>বাংলাদেশ — ঋণ-প্রবেশ কাঠামো | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← মূল সাইট</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">স্বাধীন কাঠামোগত গোয়েন্দা বিশ্লেষণ · প্রতিষ্ঠিত ২০২৬</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">"বয়ানের চেয়ে কাঠামো গুরুত্বপূর্ণ।"</div>
+  </div>
+  <div class="dateline-bar">
+    <span>বাংলাদেশ ডেস্ক</span>
+    <span>১৩ আগস্ট ২০২৬</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / ঋণ-প্রবেশ কাঠামো</span>
+
+  <h1 class="headline">বাংলাদেশের অবকাঠামোর নিয়ন্ত্রণ আসলে কার হাতে?</h1>
+  <p class="deck">চীনা অবকাঠামো ঋণ, EPC+F চুক্তি এবং Vendor Lock-in কীভাবে বাংলাদেশের পরিবহন ও জ্বালানি ব্যবস্থায় প্রযুক্তিগত নির্ভরতা ও দীর্ঘমেয়াদি কৌশলগত প্রভাব তৈরি করে—তার কাঠামোগত বিশ্লেষণ।</p>
+  <div class="byline">বাংলাদেশ ডেস্ক — ঋণ-প্রবেশ কাঠামো বিভাগ</div>
+
+  <div class="columns">
+
+    <p class="lead">বাংলাদেশের অবকাঠামো প্রকল্প—পদ্মা সেতুর রেল সংযোগ, কর্ণফুলী টানেল এবং পায়রা শক্তি-লজিস্টিক হাব—এ চীনা অর্থায়নের প্রধান প্রবেশ-উপকরণ হলো অবকাঠামো সম্পদের বিপরীতে EPC+F (প্রকৌশল, ক্রয়, নির্মাণ ও অর্থায়ন) কাঠামোর সংযুক্ত ঋণ। এটি সাধারণ ঋণ নয়; ঋণদাতা, ঠিকাদার এবং প্রযুক্তিগত ব্যবস্থাকে একই প্যাকেজে আবদ্ধ করা একটি চুক্তিগত ব্যবস্থা।</p>
+
+    <div class="subhead">প্রবেশের আর্থিক স্থাপত্য</div>
+    <p>চীনের Exim Bank-এর সার্বভৌম ঋণ নির্দিষ্ট চীনা রাষ্ট্রীয় কর্পোরেশন—CCCC, CRBG এবং CHEC—কে কার্যত বিকল্পহীন ঠিকাদার হিসেবে নিয়োগের সঙ্গে যুক্ত।</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ তথ্য</span>
+      চীন ও বাংলাদেশের আন্তঃসরকারি (G2G) চুক্তির অধীনে Exim Bank-এর ঋণ এমন প্রকল্পে দেওয়া হয় যা আন্তর্জাতিক উন্মুক্ত দরপত্র ছাড়াই চীনা কোম্পানির মাধ্যমে বাস্তবায়িত হয়; পদ্ধতিটি Limited Tendering Method হিসেবে উল্লেখ করা হয়েছে।
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ প্রচারমূলক সংস্করণ</span>
+      G2G কাঠামো বাংলাদেশকে বহুপাক্ষিক উন্নয়ন ব্যাংকের দীর্ঘ আমলাতান্ত্রিক প্রক্রিয়া এড়িয়ে গুরুত্বপূর্ণ মেগাপ্রকল্প দ্রুত বাস্তবায়ন করতে এবং অর্থনৈতিক প্রবৃদ্ধি ত্বরান্বিত করতে দেয়।
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক সিদ্ধান্ত</span>
+      প্রকৃত প্রবেশ-উপকরণ ঋণ নিজে নয়, বরং Vendor Lock-in—সরবরাহকারীর সঙ্গে দীর্ঘমেয়াদি আবদ্ধতা। ঋণ এখানে বাংলাদেশের গুরুত্বপূর্ণ লজিস্টিক ব্যবস্থায় চীনা প্রযুক্তি, প্রকৌশল ও পরিচালন মান শারীরিকভাবে একীভূত করার আর্থিক আবরণ হিসেবে কাজ করে।
+    </div>
+
+    <div class="subhead">ঋণ ফেরতের বাইরে কী অর্জিত হয়</div>
+    <p>দীর্ঘমেয়াদি প্রযুক্তিগত নির্ভরতা তৈরি হয়। পদ্মা রেল সংযোগের সিগন্যালিং বা কর্ণফুলী টানেলের জীবনরক্ষাকারী ব্যবস্থার রক্ষণাবেক্ষণ, যন্ত্রাংশ ও আধুনিকীকরণের জন্য এমন নির্দিষ্ট সরবরাহ প্রয়োজন হতে পারে যা মূল ঠিকাদারই দিতে সক্ষম।</p>
+    <p>কর্ণফুলী টানেল প্রধান বন্দর চট্টগ্রামকে দক্ষিণাঞ্চলের শিল্পাঞ্চলের সঙ্গে যুক্ত করে। লজিস্টিকের গুরুত্বপূর্ণ নোড নিয়ন্ত্রণ করলে ঋণদাতা সেখানে ভারতীয় বা জাপানি প্রতিদ্বন্দ্বী লজিস্টিক কোম্পানির প্রবেশে অনানুষ্ঠানিক ভেটো-সদৃশ ক্ষমতা পেতে পারে।</p>
+    <p>ঋণের দায় বাংলাদেশের ব্যালান্সশিটে থাকে, কিন্তু ঋণের অর্থ প্রায়ই দেশের সীমানা অতিক্রম না করেই চীনের Exim Bank-এর হিসাব থেকে সরাসরি চীনা EPC ঠিকাদারদের চীনের অভ্যন্তরীণ হিসাবে স্থানান্তরিত হতে পারে।</p>
+
+    <blockquote class="pull">"এখানে ঋণ শুধু অর্থায়ন নয়—ঋণদাতা সরবরাহকারী, প্রযুক্তি ও কৌশলগত ভৌগোলিক প্রবেশাধিকারকে একই কাঠামোয় বেঁধে দেয়।"</blockquote>
+
+    <div class="subhead">যে শর্তগুলো লিভার তৈরি করে</div>
+    <div class="stamp-note fact">
+      <span class="k">■ তথ্য</span>
+      AidData-এর ডেটাবেসে বিশ্লেষিত Exim Bank-এর প্রচলিত চুক্তিতে—দক্ষিণ এশিয়ায় ব্যবহৃত চুক্তিসহ—cross-default ধারা এবং ঋণদাতার স্বার্থের ক্ষতি করে এমন ঘটনা ঘটলে অর্থায়ন-সংক্রান্ত বাধ্যবাধকতা বাতিলের ধারা থাকার কথা উল্লেখ করা হয়েছে।
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক সিদ্ধান্ত</span>
+      Cross-default-এর অর্থ হলো, বাংলাদেশের কোনো ছোট বাণিজ্যিক চীনা ঋণে কারিগরি খেলাপি ঘটলে Exim Bank পদ্মা সেতুর কৌশলগত ঋণেও খেলাপি ঘোষণা করে পুরো অর্থ তাৎক্ষণিক পরিশোধের দাবি তুলতে পারে। এতে বিচ্ছিন্ন ঋণগুলো একটি একক সামষ্টিক লিভারে যুক্ত হয়।
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ অন্তর্দৃষ্টি / অপ্রমাণিত</span>
+      বিশেষজ্ঞ মহলে, বিশেষত ভারতীয় থিঙ্ক-ট্যাঙ্কের বিশ্লেষকদের মধ্যে, এমন তথ্য প্রচলিত আছে যে পায়রা বন্দরের চুক্তির অপ্রকাশ্য সংযোজনীতে চীনা অপারেটরদের জন্য ন্যূনতম আয়ের গোপন নিশ্চয়তা থাকতে পারে; এতে বন্দরের অচল থাকার বাণিজ্যিক ঝুঁকি বাংলাদেশের বাজেটের ওপর স্থানান্তরিত হয়।
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ তথ্য নেই</span>
+      পদ্মা রেল সংযোগ ও কর্ণফুলী টানেলের ঋণচুক্তির সুনির্দিষ্ট পাঠ পুনর্গঠন ও বিচারিক ট্রিগারের শর্তের অংশে গোপন রয়েছে।
+    </div>
+
+    <div class="subhead">স্থানীয় প্রবেশ-অপারেটর</div>
+    <p>প্রবেশের প্রক্রিয়া পরিচালিত হয় সংশ্লিষ্ট মন্ত্রণালয়—রেলওয়ে মন্ত্রণালয় ও Bridges Division—এবং স্থানীয় জ্বালানি রাষ্ট্রায়ত্ত কোম্পানির মাধ্যমে; পায়রা বিদ্যুৎকেন্দ্রের ক্ষেত্রে NWPGCL একটি উদাহরণ।</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক সিদ্ধান্ত</span>
+      বাংলাদেশের প্রাতিষ্ঠানিক খণ্ডিত কাঠামো ঋণদাতার জন্য সুবিধাজনক। চীনা প্রতিষ্ঠানগুলো ঋণের একক কেন্দ্রীয় ব্যবস্থাপনা কর্তৃপক্ষের সঙ্গে নয়, পৃথক মন্ত্রণালয়ের সঙ্গে আলোচনা করে এবং তাদের প্রস্তুত "টার্নকি" সমাধান দেয়। বাজেট বাস্তবায়ন ও রাজনৈতিক সাফল্যে আগ্রহী মন্ত্রণালয়গুলো অর্থ মন্ত্রণালয়ের কাছে এই ঋণ অনুমোদনের পক্ষে লবিং করে।
+    </div>
+
+    <div class="subhead">প্রবেশের ক্রম</div>
+    <p>প্রথমে অবকাঠামোগত ঘাটতি—সেতু, টানেল—চিহ্নিত করা হয়। এরপর দ্রুত অনুমোদনযোগ্য রাজনৈতিকভাবে গুরুত্বপূর্ণ প্রকল্পের মাধ্যমে প্রবেশ করা হয়। অতিরিক্ত চুক্তি, নির্মাণ-সম্প্রসারণ ও রক্ষণাবেক্ষণের মাধ্যমে উপস্থিতি বাড়ে। পরে জ্বালানি খাতে যৌথ উদ্যোগে যাওয়া হয়; পায়রায় চীনা CMC ও বাংলাদেশের NWPGCL-এর যৌথ উদ্যোগে ঋণকে ইকুইটি অংশগ্রহণে রূপান্তরের পথ দেখা যায়।</p>
+
+    <div class="subhead">কে প্রবেশ করে এবং কেন</div>
+    <p>ঋণদাতা হলো চীনের সার্বভৌম রাজনৈতিক কাঠামো, যা Exim Bank-এর মতো নীতিনির্ভর ব্যাংক এবং CCCC-এর মতো রাষ্ট্রায়ত্ত কর্পোরেশনের মাধ্যমে কাজ করে।</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক সিদ্ধান্ত</span>
+      প্রধান কৌশলগত অগ্রাধিকার হলো মালাক্কা প্রণালীর দুর্বলতা—"মালাক্কা দ্বিধা"—এড়িয়ে বঙ্গোপসাগরে প্রবেশাধিকার অর্জন। পায়রা বন্দর এবং কর্ণফুলী ও পদ্মার মতো সংযোগপথের ওপর নিয়ন্ত্রণ কুনমিং—মিয়ানমার/বাংলাদেশ—ভারত মহাসাগর লজিস্টিক করিডর তৈরি করে। এখানে ঋণের উপকরণ ভূ-রাজনৈতিক ভূগোল কিনে নেয়।
+    </div>
+
+    <div class="subhead">ঋণগ্রহীতার দুর্বলতা</div>
+    <div class="stamp-note fact">
+      <span class="k">■ তথ্য</span>
+      ২০১২ সালে বিশ্বব্যাংক পদ্মা সেতুর মূল নির্মাণের জন্য ১.২ বিলিয়ন ডলারের ঋণ বাতিল করে, কারণ দুর্নীতির অভিযোগ প্রমাণিত হয়নি। এতে প্রাতিষ্ঠানিক আঘাত ও অর্থায়নের শূন্যতা তৈরি হয়।
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক সিদ্ধান্ত</span>
+      চীনা ঋণদাতারা এই শূন্যতার মধ্যেই প্রবেশ করে। বাংলাদেশের দুর্বলতা অর্থের অভাব ছিল না—সামষ্টিক অর্থনীতি স্থিতিশীল ছিল—বরং যেকোনো মূল্যে মেগাপ্রকল্প বাস্তবায়ন করে সার্বভৌমত্ব ও পশ্চিমা প্রতিষ্ঠানের থেকে স্বাধীনতা প্রদর্শনের রাজনৈতিক প্রয়োজন ছিল। চীন স্বচ্ছতা, প্রাতিষ্ঠানিক সংস্কার বা মানবাধিকারের শর্ত ছাড়াই অর্থের প্রস্তাব দেয়।
+    </div>
+
+    <div class="subhead">ঝুঁকি বাস্তবায়িত হলে</div>
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক সিদ্ধান্ত</span>
+      শ্রীলঙ্কার হাম্বানটোটা বন্দরের মতো সরাসরি সম্পদ হস্তান্তর বা debt-to-equity swap বাংলাদেশে তুলনামূলকভাবে কম সম্ভাব্য, কারণ অর্থনীতির স্থিতিস্থাপকতা বেশি এবং ভারতের প্রভাব শক্তিশালী।
+    </div>
+
+    <p>চীনা ঋণ পরিশোধে সমস্যা হলে বেশি সম্ভাব্য দৃশ্যপট হলো ঋণ পুনর্গঠনের বিনিময়ে নতুন প্রকল্পে একচেটিয়া অধিকার—যেমন পায়রা বন্দরের সম্প্রসারণ বা 5G টেলিকম নেটওয়ার্ক—এবং দেশের বৈদেশিক মুদ্রার রিজার্ভ থেকে অগ্রাধিকারভিত্তিতে অর্থ সরিয়ে নেওয়া। এর মধ্যে টেক্সটাইল রপ্তানি আয়ের মতো প্রবাহকে এসক্রো হিসাবে অবকাঠামো ঋণ পরিশোধে ব্যবহারের দাবি থাকতে পারে।</p>
+
+    <div class="subhead">দীর্ঘমেয়াদি সিদ্ধান্তগত সার্বভৌমত্ব</div>
+    <div class="stamp-note fact">
+      <span class="k">■ তথ্য</span>
+      বাংলাদেশকে নিয়মিতভাবে ভারত—ঐতিহাসিক ও ভৌগোলিক মিত্র—এবং চীন—অবকাঠামোর প্রধান ঋণদাতা—এই দুই শক্তির মধ্যে ভারসাম্য বজায় রাখতে হয়।
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক সিদ্ধান্ত</span>
+      ঋণ বাংলাদেশের পররাষ্ট্রনীতির পরিসরকে সীমিত করে। চীনা সফটওয়্যার, যন্ত্রাংশ ও ঋণসীমার ওপর সম্পূর্ণ নির্ভরশীল গুরুত্বপূর্ণ অবকাঠামো থাকলে আঞ্চলিক সংঘাত বা ইন্দো-প্যাসিফিক উদ্যোগ, যেমন Quad-এর প্রেক্ষাপটে, ঢাকার পক্ষে কঠোর চীনবিরোধী অবস্থান নেওয়া কঠিন হয়ে যায়।
+    </div>
+
+    <div class="subhead">বর্তমান প্রবেশে কার লাভ</div>
+    <p>চীনের লাভ হলো অতিরিক্ত পুঁজি ও শিল্পক্ষমতা ব্যবহার, বঙ্গোপসাগরের কৌশলগত লজিস্টিককে চীনা মানের সঙ্গে আবদ্ধ করা এবং ভারতের ঐতিহ্যগত প্রভাবক্ষেত্রে দীর্ঘমেয়াদি ভূ-রাজনৈতিক লিভার অর্জন।</p>
+    <p>স্থানীয় অভিজাতদের জন্য G2G/EPC+F অর্থায়ন আন্তর্জাতিক অডিট ও দরপত্র নিয়ন্ত্রণ কমিয়ে দেয়; জমির মূল্যায়ন, সাবকন্ট্রাক্ট এবং উপকরণ সরবরাহে গোপন মার্জিন তৈরির জন্য বিস্তৃত সুযোগ থাকে।</p>
+    <p>বাংলাদেশের রাজনৈতিক নেতৃত্ব স্বল্পমেয়াদি নির্বাচনী চক্রে সেতু ও টানেলের মতো দৃশ্যমান, বৃহৎ প্রকল্প দেখাতে পারে এবং ঋণের বোঝা পরবর্তী প্রজন্ম ও সরকারগুলোর ওপর স্থানান্তর করতে পারে।</p>
+
+    <div class="subhead">চূড়ান্ত মূল্যায়ন</div>
+    <p>ঋণ বাংলাদেশের পরিবহন ও জ্বালানি ব্যবস্থায় চীনা ঠিকাদারদের বিকল্পহীনভাবে স্থাপন করার Vendor Lock-in উপকরণ হিসেবে ব্যবহৃত হয়। অর্থ ফেরতের অতিরিক্ত লাভ হিসেবে ঋণদাতা অবকাঠামোর প্রযুক্তিগত রক্ষণাবেক্ষণে একচেটিয়া নিয়ন্ত্রণ এবং বঙ্গোপসাগরে কৌশলগত উপস্থিতি পায়।</p>
+
+    <blockquote class="pull">"প্রধান কাঠামোগত লিভার হলো প্রাতিষ্ঠানিক আবদ্ধতা: cross-default ধারা এবং অবকাঠামো বন্ধ না করে অপারেটর বা প্রযুক্তি-সরবরাহকারী বদলাতে না পারার বাস্তবতা।"</blockquote>
+
+    <p>এই মূল্যায়নের আত্মবিশ্বাস উচ্চ—চীনের Export-Import Bank-এর প্রচলিত চুক্তি-চর্চা এবং ঠিকাদারি বণ্টনের বাস্তবতার সঙ্গে তা সামঞ্জস্যপূর্ণ।</p>
+
+    <p>সবচেয়ে সম্ভাব্য দৃশ্যপট হলো লিভারের ধীরে ধীরে সম্প্রসারণ। বাংলাদেশ শ্রীলঙ্কার মতো কঠোর খেলাপিতে যাবে না; তবে IMF/বিশ্বব্যাংকের ঋণের তুলনায় বেশি বাণিজ্যিক হারে দেওয়া ঋণের সার্ভিসিং ব্যয় বাজেটের ক্রমবর্ধমান অংশ শোষণ করতে পারে, ফলে ঢাকাকে রাজনৈতিক আনুগত্য এবং প্রতিযোগিতাহীন নতুন দরপত্রে প্রবেশাধিকার দিয়ে বেইজিংকে পরিশোধ করতে হতে পারে।</p>
+
+    <p>এই দ্বিতীয় মূল্যায়নের আত্মবিশ্বাস মাঝারি; এটি ভারত ও যুক্তরাষ্ট্রের ভূ-রাজনৈতিক চাপ এবং বিকল্প পুনঃঅর্থায়ন প্যাকেজ দেওয়ার সক্ষমতার ওপর নির্ভর করে।</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">প্রতীকের অর্থ — যাচাইয়ের মানদণ্ড</div>
+    <div class="keybox-grid">
+      <div><b>তথ্য</b> — রেজিস্ট্রি, নথি ও সরকারি পরিসংখ্যানের মাধ্যমে যাচাইকৃত</div>
+      <div><b>প্রচারমূলক সংস্করণ</b> — সংশ্লিষ্ট প্রতিষ্ঠানের সরকারি অবস্থান</div>
+      <div><b>বিশ্লেষণাত্মক সিদ্ধান্ত</b> — যুক্তিনির্ভর অনুমান; বিশ্লেষণের শৃঙ্খল প্রকাশিত</div>
+      <div><b>তথ্য নেই</b> — যাচাইযোগ্য নয়, অপ্রকাশিত বা অপর্যাপ্ত</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>বাংলাদেশ — পরিকাঠামো | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&family=Noto+Serif+Bengali:wght@400;600;700&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Serif Bengali', 'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Noto Serif Bengali', 'Special Elite', monospace;
+    font-size:11.5px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:13px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Noto Serif Bengali', 'Special Elite', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Noto Serif Bengali', 'Special Elite', monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    padding:4px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Noto Serif Bengali', 'Old Standard TT', serif;
+    font-weight:700;
+    font-size:42px;
+    line-height:1.15;
+    letter-spacing:-0.005em;
+    margin:0 0 12px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Noto Serif Bengali', 'Source Serif 4', serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Noto Serif Bengali', 'Special Elite', monospace;
+    font-size:11.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:15px;
+    line-height:1.65;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Noto Serif Bengali', 'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    line-height:0.85;
+    float:left;
+    margin:8px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Noto Serif Bengali', 'Old Standard TT', serif;
+    font-weight:700;
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 10px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:10px;
+    margin:12px 0 18px;
+    background:rgba(0,0,0,0.02);
+    font-size:13.5px;
+    line-height:1.55;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Noto Serif Bengali', 'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    margin-bottom:6px;
+    font-weight:600;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Noto Serif Bengali', 'Old Standard TT', serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:22px;
+    line-height:1.4;
+    margin:10px 0 20px;
+    padding:12px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:18px 20px;
+    margin:40px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Noto Serif Bengali', 'Special Elite', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:10px;
+    font-weight:600;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 26px;
+    font-size:13.5px;
+    line-height:1.5;
+  }
+  .keybox-grid b{font-family:'Noto Serif Bengali', 'Old Standard TT', serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:14px;
+    margin-top:50px;
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  
+  
+  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Noto Serif Bengali', 'Special Elite', monospace;
+    font-size:12px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+    font-weight:600;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← মূল সাইটে ফিরে যান</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">স্বাধীন কাঠামোগত গোয়েন্দা সংস্থা · স্থাপিত ২০২৬</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">"কাহিনীর চেয়ে কাঠামো গুরুত্বপূর্ণ।"</div>
+  </div>
+  <div class="dateline-bar">
+    <span>বাংলাদেশ ডেস্ক</span>
+    <span>১৩ আগস্ট ২০২৬</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / সমালোচনামূলক পরিকাঠামো</span>
+
+  <h1 class="headline">বাংলাদেশের পারমাণবিক বিদ্যুৎ কেন্দ্রটি আসলে কার নিয়ন্ত্রণে?</h1>
+  <p class="deck">রূপপুর পারমাণবিক বিদ্যুৎ কেন্দ্রের বিশ্লেষণ: ভৌত বনাম প্রযুক্তিগত নিয়ন্ত্রণ, ৬০ বছরের কাঠামোগত নির্ভরতা, এবং কীভাবে আর্থিক নিষেধাজ্ঞাগুলি বাংলাদেশের শক্তি গ্রিডের জন্য সবচেয়ে বড় দুর্বলতা তৈরি করে।</p>
+  <div class="byline">বাংলাদেশ ডেস্ক — পরিকাঠামো স্থাপত্যের অধীনে শ্রেণীবদ্ধ</div>
+
+  <div class="columns">
+
+    <p class="lead">রূপপুর পারমাণবিক বিদ্যুৎ কেন্দ্র (মোট ২.৪ গিগাওয়াট ক্ষমতার দুটি ভিভিইআর-১২০০ চুল্লি) বাংলাদেশের প্রায় ১০% বেস-লোড বিদ্যুৎ উৎপাদনের জন্য ডিজাইন করা হয়েছিল। কিন্তু এটি শুধুমাত্র একটি বিদ্যুৎ উৎপাদনকারী যন্ত্র নয়, বরং দীর্ঘমেয়াদী রাশিয়ান রাষ্ট্রীয় ঋণকে (প্রায় ১২ বিলিয়ন ডলার) নিরবচ্ছিন্ন বিদ্যুতের প্রবাহে রূপান্তর করার একটি প্রক্রিয়া, যা হাইড্রোকার্বনের দামের মৌসুমী ওঠানামা থেকে স্বাধীন।</p>
+
+    <div class="subhead">প্রবাহ নিয়ন্ত্রণ ব্যবস্থা হিসাবে নোড</div>
+    <p>জ্বালানি আমদানির জন্য বৈদেশিক মুদ্রার দীর্ঘস্থায়ী ঘাটতিতে ভুগছে এমন একটি দেশের জন্য, এই বিদ্যুৎ কেন্দ্রের ভূমিকা নিছক নামমাত্র মেগাওয়াট উৎপাদনের চেয়ে অনেক বেশি। এটি পুরো সিস্টেমের ভরকেন্দ্রে পরিণত হয়েছে।</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ তথ্য</span>
+      রূপপুর পারমাণবিক বিদ্যুৎ কেন্দ্রটি বাংলাদেশের গ্রিডের প্রায় ১০% বেস-লোড (base-load) বিদ্যুৎ সরবরাহের জন্য ডিজাইন করা হয়েছে।
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক উপসংহার</span>
+      এই নোডের প্রতিস্থাপনযোগ্যতা খুবই কম। ২.৪ গিগাওয়াট বিদ্যুৎ উৎপাদন বন্ধ হলে, সিস্টেমকে জরুরি ভিত্তিতে আমদানিকৃত ডিজেল বা জ্বালানি তেল পোড়াতে হবে, যা তাৎক্ষণিকভাবে দেশের বৈদেশিক মুদ্রার রিজার্ভকে নিঃশেষ করে দেবে।
+    </div>
+
+    <div class="subhead">লিভার কার হাতে</div>
+    <p>ভৌত অপারেটর হলো এনপিসিবিএল (NPCBL)-এর মাধ্যমে বাংলাদেশ পরমাণু শক্তি কমিশন (BAEC)। পেরিমিটার নিরাপত্তা বাংলাদেশ সেনাবাহিনী প্রদান করে। তবে ডিজিটাল এবং প্রযুক্তিগত স্তর (SCADA) রোসাটমের কাঠামোর দ্বারা নিয়ন্ত্রিত। স্থানীয় কর্মীদের স্বাধীনভাবে বড় ধরনের ত্রুটি সমাধানের বা চুল্লির সফ্টওয়্যার আপডেট করার দক্ষতা নেই।</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক উপসংহার</span>
+      পারমাণবিক বিদ্যুৎ কেন্দ্রটি একটি ভূ-রাজনৈতিক "নোঙ্গর" হিসাবে কাজ করে। চুক্তিটি একক সরবরাহকারীর উপর ৬০ বছরের অটুট নির্ভরতা তৈরি করে ("রোসাটম" জ্বালানী সরবরাহ এবং ব্যবহৃত জ্বালানী অপসারণ উভয়ই নিয়ন্ত্রণ করে)। যেকোনো একটি প্রবাহ বন্ধ হলে কেন্দ্রটি শারীরিকভাবে অচল হয়ে পড়বে।
+    </div>
+
+    <blockquote class="pull">"রূপপুর পারমাণবিক বিদ্যুৎ কেন্দ্র কেবল একটি বিদ্যুৎ উৎপাদক নয়, বরং এটি একটি প্রাতিষ্ঠানিক আবদ্ধকরণ (lock-in) হাতিয়ার।"</blockquote>
+
+    <div class="subhead">দুর্বলতা এবং ঝুঁকি</div>
+    <p>কেন্দ্রটি পদ্মা (গঙ্গা) নদীর তীরে অবস্থিত, এবং এর শীতলীকরণ ব্যবস্থা সরাসরি নদীর পানি উত্তোলনের উপর নির্ভরশীল।</p>
+    
+    <div class="stamp-note pr">
+      <span class="k">■ জনসংযোগ সংস্করণ</span>
+      প্রকৌশল সমীক্ষায় বন্যার ঐতিহাসিক সর্বোচ্চ মাত্রা বিবেচনা করা হয়েছে, একটি প্রতিরক্ষামূলক বাঁধ নির্মাণ করা হয়েছে, এবং কেন্দ্রটিকে নদীর স্তরের উপরে স্থাপন করা হয়েছে।
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ তথ্য</span>
+      প্রকল্পটি রাশিয়ান ঋণ (৯০%) দ্বারা অর্থায়ন করা হয়েছে। মার্কিন নিষেধাজ্ঞা এবং সুইফট (SWIFT) থেকে রাশিয়ার সংযোগ বিচ্ছিন্ন হওয়ার কারণে, অর্থ প্রদানে বিলম্ব হয়েছে এবং আর্থিক লজিস্টিক সিআইপিএস (CIPS) এর মাধ্যমে ইউয়ানে (RMB) স্থানান্তরিত হয়েছে।
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক উপসংহার</span>
+      ২০২৪ সালের আগস্টে শেখ হাসিনা সরকারের পতনের ফলে এই নোড তার রাজনৈতিক "ছাতা" হারিয়েছে। নতুন অন্তর্বর্তীকালীন সরকার পশ্চিমা ঋণদাতা সংস্থাগুলোর প্রভাবাধীন থাকায় রাশিয়ার ঋণ পরিশোধের শর্তাবলী পর্যালোচনার উচ্চ ঝুঁকি রয়েছে। চীনা ব্যাংকগুলির ওপর মার্কিন যুক্তরাষ্ট্রের মাধ্যমিক নিষেধাজ্ঞা যেকোনো সময় আর্থিক প্রবাহ আটকে দিতে পারে।
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ ইনসাইড / কোনো তথ্য নেই</span>
+      শিল্পের অভ্যন্তরীণ আলোচনায় জানা যায় যে, প্ল্যান্ট চালু করতে বিলম্বের কারণ কেবল ইঞ্জিনিয়ারিং ত্রুটি নয়, বরং নিষেধাজ্ঞা-সুরক্ষিত আর্থিক ও লজিস্টিক গ্যারান্টি কাঠামো তৈরি করার প্রয়োজনীয়তা।
+    </div>
+
+    <div class="subhead">ক্যাসকেডিং প্রভাব</div>
+    <p>বাংলাদেশ তৈরি পোশাকের অন্যতম বৃহত্তম উৎপাদক (রপ্তানির ৮০%)। পারমাণবিক বিদ্যুৎ কেন্দ্রে ত্রুটির ফলে গ্রিডে বিদ্যুতের ঘাটতি দেখা দেবে, কারখানাগুলোতে ডিজেল জেনারেটর ব্যবহারের কারণে উৎপাদন খরচ বৃদ্ধি পাবে, আন্তর্জাতিক চুক্তি (H&M, Zara ইত্যাদি) বাতিল হবে এবং উৎপাদন ভিয়েতনাম বা ভারতে স্থানান্তরিত হতে পারে।</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ বিশ্লেষণাত্মক উপসংহার</span>
+      প্রধান কাঠামোগত দুর্বলতা হলো আর্থিক-লজিস্টিক চেইনের বিচ্ছিন্নতা। সবচেয়ে সম্ভাব্য দৃশ্যকল্পটি কোনো বিকিরণ দুর্ঘটনা নয়, বরং প্রশাসনিক ও অর্থনৈতিক অবক্ষয়, যা অর্থপ্রদানে বিলম্বের কারণে তৈরি হবে এবং এই পরিকাঠামোটিকে একটি বিষাক্ত রাজনৈতিক সম্পদে পরিণত করবে।
+    </div>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">চিহ্নের মূল চাবিকাঠি — যাচাইকরণ মান</div>
+    <div class="keybox-grid">
+      <div><b>তথ্য</b> — রেজিস্ট্রি, ফাইলিং, অফিসিয়াল পরিসংখ্যানের মাধ্যমে যাচাইকৃত</div>
+      <div><b>জনসংযোগ সংস্করণ</b> — প্রশ্নে থাকা সত্তার অফিসিয়াল অবস্থান ও বিবৃতি</div>
+      <div><b>বিশ্লেষণাত্মক উপসংহার</b> — যুক্তিসঙ্গত অনুমান, চেইন প্রকাশ করা হয়েছে</div>
+      <div><b>কোনো তথ্য নেই / ইনসাইড</b> — যাচাইযোগ্য নয়, অপ্রকাশিত বা অভ্যন্তরীণ সূত্র</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
