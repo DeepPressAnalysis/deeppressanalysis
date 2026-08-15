@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polska — Zarządzana entropia polityczna | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+
+<a href="https://deeppressanalysis.com" class="home-btn">← STRONA GŁÓWNA</a>
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">Niezależny wywiad strukturalny · od 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">„Struktura ponad narracją.”</div>
+  </div>
+  <div class="dateline-bar"><span>BIURO POLSKA</span><span>15 SIERPNIA 2026</span></div>
+  <span class="section-tag">STRUCTURE / ZARZĄDZANA ENTROPIA</span>
+  <h1 class="headline">Kto naprawdę zarządza politycznym niezadowoleniem w Polsce</h1>
+  <p class="deck">Dekonstrukcja modelu, w którym napięcie społeczne nie jest wyłącznie tłumione, lecz kierowane przez partie, granty, media, radykalne bufory i instytucje państwowe tak, aby konflikt pozostawał wewnątrz kontrolowanych ram.</p>
+  <div class="byline">DZIAŁ POLSKA — RUBRYKA: ZARZĄDZANA ENTROPIA / INŻYNIERIA POLITYCZNA</div>
+  <div class="columns">
+    <p class="lead">Termodynamiczny model politycznego powstrzymywania opisany w materiale dla Polski przedstawia instytucjonalny system pochłaniania i rozpraszania niezadowolenia społecznego. Zamiast bezpośredniego tłumienia protestu architektura władzy ma przekształcać jego energię w zamknięte i kontrolowane obwody konfliktu. Napięcie nie znika, lecz jest kanalizowane przez bariery finansowe, medialne i instytucjonalne, przy zachowaniu podstawowego konsensusu elit w kwestiach wojskowo-politycznych i społeczno-gospodarczych.</p>
+
+    <div class="subhead">1. Architektura instytucjonalnych zaworów — pseudokonkurencja</div>
+    <div class="subhead">1.1. Opozycja kieszonkowa</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Fundamentem zarządzania entropią społeczną w Polsce jest duopol Koalicji Obywatelskiej / PO oraz Prawa i Sprawiedliwości.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Ten partyjny bipolaryzm działa jak studnia grawitacyjna, skupiająca do około 80% zasobu wyborczego oraz państwowego finansowania budżetowego.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Mechanizm utrzymywania duopolu jest osadzony w ustawie o partiach politycznych poprzez system subwencji partyjnych finansowanych ze środków publicznych.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Ustawowy sposób podziału środków tworzy finansową barierę wejścia i filtr dla nowych sił politycznych.</div>
+    <div class="stamp-note pr"><span class="k">■ WERSJA FASADOWA</span><strong>Koalicja Obywatelska / PO:</strong> „liberalno-demokratyczny obrońca instytucji UE”.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span><strong>Koalicja Obywatelska / PO:</strong> systemowy rdzeń nr 1; kanalizacja protestu przeciw konserwatyzmowi.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span><strong>Koalicja Obywatelska / PO:</strong> roczna subwencja szacowana na około 23,7–25,1 mln zł.</div>
+    <div class="stamp-note pr"><span class="k">■ WERSJA FASADOWA</span><strong>Prawo i Sprawiedliwość:</strong> „suwerenna konserwatywno-społeczna alternatywa”.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span><strong>Prawo i Sprawiedliwość:</strong> systemowy rdzeń nr 2; absorpcja tradycjonalizmu i niezadowolenia społecznego.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span><strong>Prawo i Sprawiedliwość:</strong> roczna subwencja około 25,9 mln zł, następnie ograniczona przez PKW do około 13,4–15 mln zł.</div>
+    <div class="stamp-note pr"><span class="k">■ WERSJA FASADOWA</span><strong>Lewica / Nowa Lewica:</strong> „postępowa socjaldemokracja”.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span><strong>Lewica / Nowa Lewica:</strong> młodszy partner koalicyjny KO; neutralizacja radykalizmu lewicowego.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span><strong>Lewica / Nowa Lewica:</strong> subwencja około 9,8 mln zł.</div>
+    <div class="stamp-note pr"><span class="k">■ WERSJA FASADOWA</span><strong>Konfederacja:</strong> „bezkompromisowa antysystemowa prawica”.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span><strong>Konfederacja:</strong> strefa buforowa prawicowej i eurosceptycznej entropii.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span><strong>Konfederacja:</strong> subwencja około 8,3–8,4 mln zł po uwzględnieniu potrąceń PKW.</div>
+    <div class="stamp-note pr"><span class="k">■ WERSJA FASADOWA</span><strong>Trzecia Droga / Polska 2050 / PSL:</strong> „centrowa alternatywa dla duopolu”.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span><strong>Trzecia Droga:</strong> przechwytywanie elektoratu wahającego się z późniejszym włączeniem do szerszego bloku KO.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span><strong>Polska 2050 / PSL:</strong> około 7,5 mln zł subwencji dla każdego skrzydła.</div>
+    <div class="stamp-note pr"><span class="k">■ WERSJA FASADOWA</span>Stała rotacja władzy pomiędzy KO i PiS ma tworzyć u elektoratu wrażenie realnego przejścia fazowego i zasadniczej zmiany politycznej.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>W praktyce zmieniają się przede wszystkim kadry w spółkach Skarbu Państwa i mediach publicznych, podczas gdy strategiczny kierunek polityki zagranicznej, sekurytyzacja granic i zależność gospodarcza od kapitału transnarodowego pozostają zasadniczo niezmienne.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Projekty polityczne powstałe na fali oddolnego niezadowolenia, takie jak Polska 2050 Szymona Hołowni czy wcześniejszy Kukiz’15, wchodzą następnie w zależności finansowe i koalicyjne.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Polska 2050, po utworzeniu Trzeciej Drogi z PSL i wejściu do liberalnego rządu, zanotowała spadek poparcia do około 2–3,6%.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Materiał opisuje to jako algorytm „utylizacji trzeciej siły”: najpierw zbiera ona głosy protestu, później zostaje kooptowana do szerokiej koalicji, a następnie ulega wyborczej anihilacji.</div>
+
+    <div class="subhead">1.2. Kontrolowane związki zawodowe i NGO</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Protesty społeczne wokół problemów ekonomicznych i społeczno-kulturowych są przechwytywane przez sieci organizacji pozarządowych oraz zinstytucjonalizowanych związków zawodowych.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Kluczowym mechanizmem administracji sektora NGO za rządów PiS był Narodowy Instytut Wolności — Centrum Rozwoju Społeczeństwa Obywatelskiego.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Za pośrednictwem programów PROO i NOWEFIO instytut rozdysponował ponad 1 mld zł.</div>
+    <div class="stamp-note pr"><span class="k">■ WERSJA FASADOWA</span>Oficjalnie granty miały służyć „rozwojowi potencjału instytucjonalnego”.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Część grantów trafiała do fundacji i organizacji powiązanych ze środowiskami Polska Wielki Projekt, Koliber i innymi strukturami kojarzonymi z prawicową częścią sceny politycznej.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Po zmianie władzy w latach 2023–2024 nowy operator NIW rozpoczął kontrole 120 organizacji, domagając się zwrotu 16 mln zł, a jednocześnie przekierowywał część strumieni grantowych w stronę organizacji progresywnych i liberalnych, takich jak Akcja Demokracja.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Oddolny aktywizm zostaje w ten sposób uzależniony od grantów państwowych, co skłania liderów NGO do dopasowywania postulatów do kryteriów aktualnej administracji.</div>
+
+    <div class="subhead">1.3. Spojlery i symulakry</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Do fragmentacji grup protestu system wykorzystuje technologię zarządzanych franczyz politycznych.</div>
+    <div class="stamp-note pr"><span class="k">■ WERSJA FASADOWA</span>Projekty takie występują pod hasłami bezpośrednich referendów lub „walki z systemową partiokracją”.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Kukiz’15 w latach 2015–2019 gromadził poparcie młodych wyborców rozczarowanych systemem.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Po wejściu do parlamentu rozdrobniona frakcja spojlera traci wsparcie medialne, a jej członkowie mogą być stopniowo kooptowani do partii systemowych w zamian za stanowiska i dostęp do zasobów regionalnych.</div>
+    <p>Poziom pewności źródło określa jako wysoki. Mechanika ma być potwierdzana przez rejestry finansowe PKW, przepisy o finansowaniu partii, raporty NIK dotyczące NIW i dynamikę sondaży.</p>
+
+    <div class="subhead">2. Kanalizacja radykałów — zarządzany ekstremizm</div>
+    <div class="subhead">2.1. Infiltracja i kuratela</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Obecność radykalnej prawicy na ulicach jest przedstawiona jako kontrolowany element polskiego projektu państwowego.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Zamiast całkowitego zakazu ugrupowań nacjonalistycznych aparat władzy ma wykorzystywać mechanizm legalnego finansowania i punktowej kurateli.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Jednym z najbardziej widocznych przykładów instytucjonalizacji radykalnego środowiska była działalność Roberta Bąkiewicza oraz związanych z nim struktur: Straży Narodowej, Stowarzyszenia Marsz Niepodległości i Rot Niepodległości.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W latach 2020–2023 organizacje te otrzymały ze źródeł publicznych, przede wszystkim przez Fundusz Patriotyczny przy Instytucie Dziedzictwa Myśli Narodowej, ponad 4,5 mln zł.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Środki przeznaczano między innymi na nieruchomość pod Otwockiem, pojazdy, wyposażenie Media Narodowe i sprzęt organizacyjny.</div>
+    <div class="stamp-note insight"><span class="k">■ INSIDE / NIEPOTWIERDZONE</span>Materiał powołuje się na wycieki z Kancelarii Premiera opublikowane w ramach „Poufnej Rozmowy”, korzystne politycznie dla przeciwników PiS i Konfederacji. Według tej niepotwierdzonej wersji w czerwcu 2020 roku podczas kampanii prezydenckiej miało istnieć niejawne porozumienie pomiędzy Bąkiewiczem a przedstawicielami aparatu PiS.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Według źródła sens takiego układu miał polegać na zapewnianiu lojalności ulicznej i fizycznego zabezpieczenia wydarzeń państwowych w zamian za finansowe i instytucjonalne wsparcie.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W 2023 roku środowisko Ruchu Narodowego wewnątrz Konfederacji odsunęło Bąkiewicza od kierownictwa Marszu Niepodległości, pozbawiając go kontroli nad tym aktywem ulicznym.</div>
+
+    <div class="subhead">2.2. Straszak dla większości</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Obecność kontrolowanych radykałów pełni funkcję systemowego straszaka.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Dla konserwatywnego obozu PiS eksponowanie Bąkiewicza i Straży Narodowej podczas protestów przeciw zakazowi aborcji miało pomagać demonizować protest uliczny i skłaniać umiarkowanie konserwatywny elektorat do szukania ochrony w państwie.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Dla liberalnego obozu KO medialne eksponowanie marszów z pochodniami i radykalnych haseł Konfederacji może działać jako argument mobilizujący elektorat miejski pod hasłem „obrony przed nadchodzącym faszyzmem”.</div>
+
+    <div class="subhead">2.3. Brudna robota</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Państwo unika bezpośredniego używania policji do brutalnego rozpraszania części protestów społecznych, aby nie wzmacniać wizerunku „państwa policyjnego” i nie tworzyć męczenników.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Podczas protestów Strajku Kobiet ochronę kościołów oraz część fizycznych starć z protestującymi przejęła Straż Narodowa Bąkiewicza, która otrzymała publiczną aprobatę przedstawicieli kierownictwa PiS.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Policja utrzymywała przede wszystkim perymetr, co pozwalało dwóm grupom cywilnym wzajemnie wyczerpywać swój potencjał konfrontacyjny.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Gdy protest ma charakter ekonomiczny i uderza w logistykę państwa, jak blokady rolnicze i marsze traktorów na Warszawę, stosowana jest strategia administracyjnego wyczerpania i przejęcia liderów.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Przykładem kooptacji jest Michał Kołodziejczak, lider Agrounii.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Po organizowaniu protestów i blokad Kołodziejczak przed wyborami 2023 roku został wpisany na listy Koalicji Obywatelskiej, uzyskał mandat poselski, a następnie stanowisko wiceministra rolnictwa.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Etap pierwszy: oddolny protest Agrounii tworzył presję poprzez blokady i marsze.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Etap drugi: struktury państwowe i opozycyjne rezygnują z siłowego rozbicia, skupiając uwagę mediów na liderze.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Etap trzeci: lider zostaje włączony do systemowych list wyborczych KO i uzyskuje mandat.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Etap czwarty: nominacja na stanowisko wiceministra przekształca energię protestu w procedury biurokratyczne i prowadzi do pełnej deeskalacji ruchu.</div>
+    <p>Poziom pewności: wysoki. Finansowanie struktur Bąkiewicza przez IDMN zostało opisane w audytach, a integracja Kołodziejczaka z KO i administracją państwową jest udokumentowana w rejestrach publicznych.</p>
+
+    <blockquote class="pull">„Najbardziej skuteczny zawór polityczny nie niszczy protestu. Zmienia jego tor, finansowanie i lidera.”</blockquote>
+
+    <div class="subhead">3. Medialne piorunochrony i zarządzanie nienawiścią</div>
+    <div class="subhead">3.1. Fałszywe cele</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>System moderowania gniewu społecznego opiera się na sztucznym wyznaczaniu „winnych” kryzysów systemowych.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>W konserwatywnym obiegu PiS niezadowolenie z inflacji, spadku poziomu życia i kryzysu ochrony zdrowia miało być przekierowywane na Brukselę, Berlin oraz wewnętrzne mniejszości i przeciwników ideologicznych, w tym środowiska LGBT+, aktywistów NGO czy „niemieckich agentów” w opozycji.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>W liberalnym obiegu KO niezadowolenie z trudności ekonomicznych zostaje przekierowane na proces „rozliczania PiS”: uwagę społeczną koncentrują postępowania, uchylanie immunitetów i rewizja decyzji poprzedniej władzy, co według materiału zastępuje część reform strukturalnych reakcją sądowo-polityczną.</div>
+
+    <div class="subhead">3.2. Polaryzacja jako narzędzie</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Podział społeczeństwa na „Polskę A” — liberalną, miejską i proeuropejską — oraz „Polskę B” — konserwatywną, wiejską i katolicką — jest wzmacniany przez finansowanie lojalnych ekosystemów medialnych.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W latach 2016–2020 spółki z udziałem Skarbu Państwa, między innymi PKN Orlen, PKO BP i PGE, wydały na reklamę w prasie i telewizji ponad 5,8 mld zł.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W samym 2021 roku budżety reklamowe państwowych korporacji w mediach wyniosły 1,23 mld zł.</div>
+    <p><strong>TVP / Polskie Radio do 2023 roku.</strong> Finansowanie: budżet bezpośredni i budżety spółek Skarbu Państwa. Funkcja systemowa według źródła: radykalizacja konserwatywnej większości i budowa obrazu „oblężonej twierdzy”.</p>
+    <p><strong>TVN / Onet / WP.</strong> Finansowanie: prywatny kapitał transnarodowy. Funkcja systemowa: mobilizacja liberalnej klasy miejskiej i stygmatyzacja tradycjonalizmu.</p>
+    <p><strong>Media braci Karnowskich — „Sieci”, „wPolsce”.</strong> Finansowanie: kontrakty ze spółkami Skarbu Państwa i Funduszem Sprawiedliwości. Funkcja systemowa: budowanie ideologicznego zaplecza bloku konserwatywnego.</p>
+    <p><strong>Polska Press po przejęciu przez Orlen.</strong> Finansowanie: regionalne kontrakty reklamowe spółek Skarbu Państwa. Funkcja systemowa: kontrola informacyjnego pola prowincji i ograniczanie lokalnych śledztw.</p>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Po zmianie rządu pod koniec 2023 roku nastąpiła przebudowa sfery wpływu: część strumieni ze spółek Skarbu Państwa została przekierowana z mediów prawicowych do liberalnych, zmieniając kierunek polaryzacji, ale zachowując jej wysoką amplitudę.</div>
+
+    <div class="subhead">3.3. Medialni błaznowie</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Marginalizacja krytyki systemowej odbywa się poprzez eksponowanie groteskowych postaci.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Próby podnoszenia kwestii zależności gospodarczej Polski, krytyki wydatków wojskowych lub integracji europejskiej są w przestrzeni medialnej łączone z radykalnymi wypowiedziami postaci skrajnych.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Dopuszczanie do anteny mówców formułujących szokujące lub prorosyjskie tezy umożliwia dużym mediom oznaczanie całej eurosceptycznej albo antywojennej opozycji jako „marginesu” i „szkodników”.</div>
+    <p>Poziom pewności: wysoki. Wielkość wydatków reklamowych sektora państwowego w mediach została odnotowana w monitoringu Kantar Media i audytach branżowych; zmianę narracji medialnych po zmianie władzy źródło śledzi poprzez analizę treści.</p>
+
+    <div class="subhead">4. Systemowi kuratorzy — kto trzyma zawór</div>
+    <div class="subhead">4.1. Architekci znaczeń</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Kancelaria Prezesa Rady Ministrów odpowiada za operacyjne rozdysponowanie części funduszy rezerwowych, koordynację pracy agencji państwowych, w tym NIW, oraz komunikacyjne dostosowanie decyzji rządu.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Ministerstwo Sprawiedliwości za kierownictwa Zbigniewa Ziobry i Suwerennej Polski stało się autonomicznym centrum wpływu na prawą flankę sceny politycznej.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Przez Fundusz Sprawiedliwości resort rozdysponował setki milionów złotych.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Fundacja Profeto, kierowana przez ks. Michała Olszewskiego, otrzymała od około 66 do 98,9 mln zł na stworzenie centrum medialnego.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Po zmianie władzy minister Adam Bodnar zażądał zwrotu 90 mln zł od ośmiu podmiotów związanych z poprzednim układem Funduszu Sprawiedliwości.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Agencja Bezpieczeństwa Wewnętrznego pełni funkcję monitorowania nieukierunkowanej entropii, obserwowania środowisk radykalnych i przeciwdziałania powstawaniu niekontrolowanych kanałów finansowania z zagranicy.</div>
+
+    <div class="subhead">4.2. Konsensus nomenklaturowo-korporacyjny</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Polska nie posiada klasycznego oligarchatu „wschodnioeuropejskiego typu”; jego funkcję pełni konsensus nomenklaturowo-korporacyjny.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Rady nadzorcze i zarządy kluczowych spółek państwowych — PKN Orlen, PGE, PZU, PKO BP i KGHM — są obsadzane zgodnie z układem politycznym aktualnie rządzącego bloku.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Spółki państwowe działają jak pośrednie skarbce: finansują wybrane fundacje, kupują reklamy w sprzyjających mediach, sponsorują wydarzenia sportowe i kulturalne związane z lojalnymi NGO, tworząc finansowe zaplecze zarządzanej równowagi bez bezpośredniego wydatkowania środków z budżetu centralnego.</div>
+
+    <div class="subhead">4.3. Zewnętrzni moderatorzy</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Paradoks systemu polega na tym, że zewnętrzne finansowanie instytucji opozycyjnych może być politycznie użyteczne dla aktualnej elity rządzącej.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Fundusze UE i USA, w tym programy wspierające liberalne NGO i organizacje praw człowieka, zasilają część sektora obywatelskiego.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Gdy rządzi PiS, samo istnienie takiego finansowania może być wykorzystywane do narracji o „zewnętrznej ingerencji” i „piątej kolumnie”, konsolidując elektorat prawicowy.</div>
+    <div class="stamp-note pr"><span class="k">■ WERSJA FASADOWA</span>Po przejęciu władzy przez KO europejskie granty legitymizują kurs rządu jako „powrót do głównego nurtu cywilizowanej Europy”.</div>
+    <p>Poziom pewności: wysoki. Źródło wskazuje śledztwa prokuratury dotyczące Funduszu Sprawiedliwości, kontrole Ministerstwa Sprawiedliwości i strukturę grantów NIW.</p>
+
+    <div class="subhead">5. Ryzyka krytycznej awarii — kiedy zawór pęka</div>
+    <div class="subhead">5.1. Efekt Frankensteina</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Radykalne projekty tworzone i finansowane przez władzę mogą wymknąć się spod kontroli po zmianie koniunktury politycznej.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Odsunięcie Roberta Bąkiewicza od kierownictwa Marszu Niepodległości pokazuje, że radykalny aktyw uliczny został przejęty przez bardziej autonomiczne środowisko wewnątrz Konfederacji.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>W warunkach kryzysu skumulowana w prawym buforze entropia może przestać podporządkowywać się dawnym kuratorom i skierować agresję przeciw wcześniejszym patronom.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Konfederacja, przy notowaniach sięgających w materiale około 14,5%, staje się czynnikiem zdolnym łamać tradycyjne układy koalicyjne.</div>
+
+    <div class="subhead">5.2. Zwycięstwo symulakru</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Przy całkowitym spadku zaufania do obu biegunów duopolu PO–PiS głosowanie protestacyjne może uruchomić niekontrolowany kaskadowy efekt wyborczy.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Gdy projekt trzeciej siły uzyskuje wysoki wynik, jak Trzecia Droga w wyborach 2023 roku, może pozbawić główne partie możliwości stworzenia jednorodnego rządu.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Powstaje wówczas „koalicja paraliżu”, w której mniejsi partnerzy zaczynają szantażować blok rządzący, prowadząc do instytucjonalnego rozchwiania i osłabienia zdolności wygaszania konfliktów społecznych.</div>
+
+    <div class="subhead">5.3. Wyczerpanie zasobów</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>System zarządzanej entropii wymaga stałych i rosnących nakładów finansowych. Gdy mechanizmy redystrybucji zostają zablokowane, konstrukcja zaczyna tracić stabilność.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Decyzja PKW o zmniejszeniu rocznej subwencji PiS o około 11 mln zł, do poziomu około 15 mln zł, wynikała z naruszeń związanych z wyborami 2023 roku.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Równolegle pojawiło się żądanie zwrotu 90 mln zł z Funduszu Sprawiedliwości.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Łącznie mechanizmy te postawiły największą partię opozycyjną w warunkach finansowego głodu.</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>PiS został zmuszony do przejścia na większą skalę na crowdfunding, zbierając w 2024 roku około 14 mln zł darowizn od sympatyków.</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Rosnąca zależność partii od najbardziej zmobilizowanej i radykalnej części elektoratu ogranicza elastyczność, przesuwa dyskurs ku skrajnościom i osłabia centrowy konsensus.</div>
+    <p>Poziom pewności: średni. Model systemowych awarii opiera się na ekstrapolacji precedensów prawnych, decyzji PKW, postępowań karnych i trendów wyborczych.</p>
+
+    <div class="subhead">6. Werdykt końcowy</div>
+    <p><strong>Portret strukturalny systemu.</strong> Polska architektura zarządzania społeczeństwem jest opisana jako adaptacyjny termodynamiczny model powstrzymywania, w którym protest społeczny nie jest po prostu tłumiony siłą, lecz absorbowany przez duopol PO–PiS, kanalizowany przez kontrolowane strefy buforowe, takie jak Lewica i Konfederacja, oraz komercjalizowany za pośrednictwem sektora NGO i mediów.</p>
+    <div class="subhead">Główny działający zawór społeczny</div>
+    <p><strong>Główny działający zawór społeczny.</strong> Obecnie kluczowym zaworem jest proces administracyjno-sądowego rewanżu określany jako „rozliczanie PiS”. Przekierowanie społecznego gniewu na śledztwa dotyczące nadużyć poprzedniej władzy, sprawę Funduszu Sprawiedliwości i czystki w spółkach państwowych pozwala aktualnej koalicji kanalizować niezadowolenie z sytuacji gospodarczej w stronę widowiska polityczno-prawnego.</p>
+    <div class="subhead">Stabilność na najbliższe 3–5 lat</div>
+    <p><strong>Ocena stabilności konstrukcji na najbliższe 3–5 lat.</strong> Źródło określa ją jako średnią z tendencją do degradacji. System zderza się z wyczerpywaniem zasobów finansowych, ograniczaniem subwencji, kontrolami grantów oraz przegrzewaniem prawego skrzydła. Jeśli Konfederacja utrzyma poparcie powyżej 15%, a finansowe osłabienie PiS doprowadzi do rozpadu na bardziej radykalne frakcje, bipolarny mechanizm przyciągania może utracić zdolność zatrzymywania skrajnych flank. W takim scenariuszu materiał przewiduje pęknięcie instytucjonalnych mechanizmów amortyzacji i przejście państwa do twardszych metod administracyjno-siłowych.</p>
+
+    <div class="subhead">Źródła</div>
+    <p>1. Prawo.pl — „PKW zdecydowało w sprawie subwencji — PiS i Konfederacja z niższą kwotą”: https://www.prawo.pl/samorzad/nizsza-kwota-subwencji-dla-pis-i-konfederacji-pkw,532798.html</p>
+    <p>2. Money.pl — „Największa suma dla PO. Dla PiS ponad 2 mln zł. Poszły przelewy z MF”: https://www.money.pl/gospodarka/najwieksza-suma-dla-po-dla-pis-ponad-2-mln-zl-poszly-przelewy-z-mf-7121222963997472a.html</p>
+    <p>3. TVP Info — „Finansowanie partii politycznych: ile nas kosztuje?”: https://www.tvp.info/89716883/finansowanie-partii-politycznych-ile-nas-kosztuje-ile-wydaje-sie-na-partie-polityczne</p>
+    <p>4. Polska Agencja Prasowa — „Partyjne subwencje na bogato. Suma wypłat będzie rekordowa”: https://www.pap.pl/aktualnosci/partyjne-subwencje-na-bogato-suma-wyplat-bedzie-rekordowa</p>
+    <p>5. Gazeta.pl — dane dotyczące subwencji z budżetu: https://wiadomosci.gazeta.pl/polityka/7,198012,32777245,tyle-dostal-pis-a-tyle-ko-mamy-dane-dotyczace-subwencji-z.html</p>
+    <p>6. Interia — sondaż dotyczący Polski 2050 i układu partyjnego: https://wydarzenia.interia.pl/kraj/news-zmiana-na-pozycji-lidera-nowy-sondaz-to-cios-dla-dwoch-parti,nId,22433206</p>
+    <p>7. TVN24 — sondaż partyjny Opinia24: https://tvn24.pl/polska/marcowy-sondaz-partyjny-opinii24-polska-2050-odnotowala-znaczne-tapniecie-poparcia-st8933304</p>
+    <p>8. OKO.press — „100 mln zł na organizacje pozarządowe pod kontrolę rządu”: https://oko.press/100-mln-zl-organizacje-pozarzadowe-kontrole-rzadu-pis-przyspiesza-instytutem-wolnosci</p>
+    <p>9. Grantowo.pl — „Narodowy Instytut Wolności — jakie dotacje i projekty?”: https://grantowo.pl/narodowy-instytut-wolnosci-jakie-dotacje-i-projekty/</p>
+    <p>10. NIW — programy dotacyjne: https://niw.gov.pl/nasze-programy/</p>
+    <p>11. Zero.pl — kontrola fundacji i stowarzyszeń po zmianie władz NIW: https://zero.pl/news/ponad-miliard-zlotych-z-niw-za-pis-trwa-kontrola-fundacji-i-stowarzyszen</p>
+    <p>12. VideoParlament — fundacje powiązane z PiS: https://videoparlament.pl/video/94861-koalicja-obywatelska-137-mln-zl-dla-fundacji-powia</p>
+    <p>13. OKO.press — skuteczność organizacji związanych z PiS w pozyskiwaniu dotacji: https://oko.press/niw-narodowy-instytut-wolnosci-piotr-mazurek</p>
+    <p>14. OKO.press — „Fundusz Patriotyczny. Nowe dotacje dla organizacji Bąkiewicza i kolegów”: https://oko.press/fundusz-patriotyczny-nowe-dotacje-dla-organizacji-bakiewicza-i-kolegow-nasz-news</p>
+    <p>15. Onet — „Robert Bąkiewicz. 3 mln z Funduszu Patriotycznego dla narodowców”: https://www.onet.pl/informacje/onetwiadomosci/robert-bakiewicz-3-mln-z-funduszu-patriotycznego-dla-narodowcow/1emn691,79cfc278</p>
+    <p>16. PAP — „Gazeta Wyborcza: znów miliony dla Bąkiewicza”: https://www.pap.pl/aktualnosci/news%2C970335%2Cgazeta-wyborcza-znow-miliony-dla-bakiewicza.html</p>
+    <p>17. Business Insider Polska — dotacje dla Straży Narodowej i Marszu Niepodległości: https://businessinsider.com.pl/finanse/3-mln-zl-dotacji-dla-strazy-narodowej-i-marszu-niepodleglosci-pieniadze-z-funduszu/gbqygt4</p>
+    <p>18. Interia — finansowanie nieruchomości Bąkiewicza: https://wydarzenia.interia.pl/kraj/news-poslowie-po-rzad-sfinansowal-bakiewiczowi-nieruchomosci-za-1,nId,5783956</p>
+    <p>19. Wikipedia PL — Michał Kołodziejczak: https://pl.wikipedia.org/wiki/Micha%C5%82_Ko%C5%82odziejczak</p>
+    <p>20. Money.pl — „1,23 mld zł wydały Spółki Skarbu Państwa na reklamę”: https://www.money.pl/gospodarka/1-23-mld-zl-wydaly-spolki-skarbu-panstwa-na-reklame-pieniadze-poszly-do-przyjaznych-mediow-6752761664883232a.html</p>
+    <p>21. Wirtualne Media — reklamy Funduszu Sprawiedliwości: https://www.wirtualnemedia.pl/tv-republika-i-stacja-karnowskich-zarobily-6-mln-zl-z-reklam-funduszu-sprawiedliwosci-dla-polsatu-wiecej-niz-dla-tvp,7169437031921281a</p>
+    <p>22. OKO.press — dotacja dla Straży Narodowej na pomoc uchodźcom: https://oko.press/bakiewicz-dotacje-uchodzcy-z-ukrainy-kprm-niw</p>
+    <p>23. TVP Info — proces w sprawie Funduszu Sprawiedliwości i Fundacji Profeto: https://www.tvp.info/91151318/warszawa-rusza-proces-w-sprawie-funduszu-sprawiedliwosci-i-fundacji-profeto</p>
+    <p>24. OKO.press — „Bodnar domaga się zwrotu 90 mln zł”: https://oko.press/rachunek-za-fundusz-sprawiedliwosci-bodnar-domaga-sie-zwrotu-90-mln-zl</p>
+    <p>25. PAP — zarzuty w sprawie Fundacji Profeto: https://www.pap.pl/aktualnosci/przedstawiciel-fundacji-profeto-uslyszal-zarzuty-w-sprawie-dot-funduszu-sprawiedliwosci</p>
+    <p>26. Ministerstwo Sprawiedliwości — „8 podmiotów wezwanych do zwrotu dotacji — łącznie 90 mln zł”: https://www.gov.pl/web/sprawiedliwosc/fundusz-sprawiedliwosci-8-podmiotow-wezwanych-do-zwrotu-dotacji---lacznie-90-mln-zl</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Legenda oznaczeń — standard weryfikacji</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — informacja przedstawiona w materiale jako zweryfikowana poprzez rejestry, przepisy, dane finansowe lub dokumenty publiczne</div>
+      <div><b>WERSJA FASADOWA</b> — oficjalna lub deklarowana interpretacja opisywanego mechanizmu</div>
+      <div><b>WNIOSEK ANALITYCZNY</b> — wnioskowanie autora na podstawie opisanej struktury i sekwencji zdarzeń</div>
+      <div><b>BRAK DANYCH</b> — informacja nieujawniona, nieweryfikowalna lub niewystarczająco potwierdzona</div>
+    </div>
+  </div>
+  <hr class="rule">
+  <footer><span>DEEP PRESS ANALYSIS</span><span>deeppressanalysis.com</span></footer>
+</div>
+
+</body>
+</html>
