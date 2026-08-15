@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polska — Renta biurokratyczna | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+
+<a href="https://deeppressanalysis.com" class="home-btn">← STRONA GŁÓWNA</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Niezależny wywiad strukturalny · od 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">„Struktura ponad narracją.”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>BIURO POLSKA</span>
+    <span>16 SIERPNIA 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / RENTA BIUROKRATYCZNA</span>
+
+  <h1 class="headline">Kto naprawdę kontroluje czas administracyjny w Polsce</h1>
+  <p class="deck">Analiza tego, jak opóźnienia, kolejki, uznaniowość i niepewność terminów przekształcają czas z neutralnego parametru procedury w narzędzie selekcji, kontroli i tworzenia renty — od legalizacji migrantów po planowanie przestrzenne, OZE i podatki.</p>
+  <div class="byline">DZIAŁ POLSKA — RUBRYKA: RENTA BIUROKRATYCZNA / CZAS ADMINISTRACYJNY</div>
+
+  <div class="columns">
+
+    <p class="lead">System administracji publicznej zwykle traktuje czas jako neutralne tło techniczne, zakładając, że opóźnienia są skutkiem przypadkowych awarii lub niedofinansowania. Materiał analizujący polską biurokrację przedstawia odmienną hipotezę: w legalizacji migrantów, planowaniu przestrzennym, transformacji energetycznej i administracji podatkowej czas staje się zasobem deficytowym, którego dystrybucja pełni funkcję politycznej kontroli, ekonomicznego filtra i generatora renty.</p>
+
+    <p>Opóźnienia, sztucznie tworzone kolejki i niepewność terminów są w tej interpretacji czymś więcej niż efektem nieefektywności. „Tarcie administracyjne” — nieodwracalne koszty czasu ponoszone przez obywatela i biznes przy przechodzeniu podstawowych procedur — zostaje przekształcone w kapitał finansowy albo polityczny różnych aktorów systemu. Raport opiera tę diagnozę na danych audytowych, statystykach sądowych i analizie rynku usług pośrednictwa.</p>
+
+    <div class="subhead">1. Architektura dystrybucji czasu</div>
+
+    <p>Poziom pewności źródło określa jako wysoki: architekturę mają potwierdzać oficjalne raporty NIK, statystyki URE i NSA oraz publiczne oferty rynkowe usług pośrednictwa.</p>
+
+    <div class="subhead">1.1. Czas normatywny kontra czas faktyczny</div>
+
+    <p>Podstawowym kryterium diagnostycznym jest trwała różnica między terminem deklarowanym przez prawo a realnym terminem wykonania procedury. Im większa i bardziej stabilna luka, tym silniejsza przesłanka, że opóźnienie zostało wbudowane w ekonomikę procesu i pełni funkcję selekcyjną albo rentową.</p>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W procedurze wydania karty pobytu termin normatywny wynosi około 30–90 dni, podczas gdy średni faktyczny czas wskazany w materiale to 206 dni, do 397 dni na Dolnym Śląsku, a skrajne udokumentowane przypadki sięgają 1259 dni.</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W sprawach dotyczących wezwania do usunięcia braków formalnych procedura powinna zostać uruchomiona niezwłocznie po pierwszej ocenie kompletności wniosku, lecz w praktyce oczekiwanie wynosi od 45 do 228 dni, a w niektórych jednostkach Mazowieckiego Urzędu Wojewódzkiego nawet 7–9 miesięcy.</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W przypadku indywidualnych warunków zabudowy termin ustawowy wynosi do 90 dni zależnie od rodzaju inwestycji, natomiast realny proces wraz z odwołaniami i uzgodnieniami może trwać od kilku miesięcy do 1,5–2 lat.</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Indywidualna interpretacja podatkowa KIS ma termin do trzech miesięcy i na poziomie samego KIS jest on zasadniczo dotrzymywany — średnio około 70 dni. Po przeniesieniu sporu do sądownictwa administracyjnego oczekiwanie może jednak przekraczać 17 miesięcy.</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W energetyce warunki przyłączenia instalacji OZE do sieci powyżej 1 kV mają termin do 150 dni. Termin może być formalnie zachowany, ale w 70–80% przypadków inwestor otrzymuje odmowę; w 2025 roku odrzucona łączna moc sięgnęła 107 GW.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Szczegółowa analiza danych prowadzi autora do wniosku, że czas normatywny funkcjonuje przede wszystkim jako element deklaratywny. W migracji i planowaniu przestrzennym luka między prawem a praktyką sięga setek procent, tworząc strefę prawnej niepewności. W tej strefie obywatel lub inwestor traci podmiotowość i staje się zależny od uznania administracyjnego, a gotowość do płacenia za skrócenie oczekiwania tworzy ekonomiczną bazę dla całej branży legalnych i nieformalnych pośredników.</div>
+
+    <div class="subhead">1.2. Typy architektury czasowej</div>
+
+    <p>Źródło odrzuca wyjaśnienie sprowadzające wszystkie opóźnienia do jednego hasła „nieefektywności”. Wskazuje kilka równoległych sposobów przekształcania czasu w zasób kontroli, dostosowanych do różnych sektorów i grup interesu.</p>
+
+    <div class="subhead">Opóźnienie rentowe w migracji</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W ciągu czterech lat czas legalizacji pobytu wzrósł ponad trzykrotnie — z 64 do 206 dni — mimo wielokrotnego zwiększenia zatrudnienia w części urzędów. We Wrocławiu liczba pracowników miała wzrosnąć z 30 do 140.</div>
+
+    <div class="stamp-note pr"><span class="k">■ WERSJA PR</span>Oficjalni przedstawiciele administracji tłumaczą opóźnienia gwałtownym wzrostem liczby migrantów i niedoborem środków budżetowych.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Skrajnie długi czas oczekiwania — w najgorszych przypadkach ponad trzy lata — tworzy barierę trudną do pokonania przez przeciętnego cudzoziemca bez bardzo dobrej znajomości języka urzędowego i procedur. Autor interpretuje tę zwłokę jako rentową: generuje ona stały, nieelastyczny popyt na usługi „przyspieszania” i nawigacji świadczone przez rozbudowany rynek pośredników, którzy pobierają prywatną opłatę za dostęp do usługi publicznej.</div>
+
+    <div class="subhead">Opóźnienie uznaniowe w planowaniu przestrzennym</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Według danych za 2021 rok miejscowymi planami zagospodarowania przestrzennego było objęte jedynie 31,7% powierzchni Polski, a wzrost tego wskaźnika w ciągu dwóch lat wyniósł tylko 0,5 punktu procentowego. Na pozostałej części kraju inwestycje często wymagają indywidualnej decyzji o warunkach zabudowy.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Brak planu ogólnego zwiększa uznaniową władzę urzędników samorządowych. Decyzja WZ opiera się na zasadzie „dobrego sąsiedztwa”, która wymaga interpretacyjnej oceny dopasowania obiektu do otoczenia. Według materiału rozmyte kryterium pozwala legalnie blokować projekty, przeciągać analizę przez lata albo wykorzystywać czas jako narzędzie wymuszania na inwestorze finansowania dróg, szkół i innej infrastruktury komunalnej.</div>
+
+    <div class="subhead">Opóźnienie filtrujące w transformacji energetycznej</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Statystyki URE pokazują gwałtowny wzrost odmów wydawania warunków przyłączenia: 7023 odmowy na 51 GW w 2022 roku, 7448 na 83,6 GW w 2023 roku, 7817 na 73,58 GW w 2024 roku, a w 2025 roku 4897 odmów przy rekordowej łącznej odrzuconej mocy 107 GW.</div>
+
+    <div class="stamp-note pr"><span class="k">■ WERSJA PR</span>Operatorzy sieci wskazują, że około 49% odmów wynika z braku warunków technicznych, czyli przeciążenia sieci, a około 50% z połączenia przyczyn technicznych i ekonomicznych.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Nieprzejrzystość modeli oceny dostępnej przepustowości sieci przekształca procedurę w ręczny filtr. Państwowe koncerny energetyczne chronią zarówno stabilność systemu, jak i własną pozycję rynkową, a inwestor prywatny jest zmuszony do wieloletniego sporu albo kupowania na rynku wtórnym projektów posiadających już warunki przyłączenia.</div>
+
+    <div class="subhead">Przeciążenie strukturalne jako narzędzie kontroli podatkowej</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Krajowa Informacja Skarbowa wydaje około 25 tys. indywidualnych interpretacji podatkowych rocznie. Reforma Polski Ład znacząco skomplikowała sposób obliczania podstawy składki zdrowotnej; stawki zaczęły wahać się od 4,9% do 9% zależnie od formy opodatkowania.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Autor interpretuje niestabilność prawa jako generator chaosu, który sam przeciąża system kontroli. Biznes, niezdolny do bezpiecznej samodzielnej interpretacji norm, masowo występuje o interpretacje. KIS odpowiada relatywnie szybko, ale do 28% odpowiedzi kończy się odmową albo niekorzystną wykładnią. Odwołanie do NSA trwa średnio 17,15 miesiąca, a na koniec 2025 roku sąd miał ponad 34 tys. nierozpoznanych spraw.</div>
+
+    <div class="subhead">1.3. Kolejka jako instrument</div>
+
+    <p>Kolejka jest w źródle podstawowym mechanizmem przekształcania czasu administracyjnego w rentę komercyjną. Stratyfikuje wnioskodawców według zdolności płacenia za szybkość i tworzy równoległe ścieżki obiegu dokumentów.</p>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Według raportów audytowych Mazowieckiego Urzędu Wojewódzkiego oczekiwanie na samo wysłanie wezwania do uzupełnienia braków formalnych może trwać 45–228 dni. W wydziałach legalizacji pobytu okres ten sięga 7 miesięcy, a w legalizacji pracy 9 miesięcy.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Tak duży odstęp między złożeniem wniosku a pierwszą informacją zwrotną sprawia, że samodzielne składanie dokumentów przypomina grę o bardzo wysokiej stawce. Każdy techniczny błąd może cofnąć sprawę o wiele miesięcy i zagrozić legalności pobytu.</div>
+
+    <div class="stamp-note insight"><span class="k">■ INSIDE / NIEPOTWIERDZONE</span>Wśród migrantów, pracowników HR i pracodawców krąży informacja, że systemy rezerwacji wizyt, takie jak In-Pol i regionalne odpowiedniki, bywają przejmowane przez automatyczne skrypty kontrolowane przez nieformalnych pośredników. Według tej wersji zwykły użytkownik nie znajduje wolnego terminu, lecz może kupić slot za około 200–1000 zł. Materiał zaznacza, że nie ma głośnych spraw karnych potwierdzających zmowę urzędników z operatorami botów; wersja pozostaje niepotwierdzona.</div>
+
+    <p>Publiczne cenniki firm legalizacyjnych pokazują silne powiązanie ceny usługi ze stopniem „tarcia” administracyjnego.</p>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Podstawowy audyt dokumentów kosztuje około 200–890 zł. Standardowe prowadzenie sprawy o kartę pobytu kosztuje około 1200–2400 zł. Oferta „express” jest wyceniana na około 1500–1700 zł, a pełne prowadzenie VIP/pełnomocnik na 2500–3500 zł i więcej.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Państwowa opłata za zezwolenie na pobyt z prawem do pracy wynosi 440 zł, lecz realny koszt procedury dla migranta lub firmy może wzrosnąć pięcio- lub ośmiokrotnie z powodu konieczności korzystania z pośredników. Kolejka działa więc jako bariera tworząca ogromny rynek wtórny, którego przychód opiera się na opóźnieniach administracji.</div>
+
+    <blockquote class="pull">„Gdy urząd pobiera 440 zł, a przejście przez system kosztuje kilka tysięcy, prawdziwym produktem rynku staje się nie dokument — lecz skrócenie czasu.”</blockquote>
+
+    <div class="subhead">2. Kto kontroluje czas</div>
+
+    <p>Poziom pewności źródło określa jako wysoki: role instytucjonalne wynikają z KPA, Prawa budowlanego i Prawa energetycznego, a beneficjenci ekonomiczni są identyfikowani przez analizę przepływów finansowych.</p>
+
+    <div class="subhead">2.1. Operatorzy procedury</div>
+
+    <p>Kontrola nad czasem jest rozdzielona pomiędzy formalnych przedstawicieli państwa i rozbudowaną strefę pośredników licencjonowanych oraz nieformalnych.</p>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Wojewodowie i inspektorzy do spraw cudzoziemców posiadają monopol na uruchamianie i prowadzenie procedur legalizacyjnych. Audyty wskazują, że pierwsze realne działania w sprawie bywają podejmowane dopiero po 134–470 dniach od rejestracji wniosku.</div>
+
+    <p>W samorządzie wójt, burmistrz i prezydent miasta kontrolują wydawanie decyzji WZ tam, gdzie brakuje planów miejscowych. Granice obszaru analizowanego wokół inwestycji mogą wpływać na ocenę zgodności projektu z zasadą dobrego sąsiedztwa.</p>
+
+    <p>Operatorzy systemów dystrybucyjnych i przesyłowych — w tym podmioty związane z PGE, Tauronem i Eneą — modelują stan sieci i wydają warunki przyłączenia. Według źródła zamkniętość modeli technicznych utrudnia inwestorowi niezależne zakwestionowanie podstaw odmowy.</p>
+
+    <div class="subhead">Bufor i iluzja cyfryzacji</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Cyfryzacja nie usunęła uznaniowości, lecz ją przesunęła. Elektroniczne złożenie wniosku często nie rozpoczyna realnego rozpatrywania, lecz jedynie rezerwuje miejsce w wielomiesięcznej kolejce do czynności osobistej, np. pobrania odcisków palców. Złożoność interfejsów stworzyła klasę „cyfrowych brokerów”: agencje migracyjne, doradcy podatkowi i kancelarie sprzedają wiedzę o tym, jak prawidłowo poruszać się po systemach, załączać dokumenty i omijać błędy techniczne.</div>
+
+    <div class="subhead">2.2. Instytucjonalni beneficjenci powolności</div>
+
+    <p>Powolność administracji utrzymuje całe branże, których model biznesowy uległby załamaniu, gdyby procedury faktycznie mieściły się w terminach normatywnych.</p>
+
+    <p><strong>Branża legalizacji i relokacji.</strong> W Polsce pracuje legalnie ponad milion cudzoziemców. Przy przeciętnym koszcie pośrednictwa około 1500–2500 zł na sprawę i konieczności odnawiania dokumentów co 1–3 lata źródło szacuje rynek na setki milionów złotych rocznie.</p>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Wprowadzenie Polskiego Ładu zmieniło zasady rozliczeń podatkowych i składkowych, a według przywołanych źródeł podatki dla części mikroprzedsiębiorstw wzrosły nawet o około 30%; przedstawiciele biznesu określali reformę jako największą podwyżkę podatków w historii.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Doradcy podatkowi i firmy audytorskie są bezpośrednimi finansowymi beneficjentami złożoności. Sprzedają przedsiębiorcom tłumaczenie stale zmieniających się reguł, faktycznie handlując „licencją na bezpieczeństwo” przed działaniami samego państwa.</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W nieruchomościach i energetyce istnieje wtórny rynek projektów, których główną wartością są uzyskane decyzje i warunki przyłączenia. Deweloper może sprzedać działkę wraz z WZ po latach procedowania, a spółka celowa w OZE może posiadać jako główny aktyw dokument z warunkami przyłączenia.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Kapitał jest w tym modelu tworzony nie poprzez budowę budynków albo wytwarzanie energii, lecz przez skuteczne przejście przez barierę czasową. Wartość systemowej złożoności przejmują ci, którzy nauczyli się ją obchodzić.</div>
+
+    <div class="subhead">3. Kto wygrywa, kto traci</div>
+
+    <div class="subhead">3.1. Wygrywający na opóźnieniach</div>
+
+    <p><strong>Duży kapitał i monopole korporacyjne.</strong> W dewelopmencie i energetyce duże podmioty mają rezerwy finansowe, własnych prawników i zasoby lobbingowe pozwalające wytrzymać wieloletnie zamrożenie projektu. Dla małych firm podobny okres może oznaczać utratę płynności.</p>
+
+    <p><strong>Rynek pośredników.</strong> Agencje, kancelarie i nieformalni „załatwiacze” budują model biznesowy zależny od niezdolności państwa do dotrzymywania terminów. Opóźnienie jest ich podstawowym towarem.</p>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>W migracji wielomiesięczne oczekiwanie na kartę pobytu wiąże pracownika z konkretnym pracodawcą. Zmiana pracy w trakcie procedury wymaga dodatkowych dokumentów i może prowadzić do faktycznego restartu postępowania. Ogranicza to mobilność pracownika i jego siłę negocjacyjną, a nieuczciwy pracodawca otrzymuje tanią i zależną siłę roboczą obawiającą się utraty statusu.</div>
+
+    <div class="subhead">3.2. Tracący na opóźnieniach</div>
+
+    <p><strong>Małe i średnie firmy.</strong> Wielomiesięczne oczekiwanie na rozstrzygnięcia podatkowe i legalizację kluczowych pracowników utrudnia planowanie, może zrywać kontrakty i skłaniać firmy do przenoszenia aktywności do innych jurysdykcji.</p>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Oczekiwanie na decyzję administracyjną przez 2–3 lata wiąże się dla cudzoziemca z poważnymi ograniczeniami: problemami z przekraczaniem granicy i powrotem, dostępem do kredytu hipotecznego, rejestracją pojazdu oraz pełną integracją społeczną. Dodatkowe usługi, jak formalne zapewnienie meldunku potrzebnego do dokumentów, mogą kosztować do około 2500 zł.</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Według przywołanych szacunków Polskiej Akademii Nauk roczne koszty chaosu przestrzennego, niekontrolowanego rozlewania się miast i konieczności rozbudowy rozproszonej infrastruktury sięgają około 84 mld zł.</div>
+
+    <p>Źródło interpretuje ten bilans jako sytuację, w której renta wąskich grup jest finansowana przez długoterminową degradację efektywności przestrzennej i gospodarczej kraju.</p>
+
+    <div class="subhead">3.3. Asymetria informacji jako kapitał</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Wiedza o tym, jak konkretny urząd chce widzieć dokumenty, jak przygotować właściwy załącznik, kiedy system ePUAP aktualizuje terminy i do którego inspektora najlepiej trafić, staje się formą kapitału insiderskiego. Dla nowych migrantów i początkujących przedsiębiorców jest on niedostępny. Instytucjonalna nieprzejrzystość zmusza outsiderów do kupowania wiedzy pośredników, przekształcając asymetrię informacji w strumień finansowy.</div>
+
+    <div class="subhead">4. Próby reform i ich los</div>
+
+    <p>Źródło argumentuje, że reformy przyspieszające procedury i deregulujące system bywają osłabiane na etapie stosowania albo zmieniają jedynie formę pobierania renty.</p>
+
+    <div class="subhead">Przypadek 1: legalizacja bezczynności administracyjnej — art. 100c</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Osoby dotknięte wieloletnimi opóźnieniami składały do wojewódzkich sądów administracyjnych skargi na bezczynność organu i przewlekłość postępowania. Sądy uwzględniały część tych skarg, nakazywały wydanie decyzji i przyznawały grzywny lub rekompensaty sięgające dziesiątek tysięcy złotych.</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Art. 100c ustawy o pomocy obywatelom Ukrainy zawiesił bieg terminów w sprawach legalizacji pobytu od 15 kwietnia do 31 grudnia 2022 roku. Przepis ograniczył możliwość skutecznego skarżenia bezczynności za ten okres i zwolnił wojewodów z części obowiązków informowania o przyczynach opóźnień.</div>
+
+    <div class="stamp-note pr"><span class="k">■ WERSJA PR</span>Rozwiązanie uzasadniano nadzwyczajną koniecznością obsługi kryzysu uchodźczego i dostosowania systemu do nowej skali obciążenia.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Autor interpretuje ten przepis jako ustawowe przejęcie czasu dziesiątek tysięcy wnioskodawców. Reforma nie przyspieszyła pracy urzędów, lecz zalegalizowała przeciążenie, ograniczyła ryzyko odszkodowań i pokazała pierwszeństwo ochrony aparatu nad interesem użytkownika usługi.</div>
+
+    <div class="subhead">Przypadek 2: cable pooling i bariery infrastrukturalne</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W październiku 2023 roku zalegalizowano w Polsce cable pooling — możliwość podłączania kilku instalacji OZE różnego typu do jednego punktu sieci przy współdzielonej mocy przyłączeniowej. W pierwszym roku praktyki zrealizowano jednak tylko 12 wspólnych przyłączeń, podpisano 49 umów i wydano 47 odmów.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Zdaniem autora reforma została osłabiona przez ograniczenia wykonawcze: zakaz łączenia określonych instalacji z niezależnymi magazynami energii oraz zasadę, że tylko jedna instalacja przy wspólnym przyłączu może korzystać ze wsparcia publicznego. Mechanizm istnieje prawnie, lecz jego ekonomiczna atrakcyjność została ograniczona, a uznaniowa pozycja operatorów sieci pozostała silna.</div>
+
+    <div class="subhead">Przypadek 3: planowanie przestrzenne i odroczenie planu ogólnego</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Reforma planowania przestrzennego zakłada zastąpienie starego modelu obowiązkowym planem ogólnym dla każdej gminy. Terminy przygotowania planów i cyfrowych rejestrów były jednak przesuwane na 2026 rok, a część rozszerzonych danych na 1 lipca 2029 roku.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Wieloletni okres przejściowy przedłuża „epokę WZ”, dając zainteresowanym aktorom dodatkowe lata działania według dawnych, bardziej uznaniowych reguł i osłabiając natychmiastowy efekt reformy.</div>
+
+    <div class="subhead">Przypadek 4: iluzja szybkości — oświadczenia o powierzeniu pracy</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Procedura oświadczenia o powierzeniu pracy cudzoziemcowi dla obywateli określonych państw ma formalny termin 7 dni roboczych i w zdecydowanej większości przypadków powiatowe urzędy pracy dotrzymują tego terminu.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Jest to rzadki przykład skutecznego przyspieszenia, ale dotyczy przede wszystkim krótkoterminowego zatrudnienia. Państwo dopuszcza bardzo szybki nabór tam, gdzie trzeba zasypać luki kadrowe, natomiast przejście do długoterminowej stabilizacji pobytu ponownie prowadzi do wielomiesięcznej albo wieloletniej procedury wojewódzkiej. Źródło interpretuje to jako selektywne wykorzystanie czasu jako filtra. Procedura jest jednocześnie objęta sztywnymi terminami informacyjnymi dla pracodawcy, a naruszenie może prowadzić do wysokich kar.</div>
+
+    <div class="subhead">5. Ocena końcowa</div>
+
+    <p>W interpretacji źródła czas w polskiej administracji przestał być neutralnym parametrem technicznym. Stał się wielowarstwową architekturą dystrybucji władzy i kapitału. Normatywne terminy 30–90 dni istnieją w prawie, ale realne czasy mierzone miesiącami i latami tworzą system ekonomicznych zależności.</p>
+
+    <div class="subhead">Główny mechanizm renty czasowej</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY — WYSOKA PEWNOŚĆ</span>System opiera się na wytwarzaniu logistycznych wąskich gardeł: chronicznym przeciążeniu administracji migracyjnej, braku pełnego pokrycia planami zagospodarowania oraz monopolistycznej pozycji operatorów w ocenie przepustowości sieci. Wąskie gardła tworzą totalną niepewność czasu, która jest następnie konwertowana przez aparat państwa w narzędzie selekcji i ochrony własnych struktur, przez lokalnych urzędników w uznaniową władzę nad inwestorem, a przez rynek pośredników w wielomilionowe przychody z usług „nawigacji” po procedurach.</div>
+
+    <div class="subhead">Najbardziej prawdopodobny scenariusz</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY — PEWNOŚĆ ŚREDNIA/WYSOKA</span>Przy utrzymaniu obecnej trajektorii źródło nie oczekuje głębokiego strukturalnego przyspieszenia procedur. Zamiast tego przewiduje dalszą cyfryzację fasadową — nowe portale i rejestry obsługiwane przez te same złożone reguły, skrypty i pośredników. Państwo ma nadal prawnie chronić aparat przed odpowiedzialnością za opóźnienia poprzez zawieszanie terminów albo przesuwanie obowiązków, a rynek legalnych „załatwiaczy”, doradców podatkowych i agentów legalizacyjnych ma dalej kapitalizować się jako quasi-obowiązkowy koszt prowadzenia długoterminowej działalności i inwestowania.</div>
+
+    <div class="subhead">Źródła</div>
+
+    <p>1. Prawo.pl — „NIK: Administracja nie radzi sobie z obsługą rosnącej liczby cudzoziemców”: https://www.prawo.pl/kadry/administracja-nie-radzi-sobie-z-obsluga-rosnacej-liczby,455554.html</p>
+    <p>2. BANK.pl — „NIK: czas legalizacji pobytu cudzoziemców w Polsce wydłużył się do 206 dni”: https://bank.pl/nik-czas-legalizacji-pobytu-cudzoziemcow-w-polsce-wydluzyl-sie-do-206-dni/</p>
+    <p>3. Rzecznik Praw Obywatelskich — „Cudzoziemcy coraz dłużej czekają na legalizację pobytu w Polsce”: https://bip.brpo.gov.pl/pl/content/rpo-do-premiera-o-przewleklosci-procedur-wobec-cudzoziemcow</p>
+    <p>4. Najwyższa Izba Kontroli — „Państwo niegotowe na cudzoziemców”: https://www.nik.gov.pl/najnowsze-informacje-o-wynikach-kontroli/panstwo-niegotowe-na-cudzoziemcow.html</p>
+    <p>5. Gov.pl — „Wystąpienie pokontrolne P/25/028 Działania państwa w obszarze migracji”: https://www.gov.pl/attachment/f319153d-504d-4ced-80c2-fad373349370</p>
+    <p>6. Prawo.pl — „Błędy gmin przy wydawaniu decyzji o warunkach zabudowy — raport NIK 2024”: https://www.prawo.pl/samorzad/bledy-gmin-przy-wydawaniu-decyzji-o-warunkach-zabudowy-raport-nik-2024,526953.html</p>
+    <p>7. „Urbanistyka operacyjna”: https://dbc.wroc.pl/Content/73154/Ossowicz_Urbanistyka.pdf</p>
+    <p>8. Prawo.pl — interpretacje podatkowe: https://www.prawo.pl/podatki/interpretacje-podatkowe-wydane-w-pierwszej-polowie-2021-roku-i,509900.html</p>
+    <p>9. Prawo.pl — sprawozdanie NSA za 2025 rok: https://www.prawo.pl/podatki/sprawozdanie-nsa-za-2025-rok,1542102.html</p>
+    <p>10. Teraz Środowisko — dane URE o odmowach przyłączenia: https://www.teraz-srodowisko.pl/aktualnosci/urzad-regulacji-energetyki-ure-odmowy-wydania-warunkow-przylaczenia-do-sieci-2022-13424.html</p>
+    <p>11. Rynek Elektryczny — raport URE o odmowach przyłączenia: https://www.rynekelektryczny.pl/odmowy-przylaczenia-do-sieci-elektroenergetycznej-raport-ure/</p>
+    <p>12. Gramwzielone.pl — „Przyłączenia OZE: liczba odmów spadła, odrzucona moc wzrosła”: https://www.gramwzielone.pl/trendy/20359525/przylaczenia-oze-liczba-odmow-spadla-odrzucona-moc-wzrosla</p>
+    <p>13. TVP3 Wrocław — raport NIK o obsłudze cudzoziemców: https://wroclaw.tvp.pl/43841704/raport-nik-administracja-publiczna-nie-radzi-sobie-z-obsluga-coraz-wiekszej-liczby-cudzoziemcow</p>
+    <p>14. Teraz Środowisko — „Chaos przestrzenny w Polsce. Tylko 31,7% kraju ma plany zagospodarowania”: https://www.teraz-srodowisko.pl/aktualnosci/nik-kontrola-planowanie-przestrzenne-chaos-przestrzenny-13338.html</p>
+    <p>15. NIK — „Nieprecyzyjne przepisy = chaos przestrzenny”: https://www.nik.gov.pl/najnowsze-informacje-o-wynikach-kontroli/planowanie-i-zagospodarowanie-przestrzenne.html</p>
+    <p>16. Magazyn Biomasa — sprostowanie danych URE o odmowach: https://magazynbiomasa.pl/ure-zaraportowalo-ze-wydalo-odmowy-przylaczenia-na-blisko-84-gw-mocy-teraz-instytucja-sprostowuje/</p>
+    <p>17. Infor Księgowość — zmiany dotyczące interpretacji podatkowych: https://ksiegowosc.infor.pl/wiadomosci/7637852,interpretacje-podatkowe-wazne-tylko-5-lat-wydane-przed-2023-r-straca-waznosc-w-polowie-2028-r-ministerstwo-finansow-szykuje-duze-zmiany-w-interpretacjach.html</p>
+    <p>18. Akademia LTCA — liczba wniosków o interpretacje podatkowe: https://akademialtca.pl/blog/coraz-mniej-pytan-do-fiskusa-spada-liczba-wnioskow-o-interpretacje-podatkowe</p>
+    <p>19. CRN — „Polskie firmy mają zapłacić za Nowy Ład”: https://crn.pl/aktualnosci/polskie-firmy-maja-zaplacic-za-nowy-lad-to-wstyd/</p>
+    <p>20. enova.pl — wpływ Polskiego Ładu na koszty przedsiębiorców: https://enova.pl/blog/polski-lad-wplyw-na-koszty-przedsiebiorcow-w-2022-roku/</p>
+    <p>21. Prawo.pl — zmiany interpretacji podatkowych: https://www.prawo.pl/podatki/zmiany-interpretacji-podatkowych-a-konsekwencje-dla-podatnikow,523248.html</p>
+    <p>22. MAGFIN — cennik obsługi cudzoziemców: https://magfin.pl/pl/cennik/cennik-obsluga-cudzoziemcow/</p>
+    <p>23. Legalo — cennik: https://www.legalo.com.pl/s-projects-basic</p>
+    <p>24. KartaPobytu.pl — cennik usług: https://kartapobytu.pl/cennik/</p>
+    <p>25. Stowarzyszenie Interwencji Prawnej — cennik dla pracodawców: https://interwencjaprawna.pl/dla-biznesu/dzialalnosc-odplatna/cennik/</p>
+    <p>26. Europejskie Centrum Obsługi Cudzoziemców — cennik: https://ecoc.pl/cennik</p>
+    <p>27. KartaPobytu.org — cennik: https://kartapobytu.org/cennik/</p>
+    <p>28. GOTIA — cennik: https://gotia.pl/cennik/</p>
+    <p>29. Wielkopolski Urząd Wojewódzki — opłaty w sprawach cudzoziemców: https://migrant.poznan.uw.gov.pl/pl/wskazowki/oplaty</p>
+    <p>30. Akademia Nauk Stosowanych w Elblągu — „Prawne uwarunkowania funkcjonowania samorządu terytorialnego w Polsce”: https://ans-elblag.pl/assets/upload/files/wydawnictwo/publikacje/monografia-czesc-prawna.pdf</p>
+    <p>31. Urząd Regulacji Energetyki — raport „Cable pooling 2024”: https://www.ure.gov.pl/download/9/15869/Cablepooling2024.pdf</p>
+    <p>32. Prawo.pl — Lewiatan o Polskim Ładzie: https://www.prawo.pl/podatki/polski-lad-we-lewiatana-to-najwieksza-w-historii-podwyzka,510331.html</p>
+    <p>33. Kancelaria BKT — „Przewlekłość postępowania — co możemy zrobić?”: https://bktkancelaria.pl/przewleklosc-postepowania-co-mozemy-zrobic/</p>
+    <p>34. Mazowiecki Urząd Wojewódzki — zawieszenie biegu terminów w legalizacji pobytu: https://www.gov.pl/web/uw-mazowiecki/zawieszenie-biegu-terminow-zalatwiania-spraw-z-zakresu-legalizacji-pobytu</p>
+    <p>35. GCC Energy — cable pooling w Polsce 2026: https://gcc-energy.pl/2026/03/24/cable-pooling-polska-2026-zasady-modele/</p>
+    <p>36. KPMG Polska — cable pooling, pierwsze półrocze obowiązywania przepisów: https://kpmg.com/pl/pl/wiedza/prawo/legal-alert-cable-pooling-podsumowanie-na-pierwsze-polrocze-obowiazywania-nowych-przepisow.html</p>
+    <p>37. Electrum — cable pooling i rozwój OZE: https://electrum.pl/cable-pooling-optymalne-wykorzystanie-zasobow-i-rozwoj-oze/</p>
+    <p>38. CIRE — pierwszy rok funkcjonowania cable poolingu w Polsce: https://www.cire.pl/artykuly/serwis-informacyjny-cire-24/pierwszy-rok-funkcjonowania-cable-pooling-w-polsce-raport-ure</p>
+    <p>39. KWWP — raport URE dotyczący cable poolingu: https://www.kwwp.pl/raport-ure-dotyczacy-cable-poolingu/</p>
+    <p>40. Działkopedia — Plan ogólny gminy, reforma 2026: https://dzialkopedia.pl/poradnik/plan-ogolny-gminy</p>
+    <p>41. Ministerstwo Rozwoju i Technologii — wydłużony termin sporządzania planów ogólnych: https://www.gov.pl/web/rozwoj-technologia/wydluzony-termin-sporzadzania-planow-ogolnych</p>
+    <p>42. Biznes.gov.pl — oświadczenie o powierzeniu pracy cudzoziemcowi: https://www.biznes.gov.pl/pl/portal/ou1610</p>
+    <p>43. LEX — art. 88z ustawy o promocji zatrudnienia i instytucjach rynku pracy: https://sip.lex.pl/akty-prawne/dzu-dziennik-ustaw/promocja-zatrudnienia-i-instytucje-rynku-pracy-17091885/art-88-z</p>
+    <p>44. Państwowa Inspekcja Pracy — „Cudzoziemcy: ułatwienia w zatrudnieniu, wyższe sankcje za łamanie prawa”: https://www.pip.gov.pl/aktualnosci/cudzoziemcy-ulatwienia-w-zatrudnieniu-wyzsze-sankcje-za-lamanie-prawa</p>
+
+  </div>
+  <div class="keybox">
+    <div class="kb-title">Legenda oznaczeń — standard weryfikacji</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — informacja przedstawiona w materiale jako potwierdzona przez raporty, statystyki, akty prawne lub publiczne cenniki</div>
+      <div><b>WERSJA PR</b> — oficjalne wyjaśnienie instytucji lub operatora systemu</div>
+      <div><b>WNIOSEK ANALITYCZNY</b> — wniosek autora wynikający z opisanej struktury, sekwencji i danych</div>
+      <div><b>BRAK DANYCH</b> — informacja nieweryfikowalna, nieujawniona lub niewystarczająco potwierdzona</div>
+    </div>
+  </div>
+  <hr class="rule">
+  <footer><span>DEEP PRESS ANALYSIS</span><span>deeppressanalysis.com</span></footer>
+</div>
+
+</body>
+</html>
