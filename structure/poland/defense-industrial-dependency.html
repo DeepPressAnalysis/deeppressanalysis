@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polska — Przemysł obronny i zależność | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← STRONA GŁÓWNA</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Niezależny wywiad strukturalny · od 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">„Struktura ponad narracją.”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>BIURO POLSKA</span>
+    <span>15 SIERPNIA 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / PRZEMYSŁ OBRONNY I ZALEŻNOŚĆ</span>
+
+  <h1 class="headline">Kto naprawdę kontroluje polski przemysł obronny</h1>
+  <p class="deck">Polska buduje jedną z najszybciej rosnących architektur militarnych w Europie: państwowy przemysł PGZ, prywatne technologie oraz masowy import platform z USA i Korei Południowej. Ta szybkość zwiększa zdolności bojowe, ale równocześnie tworzy kilka wzajemnie powiązanych obwodów zależności technologicznej, finansowej i serwisowej.</p>
+  <div class="byline">DZIAŁ POLSKA — RUBRYKA: PRZEMYSŁ OBRONNY / ARCHITEKTURA ZALEŻNOŚCI</div>
+
+  <div class="columns">
+
+    <p class="lead">Analiza została zaktualizowana na 15 sierpnia 2026 roku. Jej przedmiotem jest polski system przemysłu obronnego i zamówień wojskowych. Wątki dotyczące energetyki, transportu i infrastruktury cyfrowej nie są tu automatycznie traktowane jako dowiedzione dla systemu militarnego.</p>
+
+    <p>Istnieje zasadnicze ograniczenie poziomu szczegółowości: materiał nie przedstawia listy konkretnych obiektów, adresów sieciowych, fizycznych punktów rażenia, metod sabotażu ani sekwencji działań pozwalających wyłączyć polski system wojskowy w ciągu 72 godzin. „Igła Kościeja” jest więc opisywana jako zależność funkcjonalna — serwis, import, cykl amunicyjny, finansowanie i własność intelektualna — a nie jako lista celów.</p>
+
+    <p>Główna teza badania brzmi: Polska nie jest ani w pełni autarkicznym producentem uzbrojenia, ani zwykłym importerem. Buduje system hybrydowy: ogromny państwowy kontur przemysłowy PGZ, silne prywatne spółki technologiczne oraz wyjątkowo szybki import amerykańskich i południowokoreańskich platform, po którym następuje próba lokalizacji obsługi, amunicji i części produkcji. W krótkim terminie zwiększa to zdolności bojowe; w dłuższym tworzy kilka połączonych obwodów zależności zewnętrznej.</p>
+
+    <div class="subhead">Architektura produkcji i zaopatrzenia</div>
+
+    <div class="subhead">Struktura przemysłu obronnego</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Rdzeniem państwowego sektora przemysłowego pozostaje Polska Grupa Zbrojeniowa. Ministerstwo Aktywów Państwowych wskazuje PGZ jako podmiot pozostający pod jego nadzorem, a w lutym 2026 roku informowało o reorganizacji grupy liczącej około 70 podmiotów prawnych w bardziej zintegrowany koncern. Oficjalnym celem reorganizacji jest skracanie łańcuchów dostaw, zwiększenie „autonomii strategicznej”, wzmocnienie polskiego komponentu i ściślejsze połączenie aktywów PGZ z sektorem prywatnym.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Równolegle istnieje niezależna prywatna warstwa technologiczna. WB GROUP pozycjonuje się jako największa prywatna grupa obronno-technologiczna w Polsce, koncentrująca się na elektronice, łączności, C4I, bezzałogowcach i systemach powiązanych. Sam fakt zawierania porozumień pomiędzy największym państwowym i największym prywatnym konturem obronnym pokazuje, że polskiego przemysłu obronnego nie można sprowadzić do jednej państwowej pionowej struktury.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Model własności jest zdominowany przez państwo, ale technologicznie pozostaje hybrydowy. Ciężki przemysł, amunicja, wozy opancerzone i znaczna część dziedzictwa rakietowo-artyleryjskiego skupiają się wokół PGZ; sektor prywatny jest szczególnie ważny tam, gdzie cykl innowacji jest krótszy — w łączności, bezzałogowcach i integracji cyfrowej. Problemem nie jest brak przemysłu jako takiego, lecz różny poziom suwerenności poszczególnych warstw jednej systemowej całości. Kadłub lub pojazd może powstawać w Polsce, gdy kluczowe prawa technologiczne, część podsystemów, certyfikacja i długoterminowe wsparcie nadal należą do zagranicznego ekosystemu. Program K2/K2PL ilustruje ten model: Polska uzyskuje montaż końcowy i rozszerzone kompetencje serwisowe, ale platforma bazowa pozostaje produktem Hyundai Rotem, a transfer technologii jest stopniowy.
+    </div>
+
+    <div class="subhead">Miejsce w globalnym łańcuchu uzbrojenia</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Według SIPRI w latach 2021–2025 Polska była siódmym największym odbiorcą głównych systemów uzbrojenia na świecie, odpowiadając za 3,6% globalnego importu. Wolumen importu wzrósł o 852% względem lat 2016–2020. Korea Południowa odpowiadała za 47% polskiego importu, USA za 44%, a Włochy za 2,2%. Na dwóch pozaeuropejskich dostawców przypadało więc łącznie 91% mierzonego przez SIPRI importu głównych systemów uzbrojenia Polski.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Jednocześnie Polska weszła do grona zauważalnych eksporterów. SIPRI klasyfikuje ją na 14. miejscu wśród dostawców głównych systemów uzbrojenia w latach 2021–2025, z udziałem około 1% światowego eksportu; 94% polskiego eksportu z tego okresu trafiło do Ukrainy. Polska miała również ogromne znaczenie dla Seulu: przypadło na nią 58% całego południowokoreańskiego eksportu głównych systemów uzbrojenia w latach 2021–2025.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Najtrafniejsza klasyfikacja to „model hybrydowy z szybkim zwiększaniem importu i selektywną lokalizacją”, a nie „montownia” ani „pełny cykl”. Polska posiada własne konkurencyjne kompetencje i eksport, lecz najbardziej kapitałochłonna fala modernizacyjna ostatnich lat jednocześnie uczyniła ją jednym z największych nabywców zagranicznych systemów. Zależność jest szczególnie silna nie na poziomie samej obróbki metalu, lecz w ekosystemie platformy: producenta pierwotnego, dokumentacji, mapy modernizacji, specjalistycznego serwisu, zezwoleń i kompatybilności.
+    </div>
+
+    <div class="subhead">Anatomia zamówień</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Polska modernizacja odbywa się przy wyjątkowo wysokim tempie budżetowym. W oficjalnym raporcie polityki zagranicznej na 2026 rok rząd wskazywał wydatki obronne rzędu 4,8% PKB, około 200 mld zł, przy czym ponad połowa tej kwoty miała zostać przeznaczona na nowe uzbrojenie i sprzęt. W tym samym dokumencie wskazano 128 kontraktów o wartości około 63 mld dolarów na amerykańskie uzbrojenie i technologie wojskowe.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Centralnym państwowym zamawiającym w dużych programach jest Agencja Uzbrojenia. To ona w imieniu Skarbu Państwa zawiera między innymi umowy wykonawcze dotyczące K2. Polski system zakupowy nie sprowadza się do w pełni otwartego cywilnego przetargu: prawo europejskie przewiduje specjalny reżim dla zamówień w dziedzinie obronności i bezpieczeństwa, a polska praktyka dopuszcza w przewidzianych prawem przypadkach zamówienie z wolnej ręki. Orzeczenie KIO 92/25 z lutego 2025 roku dokumentuje konkretną procedurę Agencji Uzbrojenia w takim trybie.
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ BRAK DANYCH</span>
+      W otwartych źródłach zagregowanych brakuje porównywalnych danych pozwalających wiarygodnie określić, jaka część wartości całego polskiego zamówienia obronnego w latach 2025–2026 przypada na pełną konkurencję, procedury negocjacyjne, umowy międzyrządowe i faktycznego pojedynczego dostawcę. Teza o „całkowitej niekonkurencyjności” polskich zakupów nie jest zatem potwierdzona.
+    </div>
+
+    <div class="subhead">Finansowa konstrukcja zamówienia</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Oprócz zwykłego budżetu modernizacja opiera się na Funduszu Wsparcia Sił Zbrojnych, obsługiwanym przez państwowy bank BGK. W oficjalnym średniookresowym planie finansowym Ministerstwo Finansów wskazywało, że na 30 czerwca 2024 roku gwarancje państwa związane z finansowaniem tego funduszu wynosiły 103 mld zł, a plan przewidywał dalsze udzielanie gwarancji.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Istnieje również element kredytu zewnętrznego. W lipcu 2025 roku USA ogłosiły gwarancję kredytu zagranicznego finansowania wojskowego dla Polski w wysokości 4 mld dolarów. W niektórych przypadkach zagraniczny dostawca obronny jest więc jednocześnie źródłem platformy, systemu serwisowego, jurysdykcji eksportowej i finansowania.
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ WERSJA PR</span>
+      Rząd opisuje obecną reorganizację jako ruch w kierunku „autonomii strategicznej” i maksymalnie krótkich łańcuchów dostaw. Potwierdza to istnienie polityki lokalizacji, ale samo stwierdzenie nie dowodzi osiągniętej autonomii.
+    </div>
+
+    <p>Poziom pewności w tym bloku źródło ocenia jako wysoki. Struktura własności, przepływy importowe, parametry budżetowe, kontrakty K2 i mechanizmy finansowe są potwierdzane przez dokumenty rządowe, SIPRI, DSCA i europejską bazę regulacyjną. Niepewność pozostaje przede wszystkim w strukturze niejawnej części zamówień obronnych.</p>
+
+    <div class="subhead">Systemowe wąskie gardła</div>
+
+    <div class="subhead">Technologiczne zakrzepy</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Najlepiej udokumentowana zależność nie polega na twierdzeniu, że „Polska nie potrafi produkować elektroniki” albo „w 100% zależy od zagranicznej optyki”, lecz na zależności konkretnych importowanych platform od ich pierwotnego ekosystemu. W sierpniu 2025 roku USA zatwierdziły potencjalną sprzedaż FMS pakietu wsparcia F-35 dla Polski o wartości do 1,85 mld dolarów, obejmującego elementy wsparcia logistycznego i programowego. Polska nadal kupuje też amerykańską amunicję, szkolenie i inne usługi w ramach FMS.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W programie K2 kontrakt obejmuje nie tylko same czołgi, lecz również części zamienne, narzędzia specjalistyczne, sprzęt diagnostyczny, dokumentację techniczną, szkolenie i wsparcie producenta. Druga umowa wykonawcza z 2025 roku przewiduje 180 dodatkowych wozów, z których 61 K2PL ma zostać wyprodukowanych w Bumar-Łabędy. Hyundai Rotem ma dostarczyć wyposażenie linii, a transfer technologii ma stworzyć zdolność do montażu końcowego oraz pełnej obsługi i eksploatacji.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      „Montaż końcowy + pełna obsługa” nie oznacza „pełnej krajowej kontroli nad konstrukcją i całym łańcuchem komponentów”. Z publicznego opisu K2 nie wynika, że Polska otrzymuje nieograniczone prawo do samodzielnego odtwarzania każdego krytycznego podsystemu albo zmieniania architektury bazowej niezależnie od właściciela praw. Lokalizacja ogranicza więc zależność od fizycznego importu gotowego produktu szybciej niż zależność od własności intelektualnej i pierwotnego ekosystemu technologicznego.
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ BRAK DANYCH</span>
+      Publiczna baza dowodowa nie wystarcza do twierdzenia, że Polska „w 100%” zależy od zagranicy w całej awionice, całej optyce wojskowej, wszystkich mikroprocesorach albo całym oprogramowaniu wojskowym. Taka formuła byłaby zbyt szeroka. Realnie potwierdzona kwestia jest węższa: krytycznie ważne importowane rodziny systemów mają zagraniczne pochodzenie i wbudowany zewnętrzny model wsparcia.
+    </div>
+
+    <div class="subhead">Cykl amunicyjny</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W październiku 2025 roku polski rząd postawił cel zwiększenia produkcji amunicji wielkokalibrowej do 180 tys. sztuk rocznie w ciągu około trzech lat, równolegle rozszerzając zdolności obsługi, remontu i modernizacji sprzętu importowanego. Sam fakt uruchomienia programu przyspieszonego zwiększania mocy oznacza, że oczekiwana przez państwo wydajność nie była w chwili ogłoszenia jeszcze osiągnięta.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Powstaje również prywatna rezerwa dywersyfikacyjna. Oficjalny polski portal branżowy informuje o projekcie Grupy Niewiadów-PGM dotyczącym budowy trzech linii amunicji 155 mm, każdej o zdolności do 60 tys. sztuk, z deklarowanym uruchomieniem produkcji pełnoskalowej w IV kwartale 2026 roku. Na 15 sierpnia 2026 roku należy traktować to jako plan inwestycyjny, a nie dowód osiągniętej już seryjnej produkcji na docelowej mocy.
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ WERSJA PR</span>
+      W kwietniu 2026 roku Ministerstwo Aktywów Państwowych deklarowało, że PGZ rozwija produkcję amunicji 155 mm z „całym procesem technologicznym w Polsce”. Do czasu niezależnej weryfikacji wolumenu, krajowego pochodzenia materiałów wejściowych i zdolności do długotrwałej pracy bez zewnętrznych dostaw należy traktować to jako oficjalną wersję lokalizacji, a nie dowód pełnej autarkii amunicyjnej.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Materiały energetyczne, wydajność produkcji amunicji i zdolność odtwarzania zapasu precyzyjnych środków rażenia są bardziej miarodajnym wskaźnikiem odporności przemysłowej niż sama liczba kupionych wyrzutni lub luf. Polska polityka lat 2025–2026 faktycznie uznaje ten priorytet, kierując kapitał na rozwój cyklu amunicyjnego. Dane publiczne nie pozwalają jednak policzyć, na ile dni intensywnego zużycia wystarczają zapasy wojskowe.
+    </div>
+
+    <div class="subhead">Monopole przemysłowe i kadrowe</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      PGZ jest jednocześnie źródłem odporności i ryzyka koncentracji. Z jednej strony państwo zachowuje ciężką bazę przemysłową w kraju; z drugiej sama konieczność przekształcenia grupy około 70 podmiotów w bardziej zintegrowany koncern oznacza, że rząd dostrzega problemy fragmentacji, dublowania funkcji i zbyt długich wewnętrznych łańcuchów.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Współczesne ryzyko coraz mniej przypomina klasyczny model „jeden zakład — brak zakładu — brak armii”. Rząd świadomie tworzy równoległe państwowe i prywatne łańcuchy produkcyjne, lokalizuje systemy zagraniczne i buduje dodatkowe moce serwisowe. Nowa podatność jest koordynacyjna: równocześnie trzeba utrzymywać polskie, amerykańskie, południowokoreańskie i inne rodziny technologiczne, każdą z własnym szkoleniem personelu, częściami, dokumentacją i cyklem modernizacji.
+    </div>
+
+    <div class="subhead">Finansowe pętle zaciskowe</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Duże programy importowe tworzą zobowiązania walutowe. Pierwsza umowa wykonawcza na 180 czołgów K2 miała wartość 3,37 mld dolarów netto. Rozbudowa obronna korzysta równocześnie z gwarancji państwowych poprzez BGK oraz z zewnętrznego finansowania FMF.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Ryzyko walutowe i zadłużeniowe nie oznacza „bankructwa obrony”, lecz może regulować tempo modernizacji. Osłabienie złotego, wzrost kosztu finansowania albo zacieśnienie ścieżki budżetowej przede wszystkim zwiększają koszt kontynuowania programów importowych i tworzą konkurencję pomiędzy zakupem nowych systemów, lokalizacją oraz utrzymaniem już odebranego parku. Przy wydatkach obronnych około 4,8% PKB koszt błędu planistycznego staje się makrofinansowo istotny.
+    </div>
+
+    <div class="subhead">Offset</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Historyczne doświadczenie Polski pokazuje, że nominalna wartość offsetu nie jest równoznaczna z realnym efektem technologicznym. W przypadku programu F-16 Najwyższa Izba Kontroli stwierdzała wysoki formalny poziom wykonania zobowiązań, jednocześnie wskazując brak gwarancji, że struktura offsetu maksymalizowała efekt modernizacyjny dla polskiej gospodarki. To stary przypadek i nie dowodzi porażki współczesnych programów, ale pokazuje, dlaczego „wartości offsetu” nie można automatycznie utożsamiać z suwerennością technologiczną.
+    </div>
+
+    <p>Poziom pewności: wysoki w zakresie zależności od ekosystemów importowanych i konstrukcji finansowej; średni w zakresie głębokości lokalizacji. Kontrakty i plany produkcyjne są przejrzyste na poziomie ogólnym, lecz szczegółowe specyfikacje komponentów, zapasów, kodów źródłowych i ograniczeń technologicznych nie są w pełni jawne.</p>
+
+    <blockquote class="pull">„Najważniejszy punkt kontroli nie musi leżeć w fabryce. Może znajdować się w prawie do modernizacji, certyfikacji, serwisu i odtworzenia zapasu.”</blockquote>
+
+    <div class="subhead">Zewnętrzne dźwignie wpływu</div>
+
+    <div class="subhead">Amerykańska dźwignia: prawo i serwis, nie mityczny wyłącznik</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Dla dostaw realizowanych przez FMS obowiązują amerykańskie reguły kontroli końcowego użycia. DSCA wskazuje, że nabywca sprzętu FMS musi uzyskać zgodę Departamentu Stanu USA przed przekazaniem odpowiednich wyrobów lub usług państwu trzeciemu albo zmianą końcowego zastosowania. System monitorowania końcowego użytkowania pozwala monitorować wybrane wrażliwe wyroby aż do poziomu numerów seryjnych.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Warszawa nadal zawiera odrębne amerykańskie umowy właśnie na utrzymanie systemów. Pakiet utrzymania i wsparcia eksploatacyjnego dla F-35 oszacowano na maksymalnie 1,85 mld dolarów; inne pakiety FMS z 2025 roku dotyczyły szkolenia i wsparcia logistycznego, Javelinów oraz amunicji. Oznacza to, że relacja handlowa nie kończy się w momencie fizycznego dostarczenia platformy.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Realna dźwignia USA to zainstalowana baza + prawo eksportowe + modernizacja + utrzymania i wsparcia eksploatacyjnego. Waszyngton nie musi fizycznie posiadać polskiej techniki wojskowej, aby mieć znaczenie strukturalne: wystarczy, że cykl życia dużych rodzin systemów jest wbudowany w amerykański system regulacyjno-produkcyjny. Dźwignia ta jest jednak ograniczona politycznie i praktycznie: Polska jest sojusznikiem NATO, dużym klientem i ważnym europejskim odbiorcą, więc również USA poniosłyby koszty zniszczenia tego ekosystemu.
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ BRAK DANYCH</span>
+      Nie ma wiarygodnych publicznych dowodów na istnienie w polskich F-35, systemach obrony powietrznej lub innych importowanych platformach uniwersalnego tajnego „zdalnego wyłącznika”, który pozwalałby Waszyngtonowi jednym naciśnięciem przycisku fizycznie wyłączyć polskie siły zbrojne. Zastępowanie udokumentowanej kontroli eksportowo-serwisowej taką tezą byłoby analitycznie niepoprawne.
+    </div>
+
+    <div class="subhead">Dźwignia południowokoreańska</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Mechanizm południowokoreański jest inny. Seul nie dysponuje systemem FMS, ale Hyundai Rotem i inni koreańscy OEM są producentami pierwotnymi szybko rosnącej części polskiego parku. Pierwsze kontrakty K2 bezpośrednio włączały producenta w szkolenie, serwis, dostawy części zamiennych, narzędzi i diagnostyki; późniejsza lokalizacja ma stopniowo przekazywać te kompetencje stronie polskiej.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Korea Południowa jednocześnie tworzy zależność i pomaga ją częściowo zmniejszać. Im więcej montażu końcowego, napraw, produkcji rakiet i komponentów zostanie przeniesione do Polski, tym mniejsze ryzyko prostego zatrzymania fizycznych dostaw. Dopóki jednak platforma bazowa, zarządzanie konfiguracją i istotna część dziedzictwa technologicznego należą do koreańskiego OEM, Polska posiada nie autarkię, lecz „zlokalizowany zagraniczny ekosystem”.
+    </div>
+
+    <div class="subhead">Standardy NATO</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      NATO definiuje standaryzację i STANAG jako narzędzia interoperacyjności sił sojuszniczych — zdolności do wspólnego działania, wymiany informacji oraz stosowania uzgodnionych procedur i infrastruktury. Jest to świadomie wybrana architektura współdziałania Sojuszu.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      STANAG ma efekt dwustronny. Zmniejsza zależność od jednego formatu narodowego, ponieważ umożliwia korzystanie z wielonarodowej infrastruktury i kompatybilnej amunicji oraz procedur; równocześnie zwiększa koszt wyjścia Polski z natowskiego ekosystemu technologicznego. Trafniej określać to jako zależność ścieżkowa niż jako zarządzanie zewnętrzne.
+    </div>
+
+    <div class="subhead">Dane rozpoznawcze jako dźwignia</div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ BRAK DANYCH</span>
+      Publiczne dokumenty nie dają podstaw do twierdzenia, że dostęp Polski do sojuszniczych danych rozpoznawczych jest formalnie wykorzystywany jako „waluta politycznej lojalności” albo że istnieje udokumentowany mechanizm odłączania danych w odpowiedzi na konkretne decyzje polityki zagranicznej Warszawy.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Im głębiej krajowe systemy dowodzenia, obrona powietrzna, lotnictwo i środki dalekiego zasięgu integrują się z sojuszniczą architekturą informacyjną, tym większa jest operacyjna wartość zewnętrznej warstwy informacyjnej. Jej utrata nie musi unieruchamiać systemu krajowego, ale może ograniczyć horyzont informacyjny, szybkość wspólnego przydzielania celów i efektywność międzysojuszniczą. Jest to zależność strukturalna wynikająca z integracji, a nie dowód istnienia zewnętrznego „pilota”.
+    </div>
+
+    <div class="subhead">„Wewnętrzna agentura wpływu”</div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ BRAK DANYCH</span>
+      W przeanalizowanej oficjalnej i pierwotnej bazie dowodowej brak podstaw, aby kwalifikować polskich generałów, urzędników lub uczestników procesu zakupowego jako „agentów” obcych państw tylko dlatego, że szkolili się za granicą, uczestniczyli w programach NATO albo popierali zakup amerykańskiego czy koreańskiego uzbrojenia. Takie twierdzenie wymagałoby materiału o randze karnej, kontrwywiadowczej lub sądowej.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Mierzalny odpowiednik „wpływu” znajduje się nie w biografiach generałów, lecz w kontraktach: kto posiada prawa własności intelektualnej, kto certyfikuje modernizację, kto dostarcza krytyczny serwis, kto finansuje zakup i czyjej zgody wymaga reeksport. W polskim przypadku kanały te są udokumentowane znacznie lepiej niż hipotezy o ukrytej agenturze.
+    </div>
+
+    <p>Poziom pewności: wysoki w odniesieniu do dźwigni prawnych i kontraktowych; niski w odniesieniu do ukrytego wpływu politycznego. Amerykańska kontrola eksportu i kontraktowa rola OEM są udokumentowane. Tezy o tajnej agenturze, politycznie motywowanym odłączaniu rozpoznania lub zdalnych „zakładkach” nie są publicznie dowiedzione.</p>
+
+    <div class="subhead">Architektura krytycznej podatności</div>
+
+    <p>W tym punkcie źródło koryguje hipotezę wyjściową. Zamiast fizycznej listy celów wskazuje trzy funkcjonalne „igły”: zewnętrzny utrzymania i wsparcia eksploatacyjnego, odtwarzanie amunicji oraz integrację wielu ekosystemów technologicznych.</p>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ BRAK DANYCH</span>
+      Otwarte źródła nie potwierdzają tezy, że istnieje jeden lub dwa publicznie znane obiekty, których wyłączenie gwarantowałoby „paraliż polskiej machiny wojskowej w 72 godziny”. Taki wniosek wymagałby niejawnych danych o zapasach bojowych, rezerwowych kanałach C2, rozmieszczeniu rezerw materiałowych, zapasowych zdolnościach remontowych, rzeczywistej sprawności parku oraz wojskowych planach ciągłości działania.
+    </div>
+
+    <div class="subhead">Kontur zewnętrznego utrzymania i wsparcia eksploatacyjnego</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W latach 2021–2025 USA i Korea Południowa łącznie odpowiadały za około 91% polskiego importu głównych systemów uzbrojenia według metodologii SIPRI. Fala modernizacji obejmuje zagraniczne utrzymanie, szkolenie, narzędzia, części zamienne i pakiety logistyczne. Strona amerykańska nadal sprzedaje utrzymania i wsparcia eksploatacyjnego już po nabyciu samych platform.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Jest to najsilniejsza systemowa zależność Polski. Nie dlatego, że zagraniczny dostawca może w trzy dni zatrzymać całą armię, lecz dlatego, że długotrwałe zerwanie relacji z kluczowymi OEM stopniowo przekształca kosztowny park w system o rosnącym współczynniku niegotowości: najpierw cierpi złożony serwis i modernizacja, później zapasowe zespoły i wybrane rodzaje uzbrojenia, a następnie zdolność do utrzymania dużego parku w wymaganej konfiguracji. Lokalizacja K2 i amerykańskiego systemu serwisowego jest bezpośrednio skierowana na ograniczenie tego ryzyka.
+    </div>
+
+    <div class="subhead">Kontur odtwarzania amunicji</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Polska inwestuje miliardy w rozszerzenie krajowej bazy amunicyjnej i stawia cel osiągnięcia 150–180 tys. sztuk amunicji wielkokalibrowej rocznie, podczas gdy sektor prywatny uruchamia dodatkowe linie. Wskazuje to raczej na fazę szybkiego rozszerzania mocy niż na zakończoną, dojrzałą architekturę produkcyjną.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W konflikcie wysokiej intensywności krytyczna jest nie nominalna liczba systemów artyleryjskich, lecz cały łańcuch: zapasy → produkcja → materiały energetyczne i komponenty → kontrola jakości → dostawa → naprawa środków użycia. Jeżeli jeden z poziomów chronicznie pozostaje w tyle, park uzbrojenia ogranicza nie liczba luf, ale tempo odtwarzania zużywanego zasobu. Polska polityka przemysłowa lat 2025–2026 próbuje zamknąć właśnie tę potencjalną asymetrię.
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ BRAK DANYCH</span>
+      Dokładne polskie wojskowe zapasy amunicji 155 mm, rakiet do obrony powietrznej, pocisków kierowanych i innych krytycznych środków nie są ujawnione w stopniu pozwalającym uczciwie wyliczyć „dzień wyczerpania” albo potwierdzić próg 72 godzin.
+    </div>
+
+    <div class="subhead">Kontur integracji wielu ekosystemów</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Polska jednocześnie dokonuje dużych zakupów systemów amerykańskich i koreańskich, utrzymuje produkcję krajową oraz lokalizuje platformy zagraniczne. K2PL ma integrować się z polskimi systemami łączności i BMS kompatybilnymi z architekturą Abrams, co pokazuje skalę pracy integracyjnej pomiędzy różnymi rodzinami platform.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Powstaje mniej spektakularna, ale fundamentalna podatność: różnorodność logistyczna może przekroczyć próg, po którym każda dodatkowa rodzina systemów zwiększa łączne obciążenie szkoleniem, diagnostyką, oprogramowaniem, magazynowaniem, remontem i zarządzaniem konfiguracjami szybciej niż zwiększa odporność. Polska częściowo przeciwdziała temu poprzez krajowe BMS, lokalny remont i standaryzację NATO, ale samo tempo zakupów zwiększa ryzyko czasowej luki między „sprzętem w jednostkach” a „dojrzałym systemem jego zabezpieczenia”.
+    </div>
+
+    <div class="subhead">Test odporności na nagłe embargo</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Jeśli jeden duży dostawca nagle wstrzymuje nowe dostawy, serwis i licencjonowanie, pierwsze 72 godziny nie wyglądają na wiarygodny horyzont ogólnokrajowego załamania: dostarczony sprzęt, zapasy i krajowe możliwości nadal istnieją. Najpoważniejsze skutki pojawiają się później i nieliniowo — wraz z terminami obsługi okresowej, awariami zespołów, potrzebą uzupełnienia specyficznej amunicji i aktualizacją elementów programowych oraz konfiguracyjnych.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Jednoczesne zerwanie obu głównych obwodów zewnętrznych — amerykańskiego i południowokoreańskiego — byłoby znacznie cięższe, ponieważ na te dwa kierunki przypadało 91% polskiego importu głównych systemów uzbrojenia w latach 2021–2025. Nawet taki scenariusz należy jednak opisywać jako przyspieszony spadek odporności parku importowanego, a nie jako dowiedziony „72-godzinny nokaut” państwa.
+    </div>
+
+    <div class="subhead">Ryzyko korupcyjnego rozkładu</div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ BRAK DANYCH</span>
+      Brakuje wystarczającej bazy dowodowej, aby twierdzić, że współczesny polski system zamówień obronnych jest jedną udowodnioną machiną „rozkradania”, która systematycznie fałszuje poziom gotowości bojowej.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Przejrzystość jest jednak obiektywnie ograniczona specyfiką zamówień obronnych: ustawodawstwo przewiduje szczególne procedury i wyjątki, a część kontraktów realizowana jest poza zwykłą otwartą konkurencją. Historyczne kontrole NIK dotyczące offsetu pokazywały również przypadki, w których formalne wykonanie zobowiązań nie gwarantowało maksymalnego efektu przemysłowego.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Ryzyka korupcyjnego trafniej szukać nie poprzez niepotwierdzone „łapówki”, lecz poprzez cztery mierzalne mechanizmy: słabą porównywalność alternatyw przy pilnych zamówieniach; zawyżoną wycenę lokalizacji; utożsamianie nominalnego offsetu z suwerennością technologiczną; oraz przenoszenie przyszłego kosztu cyklu życia poza polityczny horyzont decyzji zakupowej. Każdy z tych mechanizmów może pogarszać realną efektywność budżetu obronnego nawet bez przestępstwa korupcyjnego.
+    </div>
+
+    <div class="subhead">Pułapka geopolityczna</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Najbardziej realistycznym ryzykiem dla polskiej suwerenności nie jest zamiana kraju w „materiał zużywalny bez prawa głosu”, na co brak dowodów, lecz asymetryczny koszt strategicznego zwrotu. Im większy park systemów amerykańskich i koreańskich oraz im głębsza jego integracja z NATO C2, tym droższe staje się przejście do niekompatybilnego dostawcy albo polityki autarkii technologicznej. Jednocześnie ogromny polski rynek tworzy przeciwdźwignię: Polska sama jest krytycznie ważnym klientem — przypadło na nią 58% południowokoreańskiego eksportu głównych systemów uzbrojenia w latach 2021–2025.
+    </div>
+
+    <p>Relacja nie jest więc jednostronna: Polska zależy od producentów, ale producenci także ekonomicznie zależą od kontynuacji polskich programów.</p>
+
+    <p>Poziom pewności: średnio-wysoki. Klasy zależności są dobrze potwierdzone; konkretna szybkość degradacji w warunkach wojny pozostaje średnio lub nisko pewna, ponieważ dane o zapasach, rezerwach i realnej sprawności są niejawne. Teza o gwarantowanym 72-godzinnym paraliżu krajowym została oceniona jako niepotwierdzona.</p>
+
+    <div class="subhead">Beneficjenci status quo</div>
+
+    <div class="subhead">Zagraniczni OEM</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Amerykańska zainstalowana baza generuje kolejne odrębne kontrakty serwisowe: sam potencjalny pakiet utrzymania i wsparcia eksploatacyjnego dla F-35 zatwierdzony w 2025 roku wyceniono na maksymalnie 1,85 mld dolarów. Strona południowokoreańska otrzymuje nie tylko przychód z eksportu początkowego, ale także rolę dostawcy pakietów serwisowych i technologicznych w procesie lokalizacji K2.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Dla zagranicznego producenta najbardziej opłacalna nie musi być „pełna zależność Polski”, lecz długoterminowy zainstalowana baza, w którym strona polska otrzymuje wystarczająco dużo lokalnej zawartości, by politycznie podtrzymywać program, podczas gdy OEM zachowuje komercyjnie istotną rolę w modernizacji, zmianach technologicznych i specjalistycznym wsparciu. Jest to klasyczna renta cyklu życia widoczna w samej strukturze kontraktów utrzymania i wsparcia eksploatacyjnego.
+    </div>
+
+    <div class="subhead">Korea Południowa jako mocarstwo eksportowe</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Polska była odbiorcą 58% południowokoreańskiego eksportu głównych systemów uzbrojenia w latach 2021–2025. Kontynuacja polskich programów ma więc systemowe znaczenie handlowe dla koreańskiego przemysłu obronnego, a Warszawa posiada znacznie większą siłę negocjacyjną niż zwykły mały importer.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Zmniejsza to ryzyko całkowicie jednostronnej zależności: Seulowi opłaca się, aby polski system działał, rozszerzał się i pełnił rolę europejskiego rynku referencyjnego dla koreańskiego przemysłu.
+    </div>
+
+    <div class="subhead">PGZ i państwowy kontur przemysłowy</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Państwo czyni PGZ centralnym odbiorcą inwestycji w rozszerzenie produkcji i serwisu, prowadzi jej reorganizację i stawia cel maksymalizacji polskiego komponentu. Rząd publicznie wskazał także kontrakty PGZ o wartości 130 mld zł oraz inwestycje w rozwój zdolności amunicyjnych.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      PGZ jest jednocześnie zainteresowana dwoma przeciwstawnymi procesami: korzystają na niej duże programy importowe, jeśli przenoszą pracę, serwis i technologię do Polski, natomiast niekorzystny jest model bezpośredniego zakupu gotowego produktu zagranicznego, który pozostawia przemysłowi krajowemu jedynie minimalne wsparcie. W polskim systemie istnieje więc wbudowana presja na większą lokalizację.
+    </div>
+
+    <div class="subhead">Sektor prywatny</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Wzrost WB GROUP i pojawienie się prywatnych projektów amunicyjnych pokazują, że duży budżet obronny tworzy alternatywny polski ośrodek interesów gospodarczych poza PGZ. Państwo samo deklaruje zamiar łączenia PGZ z potencjałem firm prywatnych.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Dla odporności Polski jest to pozytywna tendencja strukturalna: im więcej niezależnych centrów gospodarczych potrafi wykonywać podobne funkcje, tym mniejsze ryzyko przekształcenia państwowego holdingu w absolutny monopol przemysłowy. Pojawia się jednak nowe zadanie — uniknięcie fragmentacji standardów i dublowania niekompatybilnych rozwiązań.
+    </div>
+
+    <div class="subhead">Geopolityczny patron</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      USA uzyskują z polskiej modernizacji trzy korzyści: duży rynek eksportowy, głęboką kompatybilność wschodnioeuropejskiego sojusznika z amerykańskim ekosystemem wojskowym oraz długoterminową relację serwisową. Oficjalna strona polska sama określa Waszyngton jako najważniejszego partnera wojskowego i wycenia aktywne amerykańskie programy zakupowe na około 63 mld dolarów.
+    </div>
+
+    <p>Określenie „utrzymywanie w orbicie” opisuje tu skutek integracji technologicznej, a nie udowodniony złośliwy plan. Amerykański interes w interoperacyjności jest udokumentowany; zamiar celowego utrzymywania polskiej podatności — nie.</p>
+
+    <div class="subhead">„Załatwiacze” i lokalne elity</div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ BRAK DANYCH</span>
+      W dostępnej bazie dowodowej nie ma wystarczających podstaw, aby wskazać konkretnych polskich pośredników, polityków lub wojskowych jako beneficjentów systemowego mechanizmu korupcyjnego. Każde personalne oskarżenie bez materiałów sądowych byłoby spekulacją.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      System obejmujący ogromny wolumen pilnych zamówień, specjalne procedury, państwowy przemysł i złożoną wycenę transferu technologii nieuchronnie tworzy możliwości rentowe. Odpowiedzią powinien być pomiar faktycznego udziału komponentu krajowego, konkurencji oraz kosztu cyklu życia, a nie formalnej wartości podpisanych umów. Symptomatyczne jest, że w 2026 roku MAP rozpoczęło wdrażanie metodologii pomiaru rzeczywistego udziału komponentu krajowego poprzez sprawozdawczość statystyczną, co pośrednio wskazuje na niewystarczalność wcześniejszych wskaźników deklaratywnych.
+    </div>
+
+    <div class="subhead">Kluczowy paradoks</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W Polsce nie istnieje jeden koalicyjny beneficjent maksymalnego utrzymywania zależności. Zagranicznym OEM opłaca się renta serwisowa, ale polskiemu państwu i przemysłowi opłaca się przenosić tę rentę do kraju. Koreańskim producentom lokalizacja może się opłacać, jeśli rozszerza ich rynek europejski. Prywatnemu sektorowi polskiemu opłaca się rozbijać monopole państwowe, ale jednocześnie może on sam wbudowywać się w łańcuchy zagraniczne. Rezultatem jest stały targ o granicę między „zakupem gotowej zdolności” a „zakupem suwerenności przemysłowej”.
+    </div>
+
+    <p>Poziom pewności: średnio-wysoki dla instytucjonalnych bodźców ekonomicznych; niski dla personalnych sieci nieformalnych. Bodźce komercyjne i państwowe wynikają z kontraktów i struktury własności; dowodów na tajne koalicje korupcyjne jest niewystarczająco dużo.</p>
+
+    <div class="subhead">Werdykt końcowy</div>
+
+    <div class="subhead">Portret strukturalny</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Polski przemysł obronny to państwowo-dominantny system hybrydowy w stanie forsownego skalowania. Polska posiada własny ciężki fundament przemysłowy, przedsiębiorstwa amunicyjne, prywatny sektor wysokotechnologiczny i rosnący eksport, lecz największa fala modernizacyjna budowana jest wokół importowanych platform amerykańskich i południowokoreańskich. W latach 2021–2025 na te dwa państwa przypadło 91% polskiego importu głównych systemów uzbrojenia.
+    </div>
+
+    <p>Polska kupuje nie tylko sprzęt. Kupuje również czas: zagraniczna seryjna produkcja pozwala szybciej rozwinąć zdolności, niż można byłoby je stworzyć od zera w kraju. Ceną tej szybkości jest dług technologiczny, który później trzeba spłacać inwestycjami w krajowy serwis, produkcję amunicji, lokalizację montażu oraz integrację kilku różnych ekosystemów platform. Programy K2PL, Homar-K, lokalizacja amunicji i rozwój polskiego serwisu pokazują, że Warszawa już próbuje ten dług zmniejszać.</p>
+
+    <div class="subhead">Główna krytyczna podatność</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Główną „igłą Kościeja” nie jest jeden zakład, lotnisko ani centrum danych. Jest nią rozjazd pomiędzy szybkim wzrostem zagranicznej zainstalowanej bazy a tempem budowy w pełni krajowego obwodu jej cyklu życia. W uproszczonej formule: importowana platforma → zagraniczne praw własności intelektualnej i konfiguracja → specjalistyczne części oraz serwis → specyficzna amunicja → krajowa integracja i remont. Dopóki Polska nie będzie w stanie samodzielnie utrzymywać krytycznej części tego łańcucha przez długotrwały kryzys, jej realna suwerenność wojskowa będzie niższa niż sugeruje nominalna wartość zakupionego uzbrojenia.
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ BRAK DANYCH</span>
+      Teza, że utrata jednego publicznie znanego węzła gwarantowanie załamie cały polski system wojskowy w ciągu 72 godzin, nie wytrzymuje weryfikacji na danych otwartych. Polska aktywnie tworzy rezerwy poprzez dywersyfikację dostawców, lokalizację i rozszerzanie bazy produkcyjnej. Ryzyko istnieje, ale ma charakter akumulacyjny, a nie koniecznie natychmiastowy.
+    </div>
+
+    <div class="subhead">Najbardziej prawdopodobna trajektoria na 3–5 lat</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Do lat 2029–2031 najbardziej prawdopodobna jest nie autarkia ani dalsze przekształcanie Polski w prostego importera, lecz „lokalizowana zależność” wyższej jakości: etap pierwszy — import gotowych systemów; drugi — krajowy serwis i remont; trzeci — montaż końcowy; czwarty — lokalna amunicja i wybrane podsystemy; piąty — coraz większy polski udział w kolejnych modyfikacjach. Taka sekwencja jest już widoczna w K2PL: produkcja polskiej partii planowana jest na lata 2028–2030, pojazdów towarzyszących do 2031 roku, a równocześnie rozwijane są nowe moce amunicyjne i wspólne projekty rakietowe.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Głównym ograniczeniem nie będzie sama zdolność znalezienia środków na pierwszy zakup, lecz możliwość jednoczesnego finansowania cyklu życia ogromnego importowanego parku i kapitalizacji własnego przemysłu obronnego. Wydatki rzędu 4,8% PKB, gwarancje państwowe dla Funduszu Wsparcia Sił Zbrojnych i zewnętrzne finansowanie kredytowe pozwalają utrzymywać wysokie tempo dziś, ale zwiększają znaczenie przyszłych kosztów utrzymania i dyscypliny budżetowej.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Drugim ograniczeniem będzie złożoność organizacyjna. Sukces polskiego modelu będzie zależeć nie od liczby podpisanych kontraktów, lecz od tego, czy państwo zdoła przekształcić amerykański, koreański, polski państwowy i polski prywatny kontur z równoległych systemów w jedną architekturę remontowo-logistyczną. Reorganizacja PGZ, program zwiększania komponentu krajowego i standaryzacja obsługi pokazują, że problem został już rozpoznany na poziomie polityki.
+    </div>
+
+    <div class="subhead">Ocena końcowa</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Polska jest dziś znacznie bardziej zależna od importu głównych systemów uzbrojenia niż dziesięć lat temu; wzrost importu w latach 2021–2025 względem poprzedniego pięciolecia wyniósł 852%.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Zależność ta nie musi jednak zmierzać wyłącznie ku pogorszeniu: część ogromnego zamówienia importowego jest używana jako narzędzie importu technologii, organizacji serwisu i tworzenia produkcji lokalnej.
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ WERSJA PR</span>
+      Polski rząd określa jako cel końcowy „autonomię strategiczną”, skrócone łańcuchy dostaw oraz pełny krajowy proces technologiczny w wybranych kierunkach amunicyjnych. Skala faktycznie osiągniętej autonomii pozostaje jednak niższa od skali deklarowanego celu.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Głównym ryzykiem lat 2026–2031 nie jest nagły pojedynczy „wyłącznik”, lecz rozjazd trzech prędkości: zakupy uzbrojenia postępują szybciej niż lokalizacja; lokalizacja szybciej niż budowa w pełni krajowej bazy komponentowej; a wzrost parku może postępować szybciej niż rozwój mocy remontowych, kadrowych i amunicyjnych. Jeśli Polska wyrówna te prędkości, zależność spadnie. Jeśli nie, kraj może zbudować jedną z największych baz sprzętowych armii w Europie, ale z nieproporcjonalnie wysokim zewnętrznym kosztem utrzymania jej gotowości.
+    </div>
+
+    <p>Poziom pewności trajektorii: średnio-wysoki. Horyzont kontraktowy do lat 2030–2031 jest już stosunkowo dobrze widoczny, a inwestycje lokalizacyjne potwierdzone. Największą niewiadomą pozostają rzeczywista głębokość transferu technologii, przyszłe wykorzystanie nowych linii produkcyjnych, ograniczenia makrofinansowe oraz niejawne parametry zapasów wojskowych.</p>
+
+    <div class="subhead">Źródła</div>
+
+    <p>[1] [2] [12] [37] [38] [41] [42] [45] Ministerstwo Aktywów Państwowych — „Polska inwestuje w bezpieczeństwo — rok pracy podsekretarza stanu Konrada Gołoty w Ministerstwie Aktywów Państwowych”: https://www.gov.pl/web/aktywa-panstwowe/polska-inwestuje-w-bezpieczenstwo--rok-pracy-podsekretarza-stanu-konrada-goloty-w-ministerstwie-aktywow-panstwowych</p>
+    <p>[3] [39] WB GROUP — „Nasza rzeczywistość jest waszą przyszłością”: https://www.wbgroup.pl/en/</p>
+    <p>[4] [9] [20] [25] [29] [31] [32] [43] [44] [46] [48] Ministerstwo Obrony Narodowej — „Czołgi K2”: https://www.gov.pl/web/obrona-narodowa/czolgi-k2</p>
+    <p>[5] [6] [7] [19] [33] [36] [49] SIPRI — „Trends in International Arms Transfers, 2025”: https://www.sipri.org/sites/default/files/2026-03/fs_2603_at_2025.pdf</p>
+    <p>[8] [21] [24] [40] [47] Gov.pl — oficjalny dokument polityki zagranicznej / obronnej 2026: https://www.gov.pl/attachment/068721d5-f9c5-40e6-bbcb-846795e9df7a</p>
+    <p>[10] Ministerstwo Finansów — Średniookresowy plan finansowy 2025–2028: https://www.gov.pl/attachment/35d04fac-a5f4-4d0f-a81e-dc10d628c69b</p>
+    <p>[11] Defense Security Cooperation Agency: https://www.dsca.mil/</p>
+    <p>[13] [14] DSCA — Główne sprzedaże uzbrojenia — Polska: https://www.dsca.mil/Press-Media/Major-Arms-Sales/Tag/61555/poland</p>
+    <p>[15] [18] [30] Portal Gov.pl — „Priorytety ministra aktywów państwowych — bezpieczeństwo i konkurencyjność polskiej gospodarki”: https://www.gov.pl/web/priorytety/priorytety-ministra-aktywow-panstwowych--bezpieczenstwo-i-konkurencyjnosc-polskiej-gospodarki</p>
+    <p>[16] Portal Przedsiębiorcy Sektora Obronnego — Grupa Niewiadów-PGM SA: https://polishdefenceindustry.gov.pl/company/grupa-niewiadow-pgm-sa/</p>
+    <p>[17] Ministerstwo Aktywów Państwowych — „Local Content. Z korzyścią dla Polski”: https://www.gov.pl/web/aktywa-panstwowe/local-content-z-korzyscia-dla-polski-wspieramy-krajowe-firmy-budujemy-gospodarke</p>
+    <p>[22] [35] Najwyższa Izba Kontroli — „NIK o realizacji zobowiązań offsetowych za zakup F-16”: https://www.nik.gov.pl/najnowsze-informacje-o-wynikach-kontroli/nik-o-realizacji-zobowiazan-offsetowych-za-zakup-f-16.html</p>
+    <p>[23] [28] DSCA 11-08 — monitorowania końcowego użytkowania / transfer controls: https://samm.dsca.mil/policy-memoranda/dsca-11-08</p>
+    <p>[26] NATO — „Standaryzacja”: https://www.nato.int/en/what-we-do/deterrence-and-defence/standardization</p>
+    <p>[27] NATO — „Interoperacyjność: łączenie sił”: https://www.nato.int/en/what-we-do/deterrence-and-defence/interoperability-connecting-forces</p>
+    <p>[34] Urząd Zamówień Publicznych — wyszukiwarka orzeczeń: https://orzeczenia.uzp.gov.pl/Home/Details/24970</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Legenda oznaczeń — standard weryfikacji</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — informacja zweryfikowana przez rejestry, dokumenty, umowy lub oficjalne statystyki</div>
+      <div><b>WERSJA PR</b> — oficjalne stanowisko opisywanego podmiotu lub instytucji</div>
+      <div><b>WNIOSEK ANALITYCZNY</b> — wnioskowanie oparte na przedstawionych przesłankach i strukturze systemu</div>
+      <div><b>BRAK DANYCH</b> — informacja nieweryfikowalna, nieujawniona lub niewystarczająco potwierdzona</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
