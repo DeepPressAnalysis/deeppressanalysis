@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan — Managed Entropy | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Serif JP', 'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Noto Serif JP', serif;
+    font-weight:900;
+    font-size:42px;
+    line-height:1.1;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Noto Serif JP',serif;
+    font-style:italic;
+    font-size:18px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.7;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Noto Serif JP',serif;
+    font-weight:900;
+    font-size:52px;
+    line-height:0.8;
+    float:left;
+    margin:8px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Noto Serif JP',serif;
+    font-weight:900;
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:20px 0 10px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Noto Serif JP',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    margin:12px 0 20px;
+    padding:12px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Noto Serif JP',serif; font-weight:700;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← メインサイト</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Independent Structural Intelligence · Est. 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">"Structure over narrative."</div>
+  </div>
+  <div class="dateline-bar">
+    <span>日本デスク</span>
+    <span>2026年8月15日</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / 管理されたエントロピー</span>
+
+  <h1 class="headline">誰が実際に日本の政治的不満を吸収しているのか</h1>
+  <p class="deck">現代の日本国家は、社会的な緊張を強権的に弾圧するのではなく、複雑な制度的緩衝材を通して蓄積し、分散させる極めて効率的な権力維持システムである。その構造を解剖する。</p>
+  <div class="byline">日本デスク発 — カテゴリ：管理されたエントロピー</div>
+
+  <div class="columns">
+
+    <p class="lead">現代の日本国家は、権力維持のための極めて効率的なシステムを提示している。社会的な緊張は、直接的な弾圧装置によって抑え込まれるのではなく、複雑な制度的緩衝材の複合体を通じて蓄積され、分散される。権威主義的なモデルが直接的な抑圧に多大な資源を費やすのとは対照的に、日本のモデルは「耐震性のある」制度設計を利用している。</p>
+
+    <div class="subhead">制度的バルブの構築（疑似競争）</div>
+    <p>日本の政治システムは、事実上の1.5大政党制（現代に修正された「55年体制」）として機能している。自由民主党（自民党）は70年にわたり、ほぼ途切れることなく権力の独占を維持してきた。野党は政権の選択肢としてではなく、選挙の避雷針としての役割を果たしている。</p>
+
+    <div class="stamp-note pr">
+      <span class="k">■ PRバージョン</span>
+      立憲民主党（立民）は、進歩勢力の遺産を引き継ぎ、平和憲法9条、労働者の権利、社会保障の妥協なき擁護者として、自民党の「権威主義」に対抗している。
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      現実には、立民は都市部の中間層や知識人の抗議票を集め、蓄積するための制度的な貯水池として機能している。市民は立民に投票することで、心理的な不服従の行為を行い、その後、抗議の衝動は完全に中和される。国会の構造と委員会の規則は、官僚によって構築されており、立民は手続き上の議論を長引かせたり、象徴的な妨害を行ったりすることはできても、与党の内閣の重要な財政的および戦略的イニシアチブを阻止することはできない。
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ 事実</span>
+      国民民主党と公明党。創価学会という仏教運動の何百万もの規律正しい支持者を持つ公明党は、1999年から2025年まで自民党と連立政権を組んでいた。
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      公明党は、組み込まれた「社会的ブレーキ」の役割を果たしていた。自民党が右派的な経済・防衛路線を推進することを可能にしつつ、政府内に「人道的な安全装置」が存在するかのように装い、不人気な決定に対する責任を曖昧にしていた。
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ 事実</span>
+      自民党内部のエントロピー：実際の政治的競争と資源をめぐる争いは、自民党と野党の間ではなく、与党内部の派閥（派閥）間で起こっている。
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      深刻なスキャンダルや大衆の怒りの高まりが起きた場合、自民党は内部のローテーションを行う。党総裁（ひいては首相）を交代させ、派閥を解散させるか、形式的に改称する。社会の関心は党内のドラマに向けられ、野党に政権を渡すことなく、権力の「抜本的な刷新」という幻想を生み出す。
+
+    </div>
+
+    <div class="subhead">コントロールされた労働組合とNGO</div>
+    <div class="stamp-note pr">
+      <span class="k">■ PRバージョン</span>
+      日本労働組合総連合会（連合）は、大資本に直面する被用者の権利を擁護する、独立した最大の労働者組織である。
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ 事実</span>
+      連合の代表は、経営者側（経団連）の代表や国が任命した専門家とともに、政府の労働政策審議会に確保された10の議席を公式に占めている。
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      連合の制度化により、階級闘争やストライキ運動の可能性は、密室での日常的な手続き上の取引へと変化する。連合の支部は産業別ではなく企業別に形成されているため（特定の企業の労働組合は、その企業の収益性に関心を持つ）、ゼネストの可能性は阻まれている。労働組合の幹部は政治的調整システムに統合されており、労働力と経営陣の間の緩衝材として機能している。
+    </div>
+
+    <blockquote class="pull">「抗議を分散させ、体制側の意図しない野党の躍進を防ぐために、国家構造は特化された政治プロジェクトの出現を容認し、間接的に刺激している。」</blockquote>
+
+    <div class="subhead">スポイラーとシミュラークル</div>
+    <div class="stamp-note pr">
+      <span class="k">■ PRバージョン</span>
+      日本維新の会は、右派改革派の反体制勢力であり、「東京の官僚主義」に対抗し、地方分権と新自由主義を主張している。
+    </div>
+    
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      この党は、右派の抗議行動や関西（大阪）の住民の不満を集約している。危機的な局面では、維新は重要なイニシアチブ（憲法改正や社会保障費の削減など）で自民党と足並みを揃えて投票し、予備の連立の松葉杖として機能する。
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ 事実</span>
+      参政党と日本保守党は、国政選挙で躍進を遂げた右派ポピュリスト政党である。
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      これらの組織は、超保守主義、コロナ懐疑主義、反移民の不満を吸収する機能を果たしている。過激な分子が自民党内部で議題を乗っ取るのを防ぎ、ニッチな陰謀論に閉じ込める。
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ 事実</span>
+      れいわ新選組は、元俳優の山本太郎が率いる左派ポピュリスト運動である。
+    </div>
+    
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      若者、プレカリアート、障害者の経済的絶望を、国会内での派手ではあるが実践的には全く実現不可能なゲリラ的行動へと流し込み、システムの金融機関を脅かすことはない。
+    </div>
+
+
+    <div class="subhead">過激派の誘導（管理された過激主義）</div>
+    <div class="stamp-note pr">
+      <span class="k">■ PRバージョン</span>
+      極右の伝統主義者グループ（右翼団体）は、「左翼の脅威」から天皇と伝統的な価値観を守る、自然発生的で非妥協的な国粋主義団体である。
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ 内部情報 / 未確認</span>
+      日本の調査報道ジャーナリストの資料や、当局と極右界隈との歴史的な関わり合いの慣行によれば、右翼団体の街頭活動（右翼のマーチを街中に響き渡らせる街宣車）は、警察庁警備局（NPA）および公安調査庁（PSIA）の暗黙の管理下にある。
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      警察は極右グループを排除するのではなく、厳密に量を調整された機能状態に維持している。右翼の過激派は、都市の特定のゾーンで音響による快適さ/不快さを生み出すことが許可されており、これにより情報機関は若者の過激化のレベルを測定し、これらのグループを街頭での圧力の予備的手段として利用することができる。
+    </div>
+
+
+    <div class="subhead">多数派のための案山子</div>
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      日本共産党（法的な地位と国会の議席を維持している）と攻撃的な極右グループの存在は、自民党勢力によって、保守的で穏健な多数派（サイレント・マジョリティ）に対する二面性のある「案山子（脅し）」として利用されている。経済モデルの抜本的な見直しや社会改革の試みは、権力側のメディア空間によって「共産主義の混乱のリスク」または「過激主義への迎合」というレッテルを貼られ、一般市民に唯一の安定の砦として自民党への投票を促す。
+    </div>
+
+    <div class="subhead">メディアの避雷針と憎悪の管理</div>
+    <p>生活水準の低下、インフレ、または政府高官の汚職スキャンダルの際に、メディアマシンは意図的に大衆の怒りを偽の標的へと向け直す。</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ 事実</span>
+      オーバーツーリズムと外国人労働者：参政党とそれに関連するメディアリソースは、「不動産を買い漁り、伝統を汚す外国人の流入から日本を守る」というテーマで積極的にキャンペーンを展開している。
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      人口の高齢化と実質賃金の低下という構造的な問題は、情報空間において、観光客や移民といった単純で象徴的な敵に置き換えられている。外国人の不適切な行動による事件を誇張することで、市民の苛立ちを日常的な排外主義へと向け流すことができ、人件費を削減している大企業や財務省の責任を免れさせる。
+    </div>
+
+    <div class="subhead">システムを統括する者（誰がバルブを握っているのか）</div>
+    <div class="stamp-note fact">
+      <span class="k">■ 事実</span>
+      財務省（MOF）と経済産業省（METI）：霞が関の官僚機構の人員構成は、首相が交代しても変わらない。法案の圧倒的多数は、国会議員ではなく省庁の官僚によって書かれている。
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ 事実</span>
+      内閣情報調査室（内調）は、首相直属の主要な分析・情報機関である。
+    </div>
+    
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      内調は、世論、ネットのトレンド、抗議の潜在的な発生源を継続的に監視し、メディアの議題をタイムリーに修正するための推奨指令を首相官邸に発行している。
+    </div>
+
+    <div class="subhead">寡頭制のコンセンサス</div>
+    <div class="stamp-note fact">
+      <span class="k">■ 事実</span>
+      システムの金融・産業の基盤は、日本経済団体連合会（経団連）である。経団連は国内の主要企業を統合している。毎年、主要政党の「政策評価」を公表し、それに基づいて会員企業に政治献金の額を公然と推奨している。大企業からの数億ドルの資金が、自民党の公式な政治資金団体である国民政治協会に合法的に流れ込んでいる。メガバンクや防衛産業の巨人が、好意的な法整備を維持するために数十億円を寄付している。
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      これは古典的な「鉄の三角形（Iron Triangle）」である。ビジネス（経団連）が自民党に資金を提供し、自民党が官僚（霞が関）の予算と政治的隠れ蓑を確保し、官僚がビジネスの利益のために法律を書き、市場を規制する。政治サイクルは閉鎖的に機能している。いかなる反資本主義的または労働改革も、国会のフィルターを通過しないことが保証されている。
+    </div>
+
+    <div class="subhead">致命的な障害のリスク</div>
+    <div class="stamp-note insight">
+      <span class="k">■ 分析的結論</span>
+      資源の枯渇：日本のアーキテクチャの最大の脆弱性は、その高い財政コストである。抗議を鎮めるには、農協への補助金、地方のインフラプロジェクト（土建国家）、社会福祉などへの継続的な予算投入が必要である。人口の壊滅的な高齢化、円安、国の債務の増加という状況下では、国と経団連は、中間層の忠誠心を買い、スポイラーに資金を提供するための資金を使い果たす可能性がある。資源の枯渇は、エリート層に軟着陸の吸収から直接的な警察の強制へと移行することを余儀なくさせ、突発的なショックに直面した際のシステムの脆弱性を急激に高めるだろう。
+    </div>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">記号の凡例 — 検証基準</div>
+    <div class="keybox-grid">
+      <div><b>事実</b> — 登記、届出、公式統計により検証済み</div>
+      <div><b>PRバージョン</b> — 当該団体の公式な立場</div>
+      <div><b>分析的結論</b> — 開示された根拠に基づく論理的な推論</div>
+      <div><b>内部情報 / 未確認</b> — 検証不可能、未公開、または不十分</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
+```
+
+The content has been localized into Japanese and styled identically to the requested template format.
