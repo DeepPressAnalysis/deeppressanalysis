@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polska — Zależność farmaceutyczna | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← STRONA GŁÓWNA</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Niezależny wywiad strukturalny · od 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">„Struktura ponad narracją.”</div>
+  </div>
+  <div class="dateline-bar">
+    <span>BIURO POLSKA</span>
+    <span>15 SIERPNIA 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / ZALEŻNOŚĆ FARMACEUTYCZNA</span>
+
+  <h1 class="headline">Kto naprawdę kontroluje bezpieczeństwo lekowe Polski</h1>
+  <p class="deck">Dekonstrukcja systemu, w którym krajowa produkcja opiera się na azjatyckich substancjach czynnych, dystrybucję kontroluje wąska grupa hurtowników, a najbardziej zaawansowane terapie pozostają zależne od zagranicznych właścicieli patentów.</p>
+  <div class="byline">DZIAŁ POLSKA — RUBRYKA: ZALEŻNOŚĆ FARMACEUTYCZNA</div>
+
+  <div class="columns">
+
+    <p class="lead">Analiza architektury zależności farmaceutycznej i suwerenności biologicznej Polski pokazuje, jak warstwa surowcowa, logistyczna, patentowa i budżetowa łączą się w jeden system wzajemnych ograniczeń.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Polski sektor farmaceutyczny stanowi klasyczny model „podwójnego podporządkowania” (Dual Subordination).
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Z jednej strony kraj pełni funkcję montażowo-pakującego zaplecza dla leków generycznych, silnie zależnego od dostaw surowców chemicznych z Azji.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Z drugiej strony Polska jest gwarantowanym rynkiem zbytu segmentu premium dla zachodnioeuropejskich i amerykańskich korporacji transnarodowych Big Pharma, kontrolujących patenty na kluczowe cząsteczki.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Wewnątrz kraju fizyczna kontrola nad przepływem leków i podziałem marży pozostaje w rękach wąskiego oligopolistycznego kartelu dystrybutorów.
+    </div>
+
+    <div class="subhead">1. Dyktat surowcowy — iluzja lokalnej produkcji</div>
+
+    <div class="subhead">1.1. Pochodzenie API</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Od 70% do 80% wszystkich aktywnych substancji farmaceutycznych (API) wykorzystywanych w głównych polskich zakładach farmaceutycznych — Polpharma, Adamed, Celon Pharma i TZF Polfa Tarchomin — jest importowanych z Chin i Indii.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Traktowanie importu z Indii jako pełnej alternatywy dla Chin jest ograniczone przez fakt, że same Indie importują z ChRL około 70–72% wykorzystywanych API oraz do 90% kluczowych materiałów wyjściowych (KSM) do syntezy antybiotyków beta-laktamowych.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Chemiczne zaplecze polskiego przemysłu farmaceutycznego jest więc bezpośrednio powiązane z chińskimi klastrami chemicznymi w prowincjach Zhejiang, Jiangsu i Shandong.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Suwerenność Polski w zakresie podstawowej chemii organicznej i syntezy chemii wysokiej czystości została w praktyce silnie ograniczona.
+    </div>
+
+    <div class="subhead">1.2. Status lokalnych zakładów</div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ WERSJA PR</span>
+      W oficjalnej narracji producenci farmaceutyczni i instytucje państwowe wskazują na istnienie silnej produkcji krajowej, która ma zapewniać bezpieczeństwo lekowe państwa.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W praktyce zdecydowana większość polskich zakładów farmaceutycznych koncentruje się na końcowych etapach produkcji wtórnej.
+    </div>
+
+    <p>Obejmuje to przede wszystkim formulację, czyli mieszanie importowanego API z substancjami pomocniczymi, granulowanie i tabletkowanie oraz rozlew płynnych postaci leków i pakowanie ich w gotowe blistry i opakowania.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Formulacja, granulowanie, tabletkowanie, rozlew i końcowe pakowanie należą do podstawowych operacji wykonywanych w ramach tej krajowej produkcji wtórnej.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Rzeczywiste zdolności do chemicznej syntezy API w Polsce — między innymi wybrane linie Polpharmy w Starogardzie Gdańskim oraz państwowe moce TZF Polfa Tarchomin — mają charakter lokalny i pokrywają mniej niż 10–15% zapotrzebowania rynku krajowego w ograniczonym zakresie cząsteczek.
+    </div>
+
+    <div class="subhead">1.3. Margines bezpieczeństwa</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W przypadku poważnych zakłóceń logistycznych, wprowadzenia przez Pekin lub Nowe Delhi limitów eksportowych albo blokady morskich szlaków handlowych, zapasy API znajdujące się w Polsce wystarczyłyby — zależnie od grupy leków — na około 2–6 miesięcy.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Po wyczerpaniu zapasów nastąpiłoby kaskadowe zatrzymywanie linii produkcyjnych i zakończenie wytwarzania części podstawowych antybiotyków, leków przeciwbólowych, kardiologicznych i psychotropowych.
+    </div>
+
+    <p><strong>Cykl produkcyjny.</strong> Deklarowany status: pełny krajowy cykl produkcji. Rzeczywistość opisana w materiale: wtórna formulacja i pakowanie surowca pochodzenia azjatyckiego.</p>
+    <p><strong>Udział lokalnej syntezy API.</strong> Deklarowany status: strategiczna autonomia branży. Rzeczywistość opisana w materiale: nie więcej niż 10–15% całkowitego zużycia.</p>
+    <p><strong>Źródła API/KSM.</strong> Deklarowany status: zdywersyfikowane globalne dostawy. Rzeczywistość opisana w materiale: 70–80% zależności bezpośredniej i pośredniej od Chin i Indii.</p>
+    <p><strong>Autonomia w razie przerwania dostaw.</strong> Deklarowany status: nieograniczona dzięki rezerwom krajowym. Rzeczywistość opisana w materiale: paraliż produkcji po około 60–180 dniach.</p>
+
+    <blockquote class="pull">„Formalna produkcja krajowa nie jest tym samym co kontrola nad cząsteczką, od której zaczyna się cały lek.”</blockquote>
+
+    <p>Poziom pewności w materiale źródłowym określono jako wysoki; wskazano dane celne UE, rejestry aktywnych plików DMF oraz analizy instytucji handlowych jako podstawę oceny zależności od azjatyckiego zaplecza chemicznego.</p>
+
+    <div class="subhead">2. Oligopol dystrybucji — wąskie gardło</div>
+
+    <div class="subhead">2.1. Koncentracja rynku</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Dystrybucja leków wewnątrz kraju jest kontrolowana przez twardy kartel dystrybucyjny.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Trzej najwięksi operatorzy hurtowi — Neuca, Pelion i Farmacol — łącznie kontrolują około 70% rynku hurtowych dostaw leków do aptek detalicznych.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Łączny udział dziesięciu największych dystrybutorów przekracza 90% całego farmaceutycznego obrotu hurtowego w kraju.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Lider rynku, Neuca, posiada ponad 30–32% całego rynku hurtowego oraz 39,3% udziału w segmencie aptek niezależnych.
+    </div>
+
+    <div class="subhead">2.2. Władza nad detalem i państwem</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Najwięksi dystrybutorzy zbudowali zamknięte, pionowo zintegrowane ekosystemy, które tłumią swobodę rynku.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Pelion kontroluje największą krajową sieć apteczną DOZ (Dbam o Zdrowie).
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Neuca włączyła ponad 3,3 tys. niezależnych aptek — około jednej trzeciej wszystkich aptek w Polsce — do programów partnerskich Partner+ i IPRA, które wiążą zakupy apteczne z określonym dostawcą.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Hurtownicy dyktują warunki lokalnym producentom generyków, wymuszając wysokie retrobonusy, rabaty i opłaty za wejście do listingu aptecznych półek.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Pośrednicy rozwijają własne marki suplementów i preparatów OTC, między innymi APTEO w grupie Neuca, konkurując z niezależnymi producentami w najbardziej marżowych segmentach.
+    </div>
+
+    <div class="subhead">2.3. Powiązanie z regulacją</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Możliwości lobbingowe kartelu pozwalają bezpośrednio wpływać na otoczenie prawne i regulacyjne ochrony zdrowia.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Ustawowe podniesienie oficjalnej marży hurtowej na leki refundowane z 5% do 6% przekierowało setki milionów złotych z budżetu Narodowego Funduszu Zdrowia do największych dystrybutorów.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Przetargi szpitalne i podział zamówień publicznych są w wysokim stopniu zależne od infrastruktury logistycznej tych samych korporacji.
+    </div>
+
+    <p><strong>Neuca.</strong> Udział: ponad 30–32% rynku, do 39,3% w aptekach niezależnych. Integracja: programy partnerskie, marki własne APTEO i działalność CRO. Mechanizm kontroli wskazany w materiale: wpływ na zakupy około 3,3 tys. aptek oraz pozycja negocjacyjna wobec producentów.</p>
+    <p><strong>Pelion.</strong> Udział: około 20–25%. Integracja: sieć DOZ, detal i sektor szpitalny. Mechanizm kontroli wskazany w materiale: bezpośrednie posiadanie dużej sieci detalicznej.</p>
+    <p><strong>Farmacol.</strong> Udział: około 12–15%. Integracja: centra logistyczne i magazyny konsolidacyjne. Mechanizm kontroli wskazany w materiale: wyspecjalizowany transport chłodniczy i infrastruktura magazynowa.</p>
+
+    <p>Poziom pewności w materiale źródłowym określono jako wysoki na podstawie raportów finansowych Neuca i Pelion, danych UOKiK oraz raportów PEX PharmaSequence.</p>
+
+    <div class="subhead">3. Monopol na życie i korporacyjny szantaż — Big Pharma</div>
+
+    <div class="subhead">3.1. Obszary pełnej zależności</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W obszarze złożonych terapii Polska znajduje się w stanie całkowitej technologicznej zależności od importu.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Materiał wskazuje brak krajowej przemysłowej produkcji nowoczesnych leków onkologicznych, w tym przeciwciał monoklonalnych i inhibitorów punktów kontrolnych, wysokoskutecznych biologicznych leków inżynierii genetycznej dla hematologii i reumatologii, terapii chorób rzadkich oraz nowoczesnych długo działających analogów insuliny i agonistów receptora GLP-1.
+    </div>
+
+    <div class="subhead">3.2. Dominujące korporacje</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Rynek wysokotechnologicznego leczenia jest kontrolowany przez wąską grupę globalnych koncernów farmaceutycznych.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Roche, Bristol Myers Squibb, Merck i AstraZeneca zajmują dominujące pozycje w immunoonkologii poprzez cząsteczki takie jak niwolumab, pembrolizumab, atezolizumab i durwalumab.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Novo Nordisk i Eli Lilly kontrolują kluczową część segmentu innowacyjnych terapii cukrzycy i zaburzeń metabolicznych.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Pfizer, Novartis i Sanofi przejmują znaczącą część środków budżetowych w segmentach leków kardiologicznych, chorób rzadkich i ciężkich chorób autoimmunologicznych.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Przejęcie rynku odbywa się poprzez państwowe Programy Lekowe Ministerstwa Zdrowia, w tym programy B.6, B.12 i B.54, których specyfikacje są konstruowane pod konkretne opatentowane oryginalne cząsteczki.
+    </div>
+
+    <div class="subhead">3.3. Praktyka presji cenowej</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Korporacje transnarodowe stosują szantaż cenowy w negocjacjach z AOTMiT i Ministerstwem Zdrowia, wykorzystując przewagę wynikającą z braku równoważnych alternatyw terapeutycznych.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Przy próbach obniżenia ceny refundacyjnej lub żądaniu ujawnienia struktury kosztów Big Pharma grozi odmową włączenia leku do wykazu refundacyjnego albo zamrożeniem dostaw.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W warunkach braku alternatyw instytucje państwowe są zmuszone akceptować monopolistycznie wysokie ceny, przerzucając ciężar na podatników.
+    </div>
+
+    <p><strong>Immunoonkologia.</strong> Pembrolizumab, niwolumab i atezolizumab — właściciele: Merck, BMS i Roche. Ocena zależności w materiale: krytyczna, przy 100% imporcie oraz wysokim znaczeniu dla wydatków Programów Lekowych.</p>
+    <p><strong>Hematoonkologia i choroby rzadkie.</strong> Polatuzumab vedotin, epcoritamab i brentuximab — Roche, AbbVie i Takeda. Ocena zależności: absolutna, ze względu na brak krajowych odpowiedników generycznych.</p>
+    <p><strong>Cukrzyca — terapie innowacyjne.</strong> Semaglutyd, dulaglutyd i analogi insuliny — Novo Nordisk i Eli Lilly. Ocena zależności: wysoka, przy wypieraniu klasycznych insulin rozlewanych lokalnie.</p>
+
+    <p>Poziom pewności w materiale określono jako wysoki; jako podstawę wskazano plan finansowy NFZ oraz strukturę wydatków w Programach Lekowych.</p>
+
+    <div class="subhead">4. Przechwycenie instytucjonalne — patenty i protokoły</div>
+
+    <div class="subhead">4.1. Bariery patentowe</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Zachodni kapitał utrzymuje monopol poprzez agresywny trolling patentowy i strategie „wiecznie zielonych patentów” (evergreening).
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Korporacje mogą rejestrować wtórne patenty po zmianach takich jak wyodrębnienie izomeru, zmiana postaci soli czy opracowanie nowej drogi podania — jak w przypadku podskórnej formy atezolizumabu — co może wydłużać okres wyłączności o kolejne 5–10 lat.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Na poziomie Unii Europejskiej Polska opowiada się za skróceniem bazowego okresu wyłączności danych z 8 do 6 lat, aby przyspieszyć wejście leków generycznych, natomiast rozwiązanie to napotyka opór państw powiązanych z siedzibami dużych koncernów farmaceutycznych.
+    </div>
+
+    <div class="subhead">4.2. Kontrola nad protokołami leczenia</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Włączanie bardzo drogich importowanych leków do obowiązkowych krajowych standardów medycznych jest zapewniane poprzez lobbing w radach eksperckich.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ INSIDE / NIEPOTWIERDZONE</span>
+      Materiał twierdzi, że zdecydowana większość czołowych polskich specjalistów medycznych i autorów zaleceń klinicznych otrzymuje finansowanie od korporacji transnarodowych poprzez granty badawcze, opłacanie udziału w międzynarodowych kongresach i honoraria konsultacyjne. Źródło oznacza tę tezę jako niepotwierdzoną.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Według materiału utrzymywanie tej narracji jest korzystne zarówno dla koncernów farmaceutycznych, które zachowują rynki, jak i dla części elity lekarskiej, która zachowuje osobiste dochody.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W rezultacie do protokołów leczenia wpisywane są najdroższe schematy terapii, ograniczające stosowanie dostępnych leków generycznych.
+    </div>
+
+    <div class="subhead">4.3. Wypływ środków budżetowych</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Materiał interpretuje architekturę finansową polskiej ochrony zdrowia jako pompę transferującą publiczne środki do offshore’ów i na rachunki zachodnioeuropejskich spółek-matek.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Całkowity budżet refundacji leków w Polsce wzrósł z 15,3 mld zł w 2021 roku do planowanych 30,7–31,8 mld zł w 2026 roku.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Wydatki na wysokotechnologiczne Programy Lekowe wzrosły niemal trzykrotnie — z 5,1 mld zł do około 14,6–15,0 mld zł w 2026 roku.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Ponad 54% wszystkich środków tych programów jest wypłukiwanych przez sam sektor onkologiczny na rzecz zagranicznych właścicieli patentów.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Dotacja z budżetu centralnego do NFZ wzrosła z 0 zł w 2022 roku do 33 mld zł w 2025 roku, co odpowiada około 15% wszystkich dochodów Funduszu.
+    </div>
+
+    <p>Poziom pewności w materiale określono jako wysoki; podstawą są oficjalne sprawozdania finansowe NFZ i akty prawne Ministerstwa Zdrowia.</p>
+
+    <div class="subhead">5. Architektura krytycznej podatności — scenariusze załamania</div>
+
+    <div class="subhead">5.1. Punkty krytyczne</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      System fizycznego przetrwania polskiego społeczeństwa opiera się na trzech podatnych elementach.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Centralny węzeł logistyczny Neuca w Toruniu przy ul. Fortecznej 35–37 jest zautomatyzowanym magazynem obsługującym znaczną część północnej i centralnej Polski.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Materiał ocenia, że wyłączenie tego węzła wskutek katastrofy technicznej, pożaru lub poważnego cyberataku zablokowałoby w ciągu 48 godzin dostawy do około jednej trzeciej aptek w kraju.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      TZF Polfa Tarchomin otrzymała 455 mln zł inwestycji na budowę Centrum Rozwoju i Produkcji Leków Onkologicznych.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Zakład otrzymał także 100 mln zł finansowania pożyczkowego z Agencji Rozwoju Przemysłu.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Pomimo inwestycji zakład nie posiada pełnej własnej syntezy substancji dla antybiotyków i pozostaje zależny od importowanych azjatyckich KSM.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Materiał wskazuje brak w Polsce przemysłowej infrastruktury reaktorowej do hodowli kultur komórkowych i izolacji terapeutycznych cząsteczek białkowych na skalę odpowiadającą produkcji nowoczesnych leków biologicznych.
+    </div>
+
+    <div class="subhead">5.2. Blackout logistyczny</div>
+
+    <p><strong>Wyzwalacz scenariusza:</strong> konflikt geopolityczny w Cieśninie Tajwańskiej, blokada morska albo wprowadzenie przez Chiny lub Indie ostrych ograniczeń eksportowych na surowce chemiczne.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Dni 0–30: zakłady takie jak Polpharma i Adamed kontynuują pakowanie z wykorzystaniem istniejących zapasów API; jednocześnie zaczyna się wzrost zakupów panicznych w aptekach.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Dni 30–90: wyczerpują się zapasy substancji do antybiotyków, podstawowych leków kardiologicznych i NLPZ; część krajowych linii produkcyjno-pakujących zostaje zatrzymana.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Po 3–4 miesiącach materiał zakłada pełny niedobór antybiotyków pierwszej i drugiej linii oraz wzrost śmiertelności w szpitalach z powodu wtórnych zakażeń bakteryjnych i braku podstawowej terapii hipotensyjnej oraz przeciwzakrzepowej.
+    </div>
+
+    <div class="subhead">5.3. Bojkot korporacyjny</div>
+
+    <p><strong>Wyzwalacz scenariusza:</strong> próba administracyjnego ograniczenia cen oryginalnych leków biologicznych albo zastosowania licencji przymusowych w warunkach deficytu NFZ.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Materiał zakłada synchroniczne wycofanie wniosków refundacyjnych i zamrożenie dostaw przez pięć największych zachodnioeuropejskich i amerykańskich koncernów farmaceutycznych.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W tym scenariuszu w ciągu 30 dni w polskich ośrodkach onkologicznych całkowicie zatrzymałoby się prowadzenie nowoczesnej immunoterapii i chemioterapii.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Materiał przewiduje cofnięcie systemu medycznego do protokołów końca lat 90., niekontrolowany wybuch społeczny i załamanie zaufania do państwa.
+    </div>
+
+    <p>Poziom pewności dla scenariuszy źródło określa jako wysoki i wyprowadza je z topografii hubów logistycznych, norm zapasów magazynowych i terminów przydatności substancji farmaceutycznych.</p>
+
+    <div class="subhead">6. Beneficjenci status quo</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Obecna architektura zależności i braku suwerenności biologicznej Polski jest w materiale przedstawiona jako rezultat zbieżności interesów czterech głównych grup beneficjentów.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Globalne koncerny Big Pharma — w tym Roche, Pfizer, BMS, Merck i Novo Nordisk — korzystają z rosnących wydatków Programów Lekowych, których skala ma osiągać około 15 mld zł rocznie.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W materiale oceniono, że brak konkurencyjnych polskich innowacyjnych cząsteczek ogranicza ryzyko utraty tego rynku przez zagranicznych właścicieli patentów.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Lokalny oligopol logistyczny Neuca, Pelion i Farmacol kontroluje około 70% rynku, a ustawowa marża hurtowa na refundowane leki wynosi 6%.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      „Wielka trójka” pobiera marżę z każdej importowanej paczki, nie ponosząc ryzyka ani nakładów kapitałowych na stworzenie produkcji chemicznej, opracowanie cząsteczek i złożone badania naukowe.
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ WERSJA PR</span>
+      Właściciele lokalnych zakładów, takich jak Polpharma czy Adamed, korzystają ze statusu „krajowego producenta” i narracji o zapewnianiu bezpieczeństwa lekowego.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Materiał interpretuje ich model biznesowy jako niskiego ryzyka i wysokiej rentowności działalność polegającą na formulacji i pakowaniu taniego surowca azjatyckiego.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Państwowe aktywa farmaceutyczne, w tym TZF Polfa Tarchomin, były dokapitalizowywane kwotami liczonymi w setkach milionów złotych ze środków publicznych.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ INSIDE / NIEPOTWIERDZONE</span>
+      Materiał twierdzi, że środowisko medyczno-urzędnicze otrzymuje „ukryte dywidendy” od Big Pharma za wprowadzanie potrzebnych leków do protokołów leczenia i rejestrów refundacyjnych. Źródło oznacza tę tezę jako niepotwierdzoną.
+    </div>
+
+    <p><strong>Big Pharma.</strong> Korzyść wskazana w materiale: ponad 15 mld zł rocznie poprzez Programy Lekowe. Mechanizm utrzymania kontroli: ochrona patentowa i wpływ na standardy leczenia.</p>
+    <p><strong>Oligopol hurtowy.</strong> Korzyść: kontrola około 70% rynku i ustawowa marża 6%. Mechanizm: integracja pionowa oraz wiązanie aptek niezależnych.</p>
+    <p><strong>Lokalne fabryki.</strong> Korzyść: subsydia i status krajowego przemysłu farmaceutycznego. Mechanizm: produkcja wtórna oparta na importowanym surowcu.</p>
+    <p><strong>Aparat biurokratyczny.</strong> Korzyść: dokapitalizowanie aktywów państwowych i granty. Mechanizm: podział kwot budżetowych oraz zatwierdzanie list refundacyjnych.</p>
+
+    <div class="subhead">7. Werdykt końcowy</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Z punktu widzenia suwerenności polski sektor farmaceutyczny jest w materiale opisany jako całkowicie zdezorganizowany system „podwójnego podporządkowania”.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Polska pełni jednocześnie rolę pozbawionej podmiotowości fabryki formulacji i pakowania, całkowicie zależnej od surowcowych cząsteczek z Chin i Indii, oraz podporządkowanego rynku zbytu dla zachodnioeuropejskiego i amerykańskiego kapitału patentowego.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Całkowita kontrola arterii logistycznych przez wewnętrzny oligopolistyczny kartel ostatecznie pozbawia państwo narzędzi zarządzania własnym zaopatrzeniem lekowym.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Główna biologiczna podatność państwa polskiego polega na absolutnym braku krajowej pierwotnej syntezy chemicznej i biologicznej.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Polska nie kontroluje w pełni powstawania kluczowych KSM i API dla leków o podstawowym znaczeniu oraz nie posiada wystarczającej zdolności do syntezy złożonych produktów biofarmaceutycznych, co wiąże bezpieczeństwo ludności z polityką dostawców azjatyckich i decyzjami globalnych producentów.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W perspektywie 3–5 lat materiał nie przewiduje pełnego krajowego zastąpienia importu API ze względu na ekonomikę produkcji w warunkach unijnych standardów środowiskowych i energetycznych.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Zależność od surowców azjatyckich ma według materiału utrzymać się na poziomie 75–80%.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Oligopol dystrybucyjny ma dalej zwiększać presję na handel detaliczny i wypierać część niezależnych aptek.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Rosnące obciążenie budżetu NFZ przez Big Pharma ma według źródła osiągnąć poziom krytyczny, zmuszając państwo albo do ograniczania zakresu bezpłatnej opieki medycznej, albo do zwiększania obciążeń podatkowych, co materiał opisuje jako ostateczne przekształcanie ochrony zdrowia w finansową „dojną krowę” dla podmiotów zewnętrznych.
+    </div>
+
+    <div class="subhead">Źródła</div>
+
+    <p>1. International Trade Administration — „Poland Pharmaceutical Market”: https://www.trade.gov/market-intelligence/poland-pharmaceutical-market</p>
+    <p>2. DrugPatentWatch — „China's Irreplaceable Role in the Global Generic Drug API Supply Chain (2026 Report)”: https://www.drugpatentwatch.com/blog/the-role-of-china-in-the-global-generic-drug-api-market/</p>
+    <p>3. China Observers — „How to Address Europe's Dependence on Medicine Imports from China”: https://chinaobservers.eu/how-to-address-europes-dependence-on-medicine-imports-from-china/</p>
+    <p>4. Wojskowy Instytut Medyczny — „Polityka zdrowotna Polski do natychmiastowej weryfikacji”: https://wim.mil.pl/2026/04/28/polityka-zdrowotna-polski-do-natychmiastowej-weryfikacji/</p>
+    <p>5. Raport analityczny — wycena 939 PLN: https://i.gremicdn.pl/file/fb6c939617dc9f805f1a451ac793a16e/fb6c939617dc9f805f1a451ac793a16e.pdf</p>
+    <p>6. Business Insider Polska — „Jak wygląda rynek hurtowy leków w Polsce? Jego struktura może nie być korzystna dla pacjentów”: https://businessinsider.com.pl/biznes/jak-wyglada-rynek-hurtowy-lekow-w-polsce-jego-struktura-moze-nie-byc-korzystna-dla/9sglbxp</p>
+    <p>7. Chemox Pharma — „India vs China API Supply: Why Global Buyers Are Diversifying in 2026”: https://chemoxpharma.com/india-vs-china-api-supply/</p>
+    <p>8. ReportLinker — „Poland Pharmaceuticals Market Report — Q1 2025”: https://www.reportlinker.com/dlp/ec2653fd095222dceb0464c302c89adb</p>
+    <p>9. TZF Polfa — „Od 1823 roku ufają nam kolejne pokolenia pacjentów”: https://tzfpolfa.pl/o-nas/o-tzf-polfa/</p>
+    <p>10. CPHI Online — „Enzaluthamide | Polpharma Group”: https://www.cphi-online.com/product/enzaluthamide/</p>
+    <p>11. Biznes PAP — prognoza Neuca dotycząca wzrostu rynku hurtowego aptek w latach 2025–2026: https://biznes.pap.pl/wiadomosci/firmy/neuca-expects-pharmacy-wholesale-market-grow-approx-7-8-pct-2025-6-65-pct-2026</p>
+    <p>12. Pharmena — prospekt emisyjny 2019: https://pharmena.eu/pdf/PHARMENA_Prospekt_Emisyjny_2019-03-19.pdf</p>
+    <p>13. Stowarzyszenie Inwestorów Indywidualnych — „Raport specjalny Neuca-Pelion: porównanie dwóch gigantów w branży farmaceutycznej”: https://www.sii.org.pl/7684/analizy/analizy-i-komentarze/raport-specjalny-neuca-pelion-porownanie-dwoch-gigantow-w-branzy-farmaceutycznej.html</p>
+    <p>14. Farmacol — „Logistyka”: https://www.farmacol.com.pl/strefa-dostawcy/farmacol-logistyka/logistyka/</p>
+    <p>15. Immuno-onkologia.pl — „Dostęp do immunoterapii dla polskich pacjentów — 2026”: https://immuno-onkologia.pl/dostepnosc-immunoterapii-dla-polskich-pacjentow-informacje/</p>
+    <p>16. Zwrotnikraka.pl — „Nowa lista refundacyjna w onkologii — lipiec 2026”: https://www.zwrotnikraka.pl/nowa-lista-lekow-refundowanych/</p>
+    <p>17. TVP Parlament — „Pierwsza w Polsce fabryka leków onkologicznych Polfy Tarchomin ruszy na przełomie 2024/2025 r.”: https://www.tvpparlament.pl/64848723/pierwsza-w-polsce-fabryka-lekow-onkologicznych-polfy-tarchomin-ruszy-na-przelomie-20242025-r</p>
+    <p>18. Neuca — „Kontakt”: https://www.neuca.pl/kontakt</p>
+    <p>19. Mgr.farm — „Neuca buduje nowe centrum logistyczno-magazynowe”: https://mgr.farm/aktualnosci/neuca-buduje-nowe-centrum-logistyczno-magazynowe/</p>
+    <p>20. Money.pl — „100 mln zł na produkcję leków. Są pieniądze dla polskiego zakładu”: https://www.money.pl/gospodarka/100-mln-zl-na-produkcje-lekow-sa-pieniadze-dla-polskiego-zakladu-7223491361212960a.html</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Legenda oznaczeń — standard weryfikacji</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — informacja przedstawiona w materiale jako zweryfikowana przez rejestry, dokumenty lub statystyki</div>
+      <div><b>WERSJA PR</b> — oficjalne stanowisko opisywanego podmiotu</div>
+      <div><b>WNIOSEK ANALITYCZNY</b> — wnioskowanie autora na podstawie przedstawionych przesłanek</div>
+      <div><b>BRAK DANYCH</b> — informacja nieweryfikowalna, nieujawniona lub niewystarczająca</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
