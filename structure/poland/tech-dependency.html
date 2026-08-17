@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polska — Zależność technologiczna | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+
+<a href="https://deeppressanalysis.com" class="home-btn">← STRONA GŁÓWNA</a>
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">Niezależny wywiad strukturalny · od 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">„Struktura ponad narracją.”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>BIURO POLSKA</span>
+    <span>16 SIERPNIA 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / ZALEŻNOŚĆ TECHNOLOGICZNA</span>
+
+  <h1 class="headline">Kto naprawdę kontroluje technologiczny kręgosłup Polski</h1>
+  <p class="deck">Polska jest ważnym europejskim węzłem montażu, integracji i usług technologicznych, ale podstawowa własność intelektualna, architektury obliczeniowe, kluczowe urządzenia produkcyjne i część standardów pozostają poza jej kontrolą.</p>
+  <div class="byline">DZIAŁ POLSKA — RUBRYKA: ZALEŻNOŚĆ TECHNOLOGICZNA</div>
+
+  <div class="columns">
+    <p class="lead">Profil technologiczny Polski tworzy wielowarstwowy system, w którym państwo jest krytycznym węzłem integracji i fizycznego montażu dla rynku europejskiego, lecz w ograniczonym stopniu kontroluje podstawową własność intelektualną i moce pierwotnego generowania najbardziej zaawansowanych technologii. Źródło interpretuje ten układ jako rezultat doganiającej modernizacji i specjalizacji w średnio- oraz niskomarżowych etapach produkcji.</p>
+
+    <div class="subhead">1. Pozycja Polski w globalnym łańcuchu wartości</div>
+    <p>Struktura jest asymetryczna: mocne zaplecze montażowe i integracyjne współistnieje z ograniczoną kontrolą nad projektowaniem, sprzętem produkcyjnym, fabrykacją nowoczesnych procesorów i standardami telekomunikacyjnymi. Polska posiada jednak nisze suwerenne w fotonice i technologiach wzrostu kryształów GaN.</p>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Polska nie posiada własnych mocy seryjnej produkcji nowoczesnych cyfrowych mikroprocesorów krzemowych i korzysta z usług zewnętrznych producentów kontraktowych, takich jak TSMC, Samsung i GlobalFoundries. Jednocześnie Łukasiewicz-IMiF rozwija linię szerokoprzerwowych półprzewodników GaN/SiC z budżetem około 50 mln euro w ramach Chips Act.</div>
+
+    <p>W obszarze sprzętu produkcyjnego Polska pozostaje importerem fotolitografii, urządzeń testowych, instalacji epitaksjalnych i robotyki przemysłowej. Najważniejsi dostawcy pochodzą z USA, Niderlandów i Japonii, w tym ASML.</p>
+
+    <p>Najsilniejszym ogniwem jest back-end: integracja, pakowanie i testowanie. Projekt Intela pod Wrocławiem został zaplanowany jako zakład integracji i testowania, nie jako fabryka wafli. LG Energy Solution stworzył natomiast jeden z największych europejskich hubów baterii do samochodów elektrycznych.</p>
+
+    <p>W chmurze i oprogramowaniu krajowi integratorzy budują rozwiązania ponad bazowymi platformami zagranicznymi. OChK integruje Google Cloud i Microsoft Azure, a Asseco rozwija systemy aplikacyjne dla administracji, bankowości i energetyki.</p>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Polska zajmuje 7. miejsce na świecie pod względem zasobów rud miedzi, kluczowej dla elektromobilności, ale produkcja baterii litowo-jonowych pozostaje zależna od importu litu i kobaltu.</div>
+
+    <p>W telekomunikacji 5G/6G sprzęt rdzeniowy i standardy są dostarczane z zewnątrz. Mechanizm kwalifikacji dostawców wysokiego ryzyka ogranicza pole wyboru i wzmacnia znaczenie europejskich dostawców Ericsson i Nokia.</p>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Eksport towarów ICT z Polski pod koniec 2024 roku osiągnął 21,5 mld dolarów, a udział eksportu usług ICT wyniósł 16,51% całego eksportu usług według bilansu płatniczego.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Wysokie wskaźniki eksportu ICT tworzą obraz technologicznego lidera, lecz według źródła duża część tej wartości wynika z montażu, integracji i outsourcingu zagranicznych korporacji. Renty patentowe, opłaty licencyjne i zyski z własności intelektualnej są w znacznej części realizowane poza Polską.</div>
+
+    <div class="subhead">1.2. Hybrydowy model pozycji</div>
+    <p>Pierwszy komponent to klasyczne ogniwo montażowe: wysoka integracja fizyczna przy niskiej kontroli architektonicznej. Wrocławski klaster baterii LGES osiągnął 90 GWh mocy pod koniec 2023 roku z perspektywą wzrostu do 115 GWh, podczas gdy kontrola patentowa i strategiczna pozostaje w Seulu.</p>
+
+    <p>Drugi komponent to selektywna suwerenizacja w niszach. Polska koncentruje zasoby na GaN, SiC i fotonice, gdzie posiada kompetencje naukowe i niższy próg kapitałowy niż w fabrykacji najnowocześniejszych procesorów.</p>
+
+    <p>Trzeci komponent to technologiczne zakotwiczenie geopolityczne. W 5G, chmurze i elektronice obronnej wybór bazowych dostawców jest ograniczany przez zobowiązania sojusznicze i euroatlantycki kierunek strategiczny.</p>
+
+    <div class="subhead">2. Kto kontroluje ogniwa zależności</div>
+
+    <div class="subhead">2.1. Amerykańscy hiperskalerzy</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Operator Chmury Krajowej technologicznie i operacyjnie opiera się na strategicznym partnerstwie z Google Cloud i Microsoft Azure. Dzięki współpracy z OChK obaj hiperskalerzy uruchomili własne regiony chmurowe w Warszawie.</div>
+
+    <div class="stamp-note pr"><span class="k">■ WERSJA PR</span>OChK i regulatorzy państwowi przedstawiają model hybrydowej wielochmury jako rozwiązanie zapewniające pełną suwerenność cyfrową, podkreślając fizyczne przechowywanie danych w Polsce, polską jurysdykcję umów i zgodność z wymaganiami KNF.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Lokalizacja serwerów nie jest równoznaczna z suwerennością technologiczną. Kod źródłowy, własnościowe API, mechanizmy wirtualizacji, równoważenia obciążenia i bazowe warstwy kryptograficzne pozostają pod kontrolą dostawców amerykańskich. Krytyczne systemy zbudowane na IaaS/PaaS Google i Microsoft tworzą głęboki vendor lock-in, którego usunięcie wymagałoby wieloletniej przebudowy aplikacji.</div>
+
+    <div class="subhead">2.2. Zagraniczni producenci sprzętu</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W 2023 roku Intel zapowiedział pod Wrocławiem zakład integracji i testowania chipów o wartości 4,6 mld dolarów. Projekt uzyskał zgodę na polską pomoc publiczną rzędu 1,9 mld dolarów, czyli około 7,4 mld zł. We wrześniu 2024 roku Intel poinformował Warszawę o zamrożeniu inwestycji co najmniej do 2026 roku.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Przypadek Intela pokazuje mechanizm kontroli egzogenicznej: projekt o znaczeniu krajowym, pod który przygotowano ogromne wsparcie publiczne, może zostać zatrzymany decyzją zagranicznej korporacji wynikającą z jej globalnej sytuacji finansowej. Państwo ma ograniczone narzędzia przymusu wobec właściciela technologii.</div>
+
+    <p>W bateriach podobna asymetria dotyczy LG Energy Solution: zakład w Polsce produkuje kluczowy towar eksportowy, lecz decyzje o formatach ogniw i chemii katodowej zapadają w koreańskiej centrali będącej właścicielem patentów.</p>
+
+    <div class="subhead">2.3. Zachodni kompleks obronny</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>PGZ lokalizuje produkcję Javelinów razem z Javelin Joint Venture. Budowa wielowarstwowej obrony powietrznej odbywa się we współpracy z MBDA UK, Northrop Grumman, Raytheon i Lockheed Martin, a produkcja amunicji 155 mm jest skalowana z wykorzystaniem transferu technologii od BAE Systems.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Źródło opisuje krajowy przemysł obronny jako „suwerenny warsztat montażowy”: Polska może produkować mechaniczne platformy, lecz nadal pozostaje zależna od zagranicznej mikroelektroniki wojskowej, systemów naprowadzania, matryc optoelektronicznych i inteligentnych zapalników. Transfer technologii dotyczy przede wszystkim sposobu produkcji, nie architektury chipów ani kodów źródłowych systemów kierowania ogniem.</div>
+
+    <div class="subhead">2.4. Krajowi integratorzy</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Przychody Asseco Group w 2024 roku wyniosły 17,1 mld zł. Spółka jest kluczowym dostawcą systemów dla administracji publicznej, bankowości i energetyki.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Model biznesowy integratorów polega na tworzeniu aplikacji ponad zagranicznymi bazami danych, chmurami i platformami sprzętowymi. Ich rentowność opiera się na wdrożeniach, wsparciu i adaptacji. Im bardziej złożony jest zagraniczny stos, tym więcej usług integracyjnych i konsultingowych może zostać sprzedanych państwu.</div>
+
+    <div class="subhead">2.5. Kapitał intelektualny i patenty</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Według EPO rezydenci Polski złożyli w 2024 roku 692 europejskie wnioski patentowe. Najsilniejsze obszary obejmowały technologie medyczne, budownictwo i chemię organiczną, podczas gdy udział Polski w najbardziej zaawansowanych segmentach komputerowych pozostaje ograniczony. ElevenLabs, założona przez polskich inżynierów, jest zarejestrowana w USA i finansowana przez amerykański kapitał venture.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Międzynarodowe korporacje otwierają centra R&amp;D w Warszawie, Wrocławiu i Krakowie, korzystając z wysokiej jakości pracy inżynierskiej. Źródło ocenia, że część innowacji tworzonych fizycznie w Polsce jest następnie prawnie przypisywana centralom zagranicznym, co przenosi rentę z własności intelektualnej poza kraj.</div>
+
+    <blockquote class="pull">„Państwo może być miejscem, w którym technologia powstaje i jest montowana, a jednocześnie nie posiadać prawa do decydowania o jej architekturze.”</blockquote>
+
+    <div class="subhead">3. Ryzyka zależności</div>
+    <div class="subhead">3.1. Gospodarka baterii</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Rynek łańcucha dostaw baterii EV w Polsce jest wyceniany na około 2,1 mld dolarów. Zakłady baterii odpowiadają według materiału za około 3% PKB i ponad 2,4% eksportu. Koszt produkcji wynosi około 150 euro/kWh, przy pełnej zależności od importu kluczowych materiałów, takich jak lit i kobalt.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Koncentracja na midstream/downstream bez kontroli upstreamu pozostawia jedną z głównych gałęzi eksportowych narażoną na dyktat cenowy i szoki dostaw. Przerwanie dostaw prekursorów może zatrzymać fabryki odpowiadające za zauważalną część krajowej gospodarki.</div>
+
+    <div class="subhead">3.2. Ryzyko wojskowo-technologiczne</div>
+    <div class="stamp-note insight"><span class="k">■ INSIDE / NIEPOTWIERDZONE</span>W środowisku przemysłu obronnego ma krążyć teza, że plany PGZ dotyczące produkcji 150–180 tys. pocisków artyleryjskich 155 mm rocznie są ograniczane nie tylko przez niedobór nitrocelulozy, ale także przez limity dostaw importowanych inteligentnych zapalników i systemów naprowadzania. Źródło oznacza tę informację jako niepotwierdzoną.</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Założyciel TAF Industries, która podpisała z PGZ memorandum o lokalizacji produkcji dronów w Polsce, publicznie wskazał, że przemysł powinien przygotowywać się nie tylko na ograniczenie dostępu do komponentów chińskich, lecz potencjalnie także amerykańskich.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Systemy obronne zależne od amerykańskich modułów GPS, chipów szyfrujących i komponentów walki radioelektronicznej mogą być narażone na ograniczenia dostaw i aktualizacji w przypadku zaostrzenia eksportowego reżimu USA.</div>
+
+    <div class="subhead">3.3. 5G i KSC</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Zmiany w ustawie o Krajowym Systemie Cyberbezpieczeństwa, domykane na początku 2026 roku, obejmują mechanizm uznawania dostawców sprzętu ICT za „dostawców wysokiego ryzyka”. Kary za naruszenia mogą sięgać 100 mln zł, a odpowiedzialność obejmować kierownictwo przedsiębiorstwa.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Źródło interpretuje HRV jako narzędzie prawne umożliwiające wyłączenie Huawei i ZTE z części architektury 5G. Skutkiem jest silniejsze uzależnienie operatorów od Ericssona i Nokii, ograniczenie konkurencji i zmniejszenie pola technologicznego manewru.</div>
+
+    <div class="subhead">4. Jak Polska próbuje zmniejszać zależność</div>
+    <div class="subhead">4.1. GaN, SiC i fotonika</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Polskie technologie ammonotermalnego wzrostu i HVPE umożliwiają otrzymywanie kryształów GaN o bardzo niskiej gęstości dyslokacji, kluczowych dla tranzystorów mocy, diod Schottky’ego, laserów i radarów wysokiej częstotliwości.</div>
+
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Łukasiewicz-IMiF i IWC PAN otrzymały około 50 mln euro na pilotażową linię szerokoprzerwowych półprzewodników GaN, SiC i Ga2O3 w europejskim konsorcjum 22 organizacji. VIGO Photonics rozwija równolegle projekt HyperPic, wsparty finansowaniem EBI w wysokości 21 mln euro.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>To asymetryczna strategia technologiczna: zamiast próbować finansować fabrykę 3-nm procesorów wartą 20–30 mld dolarów, Polska inwestuje w nisze o niższym progu wejścia i już istniejących kompetencjach. Może dzięki temu stać się kluczowym węzłem europejskiej energoelektroniki i technologii radarowych.</div>
+
+    <div class="subhead">4.2. PLGrid i sztuczna inteligencja</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>Infrastruktura PLGrid obsługuje potrzeby nauki i systemów AI. Superkomputer Helios wykorzystuje procesory AMD EPYC 9654 oraz superchipy NVIDIA Grace Hopper GH200.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>PLGrid zwiększa suwerenność na poziomie danych i modeli, pozwalając trenować krajowe systemy AI bez wysyłania danych do publicznych chmur zagranicznych. Warstwa sprzętowa pozostaje jednak zależna od AMD, NVIDIA i tajwańskiej fabrykacji TSMC.</div>
+
+    <div class="subhead">4.3. Bariery suwerenizacji</div>
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Finansowanie pilotażowej linii GaN jest znaczące naukowo, lecz niewystarczające do szybkiego przejścia do masowej produkcji konkurującej z największymi graczami azjatyckimi i amerykańskimi. Lokalizacja zakładów back-end i produkcji licencyjnej przekazuje know-how produkcyjne, ale niekoniecznie podstawową własność intelektualną i kompetencję projektowania.</div>
+
+    <div class="subhead">4.4. Recykling baterii</div>
+    <div class="stamp-note fact"><span class="k">■ FAKT</span>W infrastrukturę recyklingu baterii w Polsce zainwestowano ponad 715 mln euro. Projekt Apex 2 firmy Ascend Elements otrzymał wsparcie publiczne w wysokości 320 mln dolarów i ma odzyskiwać metale z tzw. black mass.</div>
+
+    <div class="stamp-note insight"><span class="k">■ WNIOSEK ANALITYCZNY</span>Budowa zamkniętego obiegu materiałów może ograniczyć zależność od pierwotnego importu litu i kobaltu. Polska próbuje w ten sposób zmienić status z montowni baterii w trudny do zastąpienia europejski hub recyklingu i surowców wtórnych.</div>
+
+    <div class="subhead">5. Komu opłaca się obecny model</div>
+    <p>Globalne firmy technologiczne uzyskują dostęp do polskiego rynku publicznego i prywatnego bez konieczności tworzenia konkurencyjnych krajowych platform bazowych. Firmy obronne zachowują kontrolę nad własnością intelektualną. Dostawcy 5G korzystają na redukcji konkurencji. Lokalni integratorzy zarabiają na wdrożeniu i obsłudze zagranicznych stosów technologicznych.</p>
+
+    <p>Dla klasy politycznej zagraniczne fabryki są widocznym symbolem FDI i miejsc pracy, podczas gdy budowa głębokiego suwerenizmu technologicznego wymaga nakładów oraz czasu wykraczającego poza cykl wyborczy. Technologiczne powiązanie z USA wzmacnia także bezpieczeństwowy związek Polski z amerykańskim systemem.</p>
+
+    <div class="subhead">6. Werdykt końcowy</div>
+    <p>Polska jest wysoko rozwiniętym hubem integracyjnym o strategicznym znaczeniu dla gospodarki europejskiej. Wykorzystuje położenie, kompetencje inżynierskie i subsydia do skalowania technologii, których kluczowa własność intelektualna i architektura pozostają u podmiotów zagranicznych.</p>
+
+    <p><strong>Główne krytyczne ogniwo zależności.</strong> Źródło wskazuje pełną architektoniczną i sprzętową zależność od zewnętrznego stosu obliczeniowego i komunikacyjnego: baz danych, chmur IaaS/PaaS, mikroprocesorów i infrastruktury sieciowej. Ograniczenia eksportowe, cofnięcie licencji lub sankcje wobec dostawców mogłyby w krótkim czasie silnie zakłócić działanie usług publicznych oraz wysokotechnologicznych linii produkcyjnych. Poziom pewności w materiale: wysoki.</p>
+
+    <p><strong>Najbardziej prawdopodobny scenariusz.</strong> Materiał przewiduje pogłębianie „suwerenności przez pełnomocnictwo”: Polska nie stanie się technologicznie suwerenna w klasycznym sensie, lecz będzie dalej integrować się z zachodnimi łańcuchami dostaw, próbując stać się systemowo niezastępowalnym elementem gospodarki UE i logistyki NATO. Taki status ma zwiększać bezpieczeństwo dostępu do technologii sojuszniczych, jednocześnie utrwalając ograniczoną autonomię w tworzeniu własnych standardów. Poziom pewności w materiale: wysoki.</p>
+
+    <div class="subhead">Źródła</div>
+    <p>1. VIGO Photonics — https://vigophotonics.com/</p>
+    <p>2. European Investment Bank — Polish photonics technology: https://www.eib.org/en/stories/polish-photonics-technology-infrared-innovation</p>
+    <p>3. Bulk GaN growth — http://www.jaszowiec.edu.pl/2023/abs/Sa1.pdf</p>
+    <p>4. GaN-Unipress — https://www.unipress.waw.pl/en/projects/center-for-physics-and-technology-of-nitride-semiconductors-gan-unipress-1</p>
+    <p>5. Recent Progress in Crystal Growth of Bulk GaN — https://przyrbwn.icm.edu.pl/APP/PDF/141/app141z3p04.pdf</p>
+    <p>6. Łukasiewicz IMiF — https://esabic.pl/imif/</p>
+    <p>7. Łukasiewicz wide-bandgap pilot line — https://lukasiewicz.gov.pl/en/lukasiewicz-imif-will-build-a-state-of-the-art-pilot-line-for-wide-bandgap-semiconductors/</p>
+    <p>8. Intel postpones Polish factory plan — https://centraleuropeantimes.com/intel-postpones-eur-4bn-polish-factory-plan/</p>
+    <p>9. LG Energy Solution Circular Economy — https://www.lgensol.com/en/esg/environment-resources</p>
+    <p>10. Poland's Manufacturing Might — https://storage.googleapis.com/public_download_assets/reports/battery_tracker/EBT%20Poland_Case_Study_en.pdf</p>
+    <p>11. LG Energy Solution Wrocław 46inEU — https://lgensol.pl/en/lg-energy-solution-wroclaw-to-implement-the-46ineu-project-the-next-step-toward-european-battery-sovereignty/</p>
+    <p>12. Ken Research — Poland EV Battery Supply Chain Market — https://www.kenresearch.com/poland-ev-battery-supply-chain-market</p>
+    <p>13. OChK — https://ochk.cloud/blog/ochk-five-years-thousand-words</p>
+    <p>14. OChK Five years — https://ochk.cloud/blog/five-years-ochk</p>
+    <p>15. OChK / Google — https://ochk.cloud/blog/ochk-launches-cooperation-with-google</p>
+    <p>16. Asseco Group — https://pl.asseco.com/en/news/proprietary-software-and-related-services-as-well-as-strong-business-diversification-the-basis-for-continued-stable-growth-of-the-asseco-group-in-h1-2023-5115</p>
+    <p>17. Asseco — https://asseco.com/</p>
+    <p>18. Asseco / ARMA — https://asseco.com/en/news/asseco-will-support-sia-the-largest-it-system-at-arma-3257/</p>
+    <p>19. Cullen International — 5G security measures — https://www.cullen-international.com/news/2025/10/Update-on-5G-security-measures-across-Europe.html</p>
+    <p>20. NIS2 transposition Poland — https://www.nis-2-directive.com/Transposition/Poland.html</p>
+    <p>21. CEIC ICT exports — https://www.ceicdata.com/en/indicator/poland/exports-ict-goods</p>
+    <p>22. Trading Economics ICT services — https://tradingeconomics.com/poland/ict-service-exports-percent-of-service-exports-bop-wb-data.html</p>
+    <p>23. Green Li-ion — battery recycling — https://www.greenli-ion.com/post/poland-battery-recycling-infrastructure-investment</p>
+    <p>24. Semiconductor Today — Ammono / Unipress — https://www.semiconductor-today.com/news_items/2014/APR/AMMONO_020414.shtml</p>
+    <p>25. ResearchGate — Podmioty krajowego systemu bezpieczeństwa — https://www.researchgate.net/publication/393020878_Podmioty_krajowego_systemu_bezpieczenstwa</p>
+    <p>26. European Financial Congress — https://www.efcongress.com/aktualnosci/podsumowanie-ii-dnia-europejskiego-kongresu-finansowego-2023/</p>
+    <p>27. Związek Banków Polskich — raport cloud — https://www.zbp.pl/zbp/media/zbp/aktualnosci/wydarzenia/kwiecien%202020/cloud/raport-cloud.pdf</p>
+    <p>28. EY Polska — Komunikat Chmurowy KNF — https://www.ey.com/pl_pl/insights/biuletyn-ryzyka/komunikat-chmurowy-knf-nowe-obowiazki-dla-sektora</p>
+    <p>29. UA.NEWS — PGZ — https://ua.news/en/money/pols-kii-oboronnii-gigant-mozhe-vidkriti-svii-ofis-v-ukrayini</p>
+    <p>30. European Defence Agency — PGZ — https://eda.europa.eu/webzine/issue28/cover-story/pgz-homegrown-innovation-and-strategic-alliances-in-defence-of-poland-ukraine-and-europe</p>
+    <p>31. EDR Magazine — Poland / UK munitions — https://www.edrmagazine.eu/poland-to-partner-with-uk-defence-firm-to-boost-munitions-production</p>
+    <p>32. Asseco results — https://asseco.com/en/news/very-good-year-for-asseco-group-record-net-profit-and-solid-order-backlog-for-coming-quarters-5527/</p>
+    <p>33. EPO Patent Index 2024 — https://researchinpoland.org/news/epo-patent-index-2024-nearly-700-patent-applications-from-poland-among-200000-total/</p>
+    <p>34. Science in Poland patents — https://scienceinpoland.pl/en/news/news%2C95902%2Cdespite-increase-patent-applications-poland-2022-fewer-awarded-patents.html</p>
+    <p>35. Jacobacci Patent Index 2024 — https://www.jacobacci.com/en/news/patent-index-2024-trends-in-european-patent-applications</p>
+    <p>36. ElevenLabs / Polish Tech Minds — https://polishtechminds.com/elevenlabs</p>
+    <p>37. Defense Express — PGZ — https://en.defence-ua.com/news/polands_pgz_arms_group_made_753m_profit_in_2025_but_faces_catastrophic_exports_and_9_ceo_changes_in_10_years_only_25000_shells_annually_wouldnt_last_week_of_real_war-19413.html</p>
+    <p>38. Interfax-Ukraine — TAF Industries / PGZ — https://interfax.com.ua/news/general/1179706.html</p>
+    <p>39. Ukrinform — TAF Industries / PGZ — https://www.ukrinform.net/rubric-economy/4137945-ukrainian-taf-industries-and-polish-pgz-to-cooperate-in-defense-sector.html</p>
+    <p>40. NFLO KSC compliance — https://nflo.tech/services/ksc-compliance-and-implementation/</p>
+    <p>41. WPPoland NIS2/DORA — https://wppoland.com/en/services/nis2-dora-readiness/</p>
+    <p>42. Direct IT — https://directit.pl/en/category/news/</p>
+    <p>43. MDPI GaN substrates — https://www.mdpi.com/2079-9292/9/9/1342</p>
+    <p>44. European Digital Innovation Hubs / IMiF — https://european-digital-innovation-hubs.ec.europa.eu/edih-catalogue/lukasiewicz-research-network-institute-microelectronics-and-photonics-imif</p>
+    <p>45. Photonics 4 Defence — https://pptf.pl/wp-content/uploads/2022/09/Photonics4Defence-PPTF-brochure-2022-FINAL.pdf</p>
+    <p>46. Cyfronet AGH / PLGrid — https://www.cyfronet.pl/en/projects/initiatives/plgrid</p>
+    <p>47. PLGrid — https://www.plgrid.pl/about-us</p>
+    <p>48. Helios — https://docs.hpc.cyfronet.pl/supercomputers/helios/</p>
+    <p>49. Trade.gov.pl battery industry — https://www.trade.gov.pl/en/news/poland-strengthens-its-position-in-europes-battery-industry/</p>
+    <p>50. Asseco 2025 — https://asseco.com/en/news/growing-order-backlog-and-very-good-results-of-the-asseco-group-for-the-three-quarters-of-2025-5646/</p>
+    <p>51. BGK Cloud Security Specialist — https://inhire.io/praca/cloud-security-specialist-remote-work-warszawa-job-arbeit-38708</p>
+    <p>52. EY Cybersecurity Compliance — https://www.ey.com/pl_pl/services/cybersecurity/cybersecurity-compliance</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Legenda oznaczeń — standard weryfikacji</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — informacja przedstawiona w materiale jako zweryfikowana przez dane, dokumenty, raporty lub źródła korporacyjne</div>
+      <div><b>WERSJA PR</b> — oficjalne stanowisko instytucji lub operatora</div>
+      <div><b>WNIOSEK ANALITYCZNY</b> — wniosek wynikający z przedstawionej struktury i zależności</div>
+      <div><b>BRAK DANYCH</b> — informacja nieweryfikowalna, nieujawniona lub niewystarczająco potwierdzona</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+</div>
+
+</body>
+</html>

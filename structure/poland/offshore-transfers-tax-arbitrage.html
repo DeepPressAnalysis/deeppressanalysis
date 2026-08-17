@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polska — Niewidzialne transfery i arbitraż podatkowy | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← STRONA GŁÓWNA</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Niezależny wywiad strukturalny · od 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">„Struktura ponad narracją.”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>BIURO POLSKA</span>
+    <span>16 SIERPNIA 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / NIEWIDZIALNE TRANSFERY</span>
+
+  <h1 class="headline">Dokąd naprawdę odpływa kapitał z Polski</h1>
+  <p class="deck">Dekonstrukcja wielowarstwowej architektury, w której legalny arbitraż podatkowy, fikcyjne faktury, kryptowaluty, prywatne fundacje i pozabudżetowe fundusze państwa tworzą różne kanały tego samego procesu: przesuwania kapitału z obszarów wysokiej przejrzystości do obszarów niższej kontroli.</p>
+  <div class="byline">DZIAŁ POLSKA — RUBRYKA: OFFSHORE TRANSFERS / ARBITRAŻ PODATKOWY</div>
+
+  <div class="columns">
+
+    <p class="lead">Współczesny system finansowy i podatkowy Polski jest w źródle przedstawiony jako wielopoziomowa architektura, w której legalne instrumenty fiskalne, ponadnarodowy arbitraż podatkowy, przestępcze schematy szarej strefy oraz pozabudżetowa emisja długu przez państwo tworzą jeden stale zmieniający się ekosystem.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Wraz z cyfryzacją i zaostrzeniem kontroli klasyczne unikanie opodatkowania jest zastępowane bardziej złożoną inżynierią niewidzialnych transferów: kapitał wykorzystuje asymetrię prawa krajowego, unijnego i międzynarodowego, a po zamknięciu jednego kanału przechodzi do usług niematerialnych, kryptowalut, fundacji prywatnych albo struktur pozabudżetowych.
+    </div>
+
+    <div class="subhead">1. Mapa transferów</div>
+
+    <p>Topologia przepływów kapitału przebiega od stref opodatkowania i jawności do stref o niższym oporze fiskalnym, większej poufności lub słabszej kontroli budżetowej. Źródło wyróżnia cztery główne poziomy systemu.</p>
+
+    <div class="subhead">1.1. Korporacyjny arbitraż ponadnarodowy — BEPS</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Główne instrumenty to ceny transferowe, płatności licencyjne, podatek u źródła oraz finansowanie wewnątrzgrupowe. Kierunek przepływu prowadzi z polskiej podstawy opodatkowania CIT do jurysdykcji europejskich takich jak Niderlandy, Irlandia i Luksemburg.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Źródło szacuje bezpośrednie straty CIT związane z przenoszeniem zysków na około 4,1 mld zł rocznie, przy czym około 73% odpływu trafia do innych państw UE.
+    </div>
+
+    <div class="subhead">1.2. Cień gospodarczy — oszustwa VAT</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Mechanizmy obejmują między innymi karuzele VAT i fikcyjne faktury za usługi niematerialne. W 2025 roku wartość wykrytych „pustych faktur” osiągnęła około 10,9 mld zł.
+    </div>
+
+    <div class="subhead">1.3. Ochrona prywatnych aktywów</div>
+
+    <p>Kryptowaluty, fundacje rodzinne i prywatne fundacje w Liechtensteinie są wykorzystywane jako narzędzia przenoszenia majątku do struktur o silniejszej ochronie prawnej i niższej przejrzystości.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Wolumen tego segmentu nie poddaje się wiarygodnemu oszacowaniu. Jego znaczenie polega na tworzeniu ukrytej kapitalizacji zamożnych osób oraz na oddzielaniu własności ekonomicznej od formalnego właściciela aktywów.
+    </div>
+
+    <div class="subhead">1.4. Arbitraż suwerenny — mechanizm quasi-fiskalny</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Państwo wykorzystuje pozabudżetową emisję długu przez fundusze obsługiwane przez BGK i PFR, przenosząc część zobowiązań z bieżącej krajowej miary długu publicznego do szerszej europejskiej miary EDP.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Różnica pomiędzy długiem liczonym krajową metodologią PDP a długiem sektora instytucji rządowych i samorządowych według metodologii EDP przekracza w przywołanych projekcjach 400 mld zł.
+    </div>
+
+    <blockquote class="pull">„Kapitał płynie tam, gdzie opór fiskalny, regulacyjny i prawny jest najmniejszy — niezależnie od tego, czy operatorem jest korporacja, sieć przestępcza czy samo państwo.”</blockquote>
+
+    <div class="subhead">2. BEPS i „wewnętrzne offshore’y” Unii Europejskiej</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Według przywołanych badań około 40% zysków korporacji transnarodowych może być sztucznie przenoszonych do jurysdykcji preferencyjnych. Dla Polski oznacza to według źródła utratę około 11% potencjalnych dochodów CIT, czyli około 3–4 mld zł rocznie.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W 2020 roku straty te oszacowano na około 4,1 mld zł. Około 73% środków kierowanych jest do państw UE, przede wszystkim Niderlandów, Irlandii i Luksemburga; klasyczne karaibskie raje podatkowe odpowiadają za znacznie mniejszą część bezpośredniego odpływu.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      „Wewnętrzne offshore’y” UE zapewniają korzystne warunki dla dochodów z IP, finansowania wewnątrzgrupowego i struktur holdingowych, pełniąc rolę legalnych węzłów tranzytowych pomiędzy polską bazą podatkową a końcowymi właścicielami kapitału.
+    </div>
+
+    <div class="subhead">2.1. Ceny transferowe</div>
+
+    <p>Zawyżanie kosztów usług zarządczych, IT, marketingu i finansowania wewnątrzgrupowego albo zaniżanie wartości eksportu może przesuwać marżę do spółek w jurysdykcjach o niższej efektywnej stawce podatkowej.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W 2024 roku KAS przeprowadziła 236 kontroli celno-skarbowych dotyczących cen transferowych, a w 2025 roku 209. Mimo spadku liczby kontroli suma doszacowań wzrosła z około 760,31 mln zł do 856,82 mln zł.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Łączna wartość doszacowań, po uwzględnieniu zwykłych kontroli podatkowych, zbliżyła się do 890 mln zł, a udział kontroli kończących się korektą znacząco wzrósł.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Zachodniopomorski urząd celno-skarbowy wygenerował około 40% wszystkich doszacowań w kraju, co wskazuje na postępującą specjalizację kompetencji kontrolnych.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      KAS przechodzi od masowej kontroli dokumentacji do analizy ryzyka, wykorzystując dane TPR, JPK_CIT i algorytmiczne wykrywanie anomalii rentowności. Umożliwia to nie tylko kwestionowanie ceny, ale również przekwalifikowanie transakcji pozbawionej ekonomicznego sensu.
+    </div>
+
+    <div class="subhead">2.2. WHT — „pay and refund”</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Standardowa stawka WHT wynosi w Polsce 19% dla dywidend oraz 20% dla odsetek, należności licencyjnych i części usług niematerialnych.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Od 2022 roku, jeśli kwalifikowane płatności pasywne do jednego powiązanego nierezydenta przekraczają 2 mln zł rocznie, polski płatnik zasadniczo musi pobrać podatek według stawki podstawowej, a dopiero później ubiegać się o preferencję albo zwrot.
+    </div>
+
+    <p>Preferencyjne zastosowanie może wymagać opinii organu podatkowego lub złożenia przez zarząd oświadczenia WH-OSC, obciążającego osoby zarządzające odpowiedzialnością za prawdziwość przesłanek dotyczących rzeczywistego właściciela płatności.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Zaostrzenie WHT skłania grupy kapitałowe do budowania realnej „substance” w jurysdykcjach tranzytowych: lokalnych biur, zarządów, personelu i funkcji operacyjnych, które mają wykazać ekonomiczną rzeczywistość struktury.
+    </div>
+
+    <div class="subhead">2.3. Podatek od przerzuconych dochodów</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Art. 24aa ustawy o CIT wprowadza 19-procentowy podatek od określonych płatności za usługi niematerialne, licencje lub finansowanie do podmiotów powiązanych za granicą.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Mechanizm opiera się między innymi na progu efektywnego opodatkowania odbiorcy poniżej 14,25%, udziale co najmniej 50% przychodów pasywnych od polskich podmiotów powiązanych, dalszym transferze określonej części środków oraz progu istotności płatności na poziomie 3% kosztów podatkowych polskiej spółki.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Po zmianach z 2023 roku ciężar wykazania, że przesłanki podatku nie występują, spoczywa w większym stopniu na podatniku. Zmusza to polskie firmy do uzyskiwania szczegółowych danych finansowych od zagranicznych kontrahentów i zwiększa koszty zgodności.
+    </div>
+
+    <div class="subhead">3. Fikcyjne usługi i mutacja karuzel VAT</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W 2012 roku nominalna luka VAT w Polsce osiągnęła około 43,1 mld zł, a w 2015 roku odpowiadała około 23,9% potencjalnych wpływów.
+    </div>
+
+    <p>Klasyczny model MTIC polegał na wielokrotnym obrocie towarem pomiędzy państwami UE. „Znikający podatnik” sprzedawał towar z VAT i znikał przed zapłatą podatku, podczas gdy ostatni eksporter w łańcuchu dochodził zwrotu podatku naliczonego.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Punktowe odwrotne obciążenie nie likwidowało mechanizmu, lecz wypychało go do kolejnych kategorii towarów. Przestępczość zmieniała sektor szybciej niż ustawodawca był w stanie zmieniać przepisy.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W latach 2016–2020 wdrożono mechanizm podzielonej płatności, JPK_VAT, STIR i system SENT. Według przywołanych danych luka VAT spadła do około 10,4% według metodologii unijnej i do około 4,3% według wybranych szacunków krajowych.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W 2025 roku KAS wykryła około 376,8 tys. fikcyjnych faktur — prawie 30% więcej niż rok wcześniej — o łącznej wartości około 10,9 mld zł, wobec 8,71 mld zł w 2024 roku.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Cyfryzacja sparaliżowała część klasycznych karuzel towarowych, ale kapitał przestępczy przesunął się do usług konsultingowych, marketingowych i IT, gdzie znacznie trudniej dowieść fikcyjności świadczenia i ustalić jego rynkową wartość.
+    </div>
+
+    <p>Odpowiedzią ma być dalsza integracja z unijnym systemem ViDA oraz obowiązkowa elektroniczna sprawozdawczość transakcyjna, której celem jest przejście do kontroli w czasie zbliżonym do rzeczywistego.</p>
+
+    <div class="subhead">4. Kryptowaluty i ochrona aktywów</div>
+
+    <div class="subhead">4.1. Krypto-clearing poza bankami</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Od października 2021 roku podmioty prowadzące działalność w zakresie walut wirtualnych muszą być wpisane do specjalnego rejestru prowadzonego przez administrację skarbową.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Organy nadzoru identyfikują powtarzające się problemy AML, w tym niewystarczającą identyfikację rzeczywistych beneficjentów i błędy w ocenie ryzyka transakcyjnego. W przywołanym przypadku sankcja wyniosła 379 tys. zł.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Kryptowaluty pełnią funkcję alternatywnej infrastruktury transferowej poza tradycyjną bankowością, szczególnie atrakcyjnej dla kapitału poszukującego szybkości, transgraniczności i ograniczonej identyfikowalności.
+    </div>
+
+    <p>Skalę obecności kryptowalut w świadomości społecznej pokazują również kampanie oszustw podszywających się pod GIIF i żądających fikcyjnych opłat za „AML clearance” albo rzekome podatki od kryptozysków.</p>
+
+    <div class="subhead">4.2. Fundacja rodzinna kontra Stiftung</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Polska fundacja rodzinna miała zatrzymywać kapitał i umożliwiać jego długoterminową reinwestycję w kraju, ale KAS aktywnie stosuje wobec struktur fundacyjnych klauzulę GAAR.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W jednym z głośnych przypadków KAS zakwestionowała restrukturyzację wykorzystującą fundację rodzinną i odzyskała do budżetu ponad 11,2 mln zł.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Zaostrzenie krajowej kontroli zwiększa atrakcyjność zagranicznych struktur ochrony majątku, w szczególności fundacji prywatnych w Liechtensteinie, które oferują silne oddzielenie aktywów od fundatora i większą poufność niż polskie rozwiązania.
+    </div>
+
+    <p>Źródło opisuje Stiftung jako końcowy „zbiornik” dla kapitału wymagającego długoterminowej ochrony przed wierzycielami, sporami rodzinnymi i roszczeniami podatkowymi. Taka teza dotyczy funkcji struktury, nie oznacza automatycznie bezprawności każdego wykorzystania fundacji w Liechtensteinie.</p>
+
+    <div class="subhead">5. Quasi-fiskalny arbitraż państwa</div>
+
+    <p>Największy wartościowo kanał opisany w raporcie nie jest prywatnym offshore’em, lecz mechanizmem przenoszenia zobowiązań poza tradycyjny budżet.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Art. 216 Konstytucji RP ustanawia próg 60% PKB dla państwowego długu publicznego liczonego według metodologii krajowej.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W latach 2020–2021 BGK i PFR wyemitowały obligacje na około 214,4 mld zł, w tym 48,2 mld zł w samym 2021 roku, finansując między innymi Fundusz Przeciwdziałania COVID-19 i tarcze finansowe.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Do tej architektury dołączono Fundusz Wsparcia Sił Zbrojnych. Plan wydatków funduszu na 2023 rok wynosił około 45,9 mld zł, a wykonanie około 23,3 mld zł.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Powstaje system dwóch miar długu: PDP według prawa krajowego i EDP według metodologii unijnej. Zobowiązania niektórych funduszy BGK i PFR mogą nie być widoczne w krajowym PDP w takim stopniu jak w europejskim EDP, co pozwala przesuwać część finansowania poza tradycyjny budżet.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Różnica PDP–EDP wynosiła około 46 mld zł w 2015 roku, około 55 mld zł w 2019 roku, około 225 mld zł w 2020 roku i około 260 mld zł w 2021 roku. Dla okresu 2022–2026 źródło przywołuje projekcje przekraczające 350–422 mld zł.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      NIK krytykowała finansowanie zadań publicznych poza budżetem jako mechanizm osłabiający przejrzystość finansów państwa i kontrolę parlamentarną.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W 2022 roku oficjalny deficyt budżetu państwa wynosił około 12,6 mld zł, podczas gdy szerszy niedobór finansów publicznych wskazywany w materiale sięgał około 115,2 mld zł.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Źródło interpretuje różnicę jako quasi-fiskalne przenoszenie kosztów polityki poza bezpośrednią kontrolę ustawy budżetowej. Pozwala to finansować działania, które formalnie nie obciążają w takim samym stopniu bieżącego wyniku budżetu centralnego.
+    </div>
+
+    <p>Środki z Funduszu Przeciwdziałania COVID-19 były później wykorzystywane także do subsydiowania węgla i rekompensat dla przedsiębiorstw ciepłowniczych. Mechanizmy zamrażania cen energii i gazu były wspierane przez system rekompensat dla sektora energetycznego.</p>
+
+    <div class="subhead">6. Konsekwencje</div>
+
+    <div class="subhead">6.1. Kurczenie przestrzeni fiskalnej</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Finansowanie poprzez obligacje quasi-państwowych podmiotów może być droższe od klasycznej emisji obligacji skarbowych z powodu różnic w płynności i premii za ryzyko.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Koszty odsetkowe sektora finansów publicznych wzrosły z około 30 mld zł w 2021 roku do około 79–80 mld zł w 2023 roku.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Deficyt sektora instytucji rządowych i samorządowych w 2024 roku wyniósł około 240 mld zł, czyli 6,6% PKB, a Polska została ponownie objęta unijną procedurą nadmiernego deficytu.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Im większa część deficytu obsługiwana jest poprzez kosztowne finansowanie pozabudżetowe, tym bardziej państwo wpada w pułapkę, w której nowe zobowiązania finansują obsługę wcześniej zaciągniętego długu, ograniczając przyszłą swobodę fiskalną.
+    </div>
+
+    <div class="subhead">6.2. Asymetria konkurencyjna</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Korporacje transnarodowe zdolne do przesuwania IP, licencji i finansowania wewnątrzgrupowego uzyskują przewagę wobec krajowego sektora MŚP, który nie posiada równie rozbudowanej architektury podatkowej.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Polska administracja odpowiada na unikanie opodatkowania poprzez split payment, JPK, mechanizm WHT „pay and refund” i rozbudowaną sprawozdawczość cen transferowych. Według przywołanych danych koszty compliance dla mikroprzedsiębiorstw mogły historycznie sięgać 3–4% obrotu.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Paradoks polega na tym, że koszty walki z arbitrażem i oszustwami w dużej części ponosi również legalny biznes, który musi finansować rozbudowaną księgowość, raportowanie i doradztwo.
+    </div>
+
+    <div class="subhead">6.3. Erozja kontroli instytucjonalnej</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Rozrost funduszy pozabudżetowych ogranicza czytelność finansów publicznych i zwiększa możliwość prowadzenia ekspansywnej polityki przez władzę wykonawczą poza klasycznym procesem budżetowym.
+    </div>
+
+    <p>Źródło wskazuje również na komplikacje dla banku centralnego: większa skala finansowania quasi-fiskalnego utrudnia ocenę realnej polityki fiskalnej i jej wpływu na inflację.</p>
+
+    <div class="subhead">6.4. Adaptacja szarej strefy</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Wzrost wartości wykrytych pustych faktur do 10,9 mld zł w 2025 roku pokazuje, że mimo cyfryzacji kontrolnej szara i przestępcza gospodarka nadal szybko przystosowuje się do nowych narzędzi państwa.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Kapitał wypierany z tradycyjnych karuzel towarowych przechodzi do usług, wypłat gotówkowych i kryptowalut, zwiększając zapotrzebowanie na zaawansowane instrumenty wywiadu finansowego i AML.
+    </div>
+
+    <div class="subhead">7. Beneficjenci</div>
+
+    <div class="subhead">7.1. Korporacje transnarodowe</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Duże międzynarodowe grupy są głównymi beneficjentami legalnego arbitrażu podatkowego, ponieważ mogą przenosić część zysków poprzez licencje, opłaty za zarządzanie i finansowanie wewnątrzgrupowe. Globalna skala BEPS jest przez OECD szacowana na 100–240 mld dolarów utraconych wpływów podatkowych rocznie.
+    </div>
+
+    <div class="subhead">7.2. Oligopole z udziałem państwa</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Duże przedsiębiorstwa energetyczne korzystają z systemów rekompensat i subsydiów: ryzyko społeczne wynikające z zamrażania taryf jest przenoszone na państwo i dług publiczny, podczas gdy przepływ kompensacyjny trafia do sektora korporacyjnego.
+    </div>
+
+    <div class="subhead">7.3. Konsulting, prawnicy i pośrednicy</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Rosnąca złożoność cen transferowych, WHT i przepisów antyarbitrażowych tworzy stabilny rynek dla doradców podatkowych, audytorów i wyspecjalizowanych kancelarii. Złożoność sama staje się źródłem renty usługowej.
+    </div>
+
+    <p>Do tej kategorii materiał zalicza także operatorów fundacji zagranicznych oraz część infrastruktury kryptowalutowej, która pobiera opłaty za organizowanie i ochronę transgranicznych struktur majątkowych.</p>
+
+    <div class="subhead">7.4. Aparat polityczno-biurokratyczny</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Fundusze pozabudżetowe dają władzy wykonawczej elastyczniejszy instrument przesuwania środków pomiędzy sektorami i regionami niż klasyczny budżet. Pozwalają również prezentować węższy oficjalny deficyt, podczas gdy część kosztów pozostaje w bilansach funduszy i instytucji quasi-państwowych.
+    </div>
+
+    <div class="subhead">7.5. Sieci przestępcze</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Zorganizowane grupy generujące fikcyjne faktury pozostają beneficjentami luk w podatkach pośrednich. Wraz z rozwojem STIR i JPK ich aktywność przesuwa się do sektorów, w których trudniej ustalić realną wartość usługi i końcowego beneficjenta — konsultingu, IT i kryptowalut.
+    </div>
+
+    <div class="subhead">8. Werdykt końcowy</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Architektura niewidzialnych transferów w Polsce wykazuje wysoką plastyczność. System przeszedł od prostych form wyłudzania VAT do bardziej złożonego arbitrażu opartego na prawach własności intelektualnej, usługach niematerialnych, strukturach fundacyjnych i instrumentach długu.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Lokalnie państwo odnosi sukcesy — ogranicza część luki VAT, wzmacnia kontrolę cen transferowych, rozwija JPK, STIR, KSeF i instrumenty WHT — ale sama logika przepływu nie znika. Kapitał przesuwa się do obszarów o mniejszej przejrzystości i większej ochronie.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Długoterminowa stabilność wymaga nie tylko kolejnych warstw cyfrowego nadzoru nad podatnikiem, lecz również zwiększenia przejrzystości własnych finansów państwa. Bez tego walka z prywatnym arbitrażem współistnieje z rozwojem państwowego arbitrażu quasi-fiskalnego.
+    </div>
+
+    <div class="subhead">Źródła</div>
+
+    <p>1. Business Insider Polska — „Z Polski wyprowadzane są rocznie miliardy złotych. Pieniądze trafiają do krajów UE”: https://businessinsider.com.pl/firmy/podatki/wyprowadzanie-zyskow-z-polski-do-rajow-podatkowych-wyliczenia/zg423md</p>
+    <p>2. Polski Instytut Ekonomiczny — „Luka CIT w Polsce”: https://pie.net.pl/wp-content/uploads/2022/12/WorkingP-2-2022-Luka-CIT-w-PL.pdf</p>
+    <p>3. LEX — art. 24aa ustawy o CIT: https://sip.lex.pl/akty-prawne/dzu-dziennik-ustaw/podatek-dochodowy-od-osob-prawnych-16794608/art-24-aa</p>
+    <p>4. Opracowanie o ograniczaniu luki VAT: https://www.dbc.wroc.pl/Content/135136/selera_sarnowski_ograniczenie_luki.pdf</p>
+    <p>5. Prawo.pl — „Kontrole KAS coraz bardziej skuteczne”: https://www.prawo.pl/podatki/kontrole-kas-coraz-bardziej-skuteczne-adam-wisniewski,1539373.html</p>
+    <p>6. XYZ — „Kto i dlaczego jest dziś kontrolowany?”: https://xyz.pl/kto-i-dlaczego-jest-dzis-kontrolowany-wiedza-o-dzialaniach-skarbowki-stala-sie-elementem-strategii-biznesowej-raport/</p>
+    <p>7. Oniszczuk &amp; Associates — fundacja prywatna w Liechtensteinie: https://oniszczuk.com/uslugi/fundacja-prywatna-w-liechtensteinie/</p>
+    <p>8. Vercly — analiza decyzji KNF i kary AML: https://www.vercly.com/379-tys-zl-kara-knf-aml/</p>
+    <p>9. Business Insider Polska — „Polski dług publiczny poza budżetem rośnie jak na drożdżach”: https://businessinsider.com.pl/gospodarka/makroekonomia/polski-dlug-publiczny-poza-budzetem-rosnie-jak-na-drozdzach/k3r48z2</p>
+    <p>10. Demagog — „215 mld zł długu poza kontrolą parlamentu? Sprawdzamy”: https://demagog.org.pl/wypowiedzi/215-mld-zl-dlugu-poza-kontrola-parlamentu-sprawdzamy/</p>
+    <p>11. OKO.press — „Zadłużenie poza budżetem to już 400 mld zł”: https://oko.press/zadluzenie-poza-budzetem-sprawdzamy-lubnauer</p>
+    <p>12. Akademia LTCA — kontrole cen transferowych 2024 vs 2025: https://akademialtca.pl/blog/kontrole-cen-transferowych-2024-vs-2025-mniej-kontroli-wieksze-doszacowania-co-naprawde-pokazuja-dane-ministerstwa-finansow</p>
+    <p>13. Staniek &amp; Partners — kontrole cen transferowych za 2025 rok: https://staniekandpartners.pl/blog/kontrole-cen-transferowych-za-rok-2025/</p>
+    <p>14. Axelo — nowe zasady kontroli cen transferowych: https://axelo.pl/aktualnosci/ceny-transferowe/nowe-zasady-i-wieksza-skutecznosc-kontroli-cen-transferowych/</p>
+    <p>15. Deloitte Poland — „Blisko dwie trzecie kontroli cen transferowych kończy się korektą rozliczeń”: https://www.deloitte.com/pl/pl/about/press-room/blisko-dwie-trzecie-kontroli-cen-transferowych-konczy-sie-korekta-rozliczen.html</p>
+    <p>16. KPMG — zwolnienie z WHT dla dywidend: https://kpmg.com/pl/pl/wiedza/podatki/pozytywne-informacje-w-zakresie-zwolnienia-z-wht-dla-dywidend-blog-podatkowy.html</p>
+    <p>17. Dudkowiak &amp; Putyra — podatek u źródła: https://dudkowiak.pl/prawo-podatkowe/podatek-u-zrodla/</p>
+    <p>18. PwC Studio — praktyka WHT i opinii o stosowaniu preferencji: https://studio.pwc.pl/aktualnosci/alerty/podatek-u-zrodla-praktyka-organow-podatkowych-w-zakresie-opinii-o-stosowaniu-preferencji</p>
+    <p>19. EY Polska — wątpliwości w zakresie nowego reżimu WHT: https://www.ey.com/pl_pl/insights/tax/watpliwosci-w-zakresie-stosowania-nowego-rezimu-wht</p>
+    <p>20. EY Polska — Polski Ład i zmiany CIT: https://www.ey.com/pl_pl/insights/tax/polski-lad-zmiany-cit</p>
+    <p>21. EY Polska — podatek od przerzuconych dochodów: https://www.ey.com/pl_pl/insights/tax/podatek-od-przerzuconych-dochodow-kwestie-praktyczne</p>
+    <p>22. Akademia LTCA — podatek od przerzuconych dochodów: https://akademialtca.pl/blog/podatek-od-przerzuconych-dochodow</p>
+    <p>23. Prawo.pl — rozliczenie podatku od przerzuconych dochodów: https://www.prawo.pl/podatki/podatek-od-przerzuconych-dochodow-za-2022-rok-trzeba-rozliczyc,521593.html</p>
+    <p>24. Polski Instytut Ekonomiczny — Raport „Luka VAT”: https://pie.net.pl/wp-content/uploads/2019/01/Raport-LUKA-VAT.pdf</p>
+    <p>25. Krajowa Administracja Skarbowa — „Raport KE: Polska redukuje lukę VAT”: https://www.gov.pl/web/kas/raport-ke-polska-redukuje-luke-vat</p>
+    <p>26. ResearchGate — „Luka VAT i jej konsekwencje dla finansów publicznych”: https://www.researchgate.net/publication/374858784_Luka_VAT_i_jej_konsekwencje_dla_finansow_publicznych_-_perspektywa_UE_i_Polski</p>
+    <p>27. KAS — działania weryfikacyjne w 2025 roku: https://www.gov.pl/web/kas/kas-w-2025-r-przeprowadzila-264-mln-dzialan-w-zakresie-weryfikacji-prawidlowosci-rozliczen-podatkowych</p>
+    <p>28. KAS — rejestr działalności w zakresie walut wirtualnych: https://www.malopolskie.kas.gov.pl/izba-administracji-skarbowej-w-krakowie/wiadomosci/aktualnosci/-/asset_publisher/C2Gu/content/od-31-pazdziernika-2021-r-zacznie-obowiazywac-rejestr-dzialalnosci-na-rzecz-spolek-lub-trustow-oraz-dzialalnosci-w-zakresie-walut-wirtualnych</p>
+    <p>29. KAS — ostrzeżenie o oszustach podszywających się pod GIIF: https://www.gov.pl/web/kas/uwaga-oszusci-podszywaja-sie-pod-generalnego-inspektora-informacji-finansowej</p>
+    <p>30. Fundacja-rodzinna.info.pl — fundacja rodzinna i fundacja w Liechtensteinie: https://fundacja-rodzinna.info.pl/liechtenstein-fundacja/</p>
+    <p>31. KAS — „Ponad 11,2 mln zł trafiło do budżetu. KAS ujawniła optymalizację z wykorzystaniem fundacji rodzinnej”: https://www.gov.pl/web/kas/ponad-112-mln-zl-trafilo-do-budzetu-kas-ujawnila-optymalizacje-z-wykorzystaniem-fundacji-rodzinnej</p>
+    <p>32. PAP — Fundusz Wsparcia Sił Zbrojnych pod lupą NIK: https://www.pap.pl/aktualnosci/fundusz-wsparcia-sil-zbrojnych-pod-lupa-nik-wskazano-na-liczne-nieprawidlowosci</p>
+    <p>33. Polskie Radio 24 — „2,3 bln zł długu, 270 mld zł deficytu”: https://polskieradio24.pl/artykul/3571552,23-bln-zl-dlugu-270-mld-zl-deficytu-kto-jest-winny-takiego-stanu-finansow-publicznych</p>
+    <p>34. Ministerstwo Finansów — zadłużenie sektora finansów publicznych: https://www.gov.pl/web/finanse/zadluzenie-sektora-finansow-publicznych</p>
+    <p>35. PAP — ocena NIK finansowania zadań publicznych poza budżetem: https://www.pap.pl/aktualnosci/prezes-nik-negatywnie-ocenil-finansowanie-zadan-publicznych-poza-budzetem-w-2024-r</p>
+    <p>36. URE — rekompensaty dla sektorów energochłonnych: https://www.ure.gov.pl/pl/urzad/informacje-ogolne/aktualnosci/10977,Rekompensaty-dla-sektorow-energochlonnych-pomoc-publiczna-udzielana-przez-URE-i-.html</p>
+    <p>37. Wprost Biznes — ceny gazu i decyzje URE: https://biznes.wprost.pl/gospodarka/12351495/orlen-utrzymuje-ceny-gazu-do-konca-2026-decyzja-ure-i-nowe-stawki.html</p>
+    <p>38. myORLEN — „Grupa ORLEN chroni klientów przed wzrostem cen gazu”: https://myorlen.pl/aktualnosci/-/news-list/id/grupa-orlen-chroni-klientow-przed-wzrostem-cen-gazu/newsGroupId/10184</p>
+    <p>39. OECD — Base erosion and profit shifting: https://www.oecd.org/en/topics/base-erosion-and-profit-shifting-beps.html</p>
+    <p>40. Podatnik.info — raje podatkowe: https://www.podatnik.info/publikacje/raje_podatkowe_czym_sa_jak_dzialaja_i_jakie_obowiazki_powoduja,67069c</p>
+    <p>41. Ministerstwo Finansów — reforma międzynarodowego opodatkowania: https://www.gov.pl/web/finanse/nadchodzi-wielka-reforma-miedzynarodowego-opodatkowania</p>
+    <p>42. RPMS — AML a kantory kryptowalut: https://rpms.pl/czy-aml-dotyczy-kantorow-kryptowalut/</p>
+    <p>43. Ministerstwo Finansów — objaśnienia podatkowe dotyczące podatku od przerzuconych dochodów: https://www.gov.pl/attachment/76c0feea-3600-4ffd-b3d4-e3044c5576a5</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Legenda oznaczeń — standard weryfikacji</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — informacja przedstawiona w materiale jako potwierdzona przez akty prawne, dane KAS, NIK, Ministerstwa Finansów lub statystyki publiczne</div>
+      <div><b>WERSJA PR</b> — oficjalne stanowisko instytucji, korporacji lub regulatora</div>
+      <div><b>WNIOSEK ANALITYCZNY</b> — wnioskowanie autora wynikające z przepływów, regulacji i struktury bodźców</div>
+      <div><b>BRAK DANYCH</b> — informacja nieweryfikowalna, nieujawniona lub niewystarczająco potwierdzona</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

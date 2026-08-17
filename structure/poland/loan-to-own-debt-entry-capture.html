@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polska — Wejście przez dług | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← STRONA GŁÓWNA</a>
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">Niezależny wywiad strukturalny · od 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">„Struktura ponad narracją.”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>BIURO POLSKA</span>
+    <span>16 SIERPNIA 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / WEJŚCIE PRZEZ DŁUG</span>
+
+  <h1 class="headline">Jak dług może przejąć polski aktyw bez klasycznego przejęcia</h1>
+  <p class="deck">Analiza mechaniki Loan-to-Own: od finansowania mezzanine i zakupu długu zagrożonego, przez kowenanty, pre-pack i cross-class cram-down, po konwersję wierzytelności w kontrolę nad logistyką, przemysłem i infrastrukturą.</p>
+  <div class="byline">DZIAŁ POLSKA — RUBRYKA: DEBT-ENTRY CAPTURE / LOAN-TO-OWN</div>
+
+  <div class="columns">
+
+    <p class="lead">W architekturze współczesnych inwestycji transgranicznych dług przestaje być wyłącznie narzędziem pobierania odsetek. W ujęciu źródła może stać się precyzyjnym kanałem wejścia do aktywu: fundusz finansuje spółkę albo skupuje jej zobowiązania, a następnie — po uruchomieniu zdarzenia niewypłacalności — konwertuje pozycję wierzyciela w kontrolę właścicielską.</p>
+
+    <p>W Polsce mechanizm ten analizowany jest przede wszystkim w odniesieniu do parków logistycznych, magazynów klasy A, podwykonawców przemysłowych i innych aktywów osadzonych w kluczowych łańcuchach dostaw. Zamiast klasycznej transakcji M&amp;A na otwartym rynku wejście następuje poprzez bilans, zabezpieczenia, prawa wierzyciela i procedury restrukturyzacyjne.</p>
+
+    <div class="subhead">1. Typ wejścia</div>
+    <p>Ocena źródła: wysoka pewność. Mechanika konwersji długu na kapitał jest zakotwiczona w polskim prawie restrukturyzacyjnym, a rynek długu zagrożonego tworzy instytucjonalne otoczenie dla takich transakcji.</p>
+
+    <div class="subhead">1.1. Instrument penetracji</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Architektura wejścia jest przedstawiana jako finansowanie wzrostu albo finansowanie pomostowe, lecz w modelu Loan-to-Own jej właściwym celem może być przejęcie niedowartościowanego aktywu po wystąpieniu technicznego defaultu. W takim układzie zwrot kapitału z odsetkami nie jest jedyną funkcją kredytu: konstrukcja kowenantów tworzy opcję przymusowej konwersji wierzytelności na większościowy pakiet lub pełną własność aktywu.
+    </div>
+
+    <p>Pierwszy wektor to nowe finansowanie mezzanine: podporządkowany dług o wysokiej cenie i surowych warunkach finansowych, zabezpieczony prawami udziałowymi albo konkretnym obiektem. Drugi to skup problematycznych wierzytelności na rynku wtórnym. Fundusze przejmują kredyty deweloperów i przedsiębiorstw od lokalnych banków z dyskontem, wykorzystując rozwinięty rynek NPL.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Polskie Prawo restrukturyzacyjne, zreformowane w 2016 roku i istotnie zmienione w 2025 roku, dopuszcza konwersję wierzytelności na udziały lub akcje jako legalny instrument restrukturyzacji, umożliwiający wierzycielowi wejście do struktury właścicielskiej dłużnika.
+    </div>
+
+    <div class="subhead">1.2. Co nabywa się ponad spłatę długu</div>
+
+    <p>W skrajnym wariancie Loan-to-Own wierzyciel nie musi dążyć do odzyskania gotówki. Po aktywacji scenariusza niewypłacalności może przejąć kontrolę operacyjną nad parkiem logistycznym, magazynem, linią przemysłową albo spółką, której aktywa zostały oczyszczone z części starych zobowiązań.</p>
+
+    <p>Źródło wskazuje również na potencjalny wymiar infrastruktury podwójnego zastosowania. Węzły logistyczne w rejonach takich jak Rzeszów, Poznań i Szczecin obsługują transgraniczne łańcuchy dostaw, a okolice lotniska Rzeszów-Jasionka mają szczególne znaczenie dla przepływów wojskowych i humanitarnych na wschodnią flankę.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Zatwierdzony przez sąd układ przewidujący konwersję wierzytelności na kapitał na podstawie art. 156 Prawa restrukturyzacyjnego może wywołać skutki korporacyjne bez standardowej uchwały wspólników lub akcjonariuszy; źródło wskazuje również na wyłączenie typowych praw pierwszeństwa dotychczasowych właścicieli w ramach wykonania układu.
+    </div>
+
+    <p>Po uzyskaniu kontroli nad systemowo ważnym aktywem inwestor otrzymuje także pozycję wobec administracji lokalnej i centralnej. Może negocjować infrastrukturę dojazdową, warunki działalności i instrumenty wsparcia w ramach regionalnych oraz specjalnych stref ekonomicznych.</p>
+
+    <div class="subhead">2. Mechanizm wejścia</div>
+    <p>Ocena źródła: wysoka pewność. Mechanizm jest rekonstruowany na podstawie Prawa restrukturyzacyjnego, Prawa upadłościowego oraz analiz praktyki transakcyjnej.</p>
+
+    <div class="subhead">2.1. Warunki tworzące dźwignię</div>
+
+    <p>Umowa kredytowa jest tu siecią finansowych i prawnych warunków. Najważniejsze są kowenanty dotyczące Debt/EBITDA, DSCR i LTV, a także klauzule cross-default, które mogą rozszerzać jedno naruszenie na całą strukturę zadłużenia.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Kredyty komercyjne i mezzanine w Polsce są często powiązane ze zmiennymi stopami bazowymi, takimi jak WIBOR i EURIBOR. W okresie szoku inflacyjnego stopy NBP wzrosły z około 0,1% do 6,75%, gwałtownie zwiększając koszt obsługi długu i ryzyko naruszania kowenantów.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Źródło opisuje dodatkową asymetrię prawną: dokumentacja finansowania najwyższego szczebla może podlegać prawu angielskiemu, podczas gdy realizacja zabezpieczenia na polskim aktywie wykorzystuje lokalny pre-pack lub sanację. Dłużnik może więc równolegle mierzyć się z kosztownym sporem dotyczącym finansowania i szybką realizacją zabezpieczenia w polskim postępowaniu.
+    </div>
+
+    <blockquote class="pull">„W zwykłym kredycie zabezpieczenie chroni zwrot pieniędzy. W Loan-to-Own zabezpieczenie może być właściwym celem transakcji.”</blockquote>
+
+    <div class="subhead">2.2. Lokalni operatorzy wejścia</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W postępowaniu sanacyjnym sąd może ustanowić zarządcę, a dotychczasowe kierownictwo dłużnika traci lub istotnie ogranicza kontrolę nad przedsiębiorstwem. Układ sił w radzie wierzycieli zależy od wielkości i rodzaju wierzytelności poszczególnych uczestników.
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ WERSJA PR</span>
+      Kancelarie i doradcy restrukturyzacyjni przedstawiają narzędzia restrukturyzacji jako mechanizmy ratowania przedsiębiorstw, ochrony miejsc pracy i zapewnienia firmom „drugiej szansy” bez nieudźwignionego ciężaru zadłużenia.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W analizie źródła ta sama infrastruktura prawna może działać jak legalny mechanizm „oczyszczania” aktywu: przedsiębiorstwo jako obiekt fizyczny nadal funkcjonuje, lecz dotychczasowa struktura własności i część niżej uprzywilejowanych interesów zostają usunięte na rzecz dominującego wierzyciela.
+    </div>
+
+    <div class="subhead">2.3. Sekwencja: od bilansu do kontroli</div>
+
+    <p><strong>Faza pierwsza — pętla zadłużenia.</strong> Fundusz kupuje istniejący dług z dyskontem albo dostarcza nowe finansowanie mezzanine. Transakcja otrzymuje narrację partnerstwa strategicznego, a w dokumentacji pojawia się zastaw na udziałach lub innych kluczowych aktywach.</p>
+
+    <p><strong>Faza druga — trigger podatności.</strong> Wzrost WIBOR, inflacja, zakłócenia dostaw lub spadek stawek najmu redukują wolne przepływy pieniężne i prowadzą do naruszenia kowenantów.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ INSIDE / NIEPOTWIERDZONE</span>
+      W środowisku specjalistów od distressed debt ma krążyć teza, że w części przypadków wierzyciel po uruchomieniu naruszenia celowo blokuje alternatywne refinansowanie, wykorzystując prawa weta wynikające z dokumentacji kredytowej. Ma to pogłębiać kryzys płynności aż do punktu, w którym restrukturyzacja właścicielska staje się jedynym realnym wyjściem. Źródło oznacza tę tezę jako niepotwierdzoną.
+    </div>
+
+    <p><strong>Faza trzecia — konwersja i przejęcie.</strong> Uruchamiane jest formalne postępowanie, w którym wierzyciel może wykorzystać pre-pack, konwersję wierzytelności lub mechanizmy przymusowego zatwierdzania układu.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Pre-pack, uregulowany w art. 56a–56h Prawa upadłościowego, pozwala przygotować sprzedaż przedsiębiorstwa lub jego istotnych składników wskazanemu nabywcy jeszcze przed formalnym ogłoszeniem upadłości. Po zatwierdzeniu przez sąd sprzedaż może nastąpić bardzo szybko, a nabywca uzyskuje aktyw w reżimie przewidzianym dla przygotowanej likwidacji.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      23 sierpnia 2025 roku weszła w życie nowelizacja implementująca dyrektywę UE 2019/1023 i rozszerzająca mechanizm cross-class cram-down. Sąd może zatwierdzić układ również wobec grup, które głosowały przeciw, przy spełnieniu ustawowych warunków, w tym testu „no-worse-off”.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W interpretacji raportu kluczową rolę odgrywa wycena wartości likwidacyjnej. Jeżeli zostanie ustalona bardzo nisko, łatwiej wykazać, że właściciele i słabiej zabezpieczeni wierzyciele nie otrzymaliby więcej w zwykłej likwidacji, co otwiera drogę do zatwierdzenia planu silnie rozwadniającego ich pozycję.
+    </div>
+
+    <div class="subhead">3. Kto wchodzi i po co</div>
+
+    <p>Źródło wskazuje przede wszystkim anglosaskie fundusze private credit, distressed debt i wyspecjalizowane ramiona banków inwestycyjnych. W publicznych rejestrach i materiałach rynkowych pojawiają się podmioty takie jak Ares Management, Oaktree Capital, Davidson Kempner, HPS Investment Partners i BlueBay Asset Management.</p>
+
+    <p>Ich podstawowym celem pozostaje komercyjna maksymalizacja IRR, ale w przypadku infrastruktury logistycznej efekt ekonomiczny ma również wymiar systemowy. Polska jest ważnym korytarzem łączącym Niemcy, kraje bałtyckie i Europę Wschodnią.</p>
+
+    <p>Model preferuje aktywa już zbudowane. Lokalny deweloper ponosi ryzyko gruntowe, pozwoleniowe i budowlane, a kapitał zewnętrzny może wejść dopiero wtedy, gdy obiekt działa, ma najemców i generuje przepływ pieniężny. Finansowanie jest często strukturyzowane przez holdingi w Luksemburgu, Niderlandach lub na Cyprze.</p>
+
+    <div class="subhead">3.2. Profil dłużnika</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Według przywołanych danych aktywa polskiego sektora finansowego odpowiadają około 88–90% PKB, wyraźnie mniej niż w strefie euro. Banki pozostają dodatkowo obciążone kosztami sporów dotyczących kredytów walutowych i wymogami kapitałowymi, co ogranicza apetyt na kapitałochłonne finansowanie infrastruktury.
+    </div>
+
+    <p>Drugim czynnikiem jest presja szybkości. Boom e-commerce w latach 2020–2022, a następnie militarne i logistyczne znaczenie regionu w latach 2022–2025 zwiększyły popyt na szybką ekspansję magazynową i przemysłową. Fundusze prywatnego długu mogą dostarczyć finansowanie szybciej niż konserwatywny bank.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Lokalny przedsiębiorca może patrzeć przede wszystkim na marżę operacyjną i wartość wybudowanego aktywu, niedoszacowując ryzyka struktury prawnej. Założenie, że dochodowy magazyn z najemcą takim jak Amazon lub DHL zawsze da się refinansować, załamuje się w momencie globalnego zamknięcia rynku kredytowego.
+    </div>
+
+    <div class="subhead">4. Skutki materializacji ryzyka</div>
+
+    <div class="subhead">4.1. Default i przejście aktywu</div>
+
+    <p>Po utracie zdolności obsługi długu wierzyciel może przedstawić plan konwersji wierzytelności. Jego siła głosu wynika z wartości długu, a mechanizmy cram-down mogą związać grupy, które nie poparły układu.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Na podstawie art. 156 Prawa restrukturyzacyjnego układ może przewidywać konwersję wierzytelności na udziały lub akcje. Emisja nowych praw udziałowych na rzecz wierzyciela może radykalnie rozwodnić udział dotychczasowego właściciela i doprowadzić do pełnej zmiany kontroli korporacyjnej.
+    </div>
+
+    <p>Materiał przywołuje szerszy trend konsolidacji logistyki w rękach globalnego kapitału. Ares Management nabył portfel pięciu aktywów logistycznych o powierzchni około 284 tys. m² od Savills IM, a CBRE Investment Management przejął portfel Nexus obejmujący osiem kompleksów o powierzchni ponad 211 tys. m². Źródło zaznacza, że takie transakcje mogą być zwykłymi dobrowolnymi M&amp;A; służą tu jako ilustracja kierunku koncentracji własności, a nie automatyczny dowód Loan-to-Own.</p>
+
+    <div class="subhead">4.2. Długoterminowa utrata autonomii decyzyjnej</div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Państwo zachowuje formalną jurysdykcję nad działającą w Polsce spółką, lecz strategiczne decyzje właściciela funduszu — rozbudowa, konserwacja, sprzedaż czy zmiana funkcji aktywu — mogą zapadać w Londynie, Nowym Jorku lub Luksemburgu według kryterium globalnego IRR, a nie potrzeb krajowej polityki przemysłowej i logistycznej.
+    </div>
+
+    <p>Wrażliwość rośnie, gdy dotyczy to infrastruktury przy autostradach A1, A2 i S8 albo węzłów w rejonie Rzeszowa-Jasionki. Po zmianie właściciela część zysku może być wypłacana w formie dywidend do zagranicznej struktury holdingowej zamiast pozostawać w krajowym obiegu kapitałowym.</p>
+
+    <div class="subhead">5. Komu opłaca się obecny model</div>
+
+    <p><strong>Funduszom transnarodowym.</strong> Otrzymują gotowe hard assets z dyskontem, bez konieczności ponoszenia wcześniejszego ryzyka administracyjnego, budowlanego i komercjalizacyjnego.</p>
+
+    <p><strong>Infrastrukturze prawnej i doradczej.</strong> Restrukturyzacje generują popyt na doradców, zarządców, audytorów i kancelarie obsługujące wielowarstwowe transakcje.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ INSIDE / NIEPOTWIERDZONE</span>
+      W warszawskim środowisku prawników korporacyjnych ma funkcjonować pogląd, że reforma z 2025 roku rozszerzająca cram-down była intensywnie wspierana przez duże firmy doradcze zainteresowane sprawniejszą restrukturyzacją instytucjonalnego długu. Materiał przedstawia tę tezę jako niepotwierdzoną i nie podaje dowodu bezpośredniego lobbingu konkretnych podmiotów.
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ WERSJA PR</span>
+      W oficjalnym przekazie wzrost liczby restrukturyzacji jest przedstawiany jako skuteczne ratowanie firm, zachowanie miejsc pracy, utrzymanie bazy podatkowej i wdrażanie europejskiej idei „drugiej szansy” dla przedsiębiorstw.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Z punktu widzenia klasy politycznej niewidoczna zmiana właściciela jest społecznie łatwiejsza niż klasyczne bankructwo. Zakład lub magazyn działa dalej, zatrudnienie pozostaje, a koszt utraty lokalnej kontroli właścicielskiej jest mało widoczny dla wyborcy.
+    </div>
+
+    <div class="subhead">6. Ocena końcowa</div>
+
+    <p><strong>Podsumowanie mechanizmu.</strong> Źródło opisuje Loan-to-Own w Polsce jako instytucjonalnie chroniony kanał, dzięki któremu globalny kapitał dłużny może zostać przekształcony w bezpośrednią własność aktywu logistycznego lub przemysłowego. Wierzyciel otrzymuje nie tylko finansowy zwrot, lecz potencjalnie operacyjną kontrolę nad aktywem po restrukturyzacji.</p>
+
+    <p><strong>Główny strukturalny punkt dźwigni.</strong> Połączenie surowych kowenantów finansowych z instrumentami polskiego prawa restrukturyzacyjnego. Zewnętrzny szok — WIBOR, inflacja lub zamknięcie rynku refinansowania — może uruchomić naruszenia, po których dostępne stają się pre-pack, konwersja długu i cross-class cram-down. Źródło ocenia pewność tej mechaniki jako wysoką.</p>
+
+    <p><strong>Najbardziej prawdopodobny scenariusz.</strong> Raport przewiduje dalszą konsolidację części polskich aktywów logistycznych i przemysłowych przez kapitał transnarodowy w ciągu kolejnej dekady. Jako główny akcelerator wskazuje reformę z 2025 roku, która zwiększyła skuteczność przymusowego zatwierdzania układów wobec sprzeciwiających się klas wierzycieli i właścicieli. Jest to prognoza źródła, a nie ustalony fakt.</p>
+
+    <div class="subhead">Źródła</div>
+
+    <p>1. Arete — rynek nieruchomości logistycznych w Polsce: https://www.arete.eu/property-region/poland/</p>
+    <p>2. „Management and Quality — Zarządzanie i Jakość”, tom 5 nr 4: https://zij.edu.pl/wp-content/uploads/2024/01/Vol-5-No-4-gotowy.pdf</p>
+    <p>3. KPMG — Europa Środkowo-Wschodnia jako rosnąca przestrzeń dla międzynarodowego sektora obronnego i bezpieczeństwa: https://assets.kpmg.com/content/dam/kpmgsites/sk/pdf/2026/the_underdog_advantage.pdf.coredownload.inline.pdf.coredownload.inline.pdf</p>
+    <p>4. RevoCar S.A. — prospekt STS Verification International: https://www.sts-verification-international.com/fileadmin/svi/Transaktionen/RevoCar_2025-1/RevoCar_2025-1_-_Prospectus_4159-7386-7863_v.13.pdf</p>
+    <p>5. Globalworth — podsumowanie inwestycyjne: https://www.globalworth.com/wp-content/uploads/2021/01/globalworth-highlights-2014.pdf</p>
+    <p>6. Astana International Financial Centre — raport o rynku private equity: https://aifc.kz/wp-content/uploads/2024/09/1oczyajfmpktxr5bnt7dmsha8twfh5g2.pdf</p>
+    <p>7. Raport roczny sektora finansowego / KNF: https://www.bscee.org/knf/pl/komponenty/img/Raport_Roczny_2022_87443.pdf</p>
+    <p>8. Structured Credit Investor — rynek NPL i aktywów zagrożonych: https://www.structuredcreditinvestor.com/NPLs/default.asp?p_num=16</p>
+    <p>9. CMS — „Poland: Investing in distressed assets”: https://cms.law/en/pol/legal-updates/Poland-Investing-in-distressed-assets</p>
+    <p>10. Interpretacja podatkowa dotycząca konwersji wierzytelności na kapitał zakładowy: https://sip.lex.pl/orzeczenia-i-pisma-urzedowe/pisma-urzedowe/0111-kdib1-2-4010-38-2024-1-ank-rozliczanie-cit-w-zwiazku-185251193</p>
+    <p>11. LEX — konwersja wierzytelności na udziały lub akcje w postępowaniu restrukturyzacyjnym: https://sip.lex.pl/restrukturyzacyjne-prawo-cta5543/konwersja-wierzytelnosci-na-udzialy-lub-akcje-w-postepowaniu-restrukturyzacyjnym-cta9773</p>
+    <p>12. KPR Restrukturyzacja — konwersja wierzytelności na udziały, akcje lub kapitał: https://kpr-restrukturyzacja.pl/konwersja-wierzytelnosci-na-udzialy/</p>
+    <p>13. GGI — distressed assets jako strategia inwestycyjna w Polsce: https://www.ggi.com/news/real-estate/distressed-assets-as-an-investment-strategy-in-poland</p>
+    <p>14. Interpretacja podatkowa dotycząca spłaty wierzytelności poprzez konwersję na akcje: https://sip.lex.pl/orzeczenia-i-pisma-urzedowe/pisma-urzedowe/0114-kdip4-2-4012-44-2024-1-aa-skutki-podatkowe-splaty-185251028</p>
+    <p>15. Departament Stanu USA — „Investment Climate Statements: Poland”: https://www.state.gov/reports/2021-investment-climate-statements/poland</p>
+    <p>16. „Investing in Poland 2014 Trendbook”: https://www.slideshare.net/slideshow/investing-in-poland-2014-trendbook/40271983</p>
+    <p>17. Dekpol — sprawozdanie zarządu z działalności: https://dekpol.pl/wp-content/uploads/2023/07/Report-of-Management-Board-on-business-activities-of-the-Company-and-Dekpol-Capital-Group.pdf</p>
+    <p>18. Kilde — analiza rynku private credit i finansowania pozabankowego w Polsce: https://www.kilde.sg/post/polands-non-bank-lending-and-private-credit-comprehensive-analysis</p>
+    <p>19. Ministerstwo Finansów Czech — raport o rozwoju rynku finansowego w 2024 roku: https://mf.gov.cz/assets/attachments/2025-07-23_Report-on-Financial-Market-Developments-in-2024.pdf</p>
+    <p>20. South Square — „Digest”: https://southsquare.com/wp-content/uploads/2018/07/Digest-August-2014.pdf</p>
+    <p>21. Buzzi Unicem — materiały Luxembourg Stock Exchange: https://dl.bourse.lu/</p>
+    <p>22. Vindicat — restrukturyzacja zobowiązań dłużnika: https://vindicat.pl/baza-wiedzy/restrukturyzacja-zobowiazan-dluznika/</p>
+    <p>23. Dentons Poland Review 2016: https://www.dentons.com/~/media/PDFs/Collateral/Dentons%20Poland%20Review%202016.pdf</p>
+    <p>24. Corporate Finance Lab — krytyczna analiza unijnej propozycji pre-packów z podmiotami powiązanymi: https://corporatefinancelab.org/2025/10/30/the-eu-proposal-for-pre-packs-with-related-parties-some-critical-notes-and-essential-amendments/</p>
+    <p>25. „Právny obzor” — pre-pack w prawie upadłościowym i problem transparentności: http://www.pravnyobzor.sk/32025/po32025-cukerova-mrazova-pre-pack-postupy-v-konkurznom-prave-vyvazovanie-dovernosti-a-transparentnosti-v-pripravnej-faze.pdf</p>
+    <p>26. Restrukta — nowe Prawo restrukturyzacyjne od 2025 roku: https://www.restrukta.pl/nowe-prawo-restrukturyzacyjne-juz-dziala-firmy-maja-wiecej-narzedzi-ale-mniej-czasu/</p>
+    <p>27. Gov.pl — Alaris Capture Pro Software: https://www.gov.pl/attachment/feeb4a64-d3c8-4acd-9920-f2c443482bf0</p>
+    <p>28. Savills Investment Management — sprzedaż polskiego portfela logistycznego do Ares: https://savillsim.com/news/sale-prime-logistics-portfolio-in-poland-from-savills-investment-management/</p>
+    <p>29. Komisja Europejska — wpływ funduszy private equity, hedge funds i sovereign wealth funds na restrukturyzację przemysłu w Europie: https://ec.europa.eu/social/BlobServlet?docId=5239&amp;langId=en</p>
+    <p>30. Bain &amp; Company — Global Private Equity Report 2011: https://media.bain.com/Images/2011-02-24%20REPORT%20Global%20Private%20Equity%20report%202011%20-%20MEDIA.pdf</p>
+    <p>31. Property Forum — Ares przejmuje polski portfel logistyczny od Savills IM: https://www.property-forum.eu/news/ares-acquires-polish-logistics-portfolio-from-savills-im/21464</p>
+    <p>32. Griffin Capital Partners — CBRE Investment Management przejmuje portfel logistyczny Nexus: https://griffin-cp.com/cbre-investment-management-acquires-core-polish-logistics-portfolio-from-european-logistics-investment/</p>
+    <p>33. MDPI — analiza racjonowania kredytu i NPL w polskim sektorze bankowym: https://www.mdpi.com/2225-1146/13/4/51</p>
+    <p>34. IMF — konsultacje art. IV dla Polski: https://www.elibrary.imf.org/view/journals/002/2022/058/article-A001-en.xml</p>
+    <p>35. Narodowy Bank Polski — „Financial Stability Report”: https://nbp.pl/wp-content/uploads/2023/06/Raport-o-Stabilnosci-Systemu-Finansowego.-Czerwiec-2023_EN.pdf</p>
+    <p>36. Departament Stanu USA — „2024 Investment Climate Statements: Poland”: https://2021-2025.state.gov/reports/2024-investment-climate-statements/poland/</p>
+    <p>37. Uniwersytet Gdański — kontrola prawomocnie zatwierdzonego układu przewidującego konwersję wierzytelności na akcje lub udziały: https://gsp.ug.edu.pl/index.php/gdanskie_studia_prawnicze/article/download/7049/6252/10722</p>
+    <p>38. Infor Księgowość — nowe przepisy restrukturyzacyjne od 23 sierpnia 2025 roku: https://ksiegowosc.infor.pl/obrot-gospodarczy/dzialalnosc-gospodarcza/7032278,nowe-przepisy-restrukturyzacyjne-juz-od-23-sierpnia-druga-szansa-dla.html</p>
+    <p>39. PW Restrukturyzacja — jak sprawdzić, czy firma jest w restrukturyzacji: https://pwrestrukturyzacja.pl/blog/jak-sprawdzic-czy-firma-jest-w-restrukturyzacji</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Legenda oznaczeń — standard weryfikacji</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — informacja oznaczona w materiale jako potwierdzona przepisami, dokumentami lub danymi rynkowymi</div>
+      <div><b>WERSJA PR</b> — oficjalna narracja instytucji, kancelarii lub władz dotycząca funkcji restrukturyzacji</div>
+      <div><b>WNIOSEK ANALITYCZNY</b> — interpretacja autora wynikająca z konstrukcji finansowania, prawa i struktury bodźców</div>
+      <div><b>BRAK DANYCH</b> — informacja nieweryfikowalna, nieujawniona lub niewystarczająco potwierdzona</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polska — Systemowa analiza OPI | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← STRONA GŁÓWNA</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Niezależny wywiad strukturalny · od 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">„Struktura ponad narracją.”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>BIURO POLSKA</span>
+    <span>16 SIERPNIA 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / PRZEMYSŁ OBRONNY I ZALEŻNOŚĆ</span>
+  <h1 class="headline">Polski przemysł obronny: kto kontroluje produkcję, kredyt i technologię</h1>
+  <p class="deck">Systemowa analiza polskiego kompleksu obronno-przemysłowego jako trójwęzłowej konstrukcji: państwowego PGZ, zagranicznych dawców technologii oraz prywatnego sektora cyfrowego. W centrum znajdują się zależności licencyjne, finansowanie długiem, wąskie gardła produkcyjne i zewnętrzna kontrola nad krytycznym IP.</p>
+  <div class="byline">DZIAŁ POLSKA — RUBRYKA: DEFENSE-INDUSTRIAL / ARCHITEKTURA ZALEŻNOŚCI</div>
+  <div class="columns"><p class="lead">Polski kompleks obronno-przemysłowy jest systemem policentrycznym, którego nie da się opisać prostym podziałem na sektor państwowy i prywatny. Przy wydatkach obronnych sięgających w latach 2024–2025 poziomu około 4,7% PKB architektura sektora przekształciła się w trójwęzłowy model integracji offsetowej: Polska jest jednocześnie dużym hubem montażowym, odbiorcą zagranicznej technologii i krajem próbującym zamieniać zakupy finansowane długiem w lokalizację produkcji.</p>
+<p>Źródło ocenia pewność podstawowej architektury jako wysoką, opierając ją na raportach NIK, statystyce makroekonomicznej UE, danych finansowania eksportowego KEXIM i FMF oraz sprawozdawczości wykonawców.</p><div class="subhead">1. Architektura produkcji i zaopatrzenia</div><div class="subhead">1.1. Model trzech węzłów</div><p><strong>Węzeł pierwszy — państwowa konsolidacja.</strong> Rdzeniem jest Polska Grupa Zbrojeniowa, skupiająca ponad 40 spółek, w tym Huta Stalowa Wola, Mesko, Bumar-Łabędy, Nitro-Chem i PGZ Stocznia Wojenna. To przemysłowy fundament państwowego sektora obronnego.</p><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Raporty Najwyższej Izby Kontroli z lat 2018–2024 wskazują na brak jednolitej długoterminowej strategii PGZ, powtarzające się opóźnienia dostaw dla Sił Zbrojnych RP, kary za niewykonanie kontraktów oraz niską rentowność operacyjną. Część przedsiębiorstw, w tym H. Cegielski-Poznań, generowała chroniczne straty rzędu około 36–43 mln zł rocznie, pokrywane między innymi finansowaniem wewnątrzgrupowym.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Funkcja instytucjonalna PGZ polega przede wszystkim na absorpcji zagranicznych technologii poprzez offset i lokalizację, utrzymaniu kontroli nad krytyczną infrastrukturą przemysłową oraz stabilizacji zatrudnienia. Innowacyjność i konkurencja eksportowa nie są jedynymi ani dominującymi funkcjami holdingu.
+    </div><p><strong>Węzeł drugi — zagraniczni dawcy technologii.</strong> Ciężkie platformy i kluczowe komponenty opierają się na dostawcach ze Stanów Zjednoczonych, Wielkiej Brytanii i Korei Południowej. Patriot, CAMM, F-35, AH-64 i HIMARS tworzą zachodnią warstwę systemu; K2, K9, FA-50 i Chunmoo — warstwę koreańską. Polska integruje część elementów krajowych, jak podwozia Jelcz czy radary PIT-RADWAR, lecz kluczowe oprogramowanie i własność intelektualna pozostają u zagranicznych producentów.</p>
+<p><strong>Węzeł trzeci — prywatna elastyczność i krajowe IP.</strong> Najbardziej dynamiczny segment prywatny koncentruje się na C4ISR, łączności, systemach bezzałogowych i oprogramowaniu integrującym rozproszony park uzbrojenia.</p><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      WB Group zwiększył przychody z około 86 mln dolarów w 2021 roku do szacowanych około 700 mln dolarów w 2024 roku. Do kluczowych produktów należą system zarządzania walką TOPAZ, łączność FONET, bezzałogowce FlyEye i amunicja krążąca Warmate.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Podczas gdy państwowy system zakupowy koncentruje się na imporcie ciężkich platform, prywatne firmy budują warstwę cyfrowej integracji. Systemy WB Group spajają sprzęt postsowiecki, amerykański i koreański w jeden obieg sieciocentryczny, a integracja TOPAZ z ukraińską platformą Delta potwierdza eksportowy potencjał tej kompetencji.
+    </div><div class="subhead">1.2. Pozycja Polski w globalnym łańcuchu obronnym</div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W najbardziej kapitałochłonnych segmentach Polska funkcjonuje jako hub montażowy na licencji. Program K2PL i fregaty Miecznik pokazują model, w którym krajowe zakłady przejmują budowę platformy i integrację mechaniczną, natomiast kluczowe systemy walki, sensory i uzbrojenie pozostają zewnętrzne.
+    </div><p>W programie Miecznik polskie stocznie budują okręty na bazie projektu Arrowhead 140 firmy Babcock. System walki TACTICOS dostarcza Thales, a pociski CAMM — MBDA. Suwerenność produkcyjna jest więc większa na poziomie kadłuba i mechaniki niż na poziomie sensorów oraz efektorów.</p><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Nitro-Chem jest największym producentem trotylu w Europie. Spółka zawarła kontrakty z Paramount Enterprises International na dostawę 18 tys. ton TNT o wartości około 310 mln dolarów w latach 2027–2029 dla armii USA. Według przywołanych danych polski TNT pokrywa do około 90% importowych potrzeb Stanów Zjednoczonych w tym komponencie.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Powstaje nietypowa asymetria: amerykański przemysł zbrojeniowy jest w określonym stopniu zależny od polskiego surowca chemicznego, co daje Warszawie ograniczony odwrotny punkt nacisku, choć jego znaczenie jest mniejsze niż polska zależność od amerykańskiego IP, uzbrojenia precyzyjnego i systemów cyfrowych.
+    </div><p>Polska zachowuje także ograniczone nisze pełnego lub niemal pełnego cyklu: system Piorun, bezzałogowce i część pojazdów opancerzonych.</p><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Program Borsuk jest jedną z nielicznych krajowych ciężkich platform. W marcu 2025 roku podpisano kontrakt o wartości 6,5 mld zł na 111 bojowych wozów piechoty do 2029 roku, a pierwsze 15 pojazdów przekazano wojsku w grudniu 2025 roku.
+    </div><div class="stamp-note pr">
+      <span class="k">■ WERSJA PR</span>
+      Oficjalne stanowisko resortu obrony przedstawia Borsuka jako podstawę pełnej technologicznej niezależności polskiej piechoty zmechanizowanej w perspektywie wielu lat.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Mimo krajowej konstrukcji podwozia i wieży ZSSW-30 napęd MTU 8V199 TE20 oraz przekładnia Allison pozostają importowane. Oznacza to, że nawet jedna z najbardziej suwerennych polskich platform zachowuje częściową zależność od zagranicznego łańcucha dostaw.
+    </div><div class="subhead">1.3. Zakupy i finansowanie długiem</div><p>Agencja Uzbrojenia prowadzi znaczną część modernizacji w logice „pilnej potrzeby operacyjnej”, co ułatwia zawieranie dużych kontraktów poza klasycznymi procedurami konkurencyjnymi.</p><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Od 2022 roku kluczowym narzędziem finansowania zakupów jest Fundusz Wsparcia Sił Zbrojnych działający przy BGK. Fundusz korzysta z emisji obligacji i kredytów zagranicznych, pozwalając finansować zakupy poza tradycyjną konstrukcją budżetu obronnego.
+    </div><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W 2023 roku plan finansowy FWSZ wykonano mniej więcej w połowie: z planowanych 45,9 mld zł wydano około 23,3 mld zł. NIK wiązała różnicę między innymi z opóźnieniami dostaw i nierealistycznymi harmonogramami kontraktów zagranicznych.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      FWSZ tworzy wrażenie bardzo dużej dostępności kapitału, ale jednocześnie zwiększa koszt obsługi długu. Przy zadłużeniu około 30 mld zł koszt obsługi wynosił około 1,18 mld zł, czyli efektywnie około 3,9%, wyraźnie więcej niż w części innych funduszy infrastrukturalnych. Presja na szybkie podpisywanie kontraktów wypiera analizę pełnego kosztu cyklu życia sprzętu.
+    </div><div class="subhead">2. Wąskie gardła</div><div class="subhead">2.1. Technologiczne wąskie gardła — iluzja suwerenności</div><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Polska zamówiła 48 samolotów FA-50: 12 w wersji GF i 36 w planowanej wersji PL. Koncepcja FA-50PL zakłada integrację radaru AESA PhantomStrike oraz pocisków AIM-120 AMRAAM, czyli komponentów podlegających amerykańskim mechanizmom eksportowym.
+    </div><div class="stamp-note insight">
+      <span class="k">■ INSIDE / NIEPOTWIERDZONE</span>
+      W środowisku branżowym i części mediów specjalistycznych krąży wersja, według której amerykańskie mechanizmy kontroli eksportu ITAR były wykorzystywane do przeciągania integracji AMRAAM z FA-50PL, ponieważ ta konfiguracja mogłaby tworzyć tańszą konkurencję dla F-16V. Źródło oznacza tę interpretację jako niepotwierdzoną.
+    </div><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Program FA-50PL opóźnia się co najmniej o około półtora roku. Jako rozwiązanie przejściowe Polska zawarła umowę leasingu starszych pocisków AIM-9P Sidewinder z zapasów Korei Południowej, aby samoloty FA-50GF mogły realizować podstawowe zadania patrolowe.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Fizyczne posiadanie platformy nie daje pełnej suwerenności operacyjnej, jeśli sensory, uzbrojenie i krytyczne oprogramowanie pozostają kontrolowane przez stronę trzecią. Podobny problem występuje w F-35, gdzie obsługa i logistyka są głęboko związane z amerykańskim ekosystemem ODIN.
+    </div><p>Ten sam wzorzec powtarza się w innych systemach. Miecznik opiera się na TACTICOS i CAMM, F-35 na amerykańskim stosie logistycznym, a Patriot/IBCS na zamkniętych algorytmach i protokołach należących do dostawcy.</p><div class="subhead">2.2. Wąskie gardła przemysłowe i kadrowe</div><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Mesko otrzymało zadanie zwiększenia produkcji amunicji 155 mm z około 30 tys. sztuk w 2023 roku do około 150–180 tys. rocznie do 2027 roku, przy wsparciu środków krajowych i europejskich.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Nawet przy silnej pozycji Nitro-Chem produkcja pocisków trafia na wąskie gardło w postaci niedoboru nitrocelulozy wojskowej i komponentów ładunków miotających. Historyczna zależność od azjatyckich dostaw celulozy bawełnianej tworzy ryzyko embarga lub zerwania dostaw. Lokalizacja BMCS z Eurenco w Pionkach nadal opiera się na części zagranicznych komponentów.
+    </div><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      HIMARS/Homar-A, K239 Chunmoo/Homar-K, Narew, Wisła i część innych nowych systemów opiera się na ciężkich podwoziach Jelcz.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Jelcz działa blisko granicy swoich mocy i staje się krajowym pojedynczym punktem awarii. Opóźnienie rozbudowy produkcji, brak inżynierów lub przerwanie dostaw agregatów może blokować wdrażanie wielu strategicznych systemów jednocześnie.
+    </div><div class="stamp-note insight">
+      <span class="k">■ INSIDE / NIEPOTWIERDZONE</span>
+      Według informacji krążących w branży podział prac przy lokalizacji K2PL wywołał ostrą rywalizację pomiędzy Bumar-Łabędy i Wojskowymi Zakładami Motoryzacyjnymi. Źródło wiąże to z polityzacją decyzji i dublowaniem inwestycji w ramach PGZ, ale oznacza samą kulisową interpretację jako niepotwierdzoną.
+    </div><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Podobne problemy koordynacyjne wcześniej towarzyszyły modernizacji Leopard 2PL. Raporty NIK i publiczne dane wskazywały na poważne opóźnienia oraz wzrost kosztów programu.
+    </div><div class="subhead">2.3. Finansowe wąskie gardła i pułapka zadłużenia</div><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Aby finansować drugą fazę kontraktów zbrojeniowych dla Polski o wartości około 22 mld dolarów, Korea Południowa zwiększyła ustawowy kapitał KEXIM z 15 do 25 bln wonów. Wcześniejszy limit kredytowy został w dużej mierze wykorzystany przez pierwszą pulę polskich kontraktów.
+    </div><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Finansowanie amerykańskich platform wspierają instrumenty Foreign Military Financing. Od 2023 do połowy 2025 roku Polska uzyskała amerykańskie pożyczki bezpośrednie i gwarancje kredytowe o łącznej wartości przekraczającej 15 mld dolarów.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Tak skonstruowane finansowanie wiąże wybór platform z krajem udzielającym kredytu. Możliwość dywersyfikacji zakupów jest ograniczona nie tylko przez interoperacyjność, lecz także przez dostępność linii kredytowych w Waszyngtonie i Seulu.
+    </div><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Deficyt sektora instytucji rządowych i samorządowych Polski za 2023 rok wyniósł około 5,1% PKB, przekraczając unijny próg 3% i prowadząc do procedury nadmiernego deficytu. Warszawa zabiegała o klauzulę pozwalającą łagodniej traktować wzrost wydatków obronnych, jednak nie uzyskała pełnego wyłączenia całych nakładów wojskowych z reguł fiskalnych.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Modernizacja znajduje się pomiędzy kosztami zagranicznego kredytu a europejską dyscypliną fiskalną. Zaostrzenie warunków finansowych albo polityczny konflikt dotyczący reguł budżetowych zwiększa ryzyko problemów z płynnością programu zakupowego.
+    </div><div class="subhead">3. Zewnętrzne dźwignie wpływu i lobbing instytucjonalny</div><p><strong>Kontrola eksportowa.</strong> ITAR i pokrewne mechanizmy dają państwu pochodzenia komponentu możliwość wpływania na integrację, reeksport i modernizację uzbrojenia. W praktyce szczególnie widoczne jest to przy systemach lotniczych i rakietowych.</p>
+<p><strong>Serwis i MRO.</strong> Abrams, F-35 i Apache tworzą wieloletnie zależności od dostaw części, remontów, aktualizacji oprogramowania i wsparcia producenta. Dostępność platformy po zakupie zależy więc od dalszego funkcjonowania zewnętrznego ekosystemu serwisowego.</p><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      FMF i kredyty KEXIM są w praktyce finansowaniem powiązanym z eksportem narodowych producentów. Udzielając wielomiliardowych gwarancji, państwa-dostawcy jednocześnie wspierają własny przemysł. Próba gwałtownej zmiany dostawcy w przyszłości może oznaczać nie tylko koszt techniczny, lecz również renegocjację finansowania.
+    </div><p><strong>Wpływ brytyjski w programie Miecznik.</strong> Babcock, Thales UK i MBDA UK uczestniczą nie tylko jako dostawcy wyposażenia. Wspólne biuro zarządzania projektem wiąże brytyjski przemysł z procesem budowy kompetencji stoczniowych, szkoleniem i zarządzaniem programem.</p><div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W marcu 2026 roku prezydent zawetował ustawę mającą umożliwić Polsce dostęp do europejskiego instrumentu SAFE, przewidującego tanie finansowanie wspólnych zakupów obronnych UE. Jako alternatywę wskazywano wykorzystanie części rezerw Narodowego Banku Polskiego.
+    </div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Klin polityczny pomiędzy ośrodkiem prezydenckim i rządem może ograniczać dostęp do bardziej zdywersyfikowanego finansowania europejskiego, a przez to zwiększać znaczenie kredytów powiązanych z dostawcami z USA i Korei Południowej.
+    </div><div class="subhead">4. Ryzyka strukturalne</div><div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Równoległe utrzymywanie Leopardów 2, M1 Abrams i K2 tworzy logistyczny „ogród zoologiczny”: trzy filozofie konstrukcyjne, różne napędy, części, narzędzia, szkolenia i procedury remontowe. W konflikcie wysokiej intensywności mnoży to zapotrzebowanie na magazyny, zespoły serwisowe i transport.
+    </div><p><strong>Ryzyko chemicznego łańcucha dostaw.</strong> Niedobór nitrocelulozy i zależność od importowanych prekursorów może ograniczyć wzrost produkcji amunicji nawet wtedy, gdy kraj posiada TNT, korpusy pocisków i zdolności montażowe.</p>
+<p><strong>Ryzyko długu.</strong> Wysoki udział finansowania pozabudżetowego i kredytów eksportowych zwiększa koszt cyklu życia modernizacji. W przyszłości budżet może zostać zmuszony do wyboru pomiędzy obsługą istniejących kontraktów a nowymi zakupami lub innymi wydatkami publicznymi.</p>
+<p><strong>Ryzyko degradacji zakupów.</strong> Duże kontrakty zawierane bez pełnej konkurencji i finansowane przez fundusze o ograniczonej przejrzystości zwiększają ryzyko błędnej wyceny, słabego nadzoru i decyzji podporządkowanych terminowi politycznemu.</p><div class="subhead">5. Komu opłaca się obecna konstrukcja</div><p><strong>Korporacje transnarodowe.</strong> Lockheed Martin, Boeing, RTX, Babcock, MBDA i Thales uzyskują wieloletni rynek zbytu, zachowując najbardziej marżowe elementy: oprogramowanie, elektronikę, sensory i uzbrojenie precyzyjne. Polski przemysł częściej przejmuje montaż, konstrukcje mechaniczne i obsługę.</p>
+<p><strong>Instytucje finansowe.</strong> KEXIM i BGK obsługują coraz większą skalę finansowania obronnego, a same polskie kontrakty stały się ważnym elementem rozwoju portfela koreańskiego banku eksportowego.</p>
+<p><strong>Prywatny sektor technologiczny.</strong> WB Group i inni integratorzy korzystają z luki między ciężkim importowanym sprzętem a potrzebą spięcia go w krajowy system C4ISR.</p>
+<p><strong>Kierownictwo polityczne.</strong> Model umożliwia szybkie podpisywanie wielkich umów i natychmiastowe komunikowanie wzrostu potencjału armii, podczas gdy koszty kredytu, serwisu i części zamiennych rozkładają się na kolejne lata i cykle polityczne.</p><div class="subhead">6. Ocena końcowa</div><p><strong>Portret strukturalny.</strong> Polski OPI jest hybrydową konstrukcją offsetowo-montażową opartą na dużej dźwigni kredytowej i ścisłym zakotwiczeniu geopolitycznym. PGZ lokalizuje zagraniczne platformy, prywatny sektor buduje warstwę cyfrową, a kluczowe technologie rażenia, część sensorów i kody oprogramowania pozostają u zewnętrznych dostawców.</p>
+<p><strong>Główne wąskie gardło.</strong> Najważniejsza luka powstaje pomiędzy szybkim fizycznym przyrostem liczby importowanych platform a ograniczoną kontrolą nad ich integracją programową, logistyką, serwisem, komponentami chemicznymi i kosztami finansowania.</p>
+<p><strong>Scenariusz 3–5 lat.</strong> Przy zachowaniu obecnej trajektorii najbardziej prawdopodobny jest kryzys kosztu cyklu życia. Wraz z napływem głównej masy sprzętu zamówionego w latach 2022–2025 rosnąć będą jednocześnie koszty MRO, odsetki FWSZ/FMF/KEXIM oraz wydatki na utrzymywanie niemieckiej, amerykańskiej i koreańskiej infrastruktury logistycznej. Źródło ocenia prawdopodobieństwo takiego scenariusza jako średnie do wysokiego.</p><div class="subhead">Źródła</div><p>1. https://babel.ua/en/news/119300-poland-to-increase-production-of-howitzer-shells-5-times-amid-threat-from-russia</p><p>2. https://notesfrompoland.com/2025/07/25/poland-secures-further-4bn-us-loan-guarantee-for-military-modernisation/</p><p>3. https://www.euractiv.com/news/poland-eyes-defence-bonds-as-eu-refuses-to-exempt-defence-spending-from-deficit-rules/</p><p>4. https://www.adriadefense.com/whos-who-in-cee-artillery-ammunition-the-four-big-producers/</p><p>5. https://www.money.pl/gospodarka/nik-skontrolowal-polska-grupe-zbrojeniowa-brak-strategii-problemy-z-terminami-dostaw-dla-polskiego-wojska-6738363044875040a.html</p><p>6. https://industryalarm.pl/bezpieczenstwo-wojsko-polska-raport-nik/</p><p>7. https://www.nik.gov.pl/aktualnosci/wielka-historia-slabe-zarzadzanie-spolka-cegielski-na-minusie.html</p><p>8. https://grokipedia.com/page/Jelcz</p><p>9. https://www.navalnews.com/naval-news/2022/12/latest-news-on-polands-miecznik-frigate-program/</p><p>10. https://milmag.pl/en/miecznik-the-current-state-of-the-most-important-modernisation-programme-of-the-polish-navy/</p><p>11. https://www.globaldefenseaerospacepost.com/news/articleView.html?idxno=1200</p><p>12. https://sacra.com/c/wb-group/</p><p>13. https://censor.net/en/news/3497604/ukrainian_delta_system_successfully_integrated_with_polish_topaz_system_at_nato_exercises</p><p>14. https://belta.by/world/view/polsha-podpisala-kontrakt-o-samostojatelnom-proizvodstve-juzhnokorejskih-tankov-k2-745681-2025/</p><p>15. https://www.polandatsea.com/babcock-co-founding-project-management-office-for-polish-frigate-building-programme-miecznik/</p><p>16. https://portalstoczniowy.pl/en/fregaty-miecznik-jaki-bedzie-orp-wicher-zintegrowany-system-walki-marynarka-wojenna-rp-konie-robocze/</p><p>17. https://www.janes.com/defence-intelligence-insights/defence-news/sea/thales-on-contract-for-miecznik-frigate-combat-system</p><p>18. https://biz.liga.net/all/news/polsha-podpisala-mnogomillionnyi-kontrakt-s-ssha-na-proizvodstvo-trotila</p><p>19. https://www.pap.pl/en/news/polish-company-signs-another-deal-supply-tnt-us-army</p><p>20. https://slawa.tv/86259123/polshcha-liderom-z-virobnitstva-trotilu-v-vropi</p><p>21. https://www.polskieradio.pl/395/7786/artykul/3609643,polish-arms-factory-supplied-explosives-used-by-israel-report-claims</p><p>22. https://www.theguardian.com/world/2025/nov/21/europe-tnt-supply-us-export-israel-gaza-polish-mp-claims</p><p>23. https://en.wikipedia.org/wiki/Borsuk_(infantry_fighting_vehicle</p><p>24. https://defence-industry.eu/poland-signs-eur-1-5-billion-deal-for-over-100-borsuk-infantry-fighting-vehicles/</p><p>25. https://thedefensewatch.com/military-ordnance/polands-next-gen-ifv-first-borsuk-ifv-enters-service/</p><p>26. https://www.senat.gov.pl/prace/posiedzenia/przebieg,651,1.html</p><p>27. https://www.gazetaprawna.pl/wiadomosci/kraj/artykuly/9894666,fundusz-wsparcia-sil-zbrojnych-moze-spowolnic-modernizacje-armii-jest.html</p><p>28. https://www.fakt.pl/pieniadze/raport-nik-modernizacja-armii-zagrozona-przez-brak-finansowania/40re51m</p><p>29. https://www.nik.gov.pl/aktualnosci/fundusz-wsparcia-sil-zbrojnych.html</p><p>30. https://wartowiedziec.pl/rozwoj-i-fundusze/77944-fundusz-wsparcia-sil-zbrojnych-pod-lupa-moze-hamowac-rozwoj-wojska</p><p>31. https://cejsh.icm.edu.pl/cejsh/element/bwmeta1.element.ojs-doi-10_53122_ISSN_0452-5027_2025_1_35/c/articles-64145471.pdf.pdf</p><p>32. https://defencehub.live/threads/fa-50-light-supersonic-combat-aircraft.18035/</p><p>33. https://defence24.com/industry/korea-aerospace-industries-confirms-fa-50pl-to-be-integrated-with-amraam</p><p>34. https://defencesecurityasia.com/en/south-korea-fa50-meteor-mica-integration-amraam-export-hurdles/</p><p>35. https://biz.chosun.com/en/en-industry/2025/06/26/PGBUMNZKGBFA5GYVODNYDUWJXA/</p><p>36. https://assets.publishing.service.gov.uk/media/5a7ebee940f0b6230268b464/20140808_MOD_Acronyms_and_Abbreviations.pdf</p><p>37. https://www.scribd.com/document/471808821/AirForces-Monthly-August-2019</p><p>38. https://www.reddit.com/r/canada/comments/1pokyim/building_military_aircraft_in_canada_would_create/</p><p>39. https://debuglies.com</p><p>40. https://global.espreso.tv/military-news-poland-to-boost-155mm-artillery-shell-production-sixfold-in-two-years</p><p>41. https://www.epc.eu/publication/running-on-empty-the-chemical-shortage-undermining-european-defence/</p><p>42. https://eurenco.com/eurenco-mesko-announce-the-opening-of-the-new-polish-assembly-line-for-eurenco-155mm-modular-charges-in-pionki/</p><p>43. https://www.youtube.com/watch?v=y3Iq8ST65kY</p><p>44. https://portalmilitarny.pl/wp-content/uploads/2025/08/nTW-spec-MSPO-2025-www.portalmilitarny.pl_.pdf</p><p>45. https://defence24.pl/przemysl/gdzie-jest-13-mld-zlotych-dla-zbrojeniowki</p><p>46. https://defence24.pl/przemysl/leopard-2pl-rosna-opoznienia-i-koszty-pgz-wojsko-dostaje-praktycznie-nowe-czolgi-wywiad</p><p>47. https://www.businesskorea.co.kr/news/articleView.html?idxno=212508</p><p>48. https://www.koreaherald.com/article/3337162</p><p>49. https://www.koreatimes.co.kr/business/banking-finance/20240222/korea-eyes-more-defense-contracts-with-poland-once-key-law-is-revised</p><p>50. https://2021-2025.state.gov/u-s-bolsters-poland-with-4-billion-fmf-loan-guarantee-totaling-over-11-billion-in-loan-support/</p><p>51. https://www.dsca.mil/Press-Media/Article-Display/Article/4254625/dsca-director-mike-miller-signs-a-4-billion-fmf-loan-guarantee-to-poland-advanc</p><p>52. https://pl.usembassy.gov/press-statement-second-2-billion-u-s-poland-foreign-military-financing-direct-loan-strengthens-nato/</p><p>53. https://notesfrompoland.com/2025/04/30/poland-requests-escape-clause-from-eu-fiscal-rules-to-boost-defence-spending/</p><p>54. https://economy-finance.ec.europa.eu/economic-governance-framework/stability-and-growth-pact/corrective-arm-excessive-deficit-procedure/excessive-deficit-procedures-overview/poland_en</p><p>55. https://www.gov.pl/attachment/6e1d601c-2cde-494b-9170-34e4865ae874</p><p>56. https://www.pap.pl/en/news/eu-clears-poland-14-other-states-hike-defence-spending</p><p>57. https://www.marinepoland.com/orp-wicher-hull-moved-out-of-the-shipbuilding-hall-2511</p><p>58. https://www.fitchratings.com/research/sovereigns/polands-eu-defence-loan-standoff-reflects-political-gridlock-fiscal-pressures-17-03-2026</p><p>59. https://www.reddit.com/r/NonCredibleDefense/comments/w4rm5f/polish_tank_maintenance_must_be_hell_on_earth/</p><p>60. https://www.youtube.com/watch?v=c55ydihM27c</p><p>61. https://www.koreatimes.co.kr/business/banking-finance/20240301/expanded-lending-limit-to-boost-eximbanks-arms-deal-support</p></div><div class="keybox">
+    <div class="kb-title">Legenda oznaczeń — standard weryfikacji</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — informacja oznaczona w materiale źródłowym jako fakt i oparta na raportach, kontraktach, danych finansowych lub rejestrach publicznych</div>
+      <div><b>WERSJA PR</b> — oficjalna narracja instytucji lub producenta, oddzielona od oceny analitycznej</div>
+      <div><b>WNIOSEK ANALITYCZNY</b> — interpretacja autora wynikająca z opisanej architektury zależności</div>
+      <div><b>INSIDE / NIEPOTWIERDZONE</b> — informacja branżowa lub kulisowa, której materiał nie traktuje jako zweryfikowanego faktu</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polska — Algorytmiczna architektura poznawcza | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+
+<a href="https://deeppressanalysis.com" class="home-btn">← STRONA GŁÓWNA</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Niezależny wywiad strukturalny · od 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">„Struktura ponad narracją.”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>BIURO POLSKA</span>
+    <span>16 SIERPNIA 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / ALGORYTMICZNY KANAŁ POZNAWCZY</span>
+
+  <h1 class="headline">Kto naprawdę steruje uwagą i emocjami polskiej infosfery</h1>
+  <p class="deck">Systemowy obraz środowiska, w którym rekomendacyjne algorytmy globalnych platform, komercyjny e-PR, sieci anonimowych kanałów, boty, mikrotargeting i elitarne bańki informacyjne tworzą infrastrukturę wpływu silniejszą od klasycznej cenzury.</p>
+  <div class="byline">DZIAŁ POLSKA — RUBRYKA: ALGORITHMIC COGNITIVE CHANNEL / KONTROLA POZNAWCZA</div>
+
+  <div class="columns">
+
+    <p class="lead">Współczesna przestrzeń informacyjna nie jest już prostą sumą gazet, telewizji i portali. W analizowanym materiale została opisana jako wysoko technologiczna architektura sterowania przepływem uwagi, w której o widoczności treści, tempie emocjonalnej eskalacji i trwałości narracji decydują algorytmy rekomendacyjne oraz sieci pośredników cyfrowych.</p>
+
+    <p>Raport określa polski model mianem <strong>Modelu Afektywnego Trasowania</strong>. Jego logika polega nie na pełnej cenzurze, lecz na kanalizowaniu strachu, gniewu i niepewności społecznej do odseparowanych, przewidywalnych wektorów zachowania. Użytkownik może mieć poczucie swobodnego wyboru, choć faktyczna kolejność bodźców pozostaje zależna od mechanizmów rankingowych platform.</p>
+
+    <div class="subhead">1. Algorytmiczny suwerenizm — władza nad feedem</div>
+
+    <div class="subhead">1.1. Dyktat platformowy</div>
+
+    <p>Polska nie posiada lokalnego ekosystemu społecznościowego o skali pozwalającej państwu samodzielnie kontrolować kod systemu rekomendacyjnego i graf relacji użytkowników. Największe kanały dystrybucji treści należą do Meta, Alphabet, ByteDance i X Corp.</p>
+
+    <p><strong>YouTube</strong> obejmuje około 27,2 mln użytkowników i pełni funkcję masowego, długotrwałego utrzymywania odbiorcy w tematycznych bańkach wideo. <strong>Facebook</strong> — około 17,65 mln użytkowników — ma szczególnie silną pozycję w starszych grupach wiekowych i społecznościach lokalnych. <strong>Instagram</strong> — około 10,7 mln — wzmacnia wizualne wzorce zachowań, a <strong>TikTok</strong> — około 7,7 mln — dominuje w krótkiej, wysoko dynamicznej konsumpcji młodszych odbiorców.</p>
+
+    <p><strong>Telegram</strong> przekracza 3,7 mln użytkowników i pełni funkcję przestrzeni dla bardziej polityzowanych, anonimowych oraz kontrnarracyjnych społeczności. <strong>X</strong> ma znacznie mniejszy zasięg — około 2,05 mln użytkowników — lecz jest nieproporcjonalnie ważny dla dziennikarzy, ekspertów, polityków i elit opiniotwórczych.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Zdecydowana większość polskich użytkowników mediów społecznościowych konsumuje treści poprzez systemy rankingowe należące do Meta, Alphabet, ByteDance i X Corp. Państwo polskie nie posiada własnej platformy o porównywalnej skali, na której mogłoby bezpośrednio modyfikować kod rekomendacyjny.
+    </div>
+
+    <div class="subhead">1.2. Mechanika cenzury i ograniczania zasięgu</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Klasyczne blokady domen stosowane wobec wybranych portali mogą być obchodzone poprzez lustra stron, zmianę domeny lub przeniesienie dystrybucji do komunikatorów i sieci społecznościowych.
+    </div>
+
+    <p>Raport przesuwa punkt ciężkości z formalnego usuwania treści na <strong>algorytmiczną pesymizację</strong>: obniżanie parametrów dystrybucyjnych, ograniczanie rekomendacji i tworzenie szumu informacyjnego wokół tematów. Materiał przywołuje również mechanizmy follower padding oraz hashtag hijacking, czyli zalewanie przestrzeni konkurencyjną lub neutralizującą treścią.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Najskuteczniejsza kontrola nie wymaga usunięcia publikacji. Wystarczy uczynić ją algorytmicznie niewidoczną, obniżając organiczny zasięg bez formalnego aktu cenzury i bez wywoływania efektu męczennika.
+    </div>
+
+    <div class="subhead">1.3. Jurysdykcja algorytmu</div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ WERSJA PR</span>
+      Państwowe i unijne instrumenty takie jak Digital Services Act są przedstawiane jako narzędzia ochrony demokracji, zwiększenia odpowiedzialności platform i przeciwdziałania dezinformacji.
+    </div>
+
+    <p>Według raportu NASK w 2025 roku polskie instytucje przekazały platformom 46 511 zgłoszeń dotyczących materiałów uznanych za dezinformacyjne. Łącznie około 12% zgłoszonej treści zostało usunięte, 68% poddano innej formie moderacji, a około 20% nie doczekało się reakcji.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Reakcje platform znacząco się różniły: według przywołanych danych TikTok usunął około 70% wskazywanych materiałów, podczas gdy X usunął około 2% zgłoszeń zakwalifikowanych przez polskie instytucje jako naruszenia lub dezinformacja.
+    </div>
+
+    <p>Ta asymetria pokazuje, że regulator może żądać działania, ale wykonanie pozostaje po stronie prywatnej platformy i jej wewnętrznych procedur.</p>
+
+    <blockquote class="pull">„Kto kontroluje kod rekomendacji, ten nie musi zakazywać treści. Wystarczy, że kontroluje prawdopodobieństwo jej zobaczenia.”</blockquote>
+
+    <div class="subhead">2. Przemysł syntetycznej rzeczywistości — boty i sieci</div>
+
+    <div class="subhead">2.1. Sieci anonimowych kanałów</div>
+
+    <p>Telegram pełni w raporcie rolę „dark social”: przestrzeni, w której narracje mogą być testowane, wzmacniane i dopiero później eksportowane na platformy o większym zasięgu. Wymieniane są trzy kategorie węzłów.</p>
+
+    <p><strong>Agregatory ideologiczne</strong> — kanały takie jak UKR LEAKS_pl, InfoDefensePOLAND czy Niezależny Dziennik Polityczny. <strong>Kanały konspiracyjne i pseudoprawne</strong> — między innymi Ocalić życie i Kancelaria Lega Artis. <strong>Mimikranci informacyjni</strong> — kanały regionalne i lokalne, które wyglądają jak zwykłe agregatory zdarzeń, lecz mieszają treści codzienne z przekazami emocjonalnymi i politycznymi.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W polskiej infosferze funkcjonują sieci kanałów anonimowych i półanonimowych, które mieszają wiadomości lokalne, narracje geopolityczne, treści antysystemowe i materiały konspiracyjne, zwiększając ich wiarygodność przez osadzenie w codziennym strumieniu informacji.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Typowy szlak dystrybucji ma dwa etapy: treść powstaje lub jest testowana w anonimowym środowisku Telegramu, po czym za pomocą clickbaitu, skoordynowanych repostów i hybrydowych kont trafia na Facebook i X, gdzie zyskuje dostęp do masowej publiczności.
+    </div>
+
+    <div class="subhead">2.2. Astroturfing i farmy trolli</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W Polsce udokumentowano komercyjnie zdecentralizowany model cyfrowego astroturfingu, w którym partie, instytucje i firmy korzystają z agencji e-PR i usług Online Reputation Management do wzmacniania reputacji, kampanii i aktywności w mediach społecznościowych.
+    </div>
+
+    <p>Raport opisuje tzw. konta hybrydowe. Część prostych zachowań — scrollowanie, polubienia, reposty — może być automatyzowana poprzez skrypty i rotujące proxy, a kontekstowe komentarze mogą być tworzone przez ludzi. Powstaje mieszanka automatyzacji i manualnej obsługi trudniejsza do wykrycia niż klasyczny bot.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Hybrydowy model pozwala obchodzić część behawioralnych systemów antybotowych, ponieważ konto nie zachowuje się w pełni mechanicznie. Automatyzacja odpowiada za skalę, człowiek — za kontekst i pozór autentyczności.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Badania Oxford Internet Institute dotyczące polskiego segmentu politycznego X wskazywały, że anomalnie aktywne konta automatyczne generowały ponad 20% politycznych publikacji, a prawicowe sieci botów były co najmniej dwukrotnie większe lub aktywniejsze od lewicowych.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Afera hejterska w polskim Ministerstwie Sprawiedliwości ujawniła zamkniętą sieć komunikacyjną powiązaną z urzędnikami wysokiego szczebla, w której wykorzystywano prywatne dane sędziów i pośredników do prowadzenia kampanii dyskredytujących w mediach społecznościowych oraz mediach przychylnych określonej linii politycznej.
+    </div>
+
+    <p>W materiale wyróżniono trzy poziomy: <strong>komercyjny e-PR</strong> oparty na agencjach, freelancerach i sockpuppetach; <strong>wewnątrzinstytucjonalny czarny PR</strong>, w którym uczestniczą urzędnicy i aktywiści; oraz <strong>zewnętrzne operacje wpływu</strong>, wykorzystujące anonimowe sieci kanałów, sfałszowane materiały i skoordynowany brigading.</p>
+
+    <div class="subhead">2.3. Mikrotargeting</div>
+
+    <p>Cyfrowe ślady, grafy społeczne i komercyjne bazy danych umożliwiają rozbijanie dużej populacji na niewielkie segmenty psychograficzne. Zamiast jednej narracji dla całego kraju powstają dziesiątki wersji przekazu dopasowanych do lokalnego lęku lub interesu.</p>
+
+    <p>W społecznościach wiejskich może dominować przekaz o załamaniu rynków rolnych wskutek polityki Brukseli, w środowiskach miejskich — konflikt kulturowy, a w zamkniętych grupach tematycznych — treści wzmacniające wcześniej istniejące obawy. Kluczowa jest imitacja komunikatu od „zwykłego mieszkańca”, a nie od oficjalnego nadawcy.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Mikrotargeting redukuje opór psychologiczny, ponieważ komunikat trafia do odbiorcy jako treść zgodna z jego lokalnym kontekstem i tożsamością grupową, a nie jako jednolita propaganda państwowa czy partyjna.
+    </div>
+
+    <div class="subhead">3. Poznawcze przejęcie kierownictwa — bańki elit</div>
+
+    <div class="subhead">3.1. Autokracja informacyjna</div>
+
+    <p>Raport zwraca uwagę nie tylko na wpływ algorytmów na masową publiczność, ale również na to, jak działają one na elity. Wyższe szczeble administracji, kancelaria premiera, eksperci i służby otrzymują skrócone raporty z monitoringu X oraz z metryk dużych portali takich jak Onet czy Wirtualna Polska.</p>
+
+    <p>X obejmuje około 2,05 mln użytkowników, lecz skupia wyjątkowo dużą część dziennikarzy, polityków i komentatorów. Tworzy to środowisko, w którym niewielka liczba intensywnie aktywnych kont może wyglądać jak reprezentatywny obraz całego kraju.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Jeżeli analitycy traktują nienaturalnie wysoką aktywność botów na X jako autentyczną zmianę nastrojów społecznych, elity mogą reagować na syntetyczny sygnał zamiast na realne procesy zachodzące poza platformą.
+    </div>
+
+    <div class="subhead">3.2. Pętla sprzężenia zwrotnego</div>
+
+    <p>Model opisany w raporcie jest szczególnie niebezpieczny, gdy kampania informacyjna zaczyna zasilać własny system pomiarowy. Aparat polityczny zleca kampanię e-PR, agencja generuje aktywność, monitoring rejestruje ją jako wzrost poparcia, a następnie raport wraca do decydentów jako „obiektywny” sygnał społeczny.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ INSIDE / NIEPOTWIERDZONE</span>
+      W materiale przedstawiono hipotezę, że część administracji może otrzymywać raporty o „szerokim poparciu”, które w znacznym stopniu bazują na aktywności wygenerowanej przez opłacone wcześniej kampanie e-PR. Jako potencjalnych beneficjentów takiej pętli wskazano wykonawców kampanii i średni szczebel urzędniczy. Twierdzenie nie zostało w raporcie przedstawione jako potwierdzony fakt.
+    </div>
+
+    <div class="subhead">3.3. Ślepota na czarne łabędzie</div>
+
+    <p>Jeżeli negatywne sygnały są automatycznie kwalifikowane jako dezinformacja, boty opozycji lub zewnętrzna operacja wpływu, aparat decyzyjny może coraz później rozpoznawać prawdziwe napięcie społeczne. Protest staje się „realny” dopiero wtedy, gdy przechodzi z internetu do blokad dróg, strajków i innych działań fizycznych.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      System, który zbyt agresywnie filtruje negatywne informacje jako manipulację, może sam wytworzyć strategiczną ślepotę: usuwa z pola widzenia właśnie te sygnały, które powinny ostrzegać o nadchodzącym kryzysie.
+    </div>
+
+    <div class="subhead">4. Architektura zarządzania uwagą — pętle dopaminowe</div>
+
+    <div class="subhead">4.1. Kanalizowanie niepokoju</div>
+
+    <p>Model Afektywnego Trasowania zakłada, że platforma nie musi tworzyć emocji od zera. Wystarczy, że wykryje istniejący lęk — o bezpieczeństwo, status ekonomiczny, migrację, ceny energii — i poda użytkownikowi treści, które maksymalizują zaangażowanie.</p>
+
+    <p><strong>Sekurytyzacja dyskursu</strong> przekształca problemy społeczne i ekonomiczne w „zagrożenia dla suwerenności”. <strong>Triggering traumy historycznej</strong> odwołuje się do pamięci II wojny światowej, komunizmu i konfliktów z sąsiadami. <strong>Kodowanie binarne</strong> redukuje spektrum opinii do dwóch wrogich obozów: „patriotów” i „zdrajców”.</p>
+
+    <p>Efektem jest zawężenie przestrzeni racjonalnej debaty. Stanowisko pośrednie traci atrakcyjność algorytmiczną, ponieważ generuje mniej interakcji niż konflikt.</p>
+
+    <div class="subhead">4.2. Fragmentacja protestu</div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Badania nad echo chambers i polską infosferą wskazują na silną fragmentację odbiorców: niezadowolenie ekonomiczne, agrarne, liberalno-miejskie i konserwatywne może pozostawać zamknięte w odrębnych bańkach informacyjnych, które rzadko tworzą wspólną narrację polityczną.
+    </div>
+
+    <p>Rolnicy mogą koncentrować się na imporcie i polityce rolnej, wielkomiejska klasa średnia na konfliktach kulturowych, a środowiska konserwatywne na rodzinie, religii i integracji europejskiej. Każda grupa otrzymuje inny język gniewu i innego przeciwnika.</p>
+
+    <p>W rezultacie potencjał protestu jest zużywany na walki komentarzowe pomiędzy grupami, które mogłyby mieć wspólne interesy ekonomiczne, lecz nie posiadają wspólnej mapy problemu.</p>
+
+    <div class="subhead">5. Scenariusze kaskadowego kolapsu — poznawczy hack</div>
+
+    <div class="subhead">5.1. Panika algorytmiczna</div>
+
+    <p>Raport przeprowadza stress-test: realistyczny deepfake o upadku dużego banku lub katastrofie infrastrukturalnej trafia najpierw do anonimowych kanałów Telegramu. Brigading zapewnia wysoki poziom pierwszych reakcji, po czym systemy rekomendacyjne mogą odczytać treść jako gwałtownie rosnący trend i rozszerzyć jej zasięg.</p>
+
+    <p>Jeżeli reakcja instytucji publicznych i platform jest opóźniona, narracja może osiągnąć masowy zasięg jeszcze przed uruchomieniem skutecznego sprostowania, wywołując realne zachowania — wypłaty gotówki, atak na bankomaty lub presję na infrastrukturę.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Najgroźniejszy moment znajduje się pomiędzy pierwszym impulsem wiralowym a reakcją regulatora. Algorytm może zwiększać zasięg fałszywej informacji szybciej, niż instytucja państwowa jest w stanie ją proceduralnie zweryfikować i zdementować.
+    </div>
+
+    <div class="subhead">5.2. Deanonimizacja sieci</div>
+
+    <p>Drugi scenariusz zakłada wyciek z systemów CRM dużych agencji e-PR. Gdyby ujawnił on, że pozornie przeciwstawne sieci politycznych sockpuppetów były obsługiwane przez tych samych wykonawców, mogłoby to gwałtownie zniszczyć zaufanie do mediów instytucjonalnych i oficjalnych kanałów politycznych.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ INSIDE / NIEPOTWIERDZONE</span>
+      Raport przedstawia hipotetyczny scenariusz, w którym „patriotyczne” i „proeuropejskie” sieci pozornie spontanicznych kont byłyby zarządzane przez te same komercyjne biura i finansowane ze środków publicznych. Materiał wyraźnie oznacza ten scenariusz jako niepotwierdzony.
+    </div>
+
+    <div class="subhead">5.3. Zewnętrzny wyłącznik</div>
+
+    <p>W trzecim scenariuszu ostry kryzys geopolityczny prowadzi do blokady oficjalnych kont instytucji lub modyfikacji reguł dystrybucji przez Meta, Google lub X. Brak narodowej platformy o masowym zasięgu powoduje, że państwo pozostaje bez porównywalnego kanału komunikacji bezpośredniej.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Państwo bez własnej infrastruktury masowej dystrybucji informacji jest zależne nie tylko od technologii platformy, lecz także od decyzji jej centrali. W kryzysie politycznym algorytmiczna jurysdykcja może stać się realnym narzędziem przewagi nad formalną jurysdykcją państwową.
+    </div>
+
+    <div class="subhead">6. Beneficjenci status quo</div>
+
+    <p><strong>Globalny Big Tech.</strong> Meta, Google, ByteDance i X Corp monetyzują zaangażowanie. Treści wywołujące strach, gniew i konflikt często generują dłuższą sesję, więcej komentarzy i większą liczbę odsłon reklamowych. Model ekonomiczny premiuje więc emocjonalną intensywność, nawet jeśli ma ona koszt społeczny.</p>
+
+    <p><strong>Lokalne agencje e-PR i operatorzy sieci.</strong> Zarabiają na zarządzaniu reputacją, atakach informacyjnych, sztucznym budowaniu poparcia i operacjach, których rezultat jest trudny do precyzyjnego audytu. Nieprzejrzystość algorytmów zwiększa zależność klienta od usług pośrednika.</p>
+
+    <p><strong>Instytucje monitorujące i służby.</strong> Wzrost dezinformacji uzasadnia wzrost budżetów, zatrudnienia i kompetencji. Podmiot, który klasyfikuje narracje jako manipulacyjne lub wrogie, zyskuje dodatkowy wpływ na proces decyzyjny państwa.</p>
+
+    <div class="subhead">7. Werdykt końcowy</div>
+
+    <p><strong>Portret strukturalny.</strong> Według raportu Polska nie posiada pełnego narodowego suwerenizmu algorytmicznego. Państwo może regulować, zgłaszać treści i zamawiać kampanie informacyjne, ale nie kontroluje kodu najważniejszych systemów rekomendacyjnych ani nie dysponuje własną masową platformą będącą realną alternatywą dla globalnych sieci.</p>
+
+    <p><strong>Główna podatność.</strong> Szczególnie niebezpieczna jest elitarna bańka X oraz raportów medialnych opartych na danych z platform, na których część aktywności może być syntetyczna. Jeżeli kierownictwo państwa uznaje takie sygnały za reprezentatywne, system staje się podatny na błędną ocenę realnych nastrojów społecznych.</p>
+
+    <p><strong>Prognoza 3–5 lat.</strong> Raport przewiduje wzrost konfliktu regulacyjnego między aparatem państwa a Big Tech w ramach DSA. Bez własnych platform i infrastruktury dystrybucyjnej zdolność państwa do narzucenia pełnej kontroli pozostanie ograniczona. Jednocześnie generatywne agenty AI mogą zwiększyć skalę syntetycznych person, utrudniając rozróżnienie między autentyczną aktywnością obywateli a zaprogramowanym sockpuppetem.</p>
+
+    <div class="subhead">Źródła</div>
+
+    <p>1. CORDIS / H2020 — „Propaganda obliczeniowa: wpływ algorytmów i botów na dyskurs polityczny w Europie”: https://cordis.europa.eu/project/id/648311/reporting</p>
+    <p>2. Wikipedia — „Propaganda obliczeniowa”: https://en.wikipedia.org/wiki/Computational_propaganda</p>
+    <p>3. arXiv — przegląd teorii propagandy obliczeniowej i systemów detekcji botów: https://arxiv.org/pdf/2404.05240</p>
+    <p>4. Oxford Internet Institute — „Computational Propaganda in Poland: False Amplifiers and the Digital Public Sphere”: https://demtech.oii.ox.ac.uk/research/posts/computational-propaganda-in-poland-false-amplifiers-and-the-digital-public-sphere/</p>
+    <p>5. Głos Ukrainy — analiza sieci dezinformacyjnych na Telegramie w Polsce: https://www.golos.com.ua/article/367752</p>
+    <p>6. OKO.press — „Aż 46 kanałów na Telegramie z rosyjskimi fake newsami po polsku!”: https://oko.press/az-46-kanalow-na-telegramie-z-rosyjskimi-fake-newsami</p>
+    <p>7. FRONTSTORY.PL — „Rurociąg kłamstw: rosyjska dezinformacja wybiera Telegram”: https://frontstory.pl/telegram-rosja-propaganda-dezinformacja-firehose-of-falsehood/</p>
+    <p>8. The Official Blog of UNIO — analiza moderacji algorytmicznej, shadowbanningu i ryzyk systemowych w ramach DSA: https://officialblogofunio.com/2026/01/26/algorithmic-moderation-shadow-banning-and-systemic-risks-for-media-in-the-european-union-reflections-from-the-first-report-under-article-352-of-the-digital-services-act/</p>
+    <p>9. Gov.pl / Baza wiedzy — raport NASK o platformach społecznościowych i dezinformacji w 2025 roku: https://www.gov.pl/web/baza-wiedzy/platformy-spolecznosciowe-a-dezinformacja-w-2025-roku---nowy-raport-nask</p>
+    <p>10. Ministerstwo Cyfryzacji — raport NASK o platformach społecznościowych i dezinformacji w 2025 roku: https://www.gov.pl/web/cyfryzacja/platformy-spolecznosciowe-a-dezinformacja-w-2025-roku--nowy-raport-nask</p>
+    <p>11. Demagog — „Z platform usunięto tylko 12 proc. zgłoszeń. Walka z dezinformacją trwa”: https://demagog.org.pl/analizy_i_raporty/z-platform-usunieto-tylko-12-proc-zgloszen-walka-z-dezinformacja-trwa/</p>
+    <p>12. Nasz Wybór — materiał o wykorzystywaniu Telegramu do promowania antyukraińskich narracji w Polsce: https://naszwybir.pl/bbc-deza-telegram/</p>
+    <p>13. Business Insider Polska — ostrzeżenie BBC o prorosyjskich narracjach w polskim Telegramie: https://businessinsider.com.pl/wiadomosci/rosyjska-propaganda-w-polsce-wykorzystuja-telegram-i-przebijaja-sie-dalej/qv34h65</p>
+    <p>14. Onet Wiadomości — śledztwo dotyczące farmy trolli w Ministerstwie Sprawiedliwości: https://wiadomosci.onet.pl/tylko-w-onecie/sledztwo-onetu-farma-trolli-w-ministerstwie-sprawiedliwosci-czyli-za-czynienie-dobra/j6hwp7f</p>
+    <p>15. Onet Wiadomości — przypomnienie mechaniki afery hejterskiej i działalności Arkadiusza Cichockiego: https://www.onet.pl/informacje/onetwiadomosci/arkadiusz-cichocki-to-bohater-afery-hejterskiej-przypominamy-jak-dzialala-farma/vm8zx3e,79cfc278</p>
+    <p>16. Rzecznik Praw Obywatelskich — informacja o postępowaniu dotyczącym przekroczenia uprawnień przez funkcjonariuszy publicznych w sprawie tzw. farmy trolli: https://bip.brpo.gov.pl/pl/content/rpo-puodo-ms-sedziowie-dane-puodo-odpowiedz</p>
+    <p>17. CyberDefence24 — „Raport NASK: Polacy podatni na dezinformację”: https://cyberdefence24.pl/polityka-i-prawo/raport-nask-polacy-podatni-na-dezinformacje</p>
+    <p>18. Oxford University Press — Samuel C. Woolley, Philip N. Howard, „Computational Propaganda”: https://global.oup.com/academic/product/computational-propaganda-9780190931407</p>
+    <p>19. Bezpieczny Miesiąc — materiał o Centralnym Biurze Zwalczania Cyberprzestępczości (CBZC): https://bezpiecznymiesiac.pl/download-file/?fileUrl=/media/2025/01/CBZC_wywiad.pdf</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Legenda oznaczeń — standard weryfikacji</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — informacja oznaczona w materiale jako potwierdzona przez badania, dane platform, raporty instytucjonalne lub udokumentowane postępowania</div>
+      <div><b>WERSJA PR</b> — oficjalna narracja instytucji publicznej, regulatora lub platformy</div>
+      <div><b>WNIOSEK ANALITYCZNY</b> — interpretacja autora wynikająca z opisanej architektury przepływu uwagi i bodźców</div>
+      <div><b>BRAK DANYCH</b> — brak wystarczającego materiału do potwierdzenia konkretnego twierdzenia</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
