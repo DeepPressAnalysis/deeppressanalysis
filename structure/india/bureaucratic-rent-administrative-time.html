@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भारत — ब्यूरोक्रेटिक समय और प्रशासनिक रेंट | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← मुख्य पृष्ठ</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">स्वतंत्र संरचनात्मक खुफिया विश्लेषण · 2026 से</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">“कथा से ऊपर संरचना।”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>भारत डेस्क</span>
+    <span>18 अगस्त 2026</span>
+  </div>
+
+  <span class="section-tag">संरचना / ब्यूरोक्रेटिक रेंट</span>
+
+  <h1 class="headline">भारत में समय कैसे प्रशासनिक मुद्रा बन जाता है</h1>
+  <p class="deck">License Raj खत्म हुआ, लेकिन delay नहीं। Construction permits, FDI approvals, courts, environmental clearances और digital portals में statutory deadline और वास्तविक completion के बीच gap ऐसा market बनाता है जहाँ acceleration, procedural knowledge और access स्वयं economic assets बन जाते हैं।</p>
+  <div class="byline">भारत डेस्क — श्रेणी: BUREAUCRATIC RENT / ADMINISTRATIVE TIME</div>
+
+  <div class="columns">
+<p class="lead">भारत की ‘ब्यूरोक्रेटिक समय-अर्थव्यवस्था’ में समय केवल प्रशासनिक माप नहीं, बल्कि शक्ति का संसाधन है। 1991 के बाद License Raj के औपचारिक dismantling ने regulation समाप्त नहीं किया; उसने उसे Inspector Raj, procedural complexity और छोटे-छोटे discretionary approvals में पुनर्गठित किया। जहाँ कानूनी deadline और वास्तविक निर्णय के बीच स्थायी अंतर हो, वहाँ ‘देरी’ खुद एक scarce asset बन जाती है जिसे acceleration, access और informal facilitation के माध्यम से monetize किया जा सकता है।</p>
+<p>इस architecture का मूल प्रश्न है: कौन समय नियंत्रित करता है, कौन queue से बाहर निकल सकता है, कौन procedural reset का खर्च वहन कर सकता है और कौन working capital खत्म होने से पहले अनुमति प्राप्त नहीं कर पाता। बड़े incumbents, specialist intermediaries और street-level bureaucracy के पास delay को absorb या monetize करने की क्षमता अधिक है; MSMEs और नए entrants के लिए वही delay market-entry tax बन जाती है।</p>
+<div class="subhead">1. समय के वितरण की वास्तुकला</div>
+<div class="subhead">1.1. नियामक समय बनाम वास्तविक समय</div>
+
+<table>
+<thead>
+<tr><th>प्रक्रिया</th><th>औपचारिक समय</th><th>वास्तविक समय</th><th>Delay का structural function</th></tr>
+</thead>
+<tbody>
+<tr><td>Construction permits</td><td>लगभग 20–45 दिन</td><td>30 दिन से 6 महीने तक</td><td>NOC, fire, environmental और municipal clearances के कारण high delay; acceleration के लिए facilitation demand बनती है।</td></tr>
+<tr><td>Customs clearance</td><td>24–48 घंटे का target</td><td>Air cargo में ~24 घंटे; ports/ICDs में 72+ घंटे तक</td><td>AEO जैसे institutional fast lanes standard queue को stratify करते हैं।</td></tr>
+<tr><td>FDI approval / NSWS</td><td>60–90 दिन</td><td>90–180+ दिन</td><td>Inter-agency queries और security checks ‘query loop’ के माध्यम से timer reset कर सकते हैं।</td></tr>
+<tr><td>Commercial contract enforcement</td><td>लक्ष्य ~365 दिन</td><td>लगभग 3.5–4 वर्ष</td><td>Judicial backlog private settlement और informal resolution को structurally attractive बनाता है।</td></tr>
+<tr><td>Environmental clearance</td><td>कानूनी ceiling ~105 दिन</td><td>Basic cases ~75 दिन; full EIA में 180+ दिन</td><td>Committee navigation और technical submissions specialist intermediaries की demand बढ़ाते हैं।</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>National Time Release Study 2025 के अनुसार 48 घंटे के भीतर import cargo release target land Integrated Check Posts पर 93.33% मामलों में, air cargo complexes पर 55.03% और seaports पर 51.76% मामलों में पूरा हुआ। Inland Container Depots में average clearance time लगभग 12 घंटे बढ़ा।</div>
+<div class="stamp-note pr"><span class="k">■ पीआर संस्करण</span>सरकारी और municipal digitalisation narrative के अनुसार Delhi और Mumbai जैसे बड़े शहरों में construction-permit procedures को 29–33 से घटाकर लगभग 8–20 तक किया गया और risk-based digital processing के माध्यम से normative timelines लगभग 30–60 दिनों तक लाई गईं।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Developer guidance और business-environment studies के अनुसार full construction-approval package का वास्तविक समय अभी भी अलग-अलग Indian states में लगभग 30 दिन से 6 महीने तक बदलता है, मुख्यतः अनेक independent municipal clearances के कारण।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>National Judicial Data Grid के अनुसार India की judicial system में 4.8 million से अधिक civil और criminal cases 10 वर्ष से अधिक समय से लंबित हैं—pending caseload का लगभग 9%।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Regulatory deadline और actual completion के बीच gap मात्र operational inefficiency नहीं रह जाता। जब statutory time enforceable guarantee नहीं है, delay एक tradable asset बनता है। Business standard processing speed को पुनः प्राप्त करने के लिए informal payment, consultant access या political-administrative facilitation खरीदता है—यही bureaucratic time को rent-generating mechanism बनाता है।</div>
+<div class="subhead">1.2. समय की चार parallel architectures</div>
+<p><strong>Rent-seeking delay:</strong> Forms, duplicate approvals और inspection layers basic process को धीमा करते हैं। उसके बाद acceleration की demand बनती है—कभी official fast-track fee, कभी private intermediary।</p>
+<p><strong>Discretionary delay:</strong> Officer ‘documents incomplete’ या ‘clarification required’ कहकर clock रोक या reset कर सकता है। Rejection/Query Loop formal deadline तोड़े बिना practical delay बढ़ाता है।</p>
+<p><strong>Filtering delay:</strong> महीनों या वर्षों की waiting capacity market filter बनती है। केवल वे firms survive करती हैं जिनके पास idle capital, working-capital buffer और administrative access है।</p>
+<p><strong>Centre–State delay:</strong> New Delhi में deregulation state boards, municipalities और inspection agencies के local rules से neutralise हो सकता है। Central simplification lower-level discretion को automatically समाप्त नहीं करता।</p>
+<div class="subhead">1.3. Queue स्वयं एक policy instrument</div>
+<p>Customs में Authorised Economic Operator status official fast lane देता है। Source के अनुसार AEO exporters sea ports पर लगभग 9 घंटे और air cargo complexes में लगभग 2.5 घंटे faster clearance प्राप्त करते हैं। C-PACE जैसे mechanisms company closure में भी priority-processing logic institutionalise करते हैं।</p>
+<p>Informal fast lane का market अलग है: chartered accountants, customs brokers, law firms, licensed consultants और liaison officers file movement manually follow करते हैं। Large firms dedicated government-relations teams afford कर सकती हैं; MSMEs standard queue में अधिक exposure रखते हैं।</p>
+<div class="subhead">2. समय को कौन नियंत्रित करता है</div>
+<div class="subhead">2.1. Procedure operators</div>
+<p>Street-level inspectors—labour departments, State Pollution Control Boards, fire authorities, municipal corporations—thousands of compliance points interpret करते हैं। Minor procedural defects को substantive violation मानने की discretion ‘regulatory cholesterol’ पैदा करती है।</p>
+<p>Jan Vishwas reforms के बाद Adjudicating Officers की भूमिका बढ़ी: criminal court referral की जगह administrative monetary penalties impose करने का अधिकार नया discretion layer बनाता है।</p>
+<p>NSWS और PARIVESH जैसे digital platforms third operator बन गए हैं। उन्होंने submission desk पर physical contact घटाया, लेकिन control format validation, automated checks और final manual approval stages पर shift हुआ।</p>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>NSWS terms के अनुसार Invest India platform facilitator है, लेकिन approval delay या rejection के लिए substantive responsibility संबंधित ministries और departments के पास रहती है। अंतिम discretion portal के पास नहीं, sectoral authority के पास है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Digitalisation ने discretion समाप्त नहीं की; उसने उसे process के बाद के stages पर shift किया। Physical file receipt पर rent लेने की जगह officer deadline के अंतिम दिन formal clarification request भेज सकता है, procedural clock reset कर सकता है और applicant को ‘correct’ resubmission के लिए consultant या informal contact तलाशने पर मजबूर कर सकता है।</div>
+<div class="subhead">2.2. धीमेपन के institutional beneficiaries</div>
+<p><strong>Low-level regulatory apparatus:</strong> Delay business से recurring contact demand पैदा करती है। Acceleration या minor defects ignore करने की ability shadow income stream बन सकती है।</p>
+<p><strong>Facilitation economy:</strong> Chartered accountants, customs brokers, legal firms और sector-specific consultants procedural maps, filing sequences और officer access को marketable service बनाते हैं।</p>
+<p><strong>Incumbents:</strong> Large established players compliance teams और waiting costs absorb कर सकते हैं। Delay new entrants के capital को burn करती है और market concentration को protect कर सकती है।</p>
+<div class="subhead">3. कौन जीतता है, कौन हारता है</div>
+<div class="subhead">3.1. Delay से लाभ</div>
+<p>Administrative apparatus delay को rent या political-business leverage में बदल सकता है। Large conglomerates bureaucratic waiting को cost of capital में price कर सकते हैं और competitors की slow market entry से लाभ लेते हैं। Source industry estimates बड़े projects में delayed capital cost को लगभग 12% annually तक बताता है।</p>
+<p>Facilitation market complexity के साथ expand होता है: जितना अधिक rules, cross-department approvals और local discretion, उतना अधिक paid navigation का economic value।</p>
+<div class="subhead">3.2. Delay की लागत</div>
+<p>MSME पर impact सबसे कठोर है। 3–6 महीने की building-use approval या utility connection delay operating revenue शुरू होने से पहले interest expense और payroll burn पैदा कर सकती है। Foreign investors भी beneficial-ownership disclosures, inter-ministerial review और security queries के कारण repeated delay का सामना कर सकते हैं।</p>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>FDI approval process में यदि application data incomplete पाया जाए तो applicant को clarification के लिए केवल एक सप्ताह का window मिलता है, जिसे एक अतिरिक्त सप्ताह तक बढ़ाया जा सकता है। Response न आने पर application close हो सकती है और process शून्य से restart करना पड़ सकता है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Time-cost asymmetry small business और foreign newcomers पर progressive indirect tax की तरह काम करती है। Large domestic players administrative networks और cash reserves के माध्यम से waiting cost absorb करते हैं; MSMEs working capital का disproportionate हिस्सा procedural delay में खोते हैं।</div>
+<div class="subhead">3.3. Information asymmetry</div>
+<p>Indian regulatory environment में सबसे मूल्यवान capital written law से अधिक unwritten procedure हो सकता है: कौन wording approval trigger करती है, किस officer के पास file अटकी है, कौन annexure वास्तव में आवश्यक है और किस order में technical documentation submit करनी है। Outsider के लिए यह information costly है।</p>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>DPIIT startup recognition के लिए NSWS-linked applications में rejection का common कारण formal age/turnover eligibility नहीं, बल्कि innovation और scalability की description को ‘weak’ या insufficiently specific मानना बताया गया है—एक criterion जिसमें official judgment का significant discretionary element है।</div>
+<div class="stamp-note insight"><span class="k">■ अंदरूनी / अपुष्ट</span>Corporate lawyers और tax consultants के बीच commercial-property inspections और fire-plan approvals के लिए informal departmental ‘rate cards’ की चर्चा circulates करती है। Source स्वयं इसे documentary court evidence से unsupported बताता है और नोट करता है कि intermediaries के लिए यह narrative अपने fees justify करने में भी commercially useful है। इसलिए इसे केवल अपुष्ट insider claim के रूप में पढ़ना चाहिए।</div>
+<div class="subhead">4. Reform attempts और उनका परिणाम</div>
+<div class="subhead">4.1. Jan Vishwas — criminal threat से financial discretion तक</div>
+<p>Jan Vishwas (Amendment of Provisions) Act 2023 ने 42 central laws में 183 provisions decriminalise किए। Minor procedural offences—record-keeping, legal metrology, patent-related filings आदि—के लिए imprisonment को civil/administrative monetary penalties से replace किया गया।</p>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Jan Vishwas framework में minimum fines और penalties को base amount से प्रत्येक तीन वर्ष में 10% automatically बढ़ाने का mechanism शामिल है।</div>
+<div class="stamp-note pr"><span class="k">■ पीआर संस्करण</span>सरकार Jan Vishwas Act और आगे बढ़ाए जा रहे Jan Vishwas 2.0 को business fear कम करने, inspector-driven criminal intimidation हटाने और ‘trust-based governance’ स्थापित करने वाले reforms के रूप में प्रस्तुत करती है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Criminal imprisonment threat हटने से street-level inspector का emergency coercive lever कमजोर हुआ। लेकिन penalties impose करने की discretion Adjudicating Officers को देने से rent का character बदल सकता है: arrest threat की जगह maximum बनाम minimum financial penalty की discretionary bargaining।</div>
+<div class="subhead">4.2. NSWS और digital rejection loop</div>
+<p>National Single Window System 32 central ministries और 29 states/territories के permissions landscape को एक digital interface में जोड़ता है। Central government ने tens of thousands procedural requirements rationalise या digitise करने का दावा किया है।</p>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Hard digital deadlines ने bureaucracy को adaptive response दिया: last-day rejection या clarification request. Officer deadline breach avoid करता है, applicant का timer reset हो जाता है और resubmission शुरू होती है। इस Rejection Loop में paper-file corruption घट सकती है, लेकिन procedural time-rent बनी रहती है—अब वह form design, consultant dependency और repeated validation में embed होती है।</div>
+<div class="subhead">5. अंतिम मूल्यांकन</div>
+<p><strong>Structural portrait:</strong> India की administrative system में समय neutral technical parameter नहीं, allocation mechanism है। License Raj के dismantling और online portals के विस्तार ने rent channels समाप्त नहीं किए; उन्होंने उन्हें compliance complexity, discretionary validation और state/local inspection layers में relocate किया।</p>
+<p><strong>Main rent mechanism:</strong> आधुनिक model में सबसे प्रभावी tool Rejection/Query Loop है, जो formal deadline violate किए बिना clock restart करता है। Jan Vishwas ने criminal coercion घटाया, लेकिन monetary penalties और professional facilitation market को अधिक central बना दिया।</p>
+<p><strong>Distributional effect:</strong> Large incumbents waiting cost को finance कर सकते हैं, specialised advisers hire कर सकते हैं और queue navigation internalise कर सकते हैं। MSMEs के लिए वही delay liquidity destruction और market-entry barrier बनता है।</p>
+<p><strong>Most likely trajectory:</strong> Jan Vishwas 2.0 और NSWS expansion direct petty corruption को और कम कर सकते हैं, लेकिन overall procedural slowness पूरी तरह खत्म होने की संभावना कम है। Rent cash bribe से legalised facilitation income—legal, audit, engineering और compliance services—की ओर shift हो सकती है। Time market-filtering instrument बना रहेगा।</p>
+<div class="subhead">स्रोत</div>
+<p>1. Jan Vishwas Amendment Act 2023 compliance guide — Complinity: https://complinity.com/blog/compliance/navigating-the-jan-vishwas-amendment-act-2023-a-strategic-guide-for-senior-compliance-management/</p>
+<p>2. Jan Vishwas Bill 2022 — Carnegie India: https://carnegieendowment.org/india/ideas-and-institutions/jan-vishwas-bill-2022-or-economic-growth-and-measures-of-material-wellbeing</p>
+<p>3. Jan Vishwas Act और regulatory accountability analysis: https://www.ijllr.com/post/the-jan-vishwas-act-a-response-to-regulatory-overreach-or-a-means-to-reduce-governmental-accountabi</p>
+<p>4. Construction permit guide India 2026: https://constructionestimatorindia.com/how-to-get-construction-permit-india/</p>
+<p>5. Ease of doing business in India — Embassy of India, The Hague: https://www.indianembassynetherlands.gov.in/page/ease-of-doing-business-in-india/</p>
+<p>6. Construction approval process in India — Kanakdhara Developer: https://kanakdharadeveloper.com/construction-approval-process-in-india/</p>
+<p>7. Doing Business in India — PRS India: https://prsindia.org/theprsblog/doing-business-in-india?page=41&per-page=1</p>
+<p>8. National Time Release Study release — A2Z Taxcorp: https://a2ztaxcorp.net/fm-nirmala-sitharaman-releases-fifth-edition-of-national-time-release-study-ntrs/</p>
+<p>9. CBIC AEO programme और trade facilitation — KNN India: https://knnindia.co.in/news/newsdetails/economy/cbics-aeo-programme-strengthens-trade-facilitation-holds-promise-for-msmes</p>
+<p>10. FDI approval SOP for land-border countries — VJM Global: https://www.vjmglobal.com/blog/foreign-direct-investment-fdi-from-border-land-sharing-countries-obtaining-approval</p>
+<p>11. Government Approval Route FDI India — Beacon Filing: https://beaconfiling.com/blog/government-approval-route-fdi-india</p>
+<p>12. FDI Approval India: FIFP process and timelines — Global Law Experts: https://globallawexperts.com/how-to-get-fdi-approval-in-india-fifp-online-application-documents-timelines/</p>
+<p>13. Approval bottlenecks in manufacturing — World Pulse: https://www.worldpulse.org/es/story/how-manufacturers-can-avoid-approval-bottlenecks-and-operational-shutdowns-77096</p>
+<p>14. National Judicial Data Grid: https://njdg.ecourts.gov.in/</p>
+<p>15. Environmental compliance and EIA India — Beacon Filing: https://beaconfiling.com/blog/india-environmental-compliance-eia-green</p>
+<p>16. Construction permits cross-country comparison — ResearchGate: https://www.researchgate.net/publication/313846252_Ease_of_Getting_Construction_Permits_in_India_Cross_Country_Comparison_with_World's_Best</p>
+<p>17. Building-permit reform and ease-of-doing-business — Times of India: https://timesofindia.indiatimes.com/india/after-speeding-up-building-permits-india-makes-strong-bid-for-boosting-ease-of-doing-business-ranking/articleshow/59359310.cms</p>
+<p>18. DPIIT recognition process — FilingPro: https://filingpro.io/dpiit-explained/</p>
+<p>19. Jan Vishwas Amendment Bill 2025 — PRS Legislative Research: https://prsindia.org/billtrack/the-jan-vishwas-amendment-of-provisions-bill-2025</p>
+<p>20. Ease of Doing Business reforms since 2014 — PIB: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2204206</p>
+<p>21. DPIIT recognition rejection and delay — RTI Wiki: https://righttoinformation.wiki/practical-guides/startup-india-dpiit-recognition-rejected-tax-exemption-delayed</p>
+<p>22. Jan Vishwas Act 2023 analysis — Ahlawat Associates: https://www.ahlawatassociates.com/blog/analysis-of-the-jan-vishwas-amendment-of-provisions-act-2023</p>
+<p>23. NSWS portal registration/payments/approvals FAQ: https://www.certificate.digital/articles/286/dsc-for-nsws-portal-faq-registration-payments-approvals/</p>
+<p>24. NSWS Terms and Policies: https://www.nsws.gov.in/website-policies</p>
+<p>25. PESO licence consulting market reference: https://www.greenpermits.in/07/peso-license-consultant-in-india-fees-and-process/</p>
+<p>26. National Time Release Study 2025 — TaxTMI: https://www.taxtmi.com/circulars?id=70545&page=3</p>
+<p>27. Jan Vishwas Amendment Bill 2026 impact — IncorpX: https://www.incorpx.io/guide/jan-vishwas-amendment-bill-2026-company-law</p>
+<p>28. Jan Vishwas Act 2023 — e-Gazette: https://egazette.gov.in/WriteReadData/2023/248047.pdf</p>
+<p>29. Jan Vishwas Bill 2.0 — IMPRI India: https://www.impriindia.com/insights/jan-vishwas-bill-2-0/</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">चिह्नों की कुंजी — सत्यापन मानक</div>
+    <div class="keybox-grid">
+      <div><b>तथ्य</b> — स्रोत में स्पष्ट factual marker के साथ दिया गया दावा</div>
+      <div><b>पीआर संस्करण</b> — स्रोत में स्पष्ट official/public framing</div>
+      <div><b>विश्लेषणात्मक निष्कर्ष</b> — स्रोत में explicit structural interpretation</div>
+      <div><b>डेटा उपलब्ध नहीं</b> — इस source में explicit no-data marker नहीं है</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

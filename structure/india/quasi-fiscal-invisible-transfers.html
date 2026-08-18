@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भारत — अदृश्य हस्तांतरण और क्वाज़ी-फिस्कल पुनर्वितरण | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← मुख्य पृष्ठ</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">स्वतंत्र संरचनात्मक खुफिया विश्लेषण · 2026 से</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">“कथा से ऊपर संरचना।”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>भारत डेस्क</span>
+    <span>18 अगस्त 2026</span>
+  </div>
+
+  <span class="section-tag">संरचना / अदृश्य वित्तीय हस्तांतरण</span>
+
+  <h1 class="headline">भारत में पूंजी कहाँ गायब होती है — और किसके खाते में लौटती है</h1>
+  <p class="deck">Trade misinvoicing, round-tripping, offshore derivatives, external commercial borrowings और informal clearing मिलकर ऐसी quasi-fiscal architecture बनाते हैं जिसमें fiscal cost budget document में सीधे दिखाई नहीं देती, लेकिन tax base, competition, banking stability और capital ownership पर उसका प्रभाव वास्तविक रहता है।</p>
+  <div class="byline">भारत डेस्क — श्रेणी: क्वाज़ी-फिस्कल हस्तांतरण / ऑफशोर पूंजी संरचना</div>
+
+  <div class="columns">
+<p class="lead">भारत में अदृश्य पूंजी-हस्तांतरण की संरचना दो परतों पर काम करती है। पहली परत अनौपचारिक clearing है, जिसकी ऐतिहासिक जड़ hawala में है और जिसका आधुनिक रूप crypto-P2P settlement तक फैल चुका है। दूसरी परत corporate और institutional है: transfer pricing, round-tripping, offshore derivatives, Participatory Notes और External Commercial Borrowings जैसी व्यवस्थाएँ पूंजी को भारतीय कर-क्षेत्र, बाजार और foreign-exchange regulation के बीच arbitrage करने देती हैं।</p>
+<p>इन चैनलों का साझा प्रभाव एक ऐसी ‘अदृश्य बजटीय पंक्ति’ बनाना है जो संसद द्वारा अनुमोदित subsidy की तरह सीधे दिखाई नहीं देती। कर-आधार का क्षरण, off-balance-sheet risk और प्रतिस्पर्धा का विकृतिकरण अंततः taxpayers, छोटे घरेलू व्यवसायों और banking system पर लागत डाल सकता है।</p>
+<div class="subhead">1. अदृश्य हस्तांतरणों का मानचित्र</div>
+<div class="subhead">1.1. तंत्र की मुख्य श्रेणियाँ</div>
+
+<table>
+<thead>
+<tr><th>क्वाज़ी-फिस्कल तंत्र</th><th>भौतिक / कानूनी रूप</th><th>‘अदृश्य हस्तांतरण’ का आर्थिक अर्थ</th></tr>
+</thead>
+<tbody>
+<tr><td>मूल्य-विकृति</td><td>Trade misinvoicing / re-invoicing</td><td>Import value को कृत्रिम रूप से बढ़ाना या export value घटाना, जिससे taxable profit low-tax jurisdiction में shift हो सकता है।</td></tr>
+<tr><td>निहित सरकारी गारंटी</td><td>Systemically important conglomerates के external commercial borrowings</td><td>‘Too big to fail’ perception selected large borrowers की debt cost कम कर सकती है और संकट में contingent liability state/banking system की ओर धकेल सकती है।</td></tr>
+<tr><td>Regulatory arbitrage</td><td>P-Notes / ODIs, royalty और transfer-pricing flexibility</td><td>Foreign investors और hidden beneficial owners को market access, anonymity या tax optimisation के अवसर मिलते हैं।</td></tr>
+<tr><td>Cross-subsidisation</td><td>Hawala और crypto-P2P settlement</td><td>Formal foreign-exchange channels के बाहर value transfer होने से tax, customs और compliance burden formal economy पर अधिक पड़ सकता है।</td></tr>
+<tr><td>Deferred liability</td><td>Unhedged या opaque ECB exposure</td><td>Rupee depreciation या corporate default की स्थिति में foreign-currency debt banking stability और reserves पर दबाव डाल सकता है।</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>इन सभी तंत्रों की केंद्रीय समानता उनका कम-पारदर्शी या गैर-बजटीय स्वभाव है। संसद से पारित direct subsidy के विपरीत, mispricing, offshore routing और financial-arbitrage channels का fiscal cost tax shortfall, distorted competition और crisis-time liabilities के रूप में बाद में दिखाई देता है। इसलिए लागत treasury और ordinary consumers पर स्थानांतरित हो सकती है बिना किसी स्पष्ट ‘subsidy line’ के।</div>
+<div class="subhead">1.2. मात्रात्मक पैमाना</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Global Financial Integrity के अध्ययन के अनुसार 2016 में India का trade-misinvoicing gap लगभग 74 अरब डॉलर था—लगभग 617 अरब डॉलर के कुल external trade का 12%। संभावित annual tax-revenue loss लगभग 13 अरब डॉलर आंका गया, जो उस समय कुल tax revenues का करीब 5.5% था। इसमें import-side distortions का हिस्सा लगभग 9 अरब डॉलर और export-side distortions का लगभग 4 अरब डॉलर था।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>SEBI regulation के क्रमिक tightening के बाद Participatory Notes / Offshore Derivative Instruments का share foreign portfolio investor assets under custody में 2007 के लगभग 44.4% peak से घटकर 2024 में लगभग 2.1–2.5% रह गया। यह दिखाता है कि एक समय का प्रमुख anonymous-market channel काफी छोटा हो चुका है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>P-Notes की गिरती भूमिका का अर्थ hidden capital movement का अंत नहीं है। Source analysis का निष्कर्ष है कि कुछ activity नए channels—crypto-P2P clearing और अधिक flexible ECB structures—की ओर migrate हुई। फरवरी 2026 के ECB liberalisation ने borrowing limits बढ़ाकर और pricing framework को अधिक flexible बनाकर debt-servicing route की क्षमता बढ़ाई, जिससे legal capital mobility और potential profit shifting के बीच सीमा और जटिल हो गई।</div>
+<div class="subhead">2. हस्तांतरण चैनल कैसे काम करता है</div>
+<div class="subhead">2.1. लागत किससे निकलती है और लाभ किसे मिलता है</div>
+<p>Primary cost bearer भारतीय taxpayer है: यदि taxable profit royalties, interest payments, misinvoicing या offshore structures के माध्यम से बाहर चला जाता है, तो government को revenue gap दूसरे taxes या spending restraint से भरना पड़ता है। Domestic MSMEs दूसरा कमजोर पक्ष हैं, क्योंकि वे local tax और credit conditions में operate करते हैं जबकि बड़े groups को cheaper external capital और international structuring मिल सकता है। Minority shareholders भी excessive intra-group royalties या management charges की लागत वहन कर सकते हैं।</p>
+<p>Beneficiary side में promoters और large conglomerates, foreign institutional intermediaries, multinational groups और cross-border financial facilitators शामिल हो सकते हैं। Source विशेष रूप से Mauritius, Singapore, UAE और अन्य offshore jurisdictions का उल्लेख करता है जहाँ SPVs और holding structures capital ownership तथा tax treatment को बदलने के लिए उपयोग किए जा सकते हैं।</p>
+<div class="subhead">2.2. चार संस्थागत चैनल</div>
+<p><strong>अनौपचारिक clearing:</strong> Hawala और crypto-P2P formal banking तथा foreign-exchange channels से बाहर value transfer के लिए उपयोग किए जा सकते हैं। Report इन्हें trade-based settlement और stablecoin-linked cross-border movement के साथ जोड़ती है।</p>
+<p><strong>Round-tripping:</strong> भारत से निकला capital offshore SPV में जाकर फिर FDI/FPI के रूप में वापस आ सकता है। इससे domestic capital formally ‘foreign’ investment की legal identity पा सकता है और tax-treaty या ownership advantages प्राप्त कर सकता है।</p>
+<p><strong>Transfer pricing:</strong> Related companies के बीच goods, services, royalties, management fees और IP licensing के माध्यम से taxable margin को jurisdictions के बीच shift किया जा सकता है।</p>
+<p><strong>P-Notes और ECB:</strong> ODIs historically beneficial-owner opacity देते रहे; ECB corporate groups को foreign debt access देता है। 2026 reforms के बाद debt channel अधिक flexible हुआ, इसलिए regulatory focus portfolio anonymity से corporate-debt transparency की ओर भी खिसकता है।</p>
+<p>Regulators की सार्वजनिक व्याख्या foreign capital inflows को growth financing के रूप में देखती है। Source का analytical framing यह है कि वही legal infrastructure legitimate investment और capital laundering/round-tripping के बीच overlap पैदा कर सकती है; इसलिए किसी individual transaction को केवल structure देखकर illicit घोषित नहीं किया जा सकता, लेकिन system-level opacity महत्वपूर्ण है।</p>
+<div class="subhead">2.3. संस्थागत operators</div>
+
+<table>
+<thead>
+<tr><th>ऑपरेटर वर्ग</th><th>मुख्य संस्थाएँ</th><th>औपचारिक भूमिका / संरचनात्मक कार्य</th></tr>
+</thead>
+<tbody>
+<tr><td>राज्य regulators</td><td>RBI, SEBI, ED, CBDT</td><td>FEMA, securities transparency और tax compliance लागू करना; साथ ही capital inflow बनाए रखने के लिए नियमों में calibrated flexibility देना।</td></tr>
+<tr><td>Institutional intermediaries</td><td>SEBI-registered FPI, overseas banks issuing ODIs</td><td>Indian market और end-investor के बीच legal investment layer बनाना।</td></tr>
+<tr><td>Offshore service providers</td><td>Mauritius, Singapore, UAE और GIFT City की legal/audit firms</td><td>SPV, holding structures, transfer-pricing contracts और cross-border structuring तैयार करना।</td></tr>
+<tr><td>Lobbying interests</td><td>Large Indian conglomerates, global asset managers</td><td>Flexible ECB rules, capital mobility और beneficial-ownership disclosure की सीमा पर policy influence।</td></tr>
+</tbody>
+</table>
+
+<div class="subhead">3. परिणाम</div>
+<div class="subhead">3.1. प्रोत्साहनों का विकृतिकरण</div>
+<p>Offshore credit, round-tripping और related-party payments तक access large conglomerates को domestic firms की तुलना में कम effective financing cost दे सकता है। इससे operational efficiency और domestic R&D में investment का incentive कमजोर हो सकता है यदि cheaper arbitrage उपलब्ध हो।</p>
+<p>MSMEs और purely domestic companies full tax burden तथा higher local borrowing costs वहन करते हैं। यदि competitors Dubai, Singapore या अन्य jurisdictions के माध्यम से invoicing और external loans संरचित कर सकें तो price competition asymmetrical हो सकती है और concentration बढ़ सकती है।</p>
+<div class="subhead">3.2. संचित वित्तीय जोखिम</div>
+
+<table>
+<thead>
+<tr><th>जोखिम</th><th>Materialisation mechanism</th><th>Historical / regulatory trigger</th></tr>
+</thead>
+<tbody>
+<tr><td>Capital flight</td><td>P-Note positions close होना या foreign portfolio money तेजी से निकलना</td><td>2007–08 में P-Note restrictions पर market volatility</td></tr>
+<tr><td>Tax-base erosion</td><td>Trade misinvoicing, royalties और offshore profit shifting</td><td>GFI ने 2016 के लिए लगभग 13 अरब डॉलर potential tax loss estimate किया</td></tr>
+<tr><td>Market-ownership opacity</td><td>Concentrated shareholdings offshore funds के माध्यम से छिपना</td><td>2023 के बाद SEBI beneficial-ownership disclosure rules कठोर हुए</td></tr>
+<tr><td>Corporate-debt shock</td><td>Large foreign-currency ECB exposure और rupee depreciation</td><td>2026 liberalisation के बाद leverage capacity का विस्तार</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>अगस्त 2023 में SEBI ने FPI disclosure framework कड़ा किया। ऐसे offshore funds से detailed ultimate-beneficial-owner information मांगी जा सकती है जो अपने Indian equity assets का 50% से अधिक एक corporate group में रखते हों या जिनकी India holdings 25,000 crore rupees से ऊपर हों।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>UBO transparency मजबूत होने के बावजूद source analysis मानता है कि फरवरी 2026 की ECB liberalisation ने system risk का कुछ हिस्सा portfolio-investment opacity से corporate-debt channel की ओर स्थानांतरित कर दिया। Rupee depreciation या macro shock की स्थिति में high foreign-currency obligations corporate defaults पैदा कर सकती हैं, जिनकी second-order लागत banking system पर आ सकती है।</div>
+<div class="subhead">3.3. वितरणात्मक प्रभाव</div>
+<p>Invisible-transfer architecture का distributional effect source में regressive बताया गया है। Offshore structuring, tax arbitrage और complex financial instruments का उपयोग wealthier households, large businesses और institutional investors के लिए अधिक accessible है।</p>
+<p>Revenue shortfall अंततः indirect taxation, lower fiscal room या reduced public spending के माध्यम से broad population पर लौट सकता है। इसलिए formal taxpayers और small domestic firms उस system की आंशिक लागत वहन कर सकते हैं जिसका arbitrage benefit comparatively concentrated actors को मिलता है।</p>
+<div class="subhead">4. अपारदर्शिता से किसे लाभ</div>
+<p><strong>Conglomerate promoters और offshore investors:</strong> opaque ownership, treaty-based tax planning और pre-tax profit extraction से लाभ उठा सकते हैं।</p>
+<p><strong>Political finance networks:</strong> source अनौपचारिक clearing को non-public political reserves और cross-border private wealth movement से जोड़ता है, लेकिन individual case attribution के बिना इसे general mechanism के रूप में ही पढ़ा जाना चाहिए।</p>
+<p><strong>Legal, audit और structuring firms:</strong> Dubai, Singapore, Mauritius और GIFT City जैसे centres में complex SPV, holding और tax structures बनाने की recurring fee income प्राप्त करते हैं।</p>
+<p><strong>Regulatory bureaucracy:</strong> complex rules greater supervisory discretion और institutional relevance पैदा करते हैं। GIFT City जैसी preferential zones एक ओर de-offshorisation का दावा देती हैं, दूसरी ओर capital को India-linked but specially regulated enclave में channel करती हैं।</p>
+<div class="subhead">5. अंतिम मूल्यांकन</div>
+<p><strong>Structural portrait:</strong> India की ‘invisible transfers’ system informal clearing, corporate transfer pricing, offshore portfolio instruments और external debt का overlapping architecture है। Capital बाहर जा सकता है और फिर foreign investment की legal form में वापस आ सकता है; corporate profit royalties, debt service या transfer-pricing arrangements के माध्यम से tax base से बाहर shift हो सकता है।</p>
+<p><strong>Main accumulated risk:</strong> portfolio anonymity की तुलना में corporate foreign-currency debt increasingly important vulnerability है। ECB exposure, rupee depreciation और sudden capital flight banking stability तथा reserves पर nonlinear pressure बना सकते हैं।</p>
+<p><strong>Most likely trajectory:</strong> regulators सबसे opaque channels को धीरे-धीरे बंद करते रहेंगे—UBO disclosure, treaty reform और P-Note tightening इसके उदाहरण हैं। लेकिन activity अधिक formal और legally sophisticated vehicles में migrate कर सकती है: liberalised ECB, onshore-offshore hybrid structures और GIFT City जैसे special financial zones। इसलिए physical volume of capital arbitrage पूरी तरह समाप्त होने की बजाय institutional form बदल सकता है।</p>
+<div class="subhead">स्रोत</div>
+<p>1. Trade misinvoicing — Global Financial Integrity: https://gfintegrity.org/issue/trade-misinvoicing/</p>
+<p>2. Participatory Notes / P-Notes पर संदर्भ: https://c4scourses.in/banking-finance/participatory-notes-p-notes-2/</p>
+<p>3. RBI External Commercial Borrowings framework 2026: https://www.bajajfinserv.in/rbi-guidelines-for-external-commercial-borrowings</p>
+<p>4. Maruti Suzuki transfer-pricing judgment reference — Delhi High Court / CaseMine: https://www.casemine.com/judgement/in/56090d19e4b0149711178dd4</p>
+<p>5. Participatory Notes और offshore derivatives — India Infoline: https://www.indiainfoline.com/knowledge-center/share-market/what-are-participatory-notes</p>
+<p>6. GFI: India trade-misinvoicing tax-loss estimate: https://gfintegrity.org/gfi-india-lost-approximately-us13-0-billion-to-trade-misinvoicing-in-2016/</p>
+<p>7. P-Notes और SEBI regulation — SCC Online: https://www.scconline.com/blog/post/2024/10/10/p-notes-and-sebi-regulations-addressing-regulatory-arbitrage-whilst-managing-foreign-investments/</p>
+<p>8. India potential revenue losses from trade misinvoicing — GFI: https://gfintegrity.org/report/india-potential-revenue-losses-associated-with-trade-misinvoicing/</p>
+<p>9. ODI / Participatory Notes statistics — SEBI: https://www.sebi.gov.in/statistics/fpi-investment/odis-&-pns/odis-&-pns.html</p>
+<p>10. RBI revised borrowing and lending framework — EY: https://www.ey.com/en_in/technical/alerts-hub/2026/03/rbi-has-revised-the-borrowing-and-lending-framework</p>
+<p>11. Foreign investments in India — NSE: https://nsearchives.nseindia.com/content/us/ismr2019ch7.pdf</p>
+<p>12. India ECB changes और transfer-pricing impact — Rödl: https://www.roedl.com/en/insights/transfer-pricing-impact-indias-ecb-framework-changes/</p>
+<p>13. Revised ECB framework — Chambers and Partners: https://chambers.com/articles/revised-external-commercial-borrowings-framework</p>
+<p>14. India ECB liberalisation — A&O Shearman: https://www.aoshearman.com/en/insights/new-route-for-offshore-lenders-through-the-liberalization-of-indias-ecb-framework</p>
+<p>15. Mauritius–India treaty Principal Purpose Test — Apex Group: https://www.apexgroup.com/insights/cbdt-clarifies-principal-purpose-test-under-the-mauritius-india-tax-treaty/</p>
+<p>16. Participatory Notes — Indian Economic Service / Arthapedia: https://ies.gov.in/arthapedia/concept/participatory-notes-pns</p>
+<p>17. SEBI Foreign Portfolio Investors Second Amendment Regulations 2023: https://www.sebi.gov.in/legal/regulations/aug-2023/securities-and-exchange-board-of-india-foreign-portfolio-investors-second-amendment-regulations-2023_75198.html</p>
+<p>18. P-Notes investment decline — Drishti IAS: https://www.drishtiias.com/daily-updates/daily-news-analysis/decline-investments-through-p-notes</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">चिह्नों की कुंजी — सत्यापन मानक</div>
+    <div class="keybox-grid">
+      <div><b>तथ्य</b> — source document में quantified, regulatory या documented factual claim</div>
+      <div><b>पीआर संस्करण</b> — source में explicit official/PR marker के साथ दिया गया claim</div>
+      <div><b>विश्लेषणात्मक निष्कर्ष</b> — source द्वारा explicit analytical status के साथ दिया गया structural interpretation</div>
+      <div><b>डेटा उपलब्ध नहीं</b> — source में explicit no-data marker; इस material में ऐसे marker नहीं हैं</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

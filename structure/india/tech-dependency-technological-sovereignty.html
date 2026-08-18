@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भारत — तकनीकी निर्भरता और संप्रभुता | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← मुख्य पृष्ठ</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">स्वतंत्र संरचनात्मक खुफिया विश्लेषण · 2026 से</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">“कथा से ऊपर संरचना।”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>भारत डेस्क</span>
+    <span>18 अगस्त 2026</span>
+  </div>
+
+  <span class="section-tag">संरचना / तकनीकी निर्भरता</span>
+
+  <h1 class="headline">भारत का तकनीकी “हार्ड कोर” वास्तव में किसके नियंत्रण में है</h1>
+  <p class="deck">दुनिया के सबसे बड़े engineering pools में से एक, global IT hub का दर्जा और sovereign digital payments — फिर भी EDA software, semiconductor equipment, advanced materials, cloud jurisdiction और telecom patents पर foreign control. India की technology story self-reliance और structural dependence दोनों की कहानी है।</p>
+  <div class="byline">भारत डेस्क — श्रेणी: तकनीकी निर्भरता / तकनीकी संप्रभुता</div>
+
+  <div class="columns">
+<p class="lead">भारत का तकनीकी प्रोफ़ाइल एक गहरी असमानता पर आधारित है: देश के पास विशाल इंजीनियरिंग मानव पूँजी, वैश्विक IT-hub का दर्जा और बड़े R&D केंद्र हैं, लेकिन मूल बौद्धिक संपदा, semiconductor fabrication tools, industrial design software, specialized materials और standards infrastructure पर sovereign control सीमित है।</p>
+<p>इस रिपोर्ट का केंद्र यह प्रश्न है कि value chain में भारत कहाँ वास्तविक स्वामित्व रखता है और कहाँ वह केवल उच्च-कौशल वाला integrator, assembler या service layer है। Semiconductor design, cloud infrastructure, telecom standards, patent ownership और physical fabrication के बीच control का वितरण अत्यंत असमान है।</p>
+<div class="subhead">1. वैश्विक मूल्य-श्रृंखला में भारत की स्थिति</div>
+<div class="subhead">1.1. Critical technologies की value-chain matrix</div>
+
+<table>
+<thead>
+<tr><th>श्रृंखला का स्तर</th><th>भारत का नियंत्रण</th><th>मुख्य बाहरी नियंत्रक</th><th>संरचनात्मक स्थिति</th></tr>
+</thead>
+<tbody>
+<tr><td>मूल IP और architecture</td><td>निम्न / सीमित</td><td>अमेरिका, ब्रिटेन</td><td>RISC-V आधारित Shakti/Vega विकसित हो रहे हैं, पर commercial ecosystems अब भी ARM/x86 जैसे foreign architectures पर निर्भर हैं।</td></tr>
+<tr><td>Chip design R&amp;D</td><td>उच्च — outsourcing क्षमता के रूप में</td><td>Intel, AMD, Qualcomm, Nvidia</td><td>भारतीय engineers वैश्विक chip design में बड़ा योगदान देते हैं, लेकिन core IP rights foreign corporations के balance sheets पर रहते हैं।</td></tr>
+<tr><td>EDA / CAD software</td><td>लगभग शून्य</td><td>Synopsys, Cadence, Ansys, Siemens EDA</td><td>Modern IC physical design और verification proprietary foreign tools के बिना practically असंभव है।</td></tr>
+<tr><td>Wafer fabrication equipment</td><td>शून्य</td><td>ASML, Applied Materials, Lam Research, Tokyo Electron</td><td>Lithography, deposition, etching और metrology equipment लगभग पूरी तरह आयातित है।</td></tr>
+<tr><td>Specialized chemicals और materials</td><td>लगभग शून्य</td><td>Japan, USA, EU</td><td>Wafers, photoresists, high-purity gases, precursors और CMP materials में foreign dependency अत्यधिक है।</td></tr>
+<tr><td>Foundry / fabs</td><td>Transition stage</td><td>Taiwan, Korea, China</td><td>Large commercial domestic fabs अभी निर्माण/विकास चरण में हैं; Tata–PSMC Dholera इस परिवर्तन का प्रमुख उदाहरण है।</td></tr>
+<tr><td>OSAT / ATMP</td><td>तेज़ी से बढ़ता</td><td>Micron सहित foreign technology partners</td><td>Packaging/testing में निवेश बढ़ रहा है, पर wafers, equipment और chemistry आयातित हैं।</td></tr>
+<tr><td>Cloud और DBMS</td><td>सीमित; DPI में अपवाद</td><td>AWS, Azure, GCP, Oracle, Microsoft</td><td>Corporate sector foreign hyperscalers और proprietary databases पर निर्भर; India Stack अलग sovereign pattern देता है।</td></tr>
+<tr><td>Telecom standards / SEP</td><td>अत्यंत निम्न</td><td>Qualcomm, Ericsson, Nokia, Huawei, Samsung</td><td>4G/5G/6G patents पर foreign holders की dominance; भारतीय manufacturers को royalties देनी पड़ती हैं।</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>International trade data के अनुसार भारत semiconductor products का net importer है। 2024 में integrated circuits और semiconductor devices का import लगभग 23.5 अरब डॉलर था; रिपोर्ट भारत की semiconductor जरूरतों का लगभग 95% Taiwan, China, South Korea और Singapore जैसे बाहरी suppliers से आने का अनुमान देती है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Bengaluru और Hyderabad में Intel, AMD, Qualcomm जैसे global R&D centres के बावजूद भारत अक्सर “intellectual contractor” की भूमिका निभाता है। High-value engineering locally होता है, लेकिन मूल IP foreign jurisdictions में जमा होती है। EDA dependency का अर्थ है कि sovereign hardware design भी physical tape-out और fabrication तक जाने के लिए US-controlled toolchains की licensing पर निर्भर रहता है। C2S और VLSI training जैसी sovereignty-oriented programmes भी Cadence, Synopsys और Siemens EDA के माध्यम से उसी ecosystem को reproduce करती हैं।</div>
+<div class="subhead">1.2. भारत की hybrid technological position</div>
+<p>भारत को केवल assembler या केवल IT-services economy कहना पर्याप्त नहीं है। Hardware में वह catching-up sovereigniser है: India Semiconductor Mission 1.0 और 2.0 के माध्यम से fiscal subsidies से physical production internalise करने का प्रयास कर रहा है।</p>
+<p>साथ ही वर्तमान चरण में वह high-level assembly node है। Apple devices की assembly, Micron का ATMP plant और semiconductor packaging निवेश employment और export capacity बढ़ाते हैं, लेकिन core wafers, fabrication equipment और upstream materials पर control नहीं देते।</p>
+<p>Digital Public Infrastructure में स्थिति उलटी है। Aadhaar, UPI, ONDC और India Stack ने payments और state-linked transaction layers में national standards और open APIs के माध्यम से एक sovereign niche बनाया है।</p>
+<p>Geopolitical layer पर India फिर भी vulnerable है: advanced EDA, cloud software, semiconductor equipment और many key patents US-led export-control ecosystem से जुड़े हैं। इसलिए national strategy full technological autarky नहीं, selective sovereignty और geopolitical hedging के बीच चलती है।</p>
+<div class="subhead">2. निर्भरता के नियंत्रण-बिंदु</div>
+<div class="subhead">2.1. बाहरी chokepoints</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Electronic Design Automation market के critical segments में अमेरिकी companies का हिस्सा रिपोर्ट के अनुसार 80–90% से अधिक है। Synopsys, Cadence और Ansys जैसे vendors modern chip design, verification और physical implementation के लिए dominant toolchain नियंत्रित करते हैं।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>EDA dependency extraterritorial control node बनाती है। US-origin software से design हुआ chip US Export Administration Regulations तथा Foreign Direct Product Rule जैसे regimes के दायरे में आ सकता है। Standard-cell libraries, foundry verification formats और tape-out flows proprietary EDA ecosystems से इतने जुड़े हैं कि replacement near-zero है। इस अर्थ में US jurisdiction wafer बनने से पहले ही Indian semiconductor design पर leverage रख सकती है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Cloud infrastructure का scale तेजी से बढ़ रहा है; रिपोर्ट 2026 तक भारत में cloud economy के लिए लगभग 14 million professionals की demand का अनुमान उद्धृत करती है। Global IaaS market AWS, Microsoft Azure और Google Cloud जैसे hyperscalers के हाथों में concentrated है, और India के enterprise sector में Microsoft ecosystem का historical lock-in विशेष रूप से महत्वपूर्ण है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Oracle DB, Microsoft SQL Server, Azure, AWS और enterprise identity stacks से migration अत्यधिक capital- और operations-intensive है। Vendor lock-in sovereignty programmes को धीमा करता है। साथ ही US CLOUD Act जैसी extraterritorial legal frameworks इस प्रश्न को केवल server location से आगे ले जाती हैं: physical data centre India में हो सकता है, लेकिन corporate jurisdiction foreign बनी रह सकती है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>4G/5G/6G Standard Essential Patents का बड़ा हिस्सा Qualcomm, Ericsson, Nokia, Huawei और Samsung जैसे सीमित global patent holders के पास है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Make in India के तहत local telecom assembly होने पर भी FRAND royalties foreign patent holders को जाती हैं। 3GPP जैसे standard-setting institutions में incumbent patent pools के पास agenda-setting power है। भारत के LMLC जैसे sovereign standard proposals को global vendor resistance का सामना करना पड़ा, क्योंकि independent standard royalty structure को बदल सकता है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Semiconductor materials और fabrication equipment में concentration अत्यंत ऊँची है। Japanese companies JSR, Tokyo Ohka Kogyo और Shin-Etsu global photoresist market का 50% से अधिक नियंत्रित करती हैं; ASML, Applied Materials, Lam Research और Tokyo Electron lithography तथा fab equipment के प्रमुख suppliers हैं। India के पास ultra-high-purity semiconductor chemistry के पूर्ण sovereign stack का अभाव है।</div>
+<div class="subhead">2.2. आंतरिक operators जो dependency को reproduce करते हैं</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>TCS, Infosys और Wipro जैसे Indian IT champions की business model global Western enterprise technology की integration, migration और maintenance से अरबों डॉलर कमाती है। Azure, AWS, Google Cloud, SAP और proprietary database ecosystems के ऊपर high-margin service layer बनाना commercially अधिक सुरक्षित है बनिस्बत sovereign system software बनाकर उन्हीं global clients से सीधी प्रतिस्पर्धा करने के। इसलिए dependency केवल बाहर से imposed नहीं; domestic incentives भी इसे reproduce करते हैं।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Atmanirbhar Bharat की rhetoric के बावजूद Reliance Jio और Bharti Airtel जैसे private operators ने commercial 5G rollout के लिए Ericsson, Nokia और Samsung जैसे established foreign vendors के साथ बड़े contracts किए।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Private telecom capital के लिए time-to-market, carrier-grade reliability और total cost of ownership sovereignty से अधिक immediate constraints हैं। TCS–Tejas Networks–C-DoT जैसे domestic stacks historically field maturity और scale पर पीछे रहे, इसलिए competitive private operators ने lower-risk imported vendors चुने।</div>
+<p>Education भी vendor lock-in का दीर्घकालिक channel बन सकती है। VLSI programmes में students Cadence, Synopsys और Mentor/Siemens tools सीखते हैं; ARM और x86 concepts commercial ecosystem का default संदर्भ बने रहते हैं। Sovereign training programme भी यदि proprietary toolchain पर चलता है तो future engineers उसी ecosystem के भीतर professionally socialised होते हैं।</p>
+<div class="subhead">3. निर्भरता के जोखिम</div>
+<div class="subhead">3.1. आर्थिक जोखिम</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Indian Patent Office की 2024–25 reporting में 110,000 से अधिक patent applications का उल्लेख है।</div>
+<div class="stamp-note pr"><span class="k">■ पीआर संस्करण</span>सरकारी narrative इस वृद्धि को innovation, research capacity और technological self-reliance के अभूतपूर्व विस्तार के प्रमाण के रूप में प्रस्तुत करता है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>लेकिन ownership structure अधिक जटिल है: रिपोर्ट के अनुसार top foreign corporations—जिनमें Qualcomm, Nokia, Samsung और Xiaomi जैसे players शामिल हैं—भारत में लगभग उतनी patent filings करते हैं जितनी Indian companies collectively; Qualcomm अकेले ने एक वर्ष में 2,949 applications दायर कीं।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>इससे outsourcing-IP paradox बनता है। Indian engineers global R&D centres में patentable technologies बनाते हैं, लेकिन rent foreign corporate jurisdictions में accrue होती है। बाद में भारत finished electronics और licensed technologies खरीदता है जिनकी कीमत में वही IP शामिल होती है जिसे बनाने में Indian engineering labour का योगदान था।</div>
+<p>Automotive, consumer electronics, energy systems और industrial digitisation के लिए chips तथा components की physical dependence Taiwan Strait, South China Sea और East Asian logistics shocks को India की macroeconomic stability से जोड़ती है।</p>
+<div class="subhead">3.2. सैन्य-रणनीतिक जोखिम</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Modern weapons, avionics, radar, secure processors और command systems imported dual-use semiconductors पर निर्भर हों तो supply cut-off, undocumented hardware behaviour और platform-level security risks पैदा होते हैं। Report hardware trojans और kill-switch possibilities को structural risk के रूप में देखती है। सबसे मूल कमजोरी यह है कि sovereignly designed military chips को भी domestic leading-edge fab के अभाव में foreign foundry पर manufacture कराना पड़ सकता है।</div>
+<div class="subhead">3.3. Geopolitical weaponisation</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>US export-control tools—Entity List और semiconductor restrictions सहित—Huawei और SMIC जैसे Chinese firms के खिलाफ इस्तेमाल हो चुके हैं। यह दिखाता है कि Washington technology dependencies को geopolitical leverage के रूप में employ करने की institutional capacity और willingness रखता है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>आज India US का strategic partner और China-balancing friend-shoring destination है, फिर भी EDA licences, semiconductor equipment और advanced cloud/software access potential dormant leverage बने रहते हैं। गंभीर foreign-policy divergence की स्थिति में export licences या equipment approvals restrict होना India के industrial roadmap को तेज़ी से प्रभावित कर सकता है। Dependency इसलिए केवल commercial नहीं, geopolitical optionality भी है।</div>
+<div class="subhead">4. निर्भरता घटाने के लिए India क्या कर रहा है</div>
+<div class="subhead">4.1. ISM 1.0 से ISM 2.0 तक</div>
+
+<table>
+<thead>
+<tr><th>पैरामीटर</th><th>Semicon India 1.0</th><th>Semicon India 2.0</th><th>संरचनात्मक बदलाव</th></tr>
+</thead>
+<tbody>
+<tr><td>Fiscal budget</td><td>₹76,000 crore (~$10bn)</td><td>₹1,27,500 crore (~$15bn)</td><td>लगभग 67% वृद्धि; अधिक capital-intensive upstream stages पर जोर।</td></tr>
+<tr><td>मुख्य फोकस</td><td>ATMP/assembly और पहली fabs को attract करना</td><td>Materials, specialty chemicals, gases, R&amp;D और sovereign IP blocks</td><td>Assembly से upstream structural nodes की ओर shift।</td></tr>
+<tr><td>Silicon fab subsidy</td><td>Capex का लगभग 50%</td><td>लगभग 40%, pari-passu terms</td><td>Funds को broader ecosystem में redistribute करने का प्रयास।</td></tr>
+<tr><td>ATMP/OSAT subsidy</td><td>लगभग 50%</td><td>Advanced packaging 35%, traditional packaging 25%</td><td>Low-value assembly की तुलना में 2.5D/3D advanced packaging को incentive।</td></tr>
+<tr><td>Programme status</td><td>10+ projects, Micron Sanand operational, Tata–PSMC निर्माणाधीन</td><td>Design Linked Incentive सहित 24 design startups और upstream programmes</td><td>Investment mix अधिक diversified।</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>ISM 1.0 से 2.0 में shift traditional assembly subsidies को 50% से घटाकर लगभग 25–35% तक लाता है और state support को equipment, foundational chemicals तथा independent IP design जैसी upstream layers की ओर मोड़ता है।</div>
+<div class="stamp-note insight"><span class="k">■ अंदरूनी / अपुष्ट</span>Industry circles में यह अपुष्ट interpretation मौजूद है कि traditional ATMP subsidy में कटौती सरकार की इस internal recognition से जुड़ी है कि pure packaging plants meaningful technology transfer नहीं देते: finished wafers, chemicals और equipment imported रहते हैं, local value-add सीमित हो सकता है। ISM 2.0 में chemistry localisation—जैसे Archean Chemical से जुड़ी projects—को प्राथमिकता इसी gap को बंद करने का प्रयास माना जाता है।</div>
+<div class="subhead">4.2. Telecom localisation — BSNL case</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Self-reliance policy के तहत government ने BSNL को Huawei/ZTE equipment से दूर रखा और TCS, Tejas Networks तथा C-DoT consortium द्वारा विकसित indigenous 4G/5G stack deploy करने का निर्देश दिया।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>100,000 base-station rollout को गंभीर delays का सामना करना पड़ा। Jio और Airtel imported vendor equipment पर 5G scale कर चुके थे, जबकि BSNL को 4G commercial deployment 2024–25 तक खींचना पड़ा और उसका market share single digits तक गिरा।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>BSNL sovereignty की वास्तविक कीमत दिखाता है: government ने market share और commercial speed का sacrifice किया ताकि domestic telecom stack field-tested हो सके। 2026 तक Tejas/C-DoT ecosystem को अधिक stable indigenous RAN capability के रूप में प्रस्तुत किया जा रहा था, जिसे developing markets में export करने की ambition भी है।</div>
+<div class="subhead">4.3. India Stack — जहां sovereignty वास्तव में बनी</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Government और financial transactions में India Stack एक systemic exception है। Aadhaar, UPI, DigiLocker और संबंधित DPI layers open APIs पर बने हैं और NPCI/state-linked governance के तहत operate करते हैं। UPI का monthly transaction value report में 14 trillion rupees से अधिक बताया गया है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>DPI ने India को domestic payment layer पर Visa/Mastercard जैसी foreign rails की monopoly घटाने, Chinese-style closed super-app ecosystem से बचने और transaction standards पर sovereign influence बनाने दिया। यही architecture Global South में technology diplomacy के रूप में export किया जा रहा है।</div>
+<div class="subhead">4.4. Bharat 6G Alliance</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Bharat 6G Alliance का घोषित लक्ष्य 2030 तक global 6G patents में कम-से-कम 10% share और 3GPP standard contributions में top-3 position प्राप्त करना है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Strategy का उद्देश्य royalty flow पलटना है: यदि Indian firms और research institutions essential patents own करें, तो global manufacturers को India-linked patent holders को licence fees देनी पड़ेंगी। यह केवल network equipment बनाना नहीं, standard-setting power capture करने का प्रयास है।</div>
+<div class="subhead">4.5. DIR-V और sovereign processor architecture</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Digital India RISC-V programme के तहत C-DAC और IIT Madras ने Shakti और Vega processor families open RISC-V architecture पर विकसित कीं। ISRO, IGCAR और BEL जैसे national agencies के साथ strategic use memoranda report में उल्लेखित हैं।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>RISC-V ARM licensing dependence और proprietary instruction-set risk को घटा सकता है, लेकिन full manufacturing sovereignty नहीं देता। Chips को अभी भी foreign fabs पर fabricate करना पड़ सकता है और design/verification के लिए US-origin EDA stack आवश्यक रहता है। Open architecture इसलिए IP layer पर sovereignty बढ़ाता है, fab और tool layer पर नहीं।</div>
+<div class="subhead">5. वर्तमान dependency से किसे लाभ</div>
+<p><strong>Global monopoly suppliers:</strong> AWS, Microsoft, Synopsys, TSMC, ASML, JSR और अन्य vendors India जैसे विशाल market से software licences, equipment sales, foundry margins और recurring service rent प्राप्त करते हैं। India high-skill engineering labour देता है, जबकि core IP और capital-intensive tools foreign ownership में रहते हैं।</p>
+<p><strong>Indian integrators और intermediaries:</strong> TCS, Infosys तथा local enterprise integrators imported platforms की implementation, migration और maintenance पर high-margin revenue कमाते हैं। पूर्ण sovereign replacement उनके वर्तमान service economics को disrupt कर सकता है।</p>
+<p><strong>US geopolitical ecosystem:</strong> iCET और friend-shoring जैसी partnerships technology access बढ़ाती हैं, लेकिन source technologies तथा export controls पर US leverage भी बनाए रखती हैं। Report इसे calibrated technology transfer के रूप में पढ़ती है।</p>
+<p><strong>Indian political class:</strong> Assembly plant, packaging facility या visible foreign investment electoral cycle में तुरंत jobs और inauguration optics देता है। Ultra-pure chemistry, lithography science और deep EDA mathematics जैसी capabilities दशकों की high-risk investment मांगती हैं और short-term political dividends कम देती हैं।</p>
+<div class="subhead">6. अंतिम मूल्यांकन</div>
+<p><strong>Value-chain position:</strong> India एक दर्दनाक structural transition में है—global IT back-office और imported-hardware consumer से industrial technology power की ओर। वह software labour, BPO, assembly और digital transaction infrastructure में strong है, लेकिन basic IP, EDA, semiconductor chemicals और production equipment के hard core पर control सीमित है।</p>
+<p><strong>Critical dependency:</strong> सबसे कठिन vulnerability US-origin EDA/CAD ecosystem तथा foreign hyperscaler/database jurisdiction है। Fab को पर्याप्त capital से कई वर्षों में बनाया जा सकता है; mature EDA ecosystem, verification standards और enterprise cloud/database replacement को reproduce करना कहीं लंबी institutional learning curve मांगता है।</p>
+<p><strong>Most likely trajectory:</strong> India segmented sovereignty अपनाएगा। ISM 2.0 mature-node fabs, OSAT/ATMP, chemicals और selected IP blocks localise करेगा; state telecom और critical registries indigenous/open stacks की ओर बढ़ेंगे। लेकिन sub-7nm advanced computing, lithography tools, high-purity chemicals और chip-design software में US–Japan–Europe technology bloc की dependence बनी रह सकती है।</p>
+<p>पूर्ण Chinese-style technological isolation की जगह India trusted friend-shoring और strategic bargaining चुनेगा: geopolitical alignment तथा engineering scale के बदले सीमित technology access, जबकि domestic payments, identity और selected state digital infrastructure पर sovereign control को कठोरता से बचाएगा।</p>
+<div class="subhead">स्रोत</div>
+<p>1. Semiconductor imports और global chip supply पर Business Standard analysis: https://www.business-standard.com/industry/news/chip-manufacturing-giants-china-us-import-semiconductors-india-supply-126072200108_1.html</p>
+<p>2. भारत का semiconductor और electronics industry profile — U.S. International Trade Administration: https://www.trade.gov/market-intelligence/india-semiconductor-and-electronics-industry</p>
+<p>3. C2S Programme और ChipIN Centre training: https://c2s.gov.in/Completed_Training.jsp</p>
+<p>4. India Semiconductor Mission 2.0 — Drishti IAS: https://www.drishtiias.com/daily-updates/daily-news-analysis/india-semiconductor-mission-2-0</p>
+<p>5. India Semiconductor Mission 2.0 — PIB: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2224839&reg=3&lang=1</p>
+<p>6. Semicon India 2.0 budget approval — The New Indian Express: https://www.newindianexpress.com/business/2026/Jul/15/cabinet-approves-rs-127-lakh-crore-for-semicon-india-20-to-boost-domestic-chip-ecosystem</p>
+<p>7. Semiconductor Mission 2.0 approval — The Indian Express: https://indianexpress.com/article/business/cabinet-semiconductor-mission-2-0-10787705/</p>
+<p>8. India Semiconductor Mission — official portal: https://www.ism.gov.in/</p>
+<p>9. India Stack — Indian diplomatic overview: https://www.eoiparis.gov.in/section/india-in-france/India_Stack/</p>
+<p>10. India Stack — official ecosystem site: https://indiastack.org/</p>
+<p>11. Semiconductor EDA और US policy पर ResearchGate paper: https://www.researchgate.net/publication/344237045_Cutting_Off_Our_Nose_to_Spite_Our_Face_US_Policy_towards_Huawei_and_China_in_Key_Semiconductor_Industry_Inputs_Capital_Equipment_and_Electronic_Design_Automation_Tools</p>
+<p>12. India cloud-career demand 2026 reference: https://beincareer.com/cloud-computing-career-india-2026-aws-azure-gcp-salary/</p>
+<p>13. AWS vs Azure vs Google Cloud comparison: https://thecodev.co.uk/cloud-providers-comparison-2025/</p>
+<p>14. India cloud ecosystem comparison — TechnoEdge LS: https://technoedgels.com/aws-vs-azure-vs-google-cloud/</p>
+<p>15. AWS, Azure और GCP comparison — KodeKloud: https://kodekloud.com/blog/aws-vs-azure-vs-gcp/</p>
+<p>16. Linux server market share reference: https://fosspost.org/linux-server-market-share-statistics/</p>
+<p>17. Cloud provider Linux usage statistics: https://commandlinux.com/statistics/cloud-provider-linux-usage-breakdown/</p>
+<p>18. Cloud migration services reference — Yotta Yntraa Cloud: https://yntraacloud.ai/cloud-assure-services/cloud-migration-assist/</p>
+<p>19. India और 5G standards में sovereign contribution — Communications Today: https://www.communicationstoday.co.in/india-makes-its-maiden-entry-into-5g-standards-pisses-off-big-telecoms/</p>
+<p>20. India telecom vendor transition — Communications Today: https://www.communicationstoday.co.in/a-unique-transition-year-ahead/</p>
+<p>21. Semiconductor materials market 2026–2032: https://www.intelmarketresearch.com/semiconductor-materials-market-22512</p>
+<p>22. Semiconductor materials market forecast: https://www.marketresearchfuture.com/reports/semiconductor-materials-market-8605</p>
+<p>23. Global semiconductor sector — European Commission JRC: https://publications.jrc.ec.europa.eu/repository/bitstream/JRC141323/JRC141323_01.pdf</p>
+<p>24. Semiconductor chemicals market report: https://www.marketsandmarkets.com/Market-Reports/semiconductor-chemical-market-191345076.html</p>
+<p>25. BSNL 4G delays और 5G impact — Communications Today: https://www.communicationstoday.co.in/bsnls-4g-delays-stall-5g-despite-60000-new-towers-profit-push/</p>
+<p>26. BSNL indigenous 4G stability — ET Telecom: https://telecom.economictimes.indiatimes.com/news/policy/india-achieves-fourth-place-globally-in-4g-network-development-with-bsnls-indigenous-technology/131259484</p>
+<p>27. Patent filings और innovation — Managing IP: https://www.managingip.com/article/2fxr9qbvx88d9zojyxzi8/weekly-take-are-patent-filings-alone-representative-of-innovation</p>
+<p>28. Global chip race और trade flows — ResearchGate: https://www.researchgate.net/publication/392253236_The_Chip_Race_and_Chip_Trade_Flows_Reshaping_the_Semiconductor_Ecosystem_Across_Major_Chip-Making_Countries</p>
+<p>29. India semiconductor ambitions — Observer Research Foundation: https://www.orfonline.org/research/india-s-semiconductor-ambitions-and-global-competitiveness-confronting-the-china-challenge</p>
+<p>30. India Semiconductor Mission — India Science, Technology & Innovation portal: https://www.indiascienceandtechnology.gov.in/st-visions/national-mission/india-semiconductor-mission-ism</p>
+<p>31. India Semiconductor Mission — official portal, programme reference: https://ism.gov.in/</p>
+<p>32. Semicon 2.0 — India Semiconductor Mission: https://www.ism.gov.in/schemes/semicon2.0/index</p>
+<p>33. Semiconductor और AI revolution — PIB: https://www.pib.gov.in/FactsheetDetails.aspx?Id=149242</p>
+<p>34. BSNL 4G delay और Made in India stack — Bisinfotech: https://www.bisinfotech.com/bsnls-4g-delay-a-strategic-bet-on-made-in-india-technology/</p>
+<p>35. Tejas Networks का BSNL RAN order — Light Reading: https://www.lightreading.com/2g-3g-4g/indian-vendor-tejas-receives-900m-ran-order-its-largest-ever</p>
+<p>36. BSNL 4G deployment progress — Total Telecom: https://totaltele.com/bsnl-finally-passes-halfway-mark-with-4g-deployment/</p>
+<p>37. India Stack Global — Digital India / MeitY: https://www.digitalindia.gov.in/initiative/india-stack-global/</p>
+<p>38. Bharat 6G Alliance annual report 2024–25: https://bharat6galliance.com/bharat6G/public/assets/report/B6GA-Annual-Report-2024-25.pdf</p>
+<p>39. 6G standard-setting पर CUTS CCIER report: https://cuts-ccier.org/pdf/report-standardising-standard-setting-for-6g.pdf</p>
+<p>40. RISC-V / C-DAC programme reference: https://www.scribd.com/document/768439351/AR-2022-23-English-24-04-23</p>
+<p>41. Bharat 6G Vision Statement: https://bharat6galliance.com/bharat6G/public/assets/report/document_79664556.pdf</p>
+<p>42. India as next-generation semiconductor manufacturing hub — SNS Insider: https://www.snsinsider.com/blogs/next-generation-semiconductor-manufacturing-hub-is-india</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">चिह्नों की कुंजी — सत्यापन मानक</div>
+    <div class="keybox-grid">
+      <div><b>तथ्य</b> — source document में statistical, institutional या documented factual claim</div>
+      <div><b>पीआर संस्करण</b> — government या institution की official public framing</div>
+      <div><b>विश्लेषणात्मक निष्कर्ष</b> — source architecture से निकला structural interpretation</div>
+      <div><b>डेटा उपलब्ध नहीं</b> — उपलब्ध material stronger claim को establish नहीं करता</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
