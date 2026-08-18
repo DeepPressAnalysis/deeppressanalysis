@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भारत — फार्मास्युटिकल संप्रभुता | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← मुख्य पृष्ठ</a>
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">स्वतंत्र संरचनात्मक खुफिया विश्लेषण · 2026 से</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">“कथा से ऊपर संरचना।”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>भारत डेस्क</span>
+    <span>16 अगस्त 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / फार्मा निर्भरता</span>
+  <h1 class="headline">“दुनिया की फार्मेसी” — पर upstream का एक हिस्सा अब भी चीन में</h1>
+  <p class="deck">भारत packaging economy नहीं है: वह API, vaccines, biosimilars और formulations का विशाल निर्माता है। लेकिन fermentation antibiotics, कुछ KSM/intermediates और molecule-specific imported therapies में concentrated external dependence उसकी pharmaceutical sovereignty की वास्तविक सीमा तय करती है।</p>
+  <div class="byline">भारत डेस्क — श्रेणी: PHARMA DEPENDENCY / PHARMACEUTICAL SOVEREIGNTY</div>
+
+  <div class="columns">
+<p class="lead">अगस्त 2026 तक भारत की फार्मास्युटिकल निर्भरता को केवल “चीनी पाउडर की पैकिंग” के रूप में वर्णित करना तथ्यात्मक रूप से गलत है। भारत स्वयं बड़े पैमाने पर API निर्यात करता है, विशाल रासायनिक-फार्मा उद्योग रखता है, टीके, बायोसिमिलर और तैयार दवाएँ बनाता है। वास्तविक कमजोरी अधिक संकरी और अधिक खतरनाक है: कुछ upstream कड़ियों—विशेषकर fermentation antibiotics और विशिष्ट KSM/intermediates—में चीन की हिस्सेदारी भारतीय आयात की 85–99% तक पहुँचती है।</p>
+<p>इसलिए वास्तविक संरचना है: विशाल downstream formulation उद्योग, जिसके नीचे कुछ अत्यधिक केंद्रित upstream रासायनिक और जैव-तकनीकी श्रृंखलाएँ हैं। यही वह परत है जहाँ भारत की “दुनिया की फार्मेसी” वाली शक्ति और उसकी आपूर्ति-संप्रभुता के बीच अंतर पैदा होता है।</p>
+<p>इस रिपोर्ट में “critical node” शब्द केवल resilience stress-test के लिए प्रयोग किया गया है। इसमें चिकित्सा अवसंरचना को भौतिक रूप से बाधित करने के स्थान, तरीके या sabotage निर्देश शामिल नहीं हैं।</p>
+<div class="subhead">1. कच्चे माल का दबाव: स्थानीय उत्पादन की वास्तविक सीमा</div>
+<div class="subhead">1.1. API और KSM की उत्पत्ति</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>भारत में कुल API/bulk drugs के घरेलू उत्पादन का एकल, अणु-वार आधिकारिक प्रतिशत उपलब्ध नहीं है। 28 जुलाई 2026 के Rajya Sabha उत्तर में Department of Pharmaceuticals ने कहा कि वह समग्र घरेलू API/bulk-drug उत्पादन का ऐसा डेटा नहीं रखता। इसलिए “भारत के 70–75% API चीन पर निर्भर हैं” जैसी संख्या को राष्ट्रीय consumption-share के रूप में प्रस्तुत करना गलत होगा।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>व्यापक API वर्गीकरणों में भारत 2025 में net exporter था: NITI Aayog के अनुसार API निर्यात लगभग 10.0 अरब डॉलर और आयात लगभग 7.4 अरब डॉलर था। इससे यह धारणा टूटती है कि भारत API बनाता ही नहीं।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>FY2025/26 में चीन की हिस्सेदारी संबंधित भारतीय आयात श्रेणियों में अत्यधिक केंद्रित थी: erythromycin derivatives 98.84%, dicyandiamide 97.40%, penicillins और उनके salts 94.41%, कुछ nitrogen heterocycles 94.25%, 6-APA 86.81% और अन्य antibiotics 88.47%। ये import concentration हैं, घरेलू consumption-share नहीं।</div>
+<p><strong>महत्वपूर्ण अंतर:</strong> 94% आयात चीन से आना यह नहीं बताता कि भारत में उपयोग होने वाले 94% penicillin चीन में बने हैं; यह बताता है कि जब भारत आयात करता है तो वैकल्पिक भौगोलिक स्रोत अत्यंत सीमित हैं।</p>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>NITI Aayog ने 2025 के लिए HS-group स्तर पर भी उच्च चीनी concentration दर्ज की: antibiotics में 86.1%, nitrogen-containing heterocyclic compounds में 76.4%, कुछ amino compounds में 73.1%, oxygen heterocycles में 72.6% और कुछ oxygenated carboxylic acids में 65.9%। दो सबसे बड़ी श्रेणियाँ कुल API आयात का लगभग 58% थीं।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>भारत की केंद्रीय निर्भरता “सभी API” पर नहीं, बल्कि fermentation products और chemical precursors के संकरे upstream समूह पर है। हजारों tablet/capsule factories भी molecular-chain sovereignty नहीं देतीं यदि वे एक ही सीमित feedstock पर निर्भर हों।</div>
+<div class="subhead">1.2. स्थानीय संयंत्रों की स्थिति</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>भारतीय उद्योग वास्तविक API synthesis, intermediates, fermentation products, vaccines और recombinant biologics बनाता है। दिसंबर 2025 तक Bulk Drug PLI के अंतर्गत 38 greenfield projects चालू हो चुके थे, 33 अनुबंधित उत्पादों में से 28 को कवर करते हुए लगभग 56,800 टन वार्षिक घोषित क्षमता के साथ। कुल 41 critical products में से 33 के लिए 48 projects मंजूर किए गए थे।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>41 critical-product list स्वयं dependency map है: Penicillin G, 7-ACA, erythromycin thiocyanate, clavulanic acid, gentamicin, streptomycin, tetracycline, rifampicin, dexamethasone, para-aminophenol और अन्य antibiotic/steroid KSM/API को missing या under-used domestic capacity के रूप में पहचाना गया।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>NITI Aayog के अनुसार कुछ segments में Chinese API भारतीय alternatives से लगभग 35–40% सस्ते हैं। यही price gap घरेलू capacity के बंद होने या under-utilisation से जुड़ा है।</div>
+<div class="stamp-note nodata"><span class="k">■ डेटा उपलब्ध नहीं</span>यह मजबूत दावा कि 1990–2000 के दशक में भारतीय fermentation plants के बड़े पैमाने पर बंद होने का मुख्य कारण environmental regulation ही था, उपलब्ध आधुनिक आधिकारिक डेटा से पर्याप्त रूप से सिद्ध नहीं होता। Chinese price displacement अधिक अच्छी तरह प्रलेखित है; environmental, energy, tax और price factors का सटीक decomposition उपलब्ध नहीं है।</div>
+<div class="subhead">1.3. सरकारी प्रतिआक्रमण</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Andhra Pradesh, Gujarat और Himachal Pradesh में तीन Bulk Drug Parks स्वीकृत हैं। फरवरी 2026 तक उनकी संयुक्त घोषित लागत ₹6,306 crore से अधिक थी; केंद्रीय सहायता प्रति park अधिकतम ₹1,000 crore तक थी, जबकि projects विभिन्न implementation stages में थे।</div>
+<div class="stamp-note pr"><span class="k">■ पीआर संस्करण</span>सरकार PLI को Atmanirbhar Bharat और import dependence कम करने की दिशा में सफलता के रूप में प्रस्तुत करती है तथा 2025 के अंत तक लगभग ₹2,192 crore के “avoided imports” की रिपोर्ट करती है। यह programme metric है, China-upstream risk समाप्त होने का प्रमाण नहीं।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>PLI capacity बढ़ने के बावजूद China से physical API/bulk drug/intermediate imports बढ़े: FY2023/24 में 344,153 टन, FY2024/25 में 393,453 टन और FY2025/26 में 418,445 टन। संबंधित import value लगभग ₹27,055, ₹29,064 और ₹29,035 crore रही।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>यह ऐसा import-substitution model है जिसमें domestic supply बढ़ती है, पर पूरी pharmaceutical system उससे तेज़ बढ़ती है। कुछ molecules पर dependence प्रति unit घट सकती है जबकि system-level dependence absolute volume में फिर भी बढ़ सकती है।</div>
+<div class="subhead">1.4. आपूर्ति का वास्तविक सुरक्षा-भंडार</div>
+<div class="stamp-note nodata"><span class="k">■ डेटा उपलब्ध नहीं</span>Penicillin G, 6-APA या अन्य KSM के national molecule-by-molecule “days of cover” की audited public statistics उपलब्ध नहीं है। सरकार imports, PLI capacities और critical-molecule lists प्रकाशित करती है, लेकिन राष्ट्रीय inventory-days नहीं। इसलिए “दवाएँ निश्चित रूप से दो या तीन महीने चलेंगी” कहना काल्पनिक होगा।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>यदि China flow रुकता है तो shortage पूरी pharma में एक साथ नहीं आएगा। पहले वे chains प्रभावित होंगी जहाँ Chinese import concentration 85–95%+ है और alternate supplier qualification धीमा है; फिर upstream scarcity formulation producers तक cascade करेगी। समय-सीमा corporate inventories और निजी contracts पर निर्भर होगी।</div>
+<div class="subhead">2. वितरण: राष्ट्रीय oligopoly नहीं, हजारों स्थानीय gatekeepers</div>
+<div class="subhead">2.1. बाजार concentration</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>भारत की pharmaceutical distribution व्यवस्था दो–चार national wholesalers की oligopoly नहीं है। 31 मार्च 2023 तक लगभग 65,000 pharma distributors थे; large/national distributors की हिस्सेदारी केवल लगभग 8–10% और traditional local distributors की 90–92% आंकी गई।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>बड़े scalable players में Keimed, Entero Healthcare और Ascent जैसे नाम आते हैं, पर वे मिलकर राष्ट्रीय बाजार का अधिकांश हिस्सा नियंत्रित नहीं करते। 8–10% का अनुमान पूरे large/national distributor class के लिए था।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>व्यवस्था लगभग 900,000 retail pharmacies, 3,000 से अधिक pharmaceutical companies और 10,000 से अधिक manufacturing units को सेवा देती है। इस scale और fragmentation से एकल national warehouse “switch” की परिकल्पना कमजोर होती है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>भारतीय risk तीन mega-distributors की oligopoly नहीं, बल्कि हजारों local gatekeepers की fragmented power है। इससे system को एक झटके में decapitate करना कठिन है, लेकिन crisis में national coordination भी कठिन हो सकता है।</div>
+<div class="subhead">2.2. रिटेल चैनल पर शक्ति</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>C&F agent → stockist → sub-stockist → retailer chain अभी भी महत्वपूर्ण है। बड़े distributors integrated B2B platforms के जरिए local counterparties को consolidate करना चाहते हैं, पर बाजार अभी भी मुख्यतः traditional और local है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Stockist की bargaining power केवल balance sheet से नहीं आती; pharmacy credit, delivery frequency, local assortment और हजारों छोटे chemists तक access किसी brand को आर्थिक रूप से आकर्षक या unattractive बना सकता है। Fragmentation स्थानीय rent में बदलती है।</div>
+<div class="subhead">2.3. AIOCD, NOC और historical gatekeeping</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>AIOCD और संबद्ध associations के historical anti-competitive practices पर CCI ने आदेश दिए थे: stockist नियुक्ति से पहले NOC/LOC की मांग, mandatory Product Information Service charges, trade margins fixing और boycott जैसे practices को रोकने के निर्देश दिए गए।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>लेकिन 2026 में उसी historical model को बिना qualification के current national cartel कहना उचित नहीं। जून 2026 में CCI ने एक लंबे मामले में पाया कि उस specific proceeding में mandatory NOC/LOC या compulsory PIS को पर्याप्त रूप से सिद्ध नहीं किया जा सका।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>सही formulation यह है: AIOCD की anti-competitive gatekeeping की documented history है; “आज पूरे देश में universal mandatory NOC चल रहा है” को fact नहीं बनाया जा सकता। Institutional memory और local association networks risk हैं, पर proven current national cartel नहीं।</div>
+<div class="subhead">2.4. E-pharmacy</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>सरकार ने 2018 में e-pharmacies के लिए draft rules तैयार किए थे; 2025 के parliamentary answers में भी registration, inspection, sales rules, monitoring और grievance mechanisms वाला framework draft regime के रूप में मौजूद था।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>2026 में traditional pharmacy associations ने online model के विरुद्ध public pressure जारी रखा; मई में बड़े protest की घोषणा हुई, हालांकि CDSCO से बातचीत के बाद actual participation असमान रहा।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>यह traditional retail lobby की organizational strength दिखाता है, पर “AIOCD ने अकेले कानून रोक दिया” साबित नहीं होता। Prescription control, platform responsibility और regulatory enforcement भी delay के कारण हो सकते हैं।</div>
+<div class="subhead">2.5. सरकारी खरीद और अनौपचारिक प्रभाव</div>
+<div class="stamp-note nodata"><span class="k">■ डेटा उपलब्ध नहीं</span>ऐसा consolidated national registry उपलब्ध नहीं मिला जिससे यह कहा जा सके कि दो–चार private distributors systematically केंद्र और राज्यों की health procurement का कोई निश्चित प्रतिशत लेते हैं। अलग-अलग tender systems को जोड़े बिना ऐसी संख्या pseudo-precision होगी।</div>
+<div class="stamp-note insight"><span class="k">■ अंदरूनी / अपुष्ट</span>Tender quotas और unofficial official–distributor links पर narratives बार-बार सामने आते हैं, लेकिन isolated corruption cases से एक unified national kickback system सिद्ध नहीं होता। ऐसे आरोप losing bidders, political opposition, corporate rivals और media के हित में भी हो सकते हैं; प्रत्येक case को tender trail और beneficial ownership से अलग-अलग जाँचना चाहिए।</div>
+<div class="subhead">3. Big Pharma: पूरे जीवन पर monopoly नहीं, patented islands</div>
+<div class="subhead">3.1. निर्भरता कहाँ वास्तविक है</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>भारत insulin as a class या oncology biologics as a class में पूर्ण विदेशी निर्भरता में नहीं है। CDSCO registry में insulin aspart, trastuzumab, nivolumab, pembrolizumab, pertuzumab, aflibercept, bevacizumab, ustekinumab, rituximab आदि rDNA products के लिए Intas, Lupin, Zydus, Hetero, Biocon Biologics, Reliance Life Sciences जैसे भारतीय applicants दिखाई देते हैं।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>इसलिए “Novo Nordisk चला गया तो भारत insulin से खाली हो जाएगा” गलत thesis है। वास्तविक monopoly specific patented molecule, delivery device, next-generation analogue या combination पर बनती है, पूरी therapeutic class पर नहीं।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Oncology में भी पुराने monoclonal antibodies के लिए domestic competition बढ़ चुकी है। 2025–2026 CDSCO registry में nivolumab, pembrolizumab, trastuzumab, pertuzumab और bevacizumab के कई Indian applicants हैं, भले नई patented molecules पर multinational dominance बना रहे।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Rare diseases और कुछ ultra-expensive biologic/gene therapies में foreign dependence कहीं अधिक कठोर है। National Policy for Rare Diseases imported medicines को customs/GST relief देती है और Gaucher, Pompe, Fabry, MPS, SMA, Duchenne muscular dystrophy आदि के expensive, sometimes lifelong treatments को अलग category में मानती है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>यहीं biological sovereignty सबसे कमजोर है: small patient populations local production को commercially कठिन बनाती हैं, जबकि patents, biologic complexity और regulatory qualification quick substitutes रोकते हैं।</div>
+<div class="subhead">3.2. प्रमुख कंपनियाँ और market share</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>2026 CDSCO registry में Roche के innovative antibodies, Eisai का lecanemab, Johnson & Johnson के नए oncology products, Novo Nordisk की metabolic/diabetes pipeline, Eli Lilly का tirzepatide, Pfizer और AstraZeneca की कई modern molecules मौजूद हैं।</div>
+<div class="stamp-note nodata"><span class="k">■ डेटा उपलब्ध नहीं</span>लेकिन Roche, Novo Nordisk, Pfizer या अन्य कंपनियों को पूरे “critical Indian pharmaceutical segment” का exact national percentage देने वाला विश्वसनीय open dataset नहीं है। Private IQVIA panels और corporate presentations को state statistics की तरह नहीं दिखाया जा सकता।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Big Pharma भारत में “जीवन” को नहीं, विशाल generic sea के भीतर patented islands को नियंत्रित करती है। Molecule जितना नया और biologically complex होगा, monopoly उतनी मजबूत होगी; patent expiry के बाद Indian downstream capability सामान्यतः rent को अपेक्षाकृत जल्दी तोड़ती है।</div>
+<div class="subhead">3.3. Corporate pressure</div>
+<div class="stamp-note nodata"><span class="k">■ डेटा उपलब्ध नहीं</span>ऐसा विश्वसनीय Indian precedent नहीं मिला जिसमें Roche, Pfizer, Novo Nordisk या किसी अन्य global pharma company ने सरकार को औपचारिक ultimatum दिया हो: “procurement price या patent law बदलो, वरना national supply रोक देंगे।”</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>दबाव के अन्य documented रूप मौजूद हैं: patent litigation, compulsory licence challenges, home-government के माध्यम से trade/diplomatic pressure और IP-regime negotiations। यह legal-commercial leverage है, proven medicine embargo threat नहीं।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Supply threat सबसे प्रभावी तब होता है जब drug patented हो, therapeutically acceptable competitor न हो और regulator alternative को जल्दी qualify न कर सके। Mass Indian generics में यह lever बहुत कमजोर है।</div>
+<div class="subhead">4. संस्थागत नियंत्रण: patents, prescriptions और price rent</div>
+<div class="subhead">4.1. Patent barriers</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Indian Patents Act का Section 3(d) known substance की नई form को केवल तभी patent protection देता है जब enhanced efficacy पर्याप्त रूप से सिद्ध हो। 2013 के Novartis AG v. Union of India फैसले में Supreme Court ने beta-crystalline imatinib mesylate patent को अस्वीकार करने का निर्णय कायम रखा।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Natco Pharma v. Bayer में Indian Patent Office ने Section 84 के तहत sorafenib/Nexavar पर पहली post-TRIPS compulsory licence दी। आधारों में reasonable public requirements, reasonably affordable price और India में patent “working” का प्रश्न शामिल था; IPAB ने मुख्य तत्वों को बनाए रखा।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Natco/Bayer इस कानूनी हथियार की मौजूदगी दिखाता है, उसके routine use को नहीं। Compulsory licensing भारत के लिए negotiation reserve है; इसके बाद broad confiscation of foreign pharma patents नहीं हुआ।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>U.S. Special 301 Report 2026 में भारत फिर Priority Watch List पर है। USTR Section 3(d), लंबी pre-grant oppositions, early patent-dispute resolution mechanism की कमी और marketing approval data protection की अमेरिकी दृष्टि से अपर्याप्तता पर आपत्ति दर्ज करता है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Washington की भाषा में यह “adequate and effective IP protection” है; generic producer की भाषा में वही package generic entry की transaction cost बढ़ा सकता है, pre-grant opposition space घटा सकता है और commercial exclusivity लंबी कर सकता है।</div>
+<div class="subhead">4.2. EU–India FTA और TRIPS+</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>EU–India FTA negotiations 27 जनवरी 2026 को conclude हुए और European Commission ने intellectual-property chapter सहित texts प्रकाशित किए। Commission ने यह भी कहा कि legal revision में texts बदल सकते हैं और agreement internal procedures के बाद ही binding होगा।</div>
+<div class="stamp-note nodata"><span class="k">■ डेटा उपलब्ध नहीं</span>इसलिए “2026 agreement ने India को pharmaceutical data exclusivity स्वीकार करने और generic safeguards खत्म करने पर मजबूर कर दिया” को available official material के आधार पर fact नहीं कहा जा सकता। ऐसी TRIPS+ चिंताएँ historical negotiations का हिस्सा थीं, पर final binding article की जरूरत है।</div>
+<div class="subhead">4.3. Treatment protocols और doctor marketing</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>India में pharmaceutical companies का brand-prescription influence काल्पनिक नहीं है। Apex Laboratories v. DCIT (2022) में Supreme Court ने doctors को prohibited freebies देने को public policy के विरुद्ध माना और ऐसे खर्च पर tax deduction अस्वीकार किया।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Department of Pharmaceuticals ने Uniform Code for Pharmaceutical Marketing Practices 2024 लागू किया; 2025 तक companies को self-declarations और कुछ marketing expenditures disclosures जमा करने थे।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>CCI ने branded generics, trade margins, distribution, industry associations और e-pharmacies को pharmaceutical market competition को प्रभावित करने वाले factors के रूप में अलग study में examine किया।</div>
+<div class="stamp-note nodata"><span class="k">■ डेटा उपलब्ध नहीं</span>यह evidence यह सिद्ध नहीं करता कि Roche, Pfizer या Novo Nordisk national clinical protocols की content को नियंत्रित करते हैं। किसी specific mandatory Indian national protocol को किसी specific multinational की bribery का परिणाम ठहराने के लिए पर्याप्त documentary chain नहीं मिली।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>सबसे अच्छी तरह सिद्ध capture channel national protocol से नीचे है: branded generic → doctor promotion → prescription choice → trade margin → retail sale। यह model foreign Big Pharma ही नहीं, Indian branded-generic manufacturers के लिए भी लाभकारी है।</div>
+<div class="subhead">4.4. Price controls</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>NPPA, DPCO के तहत Schedule I/NLEM में शामिल scheduled formulations पर ceiling prices तय करता है। फरवरी 2024 तक 731 scheduled formulations पर ceiling prices और हजारों अन्य forms पर retail prices निर्धारित किए जा चुके थे।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>इसलिए NPPA को corporate capture का instrument कहना उल्टा होगा; यह India में pharma rent पर सबसे शक्तिशाली institutional constraints में से एक है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>“Dose बदलते ही या FDC बनाते ही DPCO गायब हो जाता है” बहुत सरल formula है। Strength/composition बदलने से price category बदल सकती है, लेकिन NPPA नई formulations के retail prices भी निर्धारित करता है और नियमित price orders जारी करता है। Regulatory arbitrage संभव है, automatic escape नहीं।</div>
+<div class="stamp-note nodata"><span class="k">■ डेटा उपलब्ध नहीं</span>ऐसी एकल transparent national figure उपलब्ध नहीं है जो साबित करे कि Indian insurance/state funds हर साल किसी निश्चित “billions” की राशि केवल इसलिए खोते हैं क्योंकि foreign Big Pharma ने clinical standards के माध्यम से originators थोपे।</div>
+<div class="stamp-note insight"><span class="k">■ अंदरूनी / अपुष्ट</span>Clinical protocols में drugs शामिल कराने के लिए systematic kickbacks का thesis राजनीतिक रूप से आकर्षक है, पर CBI/ED case, bank transactions, procurement trail और payment-to-decision link के बिना यह allegation ही रहता है। इसे losing suppliers, political rivals और rights-holder competitors amplify कर सकते हैं।</div>
+<div class="subhead">5. घातक कमजोरी की संरचना: collapse stress-test</div>
+<p>भारत की pharma system में गंभीर vulnerabilities हैं, पर एक central switch नहीं। राष्ट्रीय distribution इतनी बड़ी और decentralized है कि “एक warehouse बंद हुआ और देश में दवा खत्म” वाली कहानी संरचनात्मक रूप से कमजोर है। वास्तविक systemic risk chemical और biotech upstream hierarchy में है।</p>
+<div class="subhead">5.1. Critical node classes</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>पहला critical class Chinese upstream fermentation antibiotics और उनके intermediates हैं। Official critical list में Penicillin G, 7-ACA, erythromycin thiocyanate, clavulanic acid, gentamicin, streptomycin और tetracycline शामिल हैं; कुछ संबंधित import categories में China share लगभग 86–99% है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>यह सबसे गंभीर systemic choke point है क्योंकि एक upstream intermediate की shortage कई downstream manufacturers को एक साथ प्रभावित करती है। दर्जनों formulation factories diversification नहीं बनातीं यदि सब एक ही feedstock के लिए प्रतिस्पर्धा करती हों।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>दूसरा class non-antibiotic API के लिए Chinese chemical KSM/DI है। Government list paracetamol, cardiovascular, neurological, antiviral और अन्य medicines के inputs को शामिल करती है; leading HS categories में China concentration अक्सर 65% से ऊपर और कुछ products में लगभग 100% तक है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>तीसरा class limited-substitutability imported orphan drugs और कुछ नई biologic/gene therapies हैं। India की rare-disease policy स्वयं import dependence को मानती है और ऐसे medicines पर special customs/tax relief देती है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>इसके विपरीत “एक national cold-chain warehouse” का evidence नहीं है जिसकी loss से पूरा देश collapse हो जाए। Tens of thousands distributors वाली structure single national logistics hub hypothesis के विरुद्ध जाती है।</div>
+<div class="subhead">5.2. Chinese raw-material blackout</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>China से API/KSM flow पूरी तरह रुकने पर पहला परिणाम “India stops making medicines” नहीं, बल्कि specific raw-material chains में selective shortage और cost spike होगा। Diversified API sourcing या own synthesis वाले formulators चलते रहेंगे; 90%+ China-sourced intermediates वाले producers पर सबसे तेज़ दबाव आएगा।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>फिर allocation conflict पैदा होगा: वही scarce API domestic patients और export commitments दोनों को चाहिए होगा। India formulations और API का बड़ा exporter है, इसलिए reduced upstream flow पर domestic और foreign demand प्रतिस्पर्धा करेंगे।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>PLI scenario को soften करता है, समाप्त नहीं। 2025 के अंत तक 28 products के लिए नई capacity online थी, लेकिन Chinese imports physical volume में बढ़ते रहे और तीन Bulk Drug Parks अभी development stages में थे।</div>
+<div class="stamp-note nodata"><span class="k">■ डेटा उपलब्ध नहीं</span>यह सिद्ध नहीं किया जा सकता कि exactly 60 या 90 days बाद catastrophe शुरू होगी। Government national molecule-level inventory days प्रकाशित नहीं करती; 2–3 months केवल stress-test assumption हो सकता है, established mortality timeline नहीं।</div>
+<div class="subhead">5.3. Roche + Novo Nordisk + Pfizer simultaneous exit</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>इन तीन innovation-heavy firms का hypothetical simultaneous commercial exit कुछ proprietary therapies, oncology drugs, diabetes technologies और new biologics में गंभीर gaps पैदा करेगा। बिना qualified alternatives वाले patients सबसे vulnerable होंगे।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>लेकिन इससे nationwide pharmaceutical collapse market structure से नहीं निकलता। CDSCO registry traditional medicines में विशाल domestic competition और oncology सहित rDNA/biosimilar products में बढ़ती Indian participation दिखाती है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Population-scale mortality के लिए कई cheap, widely used upstream molecular chains का simultaneous failure कुछ महँगे branded portfolios के disappearance से अधिक dangerous हो सकता है। Patent monopoly राजनीतिक रूप से अधिक visible है; fermentation KSM systemically अधिक central है।</div>
+<div class="subhead">5.4. Vulnerability matrix</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Fermentation antibiotic KSM/API from China: वास्तविक concentration बहुत ऊँची; quick replacement low-to-medium।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>इस node का consequence scale systemic है, क्योंकि एक upstream input अनेक downstream formulations को एक साथ सीमित करता है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Broad chemical KSM/DI imports from China: concentration high but heterogeneous; specific molecules के लिए consequence high और replacement capacity molecule-specific है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>National distribution: concentration low; failures अधिकतर local/regional होंगे और substitution comparatively easier है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Older oncology biologics: local competition बढ़ रही है; risk significant है पर पूर्ण monopoly नहीं।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>New patented/orphan therapies: molecule-specific concentration high; individual patients के लिए impact extreme और quick substitution low है।</div>
+<div class="stamp-note nodata"><span class="k">■ डेटा उपलब्ध नहीं</span>Single national cold-chain warehouse: ऐसी monopoly confirmed नहीं; इसलिए nationwide collapse scenario इस node के आधार पर justified नहीं है।</div>
+<div class="subhead">6. Status quo के beneficiaries</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Chinese upstream producers सबसे स्पष्ट पर कम visible beneficiary हैं। 35–40% तक cost advantage और कुछ import categories में 70–90%+ share उन्हें consumer brand नहीं, upstream reactor की substitutability पर rent देता है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Sun Pharma, Cipla, Dr. Reddy’s, Lupin, Aurobindo जैसी Indian formulation companies के incentives दोहरे हैं: national API resilience रणनीतिक रूप से लाभकारी है, पर cheap Chinese KSM/API उनकी export competitiveness और margins को मजबूत करता है। Full import substitution sovereignty बढ़ा सकता है पर short-term economics बिगाड़ सकता है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Local stockists और trade associations local pharmacy access, credit, assortment और information networks से rent प्राप्त करते हैं। उन्हें चार national “pharma barons” कहना गलत है; large/national distributors अभी minority हैं।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Specific new medicine पर active patent और viable biosimilar/generic की अनुपस्थिति में Big Pharma patent holder classical exclusive market position रखता है। India के Section 3(d), pre-grant opposition और Section 84 उस power को कई अन्य jurisdictions से अधिक constrain करते हैं।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Branded-generic manufacturers के लिए बड़ी domestic rent मशीन यह है कि पुरानी molecule को brand बनाकर doctor influence और trade channel से premium sale की जाए। यह mechanism Indian और foreign firms दोनों को लाभ देता है।</div>
+<div class="stamp-note pr"><span class="k">■ पीआर संस्करण</span>सरकार PLI को full domestic bulk-drug capacity बनाने और China dependence घटाने की industrial policy के रूप में प्रस्तुत करती है। Online capacities दिखाती हैं कि यह केवल slogan नहीं, पर अभी अधूरा transition है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Bulk Drug PLI को मुख्यतः “packing plants” को subsidy देने वाली scheme कहना programme design से समर्थित नहीं है। Projects KSM, drug intermediates और API की greenfield manufacturing capacity पर केंद्रित हैं, केवल imported powder की blistering पर नहीं।</div>
+<div class="stamp-note insight"><span class="k">■ अंदरूनी / अपुष्ट</span>Medical bureaucracy को systematic kickbacks का beneficiary कहना सिद्ध नहीं है। Pharma–doctor commercial inducements की judicially documented history है, लेकिन उसे “Health Ministry officials routinely take bribes for national protocols” तक generalise करने के लिए evidence नहीं है।</div>
+<div class="stamp-note insight"><span class="k">■ अंदरूनी / अपुष्ट</span>Total-corruption narrative स्वयं भी strategic asset हो सकता है: losing manufacturers winner पर हमला कर सकते हैं, political actors government पर और industry lobbies regulatory defeat को “capture” बताकर explain कर सकती हैं। Transaction-level evidence के बिना यह narrative analytically weak है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>सबसे बड़ा collective beneficiary कोई एक corporation नहीं, बल्कि compatible-interest chain है: cheap Chinese upstream → competitive Indian formulation exporter → multi-layer local distribution → branded-generic promotion → high-price patented islands। Strategic reserve upstream की लागत अंततः state को वहन करनी पड़ती है।</div>
+<div class="subhead">7. अंतिम verdict</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>संरचनात्मक चित्र: भारत के पास partial, fictional नहीं, pharmaceutical sovereignty है। वह enormous downstream production, अपना API sector, biopharma और powerful generic industry नियंत्रित करता है; “packing country” की छवि गलत है। पर critical fermentation और chemical upstream chains में China की हिस्सेदारी संबंधित imports में 85–99% तक पहुँचती है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>मुख्य biological vulnerability Roche, Pfizer, AIOCD या एक warehouse नहीं है। यह cheap, low-visibility KSM/DI/API—विशेषकर fermentation antibiotic precursors—का Chinese chemical-biological ecosystem में concentration है।</div>
+<div class="stamp-note fact"><span class="k">■ तथ्य</span>Government समस्या को पहचानती है: PLI ने dozens of capacities online कीं और Bulk Drug Parks build हो रहे हैं। फिर भी China से physical imports FY2023/24 के 344 हजार टन से FY2025/26 में 418 हजार टन तक बढ़े। 2026 के मध्य में self-sufficiency achieved state नहीं, policy direction है।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>अगले 3–5 वर्षों में selective localisation अधिक संभावित है, China से पूर्ण chemical decoupling नहीं। PLI Penicillin G, 7-ACA और अन्य critical products restore कर सकती है यदि state cost gap compensate करे; cheap Chinese inputs रहते हुए private formulators को voluntarily expensive domestic upstream चुनने का incentive सीमित रहेगा।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Distribution में उलटा trend संभावित है: fragmentation इतनी अधिक है कि future challenge existing oligopoly तोड़ना नहीं, consolidation है। Industry forecast large/national distributors की share FY2023 के 8–10% से FY2028 में 20–30% तक बढ़ने की संभावना बताता है; यह forecast है, fact नहीं।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>Patent pressure भी जारी रहेगा। USTR 2026 में Section 3(d), pre-grant opposition और data-exclusivity/patent-linkage जैसी protections की अनुपस्थिति पर दबाव बनाए हुए है। India की biological sovereignty दो fronts पर contested है: China कुछ physical upstream नियंत्रित करता है; Western rights-holders innovative downstream पर legal control विस्तार चाहते हैं।</div>
+<div class="stamp-note insight"><span class="k">■ विश्लेषणात्मक निष्कर्ष</span>अंतिम मूल्यांकन: भारत Global South की सबसे pharmaceutical-autonomous economies में है, लेकिन molecularly sovereign power नहीं। उसकी कमजोरी factories की कमी नहीं, बल्कि यह है कि कुछ factories production chain के अंतिम stages पर हैं जबकि critical first reactions विदेश में होती हैं। “Made in India” blister अंतिम manufacturing stages पर control दिखा सकता है, पूरी national medicine-supply chemistry पर नहीं।</div>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">चिह्नों की कुंजी — सत्यापन मानक</div>
+    <div class="keybox-grid">
+      <div><b>तथ्य</b> — सरकारी आँकड़ों, अदालती मामलों, regulator records या documented industry data से समर्थित दावा</div>
+      <div><b>पीआर संस्करण</b> — सरकार, regulator या industry actor की आधिकारिक सार्वजनिक व्याख्या</div>
+      <div><b>विश्लेषणात्मक निष्कर्ष</b> — स्रोत सामग्री से निकला संरचनात्मक interpretation</div>
+      <div><b>डेटा उपलब्ध नहीं</b> — उपलब्ध material किसी precise या stronger claim को सिद्ध नहीं करता</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+</div>
+</body>
+</html>
