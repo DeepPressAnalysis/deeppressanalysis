@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indonesia — Ledakan Nikel dan Arsitektur Kekuasaan Industri | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← BERANDA</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Intelijen struktural independen · sejak 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">“Struktur di atas narasi.”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>MEJA INDONESIA</span>
+    <span>19 AGUSTUS 2026</span>
+  </div>
+
+  <span class="section-tag">STRUKTUR / INDUSTRI / NIKEL</span>
+
+  <h1 class="headline">Siapa yang benar-benar menguasai ledakan nikel Indonesia</h1>
+  <p class="deck">Larangan ekspor mengubah bijih menjadi captive market. Negara mengendalikan izin dan cadangan; smelter besar mengendalikan harga, teknologi dan infrastruktur; modal Tiongkok menguasai sebagian besar kapasitas hilir. Hilirisasi menciptakan nilai tambah — sekaligus memindahkan kekuasaan.</p>
+  <div class="byline">Meja Indonesia — kategori: INDUSTRIES / MINING &amp; METALLURGY / NICKEL BOOM</div>
+
+  <div class="columns">
+<p class="lead">Ledakan nikel Indonesia bukan sekadar hasil pasar komoditas. Ia merupakan hasil rekayasa negara yang memindahkan pusat kekuasaan dari penambang bijih ke pemilik smelter, kawasan industri, perusahaan negara, dan modal Tiongkok. Larangan ekspor menciptakan captive market domestik: ribuan penambang lokal menjual ke sedikit pembeli besar yang menguasai pengolahan, listrik, pelabuhan, teknologi, dan akses ekspor.</p>
+<p>Struktur ini menghasilkan dua lapis konsentrasi: monopsoni negara-korporasi di hulu dan oligopoli terkartelisasi di hilir. Negara mengendalikan izin, kuota dan akses cadangan; konglomerat Tiongkok-Indonesia mengendalikan teknologi peleburan dan pemrosesan, sementara penambang independen kehilangan akses langsung ke harga global.</p>
+<div class="subhead">1. STRUKTUR PASAR</div>
+<div class="subhead">1.1. Tipe arsitektur pasar</div>
+<p><strong>Tipe utama:</strong> monopsoni negara-korporasi pada tingkat pertambangan dan oligopoli terkartelisasi pada tingkat pengolahan.</p>
+<p>Model hilirisasi Indonesia memutus hubungan langsung antara penambang bijih dan pasar global. Dengan menutup ekspor bijih mentah, pemerintah memaksa seluruh pasokan masuk ke pasar domestik yang pembelinya terkonsentrasi pada smelter dan kawasan industri berskala raksasa.</p>
+<div class="stamp-note fact"><span class="k">■ FAKTA</span>Pada 2014, dan kemudian secara penuh pada 2020, pemerintah Indonesia memberlakukan larangan ekspor bijih nikel yang belum diolah.</div>
+<div class="stamp-note insight"><span class="k">■ KESIMPULAN ANALITIS</span>Larangan tersebut secara struktural memindahkan daya tawar dari penambang independen kepada pemilik smelter. Penambang kehilangan akses langsung ke harga global seperti LME dan menjadi bergantung pada permintaan domestik, sehingga smelter memperoleh ruang untuk membeli bijih dengan diskon besar terhadap harga internasional.</div>
+<div class="stamp-note pr"><span class="k">■ VERSI PR</span>Larangan ekspor dipresentasikan sebagai kebijakan nasionalis hilirisasi: mempertahankan nilai tambah di dalam negeri, mendorong industrialisasi, dan mengubah Indonesia dari eksportir bahan mentah menjadi pusat manufaktur.</div>
+<div class="subhead">1.2. Hambatan masuk</div>
+<p><strong>Regulasi:</strong> mekanisme kuota RKAB — Rencana Kerja dan Anggaran Biaya. Tanpa persetujuan Kementerian ESDM, perusahaan tidak dapat menambang dan menjual bijih.</p>
+<div class="stamp-note fact"><span class="k">■ FAKTA</span>Keterlambatan penerbitan RKAB pada 2023–2024 digunakan sebagai instrumen pengelolaan manual terhadap volume pasokan bijih di pasar domestik.</div>
+<p><strong>Modal dan infrastruktur:</strong> pengolahan nikel membutuhkan investasi miliaran dolar, pembangkit listrik captive berbasis batu bara, pelabuhan, fasilitas logistik, dan integrasi ke kawasan industri besar seperti IMIP di Morowali dan IWIP di Halmahera. Hambatan modal ini membuat akses ke hilir hampir tidak mungkin tanpa terhubung ke kompleks yang dikendalikan modal besar Tiongkok dan mitra lokal.</p>
+<p><strong>Politik:</strong> foreign incumbents dengan aset historis menghadapi kewajiban divestasi sebagai syarat perpanjangan izin pertambangan.</p>
+<div class="stamp-note fact"><span class="k">■ FAKTA</span>Pada Juli 2024, holding negara MIND ID meningkatkan kepemilikannya di PT Vale Indonesia menjadi 34% dan memperoleh posisi kontrol yang lebih kuat sebagai bagian dari kesepakatan perpanjangan izin hingga 2035.</div>
+<div class="subhead">1.3. Penetapan harga dan pendorong riil</div>
+<p>Secara formal, harga bijih mengacu pada HMA — Harga Mineral Acuan — dan harga minimum HPM.</p>
+<div class="stamp-note pr"><span class="k">■ VERSI PR</span>Pemerintah menyatakan bahwa HMA dan HPM melindungi penambang dari kekuatan monopsoni smelter dan menjamin harga pembelian yang adil.</div>
+<p>Namun mekanisme riil lebih dipengaruhi oleh kekuatan pembeli. Smelter dapat menerapkan penalti kadar air, menurunkan estimasi kadar nikel melalui laboratorium di titik bongkar, atau menggunakan perbedaan spesifikasi untuk mengurangi harga efektif.</p>
+<p>Menurut materi sumber, praktik tersebut dapat menekan harga efektif sekitar 20–30% di bawah harga HPM pada transaksi tertentu.</p>
+<div class="stamp-note fact"><span class="k">■ FAKTA</span>Asosiasi Penambang Nikel Indonesia (APNI) berulang kali mengajukan keluhan kepada KPPU mengenai dugaan koordinasi harga oleh dua kawasan industri besar yang menekan harga pembelian bijih.</div>
+<div class="subhead">2. SIAPA YANG MENGONTROL</div>
+<div class="subhead">2.1. Pemain utama dan penerima manfaat riil</div>
+
+<table>
+<thead>
+<tr><th>Aktor</th><th>Basis kekuasaan</th><th>Peran struktural</th></tr>
+</thead>
+<tbody>
+<tr><td>Tsingshan Holding Group</td><td>IMIP Morowali, teknologi RKEF + NPI, jaringan pasar Tiongkok</td><td>Hegemon pengolahan; membentuk skala dan ekonomi industri nikel Indonesia.</td></tr>
+<tr><td>MIND ID</td><td>Holding pertambangan negara</td><td>Instrumen konsolidasi kepemilikan negara melalui Antam, PT Vale dan aset strategis lain.</td></tr>
+<tr><td>Zhejiang Huayou Cobalt / Lygend</td><td>Teknologi HPAL dan MHP</td><td>Penggerak utama konversi bijih laterit menjadi material baterai.</td></tr>
+<tr><td>Harita Group</td><td>Modal lokal, lahan, hubungan politik, kemitraan dengan Lygend</td><td>Contoh integrasi elite bisnis domestik dengan modal dan teknologi Tiongkok.</td></tr>
+</tbody>
+</table>
+
+<p>Struktur kontrol industri bertumpu pada aliansi: negara Indonesia menyediakan hak tambang, izin, proteksi regulasi dan perusahaan negara; perusahaan Tiongkok menyediakan teknologi, pembiayaan, engineering, pembangkit captive dan akses pasar.</p>
+<div class="stamp-note fact"><span class="k">■ FAKTA</span>Tsingshan menghasilkan bagian terbesar dari nickel pig iron Indonesia melalui ekosistem IMIP dan jaringan fasilitas yang dibangun dengan teknologi RKEF.</div>
+<div class="subhead">2.2. Titik pertemuan dengan negara</div>
+<p>Luhut Binsar Pandjaitan, mantan Menteri Koordinator Bidang Kemaritiman dan Investasi hingga Oktober 2024, merupakan salah satu arsitek utama strategi nikel dan hilirisasi.</p>
+<div class="stamp-note insight"><span class="k">■ KESIMPULAN ANALITIS</span>Kementerian koordinasi yang dipimpin Luhut berfungsi secara de facto sebagai super-regulator sektor nikel: ia mempercepat persetujuan proyek strategis dan memotong banyak jalur birokrasi tradisional untuk investasi besar Tiongkok.</div>
+<div class="stamp-note insight"><span class="k">■ INSIDE / BELUM TERKONFIRMASI</span>Media bisnis Asia dan sejumlah NGO Indonesia membahas dugaan kepemilikan tersembunyi atau hubungan ekonomi elite politik, termasuk lingkar keluarga Luhut, dengan kontraktor yang melayani IMIP pada bidang logistik dan batu bara. Yang terdokumentasi secara publik terutama adalah hubungan tidak langsung melalui manajemen dan jaringan Toba Bara; klaim kepemilikan tersembunyi tidak dikonfirmasi secara langsung oleh dokumen sumber.</div>
+<div class="subhead">2.3. Pusat pengaruh eksternal</div>
+<p><strong>Tiongkok:</strong> modal Tiongkok menguasai kira-kira 70–80% kapasitas pengolahan nikel Indonesia menurut framing sumber. Kontrol tersebut mencakup smelter NPI, HPAL, engineering dan jaringan pembeli.</p>
+<p><strong>Otomotif global:</strong> Tesla, Ford, Volkswagen dan produsen lain berusaha memperoleh akses ke nickel battery-grade Indonesia, tetapi tetap harus bekerja melalui struktur lokal dan teknologi pengolahan yang banyak dikuasai oleh perusahaan Tiongkok.</p>
+<div class="stamp-note fact"><span class="k">■ FAKTA</span>Produsen otomotif Barat yang ingin mengakses nikel baterai Indonesia pada praktiknya harus membentuk joint venture dengan entitas Indonesia dan menggunakan teknologi HPAL yang dikuasai ekosistem Tiongkok, karena pembangunan fasilitas tersebut pada skala dan jadwal yang dibutuhkan sangat bergantung pada kemampuan engineering yang telah terbentuk.</div>
+<div class="subhead">3. MEKANISME MEMPERTAHANKAN KEKUASAAN</div>
+<div class="subhead">3.1. Regulatory capture</div>
+<div class="stamp-note insight"><span class="k">■ KESIMPULAN ANALITIS</span>Kebijakan industri Indonesia secara struktural ditangkap oleh logika hilirisasi. Pemerintah menerima kerugian penambang, dampak ekologis dan tekanan sosial sebagai biaya untuk memaksimalkan ekspansi smelter dan industrial parks yang menjadi pusat nilai tambah.</div>
+<p>Bukti paling terlihat adalah izin pembangkit listrik captive berbasis batu bara yang dibangun khusus untuk kawasan nikel, meskipun Jakarta secara resmi juga memiliki komitmen iklim dan transisi energi.</p>
+<div class="stamp-note fact"><span class="k">■ FAKTA</span>Tanpa izin untuk captive coal power, model biaya banyak smelter Tiongkok-Indonesia akan kehilangan basis ekonominya; kebijakan energi khusus kawasan industri menjadi penopang utama ekspansi nikel.</div>
+<div class="subhead">3.2. Kartel, kuota dan tekanan terhadap pemain lama</div>
+<p>Penghentian atau keterlambatan RKAB pada 2023 menciptakan kelangkaan pasokan bijih di pasar domestik.</p>
+<div class="stamp-note insight"><span class="k">■ KESIMPULAN ANALITIS</span>ESDM tidak hanya menggunakan licensing sebagai alat teknis. Dalam struktur ini, kuota dapat berfungsi sebagai instrumen disiplin: regulator menentukan siapa dapat menambang, berapa volume yang masuk ke pasar, dan kapan pasokan dilepaskan.</div>
+<p>Tekanan terhadap pemain lama juga dilakukan melalui kewajiban divestasi. Vale menghadapi pilihan: menyerahkan tambahan saham kepada MIND ID dengan valuasi yang diperdebatkan atau mempertaruhkan kelanjutan hak atas cadangan. Ini merupakan bentuk nasionalisasi bertahap tanpa ekspropriasi langsung.</p>
+<div class="subhead">4. KERENTANAN</div>
+<div class="subhead">4.1. Risiko geopolitik — IRA / FEOC</div>
+<p>Insentif kendaraan listrik Amerika Serikat membatasi mineral yang diproses atau dikendalikan oleh Foreign Entity of Concern. Karena perusahaan Tiongkok memegang kepemilikan besar di banyak smelter Indonesia, battery nickel Indonesia berisiko kehilangan akses ke subsidy-linked US supply chains.</p>
+<div class="stamp-note fact"><span class="k">■ FAKTA</span>Pemerintah Indonesia dan perusahaan Tiongkok sedang mengeksplorasi restrukturisasi joint venture agar kepemilikan formal Tiongkok dapat berada di bawah ambang tertentu seperti 25%, sementara pengaruh operasional dan teknologi tetap dipertahankan.</div>
+<div class="subhead">4.2. Risiko sosial dan tenaga kerja</div>
+<p>Kawasan industri nikel menghadapi kritik keras mengenai kondisi kerja, konflik antara tenaga kerja lokal dan pekerja Tiongkok, serta kerusakan lingkungan dari tailings, emisi dan captive coal.</p>
+<div class="stamp-note fact"><span class="k">■ FAKTA</span>Pada 2023, fasilitas PT Gunbuster Nickel Industry (GNI), yang memiliki keterkaitan dengan modal Tiongkok, mengalami bentrokan mematikan antara pekerja Indonesia dan pekerja Tiongkok. Peristiwa tersebut menampilkan konflik sosial yang lebih luas di sekitar enclave industri nikel.</div>
+<div class="subhead">4.3. Risiko konsentrasi dan overcapacity</div>
+<p>Ekspansi terkoordinasi Tsingshan dan banyak pemain lain menghasilkan surplus kapasitas yang berkontribusi pada kejatuhan harga nikel global pada 2023–2024. Indonesia menjadi korban dari keberhasilannya sendiri: mengurangi output dapat menekan ekspor dan utilisasi pabrik, tetapi mempertahankan produksi tinggi terus menekan margin industri secara global.</p>
+<div class="subhead">5. PENILAIAN AKHIR</div>
+<p><strong>Potret struktural:</strong> industri nikel Indonesia secara resmi dipromosikan sebagai keberhasilan besar industrial policy. Namun sumber menggambarkannya sebagai oligopoli dua tingkat: negara memonopoli akses ke sumber daya melalui izin, kuota dan BUMN; konsorsium Tiongkok menguasai bagian besar teknologi pengolahan, industrial parks dan pasar akhir.</p>
+<p><strong>Posisi penambang independen:</strong> setelah larangan ekspor, mereka tidak lagi memiliki akses langsung ke price discovery global dan dipaksa menjual ke sedikit pembeli domestik. Hal ini memindahkan margin dari hulu ke smelter.</p>
+<p><strong>Sumber stabilitas:</strong> aliansi politik antara birokrasi Indonesia — yang memperoleh kontrol melalui perusahaan negara, lisensi dan kontrak — dengan modal Tiongkok yang mampu membangun kapasitas dengan kecepatan sangat tinggi.</p>
+<p><strong>Titik perebutan berikutnya:</strong> tekanan geopolitik Barat melalui FEOC, IRA dan jejak karbon dapat memaksa Jakarta untuk mendesain ulang struktur kepemilikan smelter. Jika akses ke pasar AS dan Eropa mensyaratkan pengurangan kontrol Tiongkok, pemerintah dapat mendorong transfer saham ke BUMN Indonesia atau investor Barat. Skenario ini berpotensi menciptakan konflik kepentingan langsung dengan Beijing.</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">KUNCI PENANDA — STANDAR VERIFIKASI</div>
+    <div class="keybox-grid">
+      <div><b>FAKTA</b> — klaim yang diberi penanda faktual eksplisit dalam dokumen sumber</div>
+      <div><b>VERSI PR</b> — framing resmi atau narasi publik yang ditandai eksplisit dalam sumber</div>
+      <div><b>KESIMPULAN ANALITIS</b> — interpretasi struktural yang ditandai eksplisit oleh sumber</div>
+      <div><b>TIDAK ADA DATA</b> — tidak ada penanda semacam ini dalam dokumen sumber</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
