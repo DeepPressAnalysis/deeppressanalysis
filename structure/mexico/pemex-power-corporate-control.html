@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México — Pemex: arquitectura de poder y control corporativo | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← INICIO</a>
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">Inteligencia estructural independiente · desde 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">«La estructura por encima de la narrativa.»</div>
+  </div>
+  <div class="dateline-bar">
+    <span>MESA MÉXICO</span>
+    <span>20 DE AGOSTO DE 2026</span>
+  </div>
+  <span class="section-tag">ESTRUCTURA / PODER CORPORATIVO / PEMEX</span>
+  <h1 class="headline">Pemex: la empresa que dejó de competir para gobernar el mercado</h1>
+  <p class="deck">La reforma energética de 2024–2025 volvió a colocar a Pemex en el centro del Estado mexicano: prioridad regulatoria, protección fiscal, red offshore, respaldo militar y deuda soberanamente protegida. El costo es una corporación más poderosa dentro de México, pero más dependiente del capital, la tecnología y el derecho externos.</p>
+  <div class="byline">Mesa México — categoría: PERSONAS / INDUSTRIAS / ARQUITECTURA DE PODER CORPORATIVO</div>
+  <div class="columns">
+<p class="lead">Pemex ya no funciona únicamente como una empresa petrolera. El documento fuente la describe como el núcleo de una arquitectura de poder en la que el control constitucional de los hidrocarburos, la regulación energética, el presupuesto federal, la deuda, los sindicatos, las fuerzas armadas y una red financiera offshore se integran en un solo sistema de decisión.</p>
+<p>La lógica central es doble: dentro de México, Pemex obtiene protección política y regulatoria frente a competidores y acreedores; fuera del país, necesita derecho extranjero, vehículos financieros y mercados internacionales para sostener su liquidez. El resultado es una corporación con enorme poder administrativo nacional, pero con dependencia financiera, tecnológica y jurídica en el exterior.</p>
+<div class="subhead">1. ARQUITECTURA DE LA CORPORACIÓN COMO SISTEMA DE DECISIÓN</div>
+<div class="subhead">1.1. Tipo central de estrategia corporativa</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Pemex opera dentro de una estrategia basada en el control constitucional de la exploración, extracción y transformación de hidrocarburos en beneficio del Estado mexicano. En octubre de 2024, la presidenta Claudia Sheinbaum impulsó y el Congreso aprobó una reforma constitucional que revirtió el marco orientado al mercado establecido durante la reforma energética de 2013.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Con la legislación secundaria de marzo de 2025, Pemex dejó de ser una <em>empresa productiva del Estado</em> y pasó a ser una <em>empresa pública del Estado</em>. El cambio jurídico redujo el énfasis legal en maximizar rentabilidad y competir como una corporación de mercado.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento interpreta este cambio como un viraje estratégico: Pemex deja de ser tratada principalmente como empresa comercial y pasa a funcionar como instrumento directo de soberanía energética, política fiscal y control estatal de recursos. Su posición queda más aislada de los imperativos clásicos de competencia y rentabilidad.</div>
+<div class="subhead">1.2. Modelo de toma de decisiones</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>El gobierno corporativo de Pemex es altamente jerárquico y centralizado. El Consejo de Administración y la Dirección General dependen de nombramientos del poder político federal, lo que limita la autonomía corporativa típica de una empresa privada.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La legislación secundaria de 2025 institucionalizó el control directo de la Secretaría de Energía (SENER). Al mismo tiempo, la Comisión Nacional de Energía (CNE), subordinada al Ejecutivo, sustituyó a los reguladores independientes CNH y CRE.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>El control operativo se organiza mediante filiales como Pemex Exploración y Producción, Pemex Transformación Industrial y Pemex Logística. Los nombramientos de directivos en subsidiarias y afiliadas —incluidas estructuras comerciales como PMI Comercio Internacional— se concentran en la Dirección General de Pemex con reporte formal posterior al Consejo.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente califica esta arquitectura como una forma de “aislamiento institucional del mercado”: decisiones sobre capex, empleo, deuda o inversión ambiental pueden responder antes a prioridades fiscales, electorales y macroeconómicas del gobierno que a la disciplina de accionistas privados o acreedores internacionales.</div>
+<div class="subhead">1.3. Tolerancia al riesgo regulatorio y político</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>El caso <em>Finley Resources Inc. v. México</em> (ICSID ARB/21/25) se utiliza como ejemplo. En 2018, Pemex Exploración y Producción rescindió administrativamente el contrato 821 con inversionistas estadounidenses y ejecutó una garantía de US$41.8 millones; en noviembre de 2024, el tribunal internacional determinó que México había incumplido estándares de protección de inversión.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente interpreta el episodio como una tolerancia asimétrica al riesgo jurídico internacional: Pemex puede priorizar ventajas operativas inmediatas aun cuando el costo reputacional o arbitral termine trasladándose al soberano mexicano, que respalda a la empresa y absorbe parte del riesgo sistémico.</div>
+<div class="subhead">1.4. Principal motor interno</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>En 2024–2025 se creó el régimen fiscal consolidado <em>Derecho Petrolero para el Bienestar</em>, con una tasa de 30% para petróleo y 11.63% para gas no asociado.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>El documento señala que en 2025 este nuevo derecho aportó aproximadamente MX$194.57 mil millones a las finanzas públicas. La misma fuente sitúa la deuda financiera de Pemex alrededor de US$84.5 mil millones en 2025.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El análisis sostiene que Pemex convierte el acceso monopólico a los recursos en capital político y subsidio social. Su deuda funciona también como amortiguador cuasifiscal: permite absorber costos de política pública dentro del balance corporativo en lugar de reflejarlos íntegramente como déficit soberano directo.</div>
+<p><strong>NIVEL DE CONFIANZA DEL BLOQUE: ALTO</strong></p>
+<div class="subhead">2. RED DE VÍNCULOS Y ESTRUCTURA DE CAPITAL</div>
+<div class="subhead">2.1. Primer mecanismo de control</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La reforma constitucional de 2024 y el nuevo marco de planeación energética otorgan a Pemex prioridad en la asignación de áreas de exploración y producción; su actividad estratégica deja de ser tratada jurídicamente como monopolio en el sentido tradicional.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>En esquemas de desarrollo mixto, el nuevo marco exige que el Estado conserve control. En electricidad, la fuente destaca el umbral de al menos 54% de participación estatal.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento concluye que la combinación de prioridad regulatoria y control estatal convierte las asignaciones y licencias en una palanca de negociación: el capital privado puede participar, pero bajo condiciones donde la propiedad del recurso y la decisión final permanecen subordinadas al Estado y a Pemex.</div>
+<div class="subhead">2.2. Arquitectura jurisdiccional</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Pemex combina un circuito interno protegido por su condición estatal con un circuito externo compuesto por vehículos especiales y estructuras comerciales offshore. PMI Comercio Internacional y entidades relacionadas participan en comercio exterior, manejo de divisas y operaciones financieras.</div>
+
+<table>
+<thead><tr><th>Nodo offshore</th><th>Jurisdicción</th><th>Función en la arquitectura de control</th><th>Base indicada en la fuente</th></tr></thead>
+<tbody>
+<tr><td>Pemex Finance Ltd.</td><td>Islas Caimán</td><td>Emisión de deuda y estructuras de bursatilización ligadas a ingresos de exportación.</td><td>Fuente 6</td></tr>
+<tr><td>Pemex Project Funding Master Trust</td><td>Delaware, EE.UU.</td><td>Financiamiento de proyectos de capital y uso de derecho corporativo estadounidense para dar certidumbre a inversionistas.</td><td>Fuente 31</td></tr>
+<tr><td>PMI Trading / estructuras europeas</td><td>Irlanda, Países Bajos, Suiza</td><td>Comercio internacional, acumulación de margen y estructuración fiscal de operaciones de crudo y productos.</td><td>Fuente 15</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente interpreta esta red como arbitraje jurisdiccional. En México, Pemex se beneficia de protección soberana; en los mercados externos utiliza jurisdicciones de common law —como Delaware o Caimán— para ofrecer a acreedores internacionales un marco de protección más aceptable y aislar parte de la liquidez en divisas de riesgos políticos o cambiarios domésticos.</div>
+<div class="stamp-note insight"><span class="k">■ NO CONFIRMADO</span>No hay información pública suficiente para reconstruir con precisión los mecanismos de precios de transferencia y los flujos intragrupo entre las unidades productivas mexicanas, PMI Comercio Internacional y entidades registradas en Irlanda o Caimán. La fuente señala que serían necesarios estados auditados de SPV no consolidados.</div>
+<div class="subhead">2.3. Captura del regulador</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>En marzo de 2025 se eliminaron CNH y CRE y sus funciones pasaron a la nueva CNE, vinculada a SENER y al Poder Ejecutivo.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Las nuevas reglas redujeron para empresas privadas la duración de permisos de importación de hidrocarburos de 20 a 5 años y permisos de comercialización de 30 a 2 años. La fuente señala que estas restricciones no se aplican de la misma forma a Pemex.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El informe califica este cambio como captura regulatoria: el árbitro independiente desaparece y el órgano regulador queda integrado al mismo aparato político que controla al actor estatal dominante, creando una herramienta administrativa para restringir a competidores privados.</div>
+<div class="subhead">2.4. Reforzadores actuales</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>SEDENA, SEMAR y la Guardia Nacional participan de forma profunda en la protección de ductos, refinerías e instalaciones de Pemex frente al robo de combustibles y el <em>huachicol</em>.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La integración con fuerzas armadas amplía la protección física de activos y eleva los conflictos sobre infraestructura petrolera al terreno de la seguridad nacional. En términos estructurales, esto agrega un perímetro coercitivo al poder corporativo de Pemex.</div>
+<div class="subhead">2.5. Aliados reales</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>El sindicato STPRM sigue siendo un actor central del sistema laboral de Pemex y está encabezado por Ricardo Aldana, antiguo tesorero sindical.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La Comisión Federal de Electricidad (CFE) recibió, junto con Pemex, el nuevo estatus de empresa pública del Estado; el marco energético reserva al Estado un papel dominante en generación eléctrica.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento describe al STPRM no sólo como organización laboral, sino como aliado político integrado a la estructura de poder: estabilidad y movilización a cambio de acceso a plazas, contratos y recursos, lo que dificulta una reestructuración profunda de la plantilla.</div>
+<div class="subhead">2.6. Adversarios</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Operadores energéticos estadounidenses y transnacionales aparecen como uno de los principales grupos afectados por cancelaciones de contratos, reglas discriminatorias de importación y retrasos de pago.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La Oficina del Representante Comercial de Estados Unidos (USTR) clasificó en su informe de 2026 varias políticas energéticas mexicanas como barreras comerciales potencialmente incompatibles con compromisos del T-MEC/USMCA.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Agencias calificadoras internacionales han señalado la dependencia estructural de Pemex respecto del presupuesto federal y el riesgo que esa dependencia genera para las finanzas soberanas de México.</div>
+<div class="subhead">2.7. Instituciones de influencia</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La Presidencia de México y SENER concentran la narrativa estratégica, la defensa pública y los anuncios sobre impuestos, deuda, proyectos y cambios de dirección de Pemex. La administración de Claudia Sheinbaum continúa esta centralización.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente concluye que Pemex carece de autonomía política real: la Dirección General opera como ejecutora de decisiones definidas desde Palacio Nacional y SENER, más que como centro soberano de estrategia corporativa.</div>
+<div class="subhead">2.8. Estructura de capital y coerción financiera</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Pemex pertenece 100% al Estado mexicano. La fuente ubica la deuda financiera formal de 2025 alrededor de US$84.5–99.4 mil millones y destaca, además, obligaciones muy elevadas con proveedores.</div>
+
+<table>
+<thead><tr><th>Tipo de obligación</th><th>Magnitud indicada</th><th>Efecto estructural</th><th>Base</th></tr></thead>
+<tbody>
+<tr><td>Deuda financiera oficial</td><td>≈ US$84.5–99.4 mil millones</td><td>Consume liquidez soberana y requiere alivios fiscales y aportaciones de capital.</td><td>Fuente 9</td></tr>
+<tr><td>Deuda con proveedores</td><td>≈ MX$517 mil millones (≈ US$27.2 mil millones)</td><td>Traslada necesidades de capital de trabajo de Pemex al sector privado de servicios.</td><td>Fuente 50</td></tr>
+<tr><td>Facturas / estimaciones no registradas</td><td>≈ MX$50 mil millones</td><td>Obligaciones que no entran oportunamente al circuito formal de pago y factoraje.</td><td>Fuente 51</td></tr>
+<tr><td>Adeudos con empresas estadounidenses</td><td>&gt; US$2.5 mil millones</td><td>Señalados por USTR como barrera comercial y fuente de conflicto bilateral.</td><td>Fuente 35</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente describe una estructura de capital “distorsionada”: el endeudamiento extremo no produce una quiebra ordinaria por la garantía soberana implícita. Los retrasos a proveedores y la falta de registro oportuno de cuentas funcionan, según el análisis, como financiamiento forzoso y sin intereses tomado del sector privado.</div>
+<p><strong>NIVEL DE CONFIANZA DEL BLOQUE: ALTO</strong></p>
+<div class="subhead">3. ACCIONES CLAVE: OPERACIONES INSTITUCIONALES Y DECISIONES</div>
+<div class="subhead">3.1. Finley Resources: choque con el sistema de protección de inversiones</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Pemex rescindió unilateralmente el contrato 821 con Finley Resources y otros inversionistas y ejecutó una garantía bancaria de US$41.8 millones. En 2024, el tribunal del ICSID determinó que México violó obligaciones de protección de inversión.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La lectura estructural del informe es que Pemex considera el arbitraje internacional un costo asumible frente al beneficio de ejercer coerción administrativa doméstica, porque una parte relevante de las consecuencias termina socializada en el balance soberano mexicano.</div>
+<div class="subhead">3.2. Reforma constitucional 2024–2025</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La reforma devolvió a Pemex el carácter de empresa pública del Estado y desmanteló elementos centrales del marco competitivo creado en 2013.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>El nuevo régimen otorga prioridad a Pemex y permite a SENER modificar o retirar contratos privados invocando motivos de seguridad o interés nacional.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento interpreta la reforma como una constitucionalización de la renta de Pemex: privatización, separación competitiva o pérdida de prioridad regulatoria se vuelven políticamente y jurídicamente mucho más difíciles.</div>
+<div class="subhead">3.3. Dos Bocas / Olmeca: brecha entre promesa y operación</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La refinería Olmeca, en Dos Bocas, Tabasco, costó más de US$20 mil millones y fue diseñada para procesar 340 mil barriles diarios, con la promesa política de reducir drásticamente la dependencia mexicana de combustibles importados.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Durante el primer trimestre de 2026, la fuente reporta una utilización media cercana a 175,800 barriles diarios —aproximadamente 52% de la capacidad nominal— y una caída de producción de 15.7% entre enero y marzo por fallas técnicas, cortes eléctricos e incendios.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>En abril de 2025, la refinería exportó a India un primer cargamento de ULSD de alrededor de 300 mil barriles porque la red doméstica no contaba con capacidad logística suficiente para distribuir todo el producto al interior del país.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La conclusión del informe es que el calendario político se impuso a la secuencia de ingeniería y logística. Una instalación concebida para la autosuficiencia terminó enviando producto al exterior por falta de ductos y capacidad de transporte suficientes en México.</div>
+<div class="subhead">3.4. ESG como escudo de cumplimiento</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>En marzo de 2024, Pemex publicó su primer Plan de Sostenibilidad 2023–2030, con metas de reducir 30% las emisiones de metano para 2030 respecto de 2020 y alcanzar emisiones netas cero hacia 2050; también creó un Comité de Sostenibilidad.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La fuente atribuye parte del cambio a la presión de Climate Action 100+ y a exigencias de divulgación climática en mercados internacionales. También cita una estimación de Mexico Evalúa según la cual Pemex destina sólo una fracción limitada de sus ingresos a esas metas.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El informe interpreta el plan ESG principalmente como una arquitectura de acceso a capital: un escudo de cumplimiento que permite conservar elegibilidad ante fondos e inversionistas regulados por métricas climáticas, sin que ello implique necesariamente una transformación tecnológica proporcional del portafolio de hidrocarburos.</div>
+<p><strong>NIVEL DE CONFIANZA DEL BLOQUE: ALTO</strong></p>
+<div class="subhead">4. VULNERABILIDADES REPUTACIONALES, LEGALES Y SISTÉMICAS</div>
+<div class="subhead">4.1. Crisis en la alta dirección</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La fuente identifica como crisis reputacional central la salida y posterior detención del entonces director general Víctor Rodríguez Padilla en mayo-junio de 2026, tras la difusión de un video relacionado con un caso de violencia doméstica.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Tras el escándalo, Rodríguez perdió otros nombramientos previstos y fue sustituido de emergencia en Pemex por Juan Carlos Carpio Fragoso, exdirector financiero.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El análisis usa el episodio para señalar una vulnerabilidad del modelo personalista: cuando la legitimidad de la empresa se liga a la narrativa política del gobierno, una crisis del CEO se convierte inmediatamente en problema presidencial y obliga a una intervención política directa.</div>
+<div class="subhead">4.2. La morosidad como instrumento sistémico</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Pemex acumuló obligaciones con empresas de servicios por aproximadamente MX$517 mil millones, equivalentes a más de US$27 mil millones según las cifras citadas por la fuente; USTR señaló retrasos superiores a US$2.5 mil millones con compañías estadounidenses.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>El documento también recoge estimaciones por más de MX$50 mil millones en cuentas o estimaciones no registradas oportunamente, que quedan fuera de mecanismos normales de factoraje y cobro.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente sostiene que la no registración sistemática no sería sólo una falla administrativa, sino una estrategia para diferir obligaciones, reducir presión de liquidez y trasladar capital de trabajo hacia los proveedores. Esta es una interpretación analítica del documento, no una conclusión judicial incorporada por separado.</div>
+<div class="subhead">4.3. Lo que la vulnerabilidad revela del sistema</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El informe describe la paradoja de “too big to fail”: la debilidad financiera extrema de Pemex puede aumentar su poder frente a proveedores y acreedores, porque una quiebra desordenada tendría consecuencias soberanas y sistémicas que ningún actor relevante desea provocar.</div>
+<p><strong>NIVEL DE CONFIANZA DEL BLOQUE: ALTO</strong></p>
+<div class="subhead">5. ACCIONES RECIENTES: 2024–2026</div>
+<div class="subhead">5.1. Expansión de influencia y defensa de posición</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La legislación secundaria de 2025 endureció reglas de trazabilidad para hidrocarburos con el objetivo formal de identificar origen, comercio irregular y contrabando.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Al mismo tiempo, el horizonte de permisos para importación y comercialización privada se redujo de forma drástica, mientras Pemex mantuvo una posición regulatoria privilegiada.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El informe interpreta esta combinación como una ofensiva contra la logística privada: plazos regulatorios cortos elevan el costo de financiar terminales, almacenamiento y redes de largo plazo, reforzando la posición de Pemex en midstream y distribución.</div>
+<div class="subhead">5.2. Consolidación política y menor margen operativo</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>En mayo de 2026, Juan Carlos Carpio Fragoso fue nombrado director general con un mandato centrado en deuda y reestructuración financiera, dentro de una cadena de mando fuertemente vinculada a SENER y la Presidencia.</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>La nueva CNE recibió atribuciones para determinar tarifas y condiciones en transporte y almacenamiento de energía.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La concentración política fortalece el control estatal, pero reduce la flexibilidad gerencial: recortes, cierres de activos no rentables o ajustes de personal adquieren un costo político que puede impedir respuestas rápidas a la volatilidad del petróleo.</div>
+<div class="subhead">5.3. Señales de cambio estratégico</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>El nuevo marco abandona de forma explícita la doctrina de libre competencia de 2013–2014. En los esquemas mixtos, Pemex debe conservar una posición de control y puede definir condiciones de asociación.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente concluye que el modelo pasa de concesiones competitivas a contratos de servicio subordinados: el privado asume riesgo geológico y financiero, pero obtiene menos derechos patrimoniales sobre los hidrocarburos descubiertos.</div>
+<div class="subhead">5.4. Preparación ante un posible choque de liquidez</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>El <em>Derecho Petrolero para el Bienestar</em> consolidó y redujo la carga fiscal petrolera a una tasa central de 30% en 2025.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento lo interpreta como un escudo macrofinanciero frente al calendario de vencimientos de deuda de 2025–2027: el Estado cede una parte de ingresos fiscales para preservar liquidez dentro de Pemex y reducir el riesgo de refinanciamiento.</div>
+<div class="subhead">5.5. Presión sobre una nueva zona de influencia</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>El informe de USTR de 2026 critica nuevas reglas mexicanas que restringen determinadas modalidades de transbordo o <em>transloading</em> de combustibles y que elevan costos operativos de compañías estadounidenses.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La lectura estructural es que Pemex usa el aparato regulatorio para recuperar cuota en almacenamiento, terminales ferroviarias y distribución sin competir únicamente por precio o eficiencia, sino restringiendo físicamente las cadenas de sus rivales.</div>
+<p><strong>NIVEL DE CONFIANZA DEL BLOQUE: ALTO</strong></p>
+<div class="subhead">6. MAPA DE INFLUENCIA Y ARQUITECTURA DE GOBIERNO</div>
+<p>La fuente resume el sistema como una red de anillos: centro político, arma regulatoria, pasarela offshore, perímetro militar, activos físicos, control laboral, proveedores como amortiguador financiero y presión externa.</p>
+
+<table>
+<thead><tr><th>Elemento</th><th>Actores / instituciones</th><th>Mecanismo de control o extracción de renta</th></tr></thead>
+<tbody>
+<tr><td>Centro político</td><td>Presidencia de México, SENER</td><td>Nombramientos, capex, alivios fiscales, prioridades estratégicas y uso político de la renta energética.</td></tr>
+<tr><td>Arma regulatoria</td><td>CNE, ASEA</td><td>Permisos, tarifas, trazabilidad, acceso a infraestructura y reglas diferenciadas para privados.</td></tr>
+<tr><td>Pasarela financiera offshore</td><td>PMI Comercio Internacional, Pemex Finance Ltd., trusts de Delaware</td><td>Acceso a liquidez en dólares, emisión de bonos y estructuración jurídica bajo derecho extranjero.</td></tr>
+<tr><td>Perímetro coercitivo</td><td>SEDENA, SEMAR, Guardia Nacional</td><td>Protección física de refinerías, ductos y activos estratégicos; combate al huachicol.</td></tr>
+<tr><td>Base de activos</td><td>Dos Bocas/Olmeca, Deer Park, plataformas offshore</td><td>Materialización de la política de soberanía energética, aun con costos fiscales y operativos.</td></tr>
+<tr><td>Control laboral</td><td>STPRM</td><td>Estabilidad sindical, movilización y protección de la estructura interna de empleo.</td></tr>
+<tr><td>Zona amortiguadora</td><td>Contratistas y empresas de servicios, AMESPAC</td><td>Absorción de faltantes de liquidez mediante retrasos y cuentas pendientes.</td></tr>
+<tr><td>Presión externa</td><td>USTR, ICSID, agencias calificadoras</td><td>T-MEC/USMCA, litigios, costo de financiamiento y amenaza de represalias comerciales.</td></tr>
+</tbody>
+</table>
+
+<p><strong>NIVEL DE CONFIANZA DEL BLOQUE: ALTO</strong></p>
+<div class="subhead">7. EVALUACIÓN FINAL</div>
+<div class="subhead">7.1. Nivel actual de poder</div>
+<p><strong>8/10 dentro de México; 4/10 en el mercado global.</strong> La fuente considera que Pemex tiene dominio administrativo nacional reforzado por la reforma 2024–2025 y su integración con el aparato de seguridad. En el exterior, sin embargo, enfrenta deuda, dependencia de servicios tecnológicos occidentales, exigencias ambientales y restricciones derivadas del T-MEC.</p>
+<div class="subhead">7.2. Principal activo</div>
+<p>La combinación del estatus de empresa pública del Estado con un regulador subordinado al Ejecutivo. Esto le da prioridad administrativa, respaldo fiscal y una protección implícita frente a una quiebra ordinaria.</p>
+<div class="subhead">7.3. Principal riesgo</div>
+<p>El documento identifica la revisión del T-MEC/USMCA en 2026 como el principal riesgo externo. USTR reunió quejas por discriminación de capital estadounidense, restricciones logísticas y adeudos superiores a US$2.5 mil millones. Una respuesta comercial amplia de Estados Unidos podría transformar un conflicto sectorial en un choque macroeconómico para México.</p>
+<div class="subhead">7.4. Escenario a tres años: aislamiento regulatorio y agotamiento fiscal</div>
+<p>Escenario base de la fuente: Pemex seguirá usando regulación para desplazar capital privado de importación, logística y distribución; la producción permanecerá cerca de 1.6–1.7 millones de barriles diarios; el gobierno tendrá que absorber más servicio de deuda mediante alivios fiscales o transferencias. Bajo presión del T-MEC, podrían existir concesiones puntuales a ciertas compañías estadounidenses, pero la estructura monopólica y la prohibición política de privatización se mantendrían.</p>
+<p><strong>NIVEL DE CONFIANZA DEL BLOQUE: MEDIO para la proyección de mediano plazo</strong></p>
+<div class="subhead">BLOQUE FINAL — VERIFICACIÓN ESTRUCTURAL DEL ANÁLISIS</div>
+<div class="stamp-note fact"><span class="k">■ VERIFICADO</span>Categoría de verificación del documento: <strong>lo confirmado de forma sólida</strong>. El bloque final del reporte reúne como hechos centrales el cambio jurídico de Pemex, la desaparición de CNH/CRE, el caso Finley, la deuda con proveedores, la red PMI offshore, el nuevo régimen fiscal, la crisis de dirección, los problemas de Dos Bocas y la crítica de USTR.</div>
+<p>Entre los puntos que el reporte considera más firmes están: el nuevo estatus de empresa pública del Estado; la centralización regulatoria en CNE/SENER; obligaciones con proveedores por cientos de miles de millones de pesos; la existencia de vehículos financieros en Caimán, Delaware e Irlanda; y la brecha entre la capacidad nominal y la operación temprana de Dos Bocas.</p>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>Categoría analítica del documento: <strong>conclusiones estructurales</strong>. El reporte resume tres: la red PMI como mecanismo de arbitraje jurisdiccional; las cuentas no registradas como forma de financiamiento forzoso sobre proveedores; y el ESG como arquitectura para conservar acceso a capital regulado.</div>
+<div class="stamp-note insight"><span class="k">■ NO CONFIRMADO</span>Categoría del documento: <strong>lo que sigue sin confirmarse</strong>. La fuente advierte que algunas relaciones y flujos no pueden probarse con OSINT disponible y requieren documentación adicional.</div>
+<div class="stamp-note insight"><span class="k">■ NO CONFIRMADO</span>No están confirmados los canales exactos de movimiento de liquidez en dólares entre PMI Comercio Internacional, Pemex Finance Ltd. y la matriz, ni el margen que eventualmente queda retenido en vehículos offshore.</div>
+<div class="stamp-note insight"><span class="k">■ NO CONFIRMADO</span>Tampoco están confirmados los mecanismos de interacción en campo entre fuerzas militares que protegen ductos y grupos locales vinculados al huachicol; faltan auditorías públicas detalladas sobre eficacia, recuperación de combustible y trazabilidad de lo decomisado.</div>
+<div class="subhead">FUENTES QUE EL DOCUMENTO PROPONE VERIFICAR ADICIONALMENTE</div>
+<p>Registros corporativos de Islas Caimán sobre Pemex Finance Ltd., garantías de deuda y directores nominales.</p>
+<p>Demandas de acreedores en Nueva York o Delaware relacionadas con covenants y retrasos de pago, incluyendo PACER y divulgaciones bajo US GAAP.</p>
+<p>Form 20-F de 2025/2026 para verificar pasivos contingentes y deuda oculta con contratistas.</p>
+<p>Documentos públicos y reservados de la revisión del T-MEC/USMCA de 2026 para evaluar el riesgo real de represalias sectoriales.</p>
+<div class="subhead">BIBLIOGRAFÍA DEL DOCUMENTO FUENTE</div>
+<p>1. Mexico Energy Reform | Services - Mayer Brown, https://www.mayerbrown.com/en/services/mexico-energy-reform</p>
+<p>2. Initiative for Reforms to Various Laws in the Energy Sector - Chambers, https://chambers.com/articles/initiative-for-reforms-to-various-laws-in-the-energy-sector</p>
+<p>3. Mexican Constitutional Amendment Reforms Electric Energy and, https://www.gtlaw.com/en/insights/2024/11/decreto-por-el-que-se-reforman--articulos-de-la-constitucion</p>
+<p>4. Claudia Sheinbaum de-privatizes two major oil and energy companies, https://peoplesdispatch.org/2024/11/01/claudia-sheinbaum-de-privatizes-two-major-oil-and-energy-companies/</p>
+<p>5. EDICION VESPERTINA CONTENIDO - Diario Oficial de la Federación, https://dof.gob.mx/nota_to_pdf.php?fecha=05/06/2025&amp;edicion=VES</p>
+<p>6. Form 20-F - SEC.gov, https://www.sec.gov/Archives/edgar/data/1096057/000119312506140786/d20f.htm</p>
+<p>7. Structure and corporate governance, https://www.pmi.com.mx/Public/Paginas/EstructuraGobCorpHHS_En.aspx?IdSec=60&amp;IdPag=807</p>
+<p>8. Juan Carlos Carpio Appointed New PEMEX Director General, https://mexicobusiness.news/oilandgas/news/juan-carlos-carpio-appointed-new-pemex-director-general</p>
+<p>9. Sheinbaum Names Rodriguez as Pemex CEO in Bid to Tame Debt, https://www.livemint.com/companies/news/sheinbaum-names-rodriguez-as-pemex-ceo-in-bid-to-tame-debt-11724694124282.html</p>
+<p>10. Mexico Energy Sector Reform - International Trade Administration, https://www.trade.gov/market-intelligence/mexico-energy-sector-reform</p>
+<p>11. Aprobación de Nuevo Marco Legislativo para el Sector, https://www.perezllorca.com/wp-content/uploads/2025/03/Nota-Juridica-Aprobacion-de-Nuevo-Marco-Legislativo-para-el-Sector-Hidrocarburos-en-Mexico.pdf</p>
+<p>12. Form 20-F - SEC.gov, https://www.sec.gov/Archives/edgar/data/932782/000119312518143901/d556653d20f.htm</p>
+<p>13. petróleos mexicanos, https://ciusb.com.uy/wp-content/uploads/2022/07/208_PETROLEOS-MEXICANOS-PEMEX-5.95pcnt-USP78625EA73.pdf</p>
+<p>14. PETRÓLEOS MEXICANOS - ICSID, https://icsid.worldbank.org/sites/default/files/parties_publications/C9734/D%20-%20Statement%20of%20Claim%20-%2006.10.%202022/Exhibits/C-0031-ENG%20%28Pemex%20Form%2020-F%2012-31-2016%29.pdf</p>
+<p>15. https://www.sec.gov/Archives/edgar/data/932782/000119312521285660/R10.htm</p>
+<p>16. Structure and corporate governance - PMI Comercio Internacional, https://www.pmi.com.mx/Public/Paginas/EstructuraGobCorpDJ_En.aspx?IdSec=60&amp;IdPag=805</p>
+<p>17. Finley and others v. Mexico | Investment Dispute Settlement Navigator, https://investmentpolicy.unctad.org/investment-dispute-settlement/cases/1126/finley-and-others-v-mexico</p>
+<p>18. Finley Resources and others v. Mexico, Decision on ... - Jus Mundi, https://jusmundi.com/en/document/decision/en-finley-resources-inc-mws-management-inc-and-prize-permanent-holdings-llc-v-united-mexican-states-decision-on-jurisdiction-and-liability-monday-4th-november-2024</p>
+<p>19. Finley Resources Inc., MWS Management Inc., and Prize Permanent, https://www.transnational-dispute-management.com/legal-and-regulatory-detail.asp?key=35906</p>
+<p>20. under the convention on the settlement of investment disputes - ICSID, https://icsid.worldbank.org/sites/default/files/parties_publications/C9734/J%20-%20Reply%20in%20support%20of%20Claim%20for%20Damages%20-%2011.07.2025/Expert%20Authorities/Claimants%27%20Reply%20in%20Support%20of%20Their%20Claim%20for%20Damages%20-%20ENG.pdf</p>
+<p>21. Presidenta Claudia Sheinbaum anuncia nuevo régimen fiscal de, https://www.gob.mx/presidencia/prensa/presidenta-claudia-sheinbaum-anuncia-nuevo-regime-fiscal-de-pemex-llamado-derecho-petrolero-para-el-bienestar</p>
+<p>22. Sheinbaum presenta nuevo plan tributario para la petrolera, https://www.elfinanciero.com.mx/empresas/2024/11/13/pemex-saldra-adelante-gobierno-de-sheinbaum-anuncia-ahorros-por-50-mil-mdp-con-plan-de-austeridad/</p>
+<p>23. Pemex aporta solo un 0.05% más a las finanzas públicas ... - EL CEO, https://elceo.com/economia/pemex-aporta-finanzas-publicas-derecho-petrolero-para-el-bienestar/</p>
+<p>24. Mexico&#x27;s Pemex reports $84.5 billion debt for 2025 By Reuters, https://www.investing.com/news/stock-market-news/mexicos-pemex-reports-845-billion-debt-for-2025-4485258</p>
+<p>25. Pemex Is Turning Into One of the Mexican Government&#x27;s Heaviest, https://www.ebsco.com/articles/politics-and-government/1277e92b-988e-5654-930c-91c6c5483c2f/pemex-is-turning-into-one-of-the-mexican-government-s-heaviest-financial-burdens</p>
+<p>26. Pemex Files 2019 Annual Report, Form 20-F, https://energy-analytics-institute.org/2020/05/11/pemex-files-2019-annual-report-form-20-f/</p>
+<p>27. Document 1 - file: pemex_6kxq124.htm - SEC.gov, https://www.sec.gov/Archives/edgar/data/932782/000093278224000014/pemex_6kxq124.htm</p>
+<p>28. petroleos mexicanos - SEC.gov, https://www.sec.gov/Archives/edgar/data/932782/000104746902003334/a2093513z20-fa.htm</p>
+<p>29. PETRÓLEOS MEXICANOS - Luxembourg Stock Exchange, https://dl.bourse.lu/dl?v=C/GrHg3+uv4Fq9UJ9Q668Em0oCuIk4khNiZl0DXmclG8s9ZQq/GCCf0jvCaQ9VWCL/nHWqLCsOUxt7IOtVQtB1t/+e/yaaUBHglFUwwyr7f5og+UGrze3plJrpKB4jZdbXJ012AwIRQI6P8D8v2oGRbMwn7rydyNln31EbGRfVJIJgoo31waDSNP8+nLU9K68QANetB1LswrHI7AmbKEFA==</p>
+<p>30. Pemex Project Funding Master Trust - InfoSen, https://infosen.senado.gob.mx/sgsp/gaceta/61/3/2012-08-15-1/assets/documentos/ANEXO_3_PEMEX.pdf</p>
+<p>31. Form 20-F - SEC.gov, https://www.sec.gov/Archives/edgar/data/932782/000119312510150051/d20f.htm</p>
+<p>32. Form 20-F - SEC.gov, https://www.sec.gov/Archives/edgar/data/932782/000119312506140789/d20f.htm</p>
+<p>33. Prospectus - SEC.gov, https://www.sec.gov/Archives/edgar/data/932785/000119312506006205/d424b3.htm</p>
+<p>34. PEMEX ensures opacity of its operations in tax havens - Contralínea, https://contralinea.com.mx/english/pemex-ensures-opacity-operations-tax-havens/</p>
+<p>35. US report: Mexican energy policy trade barriers violate USMCA, https://mexiconewsdaily.com/news/ustr-mexican-energy-policy-trade-barriers-usmca/</p>
+<p>36. Why are Mexican politicians being assassinated? The role of oil theft, https://www.researchgate.net/publication/368330314_Why_are_Mexican_politicians_being_assassinated_The_role_of_oil_theft_and_narcocracy_and_the_electoral_consequences_of_organized_crime</p>
+<p>37. Neoliberal Resource Nationalism: The Scramble for Mexico&#x27;s Oil, https://asset.library.wisc.edu/1711.dl/XTVLEXSUWJPRJ8R/R/file-d5b8e.pdf</p>
+<p>38. Extractive Bargains: Natural Resources and the State-Society Nexus, https://dokumen.pub/extractive-bargains-natural-resources-and-the-state-society-nexus-frontiers-of-globalization-1st-ed-2023-9783031321719-9783031321726-3031321715.html</p>
+<p>39. Mexico&#x27;s PRI (Chapter 8) - Life after Dictatorship, https://www.cambridge.org/core/books/life-after-dictatorship/mexicos-pri/9CEDCDB3A6847B72D413A5BF490A4FA4</p>
+<p>40. Constitutional reform to strengthen Pemex and CFE, Sheinbaum says, https://energy-analytics-institute.org/2024/10/28/constitutional-reform-to-strengthen-pemex-and-cfe-sheinbaum-says/</p>
+<p>41. Energy Barriers in Mexico Raise Concerns Ahead of USMCA Review, https://www.opis.com/resources/energy-market-news-from-opis/energy-barriers-in-mexico-raise-concerns-ahead-of-usmca-review-us-trade-representative/</p>
+<p>42. USTR Releases 2026 National Trade Estimate Report, https://ustr.gov/about/policy-offices/press-office/press-releases/2026/march/ustr-releases-2026-national-trade-estimate-report</p>
+<p>43. 2026 National Trade Estimate Report on Foreign Trade Barriers, https://connectingmexico.com/en/portfolio/resources-en/2026-national-trade-estimate-report-on-foreign-trade-barriers-2/</p>
+<p>44. Mexico&#x27;s Energy Policy, USMCA Renegotiation Barrier, https://mexicobusiness.news/energy/news/mexicos-energy-policy-usmca-renegotiation-barrier</p>
+<p>45. Risk rating of PEMEX 6.5% BONDS DUE 2027 | HR Ratings, https://www.hrratings.com/rating_detail.xhtml?rel=9397</p>
+<p>46. Derecho Petrolero para el Bienestar, nuevo régimen fiscal de, https://www.youtube.com/watch?v=DwKHos4X6u0</p>
+<p>47. Mexico&#x27;s Sheinbaum vows no protection for ex-Pemex chief after, https://www.straitstimes.com/world/mexicos-sheinbaum-vows-no-protection-for-ex-pemex-chief-after-wife-posts-alleged-abuse-video</p>
+<p>48. Pemex&#x27;s Financial Debt Stood at 77.5 Billion Pesos, 9.1% Less Than, https://mexicosolidarity.com/pemex-financial-debt-second-quarter/</p>
+<p>49. As Pemex Faces $10 Billion in Bond Payments, the Government, https://www.bloomberglinea.com/english/as-pemex-faces-10-billion-in-bond-payments-the-government-draws-a-line/</p>
+<p>50. PEMEX to Clear MX$220 Billion in Supplier Debt Through Banobras, https://mexicobusiness.news/oilandgas/news/pemex-clear-mx220-billion-supplier-debt-through-banobras</p>
+<p>51. AMESPAC: MX$27.2 Billion in 2024 PEMEX Supplier Debt Unpaid, https://mexicobusiness.news/oilandgas/news/amespac-mx272-billion-2024-pemex-supplier-debt-unpaid</p>
+<p>52. Mexico&#x27;s Risky New Energy Reform - Americas Quarterly, https://www.americasquarterly.org/article/mexicos-risky-new-energy-reform/</p>
+<p>53. The Dos Bocas Refinery Project, Paraíso,Tabasco, Mexico, https://www.nsenergybusiness.com/projects/dos-bocas-refinery-project/</p>
+<p>54. Olmeca Refinery Dos Bocas: enclosures - Delvalle Box, https://www.delvallebox.com/en/cases-of-success/dos-bocas-refinery/</p>
+<p>55. Daily production at Dos Bocas surged 87% in September, https://mexiconewsdaily.com/news/daily-production-dos-bocas-september/</p>
+<p>56. Pemex&#x27;s Dos Bocas to Reach Full Production By End of March: CEO, https://www.energyconnects.com/news/oil/2024/january/pemex-s-dos-bocas-to-reach-full-production-by-end-of-march-ceo/</p>
+<p>57. GTC Capital: The Predicament and Lessons of the Dos Bocas Refinery, https://www.itiger.com/news/1154723186</p>
+<p>58. Massive Dos Bocas fire adds refining risk. Mexico&#x27;s flagship refinery, https://investinglive.com/commodities/massive-dos-bocas-fire-adds-refining-risk-mexicos-flagship-refinery-stays-below-capacity-20260409/</p>
+<p>59. PEMEX Refining Output in Mexico: Q1 2026 Recovery Analysed, https://discoveryalert.com.au/pemex-refining-output-mexico-olmeca-tula-2026/</p>
+<p>60. Mexico&#x27;s Olmeca refinery exports first ULSD cargo, https://www.offshore-technology.com/news/mexicos-olmeca-refinery-exports-first-ulsd-cargo/</p>
+<p>61. PEMEX Lowers Emissions but Faces Investor Environmental Pressure, https://mexicobusiness.news/sustainability/news/pemex-lowers-emissions-faces-investor-environmental-pressure</p>
+<p>62. Pemex Sustainability Plan 2024 | PDF | Hazards - Scribd, https://www.scribd.com/document/827317501/Pemex-Sustainability-Plan</p>
+<p>63. Climate Action 100+ investors welcome Pemex&#x27;s climate, https://www.climateaction100.org/news/climate-action-100-investors-welcome-pemexs-climate-commitments-presented-in-the-companys-first-sustainability-plan/</p>
+<p>64. Pemex&#x27;s Climate Commitment Marks a New Chapter in Sustainability, https://www.greenawards.ie/news/pemexs-climate-commitment-marks-a-new-chapter-in-sustainability</p>
+<p>65. Mexico&#x27;s Pemex Sets Net-Zero Goal, Pledges 30% Methane Cut in, https://esgnews.com/mexicos-pemex-sets-net-zero-goal-pledges-30-methane-cut-in-first-ever-sustainability-plan/</p>
+<p>66. Pemex Unveils Sustainability Plan - EPIC Investment Partners, https://www.epicip.com/insights/daily-updates/pemex-unveils-sustainability-plan</p>
+<p>67. Former PEMEX Director Víctor Rodríguez Arrested, https://mexicobusiness.news/oilandgas/news/former-pemex-director-victor-rodriguez-arrested</p>
+<p>68. Victor Rodriguez Padilla | Mexico Business News, https://mexicobusiness.news/tag/victor-rodriguez-padilla</p>
+<p>69. Se expide el Reglamento de la Ley del Sector Hidrocarburos, https://www.mijares.mx/noticias/se-expide-el-reglamento-de-la-ley-del-sector-hidrocarburos</p>
+<p>70. USMCA Review 2026 - CSIS, https://www.csis.org/analysis/usmca-review-2026</p>
+<p>71. Can Victor Padilla&#x27;s appointment at Pemex help reduce Mexico&#x27;s debt?, https://www.offshore-technology.com/news/can-victor-padilla-appointment-at-pemex-help-reduce-mexico-debt/</p>
+  </div>
+  <div class="keybox">
+    <div class="kb-title">CLAVE DE MARCADORES — ESTÁNDAR DEL DOCUMENTO FUENTE</div>
+    <div class="keybox-grid">
+      <div><b>VERIFICADO</b> — corresponde a [V] en el reporte original</div>
+      <div><b>CONCLUSIÓN ANALÍTICA</b> — corresponde a [H] en el reporte original</div>
+      <div><b>NO CONFIRMADO</b> — corresponde a [U] en el reporte original</div>
+      <div><b>VERSIÓN PR</b> — el reporte original no utiliza un marcador PR separado</div>
+    </div>
+  </div>
+  <hr class="rule">
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+</div>
+</body>
+</html>
