@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México — Infraestructura clandestina y renta institucional | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← INICIO</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Inteligencia estructural independiente · desde 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">«La estructura por encima de la narrativa.»</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>MESA MÉXICO</span>
+    <span>20 DE AGOSTO DE 2026</span>
+  </div>
+
+  <span class="section-tag">ESTRUCTURA / ECONOMÍA SOMBRA / CRIMEN ORGANIZADO</span>
+
+  <h1 class="headline">La infraestructura clandestina de México: dinero, territorio y poder paralelo</h1>
+  <p class="deck">Fentanilo, huachicol, violencia política, drones, lavado basado en comercio y redes financieras: el documento reconstruye cómo las economías ilícitas pueden integrarse con corrupción, instituciones capturadas y circuitos legales. Sus afirmaciones verificadas, versiones oficiales e inferencias se mantienen separadas.</p>
+  <div class="byline">Mesa México — categoría: SHADOW INFRASTRUCTURE / INSTITUTIONAL RENT / ORGANIZED CRIME</div>
+
+  <div class="columns">
+<p class="lead">El documento analiza la economía criminal mexicana como una infraestructura paralela que conecta mercados ilícitos, corrupción institucional, logística, violencia, tecnología y circuitos financieros transnacionales. Su tesis central —que debe leerse como el marco interpretativo de la fuente— es que los grandes cárteles no funcionan únicamente como actores externos al Estado, sino que interactúan con partes del aparato público mediante arreglos informales, captura, protección, filtración de información y distribución de rentas.</p>
+<p>La arquitectura descrita se apoya en cinco capas: generación de liquidez ilícita, control territorial y logístico, externalización de violencia, lavado de dinero y acceso a instituciones legales. El reporte combina hechos documentados, versiones oficiales, inferencias analíticas y una afirmación expresamente no confirmada; esos niveles se mantienen separados en esta edición.</p>
+<div class="subhead">1. ECONOMÍA SOMBRA Y CAJAS NEGRAS</div>
+<div class="subhead">1.1. Activos básicos</div>
+<p>La economía ilícita mexicana se formó históricamente alrededor del tránsito de cocaína sudamericana, pero el documento sostiene que su centro de gravedad se desplazó hacia opioides sintéticos, robo de combustible, extorsión, migración clandestina, fraude y ciberdelito.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La producción de fentanilo depende de cadenas de precursores químicos procedentes de Asia, lo que desplaza parte del control estratégico hacia terminales aduaneras y puertos como Manzanillo, Veracruz y Lázaro Cárdenas.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente marca como hecho que la rentabilidad del fentanilo genera volúmenes muy elevados de liquidez que exigen mecanismos de lavado de dinero cada vez más complejos.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El reporte interpreta decomisos de gran escala —como cargamentos de decenas de toneladas de químicos en Manzanillo— como indicio de que operaciones de esa magnitud requerirían corredores institucionales o complicidad dentro de aduanas y seguridad portuaria. Esta es una conclusión analítica de la fuente, no una atribución judicial general a las instituciones mencionadas.</div>
+<p>El segundo activo sistémico es el huachicol: extracción, transporte y venta clandestina de hidrocarburos mediante tomas en ductos, flotillas de pipas y redes de estaciones de servicio.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente estima pérdidas acumuladas de Pemex por robo de combustible cercanas a US$3.8 mil millones entre 2019 y 2024.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento sostiene que una operación de huachicol a escala industrial requiere información técnica, acceso a infraestructura y protección local; por ello interpreta que algunos esquemas no podrían mantenerse sólo con actores criminales de base y plantea la posibilidad de cobertura desde redes empresariales o autoridades regionales.</div>
+<p>La diversificación también incluye extorsión a sectores legales, tráfico de migrantes, fraude financiero y operaciones digitales.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>OFAC documentó y sancionó estructuras vinculadas al CJNG que operaban esquemas de fraude con tiempos compartidos y bienes raíces en Puerto Vallarta y Cancún, utilizando call centers y empresas financieras para defraudar a ciudadanos de Estados Unidos y Canadá.</div>
+<div class="subhead">1.2. Mecánica de la renta — el sistema de plazas</div>
+<p>El reporte ubica los antecedentes de la llamada plaza system en las décadas de 1970 y 1980, cuando la Dirección Federal de Seguridad (DFS) tenía un papel central en el aparato de seguridad mexicano.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente marca como hecho que la DFS desempeñó un papel directo en la formación y consolidación del Cártel de Guadalajara.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>También señala que agentes de la DFS protegieron rutas, otorgaron credenciales y ayudaron a organizar a contrabandistas regionales dentro de estructuras más centralizadas, reduciendo presión de competidores y de agencias estadounidenses.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El modelo de plaza descrito asignaba a una organización criminal control informal sobre un territorio a cambio de reglas como limitar violencia no autorizada, no atacar a determinados funcionarios y pagar mordidas o participaciones a redes de protección.</div>
+<div class="subhead">1.2.1. El precedente García Luna</div>
+<div class="stamp-note pr"><span class="k">■ VERSIÓN OFICIAL</span>La narrativa oficial durante la llamada guerra contra las drogas presentó a Genaro García Luna —secretario de Seguridad Pública entre 2006 y 2012— como uno de los principales responsables de combatir a los cárteles con apoyo de Estados Unidos.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El proceso federal en el Distrito Este de Nueva York terminó con una condena y una sentencia de más de 38 años de prisión en octubre de 2024; la acusación y el veredicto establecieron su relación corrupta con el Cártel de Sinaloa.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Testimonios y pruebas del proceso describieron pagos por decenas de millones de dólares y el uso de estructuras de seguridad pública para beneficiar al Cártel de Sinaloa.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El expediente citado por la fuente describe a agentes federales protegiendo cargamentos, facilitando operaciones y actuando contra organizaciones rivales, entre ellas la estructura Beltrán Leyva.</div>
+<p>Para el documento, el punto relevante no es una mordida aislada sino la capacidad de una red criminal para comprar funciones enteras del aparato coercitivo: información, protección, logística y ataques selectivos contra rivales.</p>
+<div class="subhead">1.3. Uso de cajas negras</div>
+<p>La fuente sostiene que la liquidez criminal puede convertirse en financiamiento político no registrado: movilización territorial, compra de apoyo, propaganda irregular y control de autoridades municipales.</p>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento interpreta la relación entre financiamiento clandestino y política local como un intercambio: una organización aporta recursos o coerción durante una campaña y, una vez electo el actor aliado, obtiene influencia sobre policía municipal, contratos de obra y tolerancia frente a actividades ilícitas. Es una generalización analítica del reporte y no una afirmación judicial sobre todos los municipios mexicanos.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La violencia política aumentó de forma severa en los ciclos electorales de 2018 y 2024, con numerosos asesinatos de políticos, candidatos y activistas partidistas documentados por organizaciones especializadas.</div>
+<p><strong>Nivel de confianza declarado por la fuente:</strong> alto para los precedentes históricos de DFS, los casos judiciales federales y la existencia de redes de protección; las generalizaciones sobre funcionamiento nacional deben leerse como interpretación del reporte.</p>
+<div class="subhead">2. EXTERNALIZACIÓN DE LA VIOLENCIA Y CONTROL TERRITORIAL</div>
+<div class="subhead">2.1. Fuerzas proxy</div>
+<p>El informe vincula la externalización de violencia política con precedentes de la llamada Guerra Sucia. La idea es que actores clandestinos o paramilitares permiten ejercer coerción reduciendo la trazabilidad formal hacia instituciones públicas.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente recuerda el uso histórico de grupos paramilitares y redes vinculadas al aparato de seguridad durante la Guerra Sucia, incluidos Los Halcones y episodios de represión como Tlatelolco (1968) y Corpus Christi (1971).</div>
+<div class="stamp-note pr"><span class="k">■ VERSIÓN OFICIAL</span>Ante asesinatos de activistas, periodistas o candidatos, la posición oficial citada por la fuente es que se trata de violencia criminal dirigida a intimidar a la sociedad y que las autoridades investigarán y sancionarán a los responsables.</div>
+<div class="stamp-note insight"><span class="k">■ INSIDE / NO CONFIRMADO</span>La fuente recoge como afirmación no confirmada que algunos gobernadores o alcaldes corruptos habrían utilizado sicarios de organizaciones como CJNG o Cártel del Golfo para eliminar adversarios. El propio documento señala que esta afirmación no está confirmada y no la presenta como hecho probado.</div>
+<div class="subhead">2.2. Sustitución social del Estado</div>
+<p>En zonas con baja capacidad institucional, organizaciones criminales pueden imponer reglas locales, financiar obras, repartir alimentos o mediar conflictos. El reporte lo interpreta como sustitución funcional parcial del Estado en regiones como Michoacán, Guerrero, Sinaloa y Chiapas.</p>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La conclusión analítica de la fuente es que esta sustitución puede resultar funcional a autoridades que no disponen —o no utilizan— recursos suficientes para proveer seguridad, justicia y servicios. El efecto es un orden paralelo donde la dependencia social fortalece a la organización criminal y reduce la autonomía de comunidades vulnerables.</div>
+<div class="subhead">2.3. Militarización y tecnología</div>
+
+<table>
+<thead>
+<tr><th>Dominio tecnológico</th><th>Integración criminal descrita por la fuente</th><th>Vulnerabilidad estatal / respuesta</th></tr>
+</thead>
+<tbody>
+<tr><td>Drones de ataque</td><td>Uso de cuadricópteros pesados modificados para lanzar artefactos explosivos y empleo creciente de FPV.</td><td>Necesidad de desplegar contramedidas C-UAS y adaptar doctrina militar.</td></tr>
+<tr><td>Guerra electrónica y fibra óptica</td><td>Uso de inhibidores, rifles antidron y enlaces por cable para reducir vulnerabilidad a interferencia de radio.</td><td>Dificultad para mantener vigilancia aérea en zonas disputadas.</td></tr>
+<tr><td>Ciberinteligencia</td><td>Acceso ilícito a cámaras y dispositivos para seguir a agentes y potenciales testigos.</td><td>Riesgo de fuga de credenciales y corrupción interna además del hackeo tradicional.</td></tr>
+<tr><td>Logística subterránea</td><td>Túneles con ventilación, electricidad, rieles y comunicaciones.</td><td>Necesidad de ingeniería y detección especializada en zonas fronterizas.</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente cita más de 220 ataques con drones atribuidos a organizaciones criminales en México durante 2021–2025.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El reporte cita información según la cual operadores vinculados a cárteles adquirieron experiencia en escenarios de guerra en Ucrania y trasladaron conocimientos sobre drones FPV.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente señala que México ha buscado adquirir sistemas y capacidades C-UAS de Estados Unidos para responder al crecimiento de la amenaza de drones criminales.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Organizaciones criminales han experimentado con drones controlados por fibra óptica, una técnica que reduce la vulnerabilidad frente a interferencia de radiofrecuencia.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Un informe citado en el documento describe que actores vinculados al Cártel de Sinaloa accedieron a sistemas de vigilancia y teléfonos para rastrear movimientos de agentes del FBI y personal estadounidense en Ciudad de México.</div>
+<div class="stamp-note pr"><span class="k">■ VERSIÓN OFICIAL</span>Autoridades de Ciudad de México han sostenido que, después de modernizar el sistema C5, no se registraron intrusiones exitosas comparables.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento plantea como explicación alternativa que algunos accesos al C5 pudieron depender de credenciales obtenidas mediante corrupción interna más que de una intrusión técnica pura. Es una inferencia de la fuente, no una conclusión judicial general.</div>
+<div class="subhead">3. SIMBIOSIS INSTITUCIONAL — QUIÉN PROTEGE A QUIÉN</div>
+<div class="subhead">3.1. Moderación en lugar de eliminación</div>
+<p>La fuente sostiene que, en determinados periodos y regiones, la política de seguridad operó como administración selectiva del mercado criminal: golpear a facciones consideradas demasiado disruptivas mientras otras mantenían corredores o acuerdos locales.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El proceso contra García Luna aportó pruebas de que recursos estatales fueron utilizados para atacar competidores del Cártel de Sinaloa y proteger operaciones vinculadas con esa organización.</div>
+<div class="subhead">3.2. Puertas giratorias</div>
+<p>La circulación de personal entre fuerzas de seguridad y organizaciones criminales es uno de los mecanismos más documentados del ecosistema. El ejemplo clásico es Los Zetas, cuyo núcleo inicial se formó con desertores de fuerzas especiales.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente recuerda que Los Zetas surgieron originalmente de militares de élite —incluidos exintegrantes del GAFE— que desertaron y pasaron a prestar servicios armados al Cártel del Golfo antes de constituirse como organización independiente; en el mismo bloque, el reporte señala que exintegrantes de la antigua DFS también ocuparon posteriormente posiciones dentro de redes criminales como Sinaloa y Juárez.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Agentes y exagentes estadounidenses han denunciado filtraciones de información operativa desde instituciones mexicanas hacia organizaciones criminales, afectando operaciones conjuntas.</div>
+<div class="subhead">3.3. Paraguas internacional</div>
+<p>El documento extiende su tesis hacia la relación México–Estados Unidos y argumenta que flujos de drogas y migración pueden crear capacidad de negociación indirecta.</p>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente interpreta la capacidad de México para contener o no contener determinados flujos transfronterizos como una forma de palanca asimétrica frente a Washington. Esta lectura geopolítica es una conclusión analítica del reporte, no una admisión oficial de política exterior.</div>
+<p><strong>Nivel de confianza declarado por la fuente:</strong> alto para los casos individuales documentados de corrupción, deserción y filtración; las afirmaciones sobre un sistema nacional coordinado deben entenderse como la tesis analítica del autor.</p>
+<div class="subhead">4. ARQUITECTURA DE LAVADO</div>
+<div class="subhead">4.1. Trade-Based Money Laundering y redes chinas</div>
+<p>La transición hacia opioides sintéticos conecta tres economías: precursores desde China, producción en México y venta en Estados Unidos. La fuente describe como consecuencia una expansión del lavado basado en comercio.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>FATF y fuentes estadounidenses citadas por el documento han documentado cooperación entre organizaciones criminales mexicanas y redes chinas de lavado de dinero, conocidas como Chinese Money Laundering Networks (CMLN).</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En el esquema descrito, dólares en efectivo provenientes de ventas ilícitas pueden permanecer en Estados Unidos mientras intermediarios compensan el valor mediante comercio, pagos paralelos o transferencias equivalentes en pesos dentro de México, reduciendo la necesidad de cruzar físicamente el efectivo por la frontera.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente identifica como vehículos domésticos de riesgo a algunas SOFOM, inversiones inmobiliarias, construcción, complejos turísticos y criptoactivos, todos sectores utilizados en tipologías de lavado aunque la participación concreta depende de cada caso.</div>
+<div class="subhead">4.2. CIBanco, Intercam y Vector — crisis financiera de 2025</div>
+<p>En junio de 2025, FinCEN utilizó nuevas facultades de la legislación estadounidense contra el financiamiento del fentanilo para actuar contra instituciones financieras mexicanas.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>FinCEN emitió órdenes contra CIBanco, Intercam y la casa de bolsa Vector.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Las tres instituciones fueron identificadas por autoridades estadounidenses como entidades de “primary money laundering concern” en relación con operaciones vinculadas a tráfico de opioides y pagos hacia China.</div>
+<p>Las órdenes del Tesoro citadas por el documento describen reuniones de ejecutivos de Intercam con representantes vinculados al CJNG y operaciones de CIBanco asociadas con cuentas y pagos por precursores químicos.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Las medidas estadounidenses bloquearon o restringieron transacciones de estas instituciones con el sistema financiero de Estados Unidos.</div>
+<div class="stamp-note pr"><span class="k">■ VERSIÓN OFICIAL</span>Después de las acciones estadounidenses, la CNBV intervino temporalmente CIBanco e Intercam. La Secretaría de Hacienda mexicana presentó la medida como una acción para proteger a los ahorradores y preservar la estabilidad, y sostuvo que no había recibido evidencia concluyente suficiente para adoptar la narrativa estadounidense en todos sus términos.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento interpreta la intervención inmediata como una operación para contener riesgo sistémico y proteger la confianza en el sistema financiero mexicano, más que como una mera reacción punitiva contra instituciones individuales.</div>
+<p><strong>Nivel de confianza declarado por la fuente:</strong> alto en cuanto a las órdenes de FinCEN, documentos del Tesoro y actuaciones regulatorias. La motivación interna atribuida a autoridades mexicanas permanece en el plano analítico.</p>
+<div class="subhead">5. ESCENARIOS DE COLAPSO EN CASCADA</div>
+<div class="subhead">5.1. Guerra de clanes y pérdida del arbitraje</div>
+<p>La fuente identifica la fragmentación del Cártel de Sinaloa como ejemplo de cómo una red criminal puede dejar de ser administrable cuando pierde mecanismos internos de equilibrio.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Tras la captura y traslado de Ismael “El Mayo” Zambada a Estados Unidos y el conflicto con la facción de Los Chapitos, Sinaloa entró en una fase de violencia interna de gran escala durante 2024–2025.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El reporte interpreta el despliegue de miles de militares y la persistencia de la violencia como señal de pérdida de capacidad estatal para arbitrar entre facciones cuya infraestructura está integrada a economías locales.</div>
+<div class="subhead">5.2. Choque externo — designación terrorista</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El 20 de febrero de 2025, Estados Unidos designó a varias organizaciones criminales mexicanas —incluidos Cártel de Sinaloa, CJNG, Cártel del Golfo, Cártel del Noreste y La Nueva Familia Michoacana— como Foreign Terrorist Organizations (FTO) y/o Specially Designated Global Terrorists (SDGT), según la categoría aplicable.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Canadá adoptó posteriormente designaciones terroristas contra varias de las mismas organizaciones.</div>
+<p>La designación modifica el perfil de riesgo para empresas legales que operan en zonas donde existen extorsiones, proveedores vinculados a grupos criminales o pagos coercitivos.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El marco estadounidense sobre material support puede crear responsabilidad penal o civil para actores que proporcionen recursos, servicios o apoyo a organizaciones designadas, dependiendo de los hechos y de la jurisdicción aplicable.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Las autoridades estadounidenses también cuentan con herramientas extraterritoriales y restricciones sobre cuentas corresponsales que pueden afectar a instituciones financieras extranjeras involucradas en transacciones con actores sancionados.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente proyecta que una aplicación agresiva y secundaria de estas herramientas elevaría el riesgo legal de bancos, aseguradoras, logística y capital extranjero en México, y podría provocar retirada de inversión o crisis de liquidez en sectores expuestos. Se trata de un escenario analítico, no de un resultado inevitable.</div>
+<div class="subhead">5.3. Autonomización de las fuerzas proxy</div>
+<p>El escenario más extremo del reporte es una ruptura abierta entre el Estado y organizaciones que ya poseen drones, inteligencia, logística y armamento suficiente para desafiar operaciones de seguridad. La fuente imagina sabotaje de infraestructura, ataques contra bases y violencia selectiva contra mandos.</p>
+<p><strong>Nivel de confianza declarado por la fuente:</strong> medio. El propio documento reconoce que la transición desde arreglos corruptos o de coexistencia hacia una confrontación abierta dependería del nivel de presión externa y de la respuesta del Estado.</p>
+<div class="subhead">6. BENEFICIARIOS DEL STATUS QUO</div>
+<p><strong>Redes corruptas dentro de seguridad y aduanas:</strong> cuando existen, pueden extraer renta de rutas, protección, filtración de información o tolerancia selectiva.</p>
+<p><strong>Élites políticas locales capturadas:</strong> acceso a financiamiento clandestino, coerción territorial y redes de movilización.</p>
+<p><strong>Intermediarios financieros transnacionales:</strong> brokers, empresas fachada y redes de TBML cobran por transformar liquidez criminal en activos utilizables.</p>
+<p><strong>Organizaciones criminales:</strong> pagan protección o corrupción en lugar de asumir el costo completo de una guerra frontal con el Estado.</p>
+<p>Estas categorías reflejan el marco explicativo del documento. No implican que las instituciones mexicanas citadas en su conjunto participen de estas prácticas.</p>
+<div class="subhead">7. VEREDICTO ESTRUCTURAL</div>
+<p><strong>Retrato estructural de la fuente:</strong> el reporte describe un ecosistema donde actores criminales, funcionarios corruptos, intermediarios financieros y empresas legales comprometidas pueden conectarse mediante rentas, protección y servicios. Su formulación más fuerte —que el Estado mexicano en conjunto sea un “socio gestor” del crimen organizado— es una tesis del documento y no debe confundirse con un hecho probado sobre todas las instituciones del país.</p>
+<p><strong>Principal vulnerabilidad:</strong> la integración de dinero ilícito en la economía global. El acceso a corresponsalía bancaria, comercio internacional, bienes raíces y redes de compensación transnacional es indispensable para convertir efectivo criminal en capital reutilizable.</p>
+<p><strong>Pronóstico a 3–5 años de la fuente:</strong> mayor presión de Estados Unidos mediante sanciones, designaciones terroristas y herramientas financieras obligará a México a aumentar operaciones contra facciones altamente visibles y a reforzar controles bancarios. El reporte considera posible una consolidación violenta del mercado criminal si la presión fragmenta organizaciones sin desmontar los mecanismos financieros y políticos que las sostienen.</p>
+<p>El escenario extremo planteado es una pérdida progresiva del monopolio estatal de la fuerza en regiones donde organizaciones criminales controlen seguridad, financiamiento y política local. El documento lo presenta como riesgo, no como situación uniforme ya consumada en todo México.</p>
+<div class="subhead">FUENTES</div>
+<p>1. Mexico | International Chamber of Shipping, https://www.ics-shipping.org/supporting-shipping/preventing-the-smuggling-of-illegal-narcotics-by-sea/pi-club-correspondent-guidance-from-key-loading-ports/mexico/</p>
+<p>2. Protecting trade, protecting lives: strengthening port security in Mexico, https://www.unodc.org/unodc/frontpage/2025/September/protecting-trade--protecting-lives_-strengthening-port-security-in-mexico.html</p>
+<p>3. FATF report: Money laundering from fentanyl and synthetic opioids, https://complyadvantage.com/insights/fatf-publishes-new-report-on-money-laundering-from-fentanyl-and-synthetic-opioid/</p>
+<p>4. Money Laundering from Fentanyl and Synthetic Opioids - FATF, https://www.fatf-gafi.org/en/publications/Methodsandtrends/Money-laundering-fentanyl-synthetic-opioids.html</p>
+<p>5. Mexican authorities seize nearly 4 million gallons of stolen fuel, https://apnews.com/article/mexico-fuel-theft-pemex-cartels-ff2d6b13985219c790f9c8cd3a0c2c34</p>
+<p>6. Huachicol: the government takes action against fuel theft - Opportimes, https://www.opportimes.com/en/huachicol-the-government-takes-action-against-fuel-theft/</p>
+<p>7. Counter Terrorism and Counter Narcotics Designation Update, https://ofac.treasury.gov/recent-actions/20260508</p>
+<p>8. Life on the Margins in a Kingdom of Cartels - Literary Hub, https://lithub.com/life-on-the-margins-in-a-kingdom-of-cartels/</p>
+<p>9. Dirección Federal de Seguridad - Wikipedia, https://en.wikipedia.org/wiki/Direcci%C3%B3n_Federal_de_Seguridad</p>
+<p>10. Dirección Federal de Seguridad - Narcos Wiki - Fandom, https://narcos.fandom.com/wiki/Direcci%C3%B3n_Federal_de_Seguridad</p>
+<p>11. Narco Culture in Mexico : The Normalization of Violence and, https://archive.johncabot.edu/bitstreams/b0340619-8724-43a0-a163-01835b835120/download</p>
+<p>12. States and Security (Part III) - Inside Countries, https://www.cambridge.org/core/product/CC8B3AC0002E6A12C069F6FE402D35C5/core-reader</p>
+<p>13. Ex-Mexican Secretary of Public Security Genaro Garcia Luna ... - ICE, https://www.ice.gov/news/releases/ex-mexican-secretary-public-security-genaro-garcia-luna-sentenced-over-38-years</p>
+<p>14. Ex-Mexican Secretary of Public Security Genaro Garcia Luna, https://www.justice.gov/usao-edny/pr/ex-mexican-secretary-public-security-genaro-garcia-luna-sentenced-over-38-years</p>
+<p>15. Ex-Mexican Secretary of Public Security Genaro Garcia Luna, https://www.justice.gov/usao-edny/pr/ex-mexican-secretary-public-security-genaro-garcia-luna-convicted-engaging-continuing</p>
+<p>16. Former Mexico Security Head Convicted for Drug Cartel Bribes, https://www.fedagent.com/news/former-mexico-security-head-convicted-for-drug-cartel-bribes</p>
+<p>17. Mexico&#x27;s 2024 Election Could Spark Violent Criminal Realignments, https://insightcrime.org/news/mexico-2024-election-violent-criminal-realignments/</p>
+<p>18. Mexico&#x27;s Extreme Election Violence Explained - InSight Crime, https://insightcrime.org/news/mexico-extreme-election-violence-explained/</p>
+<p>19. Why are Mexican politicians being assassinated? The role of oil theft, https://www.researchgate.net/publication/368330314_Why_are_Mexican_politicians_being_assassinated_The_role_of_oil_theft_and_narcocracy_and_the_electoral_consequences_of_organized_crime</p>
+<p>20. Fifty Years of Silence: Mexico Faces the Legacy of its Dirty War, https://nsarchive.gwu.edu/briefing-book/mexico/2024-12-20/fifty-years-silence-mexico-faces-legacy-its-dirty-war</p>
+<p>21. Mexican Cartels: UAS, EOD Capabilities Mimic Conventional Militaries, https://greydynamics.com/mexican-cartels-uas-eod-capabilities-mimic-conventional-militaries/</p>
+<p>22. The United States Needs a Southwest Drone Wall - CSIS, https://www.csis.org/analysis/united-states-needs-southwest-drone-wall</p>
+<p>23. Mapping Weaponized Drone Attacks Attributed to Mexican Drug, https://smallwarsjournal.com/2026/02/16/mexican-cartel-drone-attacks-report/</p>
+<p>24. Cartels in Mexico take a leap forward with narco-drones, https://english.elpais.com/international/2025-12-14/cartels-in-mexico-take-a-leap-forward-with-narco-drones-it-is-criminal-groups-that-are-leading-the-innovation-race.html</p>
+<p>25. Mexico to Buy US Army Drones &amp; Counter-UAS Tech in Historic Deal, https://mexicobusiness.news/aerospace/news/mexico-buy-us-army-drones-counter-uas-tech-historic-deal</p>
+<p>26. Mexico Counter-Drone Deal Unlocks US Army Marketplace, https://cuashub.com/en/content/mexico-counter-drone-deal/</p>
+<p>27. US and Mexico sign declaration of intent for UAS and C-UAS to fight, https://www.unmannedairspace.info/counter-uas-systems-and-policies/us-and-mexico-sign-declaration-of-intent-for-uas-and-c-uas-to-fight-organised-crime/</p>
+<p>28. Sinaloa Cartel Hacked FBI Phone to Track US Agent in Mexico City, https://mexicobusiness.news/cybersecurity/news/sinaloa-cartel-hacked-fbi-phone-track-us-agent-mexico-city</p>
+<p>29. Drug cartel hacked cameras and phones to spy on FBI and identify, https://www.malwarebytes.com/blog/news/2025/07/drug-cartel-hacked-cameras-and-phones-to-spy-on-fbi-and-identify-witnesses</p>
+<p>30. Sinaloa Cartel Indictment Overview | PDF - Scribd, https://www.scribd.com/document/470963898/luna-et-al-superseding-indictment-0-pdf</p>
+<p>31. DEA-trained agents work in Latin America and conspire with the, https://futuroinvestigates.org/investigative-stories/usa-v-garcia-luna/dea-trained-agents-work-in-latin-america-and-conspire-with-the-cartels/</p>
+<p>32. Countering Financial Flows From the Illicit Trade in Fentanyl and, https://www.moneylaunderingnews.com/2022/12/countering-the-financial-flows-from-the-illicit-trade-in-fentanyl-and-synthetic-opioids/</p>
+<p>33. Trade Based Money Laundering in North America, https://www.gcffc.org/sectors/trade-based-money-laundering-in-north-america</p>
+<p>34. Chinese Money Laundering Networks - EveryCRSReport.com, https://www.everycrsreport.com/reports/R48786.html</p>
+<p>35. Cryptocurrency Archives - Premier Offshore Company Services, https://premieroffshore.com/category/cryptocurrency/</p>
+<p>36. Ley antilavado en México, eficacia e impacto a los sujetos obligados., https://ri-ng.uaq.mx/bitstream/123456789/12956/1/CAMAN-105951.pdf</p>
+<p>37. EVALUACIÓN NACIONAL DE RIESGOS DE LAVADO DE DINERO, https://www.pld.hacienda.gob.mx/work/models/PLD/documentos/enr2023.pdf</p>
+<p>38. U.S. Prohibits Transactions with Three Mexican Financial Institutions, https://www.debevoise.com/insights/publications/2025/06/us-prohibits-transactions-with-three-mexican</p>
+<p>39. US Treasury Sanctions Mexican Banks CIBanco, Intercam, Vector in, https://fincrimecentral.com/us-treasury-sanctions-cibanco-intercam-vector/</p>
+<p>40. Treasury Issues Historic Orders under Powerful New Authority to, https://home.treasury.gov/news/press-releases/sb0179</p>
+<p>41. FinCEN Targets Three Mexico-Based Financial Institutions with, https://www.mofo.com/resources/insights/250707-fincen-targets-three-mexico-based-financial-institutions</p>
+<p>42. Client Alert - The U.S. Treasury issues orders involving CIBanco, https://www.ritch.com.mx/en/prensa/alerta-para-clientes-el-tesoro-de-ee-uu-emite-ordenes-relacionadas-con-ci-banco-intercam-y-vector-conforme-a-las-leyes-contra-el-fentanilo</p>
+<p>43. TEMPORARY INTERVENTION BY THE CNBV IN CIBANCO, https://basham.com.mx/temporary-management-intervention-by-the-cnbv-in-cibanco-and-intercam/</p>
+<p>44. Mexican government takes control of banks Intercam and CIBanco, https://mexiconewsdaily.com/business/mexican-government-control-banks-intercam-cibanco/</p>
+<p>45. Sinaloa&#x27;s War of the Splinters: Fighting Crime in Mexico under U.S., https://www.crisisgroup.org/rpt/latin-america-caribbean/mexico-united-states/112-sinaloas-war-splinters-fighting-crime-mexico-under-us-threat</p>
+<p>46. Infighting in the Sinaloa Cartel - Wikipedia, https://en.wikipedia.org/wiki/Infighting_in_the_Sinaloa_Cartel</p>
+<p>47. Assessing the Designation of Mexican Cartels as Foreign Terrorist, https://www.youtube.com/watch?v=pbI2QmwiBX0</p>
+<p>48. Designation of International Cartels - State Department, https://www.state.gov/designation-of-international-cartels</p>
+<p>49. Navigating the Risks of Cartel Terrorist Designation for Companies, https://www.blankrome.com/news-and-events/navigating-risks-cartel-terrorist-designation-companies-operating-mexico-and-latin/</p>
+<p>50. FTO Designations Heighten Risks for Companies Operating in Latin, https://www.mofo.com/resources/insights/250505-fto-designations-heighten-risks-for-companies-operating</p>
+<p>51. Mexican cartels as foreign terrorist organizations: Impact on US, https://www.atlanticcouncil.org/blogs/mexican-cartels-as-foreign-terrorist-organizations-impact-on-us-businesses/</p>
+<p>52. Potential Impact of Recent Cartel Designations, https://tlblog.org/potential-impact-of-recent-cartel-designations/</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">CLAVE DE MARCADORES — ESTÁNDAR DEL DOCUMENTO FUENTE</div>
+    <div class="keybox-grid">
+      <div><b>HECHO</b> — corresponde al marcador factual explícito del documento</div>
+      <div><b>VERSIÓN OFICIAL</b> — corresponde al framing oficial señalado explícitamente por la fuente</div>
+      <div><b>CONCLUSIÓN ANALÍTICA</b> — corresponde a una inferencia estructural explícitamente marcada por la fuente</div>
+      <div><b>INSIDE / NO CONFIRMADO</b> — afirmación que el propio documento mantiene sin confirmar; no hay marcadores de SIN DATOS en este archivo</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
