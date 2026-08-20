@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México — Germán Larrea: arquitectura de poder y capital | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← INICIO</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Inteligencia estructural independiente · desde 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">«La estructura por encima de la narrativa.»</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>MESA MÉXICO</span>
+    <span>20 DE AGOSTO DE 2026</span>
+  </div>
+
+  <span class="section-tag">PERSONAS / PODER / CAPITAL E INFRAESTRUCTURA</span>
+
+  <h1 class="headline">Germán Larrea: el poder de controlar lo que no se puede mover</h1>
+  <p class="deck">Cobre, ferrocarriles, agua, tribunales y capital público: la arquitectura de Grupo México combina infraestructura física irreemplazable con estructuras familiares cerradas, mercados de capital de Estados Unidos y una estrategia de mínima exposición pública.</p>
+  <div class="byline">Mesa México — categoría: PERSONAS / ARQUITECTURA DE PODER / GRUPO MÉXICO</div>
+
+  <div class="columns">
+<p class="lead">La arquitectura de poder de Germán Larrea Mota Velasco se basa en una combinación de control familiar cerrado, propiedad de infraestructura física difícil de sustituir, disciplina financiera y una exposición pública deliberadamente mínima. El núcleo no es construir una marca política personal, sino conservar durante décadas cobre, ferrocarriles, agua, derechos mineros y plataformas corporativas mientras los conflictos se trasladan a tribunales, arbitrajes y estructuras jurídicas que aíslan el capital matriz.</p>
+<p>El documento fuente describe un modelo de mando altamente centralizado: el capital público se utiliza para financiar y valorar subsidiarias, pero el control real permanece en vehículos familiares; los operadores visibles absorben la presión mediática, sindical y regulatoria, mientras el beneficiario mantiene una superficie de ataque reducida. El resultado es una estructura muy fuerte financieramente, pero expuesta a riesgos físicos que no pueden mudarse de jurisdicción: minas, concesiones de agua y corredores ferroviarios.</p>
+<div class="subhead">1. ARQUITECTURA DE LA PERSONA COMO SISTEMA DE TOMA DE DECISIONES</div>
+<div class="subhead">1.1. Tipo principal de pensamiento</div>
+
+<table>
+<thead>
+<tr><th>Nodo</th><th>Característica</th><th>Instrumento de control</th></tr>
+</thead>
+<tbody>
+<tr><td>Horizonte estratégico</td><td>Retención de activos a largo plazo y capacidad para ignorar crisis políticas de corto plazo.</td><td>Convertir conflictos en litigios, arbitrajes y procesos regulatorios prolongados.</td></tr>
+<tr><td>Gobierno corporativo</td><td>Uso de capital minoritario sin ceder el control efectivo.</td><td>Uso de la figura de “Controlled Company Exception” en mercados de Estados Unidos.</td></tr>
+<tr><td>Posicionamiento público</td><td>Anonimato personal casi total y ausencia de una marca política propia.</td><td>Delegación de funciones públicas y operativas en ejecutivos de máxima confianza.</td></tr>
+</tbody>
+</table>
+
+<p>La fuente clasifica el patrón dominante como el de un estratega que construye posiciones monopólicas u oligopólicas en sectores con barreras de entrada enormes y poca obsolescencia tecnológica. La minería de cobre y las redes ferroviarias requieren capital intensivo al inicio, pero una vez construidas pueden producir rentas durante décadas.</p>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El caso de Tía María en Perú ilustra este horizonte. A pesar de más de quince años de resistencia comunitaria, huelgas, víctimas y suspensión de licencias, la empresa no dio de baja el activo. Conservó derechos, sostuvo presión jurídica y política y esperó un cambio de coyuntura; para 2025 volvió a movilizar alrededor de US$800 millones con la mira puesta en una entrada en operación hacia 2027–2028.</div>
+<p>La fuente también identifica un segundo patrón: aprovechar ventanas de debilidad de socios, minoritarios o gobiernos para capturar activos o liquidez.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En 2004–2005, usando su control de 54.17% de los votos de Southern Peru Copper Corporation (SPCC), Larrea impulsó la fusión con Minera México, compañía que pertenecía en 99.15% al mismo grupo controlador. SPCC emitió 67.2 millones de nuevas acciones, valuadas en alrededor de US$3.1 mil millones al anuncio y US$3.75 mil millones al cierre, por un activo que después fue considerado sobrevaluado. El Tribunal de Cancillería de Delaware declaró la operación injusta para los minoritarios y ordenó a Americas Mining Corporation pagar una compensación de aproximadamente US$1.3 mil millones.</div>
+<p>Cinemex aparece como una excepción sectorial —entretenimiento en lugar de infraestructura pesada—, pero la lógica jurídica se mantiene. Durante episodios de estrés, las subsidiarias estadounidenses utilizaron procedimientos de quiebra y reorganización para reducir obligaciones de arrendamiento y aislar el capital principal del conglomerado.</p>
+<div class="subhead">1.2. Modelo de toma de decisiones</div>
+<p>El proceso combina cálculo financiero frío con una red muy cerrada de operadores. La estructura evita que comités independientes se conviertan en un contrapeso real al accionista controlador.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Southern Copper utiliza de manera sistemática la excepción denominada “Controlled Company Exception” en la NYSE. Esta regla permite que una compañía con más de 50% de los derechos de voto bajo un mismo control no tenga que cumplir plenamente con requisitos de mayoría de consejeros independientes ni con ciertas exigencias en comités de remuneraciones y gobierno corporativo.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La ausencia de un contrapeso independiente facilita consejos integrados por ejecutivos cuya carrera depende del conglomerado. La fuente usa como ejemplo a Óscar González Rocha, quien dirigió Southern Copper durante décadas hasta su fallecimiento a los 83 años en abril de 2026. Este diseño despersonaliza el conflicto: sindicatos, ambientalistas y reguladores chocan con la fachada corporativa, mientras el centro real de decisión permanece fuera de la exposición pública. La baja visibilidad de Larrea se interpreta como una estrategia para reducir la “superficie de ataque”, no como un rasgo psicológico aislado.</div>
+<div class="subhead">1.3. Relación con el riesgo</div>
+<p>El riesgo aceptado es asimétrico. El grupo puede tolerar costos judiciales, reputacionales o sociales muy altos cuando la recompensa estratégica preserva control o genera liquidez de largo plazo. Al mismo tiempo, el núcleo minero se administra con una base financiera conservadora y alta rentabilidad.</p>
+<p><strong>Riesgo aceptado:</strong> la fusión SPCC–Minera México expuso al grupo a litigio en Delaware y terminó en una sanción enorme, pero el control del activo consolidado y el valor creado después superaron el costo judicial.</p>
+<p><strong>Riesgo evitado:</strong> en mayo de 2023, cuando el gobierno de Andrés Manuel López Obrador ocupó temporalmente 120 km de vías de Ferrosur mediante SEMAR para el Corredor Interoceánico, Larrea evitó una confrontación total y, en paralelo, abandonó la operación para adquirir Citibanamex.</p>
+<p><strong>Riesgo transferido:</strong> en los periodos de estrés de Cinemex en Estados Unidos, las reestructuraciones trasladaron parte del costo a arrendadores y acreedores mientras el patrimonio minero principal quedó jurídicamente separado.</p>
+<div class="subhead">1.4. Motor interno</div>
+<p>El motivo dominante descrito en la fuente es control absoluto y seguridad del capital.</p>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La motivación se observa en la arquitectura jurídica: el núcleo de la riqueza familiar se mantiene aislado en estructuras cerradas, en particular Empresarios Industriales de México, S.A. de C.V. (EIM). Las acciones públicas sirven para obtener capital barato y valuaciones transparentes de subsidiarias, pero no para distribuir el poder real. La prioridad es blindar el patrimonio familiar frente a crisis políticas, litigios, expropiaciones o intentos de toma de control.</div>
+<div class="subhead">2. RED DE VÍNCULOS Y ESTRUCTURA DE CAPITAL</div>
+<p>La estructura de capital se originó en activos privatizados y concesiones de infraestructura que después fueron multiplicados mediante integración vertical, mercados internacionales y una separación estricta entre el núcleo familiar y los activos operativos.</p>
+
+<table>
+<thead>
+<tr><th>Nivel de la estructura</th><th>Organización</th><th>Función en el sistema</th></tr>
+</thead>
+<tbody>
+<tr><td>Núcleo familiar</td><td>Empresarios Industriales de México (EIM)</td><td>Control cerrado del patrimonio y de los derechos políticos del grupo.</td></tr>
+<tr><td>Holding matriz</td><td>Grupo México, S.A.B. de C.V.</td><td>Distribución de flujos, control de subsidiarias y cotización en la BMV.</td></tr>
+<tr><td>Minería / Delaware</td><td>Americas Mining Corporation → Southern Copper Corp (SCCO)</td><td>Generación de más de 80% de la utilidad, acceso a NYSE y protección bajo derecho estadounidense.</td></tr>
+<tr><td>Transporte y logística</td><td>Grupo México Transportes (GMXT)</td><td>Ferromex, Ferrosur y Florida East Coast Railway; captura de rentas en corredores transfronterizos.</td></tr>
+<tr><td>Infraestructura</td><td>Grupo México Infraestructura, incluida PEMSA</td><td>Contratos de energía, perforación, carreteras y proyectos ligados al Estado y a Pemex.</td></tr>
+</tbody>
+</table>
+
+<div class="subhead">2.1. Primer palanca</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El recurso inicial de Larrea provino de la herencia y consolidación de activos impulsada por su padre, Jorge Larrea. A finales de los años ochenta y principios de los noventa, la familia consolidó activos cupríferos —incluida la histórica mina de Cananea— durante la privatización de empresas estatales mexicanas. Un segundo pilar fueron las concesiones ferroviarias obtenidas durante la privatización del sistema ferroviario a finales de los noventa, base de Ferromex y Ferrosur.</div>
+<div class="subhead">2.2. Amplificadores actuales</div>
+<p><strong>Mercados de capital:</strong> SCCO se vende a inversionistas globales como un activo “pure-play copper”. Fondos como Vanguard, BlackRock y otros inversionistas institucionales aportan liquidez y valuación a cambio de márgenes y dividendos altos, aun cuando el control permanezca concentrado.</p>
+<p><strong>Logística norteamericana:</strong> en mayo de 2025, GMXT, BNSF y J.B. Hunt lanzaron “Quantum de México”, integrando corredores mexicanos con la red logística de Estados Unidos y monetizando el crecimiento de nearshoring.</p>
+<p><strong>Escudo jurídico de Delaware:</strong> Americas Mining Corporation y Southern Copper están vinculadas a Delaware, lo que traslada litigios relevantes sobre el núcleo societario a una jurisdicción estadounidense con fuerte tradición corporativa.</p>
+<div class="subhead">2.3. Aliados reales</div>
+<p>El círculo funcional de aliados es pequeño: ejecutivos con carreras ligadas al grupo, familiares colocados en posiciones de mando y gobiernos que dependen de impuestos e inversión minera.</p>
+<p>Entre los operadores que aparecen en el documento están Leonardo Contreras Lerdo de Tejada, Javier García de Quevedo y Fernando López-Guerra Larrea, sobrino de Germán Larrea y figura de la estructura ferroviaria.</p>
+<p>Los gobiernos de México y Perú funcionan como aliados obligados y adversarios potenciales a la vez: necesitan inversión, empleo e impuestos, pero también controlan licencias, agua, permisos ambientales y concesiones.</p>
+<div class="subhead">2.4. Adversarios</div>
+<p><strong>Sindicales:</strong> el Sindicato Nacional de Trabajadores Mineros y Metalúrgicos, encabezado durante años por Napoleón Gómez Urrutia, mantiene una confrontación histórica con Grupo México, especialmente desde Pasta de Conchos.</p>
+<p><strong>Ambientales y regulatorios:</strong> SEMARNAT reactivó procesos vinculados al desastre del Río Sonora y CONAGUA representa una amenaza directa porque el agua es un insumo estructural para las operaciones mineras.</p>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La administración de Claudia Sheinbaum es tratada como un adversario potencial por las reformas de agua, minería y justicia. Una reducción de concesiones hídricas o un cambio institucional que debilite la capacidad del grupo para frenar decisiones regulatorias en tribunales afectaría directamente activos físicos que no pueden trasladarse a otra jurisdicción.</div>
+<div class="subhead">2.5. Instituciones de influencia</div>
+<p>La proyección de poder se concentra en pocos canales: negociación directa con reguladores y gobiernos, uso intensivo de abogados y tribunales, y control efectivo de consejos de administración.</p>
+<p>La fuente asigna el nivel máximo de involucramiento a los consejos de empresas públicas porque la estructura de compañía controlada permite neutralizar la influencia de consejeros independientes en dividendos, M&A y decisiones estratégicas.</p>
+<div class="subhead">2.6. Estructura territorial del capital</div>
+<p>La propiedad jurídica se distribuye entre México y Estados Unidos, pero el capital productivo permanece anclado físicamente en América Latina. Buenavista y La Caridad están en México; Toquepala y Cuajone en Perú; la red ferroviaria atraviesa México y conecta con Estados Unidos; PEMSA opera infraestructura de perforación.</p>
+<p>Este contraste crea un límite claro al blindaje jurídico: una mina, un acuífero o una vía ferroviaria no pueden mudarse. La expropiación, cancelación de concesiones o retiro de agua destruye valor exactamente en el lugar donde se encuentra el activo.</p>
+<p>La división de infraestructura también es vulnerable a Pemex. Los retrasos de pago de la empresa estatal llevaron a paralizar cuatro plataformas de perforación entre 2024 y 2025.</p>
+<div class="subhead">3. ACCIONES CLAVE</div>
+
+<table>
+<thead>
+<tr><th>Fecha / periodo</th><th>Acción</th><th>Consecuencia para el sistema de poder</th></tr>
+</thead>
+<tbody>
+<tr><td>2004–2005</td><td>Fusión SPCC–Minera México.</td><td>Consolidación de activos cupríferos bajo una plataforma cotizada en NYSE y transferencia de valor desde minoritarios hacia el controlador.</td></tr>
+<tr><td>2009–2026</td><td>Retención de Tía María pese a la oposición social.</td><td>Conversión del conflicto comunitario en una guerra de desgaste regulatoria y jurídica.</td></tr>
+<tr><td>Mayo de 2023</td><td>Acuerdo frente a la ocupación de vías de Ferrosur y salida de la compra de Citibanamex.</td><td>Compromiso institucional, preservación de liquidez y reducción de exposición política.</td></tr>
+</tbody>
+</table>
+
+<div class="subhead">3.1. Donde fue contra el sistema</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Durante la fusión de SPCC y Minera México, Larrea impuso una operación de más de US$3.1 mil millones pese a que la valoración independiente del activo era significativamente menor y el comité especial de directores independientes quedó sometido a la presión del accionista controlador.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La operación terminó en el litigio de Delaware y en una compensación de aproximadamente US$1.3 mil millones. La fuente interpreta que el controlador aceptó deliberadamente ese riesgo porque la consolidación de activos y el acceso a la liquidez de SPCC podían valer mucho más que el costo judicial. Jurídicamente perdió, pero estratégicamente construyó una plataforma cuprífera de escala mundial.</div>
+<div class="subhead">3.2. Donde se integró al sistema</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En mayo de 2023, el gobierno mexicano emitió un decreto que permitió a SEMAR ocupar temporalmente alrededor de 120 km de vías de Ferrosur para el proyecto del Corredor Interoceánico del Istmo.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>En vez de abrir una guerra frontal con el gobierno de AMLO, Larrea negoció un acuerdo y utilizó el episodio para salir de la operación de compra de Citibanamex, valuada alrededor de US$7 mil millones. La fuente interpreta la decisión como una retirada racional de un activo no esencial y competitivo, preservando efectivo justo antes de un nuevo ciclo alcista del cobre.</div>
+<div class="subhead">3.3. Donde rompió las expectativas</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Tía María, en el Valle de Tambo, enfrenta desde 2009 una oposición intensa de agricultores y grupos ambientalistas. Las protestas incluyeron violencia, víctimas y suspensiones regulatorias repetidas.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>Mientras muchos actores esperaban que Grupo México abandonara un activo socialmente tóxico, la empresa convirtió el conflicto en una larga guerra de desgaste, mantuvo derechos y recursos de lobby y esperó un entorno más favorable. Para 2025–2026 anunció nuevamente inversión cercana a US$800 millones y un objetivo de arranque alrededor de 2027–2028.</div>
+<div class="subhead">3.4. Innovación operativa: costo de caja negativo</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Southern Copper monetiza subproductos como molibdeno, zinc, plata y ácido sulfúrico. En el primer trimestre de 2026, el indicador de net cash cost por libra de cobre, después de acreditar ingresos por subproductos, llegó a aproximadamente -US$0.11 por libra, una reducción de 114% frente al mismo periodo del año anterior.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>Frente a competidores con costos de caja positivos, la combinación de subproductos y escala permite al grupo seguir generando utilidad incluso con precios del cobre mucho más bajos. La fuente considera este “foso” operativo como la principal fuente de autonomía financiera: sostiene un programa de capex de alrededor de US$20.5 mil millones y amplía el margen de maniobra político.</div>
+<div class="subhead">4. COMPROMISO REPUTACIONAL, VULNERABILIDADES Y RIESGO SISTÉMICO</div>
+
+<table>
+<thead>
+<tr><th>Episodio / zona de riesgo</th><th>Naturaleza de la amenaza</th><th>Mecanismo de defensa</th></tr>
+</thead>
+<tbody>
+<tr><td>Derrame del Río Sonora (2014)</td><td>Desastre ambiental y litigios reactivados por SEMARNAT.</td><td>Conversión del problema en una obligación financiera mediante fideicomiso y litigio prolongado.</td></tr>
+<tr><td>Dependencia de Pemex</td><td>Impagos por arrendamiento y servicios de plataformas PEMSA.</td><td>Paro de equipos y diversificación del flujo de caja mediante el negocio minero.</td></tr>
+<tr><td>Concesiones de agua</td><td>Riesgo de revocación o reducción de permisos de CONAGUA.</td><td>No existe en la fuente una solución estructural demostrada más allá de negociación y presión institucional.</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note nodata"><span class="k">■ SIN DATOS</span>La fuente no identifica una solución estructural comprobada frente a una eventual reducción o revocación de concesiones de agua por CONAGUA. Sólo documenta mecanismos de negociación y lobby político.</div>
+<div class="subhead">4.1. Principal episodio reputacional: Río Sonora</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En 2014, la mina Buenavista del Cobre, en Sonora, derramó aproximadamente 40,000 metros cúbicos de solución de sulfato de cobre hacia los ríos Bacanuchi y Sonora, afectando el suministro de agua de decenas de miles de personas. El episodio fue descrito como uno de los peores desastres ambientales de la minería mexicana.</div>
+<div class="stamp-note pr"><span class="k">■ VERSIÓN PR</span>Grupo México presentó el incidente como un “accidente” asociado a lluvias extraordinarias. Como parte del acuerdo con el gobierno creó el Fideicomiso Río Sonora, con alrededor de US$150 millones para compensaciones y remediación.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El caso no quedó cerrado. En octubre de 2023, SEMARNAT sostuvo que la remediación no había sido suficiente y que persistían efectos de contaminación; la administración federal reactivó acciones civiles y penales y exigió pagos adicionales.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente interpreta el desastre como una palanca política permanente. Aunque las multas son manejables para una empresa que genera miles de millones de dólares de EBITDA, el costo reputacional dificulta presentarse como socio socialmente responsable y permite a actores políticos utilizar el expediente ambiental en negociaciones sobre otras concesiones.</div>
+<div class="subhead">4.2. Riesgos sistémicos</div>
+<p><strong>Dependencia de un comprador estatal:</strong> PEMSA quedó expuesta a impagos de Pemex. La paralización de cuatro plataformas en 2024–2025 se asocia en la fuente con una caída de aproximadamente 64% en ingresos y 89% en EBITDA del segmento durante el segundo trimestre de 2025.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En abril de 2026 falleció a los 83 años Óscar González Rocha, histórico director de Southern Copper y uno de los operadores de mayor confianza de Larrea, después de alrededor de cinco décadas de continuidad dentro del sistema.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>Su muerte exhibió el riesgo sucesorio de un modelo concentrado en un solo arquitecto. Aunque la familia y el grupo promueven una nueva generación de ejecutivos —incluidos Leonardo Contreras y Fernando López-Guerra Larrea—, la capacidad de esos operadores para sostener redes políticas y resolver crisis de alto nivel aún no ha sido probada.</div>
+<div class="subhead">4.3. Lo que revela la vulnerabilidad</div>
+<p>El documento trata los accidentes ambientales y laborales —Río Sonora, Pasta de Conchos y conflictos de relaves en Perú— como parte de un patrón de externalización de riesgos. Después de cada choque, el sistema tiende a crear fideicomisos, litigios y defensas jurídicas en vez de alterar radicalmente la lógica de rentabilidad de los activos.</p>
+<div class="subhead">5. ACCIONES DE LOS ÚLTIMOS 12–24 MESES</div>
+<p>Entre 2024 y 2026, el grupo se fortaleció por precios altos del cobre, márgenes excepcionales y acceso barato a capital, mientras ajustó activos no rentables y comenzó una transición generacional.</p>
+
+<table>
+<thead>
+<tr><th>Periodo</th><th>Acción / evento</th><th>Vector de influencia</th></tr>
+</thead>
+<tbody>
+<tr><td>2T 2026</td><td>SCCO reportó utilidad neta récord cercana a US$1.67 mil millones (+72% a/a) e ingresos de alrededor de US$4.29 mil millones (+40% a/a).</td><td>Fortalecimiento: máxima capacidad financiera y valuación elevada.</td></tr>
+<tr><td>Abril de 2026</td><td>Fallecimiento de Óscar González Rocha y nombramiento de Leonardo Contreras.</td><td>Riesgo / transición generacional en la operación del núcleo minero.</td></tr>
+<tr><td>2025–2026</td><td>Emisión de bonos a 10 años por US$1.25 mil millones con cupón cercano a 5.35%.</td><td>Expansión: liquidez para Tía María y un programa de inversión de largo plazo.</td></tr>
+<tr><td>Finales de 2025</td><td>Cinemex Holdings en EE.UU. utilizó Subchapter V.</td><td>Defensa: reducción de obligaciones de arrendamiento con conservación de operaciones.</td></tr>
+<tr><td>Mayo de 2025</td><td>Lanzamiento de “Quantum de México” con BNSF y J.B. Hunt.</td><td>Integración: monetización de nearshoring y corredores México–EE.UU.</td></tr>
+</tbody>
+</table>
+
+<div class="subhead">5.1. ¿Expansión o defensa?</div>
+<p>Operativa y financieramente, el documento lo clasifica como expansión agresiva. El programa de inversión de alrededor de US$20.5 mil millones en Tía María, Los Chancas, Michiquillay, El Pilar y otros proyectos busca consolidar participación en cobre durante un periodo de demanda estructural por electrificación, redes eléctricas y centros de datos.</p>
+<p>Políticamente, dentro de México, la postura es más defensiva: el grupo evita una confrontación frontal con la administración Sheinbaum y busca encajar la infraestructura logística dentro de la narrativa de nearshoring.</p>
+<div class="subhead">5.2. ¿Se fortalece o pierde margen?</div>
+<p>Financieramente se fortalece: la fuente sitúa la capitalización de Southern Copper alrededor de US$153–158 mil millones durante 2026 y destaca su margen de maniobra de caja. Sin embargo, el margen político puede reducirse si cambios judiciales y regulatorios dificultan bloquear decisiones administrativas en tribunales.</p>
+<div class="subhead">5.3. ¿Hay cambio de estrategia?</div>
+<p>No se observa un cambio fundamental. La estrategia continúa siendo extraer márgenes máximos de activos físicos únicos, monetizar subproductos, proteger el control familiar y distribuir una parte importante de las utilidades en dividendos hacia la estructura propietaria.</p>
+<div class="subhead">5.4. Preparación para una crisis futura</div>
+<p>La emisión de US$1.25 mil millones en deuda a largo plazo crea una reserva de liquidez antes de posibles choques políticos o recesivos. La paralización de plataformas PEMSA con baja rentabilidad también evita seguir consumiendo caja en un negocio expuesto a los impagos de Pemex.</p>
+<div class="subhead">6. MAPA DE INFLUENCIA</div>
+<p><strong>Nodo central:</strong> Germán Larrea Mota Velasco, arquitecto del sistema Grupo México.</p>
+<p><strong>Capital:</strong> Southern Copper como activo minero principal; GMXT con Ferromex, Ferrosur y Florida East Coast Railway; Grupo México Infraestructura con energía, perforación PEMSA y carreteras; activos no estratégicos como Cinemex y Cuadra San Jorge.</p>
+<p><strong>Jurisdicciones de protección:</strong> Delaware y mercados de capital de Estados Unidos para estructuras corporativas; BMV y NYSE como fuentes de liquidez.</p>
+<p><strong>Estado:</strong> SEMARNAT, CONAGUA y autoridades de transporte en México; MINEM en Perú; Pemex como gran contraparte comercial y al mismo tiempo fuente de riesgo de cobro.</p>
+<p><strong>Red corporativa:</strong> BNSF Railway, J.B. Hunt y CPKC como socios logísticos; BHP, Freeport-McMoRan, Codelco y Teck como competidores globales.</p>
+<p><strong>Legitimación:</strong> baja exposición personal y uso de reportes ESG, clima y agua como interfaz con inversionistas institucionales occidentales.</p>
+<p><strong>Mercados:</strong> Estados Unidos y China son nodos centrales de demanda; la transición energética incrementa el valor estratégico del cobre.</p>
+<div class="subhead">7. EVALUACIÓN FINAL</div>
+<div class="subhead">7.1. Nivel actual de poder</div>
+<p><strong>8/10 — jugador sistémico de escala transnacional.</strong> La fuente atribuye esta puntuación al control de activos de más de US$150 mil millones de capitalización, reservas cupríferas de primer orden, redes ferroviarias críticas para nearshoring y una estructura financiera con deuda manejable y costos mineros excepcionalmente bajos.</p>
+<p>No alcanza 9/10 porque no puede dictar por sí mismo la política del Estado. El episodio Ferrosur mostró que el gobierno puede intervenir físicamente infraestructura y cambiar las reglas de concesiones.</p>
+<div class="subhead">7.2. Principal activo</div>
+<p>El activo decisivo no es sólo el dinero, sino la propiedad de infraestructura física difícil o imposible de reproducir: Buenavista, Toquepala, redes ferroviarias y derechos sobre agua y territorio. En un mundo que necesita más cobre para electrificación, esta infraestructura obtiene una protección económica y geopolítica adicional.</p>
+<div class="subhead">7.3. Principal riesgo</div>
+<p>La amenaza central es un cambio de régimen regulatorio: agua, minería, vías férreas, justicia y permisos ambientales. La segunda amenaza es sucesoria: que la siguiente generación no pueda mantener el equilibrio jurídico, financiero y político que hoy depende fuertemente de Larrea y de operadores históricos.</p>
+<div class="subhead">7.4. Pronóstico a tres años, 2026–2029</div>
+<p><strong>Escenario base — continuidad:</strong> precios del cobre en un rango alto, Tía María avanzando hacia 2027–2028 y GMXT aumentando tráfico transfronterizo. La familia y los institucionales capturan dividendos mientras los conflictos ambientales continúan en tribunales.</p>
+<p><strong>Escenario de fortalecimiento — superciclo del cobre:</strong> precios por encima de US$7–8 por libra, aceleración de capex en Perú y México, mayor concentración de mercado y expansión logística. La empresa se vuelve aún más indispensable para dos economías.</p>
+<p><strong>Escenario de debilitamiento — ruptura regulatoria:</strong> una nueva crisis ambiental, caída del cobre, cancelación de concesiones hídricas o ferroviarias y una sucesión abrupta podrían abrir conflictos entre herederos y provocar ventas de activos periféricos.</p>
+<div class="subhead">BLOQUE FINAL — VERIFICACIÓN ESTRUCTURAL</div>
+<div class="subhead">Lo confirmado con mayor dureza</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Germán Larrea controla Grupo México a través de la estructura familiar cerrada Empresarios Industriales de México, S.A. de C.V. (EIM).</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El holding controla aproximadamente 88.9% de Southern Copper Corp mediante Americas Mining Corporation, vehículo vinculado a Delaware.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En 2011, el Tribunal de Cancillería de Delaware declaró injusta la fusión SPCC–Minera México y ordenó una compensación cercana a US$1.3 mil millones por daño a minoritarios.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El negocio minero reportó en el primer trimestre de 2026 un net cash cost de aproximadamente -US$0.11 por libra de cobre gracias a ingresos por subproductos.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En 2023, SEMAR ocupó temporalmente alrededor de 120 km de vías de Ferrosur; el episodio coincidió con la salida de Larrea de la negociación para comprar Citibanamex.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El desastre ambiental de Río Sonora de 2014 sigue siendo objeto de litigios y acciones regulatorias reactivadas por SEMARNAT desde 2023.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Perforadora México sufrió pérdidas importantes en 2024–2025 por la paralización de plataformas asociada a retrasos de pago de Pemex.</div>
+<div class="subhead">Lo que el documento clasifica como conclusión analítica</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La reserva y baja visibilidad pública de Larrea no son una simple preferencia personal, sino una estrategia corporativa de despersonalización que desplaza el costo de los conflictos hacia la burocracia del grupo.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El uso de la “Controlled Company Exception” permite atraer capital institucional global sin ceder control real sobre las finanzas y el gobierno corporativo.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La salida de la compra de Citibanamex fue una forma racional de abandonar un activo no estratégico y competitivo usando el conflicto Ferrosur como justificación política, preservando una gran reserva de liquidez.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La reorganización de Cinemex en Estados Unidos mediante Subchapter V ejemplifica la capacidad del grupo para trasladar pérdidas de ciclos adversos hacia acreedores y arrendadores externos.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El costo de caja negativo del cobre crea un foso operativo excepcional que reduce la vulnerabilidad del conglomerado frente a ciclos de precios y sostiene un programa de inversión de gran escala.</div>
+<div class="subhead">Lo no confirmado</div>
+<div class="stamp-note insight"><span class="k">■ INSIDE / NO CONFIRMADO</span>Representantes de comunidades y organizaciones ambientales sostienen que Grupo México corrompe de manera sistemática a autoridades regionales en Sonora y Perú para frenar investigaciones ambientales. La fuente aclara que estas acusaciones circulan en prensa y reportes de ONG, pero no presenta pruebas directas de transacciones.</div>
+<div class="stamp-note insight"><span class="k">■ INSIDE / NO CONFIRMADO</span>No está confirmado el contenido real de las negociaciones privadas entre Germán Larrea y el presidente AMLO en mayo de 2023, incluida cualquier garantía no pública sobre otras concesiones de GMXT a cambio de entregar el tramo ferroviario en Veracruz.</div>
+<div class="stamp-note nodata"><span class="k">■ SIN DATOS</span>No hay información pública suficiente para establecer el reparto exacto de acciones y derechos de voto dentro de EIM entre Germán Larrea y otros miembros de la familia, lo que impide modelar con precisión una transición de control después de su muerte.</div>
+<div class="subhead">FUENTES QUE EL DOCUMENTO PROPONE REVISAR ADICIONALMENTE</div>
+<p>Registros corporativos oficiales de Delaware para analizar cambios estatutarios y composición de directorios de Americas Mining Corporation y EIM.</p>
+<p>Estados financieros de Grupo México en la Bolsa Mexicana de Valores para auditar préstamos y transferencias intragrupo.</p>
+<p>Form 4, Schedule 13D, 10-K y 10-Q de Southern Copper ante la SEC para monitorear operaciones de insiders y cambios en la estructura accionaria.</p>
+<p>Bases judiciales de Estados Unidos, México y Perú para seguir litigios ambientales, laborales y corporativos.</p>
+<p>Registros de concesiones y contratación pública —incluidos CONAGUA y autoridades ferroviarias— para vigilar el estatus de agua y transporte bajo la administración Sheinbaum.</p>
+<div class="subhead">FUENTES</div>
+<p>1. In-re-Southern-Peru-Copper-Corp-Shareholder-Derivative-Litigation, https://www.rlf.com/wp-content/uploads/2020/05/In-re-Southern-Peru-Copper-Corp-Shareholder-Derivative-Litigation.pdf</p>
+<p>2. SOUTHERN COPPER CORP/ - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000110465926044982/scco-20260529xdef14a.htm</p>
+<p>3. in the court of chancery of the state of delaware, https://courts.delaware.gov/opinions/download.aspx?ID=165450</p>
+<p>4. united states securities and exchange commission - form 10-k, https://minedocs.com/17/SOUTHERNCOPPER_2016_10K.PDF</p>
+<p>5. &#x27;Agro sí, mina NO!&#x27; the Tía Maria copper mine, state terrorism and, https://www.researchgate.net/publication/332788070_&#x27;Agro_si_mina_NO&#x27;_the_Tia_Maria_copper_mine_state_terrorism_and_social_war_by_every_means_in_the_Tambo_Valley_Peru</p>
+<p>6. Southern Copper Corporation Q4 FY26 Earnings Call Analysis, https://www.arthneeti.com/stocks/southern-copper/concall/q4-fy25-earnings-call-analysis</p>
+<p>7. Southern Copper&#x27;s $6.8 Billion Investment in Peru Mining Projects, https://discoveryalert.com.au/southern-copper-expansion-peru-production-2025/</p>
+<p>8. file - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000155837019009220/scco-20190930x10q.htm</p>
+<p>9. CMX Cinemas Confirms Subchapter V Plan - ElevenFlo, https://elevenflo.com/blog/cinemex-holdings</p>
+<p>10. 250702.mbx - Bankrupt.com, http://www.bankrupt.com/TCR_Public/250702.mbx</p>
+<p>11. tm2112807-3_def14a - none - 5.2656425s - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000110465921051158/tm2112807-3_def14a.htm</p>
+<p>12. extractive industries in a global urban economy - SciSpace, https://scispace.com/pdf/the-production-of-the-world-city-extractive-industries-in-a-432c5kmfl0.pdf</p>
+<p>13. How Did Germán Larrea Mota Velasco Make His Money?, https://tradersunion.com/persons/german-larrea-mota-velasco/</p>
+<p>14. Annual Report for Fiscal Year Ending December 31, 2025 (Form 10-K), https://www.publicnow.com/view/74C5C184190DFCD28F28D29728ED7A43AA3B1C5B?1772225340</p>
+<p>15. Government takes over Veracruz sections of Ferrosur railway, https://mexiconewsdaily.com/business/government-takes-over-veracruz-sections-of-ferrosur-railway/</p>
+<p>16. How a railroad expropriation killed Citibanamex&#x27;s sale - BNamericas, https://www.bnamericas.com/en/features/how-a-railroad-expropriation-killed-citibanamexs-sale</p>
+<p>17. Mergers &amp; Acquisitions Litigation - Quinn Emanuel, https://www.quinnemanuel.com/practice-areas/mergers-acquisitions-litigation/</p>
+<p>18. sc13dza - SEC.gov, https://www.sec.gov/Archives/edgar/data/1042701/000095012310076827/y03840sc13dza.htm</p>
+<p>19. SOUTHERN COPPER CORP/_March 31, 2026 - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000110465926052647/scco-20260331x10q.htm</p>
+<p>20. Quantum de México to carry on tradition of intermodal excellence, https://www.bnsf.com/news-media/railtalk/service/Quantum-de-Mexico.html</p>
+<p>21. RESULTS - Fourth Quarter 2025 - Public Technologies (PUBT), https://docs.publicnow.com/viewDoc.aspx?filename=49740\EXT\2C6BCE08E50331093EA24FB7B75A4A930E95AFF8_CFB85922EAA092EAA1351518E827970145109DF3.PDF</p>
+<p>22. New Opportunities for Mexican Drilling Company, https://mexicobusiness.news/oilandgas/news/new-opportunities-mexican-drilling-company</p>
+<p>23. UNITED STATES SECURITIES AND EXCHANGE COMMISSION, https://docs.publicnow.com/viewDoc.aspx?filename=43240\EXT\D0A087B5DBDFC4B703637E3563227E48B384B9C9_4145C1636E45F27F295F8CFDDBBEE82F530A89E7.PDF</p>
+<p>24. SOUTHERN COPPER CORP/_December 31, 2025 - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000110465926021492/scco-20251231x10k.htm</p>
+<p>25. united states securities and exchange commission - form 10-k, https://www.sec.gov/Archives/edgar/data/1001838/000110465926044985/scco-20251231xars.pdf</p>
+<p>26. schedule 14a - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000104746908005070/a2184965zdef14a.htm</p>
+<p>27. Grupo Mexico shines on copper strength | PMCapital, https://www.pmcapital.com.au/insight/grupo-mexico-shines-copper-strength</p>
+<p>28. 29,333 Shares in Southern Copper Corporation $SCCO Acquired by, https://www.marketbeat.com/instant-alerts/filing-29333-shares-in-southern-copper-corporation-scco-acquired-by-ashoka-whiteoak-capital-pte-ltd-2026-08-17/</p>
+<p>29. Southern Copper - SCCO - Stock Price &amp; News | The Motley Fool, https://www.fool.com/quote/nyse/scco/</p>
+<p>30. Copper price rally: which miners still have room to run? - Investing.com, https://www.investing.com/news/stock-market-news/copper-price-rally-which-miners-still-have-room-to-run-93CH-4850801</p>
+<p>31. Transport, Logistics and Supply Chain - Dynamix-cdn, https://dynamix-cdn.s3.amazonaws.com/cfawcom/cfawcom_667920286.pdf</p>
+<p>32. Mexico&#x27;s State of Logistics: Annual update - Kearney, https://www.kearney.com/documents/d/asset-library-291362522/mexicos-state-of-logistics-pdf</p>
+<p>33. BOARD MEMBERS PROFILES | Kimberly - Clark de México, https://www.kimberly-clark.com.mx/en/about-kcm/board-members-profiles</p>
+<p>34. Este es el empresario millonario que quedó detrás de Carlos Slim, https://www.cronista.com/mexico/actualidad-mx/este-es-el-empresario-millonario-que-quedo-detras-de-carlos-slim-en-el-top-10-de-los-hombres-mas-ricos-de-mexico-en-2025/</p>
+<p>35. Southern Copper Corporation 2026 Q2 Earnings Call, https://stocknow.ai/en/calls/m7iyrg8f6bwuajdbghp3ykzp/scco_q2-2026-earnings-call</p>
+<p>36. Minera San Martín de Grupo México, Sombrerete, Zacatecas, Mexico, https://ejatlas.org/print/minera-san-martin-de-grupo-mexico-en-sombrerete-zacatecas-mexico</p>
+<p>37. southern copper corporation - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000155837024010710/scco-20240630x10q.htm</p>
+<p>38. (PDF) Lithium Nexus: Energy, Geopolitics, and Socio-Environmental, https://www.researchgate.net/publication/376720710_Lithium_Nexus_Energy_Geopolitics_and_Socio-Environmental_Impacts_in_Mexico&#x27;s_Sonora_Project</p>
+<p>39. Coca Cola acapara en México 28.2 millones de m3 de agua, https://contralinea.com.mx/interno/semana/coca-cola-acapara-en-mexico-28-2-millones-de-m3-de-agua/</p>
+<p>40. Mexico 101: The 2024 Country Handbook. Tue Jun 18 2024, https://valoriacap.com/assets/files/JPM_Mexico_101_The_2024__2024-06-18_4580855.pdf</p>
+<p>41. Did Mexico&#x27;s president expropriate a private railroad? - Aztec Reports, https://aztecreports.com/did-mexicos-president-expropriate-a-private-railroad/3744/</p>
+<p>42. CORPORATE GOVERNANCE - SCC - Eng, https://southerncoppercorp.com/eng/corporate-governance/</p>
+<p>43. The Cost of Mining Copper: A 2024–2025 Update, https://www.miningvisuals.com/post/the-cost-of-mining-copper-a-2024-2025-update</p>
+<p>44. Water and Mining Conflicts in Peru | Request PDF - ResearchGate, https://www.researchgate.net/publication/232675467_Water_and_Mining_Conflicts_in_Peru</p>
+<p>45. Global Offshore Rig Market to Rebound, Mexican Activity Lags, https://mexicobusiness.news/oilandgas/news/global-offshore-rig-market-rebound-mexican-activity-lags</p>
+<p>46. Community Tension Map: Mining &amp; Oil and Gas - Thomas Gaultier, https://thomasgaultier.com/tools/community-tension-map/</p>
+<p>47. First Quarter 2026 Earnings Results - Public Technologies (PUBT), https://docs.publicnow.com/viewDoc.aspx?filename=43240\EXT\8D43B481F448D568FCADEE27688C2EB68A7CC51E_99C8709A29D35DCF56F0A117E1ADEF1AA31072BB.PDF</p>
+<p>48. Press release of Southern Copper Corporation dated ... - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000110465926051281/scco-20260428xex99d1.htm</p>
+<p>49. Impacts to health, livelihood continue after toxic spill in Mexico | AZCIR, https://azcir.org/news/2015/11/23/impacts-to-health-livelihood-continue-1-year-after-toxic-mine-spill-in-mexico/</p>
+<p>50. U.S. mining companies leave lasting trail of contamination across Peru, https://news.mongabay.com/2024/01/u-s-mining-companies-leave-lasting-trail-of-contamination-across-peru/</p>
+<p>51. Westwood Energy Newsletter - Edition 3, https://www.westwoodenergy.com/news/westwood-energy-newsletter-edition-3</p>
+<p>52. Southern Copper Corporation (SCCO) Leadership &amp; Management, https://simplywall.st/stocks/us/materials/nyse-scco/southern-copper/management</p>
+<p>53. Earnings call transcript: Southern Copper tops Q2 2026 estimates as, https://www.investing.com/news/transcripts/earnings-call-transcript-southern-copper-tops-q2-2026-estimates-as-shares-rise-93CH-4806706</p>
+<p>54. Home - SCC - Eng - Southern Copper Corporation, https://southerncoppercorp.com/eng/</p>
+<p>55. Rising Costs of Mining Copper, https://www.miningvisuals.com/post/rising-costs-of-mining-copper</p>
+<p>56. Mexican Star Kukulkan to Return for Pegasus, https://www.thoroughbreddailynews.com/mexican-star-kukulkan-to-return-for-pegasus/</p>
+<p>57. 2022 Investor Factbook - Union Pacific, https://www.up.com/cs/groups/public/@uprr/@investor/documents/investordocuments/pdf_unp_2022_factbook.pdf</p>
+<p>58. Best Copper Stocks for 2026: Top 10 Picks &amp; Guide - InvestSnips, https://investsnips.com/best-copper-stocks/</p>
+<p>59. First Quarter 2025 Earnings Results - Southern Copper Corporation, https://southerncoppercorp.com/eng/wp-content/uploads/sites/2/2025/04/cc250430.pdf</p>
+<p>60. Southern Copper (SCCO) Corporate Presentation Summary | Quartr, https://quartr.com/events/southern-copper-scco-corporate-presentation_o0aJLw18</p>
+<p>61. Southern Copper Corporation (SCCO) Future Performance Analysis, https://koalagains.com/stocks/NYSE/SCCO/future-performance</p>
+<p>62. Perplexity Finance, https://www.perplexity.ai/finance/lists?preset=peers&amp;symbol=JIAXF</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">CLAVE DE MARCADORES — ESTÁNDAR DEL DOCUMENTO FUENTE</div>
+    <div class="keybox-grid">
+      <div><b>HECHO</b> — corresponde al marcador explícito de hecho del documento original</div>
+      <div><b>VERSIÓN PR</b> — corresponde al marcador explícito de versión PR</div>
+      <div><b>CONCLUSIÓN ANALÍTICA</b> — corresponde al marcador explícito de conclusión analítica</div>
+      <div><b>INSIDE / NO CONFIRMADO y SIN DATOS</b> — corresponden a los estados explícitos de incertidumbre del documento</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
