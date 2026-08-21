@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دول الخليج — رأس المال السيادي والسلطة المالية | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body dir="rtl">
+<a href="https://deeppressanalysis.com" class="home-btn">← الصفحة الرئيسية</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">استخبارات هيكلية مستقلة · منذ 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">«البنية فوق السردية.»</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>مكتب الخليج</span>
+    <span>21 أغسطس 2026</span>
+  </div>
+
+  <span class="section-tag">رأس المال / التمويل / السيادة</span>
+
+  <h1 class="headline">من يسيطر على رأس مال الخليج — وما الذي يحمي هذه المنظومة فعلياً؟</h1>
+  <p class="deck">PIF وADIA وKIA وQIA ومبادلة وADQ تشكل شبكة تلتقي فيها عوائد النفط، والمصارف، والصناديق السيادية، والتنظيم، ومراكز القرار المرتبطة بالأسر الحاكمة. يحلل التقرير درجة التركّز، وحواجز الدخول، والاعتماد على الدولار، ومخاطر نظام يوزع رأس المال من أعلى إلى أسفل.</p>
+  <div class="byline">مكتب الخليج — الفئة: رأس المال السيادي / القوة المالية / GCC</div>
+
+  <div class="columns">
+<p class="lead">يتناول هذا التقرير النظام المالي وإدارة رأس المال السيادي في دول مجلس التعاون الخليجي — السعودية والإمارات وقطر والكويت وعُمان والبحرين — ليس بوصفه قطاعاً مصرفياً مجرداً، بل كأداة متكاملة رأسياً لتوزيع الموارد، وترسيخ السيطرة السياسية، وبناء النفوذ الجيوسياسي.</p>
+<p>تنطلق بنية التحليل من أن الحدود بين الموازنة العامة، والثروة السيادية، والملكية المرتبطة بالأسر الحاكمة، والقطاع المصرفي التجاري أقل انفصالاً مما هي عليه في الاقتصادات التي تفصل مؤسسياً بين السلطة السياسية وملكية رأس المال. وتحافظ هذه النسخة على تصنيفات المصدر كما هي: حقائق، رواية علاقات عامة، استنتاجات تحليلية، ومعلومة داخلية غير مؤكدة.</p>
+<div class="subhead">المقدمة والمنهجية</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تتجاوز الأصول الإجمالية التي تديرها صناديق الثروة السيادية في دول مجلس التعاون الخليجي، وفقاً للوثيقة، 4.2 تريليون دولار.</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تبلغ الأصول المصرفية المجمعة في دول مجلس التعاون الخليجي نحو 3.2 تريليون دولار.</div>
+<p>تصف الوثيقة هذه المنظومة باعتبارها بنية احتكارية ـ عائلية/دولية تتداخل فيها الإيرادات النفطية والغازية مع الصناديق السيادية والمصارف الوطنية والمشاريع الاستراتيجية الكبرى.</p>
+<div class="subhead">1. هيكل السوق</div>
+<div class="subhead">1.1. نوع البنية السوقية</div>
+<p><strong>النوع الأساسي:</strong> احتكار قلة تهيمن عليه الدولة والأسر الحاكمة، مع عناصر من الاحتكار المنظَّم.</p>
+<p><strong>النوع الثانوي:</strong> احتكار شراء في سوق رأس المال المحلي؛ إذ تؤدي الصناديق السيادية والمصارف المرتبطة بالدولة دور المشتري الأكبر للأصول السائلة والمموّل الرئيسي للمشاريع الكبرى في البنية التحتية والتكنولوجيا.</p>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>في السعودية، يسيطر صندوق الاستثمارات العامة بصورة مباشرة أو عبر شركاته التابعة على قطاعات رئيسية من الاقتصاد غير النفطي، بما في ذلك نيوم، والقدية، والبحر الأحمر الدولية، وشركة الاتصالات السعودية، والبنك الأهلي السعودي.</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>في أبوظبي، يتوزع رأس المال السيادي بين مؤسسات ذات وظائف مختلفة: جهاز أبوظبي للاستثمار لحفظ الثروة بين الأجيال والاستثمار الخارجي، ومبادلة للاستثمارات الاستراتيجية المباشرة، وADQ للسيطرة على البنية التحتية الحيوية والموانئ والطاقة والصناعات الغذائية.</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تشير الوثيقة إلى أن أكبر ثلاثة بنوك في كل دولة من دول المجلس تستحوذ تقريباً على ما بين 60% و85% من إجمالي الأصول والودائع المصرفية.</div>
+<p>تقر الوثيقة بوجود أكثر من 70 مصرفاً تجارياً ومئات شركات الاستثمار الصغيرة، لكنها ترى أن معظم اللاعبين الصغار والمتوسطين يؤدون أدواراً خدمية أو تجزئة أو مقاولات فرعية، من دون وصول مماثل إلى التوزيع الأولي لعوائد النفط والغاز.</p>
+<div class="subhead">1.2. حواجز الدخول</div>
+<p><strong>الحواجز التنظيمية والترخيصية:</strong> إصدار تراخيص المصارف وإدارة الأصول من الفئات العليا يخضع للمصارف المركزية والهيئات المالية الوطنية.</p>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تقول الوثيقة إنه خلال السنوات الخمس عشرة الأخيرة لم يُنشأ في دول المجلس مصرف شامل كبير ومستقل من دون مشاركة رأس مال سيادي أو حكومي محلي.</div>
+<p><strong>حواجز رأس المال:</strong> متطلبات الملاءة والاحتياطيات المرتفعة ترفع تكلفة تأسيس مصرف مستقل واسع النطاق.</p>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تذكر الوثيقة أن نسب رأس المال الأساسي CET1 في مؤسسات خليجية كبيرة تتجاوز كثيراً نطاق 14–16%، ما يجعل إنشاء مصرف مستقل برأسمال يتجاوز مليار دولار أمراً اقتصادياً شديد الصعوبة من دون ضمان أو دعم حكومي.</div>
+<p><strong>حواجز البنية التحتية والمقاصة:</strong> الوصول إلى أنظمة الإيداع المركزي والتسوية والخطوط بين المصارف مرتبط بشبكات تهيمن عليها المصارف الحكومية أو شبه الحكومية.</p>
+<p><strong>الحواجز السياسية ـ العائلية:</strong> يرى المصدر أن تكوين كتلة خاصة مستقلة من السيولة بحجم يوازي رأس المال السيادي قد يواجه قيوداً تنظيمية وإفصاحية وتراجعاً في الوصول إلى ودائع الدولة.</p>
+<div class="stamp-note insight"><span class="k">■ استنتاج تحليلي</span>تفسر الوثيقة أدوات المراقبة المالية ومتطلبات الإفصاح عن المالكين المستفيدين وتوزيع ودائع الدولة باعتبارها وسائل يمكن استخدامها لمنع الأسر التجارية الخاصة — مثل الغرير والفطيم والعليان — من بناء مراكز سيولة مستقلة قد تتحول إلى مراكز نفوذ اقتصادي وسياسي بديلة.</div>
+<div class="subhead">1.3. التسعير ومحركاته الحقيقية</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>ترتبط عملات معظم دول مجلس التعاون بالدولار الأمريكي بسعر ثابت، بينما تعتمد الكويت سلة عملات. ونتيجة لذلك تتحرك أسعار السوق النقدية مثل SAIBOR وEIBOR بصورة وثيقة مع قرارات مجلس الاحتياطي الفيدرالي.</div>
+<p><strong>تكلفة رأسمال مدعومة للقطاع الحكومي:</strong> تقول الوثيقة إن الشركات الحكومية وشركات الصناديق السيادية تستطيع الاقتراض من المصارف الوطنية بهوامش منخفضة، بينما يدفع القطاع الخاص علاوة مخاطر أعلى.</p>
+<p><strong>توزيع يدوي للسيولة:</strong> تستطيع المصارف المركزية ووزارات المالية التأثير في سيولة النظام عبر إعادة توزيع ودائع شركات حكومية مثل أرامكو وأدنوك وقطر للطاقة بين مصارف مختارة.</p>
+<p><strong>مستوى الثقة الذي يعلنه المصدر للقسم الأول:</strong> مرتفع.</p>
+<div class="subhead">2. من يسيطر</div>
+<div class="subhead">2.1. الصناديق الرئيسية ومجموعات التحكم</div>
+
+<table>
+<thead>
+<tr>
+<th>المؤسسة</th><th>الدولة</th><th>الأصول المُعلنة تحت الإدارة</th><th>التحكم الرسمي</th><th>مجموعة التحكم وفق الوثيقة</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>PIF</td><td>السعودية</td><td>نحو 930 مليار–1.2 تريليون دولار</td><td>مجلس إدارة برئاسة ولي العهد</td><td>محمد بن سلمان ودائرة من التكنوقراط، من بينهم ياسر الرميان</td></tr>
+<tr><td>ADIA</td><td>الإمارات / أبوظبي</td><td>نحو 990 مليار–1.18 تريليون دولار</td><td>مجلس مرتبط بحكومة الإمارة</td><td>أسرة آل نهيان؛ وتذكر الوثيقة الشيخ منصور بن زايد والشيخ طحنون بن زايد</td></tr>
+<tr><td>KIA</td><td>الكويت</td><td>نحو 930 مليار–1.0 تريليون دولار</td><td>مجلس تحت وزارة المالية</td><td>أسرة آل صباح، مع درجة أكبر من تدخل مجلس الأمة مقارنة ببعض نماذج الخليج الأخرى</td></tr>
+<tr><td>QIA</td><td>قطر</td><td>نحو 510–580 مليار دولار</td><td>المجلس الأعلى للشؤون الاقتصادية والاستثمار</td><td>أسرة آل ثاني؛ وتذكر الوثيقة الأمير تميم بن حمد وبندر بن محمد</td></tr>
+<tr><td>مبادلة + ADQ / MGX</td><td>الإمارات / أبوظبي</td><td>مبادلة نحو 385 مليار دولار؛ ADQ أكثر من 200 مليار</td><td>شركات قابضة حكومية</td><td>تضع الوثيقة الشيخ طحنون بن زايد آل نهيان في موقع محوري عبر عدة مؤسسات</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تضع الوثيقة تقديرات الأصول المُدارة لصناديق PIF وADIA وKIA وQIA ومبادلة/ADQ ضمن البيانات المصنفة كحقائق.</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>بالنسبة إلى PIF، تصنف الوثيقة تمركز السيطرة الفعلية حول محمد بن سلمان ودائرة التكنوقراط المفوضين، ومن بينهم ياسر الرميان، كحقيقة.</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>بالنسبة إلى ADIA، تصنف الوثيقة هيمنة أسرة آل نهيان على بنية التحكم كحقيقة.</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>بالنسبة إلى KIA، تصنف الوثيقة نفوذ أسرة آل صباح، إلى جانب مستوى أعلى من تدخل مجلس الأمة، كحقيقة.</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>بالنسبة إلى QIA، تصنف الوثيقة سيطرة أسرة آل ثاني عبر مؤسسات الاستثمار العليا للدولة كحقيقة.</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>بالنسبة إلى مبادلة وADQ وMGX، تصنف الوثيقة الدور المركزي للشيخ طحنون بن زايد آل نهيان — مع جمعه أدواراً في الأمن الوطني والمال والتكنولوجيا — كحقيقة.</div>
+<div class="subhead">2.2. نقاط الالتقاء بين الدولة والأعمال</div>
+<p>تقول الوثيقة إن مفهوم «الباب الدوار» الغربي غير كافٍ لوصف الخليج، لأن الوظائف العامة والمالية والشركاتية قد تُجمع في الشخص نفسه في الوقت ذاته.</p>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>يظهر ياسر الرميان في الوقت نفسه محافظاً لصندوق الاستثمارات العامة، ورئيساً لمجلس إدارة أرامكو السعودية، ورئيساً لنادي نيوكاسل يونايتد.</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>يجمع الشيخ طحنون بن زايد آل نهيان بين منصب مستشار الأمن الوطني في الإمارات وأدوار قيادية مرتبطة ببنك أبوظبي الأول وADQ ومبادلة وG42 وIHC.</div>
+<div class="stamp-note insight"><span class="k">■ استنتاج تحليلي</span>تفسر الوثيقة تركيز التنظيم وتوزيع رأس المال والعقود ووظائف الأمن في عدد محدود جداً من الأشخاص باعتباره تحويل تضارب المصالح من استثناء قانوني إلى عنصر مؤسسي في نموذج الحكم.</div>
+<div class="subhead">2.3. مراكز النفوذ الخارجية</div>
+<p><strong>الاحتياطي الفيدرالي ومنظومة الدولار:</strong> ربط العملات بالدولار يحد من الاستقلال النقدي وينقل دورات الفائدة الأمريكية إلى اقتصادات الخليج.</p>
+<p><strong>مديرو الأصول الغربيون:</strong> تلعب مؤسسات مثل BlackRock وBrookfield وBlackstone أدواراً كمديرين ومستشارين وشركاء استثمار.</p>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تقول الوثيقة إن صناديق الثروة السيادية الخليجية تدفع سنوياً مليارات الدولارات في صورة رسوم لمديري الأصول الخارجيين، مقابل الوصول إلى فرص استثمار مشترك وتقنيات وأسواق غربية.</div>
+<p><strong>العامل الصيني:</strong> توسع الشراكات مع شركات مثل Sinopec وHuawei وTencent يفتح مساراً إضافياً لتنويع المخاطر.</p>
+<div class="stamp-note insight"><span class="k">■ استنتاج تحليلي</span>تفسر الوثيقة زيادة الاستثمارات المتبادلة مع الصين باعتبارها إعادة تموضع استراتيجية لجزء من رأس المال نحو الشرق بهدف تقليل مخاطر العقوبات والاعتماد المفرط على الغرب.</div>
+<p><strong>مستوى الثقة الذي يعلنه المصدر للقسم الثاني:</strong> مرتفع.</p>
+<div class="subhead">3. آليات الاحتفاظ بالقوة داخل القطاع</div>
+<div class="subhead">3.1. الاستحواذ التنظيمي المعكوس</div>
+<p>تقترح الوثيقة عكس الصيغة التقليدية لـ«استحواذ الشركات على المنظم»: في الخليج، الأعمال الاستراتيجية هي التي تقع ضمن سيطرة المنظم ورأس المال السيادي.</p>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تصف الوثيقة مؤسسات مثل SAMA وCBUAE وQCB بأنها مدمجة بعمق في البنية المالية للأنظمة الحاكمة.</div>
+<p>وتُعرض معايير بازل 3 ومتطلبات الرسملة المحلية كأدوات قد تعزز الاندماج وترفع كلفة بقاء المصارف الخاصة الصغيرة.</p>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تذكر الوثيقة أن اندماج National Commercial Bank مع Samba Financial Group لتشكيل Saudi National Bank، واندماج National Bank of Abu Dhabi مع First Gulf Bank لتشكيل FAB، جرى تحت مشاركة قوية من مساهمين حكوميين أو صناديق سيادية، وأنتج مؤسسات مصرفية ذات أهمية نظامية كبيرة.</div>
+<div class="subhead">3.2. السلوك الشبيه بالكارتل</div>
+<div class="stamp-note insight"><span class="k">■ استنتاج تحليلي</span>ترى الوثيقة وجود تسعير متوازٍ ومستقر نسبياً في رسوم التحويل وهوامش إقراض القطاع الخاص وشروط الرهن العقاري، وتفسره باعتباره شكلاً من أشكال التنسيق البنيوي داخل أنظمة مصرفية شديدة التركّز.</div>
+<div class="stamp-note pr"><span class="k">■ رواية العلاقات العامة</span>تفسر رواية العلاقات العامة التي ينقلها المصدر ارتفاع أسعار الفائدة وشروط الإقراض الصارمة للمؤسسات الصغيرة والمتوسطة بارتفاع مخاطر الائتمان وضعف شفافية التقارير المالية في هذا القطاع.</div>
+<div class="stamp-note insight"><span class="k">■ استنتاج تحليلي</span>في «النسخة النقدية» المعلَّمة صراحة في المصدر، يُفسَّر تنسيق الهوامش باعتباره أداة لتقييد نمو ريادة الأعمال الخاصة المستقلة التي قد تُنتج مراكز بديلة للنفوذ الاقتصادي.</div>
+<div class="subhead">3.3. إزاحة المنافسين وامتصاصهم</div>
+<p>تستخدم الوثيقة انهيار Abraaj Group في 2018 كمثال على هشاشة منصة مالية مستقلة عندما تفقد الغطاء المؤسسي.</p>
+<p>الآلية الثانية هي استحواذ الشركات التابعة للصناديق السيادية أو المصارف الحكومية على المجالات الجديدة ذات الربحية المرتفعة بسرعة.</p>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تذكر الوثيقة STC Pay وNeoleap في السعودية كمثالين على منصات تقنية مالية مرتبطة بمنظومات حكومية حصلت على أولوية تنظيمية.</div>
+<p><strong>مستوى الثقة الذي يعلنه المصدر للقسم الثالث:</strong> مرتفع.</p>
+<div class="subhead">4. نقاط الضعف ومخاطر النظام</div>
+
+<table>
+<thead>
+<tr><th>فئة المخاطر</th><th>آلية الخطر وفق الوثيقة</th><th>مستوى الثقة</th></tr>
+</thead>
+<tbody>
+<tr><td>التركيز / أكبر من أن يفشل</td><td>تركّز نسبة كبيرة من الأصول المالية في مصرف أو مصرفين وصندوق أو صندوقين في كل دولة؛ أي خطأ كبير في PIF أو FAB أو عقدة مماثلة قد ينتقل مباشرة إلى الدولة.</td><td>مرتفع</td></tr>
+<tr><td>الجيوسياسة والعقوبات</td><td>الربط بالدولار والاحتفاظ بأحجام ضخمة من الأصول في ولايات قضائية غربية يخلقان تعرضاً للعقوبات الأمريكية أو الأوروبية خارج الحدود.</td><td>مرتفع</td></tr>
+<tr><td>سوء تخصيص رأس المال / «الفيلة البيضاء»</td><td>مشاريع مثل نيوم والقدية والاستثمار الرياضي قد تعطي الأولوية للأهداف السياسية على العائد المالي، وتخلق ضغطاً نقدياً إذا انخفض النفط لفترة طويلة.</td><td>متوسط</td></tr>
+<tr><td>الاضطراب التقني</td><td>التمويل اللامركزي والعملات المشفرة والتسويات العابرة للحدود باليوان قد تقلل عوائد الوساطة والرسوم لدى المصارف التي تسيطر عليها الدولة.</td><td>متوسط</td></tr>
+<tr><td>المخاطر الاجتماعية</td><td>الفجوة بين تمويل المشاريع السيادية الضخمة وإتاحة رأس المال للأعمال المحلية التقليدية قد تولد استياءً داخل بعض الأسر التجارية.</td><td>متوسط</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>تصنف الوثيقة التركّز الكبير للأصول المالية في عدد محدود جداً من المصارف والصناديق بكل دولة كمخاطرة مؤكدة ذات مستوى ثقة مرتفع.</div>
+<div class="stamp-note fact"><span class="k">■ حقيقة</span>كما تصنف التعرض الجيوسياسي الناتج من ربط العملات بالدولار ووجود ما يقارب تريليوني دولار أو أكثر في ولايات قضائية غربية كحقيقة ذات ثقة مرتفعة.</div>
+<div class="stamp-note insight"><span class="k">■ استنتاج تحليلي</span>تصنف الوثيقة كاستنتاج تحليلي متوسط الثقة احتمال أن يؤدي توجيه رأس المال إلى مشاريع ضخمة ذات دوافع سياسية — مثل نيوم والقدية والاستثمار الرياضي — إلى فجوات تمويل إذا ظل النفط دون نحو 60–70 دولاراً للبرميل لفترة ممتدة.</div>
+<div class="stamp-note insight"><span class="k">■ استنتاج تحليلي</span>كما تصنف كاستنتاج تحليلي متوسط الثقة احتمال أن تقلل DeFi والأصول المشفرة والمدفوعات العابرة للحدود باليوان إيرادات الرسوم والوساطة التقليدية للمصارف التي تسيطر عليها الدولة.</div>
+<div class="stamp-note insight"><span class="k">■ معلومة داخلية / غير مؤكدة</span>تُبقي الوثيقة فرضية أن التباين بين تمويل المشاريع السيادية العملاقة وصعوبة وصول الأعمال المحلية الصغيرة إلى رأس المال يولد استياءً مكتوماً لدى بعض الأسر التجارية ضمن فئة «معلومة داخلية / غير مؤكدة».</div>
+<div class="subhead">5. التقييم النهائي</div>
+<div class="subhead">ملخص البنية الفعلية للقوة</div>
+<p>تخلص الوثيقة إلى أنه، على الرغم من خطاب «التحول السوقي، جذب الاستثمار الأجنبي، والمنافسة الخاصة»، يعمل النظام المالي الخليجي كآلية شديدة المركزية لإعادة توزيع الريع. والمسار الذي ترسمه هو: <strong>شركات النفط الحكومية ← المصارف المركزية / صناديق الثروة السيادية ← المصارف الحكومية أو المهيمنة ← المشاريع الكبرى المرتبطة بالدولة والأسر الحاكمة</strong>.</p>
+<div class="subhead">المصدر الرئيسي للاستقرار</div>
+<p>ترى الوثيقة أن الاستقرار يعتمد على عنصرين أساسيين: السيطرة الاحتكارية على الريع الهيدروكربوني، وغياب فصل كامل بين السلطة السياسية وحقوق ملكية رأس المال.</p>
+<div class="subhead">النقاط الرئيسية لإعادة توزيع القوة مستقبلاً</div>
+<p><strong>1. فترة طويلة من أسعار النفط المنخفضة.</strong> انخفاض مستمر تحت مستوى التعادل المالي قد يجبر الصناديق السيادية على سحب السيولة من القطاع المصرفي لتمويل العجز، ما يضعف البنوك التجارية ويكشف ديون المشاريع العملاقة. <strong>مستوى الثقة: مرتفع.</strong></p>
+<p><strong>2. صراعات داخل الأسر الحاكمة أثناء انتقال السلطة.</strong> التنافس على التحكم في PIF أو IHC أو ADQ أو غيرها من العقد السيادية قد يغيّر بسرعة توزيع العقود والودائع والسيولة داخل المؤسسات المرتبطة بها. <strong>مستوى الثقة: متوسط.</strong></p>
+<div class="subhead">ملاحظة حول المصادر</div>
+<p>لا يحتوي الملف الأصلي على ببليوغرافيا مستقلة أو قائمة روابط منفصلة. الأدلة مدمجة داخل النص في صورة إشارات إلى المؤسسات، والأصول المُدارة، وهياكل الحوكمة، ومستويات الثقة؛ لذلك لم تُضف هذه النسخة مصادر خارجية غير موجودة في الوثيقة الأصلية.</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">مفتاح العلامات — معيار الوثيقة الأصلية</div>
+    <div class="keybox-grid">
+      <div><b>حقيقة</b> — يقابل العلامة الواقعية الصريحة في المصدر</div>
+      <div><b>رواية العلاقات العامة</b> — صياغة عامة أو قطاعية موسومة صراحة في الوثيقة</div>
+      <div><b>استنتاج تحليلي</b> — تفسير هيكلي موسوم صراحة في المصدر</div>
+      <div><b>معلومة داخلية / غير مؤكدة</b> — ادعاء أبقاه المصدر غير مؤكد؛ لا توجد علامات «لا توجد بيانات» في هذا الملف</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
