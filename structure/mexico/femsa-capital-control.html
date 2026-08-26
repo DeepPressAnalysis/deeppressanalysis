@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México — FEMSA: arquitectura de capital y mecánica de control | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← INICIO</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Inteligencia estructural independiente · desde 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">«La estructura por encima de la narrativa.»</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>MESA MÉXICO</span>
+    <span>26 DE AGOSTO DE 2026</span>
+  </div>
+
+  <span class="section-tag">INDUSTRIAS / RETAIL / CAPITAL DINÁSTICO</span>
+
+  <h1 class="headline">FEMSA: el imperio que convirtió la última milla en infraestructura de poder</h1>
+  <p class="deck">OXXO, Coca-Cola FEMSA, Spin, Valora y un Voting Trust familiar forman una arquitectura donde consumo cotidiano, distribución, pagos y reciclaje de capital convergen en un sistema diseñado para preservar el control dinástico y extraer liquidez sin ceder el mando.</p>
+  <div class="byline">Mesa México — categoría: INDUSTRIAS / FEMSA / ARQUITECTURA DE CAPITAL</div>
+
+  <div class="columns">
+<p class="lead">FEMSA evolucionó de un grupo industrial y cervecero regional de Monterrey a una infraestructura transnacional de distribución, retail, bebidas y pagos. El documento fuente define su estrategia como una combinación de monopolio de nicho sobre la “última milla” del consumo, consolidación dinástica y compra de activos seguida de reciclaje de capital.</p>
+<p>La lógica central no es simplemente vender productos: es controlar el punto físico y digital donde el consumidor paga, compra, retira efectivo, envía dinero o cubre servicios. OXXO funciona como plataforma de distribución y liquidez; Coca-Cola FEMSA como motor industrial y de margen; y la estructura accionaria preserva el mando de la familia Garza Sada / Garza Lagüera pese a la cotización pública.</p>
+<div class="subhead">1. CÓMO ESTÁ CONSTRUIDO EL IMPERIO</div>
+<div class="subhead">1.1. Estrategia principal de crecimiento</div>
+<p><strong>Estrategia principal:</strong> monopolista de nicho sobre la infraestructura transversal del consumo, combinada con un modelo de heredero-consolidador.</p>
+<p><strong>Estrategia secundaria:</strong> adquisición tipo roll-up con posterior reciclaje de capital.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El grupo nació en 1890 con la fundación de Cervecería Cuauhtémoc en Monterrey. Durante el siglo XX, las familias Garza, Sada, Lagüera y Calderón construyeron una estructura verticalmente integrada que abarcó materias primas, vidrio, empaque, instituciones financieras y logística. El giro estratégico decisivo llegó con el control de la “última milla” del consumo: la expansión de OXXO —más de 24,000 puntos según la fuente— transformó la dependencia de activos industriales en control directo sobre puntos físicos de contacto con el consumidor.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente concluye que el dominio minorista se convirtió en una palanca frente a fabricantes de bienes de consumo, incluido el propio negocio embotellador. OXXO ofrece salida garantizada para Coca-Cola FEMSA y, al mismo tiempo, genera un flujo constante de efectivo que reduce la dependencia del crédito bancario.</div>
+<div class="stamp-note pr"><span class="k">■ VERSIÓN PR</span>La administración de FEMSA presenta el programa FEMSA Forward como una estrategia para maximizar el valor intrínseco por acción mediante simplificación del portafolio, salida de inversiones no controladas y devolución de capital excedente a los accionistas.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El análisis de operaciones entre 2010 y 2025 muestra, según el documento, una estrategia sistemática de reciclaje financiero: salida del negocio cervecero intensivo en capital mediante el intercambio de Cuauhtémoc Moctezuma por una participación en Heineken, monetización posterior de ese paquete en 2023 y reasignación de liquidez hacia retail, fintech —Spin by OXXO— y pagos directos a accionistas.</div>
+
+<table>
+<thead>
+<tr><th>Componente de estrategia</th><th>Instrumentos y operaciones</th><th>Efecto estratégico</th></tr>
+</thead>
+<tbody>
+<tr><td>Control de infraestructura</td><td>Escalamiento de OXXO, integración de Spin by OXXO y del programa de lealtad OXXO Premia.</td><td>Control de gasto cotidiano y captura de flujos financieros que antes pasaban principalmente por bancos.</td></tr>
+<tr><td>Reciclaje de capital</td><td>Venta del negocio cervecero a Heineken en 2010 y monetización completa de la participación remanente en 2023.</td><td>Salida de activos no controlados y liberación de liquidez para recompras y reducción de deuda.</td></tr>
+<tr><td>Salida de activos no estratégicos</td><td>Venta de Jetro Restaurant Depot por US$945 millones y de Imbera/Torrey por aproximadamente US$450 millones en 2024.</td><td>Ejecución de FEMSA Forward con foco en retail, embotellado y digital.</td></tr>
+<tr><td>Roll-up geográfico</td><td>Compra de Valora en Suiza en 2022 y consolidación de 100% de OXXO Brasil en 2025.</td><td>Exportación del modelo de proximidad fuera de América Latina.</td></tr>
+</tbody>
+</table>
+
+<p>La reestructuración de 2023–2025 funciona como contraejemplo al crecimiento industrial clásico: en lugar de ampliar indiscriminadamente la base productiva, FEMSA retiró capital de cerveza europea y mayoreo estadounidense y lo redirigió a dividendos extraordinarios y recompra de acciones. El documento interpreta esto como señal de que FEMSA funciona también como mecanismo financiero de redistribución de liquidez hacia el bloque familiar controlador.</p>
+<div class="subhead">1.2. Modelo de toma de decisiones</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El gobierno corporativo de FEMSA se basa en una estructura dual de capital establecida en sus estatutos y en prospectos presentados ante la SEC. El capital se divide entre acciones ordinarias con derechos de voto y acciones con derechos limitados agrupadas en unidades especiales.</div>
+
+<table>
+<thead>
+<tr><th>Clase de acción / unidad</th><th>Composición</th><th>Derechos de voto</th><th>Tenedor principal</th></tr>
+</thead>
+<tbody>
+<tr><td>Series B Shares</td><td>Integradas en B-Units y BD-Units.</td><td>Derechos plenos: una acción = un voto; eligen la mayoría del Consejo.</td><td>Voting Trust de la familia Garza Lagüera.</td></tr>
+<tr><td>Series D Shares (D-B, D-L)</td><td>Integradas en BD-Units.</td><td>Derechos limitados, principalmente en cambios corporativos clave.</td><td>Inversionistas públicos y mercados bursátiles.</td></tr>
+<tr><td>Series L Shares</td><td>Cotizan en BMV y NYSE mediante ADS.</td><td>Derechos de voto limitados.</td><td>Inversionistas institucionales y minoritarios.</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El Voting Trust que agrupa a miembros de la familia Garza Lagüera —incluidas Eva María Garza Lagüera Gonda, Mariana Garza Lagüera Gonda y personas relacionadas— posee más de 50% de las acciones Serie B, lo que otorga a la familia control absoluto sobre las asambleas de accionistas y la composición del Consejo de Administración.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento caracteriza el modelo como autoritario-dinástico encapsulado dentro de una sociedad pública. El equipo profesional conserva autonomía operativa dentro de KPI aprobados, pero las decisiones estratégicas de capital —M&A, dividendos y venta de participaciones— permanecen bajo aprobación de los beneficiarios del trust familiar.</div>
+<div class="subhead">1.3. Relación con el riesgo</div>
+<p>El perfil es asimétrico: conservador en las subsidiarias operativas y agresivo en la reasignación de capital y defensa de participación de mercado.</p>
+<p><strong>Riesgo con capital propio:</strong> la adquisición de Valora en 2022 expuso a FEMSA a un mercado europeo con mayores costos laborales y regulación más estricta.</p>
+<p><strong>Riesgo compartido:</strong> Coca-Cola FEMSA distribuye riesgos operativos y de capital con The Coca-Cola Company. La multinacional aporta marca, concentrado y soporte comercial; KOF controla distribución física y buena parte de la ejecución local.</p>
+<p><strong>Riesgo trasladado al sistema:</strong> el crecimiento de OXXO como red de cobro de servicios, transferencias, pagos y Spin by OXXO la convierte en infraestructura cotidiana con importancia sistémica en muchas zonas del país.</p>
+<p><strong>Riesgo financiero:</strong> la fuente señala que Net Debt/EBITDA ex-KOF subió de 0.45x a 1.02x en 2025 y a 1.24x en el primer trimestre de 2026, en paralelo con dividendos récord y recompra de acciones.</p>
+<div class="subhead">1.4. Principal motor interno</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>A partir de la estructura de propiedad y la distribución de efectivo, la fuente identifica como motivación central conservar el control absoluto y la seguridad de largo plazo del capital dinástico mientras se maximiza la extracción de liquidez. FEMSA Forward mostró prioridad por proteger activos familiares: el grupo monetizó participaciones pasivas como Heineken, devolvió capital y concentró recursos en negocios donde mantiene control.</div>
+<div class="subhead">2. ORIGEN DEL CAPITAL</div>
+<div class="subhead">2.1. Primer apalancamiento</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El primer gran mecanismo de acumulación fue la integración vertical alrededor de Cervecería Cuauhtémoc, fundada en Monterrey en 1890.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente interpreta la formación del capital de las familias Garza Sada / Lagüera como resultado del “nodo industrial de Monterrey”. Para garantizar autonomía de la cervecera, el grupo desarrolló negocios complementarios en vidrio —Fabricación de Vidrio, posteriormente Grupo Vitro—, cartón y empaque, metalurgia mediante Hylsa y financiamiento bancario. La arquitectura inicial se benefició de un mercado mexicano relativamente cerrado y de una fuerte posición regional en el norte del país.</div>
+<div class="subhead">2.2. Fuentes de ingresos actuales</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Para 2024–2026, la estructura financiera de FEMSA se apoya en tres grandes divisiones operativas y en monetización recurrente de inversiones. La facturación consolidada de 2024 superó los 804 mil millones de pesos mexicanos.</div>
+<p><strong>Proximity Americas / OXXO:</strong> principal generador de flujo y de ventas consolidadas; el crecimiento se apoya en densidad territorial y servicios financieros.</p>
+<p><strong>Coca-Cola FEMSA (KOF):</strong> embotellador cotizado de manera independiente, con margen operativo estable —aproximadamente 13.4–14.3% según la fuente— y endeudamiento relativamente bajo.</p>
+<p><strong>Health & Fuel:</strong> farmacias de FEMSA Health y estaciones OXXO Gas como generadores adicionales de flujo.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Entre 2023 y 2025, una parte sustancial de la liquidez se generó fuera de la operación diaria mediante la venta de activos de Heineken, Jetro Restaurant Depot e Imbera/Torrey; esos recursos se destinaron a dividendos extraordinarios y recompra de acciones.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El bloque de control se mantiene mediante un Voting Trust registrado en jurisdicción mexicana, diseñado para proteger la participación familiar frente a adquisiciones externas y ordenar la distribución de dividendos.</div>
+<div class="subhead">3. VÍNCULOS Y FINANCIAMIENTO</div>
+<div class="subhead">3.1. Quién financia</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>FEMSA utiliza un modelo multicanal de financiamiento: emisiones internacionales de Senior Notes; líneas sindicadas con instituciones como JPMorgan, Citi y BBVA México; programas de accelerated share repurchase; y coinversión estratégica con The Coca-Cola Company, que participa financieramente en KOF y cofinancia elementos de marketing y logística.</div>
+<div class="subhead">3.2. Relaciones políticas</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente concluye que la relación de FEMSA con el Estado mexicano evolucionó desde el enfrentamiento abierto de la antigua “élite de Monterrey” hacia un modelo de simbiosis institucional pragmática.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El peso político actual del conglomerado se apoya en su posición sistémica: la fuente lo describe como uno de los mayores empleadores privados del país, con más de 280,000 trabajadores; estima pagos de impuesto sobre la renta superiores a 100 mil millones de pesos entre 2023 y 2028; destaca que OXXO recibe decenas de millones de visitas y funciona como punto de pago de servicios y transferencias; y señala la presencia histórica de la familia y ejecutivos en órganos de gobierno del Tecnológico de Monterrey.</div>
+<div class="subhead">3.3. Alianzas y conflictos empresariales</div>
+
+<table>
+<thead>
+<tr><th>Tipo de interacción</th><th>Actor</th><th>Contenido y efecto financiero-jurídico</th></tr>
+</thead>
+<tbody>
+<tr><td>Alianza clave</td><td>The Coca-Cola Company</td><td>Copropiedad de KOF. FEMSA mantiene control operativo y Coca-Cola aporta derechos exclusivos de embotellado, concentrados y marca.</td></tr>
+<tr><td>Conflicto regulatorio</td><td>COFECE</td><td>Investigaciones sobre acuerdos exclusivos de distribución y colocación preferente de productos de KOF en OXXO; la autoridad ha impuesto sanciones y modificaciones comerciales en distintos expedientes.</td></tr>
+<tr><td>Conflicto de seguridad</td><td>Crimen organizado</td><td>En julio de 2024 FEMSA suspendió temporalmente operaciones de 191 tiendas OXXO y estaciones en Nuevo Laredo ante extorsiones y amenazas, según la fuente.</td></tr>
+</tbody>
+</table>
+
+<div class="subhead">4. VULNERABILIDADES</div>
+<div class="subhead">4.1. Riesgo regulatorio</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente marca como riesgo de alta confianza la presión de COFECE sobre la posición de Coca-Cola FEMSA y la colocación preferente de productos en OXXO, así como la posibilidad de mayores impuestos a bebidas azucaradas y restricciones a la venta minorista de productos de alta densidad calórica.</div>
+<div class="subhead">4.2. Riesgo de deuda</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El endeudamiento neto del holding ex-KOF aumentó de 0.45x Net Debt/EBITDA a 1.02x en 2025 y a 1.24x a comienzos de 2026 por dividendos agresivos y recompra de acciones. KOF mantuvo, al mismo tiempo, una razón de deuda conservadora cercana a 0.79x.</div>
+<div class="subhead">4.3. Riesgo sucesorio</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El control está pasando hacia la tercera y cuarta generaciones de la familia Garza Lagüera. La existencia de múltiples beneficiarios dentro de un mismo Voting Trust crea un riesgo de desacuerdos futuros sobre cuánto reinvertir y cuánto retirar vía dividendos. La fuente asigna confianza media a este riesgo.</div>
+<div class="subhead">4.4. Riesgo físico y criminal</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La red minorista es altamente vulnerable a crimen organizado en zonas donde la capacidad estatal es débil. El cierre temporal de toda la red OXXO en Nuevo Laredo en 2024 mostró, según la fuente, un límite físico real a la expansión cuando existe presión criminal.</div>
+<div class="subhead">4.5. Riesgo político</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente identifica como riesgo de confianza media un posible choque con el gobierno por regulación del agua utilizada por el negocio embotellador durante periodos de sequía en el norte de México, junto con presión laboral derivada de aumentos al salario mínimo y mayores contribuciones sociales.</div>
+<div class="subhead">4.6. Riesgo de concentración</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>A pesar de la diversificación internacional mediante Valora en Europa y operaciones sudamericanas, una parte crítica de los ingresos consolidados continúa dependiendo del mercado mexicano. La fuente clasifica este riesgo con confianza alta.</div>
+<div class="subhead">5. EVALUACIÓN FINAL</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente concluye que FEMSA es un nodo dinástico institucionalizado de concentración de capital que controla infraestructura de consumo cotidiano y una parte relevante de los flujos de pago de la población mexicana. La arquitectura queda protegida por dos capas: control corporativo de la red OXXO y la alianza exclusiva con The Coca-Cola Company.</div>
+<p><strong>Principal fuente de estabilidad:</strong> control transversal de la última milla de distribución. OXXO produce flujo de efectivo constante, eleva las barreras de entrada para competidores y vuelve a la logística cotidiana de hogares y pequeños negocios dependiente de la infraestructura del grupo.</p>
+<p><strong>Principal punto de ruptura potencial:</strong> erosión de seguridad física y capacidad estatal local combinada con mayor apalancamiento financiero del holding. Si el crimen organizado pudiera reproducir cierres de redes en regiones económicas clave, la rentabilidad de OXXO se deterioraría justo cuando el aumento de deuda utilizado para dividendos y recompras reduciría el margen de maniobra.</p>
+<p><strong>Confianza de la evaluación final:</strong> alta.</p>
+<div class="subhead">FUENTES</div>
+<p>1. FORM 20-F Fomento Económico Mexicano, S.A.B. de C.V., https://femsa.gcs-web.com/static-files/cbf8c92f-ca4e-4aa6-8e40-e64d6720aaa4</p>
+<p>2. FEMSA Strategy and Business Model - Umbrex, https://umbrex.com/resources/company-profiles/fomento-economico-mexicano/</p>
+<p>3. fmx-20231231 - SEC.gov, https://www.sec.gov/Archives/edgar/data/1061736/000162828024017454/fmx-20231231.htm</p>
+<p>4. FORM 20-F Fomento Económico Mexicano, S.A.B. de C.V., https://femsa.gcs-web.com/static-files/42e7513a-e9a5-4bd7-b900-b9c9ee5a3421</p>
+<p>5. Form 20-F - SEC.gov, https://www.sec.gov/Archives/edgar/data/1061736/000119312516548524/d172566d20f.htm</p>
+<p>6. Coca-Cola FEMSA Q2 2025 - KOF - Stock Titan, https://www.stocktitan.net/sec-filings/KOF/6-k-coca-cola-femsa-s-a-b-de-c-v-current-report-foreign-issuer-bbea6b1cd684.html</p>
+<p>7. 4Q and Full Year 2023 FEMSA Results, https://www.femsa.com/en/press-room/press-release/4q-and-full-year-2023-femsa-results/</p>
+<p>8. fmx-20241231 - SEC.gov, https://www.sec.gov/Archives/edgar/data/1061736/000162828025019714/fmx-20241231.htm</p>
+<p>9. FEMSA, 2Q 2024 Results, https://www.femsa.com/en/press-room/press-release/femsa-2q-2024-results/</p>
+<p>10. 4Q and Full Year 2024 Results - Investors | FEMSA, https://femsa.gcs-web.com/static-files/e9c252c4-e543-449b-b63d-589ac6ef88a5</p>
+<p>11. Form 6-K/A for Mexican Economic Development INC filed 04/28/2025, https://femsa.gcs-web.com/static-files/367a2e8f-800b-4318-b0b0-7e7f368aafd7</p>
+<p>12. FEMSA (NYSE: FMX) lifts Q4 revenue, trims capex and repays bond, https://www.stocktitan.net/sec-filings/FMX/6-k-mexican-economic-development-inc-current-report-foreign-issuer-cd1ef671b5cc.html</p>
+<p>13. FORM 20-F Fomento Económico Mexicano, S.A.B. de C.V., https://femsa.gcs-web.com/static-files/a7b187f6-d4c4-40da-a003-39a919f82754</p>
+<p>14. FORM 20-F Fomento Económico Mexicano, S.A.B. de C.V., https://femsa.gcs-web.com/static-files/98653232-2e14-46bc-ae56-c35a930e3560</p>
+<p>15. Form 20-F - SEC.gov, https://www.sec.gov/Archives/edgar/data/910631/000119312514140770/d710586d20f.htm</p>
+<p>16. Annual Report for Fiscal Year Ending December 31, 2024 (Form 20-F), https://www.publicnow.com/view/295B1D732DC4D8E227B99FFF7040E83536286F22?1744282051</p>
+<p>17. Form 20-F - SEC.gov, https://www.sec.gov/Archives/edgar/data/1061736/000119312513146138/d513408d20f.htm</p>
+<p>18. Fomento Económico Mexicano, S.A. de C.V. - Investors | FEMSA, https://femsa.gcs-web.com/static-files/fe3100f8-c58b-4c0e-93d5-8d578be900f3</p>
+<p>19. FMX Fomento Economico Mexicano SAB De CV - ADVFN, https://mx.advfn.com/bolsa-de-valores/NYSE/FMX/noticias/96918569/tm2526962d2_ex5-2.htm</p>
+<p>20. https://www.sec.gov/Archives/edgar/data/1061736/000110465926052276/tm2613197d1_ex99-1.htm</p>
+<p>21. Form 20-F - SEC.gov, https://www.sec.gov/Archives/edgar/data/910631/000119312515131491/d909807d20f.htm</p>
+<p>22. Coca-Cola FEMSA, S.A.B. de C.V. (NYSE: KOF ... - FactorsToday, https://www.factorstoday.com/research/KOF</p>
+<p>23. FORM 6-K - SEC.gov, https://www.sec.gov/Archives/edgar/data/910631/000129281425003617/kofpr3q25_6k.htm</p>
+<p>24. Fomento Económico Mexicano. de Dividends and Buybacks, https://simplywall.st/stocks/us/food-beverage-tobacco/nyse-fmx/fomento-economico-mexicano-de/dividend</p>
+<p>25. FORM 20-F Controladora Vuela Compañía de Aviación, S.A.B. de C.V., https://d18rn0p25nwr6d.cloudfront.net/CIK-0001520504/773b0cf5-ac8c-4d62-ba39-590b628e1004.pdf</p>
+<p>26. Form 20-F - SEC.gov, https://www.sec.gov/Archives/edgar/data/1061736/000119312517132722/d257565d20f.htm</p>
+<p>27. Citing crime wave, Oxxo temporarily closes all Nuevo Laredo stores, https://mexiconewsdaily.com/news/oxxo-closes-stores-nuevo-laredo/</p>
+<p>28. Extortion and gang violence are hitting even big corporations and, https://www.newsday.com/news/nation/mexico-gang-cartels-extortion-corporations-nuevo-laredo-y97841</p>
+<p>29. Mexico sends 660 soldiers, National Guard to protect lime growers, https://halifax.citynews.ca/2024/10/10/mexico-sends-660-soldiers-national-guard-to-protect-lime-growers-suffering-extortion-by-cartels/</p>
+<p>30. Can Businesses Stay Safe From Gangs in Mexico?, https://thedialogue.org/analysis/can-businesses-stay-safe-from-gangs-in-mexico</p>
+<p>31. Form 20-F - SEC.gov, https://www.sec.gov/Archives/edgar/data/1061736/000119312519117240/d694088d20f.htm</p>
+<p>32. 20F &amp; FS 2020 Inglés - Coca-Cola FEMSA Investors, https://investors.coca-colafemsa.com/assets/files/reportes_resultados_esp/2020/kof-20f-fs-2020.pdf</p>
+<p>33. RProxy Voting Records T. Rowe Price Global Allocation Fund, https://www.bridgehousecanada.com/wp-content/uploads/proxy_records/PRXMSBPQ2.pdf</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">CLAVE DE MARCADORES — ESTÁNDAR DEL DOCUMENTO FUENTE</div>
+    <div class="keybox-grid">
+      <div><b>HECHO</b> — corresponde al marcador factual explícito del documento</div>
+      <div><b>VERSIÓN PR</b> — corresponde al framing corporativo marcado explícitamente por la fuente</div>
+      <div><b>CONCLUSIÓN ANALÍTICA</b> — interpretación estructural marcada explícitamente en el documento</div>
+      <div><b>INSIDE / SIN DATOS</b> — estas categorías no aparecen como marcadores explícitos en el archivo</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

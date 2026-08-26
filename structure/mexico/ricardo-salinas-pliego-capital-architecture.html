@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México — Ricardo Salinas Pliego: arquitectura de capital y redes de influencia | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← INICIO</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Inteligencia estructural independiente · desde 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">«La estructura por encima de la narrativa.»</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>MESA MÉXICO</span>
+    <span>26 DE AGOSTO DE 2026</span>
+  </div>
+
+  <span class="section-tag">CAPITAL / BANCA / MEDIOS Y RETAIL</span>
+
+  <h1 class="headline">Ricardo Salinas Pliego: el circuito cerrado de dinero, crédito y poder</h1>
+  <p class="deck">Elektra capta al consumidor, Banco Azteca monetiza depósitos y crédito, TV Azteca proyecta influencia y Totalplay extiende la infraestructura digital. El resultado es un conglomerado familiar cada vez más concentrado dentro de México y más confrontado con reguladores, acreedores y tribunales externos.</p>
+  <div class="byline">Mesa México — categoría: PERSONAS / GRUPO SALINAS / ARQUITECTURA DE CAPITAL</div>
+
+  <div class="columns">
+<p class="lead">La arquitectura de Grupo Salinas está construida alrededor de una combinación de retail, banca popular, medios y telecomunicaciones. El documento fuente describe el sistema como un circuito cerrado que monetiza a consumidores de ingresos bajos y medios: Grupo Elektra atrae tráfico físico, Banco Azteca transforma ese tráfico en depósitos y crédito, TV Azteca aporta capacidad mediática y Totalplay absorbe capital en infraestructura digital.</p>
+<p>La tesis central del reporte es que la fuerza del conglomerado no proviene sólo de cada empresa por separado, sino de la integración entre crédito, consumo, depósitos, medios y control familiar. A diferencia de otros grupos mexicanos que dependen fuertemente del mercado internacional de capitales, Grupo Salinas aparece en la fuente como una estructura cada vez más orientada a preservar soberanía operativa dentro de México, incluso a costa de mayor aislamiento financiero externo.</p>
+<div class="subhead">1. CÓMO ESTÁ CONSTRUIDO EL IMPERIO</div>
+<div class="subhead">1.1. Estrategia principal de crecimiento</div>
+<p><strong>Estrategia principal:</strong> construir una posición dominante en consumo minorista y servicios financieros dirigidos a población de ingresos bajos y medios.</p>
+<p>El modelo explota una brecha estructural: millones de consumidores con acceso limitado a la banca tradicional, pero con demanda constante de crédito, bienes duraderos, transferencias, ahorro y pagos.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La integración de Grupo Elektra con Banco Azteca a partir de 2002 permitió convertir el flujo de clientes de tiendas de electrodomésticos y electrónica en una base recurrente de depositantes y acreditados.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente marca como hecho el uso de un modelo de microcrédito de mayor riesgo con pagos semanales y tasas promedio sustancialmente superiores a las de segmentos corporativos o de consumo bancario tradicional.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento concluye que el alto spread entre el costo relativamente bajo de captar depósitos minoristas y las tasas cobradas por créditos de consumo genera una parte sustancial de la liquidez interna utilizada para financiar otros negocios del conglomerado.</div>
+<p><strong>Estrategia secundaria:</strong> ingeniería financiera y una relación de “simbiosis estatal” construida desde las privatizaciones de los años noventa.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La entrada de Ricardo Salinas Pliego al sector de medios ocurrió en 1993 mediante la privatización del complejo estatal Imevisión, posteriormente convertido en TV Azteca.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente señala que la operación de privatización, de aproximadamente US$643 millones, incluyó financiamiento de US$29 millones proveniente de Raúl Salinas de Gortari, hermano del entonces presidente Carlos Salinas de Gortari.</div>
+<div class="stamp-note pr"><span class="k">■ VERSIÓN PR</span>La versión pública del grupo sostiene que la expansión se explica por innovación comercial, eficiencia administrativa y programas de inclusión financiera para sectores desatendidos.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente interpreta TV Azteca no como un activo destinado principalmente a maximizar dividendos, sino como una plataforma de influencia política y protección del núcleo comercial y bancario frente a presión regulatoria o fiscal.</div>
+
+<table>
+<thead>
+<tr><th>Activo</th><th>Segmento</th><th>Mecanismo de generación de capital</th><th>Rol estratégico y operativo</th></tr>
+</thead>
+<tbody>
+<tr><td>Grupo Elektra</td><td>Retail de electrodomésticos y electrónica</td><td>Venta a plazos de bienes de consumo con márgenes elevados.</td><td>Infraestructura física para sucursales y captación de Banco Azteca.</td></tr>
+<tr><td>Banco Azteca</td><td>Servicios financieros</td><td>Captación de depósitos —incluido Guardadito— y microcrédito.</td><td>Principal generador de liquidez y margen financiero del grupo.</td></tr>
+<tr><td>TV Azteca</td><td>Medios y televisión comercial</td><td>Publicidad y distribución de contenido.</td><td>Plataforma de influencia, formación de opinión y defensa frente a reguladores según la tesis del documento.</td></tr>
+<tr><td>Totalplay</td><td>Telecomunicaciones / fibra óptica</td><td>Pagos recurrentes por servicios de conectividad y paquetes integrados.</td><td>Expansión de la base digital y absorción de inversiones intensivas en capital.</td></tr>
+</tbody>
+</table>
+
+<p><strong>Nivel de confianza declarado por la fuente:</strong> alto.</p>
+<div class="subhead">1.2. Modelo de toma de decisiones</div>
+<p>La estructura de mando es descrita como altamente autoritaria y concentrada alrededor de Ricardo Salinas Pliego, su family office y sus herederos directos.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En Totalplay Telecomunicaciones, la fuente identifica una estructura donde 97.7% de las acciones está en manos de Corporación RBS, S.A. de C.V., y el 2.3% restante pertenece a un fideicomiso bancario de Banco Azteca —Trust F/1205—.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Miembros de la familia han ocupado posiciones directivas en activos centrales: Benjamín Salinas Sada fue director general de TV Azteca entre 2015 y 2021, mientras Ninfa Salinas Sada combinó responsabilidades vinculadas a comunicación y actividad política.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Durante una escalada jurídica en 2024 ante la Suprema Corte del Estado de Nueva York, las partes demandadas rompieron con el despacho Paul Weiss y dejaron de participar en el proceso, según el documento.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente concluye que los consejeros independientes de las subsidiarias públicas cumplen principalmente una función formal de cumplimiento bursátil, mientras la asignación real del capital permanece concentrada en el beneficiario controlador.</div>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">1.3. Relación con el riesgo</div>
+<p>El perfil de riesgo se define como asimétrico: el grupo acepta disputas jurídicas, deuda y confrontación regulatoria cuando los beneficios quedan bajo control familiar, mientras parte de las pérdidas potenciales puede recaer en bonistas, fisco o minoritarios.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En marzo de 2023, tenedores internacionales de bonos de TV Azteca —entre ellos Plenisfer Investments, Cyrus Capital Partners y Sandpiper— iniciaron un procedimiento de bancarrota involuntaria bajo el Capítulo 11 en Estados Unidos por suspensión de pagos. TV Azteca argumentó que órdenes judiciales mexicanas le impedían atender la deuda externa hasta que se estabilizaran las condiciones de mercado.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El conglomerado litigó durante aproximadamente 17 años determinaciones fiscales relacionadas con ISR de 2008–2013. Según SAT, estructuras del grupo utilizaron el antiguo régimen de consolidación fiscal para compensar utilidades y pérdidas, generando reclamaciones acumuladas superiores a 63 mil millones de pesos.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En octubre de 2025, la Suprema Corte del Estado de Nueva York impuso responsabilidad solidaria a Ricardo Salinas Pliego, Grupo Elektra y Banco Azteca en el litigio AT&T Mobility Holdings vs. Grupo Salinas Telecom y fijó una sanción de US$21.04 millones por desacato. La fuente señala que las órdenes de entrega de activos no fueron atendidas y que participaciones de Elektra fueron trasladadas a jurisdicción mexicana.</div>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">1.4. Principal motor interno</div>
+<p>El documento identifica como motivación dominante la preservación del control familiar absoluto y de un espacio de soberanía económico-política dentro de México.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente señala que el incumplimiento reiterado de resoluciones y requerimientos de tribunales o reguladores estadounidenses ha contribuido al aislamiento de estructuras del conglomerado respecto de mercados institucionales internacionales de capital.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Después de que las acciones de Elektra cayeran alrededor de 71% en la BMV en diciembre de 2024 tras la reanudación de operaciones ordenada por CNBV, la administración anunció un proceso encaminado al desliste y a concentrar el control en estructuras privadas.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La disposición a retirar del mercado público activos centrales indica, según la fuente, que la preservación de los flujos internos y del control del beneficiario tiene prioridad sobre la expansión de la capitalización bursátil.</div>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">2. ORIGEN DEL CAPITAL</div>
+<div class="subhead">2.1. Primer apalancamiento</div>
+<p>La base patrimonial tiene origen familiar. Elektra fue fundada en 1950 por Benjamín Salinas Westrup como una empresa vinculada inicialmente a la fabricación y comercialización de radios. El salto hacia una estructura financiero-industrial de escala nacional llegó con las privatizaciones de los noventa.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En 1993, Ricardo Salinas Pliego encabezó el consorcio ganador de la privatización de Imevisión.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La fuente afirma que materiales de archivo e investigaciones documentan un préstamo de US$29 millones de Raúl Salinas de Gortari utilizado en el financiamiento de la operación.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>El documento concluye que la adquisición de un activo televisivo nacional creó una plataforma mediática y de lobby que facilitó posteriormente la obtención de la licencia de Banco Azteca en 2002 y la expansión del modelo de microcrédito.</div>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">2.2. Principales fuentes de ingreso actuales</div>
+<p>La estructura operativa descansa en la interacción entre retail, banca y telecomunicaciones. Corporación RBS funciona como nodo estratégico para redistribuir recursos entre subsidiarias.</p>
+
+<table>
+<thead>
+<tr><th>Activo</th><th>Ingresos citados</th><th>EBITDA / utilidad operativa</th><th>Fuentes de efectivo</th></tr>
+</thead>
+<tbody>
+<tr><td>Grupo Elektra</td><td>Ps. 53,864 millones — 3T 2025</td><td>EBITDA: Ps. 6,922 millones — 3T 2025</td><td>Margen comercial, intereses de ventas a plazos y comisiones.</td></tr>
+<tr><td>Banco Azteca</td><td>Integrado en la información financiera de Elektra</td><td>Principal contribuyente a la utilidad consolidada según la fuente</td><td>Intereses de crédito minorista y comisiones transaccionales.</td></tr>
+<tr><td>Totalplay</td><td>Ps. 45,550 millones — año 2025</td><td>EBITDA: Ps. 20,608 millones — año 2025</td><td>Pagos mensuales de hogares y empresas por internet, TV y conectividad.</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Totalplay generó en 2025 flujo libre de efectivo —definido por la fuente como EBITDA menos Capex e intereses pagados— por Ps. 2,955 millones.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Una parte relevante del capital se distribuye entre divisiones operativas y fideicomisos familiares no públicos, lo que dificulta estimar externamente cuánto dinero está colocado en jurisdicciones offshore.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente concluye que el conglomerado depende fuertemente de la coyuntura económica interna de México y que su estabilidad está condicionada por la capacidad de Banco Azteca para producir margen financiero de manera continua.</div>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">3. VÍNCULOS Y FINANCIAMIENTO</div>
+<div class="subhead">3.1. Quién financia</div>
+<p>La arquitectura intenta reducir la dependencia de crédito bancario sindicado tradicional mediante fuentes internas.</p>
+<p><strong>Liquidez interna:</strong> la base de depósitos de Banco Azteca —incluidos productos como Guardadito— alimenta el circuito de crédito que financia compras dentro de Elektra.</p>
+<p><strong>Deuda externa:</strong> Totalplay ha emitido Senior Secured Notes con vencimiento 2032 por aproximadamente US$821 millones, complementadas por otro tramo de US$200 millones, además de líneas locales y Certificados Bursátiles.</p>
+<p><strong>Restricción:</strong> los conflictos con bonistas de TV Azteca y tribunales estadounidenses han reducido fuertemente la capacidad del grupo para colocar deuda nueva en mercados internacionales.</p>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">3.2. Relaciones políticas</div>
+<p>El documento describe una transición desde vínculos ligados a privatizaciones hacia una estrategia de presión pública sobre instituciones.</p>
+<p><strong>Presencia institucional:</strong> Ninfa Salinas Sada desarrolló actividad política dentro del Partido Verde Ecologista de México (PVEM), donde fue diputada federal y senadora.</p>
+<p><strong>Relación con programas públicos:</strong> durante el gobierno de Andrés Manuel López Obrador, Banco Azteca fue uno de los operadores utilizados para distribuir recursos de programas sociales.</p>
+<p><strong>Conflicto fiscal:</strong> la disputa con SAT escaló durante la administración de Claudia Sheinbaum. El documento vincula la reforma de la Ley de Amparo con una reducción de la capacidad de utilizar suspensiones judiciales para prolongar litigios fiscales.</p>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">3.3. Alianzas y conflictos</div>
+
+<table>
+<thead>
+<tr><th>Contraparte / organismo</th><th>Objeto del conflicto</th><th>Estado jurídico descrito en la fuente</th></tr>
+</thead>
+<tbody>
+<tr><td>SAT</td><td>ISR de 2008–2013 por reclamaciones acumuladas superiores a Ps. 63 mil millones.</td><td><span class="k">■ HECHO</span> La Suprema Corte mexicana rechazó recursos principales; a inicios de 2026 se acordó un pago de Ps. 32.3 mil millones en parcialidades, con un desembolso inicial de Ps. 10.4 mil millones.</td></tr>
+<tr><td>AT&amp;T Mobility Holdings</td><td>Obligaciones derivadas de la venta de Iusacell.</td><td><span class="k">■ HECHO</span> Un tribunal de Nueva York impuso US$21.04 millones por desacato y emitió una orden vinculada a la entrega de acciones de Elektra.</td></tr>
+<tr><td>Comité de bonistas de TV Azteca</td><td>Incumplimiento de pagos de cupones de bonos internacionales.</td><td><span class="k">■ HECHO</span> Se inició un proceso de bancarrota involuntaria bajo Capítulo 11 en Estados Unidos, obstaculizado por resoluciones de tribunales mexicanos.</td></tr>
+<tr><td>CNBV</td><td>Suspensión y reanudación de la cotización de Elektra en BMV.</td><td><span class="k">■ HECHO</span> La reanudación produjo una caída cercana a 71%; el grupo inició el proceso para volver privada a la compañía.</td></tr>
+</tbody>
+</table>
+
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">4. VULNERABILIDADES</div>
+<div class="subhead">4.1. Riesgo regulatorio y fiscal</div>
+<p>Las sentencias de la Suprema Corte de Justicia de la Nación contra estructuras del grupo y el acuerdo de pago fiscal por Ps. 32.3 mil millones presionan la liquidez. El desembolso inicial de Ps. 10.4 mil millones reduce efectivo disponible y la reforma del amparo limita herramientas de litigación prolongada.</p>
+<p><strong>Confianza:</strong> alta.</p>
+<div class="subhead">4.2. Riesgo de deuda y jurídico internacional</div>
+<p>La fuente identifica un creciente aislamiento frente a mercados financieros estadounidenses debido a desacatos y litigios en Nueva York. Existe riesgo de embargo de activos o cuentas de tránsito de Totalplay y TV Azteca cuando se encuentren fuera de México.</p>
+<p><strong>Confianza:</strong> alta.</p>
+<div class="subhead">4.3. Riesgo sucesorio</div>
+<p>La concentración de poderes en Ricardo Salinas Pliego es alta y el documento no identifica un mecanismo público de sucesión comparable a un trust institucionalizado de otras dinastías. Los cambios en la dirección de TV Azteca muestran que la siguiente generación participa, pero no resuelven cómo se repartirá Corporación RBS.</p>
+<p><strong>Confianza:</strong> media.</p>
+<div class="subhead">4.4. Riesgo reputacional y de mercado</div>
+<p>La caída de 71% en Elektra refleja pérdida de confianza de inversionistas. Investigaciones y cierres regulatorios de negocios relacionados —incluidas suspensiones de licencias de casinos citadas por la fuente— reducen diversificación y elevan el costo reputacional.</p>
+<p><strong>Confianza:</strong> alta.</p>
+<div class="subhead">4.5. Riesgo político</div>
+<p>La confrontación pública con el Ejecutivo reduce la capacidad del conglomerado para obtener condiciones favorables, contratos o tolerancia regulatoria que pudieron existir en otros ciclos políticos.</p>
+<p><strong>Confianza:</strong> alta.</p>
+<div class="subhead">4.6. Riesgo estructural de concentración</div>
+<p>Una parte central de la rentabilidad depende de la capacidad de pago de consumidores mexicanos de menores ingresos. Cambios legales que limiten tasas máximas de microcrédito o endurezcan reglas de Banco Azteca afectarían directamente el margen del grupo.</p>
+<p><strong>Confianza:</strong> alta.</p>
+<div class="subhead">5. EVALUACIÓN FINAL</div>
+<p><strong>Retrato estructural:</strong> Grupo Salinas es una estructura financiero-industrial principalmente doméstica donde depósitos minoristas, crédito de consumo, ventas en Elektra y capacidad mediática se refuerzan entre sí.</p>
+<p><strong>Principal fuente de estabilidad:</strong> la posición de Banco Azteca y Grupo Elektra entre consumidores de ingresos bajos y medios. El ciclo <strong>depósitos → microcrédito → venta de bienes de consumo</strong> produce un flujo interno relativamente autónomo dentro de la jurisdicción mexicana.</p>
+<p><strong>Principal punto de ruptura:</strong> una crisis de liquidez causada por pagos fiscales de gran escala al SAT, restricción del refinanciamiento internacional y una posible salida de depósitos de Banco Azteca si aumenta la presión regulatoria.</p>
+<p>La fuente advierte que convertir el conglomerado en una estructura totalmente cerrada y no pública podría reducir flexibilidad financiera y, al mismo tiempo, aumentar su exposición a decisiones administrativas directas del Estado mexicano.</p>
+<p><strong>Confianza final:</strong> alta.</p>
+<div class="subhead">FUENTES</div>
+<p>1. GRUPO ELEKTRA, SA de CV - SEC.gov, https://www.sec.gov/Archives/edgar/data/925050/000129281406001760/ekt_annualreport.htm</p>
+<p>2. Overcoming Obstacles to Agricultural Microfinance - AgEcon Search, https://ageconsearch.umn.edu/record/166010/files/AJAD_2007_4_2_2Llanto.pdf</p>
+<p>3. World Bank Document - Open Knowledge Repository, https://openknowledge.worldbank.org/bitstreams/373e78b0-afd3-502c-94a7-9933d85a50a1/download</p>
+<p>4. Effect of Banco Azteca&#x27;s opening on savings accounts over time., https://www.researchgate.net/figure/Effect-of-Banco-Aztecas-opening-on-savings-accounts-over-time_fig4_262387220</p>
+<p>5. Sheinbaum REVEALS how Ricardo Salinas bought TV Azteca, https://www.youtube.com/watch?v=vTC53tu8WJw</p>
+<p>6. Government says Mexican company owes over 63 billion in unpaid, https://riviera-maya-news.com/government-says-mexican-company-owes-over-63-billion-in-unpaid-taxes/2024.html</p>
+<p>7. AT&amp;T Mobility Holdings B.V. v Grupo Salinas Telecom, S.A. de C.V., http://www.nycourts.gov/reporter/pdfs/2025/2025_33093.pdf</p>
+<p>8. WE GENERATE - Inclusive Prosperity - Grupo Elektra, https://www.grupoelektra.com.mx/elektra/English/default.asp</p>
+<p>9. The Role of the Financial Services Sector in Expanding Economic, https://dash.harvard.edu/bitstreams/c87a87f1-ffa4-43f3-a609-a5e2702a622b/download</p>
+<p>10. IMPACT THAT - Gentera, https://www.gentera.com.mx/wcm/connect/1037f1da-73b6-4fef-98ae-f2f368e9ca40/IA_Gentera_2022_INGLES.pdf?MOD=AJPERES</p>
+<p>11. Supreme Court rules against billionaire Salinas Pliego and he must, https://www.youtube.com/watch?v=mGv3fUn3k28</p>
+<p>12. Yes, I&#x27;m willing to pay taxes, but what is really owed - Ricardo Salinas, https://www.ricardosalinas.com/blog/Im-willing-to-pay-taxes</p>
+<p>13. MultiMexicans in the Retail Industry (Chapter 15), https://www.cambridge.org/core/books/mexican-multinationals/multimexicans-in-the-retail-industry/2BED7C19A593515FE232080B9A5AE07E</p>
+<p>14. Latin American TV (8th Edition), https://industriasdecontenido.files.wordpress.com/2010/08/informe-media-group-industria-de-la-tv-latam-2004.pdf</p>
+<p>15. Totalplay - Grokipedia, https://grokipedia.com/page/totalplay</p>
+<p>16. Gross profit increases 7% to Ps.3, https://irtotalplay.mx/en/PDF/4136</p>
+<p>17. Quarterly Financial Information, https://irtotalplay.mx/en/PDF/3717</p>
+<p>18. Quarterly Financial Information - Grupo Elektra, https://www.grupoelektra.com.mx/api/pdfEkt/4133</p>
+<p>19. Ricardo Salinas Pliego - Grokipedia, https://grokipedia.com/page/Ricardo_Salinas_Pliego</p>
+<p>20. Ninfa Salinas Sada - Grokipedia, https://grokipedia.com/page/Ninfa_Salinas_Sada</p>
+<p>21. PR Newswire - LatinFinance, https://www.latinfinance.com/pages/pr-newswire?rkey=20251028MX09765&amp;filter=16137</p>
+<p>22. RESTRUCTURING IN IBERIA AND LATAM - Cuatrecasas, https://www.cuatrecasas.com/resources/restructuring-text-674706b87940c812941472.pdf?v1.96.0.20260529</p>
+<p>23. Investment Funds Challenge TV Azteca Debt Payment, https://mexicobusiness.news/finance/news/investment-funds-challenge-tv-azteca-debt-payment</p>
+<p>24. Grupo Salinas companies lose in Mexico Supreme Court over US, https://www.canadianlawyermag.com/news/international/grupo-salinas-companies-lose-in-mexico-supreme-court-over-us26-billion-tax-debts/393365</p>
+<p>25. Grupo Salinas Ends Tax Dispute With MX$32 Billion Payment, https://mexicobusiness.news/finance/news/grupo-salinas-ends-tax-dispute-mx32-billion-payment</p>
+<p>26. The New York court orders Ricardo Salinas Pliego to pay jointly and, https://www.reddit.com/r/mexico/comments/1o1t2st/la_corte_de_nueva_york_le_impone_pago_solidario_a/?tl=en</p>
+<p>27. Mexico&#x27;s Supreme Court rules against magnate&#x27;s $2.6B tax debt, https://apnews.com/article/mexico-salinas-pliego-sheinbaum-taxes-13533ed86379592aacde1ae82c3a8745</p>
+<p>28. GRUPO IUSACELL, S.A.DE C.V. - SEC.gov, https://www.sec.gov/Archives/edgar/data/1089695/000095012303007457/y87819e20vf.htm</p>
+<p>29. Quarterly Financial Information, https://irtotalplay.mx/en/PDF/4050</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">CLAVE DE MARCADORES — ESTÁNDAR DEL DOCUMENTO FUENTE</div>
+    <div class="keybox-grid">
+      <div><b>HECHO</b> — corresponde al marcador factual explícito del documento</div>
+      <div><b>VERSIÓN PR</b> — corresponde al framing corporativo marcado explícitamente por la fuente</div>
+      <div><b>CONCLUSIÓN ANALÍTICA</b> — interpretación estructural marcada explícitamente en el documento</div>
+      <div><b>INSIDE / SIN DATOS</b> — estas categorías no aparecen como marcadores explícitos en el archivo</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

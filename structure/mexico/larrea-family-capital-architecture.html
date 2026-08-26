@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México — Grupo México y familia Larrea: arquitectura de capital y poder | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← INICIO</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Inteligencia estructural independiente · desde 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">«La estructura por encima de la narrativa.»</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>MESA MÉXICO</span>
+    <span>26 DE AGOSTO DE 2026</span>
+  </div>
+
+  <span class="section-tag">CAPITAL / MINERÍA / INFRAESTRUCTURA</span>
+
+  <h1 class="headline">Familia Larrea: la pirámide que controla cobre, ferrocarriles y concesiones</h1>
+  <p class="deck">EIM, Grupo México, Americas Mining Corporation, Southern Copper y GMéxico Transportes forman una arquitectura donde privatizaciones, activos físicos irremplazables, mercados internacionales y negociación con el Estado sostienen un control familiar altamente concentrado.</p>
+  <div class="byline">Mesa México — categoría: CAPITAL / GRUPO MÉXICO / FAMILIA LARREA</div>
+
+  <div class="columns">
+<p class="lead">Grupo México es una arquitectura de capital concentrada alrededor de activos físicos difíciles de sustituir: cobre, ferrocarriles, concesiones e infraestructura energética. El documento describe a la familia Larrea como un sistema dinástico que combina adquisiciones agresivas de activos estratégicos, ingeniería financiera transfronteriza y negociación permanente con el Estado mexicano.</p>
+<p>El patrón dominante es adquirir infraestructura o recursos durante privatizaciones y crisis, trasladar parte de los riesgos jurídicos y ambientales hacia estructuras separadas, y conservar el mando mediante una pirámide de control: Empresarios Industriales de México (EIM) → Grupo México → Americas Mining Corporation (AMC) → Southern Copper / GMéxico Transportes.</p>
+<div class="subhead">1. CÓMO ESTÁ CONSTRUIDO EL IMPERIO</div>
+<div class="subhead">1.1. Estrategia principal de crecimiento</div>
+<p><strong>Estrategia principal:</strong> roll-up agresivo de activos mineros y de infraestructura combinado con una relación simbiótica con los procesos de privatización del Estado.</p>
+<p>El punto de partida fue la consolidación de activos cupríferos mexicanos durante las reformas de mercado: Cananea y Nacozari entre 1988 y 1990, seguida por la adquisición de concesiones ferroviarias que dieron origen a Ferromex en 1997–1998.</p>
+<p><strong>Estrategia secundaria:</strong> consolidación transnacional e ingeniería financiera. La compra de ASARCO en Estados Unidos en 1999 por aproximadamente US$1.18 mil millones abrió acceso indirecto a activos peruanos de Southern Peru Copper Corporation. Posteriormente, Minera México fue transferida a Southern Peru en 2004–2005 y el conjunto terminó consolidado bajo Southern Copper Corporation, controlada por Americas Mining Corporation.</p>
+<p>La estructura ferroviaria también refleja una lógica de control compartido: Grupo México conserva la posición dominante en Ferromex, mientras Union Pacific mantiene una participación minoritaria estratégica.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En 2023, la operación para adquirir Banamex a Citigroup por alrededor de US$7 mil millones no se concretó en un contexto de condiciones regulatorias exigentes y del conflicto por la ocupación de un tramo de Ferrosur.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente concluye que Grupo México ha sido especialmente eficaz administrando monopolios industriales intensivos en capital y con barreras de entrada altas, pero encontró un límite al intentar entrar a un mercado financiero minorista fuertemente regulado como el bancario.</div>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">1.2. Modelo de toma de decisiones</div>
+<p>La toma de decisiones se caracteriza por un control familiar rígido y por la incorporación de un círculo reducido de asesores, tecnócratas y exfuncionarios con experiencia regulatoria.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Germán Larrea Mota Velasco, presidente ejecutivo del grupo, controla Empresarios Industriales de México, S.A. de C.V. (EIM), sociedad que posee aproximadamente 40.65–40.7% de las acciones con voto de Grupo México; el documento añade que alrededor de 19.4% adicional está en manos de insiders y miembros de la familia.</div>
+<p>En subsidiarias como Southern Copper, el gobierno corporativo incorpora operadores de larga trayectoria y exfuncionarios, entre ellos Javier García de Quevedo y Carlos Ruiz Sacristán.</p>
+<p>En crisis importantes, la fuente describe una lógica pragmática. Durante la quiebra de ASARCO en Estados Unidos entre 2005 y 2009, el grupo utilizó la jurisdicción de bancarrota para aislar pasivos ambientales y por asbesto mientras preservaba otros activos. En 2023, tras la ocupación de unos 120 km de vías de Ferrosur por parte de la Marina, Larrea evitó una escalada prolongada y aceptó un arreglo que extendió concesiones y cerró disputas vinculadas al Tren Maya.</p>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">1.3. Relación con el riesgo</div>
+<p>La fuente define el perfil de riesgo como asimétrico: deuda relativamente conservadora en la holding, pero disposición a asumir riesgos jurídicos, ambientales y corporativos de gran escala cuando la recompensa estratégica es elevada.</p>
+
+<table>
+<thead>
+<tr><th>Categoría de riesgo</th><th>Precedente / mecanismo</th><th>Consecuencia y transferencia de costos</th><th>Base en la fuente</th></tr>
+</thead>
+<tbody>
+<tr><td>Capital propio</td><td>Privatización de Cananea (1990) y compra de ASARCO (1999) con crédito sindicado.</td><td>Movilización del capital familiar de EIM respaldado por los propios activos adquiridos.</td><td>Fuente 2</td></tr>
+<tr><td>Transferencia a acreedores y socios</td><td>Proceso de bancarrota de ASARCO en Estados Unidos (2005).</td><td>Pasivos ambientales y de asbesto superiores a US$1,000 millones quedaron dentro de la jurisdicción de bancarrota, separados de parte de los activos peruanos.</td><td>Fuente 5</td></tr>
+<tr><td>Transferencia a minoritarios</td><td>Operación Minera México–Southern Peru (2004).</td><td>Emisión de aproximadamente 67 millones de nuevas acciones y posterior litigio de minoritarios en Delaware.</td><td>Fuente 6</td></tr>
+<tr><td>Transferencia al Estado y sociedad</td><td>Buenavista del Cobre / Río Sonora (2014) y Pasta de Conchos (2006).</td><td>Costos de remediación, compensación y acuerdos regulatorios distribuidos entre empresa, fondos y mecanismos públicos.</td><td>Fuente 10</td></tr>
+<tr><td>Compromiso político</td><td>Ocupación de vías de Ferrosur por la Marina (2023).</td><td>Renuncia a litigios y compensaciones a cambio de extensión de concesiones y cierre de disputas.</td><td>Fuente 19</td></tr>
+</tbody>
+</table>
+
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">1.4. Principal motor interno</div>
+<p>La fuente identifica como objetivo central preservar control absoluto sobre infraestructura básica y construir una dinastía empresarial de largo plazo.</p>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La dirección del flujo de efectivo y la resistencia a diluir los derechos de voto indican que la maximización de la capitalización bursátil está subordinada al control. La pirámide EIM → Grupo México → AMC → Southern Copper / GMXT permite mantener mando operativo incluso cuando una parte relevante del capital económico está en manos de inversionistas institucionales externos.</div>
+<div class="subhead">2. ORIGEN DEL CAPITAL</div>
+<div class="subhead">2.1. Primer apalancamiento</div>
+<p>El capital inicial de la familia se formó con contratos de infraestructura y obra pública obtenidos por Jorge Larrea Ortega durante las décadas de 1950–1970, en la etapa de predominio del PRI. El salto de escala llegó con las privatizaciones de la administración de Carlos Salinas de Gortari.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En 1988 el grupo adquirió 95% de Mexicana de Cobre y en 1990 compró el complejo minero de Cananea por aproximadamente US$475 millones. Entre 1997 y 1998 consolidó la expansión mediante la compra de la concesión ferroviaria del Pacífico-Norte tras la desincorporación de Ferrocarriles Nacionales de México.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente interpreta el origen de los activos centrales como producto de una relación de simbiosis estatal: el acceso político permitió adquirir recursos mineros y logísticos estratégicos a precios muy bajos durante la reestructuración de la economía mexicana.</div>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">2.2. Principales fuentes de ingreso actuales</div>
+<p>El documento sitúa los ingresos consolidados de Grupo México por encima de US$13.8 mil millones y EBITDA en el rango de US$3.0–3.2 mil millones. La minería produce la mayor parte del flujo, mientras transporte e infraestructura completan la estructura.</p>
+<p><strong>Minería:</strong> aproximadamente 75–80% de ingresos y EBITDA, principalmente mediante Minera México y Southern Copper.</p>
+<p><strong>Transporte:</strong> aproximadamente 15–20%, a través de GMéxico Transportes, Ferromex, Ferrosur, Florida East Coast Railway y Texas Pacífico.</p>
+<p><strong>Infraestructura y otros:</strong> alrededor de 3–5%, incluyendo energía, perforación, construcción y Cinemex.</p>
+<p>Americas Mining Corporation, registrada en Delaware, funciona como nodo internacional de control y acumulación de dividendos para los activos mineros mexicanos y peruanos.</p>
+
+<table>
+<thead>
+<tr><th>División / subsidiaria</th><th>Activos y geografía</th><th>Peso aproximado en EBITDA</th><th>Jurisdicción y control</th></tr>
+</thead>
+<tbody>
+<tr><td>Minería — Minera México / SCCO</td><td>Buenavista, La Caridad en México; Toquepala y Cuajone en Perú; ASARCO en EE.UU.</td><td>≈ 75–80%</td><td>EE.UU. (Delaware) / México; la fuente señala control de 88.9% mediante AMC.</td></tr>
+<tr><td>Transporte — GMXT / Ferromex / Ferrosur</td><td>Redes de México y EE.UU.; Ferromex, Ferrosur, Florida East Coast Railway, Texas Pacífico.</td><td>≈ 15–20%</td><td>México / EE.UU.; GMXT cotiza en BMV y permanece bajo control de Grupo México.</td></tr>
+<tr><td>Infraestructura y otros</td><td>Perforación, generación eléctrica, construcción y Cinemex.</td><td>≈ 3–5%</td><td>México; control directo mediante estructuras de Grupo México.</td></tr>
+</tbody>
+</table>
+
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">3. VÍNCULOS Y FINANCIAMIENTO</div>
+<div class="subhead">3.1. Quién financia</div>
+<p>La estructura de financiamiento combina mercados internacionales de capital y crédito sindicado con bancos mexicanos y extranjeros.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Americas Mining Corporation, Minera México y Southern Copper Corporation cuentan con calificaciones internacionales de grado de inversión —la fuente cita BBB+ de Fitch y S&P—, lo que les permite emitir deuda corporativa internacional a costos relativamente bajos.</div>
+<p>Fondos como BlackRock, Vanguard, State Street y JPMorgan Chase mantienen participaciones relevantes en instrumentos públicos de Grupo México y SCCO, aportando liquidez bursátil sin desplazar el control familiar.</p>
+<div class="subhead">3.2. Relaciones políticas</div>
+<p>La red política se construye mediante puertas giratorias, incorporación de exfuncionarios y negociación directa con gobiernos.</p>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En consejos de administración de Grupo México y subsidiarias han participado exfuncionarios de alto nivel, entre ellos Carlos Ruiz Sacristán, exsecretario de Comunicaciones y Transportes, y Luis Téllez Kuenzler, exsecretario de Energía.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente interpreta la presencia de exfuncionarios como un canal directo de cabildeo y como un mecanismo para reducir riesgo regulatorio en revisiones de tarifas, concesiones y condiciones sectoriales.</div>
+<p>La relación con el Estado evolucionó desde alianzas estrechas durante etapas del PRI y PAN hacia negociación pragmática con gobiernos de Morena. El patrón señalado por el documento es aceptar concesiones puntuales para preservar derechos fundamentales sobre minas y ferrocarriles.</p>
+<p><strong>Nivel de confianza:</strong> alto.</p>
+<div class="subhead">3.3. Alianzas y conflictos</div>
+
+<table>
+<thead>
+<tr><th>Actor / socio</th><th>Tipo de relación</th><th>Operación o conflicto</th><th>Resultado sobre el capital</th></tr>
+</thead>
+<tbody>
+<tr><td>Union Pacific Railroad</td><td>Alianza estratégica</td><td>Participación conjunta en Ferromex: 74% GMXT / 26% Union Pacific según la fuente.</td><td>Integración ferroviaria México–Estados Unidos.</td></tr>
+<tr><td>Grupo Carso / Carlos Slim</td><td>Socio empresarial</td><td>Participación de estructuras vinculadas a Slim en GMéxico Transportes.</td><td>Acercamiento entre grandes dinastías mexicanas de infraestructura.</td></tr>
+<tr><td>Minoritarios de Southern Peru</td><td>Litigio en Delaware</td><td>Demanda por la valoración de Minera México en su transferencia a Southern Peru.</td><td>Condena por incumplimiento de deberes fiduciarios y compensación de aproximadamente US$1.3 mil millones.</td></tr>
+<tr><td>Gobierno de México / Marina / AMLO</td><td>Conflicto estatal</td><td>Ocupación de alrededor de 120 km de vías de Ferrosur en 2023.</td><td>Acuerdo con extensión de concesión y retiro de reclamaciones vinculadas al Tren Maya.</td></tr>
+<tr><td>Citigroup / Banamex</td><td>Operación fallida</td><td>Intento de compra de Banamex por aproximadamente US$7 mil millones.</td><td>La transacción se canceló en un entorno de condiciones gubernamentales y Citi optó por una salida vía mercado.</td></tr>
+</tbody>
+</table>
+
+<div class="stamp-note fact"><span class="k">■ HECHO</span>El Tribunal de Cancillería de Delaware determinó que la operación relacionada con Minera México y Southern Peru violó deberes fiduciarios y ordenó una compensación cercana a US$1.3 mil millones.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>En el conflicto ferroviario de 2023, la empresa aceptó un arreglo sin compensación directa a cambio de extender la concesión de Ferrosur hasta 2044 y retirar reclamaciones asociadas al Tren Maya.</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>La operación para comprar Banamex no se concretó en 2023 en un contexto de condiciones gubernamentales sobre empleo y riesgo político; Citigroup cambió después hacia una estrategia de salida mediante oferta pública.</div>
+<div class="subhead">4. VULNERABILIDADES</div>
+<div class="subhead">4.1. Riesgo regulatorio</div>
+<p>El riesgo regulatorio es alto por la posibilidad de reglas antimonopolio más estrictas en ferrocarriles y mayor control sobre concesiones de agua para minería. El grupo depende de permisos estatales que afectan directamente activos inmóviles.</p>
+<p><strong>Confianza:</strong> alta.</p>
+<div class="subhead">4.2. Riesgo de deuda</div>
+<p>La fuente lo considera bajo. La deuda neta/EBITDA del holding y de sus principales divisiones se mantiene de forma conservadora por debajo de 1.5x y las calificaciones de inversión facilitan refinanciamiento.</p>
+<p><strong>Confianza:</strong> alta.</p>
+<div class="subhead">4.3. Riesgo sucesorio</div>
+<div class="stamp-note fact"><span class="k">■ HECHO</span>Germán Larrea concentra la dirección operativa y estratégica mediante EIM. Tras cambios en la alta dirección, como la muerte del histórico ejecutivo Óscar González Rocha, se activaron mecanismos temporales de sucesión operativa; sin embargo, no existe en el documento un plan público verificado para transferir la participación familiar de EIM ni para definir al futuro jefe de la dinastía.</div>
+<div class="stamp-note pr"><span class="k">■ VERSIÓN PR</span>La versión oficial de la empresa sostiene que la estructura de gobierno está diversificada y que el consejo de administración puede garantizar continuidad sin interrupciones.</div>
+<div class="stamp-note insight"><span class="k">■ CONCLUSIÓN ANALÍTICA</span>La fuente concluye que la falta de transparencia sobre la sucesión dentro del holding privado EIM crea condiciones para un posible conflicto entre herederos después de Germán Larrea, con riesgo de fragmentación o dilución del bloque de control.</div>
+<p><strong>Confianza:</strong> media.</p>
+<div class="subhead">4.4. Riesgo reputacional</div>
+<p>Permanece alto por accidentes y conflictos históricos: derrame de sulfato de cobre en Buenavista del Cobre en 2014, Pasta de Conchos, huelgas mineras y oposición ambiental al proyecto Tía María en Perú.</p>
+<p><strong>Confianza:</strong> alta.</p>
+<div class="subhead">4.5. Riesgo político</div>
+<p>Es moderado-alto porque la rentabilidad depende de concesiones, permisos y marcos regulatorios en México y Perú. Cambios en reglas ferroviarias o impuestos mineros pueden afectar directamente márgenes y valuaciones.</p>
+<p><strong>Confianza:</strong> alta.</p>
+<div class="subhead">4.6. Riesgo de concentración</div>
+<p>La mayor parte del EBITDA depende del mercado mundial del cobre. Una caída prolongada de precios reduciría flujo de caja, inversión y capacidad de maniobra del conglomerado.</p>
+<p><strong>Confianza:</strong> alta.</p>
+<div class="subhead">5. EVALUACIÓN FINAL</div>
+<p><strong>Retrato estructural:</strong> Grupo México es un holding minero e infraestructural extremadamente concentrado cuya estabilidad depende del control de recursos básicos y arterias logísticas de México. La pirámide EIM → Grupo México → AMC → SCCO / GMXT conserva el mando familiar mientras una parte de la protección jurídica se sitúa en Estados Unidos.</p>
+<p><strong>Principal fuente de estabilidad:</strong> activos físicos de difícil sustitución y bajo costo: grandes reservas de cobre en México y Perú y una red ferroviaria de carga crítica integrada al mercado estadounidense.</p>
+<p><strong>Principal punto de ruptura:</strong> combinación de presión regulatoria sobre concesiones con una crisis de sucesión dentro de EIM. Si la estructura autoritaria no se convierte a tiempo en un mecanismo institucional de sucesión familiar, el paquete de control podría fragmentarse.</p>
+<p><strong>Confianza final:</strong> alta.</p>
+<div class="subhead">FUENTES</div>
+<p>1. Grupo México - Wikipedia, https://en.wikipedia.org/wiki/Grupo_M%C3%A9xico</p>
+<p>2. MultiMexicans in the Mining Industry (Chapter 4), https://www.cambridge.org/core/books/mexican-multinationals/multimexicans-in-the-mining-industry/B38853FE854724C039948FFF9C62B7F6</p>
+<p>3. Género, desastres ambientales y consumo de agua embotellada. El, https://agua.org.mx/wp-content/uploads/2022/12/Genero-desastres-ambientales-y-consumo-de-agua-embotellada-en-Sonora-COLSON.pdf</p>
+<p>4. A New Day for Mexican Workers - Socialist Project, https://socialistproject.ca/2019/01/a-new-day-for-mexican-workers/</p>
+<p>5. Lawyers dissect Asarco&#x27;s cleanup obligation in U.S. | HeraldNet.com, https://www.heraldnet.com/2006/03/19/lawyers-dissect-asarcos-cleanup-obligation-in-u-s/</p>
+<p>6. Case: In re Southern Peru Copper Corp. Shareholder Litigation, https://www.law.upenn.edu/live/files/11105-southern-peru-transcript-of-interview-of-chip</p>
+<p>7. southern copper corporation - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000110465910010334/a09-35902_110k.htm</p>
+<p>8. in the court of chancery of the state of delaware, https://courts.delaware.gov/opinions/download.aspx?ID=165450</p>
+<p>9. united states securities and exchange commission - form 10-k, https://minedocs.com/17/SOUTHERNCOPPER_2016_10K.PDF</p>
+<p>10. When the River Turned Yellow - The American Prospect, https://prospect.org/2016/07/13/river-turned-yellow/</p>
+<p>11. Citigroup in Mexico: A Failed Sale Becomes an IPO Strategy - IPOHub, https://www.ipohub.org/article/citigroup-in-mexico-a-failed-sale-becomes-an-ipo-strategy</p>
+<p>12. EDGAR PDF - A Service From Broadridge, https://materials.proxyvote.com/Approved/84265V/20260402/NOMNP_631236.PDF</p>
+<p>13. ý - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000104746903012263/a2107774zdef14a.htm</p>
+<p>14. German Larrea Mota-Velasco - SCC - Eng, https://southerncoppercorp.com/eng/management%20team/german-larrea-mota-velasco/</p>
+<p>15. Grupo México, S.A.B. de C.V. Insider Trading &amp; Ownership Structure, https://simplywall.st/stocks/de/materials/fra-4ge/grupo-mexico-de-shares/ownership</p>
+<p>16. Who Owns Grupo Mexico? GMEXICOB Shareholders, https://au.investing.com/equities/gmexico-ownership</p>
+<p>17. tm223669-1_def14a - none - 7.437526s - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000110465922045842/tm223669-1_def14a.htm</p>
+<p>18. Regions Archives - Page 2207 of 2562 - LatinFinance, https://latinfinance.com/category/topics/regions/page/2207/</p>
+<p>19. AMLO says deal reached with Grupo México over seized railway, https://mexiconewsdaily.com/news/deal-reached-with-grupo-mexico-over-seized-railway/</p>
+<p>20. AMLO Reveals Deal for Railway Appropriation with Grupo México, https://pulsenewsmexico.com/2023/06/02/amlo-reveals-deal-for-railway-appropriation-with-grupo-mexico/</p>
+<p>21. Mexican government suspends search for trapped coal miners, https://www.wsws.org/en/articles/2006/02/mex-f27.html</p>
+<p>22. When The River Turned Yellow - Portside.org, https://portside.org/2016-07-28/when-river-turned-yellow</p>
+<p>23. In turbulent times, family enterprises must reinvent and renew to, https://www.imd.org/ibyimd/family-business/in-turbulent-times-family-enterprises-must-reinvent-and-renew-to-survive/</p>
+<p>24. in the court of chancery of the state of delaware - Berman Tabacco, https://www.bermantabacco.com/wp-content/uploads/2018/10/southerncopper-notice.pdf</p>
+<p>25. Smokestack Injustice? Toxic Texas Smelter May Reopen | corpwatch, https://www.corpwatch.org/article/smokestack-injustice-toxic-texas-smelter-may-reopen</p>
+<p>26. Fitch Affirms Grupo Mexico at &#x27;BBB+&#x27;; Outlook Stable - Fitch Ratings, https://www.fitchratings.com/research/corporate-finance/fitch-affirms-grupo-mexico-at-bbb-outlook-stable-25-11-2024</p>
+<p>27. Germán Larrea Mota Velasco &amp; family - Forbes, https://www.forbes.com/profile/german-larrea-mota-velasco/</p>
+<p>28. Fitch Affirms SCC, AMC and Minera Mexico at &#x27;BBB+&#x27; - Fitch Ratings, https://www.fitchratings.com/research/corporate-finance/fitch-affirms-scc-amc-minera-mexico-at-bbb-rating-outlook-stable-08-12-2020</p>
+<p>29. Fitch Affirms Southern Copper at &#x27;BBB+&#x27;; Outlook Stable, https://www.fitchratings.com/research/corporate-finance/fitch-affirms-southern-copper-at-bbb-outlook-stable-20-11-2025</p>
+<p>30. Mexico seizes part of part railway line, sending in marines to take over, https://apnews.com/article/mexico-seizure-private-railway-b8a7708fb9624eabff263676075405fb</p>
+<p>31. WORKING TOGETHER TO BUILD A SUSTAINABLE FUTURE, https://app-fresnillo-cm-prod.azurewebsites.net/media/mumbsyvj/44314-fres-annual-report-2023-web.pdf</p>
+<p>32. SOUTHERN COPPER CORP/ - SEC.gov, https://www.sec.gov/Archives/edgar/data/1001838/000110465926044982/scco-20260529xdef14a.htm</p>
+<p>33. Mexican Miners&#x27; Strike for Life - The American Prospect, https://prospect.org/2007/10/01/mexican-miners-strike-life/</p>
+<p>34. Mexico State | Gambusino Prospector, https://gambusinoprospector.com/tag/mexico-state/</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">CLAVE DE MARCADORES — ESTÁNDAR DEL DOCUMENTO FUENTE</div>
+    <div class="keybox-grid">
+      <div><b>HECHO</b> — corresponde al marcador factual explícito del documento</div>
+      <div><b>VERSIÓN PR</b> — framing corporativo marcado explícitamente por la fuente</div>
+      <div><b>CONCLUSIÓN ANALÍTICA</b> — interpretación estructural marcada explícitamente en el documento</div>
+      <div><b>INSIDE / SIN DATOS</b> — estas categorías no aparecen como marcadores explícitos en el archivo</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
