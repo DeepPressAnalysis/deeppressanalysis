@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deutschland — Katherina Reiche: Einflussarchitektur und Kapitalstruktur | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← STARTSEITE</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Unabhängige strukturelle Analyse · seit 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">„Struktur über Narrativ.“</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>DEUTSCHLAND-DESK</span>
+    <span>26. AUGUST 2026</span>
+  </div>
+
+  <span class="section-tag">PERSONEN / MACHT / ENERGIEPOLITIK</span>
+
+  <h1 class="headline">Katherina Reiche: Macht an der Schnittstelle von Staat und Energiekapital</h1>
+  <p class="deck">Vom Bundestag über VKU und Westenergie zurück ins Bundeswirtschaftsministerium: Der Bericht beschreibt eine Einflussarchitektur, in der regulatorisches Wissen, Industrienetzwerke, Wasserstoffpolitik und politische Patronage ineinandergreifen.</p>
+  <div class="byline">Deutschland-Desk — Kategorie: PERSONEN / EINFLUSSARCHITEKTUR / ENERGIE &amp; INDUSTRIE</div>
+
+  <div class="columns">
+<p class="lead"><strong>Aktueller Status:</strong> Bundesministerin für Wirtschaft und Energie Deutschlands seit Mai 2025 im Kabinett von Friedrich Merz.</p>
+<p><strong>Frühere Schlüsselpositionen:</strong> Vorstandsvorsitzende der Westenergie AG (E.ON), Vorsitzende des Nationalen Wasserstoffrats, Hauptgeschäftsführerin des Verbands kommunaler Unternehmen (VKU) sowie Parlamentarische Staatssekretärin.</p>
+<p>Der Bericht beschreibt Reiches Einflussarchitektur als ein System, das auf dem nahtlosen Wechsel zwischen staatlicher Regulierung und genau jenen Branchen beruht, die von dieser Regulierung betroffen sind. Der zentrale Mechanismus besteht darin, politisches Insiderwissen in institutionelles und unternehmerisches Kapital umzuwandeln und den so gewonnenen Einfluss später wieder in staatliche Entscheidungsmacht zurückzuführen.</p>
+<div class="subhead">1. ARCHITEKTUR DER PERSON ALS ENTSCHEIDUNGSSYSTEM</div>
+<div class="subhead">1.1. Zentraler Denktyp</div>
+<p><strong>Primärer Typ:</strong> Vermittlerin — korporativ-bürokratische Brokerin.</p>
+<p><strong>Sekundärer Typ:</strong> Opportunistin.</p>
+<p>Die Quelle begründet diese Einordnung mit Reiches Karriereweg zwischen Politik, kommunaler Interessenvertretung, Energiekonzern und Bundesregierung. Ihr Einfluss entsteht weniger aus einer eigenständigen ideologischen Bewegung als aus ihrer Position als Schnittstelle zwischen Regulierung, Subventionen, Infrastruktur und industriellen Interessen.</p>
+<div class="stamp-note fact"><span class="k">■ FAKT</span>2015 gab Reiche freiwillig ihr Bundestagsmandat auf und verließ ihr Amt als Parlamentarische Staatssekretärin, um Hauptgeschäftsführerin des Verbands kommunaler Unternehmen (VKU) zu werden.</div>
+<div class="stamp-note fact"><span class="k">■ FAKT</span>2020 wechselte sie in den E.ON-Konzern zu Westenergie und übernahm zugleich den Vorsitz des Nationalen Wasserstoffrats; 2025 kehrte sie als Bundeswirtschaftsministerin in die Bundesregierung zurück.</div>
+<div class="subhead">1.2. Entscheidungsmodell</div>
+<p>Die Quelle beschreibt ihre Entscheidungen als systemisch-pragmatisch und an der Absicherung großer industrieller Kapitalinteressen orientiert, nicht als Ausdruck einer dauerhaft konsistenten Ideologie.</p>
+<div class="stamp-note insight"><span class="k">■ ANALYTISCHE SCHLUSSFOLGERUNG</span>Als Staatssekretärin im Umweltbereich von 2009 bis 2013 bewegte sich Reiche innerhalb des grünen Konsenses der Merkel-Ära. Als Wirtschaftsministerin erklärte sie ab 2025 dagegen, man müsse „mehr ermöglichen als vorschreiben“, und bezeichnete im März 2026 den deutschen Atomausstieg öffentlich als „großen Fehler“. Die Quelle interpretiert diesen Wandel als pragmatische Anpassung an den jeweiligen politischen Zyklus und an die Bedürfnisse der Energiewirtschaft.</div>
+<p><strong>Vertrauensniveau der Quelle:</strong> hoch.</p>
+<div class="subhead">1.3. Verhältnis zum Risiko</div>
+<p><strong>Risikoprofil:</strong> mittel, aber streng kalkuliert.</p>
+<div class="stamp-note fact"><span class="k">■ FAKT</span>2002 ging Reiche ein erhebliches Reputationsrisiko ein, als sie sich als unverheiratete Mutter für eine prominente Rolle im Schattenkabinett Edmund Stoibers zur Verfügung stellte und damit Teile des konservativen CDU/CSU-Flügels gegen sich aufbrachte. 2026 ging sie zudem in der Koalition offen in den Konflikt mit SPD-Chef und Finanzminister Lars Klingbeil über eine Übergewinnsteuer für Ölunternehmen.</div>
+<div class="stamp-note fact"><span class="k">■ FAKT</span>2015 vermied sie dagegen ein politisches Karriererisiko, indem sie aus der stagnierenden Rolle als Staatssekretärin in die institutionell und finanziell abgesicherte VKU-Spitze wechselte.</div>
+<div class="stamp-note insight"><span class="k">■ ANALYTISCHE SCHLUSSFOLGERUNG</span>Die Förderung der Wasserstoffstrategie über den Nationalen Wasserstoffrat wird im Bericht als Mechanismus interpretiert, bei dem ein erheblicher Teil der Investitionsrisiken neuer Technologien von Unternehmen wie E.ON auf den Staatshaushalt und staatliche Subventionsprogramme verlagert wird.</div>
+<div class="subhead">1.4. Wichtigster innerer Treiber</div>
+<p><strong>Zugang zum System und Kontrolle regulatorischer Ströme.</strong></p>
+<p>Reiche wird nicht als Politikerin mit dem Ziel einer persönlichen nationalen Führungsrolle beschrieben. Ihr strategischer Wert entsteht vielmehr aus der Rolle einer schwer ersetzbaren Integratorin zwischen Staat — Gesetzen, Fördermitteln und Genehmigungen — und energieintensiver Industrie.</p>
+<div class="subhead">2. NETZWERK UND KAPITALSTRUKTUR</div>
+<div class="subhead">2.1. Erster Hebel</div>
+<div class="stamp-note fact"><span class="k">■ FAKT</span>Der erste politische Hebel war die CDU und insbesondere Edmund Stoiber. 2002 holte Stoiber die damals 29-jährige Reiche in sein Expertenteam, um das öffentliche Profil der Union zu verjüngen. Dadurch erhielt sie früh eine außergewöhnlich hohe bundespolitische Sichtbarkeit.</div>
+<p><strong>Quellenbasis laut Dokument:</strong> öffentliche Parteiarchive und Materialien des CDU/CSU-Bundestagswahlkampfs 2002.</p>
+<p><strong>Vertrauensniveau:</strong> hoch.</p>
+<div class="subhead">2.2. Aktuelle Verstärker</div>
+<p><strong>Friedrich Merz — Bundeskanzler, CDU:</strong> politischer Patron und strategischer Verbündeter. Merz erhält eine wirtschaftsnahe Technokratin; Reiche erhält Zugang zur zentralen ministeriellen Machtposition.</p>
+<p><strong>E.ON und der korporative Energiesektor:</strong> frühere operative und finanzielle Basis. Die Quelle betrachtet diesen Sektor als natürlichen institutionellen Verbündeten ihrer regulatorischen Agenda.</p>
+<p><strong>Karl-Theodor zu Guttenberg:</strong> Die Quelle nennt die seit 2025 öffentlich bekannte Partnerschaft als persönlichen Bündnisfaktor und als möglichen Verstärker transatlantischer und konservativer Elitenetzwerke.</p>
+<p><strong>Vertrauensniveau für den persönlichen Status:</strong> hoch.</p>
+<div class="subhead">2.3. Reale Verbündete</div>
+<p><strong>Operative Verbündete:</strong> CDU-Bundesgremien, deutsche Energieverbände und der Bundesverband mittelständische Wirtschaft (BVMW).</p>
+<p><strong>Finanzielle und sektorale Verbündete:</strong> große Energie- und Infrastrukturunternehmen, insbesondere Akteure mit Interessen an Wasserstoffinfrastruktur und konventionellen Energieträgern.</p>
+<div class="subhead">2.4. Gegner</div>
+<p><strong>Institutioneller Gegner:</strong> das Bundesfinanzministerium unter Lars Klingbeil (SPD).</p>
+<div class="stamp-note fact"><span class="k">■ FAKT</span>Die Quelle markiert den Konflikt um die Kontrolle von Haushaltsströmen und die Besteuerung großer Unternehmen im April 2026 als dokumentierten institutionellen Konflikt zwischen Reiche und dem von Klingbeil geführten Finanzressort.</div>
+<p><strong>Politische Gegner:</strong> der linke und grüne Block. Der Bericht beschreibt Reiche als Akteurin, die Teile des energiepolitischen Erbes von Robert Habeck zurückbaut.</p>
+<p><strong>Offene Gegner:</strong> Umwelt-NGOs, die eine stärkere Rückkehr zu konventionellen Energieträgern ablehnen.</p>
+<div class="subhead">2.5. Einflussinstitutionen</div>
+
+<table>
+<thead>
+<tr><th>Institution</th><th>Einflussgrad im Dokument</th><th>Funktion</th></tr>
+</thead>
+<tbody>
+<tr><td>Bundesministerium für Wirtschaft und Energie</td><td>5 / faktische Kontrolle</td><td>Zentrale regulatorische und industriepolitische Plattform; der Einfluss ist laut Quelle durch die Verlagerung des Klima- und Transformationsfonds zum Finanzministerium eingeschränkt.</td></tr>
+<tr><td>Nationaler Wasserstoffrat</td><td>4 / strategische Partnerschaft</td><td>Ehemaliger Vorsitz und fortbestehendes Netzwerk in der Wasserstoffagenda.</td></tr>
+<tr><td>Verband kommunaler Unternehmen (VKU)</td><td>3 / institutionelles Netzwerk</td><td>Langjährige Verbindungen zu Stadtwerken, Kommunen und Infrastrukturbetreibern.</td></tr>
+</tbody>
+</table>
+
+<div class="subhead">2.6. Kapitalstruktur</div>
+<div class="stamp-note nodata"><span class="k">■ KEINE DATEN</span>Es gibt im Quelldokument keine Daten über versteckte Trusts, verdeckte Offshore-Strukturen oder vergleichbare nicht öffentliche Vermögensvehikel.</div>
+<div class="stamp-note fact"><span class="k">■ FAKT</span>Das dokumentierte legale Vermögen wurde über Vergütungs- und Managementpakete aus Spitzenpositionen bei Westenergie AG und dem VKU während der Jahre 2015–2025 aufgebaut.</div>
+<p><strong>Risikoverteilung:</strong> Der wichtigste persönliche Risikofaktor ist reputationsbezogen. In Deutschland unterliegt der Übergang zwischen regulierter Industrie und Ministeramt einer besonders intensiven Debatte über Interessenkonflikte. Jede staatliche Förderung zugunsten von E.ON-nahen oder kommunalen Strukturen kann deshalb politisch als mögliche Nähe zum früheren Arbeitgeber interpretiert werden.</p>
+<div class="subhead">3. SCHLÜSSELHANDLUNGEN</div>
+<div class="subhead">3.1. Wo sie gegen das System ging — 2002</div>
+<p><strong>Kontext:</strong> Bundestagswahl und Stoibers Kanzlerkandidatur.</p>
+<p><strong>Handlung:</strong> Reiche übernahm eine öffentlich sichtbare Rolle in der Familienpolitik, obwohl sie unverheiratet schwanger war.</p>
+<p><strong>Verlierer:</strong> Teile des streng katholisch-konservativen CDU/CSU-Flügels, die ihren Rückzug forderten.</p>
+<p><strong>Folge:</strong> Sie bewies die Fähigkeit, massiven Reputationsdruck auszuhalten, und gewann innerhalb der Partei politische Autonomie. Die Quelle weist zugleich darauf hin, dass sie diese Abweichung in anderen gesellschaftspolitischen Fragen durch konservative Positionierungen kompensierte.</p>
+<div class="subhead">3.2. Wo sie sich in das System integrierte — 2015</div>
+<p><strong>Kontext:</strong> Die politische Karriere stagnierte auf Staatssekretärsebene.</p>
+<p><strong>Handlung:</strong> Rücktritt aus der Bundespolitik und Wechsel an die Spitze des VKU.</p>
+<p><strong>Ressourcen:</strong> Zugang zu großen Finanz- und Investitionsströmen kommunaler Infrastrukturunternehmen.</p>
+<p><strong>Folge:</strong> Transformation von einer Politikerin zur systemischen Lobby- und Verbandsmanagerin mit legalem Spitzeneinkommen.</p>
+<div class="subhead">3.3. Wo sie Erwartungen unterlief — 2025</div>
+<p><strong>Kontext:</strong> Bildung des Kabinetts Friedrich Merz.</p>
+<p><strong>Handlung:</strong> Rückkehr auf einen zentralen Ministerposten nach zehn Jahren im Verbands- und Unternehmenssektor.</p>
+<p><strong>Folge:</strong> Der Bericht bewertet die Jahre bei E.ON und im VKU nicht als politischen Ruhestand, sondern als Plattform zur Akkumulation von Kontakten und Branchenwissen vor der Rückkehr in die Bundesregierung.</p>
+<div class="subhead">3.4. Innovationen und Beiträge — Wasserstoffökonomie 2020–2025</div>
+<p>Als Vorsitzende des Nationalen Wasserstoffrats half Reiche laut Dokument dabei, Wasserstoff von einem Feld ökologischer Start-ups in einen strategischen staatlichen Schwerpunkt mit milliardenschweren Förderbudgets zu überführen. Dadurch entstand zugleich eine neue Infrastruktur- und Investitionsnische für deutsches Industriekapital.</p>
+<div class="subhead">4. REPUTATIONSRISIKEN, ANGREIFBARKEITEN UND SYSTEMISCHE RISIKEN</div>
+<div class="subhead">4.1. Revolving-Door-Effekt und Interessenkonflikt</div>
+<div class="stamp-note fact"><span class="k">■ FAKT</span>Politische Gegner — darunter Akteure der Linken und der Grünen — greifen regelmäßig Reiches Karriereweg an: Umweltministerium → VKU-Lobby → E.ON/Westenergie → Bundesministerium für Wirtschaft und Energie.</div>
+<p><strong>Risiko:</strong> Jede Subvention oder öffentliche Förderung für E.ON-nahe oder kommunale Energieunternehmen kann politisch durch den Verdacht einer Interessenkollision bewertet werden.</p>
+<div class="subhead">4.2. Interne Front in der Koalition</div>
+<div class="stamp-note fact"><span class="k">■ FAKT</span>Im Frühjahr 2026 geriet Reiche öffentlich mit SPD-Chef und Finanzminister Lars Klingbeil über die Besteuerung von Öl- und Gasunternehmen aneinander.</div>
+<div class="stamp-note insight"><span class="k">■ ANALYTISCHE SCHLUSSFOLGERUNG</span>Die Quelle interpretiert diese Position als sichtbare Loyalität gegenüber großem Industriekapital auf Kosten der Koalitionsstabilität. Merz musste sich von dem Konflikt distanzieren. Reiche könnte dadurch zur politischen Angriffsfläche für den linken Flügel der Koalition werden, der ihre Vorhaben über Haushalts- und Finanzausschüsse blockieren kann.</div>
+<div class="subhead">4.3. Verantwortung für die Energiekrise</div>
+<div class="stamp-note insight"><span class="k">■ ANALYTISCHE SCHLUSSFOLGERUNG</span>Mit der Aussage, der Atomausstieg sei ein „großer Fehler“ gewesen, verlagerte Reiche die Verantwortung auf frühere Regierungen. Gleichzeitig verfügt ihr Ressort laut Dokument nur über 1,79% des Bundeshaushalts und nicht über die volle Kontrolle des Klima- und Transformationsfonds KTF. Die Quelle sieht darin das Risiko, politische Verantwortung für einen problematischen Energiesektor zu übernehmen, ohne über ausreichende finanzielle Hebel zu verfügen.</div>
+<p><strong>Vertrauensniveau des Risikoblocks:</strong> hoch; die Quelle verweist auf die Haushaltsverteilung 2026 und öffentlich dokumentierte politische Konflikte.</p>
+<div class="subhead">QUELLENSTATUS</div>
+<p>Das Quelldokument enthält keine eigenständige Bibliografie oder nummerierte Linkliste. Es nennt als Belegtypen öffentliche Parteiarchive, Materialien von CDU/CSU, öffentlich bekannte Karriere- und Unternehmensstationen sowie Haushalts- und politische Konfliktdaten. Deshalb wurden in dieser Fassung keine externen Quellen ergänzt, die im Ausgangsdokument nicht enthalten sind.</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">MARKER-LEGENDE — STANDARD DES QUELLDOKUMENTS</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — explizit als Fakt gekennzeichnete Aussage im Quelldokument</div>
+      <div><b>PR-VERSION</b> — im Quelldokument gibt es keinen expliziten PR-Marker</div>
+      <div><b>ANALYTISCHE SCHLUSSFOLGERUNG</b> — explizit markierte strukturelle Interpretation</div>
+      <div><b>KEINE DATEN</b> — explizit markierte Datenlücke; INSIDE/UNBESTÄTIGT kommt in diesem Dokument nicht vor</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
