@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대한민국 — 김건희: 권력·자본·문화·사법 네트워크 아키텍처 | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← 홈</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">독립 구조정보 분석 · 2026년부터</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">“서사보다 구조.”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>대한민국 데스크</span>
+    <span>2026년 8월 29일</span>
+  </div>
+
+  <span class="section-tag">인물 / 정치권력 / 금융 / 문화 네트워크</span>
+
+  <h1 class="headline">김건희: 문화자본에서 대통령 권력까지 — 그리고 네트워크의 붕괴</h1>
+  <p class="deck">Covana Contents, Deutsch Motors, 종교·고가품 네트워크, 대통령실과 검찰 인맥, 21 Gram과 측근기업. 원문은 이 회로들이 어떻게 자본·지위·정치접근을 결합했고, 권력붕괴 이후 동일한 연결이 수사·재판·평판위험으로 역전됐는지를 추적한다.</p>
+  <div class="byline">대한민국 데스크 — 카테고리: 인물 / 영향력 아키텍처 / KIM KEON-HEE</div>
+
+  <div class="columns">
+<p class="lead"><strong>분석 기준일:</strong> 2026년 8월 29일. 대상: 김건희(Kim Keon-hee), 전 대한민국 영부인, Covana Contents 설립자·운영자.</p>
+<p>원문은 김건희를 세 개의 회로가 만나는 지점으로 본다. <strong>대통령 가족의 비공식 영향력, 문화·상업 플랫폼, 금융·부패 사건의 관계망</strong>이다. 2026년 8월 현재 공식 권력은 크게 약화됐지만, 축적된 사건과 관계는 한국 엘리트의 권력·후원·사법보호 구조를 분석하는 사례로 남는다는 것이 문서의 기본 프레임이다.</p>
+
+<div class="subhead">권력 아키텍처 — 핵심 회로</div>
+<table>
+<thead><tr><th>회로</th><th>주요 노드</th><th>기능</th><th>2026년 상태</th></tr></thead>
+<tbody>
+<tr><td>대통령·정치</td><td>윤석열, 대통령실, People Power Party 일부</td><td>정치·검찰·미디어 접근과 방어</td><td>급격히 약화, 일부 관련자 수사·기소</td></tr>
+<tr><td>문화·상업</td><td>Covana Contents, 기업후원자, 전시 네트워크</td><td>문화자본의 수익화와 엘리트 접촉</td><td>수사·압수수색과 평판손상</td></tr>
+<tr><td>금융</td><td>Deutsch Motors, Blackpearl Invest, 브로커</td><td>주식거래와 자본증식</td><td>형사판결과 특별수사 중심</td></tr>
+<tr><td>종교·고가품</td><td>통일교, Dior·Chanel·Graff 등</td><td>금품·상징적 지위와 정책접근 의혹</td><td>뇌물·부패사건으로 전환</td></tr>
+<tr><td>관련기업·조달</td><td>21 Gram, IMS Mobility / BeMyCar</td><td>계약·투자·측근 네트워크</td><td>관저이전·투자 관련 수사대상</td></tr>
+<tr><td>학술·상징</td><td>숙명여대, 국민대</td><td>전문성·문화적 정당성</td><td>학위 취소로 역전</td></tr>
+</tbody></table>
+
+<div class="subhead">1. 의사결정 시스템의 아키텍처</div>
+<p>사고유형, 의사결정 방식, 위험성향과 내부동인을 원문 마커 그대로 분리한다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>주된 유형은 강한 금융·투기적 모듈을 가진 기회주의자이며, 보조 유형은 기업·예술계·국가 사이의 중개자라는 것이 원문의 판단이다. 신뢰도는 높음.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>김건희는 Covana Contents를 설립·운영했고 르 코르뷔지에, 마크 로스코 등 국제적 작가의 대형 전시를 기획했다. 원문은 이를 기업 후원과 관계망을 통해 문화자본을 체계적으로 수익화한 사례로 제시한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>원문에 따르면 특별검사와 법원은 2010~2012년 Deutsch Motors 주가조작 사건에서 김건희의 참여와 약 8억1천만 원의 이익을 인정했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>원문은 법원이 주가조작 참여와 통일교 관련 금품수수에 대해 징역 4년과 벌금 5천만 원을 선고했다고 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>원문은 종교단체 및 기타 제공자로부터 Chanel·Dior·Graff 등 고가품을 받은 별도 부패사건도 2026년 유죄판결로 이어졌다고 기재한다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>기회주의적 성향은 예술사업가, 검찰총장의 배우자, 영부인이라는 각각의 지위를 기업·종교 후원자와 금융거래에 접근하는 창구로 활용한 데서 나타난다는 것이 원문의 해석이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>금융적 모듈은 Blackpearl Invest의 전문 트레이더에게 계좌운용을 맡긴 행위에서 드러나며, 항소심은 이를 Deutsch Motors 거래를 위한 묵시적 공모와 연결해 해석했다고 원문은 설명한다.</div>
+<div class="stamp-note pr"><span class="k">■ PR 버전</span>김건희 본인, 대통령실과 변호인단은 주가조작의 고의 및 뇌물수수를 일관되게 부인하며 정치적 공격의 피해자라는 입장을 제시했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>일부 Covana 전시 후원 의혹에 대해서는 검찰이 2023년 증거부족 등을 이유로 기소하지 않은 사례가 있었다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>가족과 소수 측근 내부에서 어떤 전략논의가 이루어졌는지는 공개자료가 없다. 이용 가능한 정보는 법원자료와 특별수사에서 나온 간접자료에 한정된다.</div>
+<div class="subhead">1.2. 의사결정 모델</div>
+<p>폐쇄형 금융·정치 네트워크와 법률위험 인식의 문제를 다룬다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>의사결정 모델은 폐쇄형 자문·파트너 네트워크, 직관적 기회주의와 정치적 계산의 결합이며 법률·규제 위험을 반복적으로 낮게 평가했다는 것이 원문의 결론이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>원문은 김건희가 Deutsch Motors 거래를 위해 Blackpearl Invest의 트레이더에게 계좌와 자본 운용을 맡겼고, 이로 인해 비공식 금융조언자에 대한 의존이 생겼다고 설명한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Dior·Chanel·Graff 같은 고가품 수수는 영부인 신분과 청탁금지법 적용, 높은 사회적 감시가 존재하던 시기에 이루어졌다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>원문은 21 Gram, IMS Mobility/BeMyCar 등 측근과 연결된 회사를 대기업 프로젝트와 공공계약에 활용한 사례를 지적한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Covana Contents가 기업후원을 계속 받는 과정에서 ‘전시후원을 통한 우회적 뇌물’ 의혹이 반복됐고, 2025~2026년에는 특별수사로 확대됐다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>목사와 기업 관련자에게서 Dior 가방과 기타 선물을 받은 행위는 단기적으로 물질적·상징적 이익을 주었으나 장기적으로 대통령과 집권당에 정치위기를 만들었다고 원문은 서술한다.</div>
+<div class="subhead">1.3. 위험 성향</div>
+<p>고위험 행동과 중개자·기관으로의 위험이전이 반복되는지 본다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>위험성향은 높고 비대칭적이다. 자본·사치품·접근권을 얻기 위해 법률·정치적으로 위험한 행동을 감수하면서 중개자와 기관에 일부 위험을 이전하려는 패턴이 반복된다는 것이 원문의 결론이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>원문은 Deutsch Motors 주가조작 참여가 형사절차와 징역 4년·벌금 5천만 원 판결로 이어졌다고 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Dior·Chanel·Graff 등 고가품 수수는 여러 형사사건과 뇌물 관련 유죄판결의 기초가 됐다고 원문은 설명한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>석사·박사 학위를 상징자본으로 활용했으나 표절판정 뒤 2025년 두 학위가 모두 취소됐고 이는 정당성에 큰 타격을 줬다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>21 Gram이 대통령 관저 이전사업에서 계약을 얻는 동시에 김건희에게 고가품을 제공했다는 혐의가 제기됐고, 2026년 직권남용 및 뇌물 관련 기소로 이어졌다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Blackpearl Invest의 트레이더와 브로커들이 주가조작의 실행자로 유죄판결을 받는 동안 김건희의 책임은 오랫동안 부인되거나 축소됐다는 것이 원문의 서술이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>초기 수사에 관여했던 일부 검사는 이후 기록 왜곡과 김건희 사건 비호 혐의로 특별검사에게 기소됐다고 원문은 기재한다.</div>
+<div class="subhead">1.4. 핵심 내부동인</div>
+<p>문화자본·정치접근·금융이익 중 무엇이 지속적인 동력인지 평가한다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>지배적 동인은 이념보다 문화·정치 네트워크를 통해 자본과 지위에 접근하는 것이라는 것이 원문의 판단이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Covana Contents는 예술전시를 기업후원과 대기업 접근의 통로로 바꾸어 상징적 지위와 재원을 동시에 형성했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Deutsch Motors, 21 Gram, IMS Mobility, 종교조직 등 주요 사건은 뚜렷한 정치이념보다는 돈·고가품·유리한 계약과 연결돼 있다고 원문은 강조한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>학위는 전문성과 문화적 지위를 만드는 상징자본으로 활용됐지만 취소 이후 이미지가 약화됐다.</div>
+<div class="subhead">2. 네트워크와 자본구조</div>
+<p>초기 레버, 증폭기, 동맹·반대세력, 기관영향력과 자본구조를 분리한다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>초기 레버는 교육·예술에서 나온 가족·사회자본과 배우자를 통해 확보한 검찰·법조 엘리트 접근이었다는 것이 원문의 결론이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>김건희는 예술·디자인 분야의 석사·박사 경력을 보유했으나 이후 표절판정으로 학위가 취소됐다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2009년 Covana Contents 설립은 기업·후원자·언론과 연결되는 첫 번째 제도적 플랫폼을 제공했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>윤석열과의 결혼은 전 검찰총장, 이후 대통령의 배우자로서 검찰·정치·언론 엘리트에 접근할 수 있는 통로가 됐다.</div>
+<div class="subhead">2.2. 현재의 증폭기</div>
+<p>Covana, 금융 브로커, 종교조직, 관련기업, 검찰 인맥을 원문이 어떻게 분류하는지 본다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>현재까지 확인되는 영향력 증폭기는 기업후원자, 종교조직, 관련회사, 일부 검찰 인맥이며 2025~2026년 법적 충격 이후 이 네트워크의 상당부분이 약화되거나 형사사건의 대상이 됐다는 것이 원문의 평가다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Covana Contents에서 김건희는 설립자·운영자로 전시사업과 후원 네트워크의 중심이었다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Deutsch Motors–Blackpearl Invest 관계에서 원문은 김건희를 브로커 고객이자 BMW 딜러사 주가조작 사건의 참여자로 설명한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>통일교는 고가품 제공자이자 법원이 뇌물의 출처로 인정한 종교조직으로 제시된다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>21 Gram은 김건희와 연결된 업체로서 고가품 제공 및 대통령 관저 이전공사 수주 의혹의 중심에 있다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>개인 수행원으로 불린 측근은 IMS Mobility 계열 스타트업 경영에 관여했고 Kakao Mobility·Hyosung 등에서 약 184억 원 투자를 유치한 것으로 원문은 서술한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>배우자의 과거 검찰 인맥 가운데 일부 전직 검사들은 김건희 관련 수사자료 왜곡 혐의로 기소됐다고 원문은 기재한다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>동맹은 공개적 정치파트너인 윤석열부터 금융실무자와 종교조직까지 여러 층위였으나 법적 충격 이후 일부 동맹이 오히려 위험원으로 전환됐다는 것이 원문의 판단이다.</div>
+
+<table>
+<thead><tr><th>노드</th><th>관계 유형</th><th>김건희 측 효익</th><th>상대 측 효익 / 위험</th><th>원문 신뢰도</th></tr></thead>
+<tbody>
+<tr><td>Covana Contents</td><td>설립·경영</td><td>문화자본, 기업·언론 접근</td><td>기업 후원의 문화적 정당성·정치접근 가능성</td><td>높음</td></tr>
+<tr><td>Deutsch Motors / Blackpearl</td><td>금융·브로커</td><td>투자수익·자본확대</td><td>수수료·거래이익, 형사위험</td><td>높음</td></tr>
+<tr><td>통일교</td><td>종교·금품</td><td>고가품·상징적 지위</td><td>대통령 가족 접근 의혹</td><td>높음</td></tr>
+<tr><td>21 Gram</td><td>관련업체·조달</td><td>고가품 및 측근사업 네트워크</td><td>관저 이전사업 계약</td><td>높음</td></tr>
+<tr><td>IMS Mobility / 측근</td><td>운영·투자</td><td>신뢰관계를 통한 기업자금 접근</td><td>대기업 투자유치</td><td>중간</td></tr>
+<tr><td>검찰 인맥</td><td>제도·법률</td><td>초기 수사 지연·완화 의혹</td><td>정치적 영향력 유지, 이후 기소위험</td><td>혐의사실 높음 / 실제 범위 중간</td></tr>
+</tbody></table>
+
+<div class="subhead">2.3. 실제 동맹</div>
+<p>공개적 정치동맹과 기능적 금융·운영 동맹을 구분한다.</p>
+<div class="stamp-note fact"><span class="k">■ 사실</span>윤석열과 보수 People Power Party 일부는 Dior 사건 등에서 독립수사 요구에 맞서 김건희를 방어한 공개적 정치동맹으로 제시된다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Trader Lee와 Blackpearl Invest 네트워크는 Deutsch Motors 금융거래의 핵심 실무관계로 제시된다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Covana 전시에는 Hyosung 등 대기업 후원자와 관련 기업들이 참여했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>People Power Party 일부 의원은 이후 대통령 체포 저지와 반부패기관 대응과 관련해 기소대상이 됐다고 원문은 서술한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>IMS Mobility를 운영한 개인 측근은 기업투자의 중개자로 기능했다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>일부 검찰 인력은 법률원칙과 정치압력 사이에서 기능적 동맹으로 작동했으나 특별검사 수사가 이들을 겨냥하면서 관계가 역전됐다는 것이 원문의 분석이다.</div>
+<div class="subhead">2.4. 반대세력</div>
+<p>야당·반부패기관·학계와 보수진영 내부 갈등을 분리한다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>주요 반대세력은 야당인 더불어민주당, 비판적 언론·학계와 새로운 반부패기관이며 이들은 김건희 사건을 ‘시스템 부패’의 사례로 만들었다는 것이 원문의 결론이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>더불어민주당은 Deutsch Motors, Dior, 종교단체 금품수수 등을 지속적으로 제기하며 특별수사를 요구했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Deutsch Motors·Dior·관저 이전 사건을 다룬 특별검사팀은 김건희의 기소와 판결을 끌어낸 핵심 제도적 반대세력으로 제시된다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>고위공직자범죄수사처 등 반부패기관은 대통령 체포 등 절차를 추진했고 김건희 측 정치동맹과 충돌했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>범학계 교수그룹은 김건희 논문의 대규모 표절을 확인했다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>숙명여대와 국민대는 각각 석사·박사 학위를 공식 취소했다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>보수진영 내부에서도 김건희와 거리를 두어 당을 보호해야 한다는 세력과 정치적 희생양으로 방어해야 한다는 세력이 갈렸다는 것이 원문의 분석이나, 구체적인 계파구조의 문서증거는 제한적이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>검찰 내부에서 김건희 사건을 조직개편이나 경쟁자 제거에 이용한 ‘숨은 반대자’가 존재했을 가능성을 원문은 제기하지만 구체적인 인물과 구조는 확인되지 않았다.</div>
+<div class="subhead">2.5–2.6. 기관 영향력과 자본</div>
+<p>영향력 채널과 소유·수익 구조에서 확인되는 것과 확인되지 않는 것을 분리한다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>김건희는 대통령실·검찰·대학·종교조직 등 여러 기관을 주로 자본과 지위의 통로로 활용했으며 현재는 상당수 채널이 폐쇄되거나 형사사건의 대상이 됐다는 것이 원문의 분석이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>자본은 Covana 전시사업 같은 합법적 수익과 주가조작·고가품 뇌물·종교 및 기업선물로 규정된 불법이익의 혼합으로 구성됐으며 상당부분이 법률·평판 압력 아래 있다는 것이 원문의 판단이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Covana Contents는 한국 법인형태의 전시·문화사업 자산으로 제시된다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Deutsch Motors 사건에서 원문이 제시하는 불법이익은 약 8억1천만 원이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>통일교 및 기타 제공자로부터 받은 Chanel·Dior·Graff 등의 고가품은 수천만 원 규모의 금품수수로 제시된다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>21 Gram과 IMS Mobility 등 관련기업의 계약은 측근을 통해 접근 가능한 2차 자본층으로 원문은 해석한다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>김건희가 특정기업을 몇 퍼센트 보유하는지, 신탁구조가 존재하는지 등을 보여주는 공개 상세등록부는 확인되지 않았다.</div>
+
+<table>
+<thead><tr><th>기관</th><th>과거 관여도</th><th>주요 기능</th><th>현재 변화</th></tr></thead>
+<tbody>
+<tr><td>대통령실·관저</td><td>4–5</td><td>전략적 접근과 상징권력</td><td>전직 영부인 신분으로 급격히 약화</td></tr>
+<tr><td>검찰</td><td>3–4</td><td>배우자의 인맥과 수사·법률 환경</td><td>일부 전직 검사들이 특별수사 대상</td></tr>
+<tr><td>기업·금융</td><td>3</td><td>Covana 후원, 투자·주식거래, 측근기업</td><td>법률·평판 리스크 확대</td></tr>
+<tr><td>대학·학계</td><td>2–3</td><td>전문성·상징자본</td><td>학위취소로 반대자산화</td></tr>
+<tr><td>종교조직</td><td>3–4</td><td>고가품·정치접근 의혹</td><td>부패사건의 증거노드</td></tr>
+<tr><td>미디어</td><td>2–3</td><td>이미지 관리와 스캔들 확산</td><td>국내외 비판보도 우세</td></tr>
+</tbody></table>
+
+<div class="subhead">3. 궤적을 바꾼 핵심 행동</div>
+<p>Deutsch Motors, Covana, Dior, 학위, 21 Gram을 각각 별도 사건으로 본다.</p>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Deutsch Motors 사건에서 김건희는 Lee/Blackpearl Invest 트레이더에게 계좌운용을 맡겼고 법원은 이를 가격조작 공모 참여로 평가했다고 원문은 설명한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Covana는 국제작가 전시를 개최하고 대기업 후원을 유치했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>수사기관은 기업후원이 미래 대통령 부부에 대한 접근의 대가인 숨은 뇌물인지 조사했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2023년 검찰은 일부 Covana 관련 의혹에서 증거부족을 이유로 기소하지 않았다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2022년 김건희에게 약 300만 원 상당 Dior 가방이 전달되는 장면이 목사에 의해 비밀촬영됐고 이후 공개됐다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>당시 의혹은 청탁금지법 위반과 선물 대가로 편의를 제공했는지 여부였다.</div>
+<div class="stamp-note pr"><span class="k">■ PR 버전</span>윤석열과 김건희 측은 Dior 사건을 흠집내기 공작으로 규정하고 어떤 대가성 서비스도 제공하지 않았다고 주장했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>검찰은 초기에는 대가관계를 입증하지 못해 기소하지 않았으나 이후 특별검사 수사는 Dior 등 선물과 관저 이전·21 Gram 의혹을 더 넓게 조사했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>김건희는 숙명여대와 국민대에서 예술·디자인 관련 석사·박사 학위를 취득했고 이 경력은 전문성의 상징으로 사용됐다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>범학계 조사와 대학 심사에서 약 50~55% 수준의 대규모 표절이 지적됐고 2025년 두 학위가 취소됐다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>특별검사는 관저 이전사업과 관련해 김건희와 윤한홍 의원 등을 직권남용 및 뇌물 관련 혐의로 기소했으며 21 Gram을 수혜업체로 지목했다고 원문은 서술한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>21 Gram은 약 1,012만 원 상당 Dior 의류·Chanel 화장품 등을 김건희에게 제공하는 한편 관저 이전공사에서 유리한 계약을 얻었다는 혐의가 제기됐다.</div>
+<div class="subhead">4. 평판 취약성과 시스템 리스크</div>
+<p>확정판결·기소·표절과 구조적 리스크를 구분한다.</p>
+<div class="stamp-note fact"><span class="k">■ 사실</span>서울고법이 Deutsch Motors 주가조작 및 금품수수 관련 사건에서 징역 4년·벌금 5천만 원을 선고했다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>특별검사와 여러 매체는 이를 전 영부인이 연루된 대형 시장부패 사건으로 규정했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>Dior 전달 장면의 비밀영상과 CNN·Guardian·Strait Times 등의 보도로 사건이 국제적으로 알려졌다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>검찰은 초기에는 대가성 증거가 없다고 판단했으나 이후 특별검사는 관저 이전사업과 선물수수를 부패의 연속선상에서 다뤘다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>원문은 법원이 통일교로부터 Chanel 가방, 다이아몬드 목걸이 등을 받은 행위를 뇌물수수로 인정했다고 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>숙명여대와 국민대는 2025년 김건희의 석사·박사 학위를 취소했고 학술조사에서는 대규모 표절이 확인됐다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>대통령 관저 이전사업과 관련해 특별검사는 김건희를 직권남용 및 뇌물교사 혐의로 기소했다고 원문은 기재한다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>개별 판결을 제외하더라도 김건희의 권력모델에는 이해충돌, 국가권력 의존, 장기적인 사법리스크, 극단적으로 높은 평판위험이 내재돼 있다는 것이 원문의 구조적 평가다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>김건희 사건은 개인적 일탈만이 아니라 대통령권력·검찰·기업·종교네트워크·문화사업이 하나의 자본추출 구조에서 만나는 시스템 패턴을 보여준다는 것이 원문의 분석이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>초기 검찰이 범죄혐의를 인정하지 않았다가 이후 특별검사와 법원이 중대한 부패를 인정한 여러 사례는 사법기관의 분절과 정치화를 보여준다고 원문은 평가한다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>남편의 권력붕괴 이후 김건희의 보호망이 급격히 약화된 점은 한국 엘리트가 대통령실과 검찰권력의 지속성에 얼마나 의존하는지를 보여준다는 것이 원문의 분석이다.</div>
+<div class="subhead">5. 최근 12–24개월</div>
+<p>2025~2026년은 확장보다 방어와 네트워크의 해체가 중심이라는 원문 평가를 보존한다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>최근 2년은 영향력 확대가 아니라 방어와 네트워크의 강제적 해체 단계이며 학위취소·신규기소·특별수사 확대가 이를 보여준다는 것이 원문의 결론이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2025년 숙명여대와 국민대가 표절판정을 근거로 김건희의 석사와 박사학위를 취소했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2025년 Deutsch Motors, Covana 후원 및 금품수수 의혹을 포함한 확대 수사에서 자택과 Covana 사무실이 압수수색됐다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2025~2026년 특별검사는 Deutsch Motors와 종교단체 금품수수 사건에서 김건희에 대한 유죄판결을 끌어냈다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2026년 특별검사는 대통령 관저 이전과 21 Gram 관련 직권남용·뇌물교사 혐의를 추가로 기소했다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2026년 Deutsch Motors 사건의 Lee 트레이더 판결이 대법원에서 확정됐고, 일부 전직 검사들은 김건희 사건 비호 혐의로 기소됐다고 원문은 서술한다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>현재 행동은 새로운 시장 확장보다 기존 지위 방어와 제도적 충격에 대한 강제반응이며, 법률·평판자본이 동시에 감소하고 있다는 것이 원문의 분석이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>여러 판결과 기소로 인해 공개활동이 제한되고 동맹망의 일부가 형사수사 대상이 되면서 김건희의 행동공간은 축소되고 있다는 것이 원문의 결론이다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>수사협조, 공개적 자기비판, 정치은퇴 등 의도적인 전략전환을 보여주는 공개신호는 없다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>항소와 ‘정치적 박해’라는 방어논리는 미래위기 준비라기보다 현재 위기의 손실을 최소화하려는 조치에 가깝다는 것이 원문의 분석이다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>2024~2025년 이후 디지털 플랫폼이나 국제조직 등 새로운 영향력 영역으로 진입했다는 확인된 사례는 없다.</div>
+
+<table>
+<thead><tr><th>위험영역</th><th>상태</th><th>구조적 의미</th></tr></thead>
+<tbody>
+<tr><td>법률</td><td>매우 높음</td><td>Deutsch Motors, 종교 금품, 관저이전 등 여러 사건이 중첩.</td></tr>
+<tr><td>정치</td><td>높음</td><td>배우자의 권력상실과 보수네트워크 분열.</td></tr>
+<tr><td>평판</td><td>극단적으로 높음</td><td>학위취소, 고가품, 주가조작 사건이 단일 이미지로 결합.</td></tr>
+<tr><td>금융</td><td>중상</td><td>자산몰수 가능성과 후원·사업네트워크 상실 위험.</td></tr>
+<tr><td>운영</td><td>높음</td><td>Covana·측근기업을 합법적 영향채널로 활용할 능력 감소.</td></tr>
+<tr><td>국제제재</td><td>낮음–중간</td><td>원문은 현재 문제를 주로 국내 형사·정치 영역으로 본다.</td></tr>
+</tbody></table>
+
+<div class="subhead">6–7. 영향력 지도와 최종평가</div>
+<p>현재의 힘, 핵심자산, 핵심위험과 3년 시나리오를 정리한다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>2026년 기준 현재 영향력은 10점 만점에 4~5 정도라는 것이 원문의 평가다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>현재 가장 큰 비공식 자산은 검찰·대통령실·기업·종교네트워크 등 한국 엘리트 상층부가 작동하는 방식에 대한 지식과 관계망이며, 공식자산으로는 남아 있는 Covana 구조와 문화자본이 거론된다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>가장 큰 위험은 추가 판결, 특별수사 확대, 자산몰수 가능성과 보수네트워크의 완전한 주변화가 결합된 법률·정치적 복합위험이라는 것이 원문의 결론이다.</div>
+<div class="subhead">최종 검증 블록</div>
+<p>원문이 마지막에 다시 분리한 사실·분석·미확인 정보를 동일한 마커 수로 유지한다.</p>
+<div class="stamp-note fact"><span class="k">■ 사실</span>김건희는 윤석열 대통령의 배우자로 2022~2025년 대한민국 영부인이었다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>김건희는 국제작가의 대형전시를 기획한 Covana Contents를 설립·운영했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>원문은 법원이 Deutsch Motors 주가조작 참여에 대해 징역 4년과 벌금 5천만 원을 선고했다고 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>특별검사는 Deutsch Motors 거래에서 김건희의 불법이익을 약 8억1천만 원으로 산정했다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>원문은 김건희가 통일교로부터 고가품 형태의 뇌물을 받은 혐의로 유죄판결을 받았다고 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>숙명여대는 표절판정을 근거로 김건희의 석사학위를 취소했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>국민대는 석사학위 취소와 표절판정 이후 박사학위를 취소했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>21 Gram이 고가품을 제공하는 동시에 대통령 관저 이전계약을 수주했다는 의혹과 관련해 김건희는 직권남용·뇌물교사 혐의로 기소됐다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>김건희 사건과 관련된 일부 검사들이 수사개입과 문서조작 혐의로 기소됐다고 원문은 기재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>CNN, BBC, Guardian 등 국제매체는 Dior bag과 Deutsch Motors 등 여러 부패사건의 중심인물로 김건희를 보도했다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>주된 사고유형은 강한 금융·투기적 모듈을 가진 기회주의자라는 것이 원문의 최종 분석이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>Covana Contents는 문화사업뿐 아니라 기업이 대통령 가족에 접근하는 채널로도 기능했다는 것이 원문의 분석이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>의사결정 모델은 자본과 지위를 얻기 위해 법률·규제 위험을 체계적으로 과소평가했다는 것이 원문의 결론이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>핵심 내부동인은 이념보다 자본과 지위에 대한 접근이라는 것이 원문의 분석이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>동맹망에는 기업·종교 행위자가 포함됐고 이들은 김건희의 지위를 자신의 영향력 강화에 활용했다는 것이 원문의 판단이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>사건 전체는 대통령권력·검찰·기업·종교네트워크가 교차하는 구조적 패턴을 보여준다는 것이 원문의 분석이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>현재 영향력은 4~5 수준으로, 좁은 엘리트 네트워크에서는 여전히 자산이 있으나 과거의 시스템 영향력은 상실했다는 평가다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>주요 위험은 법률·정치적 압력이 결합해 네트워크를 완전히 해체할 수 있다는 점이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>3년 기본 시나리오는 과거 수준의 권력복귀 없이 사법개혁의 부정적 사례로 남는 것이라는 것이 원문의 전망이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>주요 판결의 번복과 광범위한 정치적 재활이 동시에 일어날 경우에만 영향력 강화가 가능하며 현재로서는 가능성이 낮다는 것이 원문의 평가다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>합법적 개인재산의 정확한 규모와 Covana 및 기타자산의 세부 소유구조는 공개돼 있지 않다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>폐쇄형 자문그룹의 정확한 구성과 각 인물의 역할은 확인되지 않았다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>김건희 또는 가족과 연결된 해외자산이나 offshore 구조의 존재를 확인할 공개자료가 없다.</div>
+<div class="stamp-note insight"><span class="k">■ 내부정보 / 미확인</span>보수정당 내부에서 김건희를 둘러싼 계파갈등의 실제 깊이는 정치권과 언론에서 거론되지만 문서로 확정되지 않았다.</div>
+<div class="stamp-note insight"><span class="k">■ 내부정보 / 미확인</span>수사기관과의 비공개 협조·거래가 있을 수 있다는 이야기는 정치권 채팅과 칼럼에서 언급되지만 공식자료로 확인되지 않았다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>2024년 이후 디지털 플랫폼 등 새로운 영향력 영역으로 실제 진입하려 했다는 확인자료가 없다.</div>
+<div class="subhead">3년 시나리오</div>
+
+<table>
+<thead><tr><th>시나리오</th><th>조건</th><th>예상 행동</th><th>결과</th></tr></thead>
+<tbody>
+<tr><td>기본</td><td>핵심 판결 유지, 신규 초대형 스캔들 없음</td><td>법률방어, 제한된 공개활동, 자산·관계의 조용한 재편</td><td>개인 영향력은 낮게 유지되고 사건은 사법개혁의 상징으로 남음</td></tr>
+<tr><td>강화</td><td>주요 판결 번복, 정치지형 변화, 문화사업을 통한 이미지 회복</td><td>공개활동 재개와 보수네트워크 재결집</td><td>부분적 영향력 회복 가능하나 원문은 가능성을 낮게 평가</td></tr>
+<tr><td>약화</td><td>추가기소·유죄확정·자산몰수·측근 네트워크 붕괴</td><td>공개활동 축소, 방어자산의 친족·수탁구조 이전 가능성</td><td>적극적 행위자보다 역사·법률 연구대상으로 전환</td></tr>
+</tbody></table>
+
+<div class="subhead">출처 — 원문에 사용된 51개 고유 링크</div>
+<p>1. en.wikipedia<br>https://en.wikipedia.org/wiki/Kim_Keon_Hee</p>
+<p>2. koreatimes.co<br>https://www.koreatimes.co.kr/southkorea/politics/20220510/koreans-want-first-lady-to-keep-low-profile-help-disadvantaged</p>
+<p>3. koreaherald<br>https://www.koreaherald.com/article/10727680</p>
+<p>4. cnn<br>https://www.cnn.com/2026/01/28/asia/south-korea-kim-keon-hee-ruling-intl-hnk</p>
+<p>5. ibtimes.co<br>https://www.ibtimes.co.uk/kim-keon-hee-indicted-presidential-residence-scandal-1815746</p>
+<p>6. asianews<br>https://asianews.network/entrepreneur-takes-on-new-role-as-south-koreas-first-lady/</p>
+<p>7. chosun<br>https://www.chosun.com/english/national-en/2026/05/05/RMV27VYTLVEH7LV4XIZW4SKWIU/</p>
+<p>8. straitstimes<br>https://www.straitstimes.com/asia/east-asia/why-a-dior-handbag-caused-such-a-stir-in-south-korean-politics</p>
+<p>9. koreatimes.co<br>https://www.koreatimes.co.kr/southkorea/politics/20230302/first-lady-cleared-of-graft-suspicions-involving-her-former-art-exhibition-firm</p>
+<p>10. news.sbs.co<br>https://news.sbs.co.kr/english/article.do?news_id=N1008713646</p>
+<p>11. en.sedaily<br>https://en.sedaily.com/society/2026/04/28/breaking-news-kim-keon-hee-sentenced-to-4-years-in-deutsch</p>
+<p>12. koreatimes.co<br>https://www.koreatimes.co.kr/southkorea/law-crime/20250618/hundreds-of-audio-files-of-kim-keon-hee-secured-in-deutsch-motors-stock-manipulation-probe</p>
+<p>13. abc.net<br>https://www.abc.net.au/news/2024-02-13/why-has-a-designer-dior-handbag-shaken-up-south-korean-politics/103459534</p>
+<p>14. chosun<br>https://www.chosun.com/english/national-en/2025/07/10/7FVWAVJLBFBBRDTGVVO25FUFAE/</p>
+<p>15. en.yna.co<br>https://en.yna.co.kr/view/AEN20250710007800315</p>
+<p>16. cnn<br>https://www.cnn.com/2024/02/09/asia/south-korea-dior-bag-scandal-intl-hnk-dst</p>
+<p>17. koreajoongangdaily<br>https://www.koreajoongangdaily.com/korea/special-counsel-says-ex-first-lady-made-810-million-won-in-deutsch-motors-stock-scheme/12123699</p>
+<p>18. koreatimes.co<br>https://www.koreatimes.co.kr/southkorea/society/20250617/former-first-ladys-masters-degree-to-be-revoked-amid-plagiarism-allegations</p>
+<p>19. en.sedaily<br>https://en.sedaily.com/society/2026/08/18/special-counsel-indicts-ex-first-lady-over-presidential</p>
+<p>20. news.sbs.co<br>https://news.sbs.co.kr/english/article.do?news_id=N1008703732</p>
+<p>21. biz.chosun<br>https://biz.chosun.com/en/en-society/2026/08/20/S4FCUZ7MAZE5PAZDFWLKWIDTSM/</p>
+<p>22. news.artnet<br>https://news.artnet.com/art-world/art-loving-first-lady-of-korea-2325263</p>
+<p>23. bbc<br>https://www.bbc.com/news/articles/cj3vpe8zme8o</p>
+<p>24. koreajoongangdaily.joins<br>https://koreajoongangdaily.joins.com/news/2025-07-21/national/socialAffairs/Exfirst-lady--doctoral-degree-canceled-amid-thesis-plagiarism-scandal/2357780</p>
+<p>25. koreajoongangdaily.joins<br>https://koreajoongangdaily.joins.com/news/2025-06-24/national/socialAffairs/University-revokes-exfirst-ladys-masters-degree-for-plagiarized-thesis/2337246</p>
+<p>26. artincontext<br>https://artincontext.org/kim-keon-hee/</p>
+<p>27. khan.co<br>https://www.khan.co.kr/en/article/202209071818377</p>
+<p>28. koreajoongangdaily<br>https://www.koreajoongangdaily.com/korea/office-of-ex-first-ladys-former-company-included-in-yoon-residence-raid-report/12029160</p>
+<p>29. en.sedaily<br>https://en.sedaily.com/society/2026/08/13/deutsch-motors-stock-rigging-accomplice-gets-suspended</p>
+<p>30. news.sbs.co<br>https://news.sbs.co.kr/english/article.do?news_id=N1008703606</p>
+<p>31. chosun<br>https://www.chosun.com/english/national-en/2026/08/18/F3GBES4IMRB6XJSE5UGT24YWYQ/</p>
+<p>32. asiae.co<br>https://www.asiae.co.kr/en/article/2026082410415290792</p>
+<p>33. straitstimes<br>https://www.straitstimes.com/asia/dior-bag-scandal-lands-skoreas-yoon-ruling-party-in-disarray-ahead-of-election</p>
+<p>34. koreajoongangdaily<br>https://www.koreajoongangdaily.com/korea/top-court-upholds-sentence-for-deutsche-motors-stock-manipulation-accomplice/12823266</p>
+<p>35. theguardian<br>https://www.theguardian.com/world/2024/jan/26/the-first-lady-and-the-dior-bag-the-scandal-shaking-up-south-korean-politics</p>
+<p>36. koreatimes.co<br>https://www.koreatimes.co.kr/www/nation/2025/01/113_335747.html</p>
+<p>37. koreaherald<br>https://www.koreaherald.com/article/10516555</p>
+<p>38. chosun<br>https://www.chosun.com/english/national-en/2026/07/22/GWX4XCNID5BLZIAVRHPXYZT65I/</p>
+<p>39. en.yna.co<br>https://en.yna.co.kr/view/AEN20250624004500315</p>
+<p>40. straitstimes<br>https://www.straitstimes.com/asia/east-asia/probe-of-first-lady-on-dior-bag-allegations-set-to-begin</p>
+<p>41. straitstimes<br>https://www.straitstimes.com/asia/east-asia/prosecution-probes-south-korea-s-first-lady-on-dior-bag-scandal-alleged-stock-manipulation</p>
+<p>42. time<br>https://time.com/7013292/south-korea-kim-keon-hee-dior-bag-scandal-charges-cleared/</p>
+<p>43. straitstimes<br>https://www.straitstimes.com/asia/south-korea-prosecutors-drop-charges-against-first-lady-over-luxury-bag-yonhap-reports</p>
+<p>44. koreatimes.co<br>https://www.koreatimes.co.kr/southkorea/20220802/kookmin-university-denies-first-lady-plagiarism-allegations</p>
+<p>45. universityworldnews<br>https://www.universityworldnews.com/post.php?story=20250701100245779</p>
+<p>46. scmp<br>https://www.scmp.com/week-asia/politics/article/3293950/south-korean-first-lady-kim-keon-hee-plagiarised-masters-thesis-university-concludes</p>
+<p>47. koreatimes.co<br>https://www.koreatimes.co.kr/southkorea/politics/20220802/kookmin-university-denies-first-lady-plagiarism-allegations</p>
+<p>48. koreaherald<br>https://www.koreaherald.com/view.php?ud=20240701050802</p>
+<p>49. en.fnnews<br>https://en.fnnews.com/news/202601281658166391</p>
+<p>50. anews.com<br>https://www.anews.com.tr/asia/2025/07/25/south-korean-ex-first-ladys-home-raided-in-corruption-probe</p>
+<p>51. simple.wikipedia<br>https://simple.wikipedia.org/wiki/Kim_Keon_Hee</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">마커 범례 — 원문 문서 기준</div>
+    <div class="keybox-grid">
+      <div><b>사실</b> — 원문이 명시적으로 사실로 표시한 주장. 본 HTML은 원문의 분류를 보존하며 별도 사실검증을 추가하지 않음.</div>
+      <div><b>PR 버전</b> — 김건희·윤석열 측 등 이해당사자의 공식 방어·프레이밍.</div>
+      <div><b>분석 결론</b> — 원문이 구조적 해석으로 명시한 판단.</div>
+      <div><b>내부정보 / 미확인</b> — 정치권·언론에서 거론되지만 문서로 확인되지 않은 주장.</div>
+      <div><b>데이터 없음</b> — 원문이 공개 증거 또는 세부정보 부족을 명시한 항목.</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
