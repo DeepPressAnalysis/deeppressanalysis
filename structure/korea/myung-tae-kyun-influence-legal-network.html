@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대한민국 — 명태균: 정치정보·관계망·법적 궤적의 아키텍처 | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← 홈</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">독립 구조정보 분석 · 2026년부터</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">“서사보다 구조.”</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>대한민국 데스크</span>
+    <span>2026년 8월 29일</span>
+  </div>
+
+  <span class="section-tag">인물 / 정치중개 / 여론조사 / 법률위험</span>
+
+  <h1 class="headline">명태균: 돈보다 정보로 만든 권력 — 그리고 그 네트워크의 역전</h1>
+  <p class="deck">미래한국연구소, PNR, 윤석열·김건희·김영선과의 접점, 공개된 녹취와 여러 재판은 한 가지 구조를 보여준다. 공식 직위나 대규모 자본 없이 여론데이터와 접근을 권력으로 바꾸던 중개자가 네트워크 공개 이후에는 정치운영자보다 증거 아카이브의 보유자로 변했다.</p>
+  <div class="byline">대한민국 데스크 — 카테고리: 인물 / 영향력 네트워크 / 정치정보</div>
+
+  <div class="columns">
+<p class="lead"><strong>조사 기준일:</strong> 2026년 8월 29일. 대상: 명태균(Myung Tae-kyun), 미래한국연구소 및 지역 미디어 시사경남과 연결돼 정치여론조사·공천·정치자금 사건의 중심인물이 된 한국의 정치 중개자·운영자.</p>
+<p>이 문서는 명태균을 공식 권력기관의 수장이나 대규모 자본가로 보지 않는다. 분석의 핵심은 <strong>정보 → 접근 → 관계 → 정치서비스</strong>의 전환이다. 그의 영향력은 특정 정치인과의 접근성, 여론조사 인프라, 커뮤니케이션 아카이브에서 생겼고, 2024년 이후 동일한 자원이 법정증거와 제약으로 전환됐다.</p>
+
+<div class="subhead">신원·기초정보 검증</div>
+<table>
+<thead><tr><th>속성</th><th>검증 결과</th><th>평가</th></tr></thead>
+<tbody>
+<tr><td>한국어 이름</td><td>명태균</td><td>법원·국회·NESDC·주요 언론에서 동일하게 사용. 높은 신뢰도.</td></tr>
+<tr><td>한자</td><td>明泰均</td><td>2차 프로필에 등장하나 별도 1차 등록기록 미확인. 중간 신뢰도.</td></tr>
+<tr><td>영문 표기</td><td>Myung Tae-kyun; Myeong Tae-gyun / Myeong Tae-kyun 변형</td><td>동명이인 방지를 위해 항상 명태균 표기를 병기해야 함.</td></tr>
+<tr><td>생년월일</td><td>1969-07-23 또는 1970-08-23</td><td>1차자료로 최종확정 불가.</td></tr>
+<tr><td>출생지</td><td>인천 부평 또는 경남 창녕 등 상충</td><td>낮은 신뢰도.</td></tr>
+<tr><td>주요 활동지역</td><td>창원 / 경상남도</td><td>여론조사 네트워크와 첫 주요 형사사건이 집중. 높은 신뢰도.</td></tr>
+<tr><td>교육</td><td>창원대학교 산업비즈니스 학사로 소개되는 경우가 있음</td><td>공식 대학기록 미확인. 중하 신뢰도.</td></tr>
+<tr><td>직업</td><td>언론은 ‘정치 브로커’, 본인은 마케팅·영업으로 설명</td><td>언론의 명칭과 본인 설명을 분리해야 함.</td></tr>
+<tr><td>미래한국연구소</td><td>밀접 연결; 실질 소유·통제는 분쟁 중</td><td>기관 역할은 높음, 개인 소유판단은 중간.</td></tr>
+<tr><td>시사경남</td><td>지역 미디어 구조와 연결</td><td>구체적인 직함·법적 소유는 자료 부족.</td></tr>
+<tr><td>공식 정부·정당 직위</td><td>확인되는 선출직 또는 고위 당직 없음</td><td>창원 1심도 관련 법률상 정치활동자 지위를 문제 삼음.</td></tr>
+<tr><td>생존 여부</td><td>생존</td><td>2026년 8월 25일 보석석방이 직접 확인됨.</td></tr>
+</tbody></table>
+
+
+<div class="subhead">주요 사건 연표</div>
+<table>
+<thead><tr><th>시기</th><th>사건</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td>2020 이전</td><td>초기 사업경력은 주로 2차자료</td><td>완전한 1차 검증 부족.</td></tr>
+<tr><td>2020.04</td><td>미래한국연구소가 창원 마산회원 총선조사 의뢰기관으로 NESDC 등록; People Networks 수행</td><td>여론조사 인프라의 첫 강한 제도적 흔적.</td></tr>
+<tr><td>2021–2022.03</td><td>윤석열 대선캠프 주변과 조사·커뮤니케이션 확대</td><td>서울 1심은 직접 전달된 14건을 정치적 기부로 판단; 항소 중.</td></tr>
+<tr><td>2022</td><td>미래한국연구소가 PNR을 통해 공식 여론조사 의뢰를 반복</td><td>일회성이 아닌 체계적 데이터 활동.</td></tr>
+<tr><td>2022.05.09</td><td>윤석열–명태균 통화녹취가 훗날 공개</td><td>김영선 공천 논쟁의 핵심 아카이브 중 하나.</td></tr>
+<tr><td>2024.09</td><td>NewsTomato가 김건희 공천개입 의혹 보도 시작</td><td>폐쇄 네트워크가 공개·수사 국면으로 전환.</td></tr>
+<tr><td>2024.11</td><td>창원 사건 구속</td><td>첫 주요 형사사법 단계.</td></tr>
+<tr><td>2024.12</td><td>숨겨졌던 휴대전화·USB가 수사기관에 제출</td><td>증거은닉 교사 유죄판단의 핵심.</td></tr>
+<tr><td>2025.04</td><td>창원 사건 보석</td><td>불구속 재판 단계.</td></tr>
+<tr><td>2025.07–11</td><td>특검 조사·대질·관련 재판 참여</td><td>피고인·증인·정보원 역할이 동시에 확대.</td></tr>
+<tr><td>2025.10.23</td><td>서울시 국정감사 출석</td><td>국회 공식 통제영역으로 이동.</td></tr>
+<tr><td>2025.12</td><td>윤석열·명태균 무료 여론조사 사건 별도 기소</td><td>창원 사건과 다른 서울 사건 형성.</td></tr>
+<tr><td>2026.02.05</td><td>창원 1심: 정치자금 혐의 무죄, 증거은닉 교사 유죄·집행유예</td><td>부분 무죄와 부분 유죄가 공존.</td></tr>
+<tr><td>2026.06.29</td><td>창원 항소심 본격 시작</td><td>무죄·유죄 모두 확정되지 않음.</td></tr>
+<tr><td>2026.07.13</td><td>서울 1심: 일부 무료 여론조사 사건 징역 1년6개월</td><td>현재 가장 중한 개인 판결; 항소 중.</td></tr>
+<tr><td>2026.08.21</td><td>서울 항소심 첫 기일</td><td>피고인과 특검 모두 판결 범위를 다툼.</td></tr>
+<tr><td>2026.08.24–25</td><td>보석 허가 및 석방</td><td>현재는 보석조건 아래 자유 상태.</td></tr>
+<tr><td>2026.09.11 예정</td><td>서울 항소심 다음 기일</td><td>가까운 핵심 절차일.</td></tr>
+</tbody></table>
+
+
+<div class="subhead">핵심 네트워크</div>
+<table>
+<thead><tr><th>노드</th><th>관계 유형</th><th>확인된 내용</th><th>기능</th><th>신뢰도</th></tr></thead>
+<tbody>
+<tr><td>미래한국연구소</td><td>여론조사 인프라</td><td>공식 조사 의뢰기관; 명태균의 실질소유는 분쟁 중</td><td>정치데이터 주문·생산</td><td>기관 역할 높음 / 개인통제 중간</td></tr>
+<tr><td>PNR / People Networks</td><td>조사수행사</td><td>미래한국연구소 의뢰의 등록 수행기관</td><td>기술·규제 조사 인프라</td><td>높음</td></tr>
+<tr><td>김영선</td><td>정치동맹·고객 회로</td><td>금전·공천 관련 재판 존재; 창원 1심은 정치자금 quid pro quo 불인정</td><td>전국정치 진입의 주요 채널</td><td>관계 높음 / 불법대가설 낮음</td></tr>
+<tr><td>윤석열</td><td>대선후보 접근</td><td>서울 1심은 14건 조사 직접전달 및 김영선 공천 관련 영향력을 판단; 항소 중</td><td>네트워크의 최고 정치적 업그레이드</td><td>접촉 높음 / 형사평가 확정 전 중간</td></tr>
+<tr><td>김건희</td><td>대통령 정치권 커뮤니케이션</td><td>접촉은 확인되지만 무료조사 형사책임은 별도 사건에서 다르게 평가</td><td>중요 접근채널이자 법적 리스크</td><td>관계 높음 / 법적 해석 분쟁</td></tr>
+<tr><td>오세훈</td><td>별도 조사정치 회로</td><td>2026년 1심에서 일부 조사비용 대납 구조가 유죄 판단; 항소 중</td><td>모델이 한 대선진영에만 국한되지 않았음을 보여줌</td><td>중간</td></tr>
+<tr><td>강혜경</td><td>전 내부직원·공익제보자</td><td>진술과 문서가 수사의 중요한 일부</td><td>내부정보를 외부감시로 전환</td><td>역할 높음 / 개별 주장 별도 검증</td></tr>
+<tr><td>김태열</td><td>연구소 전·현 운영 관계자</td><td>구조·자금 증언, 일부 과거진술 거짓 인정</td><td>중요 내부자료원이지만 신뢰도 문제</td><td>중간</td></tr>
+<tr><td>특검·검찰·법원</td><td>제도적 제한자</td><td>여러 수사·기소·재판·보석조건</td><td>현재 네트워크의 가장 강한 외부 제한</td><td>높음</td></tr>
+</tbody></table>
+
+
+<div class="subhead">기관별 영향·제약 수준</div>
+<table>
+<thead><tr><th>기관</th><th>수준</th><th>설명</th></tr></thead>
+<tbody>
+<tr><td>미래한국연구소</td><td>역사적으로 4/5</td><td>가까운 운영관계, 법적 통제구조는 분쟁 중.</td></tr>
+<tr><td>PNR</td><td>2–3/5</td><td>반복적 조사계약 연결, 통제 증거는 없음.</td></tr>
+<tr><td>대선 정치권 2021–22</td><td>역사적으로 3–4/5</td><td>강한 접근성은 있었으나 조직통제는 아님.</td></tr>
+<tr><td>정당 공천시스템</td><td>2–3/5</td><td>요청·접근 증거는 있으나 지속적으로 결정을 지시했다는 사실은 입증되지 않음.</td></tr>
+<tr><td>시사경남 / 지역미디어</td><td>2–3/5</td><td>지역 미디어 인프라, 규모 제한.</td></tr>
+<tr><td>국회(2024 이후)</td><td>영향 1/5 / 통제대상 4/5</td><td>증언·감사 대상이 됐으며 국회는 증폭기관보다 감독기관이 됨.</td></tr>
+<tr><td>사법·검찰 시스템</td><td>자기자원 0/5 / 제한자 5/5</td><td>현재 행동반경을 실질적으로 결정.</td></tr>
+</tbody></table>
+
+
+<div class="subhead">검증 가능한 조사·자료활동</div>
+<table>
+<thead><tr><th>시기</th><th>자료 / 조사</th><th>명태균 또는 연결조직 역할</th><th>1차기록</th></tr></thead>
+<tbody>
+<tr><td>2020.04</td><td>창원 마산회원 총선조사</td><td>미래한국연구소·V.O.K 의뢰; People Networks 수행; 시사경남과 공개연결</td><td>NESDC</td></tr>
+<tr><td>2022.03–04</td><td>경기도지사 선거조사</td><td>미래한국연구소 / 시사경남 의뢰; PNR 수행</td><td>NESDC</td></tr>
+<tr><td>2022.05.05</td><td>경남도지사·교육감·정당지지 조사</td><td>미래한국연구소 / 경남연합일보 의뢰; PNR 수행</td><td>NESDC</td></tr>
+<tr><td>2022.05.12</td><td>하동군수 선거조사</td><td>미래한국연구소가 의뢰기관 중 하나; PNR 수행</td><td>NESDC</td></tr>
+<tr><td>2021–2022.03</td><td>대선 정치권에 전달된 비공개·직접 조사 일련</td><td>서울 1심은 14건의 직접 전달을 정치적 기부로 판단; 항소 중</td><td>법원·연합뉴스 법정기록</td></tr>
+</tbody></table>
+
+
+<div class="subhead">인터뷰·공개출석</div>
+<table>
+<thead><tr><th>시기</th><th>형식</th><th>내용·의미</th><th>상태</th></tr></thead>
+<tbody>
+<tr><td>2024 가을</td><td>수사과정 언론접촉</td><td>정치인 관계와 자기 역할 설명</td><td>당사자 버전, 독립증거 아님</td></tr>
+<tr><td>2025.07.31</td><td>특검 출석</td><td>확대 정치개입 수사의 피의자</td><td>사실</td></tr>
+<tr><td>2025.10.22</td><td>김건희 사건 법정</td><td>여론조사·공천 관련 대면절차</td><td>사실</td></tr>
+<tr><td>2025.10.23</td><td>서울시 국정감사</td><td>국회의원 질의 답변</td><td>사실, 사진기록 존재</td></tr>
+<tr><td>2025.10.28</td><td>경상남도 국정감사</td><td>도지사·창원국가산단 관련 증인 예정</td><td>소환·계획 사실, 전체 발언은 별도검증</td></tr>
+<tr><td>2025.11.06</td><td>The Fact 인터뷰</td><td>미래한국연구소 실소유주 부인, 영업역할 주장</td><td>PR/당사자 버전</td></tr>
+<tr><td>2025.11.08</td><td>특검 대질조사</td><td>오세훈 조사비용 사건 관련</td><td>사실</td></tr>
+<tr><td>2026.08.25</td><td>보석석방 후 공개발언</td><td>정치적 소란에 대한 사과, 이후 언론접촉 제한</td><td>사실</td></tr>
+</tbody></table>
+
+
+<div class="subhead">네트워크의 단계별 변형</div>
+<table>
+<thead><tr><th>단계</th><th>포지션 변화</th><th>무슨 일이 일어났는가</th></tr></thead>
+<tbody>
+<tr><td>2024 가을–2025 봄</td><td>은밀한 네트워크 붕괴</td><td>언론폭로 → 형사수사 → 기기 제출·압수 → 전 직원 진술.</td></tr>
+<tr><td>2025 여름–겨울</td><td>시스템 증거노드로 변환</td><td>특검·국회·김건희·오세훈 관련 재판; 이름이 특별수사 법제에 포함.</td></tr>
+<tr><td>2026</td><td>법적 결과의 분절</td><td>창원 부분무죄·부분유죄, 서울 별도 실형, 관련 사건 간 상이한 법적평가.</td></tr>
+</tbody></table>
+
+
+<div class="subhead">영향력 구성요소 — 최고점과 현재</div>
+<table>
+<thead><tr><th>요소</th><th>2021–22 최고점</th><th>2026년 8월</th><th>이유</th></tr></thead>
+<tbody>
+<tr><td>금융자본</td><td>2/10</td><td>2/10</td><td>독립적으로 확인된 대규모 자산 없음.</td></tr>
+<tr><td>최고위 정치접근</td><td>7/10</td><td>2/10</td><td>대선 정치권 접촉은 확인되지만 현재는 법적 제한이 접근을 대체.</td></tr>
+<tr><td>정보자원</td><td>7/10</td><td>7/10</td><td>여론조사, 메시지, 녹취, 네트워크 지식은 여전히 중요.</td></tr>
+<tr><td>제도적 자율성</td><td>3/10</td><td>2/10</td><td>대형 독립기관의 통제는 확인되지 않음.</td></tr>
+<tr><td>법적 자유도</td><td>7/10</td><td>2/10</td><td>항소·보석조건·관련자 접촉금지 등으로 제한.</td></tr>
+<tr><td>증거·증언 가치</td><td>3/10</td><td>8/10</td><td>과거 네트워크의 기록보유자로서 가치가 크게 상승.</td></tr>
+</tbody></table>
+
+<div class="subhead">1. 경영자 요약</div>
+<p>공식 직위가 없는 개인이 정보와 접근을 어떻게 일시적 권력으로 바꾸었는지, 그리고 그 권력이 어떻게 법적 취약성으로 반전됐는지를 본다.</p>
+<div class="stamp-note fact"><span class="k">■ 사실</span>명태균은 대형 정당의 공식 고위간부, 국회의원 또는 공개적으로 확인되는 대규모 자본의 소유자가 아니었다. 그러나 2021~2022년에는 당시 대선후보 윤석열과 김건희를 포함한 최고위 정치권과 접촉했고, 그와 연결된 미래한국연구소는 등록 여론조사업체 PNR/People Networks에 선거여론조사를 의뢰했다. NESDC 공식기록은 미래한국연구소를 여러 공개조사의 의뢰기관으로, PNR을 실제 조사수행기관으로 기록한다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>그의 핵심자원은 돈보다 정보·관계자본이었다. 여론조사 데이터 → 후보 접근 → 추천·소개 → 정치인·선거분석·공천과정 사이의 중개자라는 포지션으로 전환됐다. 공식 조사기록, 법원이 확인한 윤석열과의 접촉, 정치서비스·조사·공천을 다룬 여러 재판이 이 구조를 뒷받침한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>명태균의 법적 지위를 단순히 ‘유죄’ 또는 ‘무죄’라고 표현할 수 없다. 창원 사건에서 2026년 2월 5일 1심 법원은 김영선 및 지역후보 관련 정치자금법 혐의는 무죄로 판단했지만 증거은닉 교사 혐의는 유죄로 인정해 징역 6개월에 집행유예 1년을 선고했다. 검찰과 피고인 모두 항소했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>관련 사건에 대한 법원의 평가는 서로 달랐다. 김건희 사건의 1·2심은 무료 여론조사 수수에 대한 사전·묵시적 합의를 입증하지 못했다고 보았지만, 윤석열·명태균 사건의 1심은 14건의 조사에 대해 순차적 또는 묵시적 합의가 있었다고 판단했다. 2026년 8월 21일 기준 김건희 사건은 대법원 판단을 기다리고 있었다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>명태균 사건의 정치적 파급은 언론의 수식어보다 제도적 사실로 확인된다. 그의 이름은 국회 특별검사 입법의 제목과 수사대상에 직접 포함됐으며, 김건희·명태균·건진법사 관련 선거개입 의혹이 특별수사 대상으로 규정됐다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>그의 궤적은 비공식 권력의 역전을 보여준다. 자원을 축적할 때에는 비공개 관계와 정보비대칭이 가치였지만 2024년 이후 같은 관계가 증거자료·사법리스크·검찰과 특검 및 법원에 대한 의존으로 변했다. 네트워크 운영자는 결국 메시지, 통화, 진술, 조사데이터의 ‘네트워크 아카이브 보유자’가 됐다.</div>
+<div class="subhead">2. 신원·경력·초기 인프라</div>
+<p>법률자료는 비교적 강하지만 출생·교육·초기 사업은 1차 검증이 약하다.</p>
+<div class="stamp-note fact"><span class="k">■ 사실</span>한국어 이름은 명태균으로 법원, 국회, NESDC, 주요 언론에서 동일하게 사용된다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>정확한 생년월일은 1차자료로 최종 검증되지 않았다. 최근 일부 프로필은 1969년 7월 23일을, 다른 2차자료는 1970년 8월 23일을 제시한다.</div>
+<div class="stamp-note pr"><span class="k">■ PR 버전</span>‘정치 브로커’는 언론이 사용하는 표현이지 공식 직업명은 아니다. 명태균 본인은 법정·인터뷰에서 자신의 일을 마케팅·영업에 가까운 활동으로 설명했다. 이는 본인의 설명이므로 PR/당사자 버전으로 분리한다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>정치·여론조사 네트워크에 등장하기 이전의 연속적인 초기 경력은 신뢰할 수 있는 1차자료로 복원되지 않았다. 전화번호부, 이동통신, 텔레마케팅, ㈜참좋은날, 시사경남 활동 등이 2차자료에 나오지만 법인등기부 등으로 확인되지 않았다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>가장 먼저 강하게 확인되는 직업적 흔적은 늦어도 2020년이다. NESDC 기록에서 미래한국연구소는 창원 지역을 포함한 선거조사의 의뢰기관으로 나타나고 People Networks/PNR이 조사수행기관으로 기록된다. 2022년에도 도지사·지방선거 관련 조사 의뢰기관으로 반복 등장한다.</div>
+<div class="stamp-note pr"><span class="k">■ PR 버전</span>2025년 11월 인터뷰에서 명태균은 자신이 미래한국연구소의 ‘실소유주’가 아니며 주로 영업과 수주를 도왔고 연구소는 2024년 4월 활동을 중단했다고 주장했다. 이는 확정된 법인구조로 볼 수 없으며 실질 소유·운영 문제는 재판에서도 쟁점이었다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>전 미래한국연구소 관계자 김태열의 증언은 구조를 더 복잡하게 만든다. 그는 연구소의 역사와 명태균과의 관계를 증언하는 동시에 과거 수사기관 진술 일부가 사건 관계자를 보호하기 위한 거짓말이었다고 인정했다. 따라서 그의 진술은 네트워크 복원에 유용하지만 문서로 교차검증해야 한다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>2020년 이전 초기 사업과 활동을 완전하게 1차자료로 검증할 수 있는 기록이 부족하다.</div>
+<div class="subhead">3. 영향력 아키텍처</div>
+<p>핵심 모델은 돈보다 정보, 기관통제보다 중개능력이다.</p>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>명태균은 독자적 기관을 가진 권력설계자라기보다 정치접근·여론데이터·공천의 세 시장이 만나는 지점에서 일시적으로 가치를 만들던 정보중개자다. 접근이 사라지면 독립적으로 재생산할 수 있는 제도적 자원이 거의 없다는 점에서 그의 영향력은 구조적으로 취약했다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>중개자의 특징은 단순한 인맥의 수가 아니라 서로 다른 당사자 사이의 연결을 자원으로 바꾸는 능력이다. 공식 조사기록은 데이터 생산 인프라를, 서울 법원은 일부 조사가 대선후보 측에 직접 전달됐음을, 다른 사건들은 김영선 공천과 타 정치인 관련 조사서비스를 보여준다. 기능적 사슬은 ‘데이터 → 접근 → 정치적 서비스’다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>의사결정 모델은 ‘네트워크 + 데이터 + 개인화된 커뮤니케이션’에 가깝다. 공개자료에서 대형 분석조직이나 정교한 계층구조는 보이지 않고 외부 조사수행사 PNR, 직접 통화·메신저, 소규모 연결조직이 관찰된다. 제도화된 컨설팅회사보다 개인이 운전하는 brokerage에 가깝다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>관찰 가능한 주된 동인은 확인된 개인적 부의 축적보다는 시스템 접근과 정치적 영향력이었다. 김건희 사건에서 하급심조차 명태균이 사전 대가합의 없이도 자기 사업 또는 정치적 영향력 확대를 위해 조사를 제공했을 가능성을 언급했다. 이는 그를 수동적 수행자로만 보기 어렵게 한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>첫 번째로 검증 가능한 레버는 초기자본이 아니라 여론조사 인프라다. NESDC는 미래한국연구소가 의뢰기관, 등록 PNR/People Networks가 조사수행기관으로 참여한 구조를 보여준다. 작은 조직도 등록 조사기관의 형식적 인프라를 직접 보유하지 않고 공개 가능한 선거데이터 생산에 들어갈 수 있었다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>대규모 주식지분, holding, trust, family office, 대형 부동산 포트폴리오 또는 은행차입 의존을 입증할 공개자료가 없다. 검찰이 불법 정치자금으로 주장한 약 8,070만 원과 지역후보 2명 관련 약 2억4,000만 원도 창원 1심에서 검찰의 법적 구성이 받아들여지지 않았다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>그의 핵심자본은 물적자산보다 ‘정보 > 접근 > 관계 > 여론조사 데이터를 만들고 해석하는 능력’의 순서로 보는 것이 가장 적절하다. 이 점이 동시에 최대 강점이자 최대 약점이다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>확인 가능한 개인적 국가훈장, 학술상, 전문분야 훈장 또는 명예칭호가 발견되지 않았다.</div>
+<div class="subhead">4. 기록·미디어·공개출석</div>
+<p>명태균의 검증 가능한 ‘산출물’은 저서보다 조사데이터, 메시지, 녹취, 법정·국회 기록에 가깝다.</p>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2025년 7월 31일 명태균은 확대된 정치개입 의혹 수사에서 피의자 신분으로 특별검사에 출석했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2025년 10월 22일 김건희 사건 재판에 직접 출석해 여론조사와 공천 관련 쟁점을 다뤘다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2025년 10월 23일 서울시청 국정감사에서 국회의원 질의에 답변했다. 관련 사진기록도 존재한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2025년 10월 28일 경상남도 국정감사에서 증인으로 예정된 사실은 확인된다. 다만 이 보고서가 확보한 자료만으로 전체 출석·발언 내용을 모두 독립확인하지는 않는다.</div>
+<div class="stamp-note pr"><span class="k">■ PR 버전</span>2025년 11월 6일 The Fact 인터뷰에서 명태균은 미래한국연구소의 실소유주가 아니라 영업을 했다는 입장을 반복했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2025년 11월 8일 오세훈 관련 여론조사 대납 의혹 수사에서 특검 대질·조사 절차에 참여했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2026년 8월 25일 보석으로 석방됐고 ‘나라를 시끄럽게 해 죄송하다’는 취지의 공개발언을 했다. 이후 언론접촉은 보석조건의 제한을 받는다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2024년 10월 31일 야당은 2022년 5월 9일 윤석열과 명태균의 통화로 제시된 녹음파일을 공개했다. 공개와 존재 자체는 확인되지만 범죄성 판단은 별도 사법평가의 문제다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2025년 1월 16일 민주당은 2021년 녹취를 추가 공개했다. 녹취 속 명태균으로 지목된 음성은 보수 유튜버의 부탁을 받아 여의도연구원 인사추천에 관여했다고 주장한다. 공개와 발언 존재는 확인되지만 실제 인사결과를 그가 만들었다는 점은 독립확인되지 않았다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2025년 2월 13일 명태균이 원희룡을 대통령직인수위원회 자리에 추천했다고 주장하는 녹취가 공개됐다. 이 역시 발언의 존재는 확인되지만 실제 임명이 그의 개입 결과였다는 사실까지 입증된 것은 아니다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>공개 웹자료만으로 미래한국연구소, 시사경남, 명태균과 연결된 과거 법인의 최종 법적 소유자를 확인할 수 있는 공인 법인등기부 사본을 확보하지 못했다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>KCI에서는 명태균 사건을 다룬 연구물이 확인되지만 명태균 본인의 학술 저작으로 확정할 자료는 없다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>KIPRIS 웹색인에서 동명이인 위험을 배제하고 이 명태균에게 안전하게 귀속할 수 있는 특허가 확인되지 않았다.</div>
+<div class="subhead">5. 법률분쟁 — 사건을 분리해서 읽기</div>
+<p>창원 정치자금 사건, 증거은닉 사건, 서울 무료여론조사 사건, 오세훈 관련 사건은 서로 다른 법적 트랙이다.</p>
+<div class="stamp-note fact"><span class="k">■ 사실</span>창원 사건에서 검찰은 2022년 보궐선거 뒤 김영선이 회계책임자를 통해 약 8,070만 원을 명태균에게 전달했고 공천지원의 대가라고 주장했다. 또한 지역 공직후보 2명에게서 약 2억4,000만 원을 받았다고 주장했으며, 수사 전 휴대전화 3대와 USB를 숨기도록 지시한 혐의도 제기했다. 이 항목은 검찰의 ‘기소 내용’이 존재한다는 사실을 표시한다.</div>
+<div class="stamp-note pr"><span class="k">■ PR 버전</span>명태균과 김영선 측은 지급금이 공천대가가 아니라 급여·비용·채무상환이라고 주장했고, 명태균은 해당 법률조항이 전제하는 정치활동자 지위도 부인했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2026년 2월 5일 창원지방법원 1심은 정치자금 관련 혐의에 대해 피고인들을 무죄로 판단했다. 법원은 공천대가 합의를 입증할 증거가 부족하고 금전흐름을 검찰 주장대로 평가하기 어렵다고 봤다. 이 판결은 아직 확정판결이 아니다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>같은 1심은 명태균이 휴대전화와 USB를 숨기도록 지시한 증거은닉 교사 혐의는 유죄로 판단했다. 징역 6개월에 집행유예 1년이 선고됐다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>검찰은 2026년 2월 12일 무죄부분과 형량에 항소했고 명태균도 유죄부분에 항소했다. 6월 29일 부산고법 창원재판부에서 본격적인 항소심이 시작됐다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>별도 서울 사건에서 특검은 2021년부터 2022년 3월까지 명태균이 윤석열·김건희 정치권에 약 2억7,000만 원 가치라고 주장한 58건의 조사를 무료 제공했고, 그 대가로 김영선 공천에 도움을 받으려 했다고 기소했다. 이 항목은 특검의 공소내용이 존재한다는 사실을 표시한다.</div>
+<div class="stamp-note pr"><span class="k">■ PR 버전</span>윤석열 측은 무료조사가 필요하지 않았고 조사와 공천을 교환하는 합의가 없었다고 부인했다. 명태균도 형사처벌 대상이 되는 대가합의를 부인했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2026년 7월 13일 서울중앙지법 1심은 명태균이 직접 전달한 14건에 대해서는 정치적 기부로 볼 정도의 합의가 있었다고 판단했다. 명태균에게 징역 1년6개월, 윤석열에게 징역 2년을 선고했고 윤석열이 명태균 요청 뒤 김영선 공천과정에 영향력을 행사했다고 판단했다. 판결은 항소 중이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>같은 서울 1심은 나머지 44건은 동일한 합의 메커니즘에 따라 전달됐다는 증거가 부족하다며 유죄범위에 포함하지 않았다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>서울 사건 항소심은 2026년 8월 21일 시작됐다. 윤석열과 명태균은 무죄취지 파기를, 특검은 더 넓은 유죄범위를 요구했다. 다음 기일은 9월 11일로 예정됐다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>8월 24일 법원은 명태균에 대해 5,000만 원 보증금, 지정 거주지, 김건희·오세훈 등 관련자와의 특정 접촉 금지, 언론접촉 제한 등을 조건으로 보석을 허가했고 25일 석방됐다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>법적 핵심 취약성은 당사자들이 연락했느냐가 아니라 ‘정치적 접근과 무료 분석서비스가 언제 법적으로 입증된 교환이 되는가’다. 반대로 변호인 측에도 문서계약이 없다는 점만으로 합의가 부정되지 않을 수 있다는 것이 서울 1심의 의미다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2026년 7월 오세훈 관련 여론조사 정치자금 사건 1심에서 오세훈은 벌금 1,000만 원을 선고받았다. 법원은 일부 조사가 오세훈을 위해 의뢰됐고 지지자가 비용을 대납했다고 봤다. 오세훈은 이를 부인하고 항소했으며 8월 21일 항소심이 시작됐다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>이 사건의 의미는 명태균의 모든 주장을 자동으로 입증한다는 것이 아니다. 그의 데이터·커뮤니케이션·증언이 보수진영 내 여러 정치인에게 법적 결과를 만들어낼 수 있다는 점에서 정보적 중요성은 높지만 현재 정치인들을 통제하는 능력이 커진 것은 아니다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>가장 명확하게 확인된 취약성은 증거관리다. 창원 1심은 휴대전화와 USB 은닉지시를 유죄로 판단했다. 이 판결도 항소 중이지만 핵심 정보가 개인기기에 집중돼 있었다는 점은 확인된다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>이는 명태균 모델의 구조적 약점, 즉 높은 개인화를 보여준다. 직접연락, 개인휴대전화, 저장메시지, 낮은 관료화는 중개활동의 장점이지만 동시에 단일 실패지점을 만든다. 하나의 기기 압수만으로 여러 연결이 동시에 노출될 수 있다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>국회는 명태균의 이름을 특별수사 법제에 직접 포함했고 2025년 여러 국정감사에서 그가 핵심 조사대상 또는 증인으로 다뤄졌다. 이는 정치문제의 제도적 규모를 확인시킨다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>검토자료에서는 미국·EU·영국의 확인된 제재, 대규모 해외자산, offshore 구조, 방산계약 또는 국제기업사업이 발견되지 않았다. 완전한 부정판단을 위해서는 별도 제재·beneficial ownership 데이터베이스 검토가 필요하다.</div>
+<div class="subhead">6. 2024년 이후: 영향력에서 증거가치로</div>
+<p>은밀한 관계망이 공개된 뒤 네트워크 운영능력보다 아카이브와 증언의 가치가 중요해졌다.</p>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>확인 가능한 개인 수상·훈장 자료가 없다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2026년 8월 29일 기준 명태균은 형이 최종 확정돼 복역을 마친 상태가 아니라 보석 석방 상태다. 서울 사건과 창원 사건 모두 별도 항소가 진행 중이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>2024년 9월 이후 그의 중요한 행위 대부분은 영향력 확대보다 자기방어에 가깝다. 수사, 법정증언, 연구소 실소유 관련 설명, 보유녹취 언급, 항소, 보석신청이 주요 행동이다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>전략도 비공개 정치중개에서 ‘자신의 증거가치와 법적 내러티브 관리’로 바뀌었다. 네트워크가 공개된 뒤 과거의 은밀한 모드로 돌아갈 수 없기 때문에 문서·녹취·진술 일관성·과거 동맹의 설명을 반박하는 능력이 새로운 자원이 됐다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>확인된 대형 물적자본은 없다. 현재 보고서가 확인하는 핵심자원은 선거정보, 관계, 커뮤니케이션 아카이브다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>의미 있는 해외 자본·영향력 네트워크에 대한 확인자료가 없다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>명태균이 독립적 정치운영자로 완전히 사라지더라도 사건 자체는 장기적 제도효과를 남겼다. 비공개 조사, 비공식 컨설팅, 정치인의 배우자 접근, 공천정치가 결합될 때 정당정치가 얼마나 취약한지 드러냈고 그의 이름이 특검 입법에 포함되면서 사적 스캔들에서 제도적 문제로 전환됐다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>명태균은 미래한국연구소 및 창원지방법원 사건 2024고합357과 연결된 이 보고서의 동일인물이다.</div>
+<div class="subhead">7. 검증 블록</div>
+<p>문서 말미가 FACT / ANALYSIS / NO DATA / INSIDE로 다시 정리한 핵심판단을 동일한 마커 구조로 유지한다.</p>
+<div class="stamp-note fact"><span class="k">■ 사실</span>미래한국연구소는 공식 NESDC 기록에서 PNR/People Networks가 수행한 정치여론조사의 의뢰기관으로 반복 등장한다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>명태균이 윤석열 대선 정치권과 직접 커뮤니케이션을 한 사실은 확인된다. 쟁점은 접촉의 존재가 아니라 그 법적 성격이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2026년 2월 5일 창원 1심에서 정치자금 혐의는 무죄, 증거은닉 교사 혐의는 유죄가 나왔다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>창원 판결은 검찰과 피고인 모두 항소해 확정되지 않았다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2026년 7월 13일 별도 서울 1심은 일부 무료 여론조사 제공을 불법 정치적 기부로 판단하고 명태균에게 징역 1년6개월을 선고했다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>서울 판결 역시 항소 중이다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>2026년 8월 24일 보석이 허가됐고 25일 명태균은 석방됐다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>그의 이름은 국회 특별검사 수사대상을 규정한 공식 입법체계에 직접 포함돼 있다.</div>
+<div class="stamp-note fact"><span class="k">■ 사실</span>휴대전화와 USB는 중요 문서자료이며 이 기기들을 숨긴 행위가 별도 1심 유죄 판단의 기초가 됐다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>역사적 권력의 핵심원천은 돈보다 정보·관계자본이었다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>지배적인 유형은 정당관리자나 금융가가 아니라 중개자다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>최고점의 영향력은 조사 인프라가 정치인에게 가치 있는 서비스를 만들고 개인관계가 이를 접근으로 바꿀 수 있었기 때문에 생겼다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>모델은 처음부터 취약했다. 공식직위, 대형자본, 독립적으로 통제하는 기관이 없었기 때문에 특정 개인들의 신뢰에 의존했다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>2024년 이후에는 정치적 접근보다 커뮤니케이션 아카이브가 더 중요한 자산이 됐다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>저비용 네트워크 관리를 가능하게 한 휴대기기가 동시에 법적 위험의 집약점이 됐다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>현재 명태균은 정치과정을 직접 조직하는 사람보다 과거 거래상대방에게 증거를 제공할 수 있는 정보보유자로서 더 큰 위험을 준다.</div>
+<div class="stamp-note insight"><span class="k">■ 분석 결론</span>현재 자율적 영향력은 약 4/10, 역사적 최고점은 약 5~6/10으로 평가된다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>정확한 생년월일과 출생지는 확정되지 않았다. 최근 일부 2차자료는 1969년 7월 23일 인천을, 다른 자료는 1970년 8월 23일 창녕을 제시하며 1차 시민등록 문서는 확인되지 않았다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>창원대학교 재학을 독립적으로 확인하는 공식 대학기록이 확보되지 않았다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>미래한국연구소, 시사경남, 이전 법인들의 완전한 소유구조가 확인되지 않았다.</div>
+<div class="stamp-note insight"><span class="k">■ 내부정보 / 미확인</span>공개된 녹취에서 명태균 본인이 ‘자신이 인사나 추천을 실제로 성사시켰다’는 취지로 말한 여러 주장. 출처는 명태균 자신의 발언이며 정치적 반대세력이 공개한 자료이므로, 개별 인사사건마다 독립적인 문서확인이 없는 이상 미확인 상태로 유지한다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>확인 가능한 대규모 개인자산, 해외자산, offshore 구조 또는 family office에 대한 자료가 없다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>현재 공식 계정으로 신뢰성 있게 검증된 X/LinkedIn/Facebook 프로필이 확인되지 않았다.</div>
+<div class="stamp-note nodata"><span class="k">■ 데이터 없음</span>이 인물에게 명확히 귀속할 수 있는 학술논문, 특허, 저서, 영화 또는 음악작품이 확인되지 않았다.</div>
+<div class="subhead">8. 출처의 우선순위와 남은 검증과제</div>
+<p><strong>1차 우선순위:</strong> 창원지방법원 2024고합357 판결자료. 정치자금법 무죄와 증거은닉 교사 유죄를 분리하는 핵심 자료다. <strong>2차:</strong> 중앙선거여론조사심의위원회(NESDC) 기록. 미래한국연구소와 PNR의 역할을 가장 직접적으로 보여준다. <strong>3차:</strong> 국회 회의록. <strong>4차:</strong> 서울 사건의 법정기록과 연합뉴스 등 법정취재. <strong>5차:</strong> 명태균 직접 인터뷰 — 방어논리 복원에는 중요하지만 독립증거는 아니다.</p>
+<p>추가 검증이 필요한 핵심은 한국 법인등기부에서 미래한국연구소·시사경남 및 관련 법인의 역사적 소유·임원·주소를 확인하는 것, 창원·서울·김건희·오세훈 사건의 전체 판결문을 구성요소별로 대조하는 것, NESDC의 2018~2024년 전체 조사기록을 정량화하는 것, 합법적으로 공개된 휴대전화·USB 증거의 forensic catalog를 만드는 것이다.</p>
+<div class="subhead">출처</div>
+<p>[1] [4] [10] [13] [33] [69] www.scourt.go.kr<br>https://www.scourt.go.kr/portal/dcboard/DcNewsViewAction.work?cbub_code=000420&amp;gubun=44&amp;seqnum=27918</p>
+<p>[2] [3] [16] [27] [38] [39] [41] [44] [57] [59] [98] [99] [101] 중앙선거여론조사심의위원회<br>https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=11007</p>
+<p>[5] [26] [35] [42] [78] [84] [91] [96] 尹, &#x27;명태균 여론조사&#x27; 징역 2년에 항소…&quot;사실오인·법리오해&quot; | 연합뉴스<br>https://www.yna.co.kr/amp/view/AKR20260715094700004?utm_source=chatgpt.com</p>
+<p>[6] [36] [54] [80] [89] [94] &#x27;명태균 여론조사 수수&#x27; 2심서 尹 &quot;1심, 김건희 판결과 정반대&quot; | 연합뉴스<br>https://www.yna.co.kr/view/AKR20260821091800004</p>
+<p>[7] [48] [82] [86] [95] 국회회의록 상세보기 팝업창<br>https://record.assembly.go.kr/assembly/viewer/minutes/xml.do?id=55296&amp;item=item66&amp;type=view&amp;utm_source=chatgpt.com</p>
+<p>[8] [29] [85] [93] [97] newstomato.com<br>https://www.newstomato.com/ReadNews.aspx?no=1239556&amp;utm_source=chatgpt.com</p>
+<p>[9] [79] 법원, &#x27;윤석열 여론조사 무상제공&#x27; 명태균 보석 인용 | YTN<br>https://www.ytn.co.kr/_ln/0103_202608241648157255?utm_source=chatgpt.com</p>
+<p>[11] [12] [14] 명태균<br>https://www.namu.moe/w/%EB%AA%85%ED%83%9C%EA%B7%A0?utm_source=chatgpt.com</p>
+<p>[15] [40] [49] [51] [72] [74] &#x27;공천 대가 돈거래 1심 무죄&#x27; 명태균·김영선 항소심 내달 개시 | 연합뉴스<br>https://www.yna.co.kr/view/AKR20260331144900052?utm_source=chatgpt.com</p>
+<p>[17] [52] [단독] 김영선 전 의원-명태균-미래한국연구소, 연결고리 확인 | 세계일보<br>https://www.segye.com/newsView/20241008523059?utm_source=chatgpt.com</p>
+<p>[18] [45] [87] [92] ‘공천 대가 돈거래 의혹’ 명태균·김영선 무죄…증거은닉 교사는 유죄 | 서울신문<br>https://www.seoul.co.kr/news/society/law/2026/02/05/20260205500226?utm_source=chatgpt.com</p>
+<p>[19] [66] [83] &#x27;여론조사 무상제공&#x27; 명태균 보석 석방…&quot;나라 시끄럽게해 사죄&quot; | 연합뉴스<br>https://www.yna.co.kr/view/AKR20260825127000004?utm_source=chatgpt.com</p>
+<p>[20] [24] 명태균 프로필 나이 고향 경력 논란<br>https://fansim.semobenefit.com/entry/%EB%AA%85%ED%83%9C%EA%B7%A0-%ED%94%84%EB%A1%9C%ED%95%84?utm_source=chatgpt.com</p>
+<p>[21] [25] [43] 중앙선거여론조사심의위원회<br>https://nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=7731</p>
+<p>[22] [64] [88] [단독 인터뷰] 명태균 &quot;강혜경·김태열, 미래한국연구소 동업…난 영업&quot; - 정치 | 기사 - 더팩트<br>https://news.tf.co.kr/read/ptoday/2259594.htm?utm_source=chatgpt.com</p>
+<p>[23] 김태열 &quot;김영선·명태균 보호하려고 수사기관에 거짓 진술&quot; | 연합뉴스<br>https://www.yna.co.kr/view/AKR20250408105600052?utm_source=chatgpt.com</p>
+<p>[28] [90] newstomato.com<br>https://www.newstomato.com/ReadNews.aspx?no=1244401&amp;utm_source=chatgpt.com</p>
+<p>[30] [61] &#x27;공천개입 의혹&#x27; 명태균, 특검 출석<br>https://imnews.imbc.com/replay/2025/nw1400/article/6741307_36776.html?utm_source=chatgpt.com</p>
+<p>[31] [53] [63] 국감 막바지…경남도 &#x27;명태균 의혹&#x27;·외교부 캄보디아 사태 쟁점 | 연합뉴스<br>https://www.yna.co.kr/view/AKR20251027157400001?utm_source=chatgpt.com</p>
+<p>[32] [65] [일지] 오세훈 &#x27;명태균 여론조사 대납 의혹&#x27; 제기부터 1심 선고까지 | 연합뉴스<br>https://www.yna.co.kr/view/AKR20260722132300004?utm_source=chatgpt.com</p>
+<p>[34] &#x27;정치자금법 무죄&#x27; 명태균·김영선, 항소심 첫 공판도 혐의 부인 | 연합뉴스<br>https://www.yna.co.kr/amp/view/AKR20260629119000052?utm_source=chatgpt.com</p>
+<p>[37] 법원, &#x27;윤석열에 여론조사 무상제공&#x27; 명태균 보석 인용 | 연합뉴스<br>https://www.yna.co.kr/view/AKR20260824134500004?utm_source=chatgpt.com</p>
+<p>[46] 법원 “오세훈, 명태균에 여론조사 5건 의뢰… 후원자가 비용 대납”｜동아일보<br>https://www.donga.com/news/Society/article/all/20260723/134348203/2?utm_source=chatgpt.com</p>
+<p>[47] 민주 &quot;&#x27;명태균 운영&#x27; 미래한국硏 소장, 공익제보 보호대상 지정&quot; | 연합뉴스<br>https://www.yna.co.kr/view/AKR20241119068400001?utm_source=chatgpt.com</p>
+<p>[50] &#x27;1심 무죄&#x27; 명태균·김영선, 2심서 &#x27;미래한국&#x27; 실소유 쟁점 전망 | 연합뉴스<br>https://www.yna.co.kr/view/AKR20260511147300052?utm_source=chatgpt.com</p>
+<p>[55] [70] 점과 정치: 현대 정치 영역에서의 무속‧점술 분석과 주역의 역할 모색<br>https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART003254660&amp;utm_source=chatgpt.com</p>
+<p>[56] 중앙선거여론조사심의위원회<br>https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?edate=2022-06-30&amp;menuNo=200467&amp;nttId=10341&amp;pageIndex=3&amp;pdate=&amp;pollGubuncd=VT022&amp;sdate=2022-03-01&amp;searchCnd=2&amp;searchTime=2&amp;searchWrd=%EB%AF%B8%EB%9E%98</p>
+<p>[58] 중앙선거여론조사심의위원회<br>https://www.nesdc.go.kr/portal/bbs/B0000005/view.do?nttId=11178&amp;searchCnd=4</p>
+<p>[60] [중고] 의인과 악인 | 한국학술정보 엮음 | 알라딘<br>https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=371532479&amp;utm_source=chatgpt.com</p>
+<p>[62] 김건희 오늘 특검기소 3차 공판…&#x27;공천개입&#x27; 명태균 법정대면 | 연합뉴스<br>https://www.yna.co.kr/view/AKR20251022031700004?utm_source=chatgpt.com</p>
+<p>[67] [100] &quot;명태균, &#x27;유튜버 부탁 여의도연구원 인사청탁&#x27;&quot; 녹취 공개<br>https://imnews.imbc.com/news/2025/politics/article/6677695_36711.html?utm_source=chatgpt.com</p>
+<p>[68] [음성] 명태균 “원희룡 인수위 자리 내가 추천”···민주당, 녹음파일 공개 - 경향신문<br>https://www.khan.co.kr/article/202502131638001?utm_source=chatgpt.com</p>
+<p>[71] KIPRIS Plus<br>https://plus.kipris.or.kr/portal/data/enter/List.do%3Bjsessionid%3D0A0836E0174FEE790D7D3DD194DA989B.1ae953b9b2f000402?utm_source=chatgpt.com</p>
+<p>[73] “직업 마케터”·“檢 황금폰 폐기 사주” 법정서 목소리 높이는 명태균…진실공방 가열 | 서울신문<br>https://www.seoul.co.kr/news/society/law/2025/01/28/20250128500024?utm_source=chatgpt.com</p>
+<p>[75] 검찰, 명태균·김영선 1심 무죄 판결에 항소 - 경향신문<br>https://www.khan.co.kr/article/202602121507001?utm_source=chatgpt.com</p>
+<p>[76] 특검기소 尹 &#x27;명태균 불법여론조사&#x27; 3월17일부터 주 1회 재판 | 연합뉴스<br>https://www.yna.co.kr/amp/view/AKR20260127112300004?utm_source=chatgpt.com</p>
+<p>[77] &#x27;무상여론조사&#x27; 첫재판 尹·명태균측, 다른 입장·같은 혐의부인 | 연합뉴스<br>https://www.yna.co.kr/view/AKR20260317143800004?utm_source=chatgpt.com</p>
+<p>[81] 윤석열-오세훈 &#x27;명태균 게이트&#x27; 항소심 나란히 시작...핵심 쟁점은? | YTN<br>https://www.ytn.co.kr/_ln/0103_202608210322085320?utm_source=chatgpt.com</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">마커 범례 — 원문 문서 기준</div>
+    <div class="keybox-grid">
+      <div><b>사실</b> — 공식 기록, 법원 또는 원문에서 사실로 명시된 항목</div>
+      <div><b>PR 버전</b> — 명태균·피고인·정부 또는 이해당사자의 주장·방어 프레이밍</div>
+      <div><b>분석 결론</b> — 원문이 명시적으로 구조적 해석으로 구분한 항목</div>
+      <div><b>내부정보 / 미확인</b> — 공개 녹취나 당사자 주장에 있으나 독립적 확인이 부족한 항목</div>
+      <div><b>데이터 없음</b> — 원문이 1차자료 또는 검증자료 부족을 명시한 항목</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
