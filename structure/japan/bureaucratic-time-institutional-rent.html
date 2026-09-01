@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本 — 官僚制の時間アーキテクチャ：権力・参入障壁・制度的レント | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← ホーム</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">独立構造インテリジェンス分析 · 2026年より</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">「物語より構造。」</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>日本デスク</span>
+    <span>2026年9月1日</span>
+  </div>
+
+  <span class="section-tag">官僚制 / 行政時間 / 制度的レント / 市場参入</span>
+
+  <h1 class="headline">日本官僚制：待たせることが権力になるとき</h1>
+  <p class="deck">11日という起業手続、87.5日という在留審査、数か月から数年に及ぶ実際の参入サイクル。行政指導、根回し、行政書士、天下り、Drug Lagを通じて、時間は単なる遅延ではなく市場を選別する制度的資源へ変換される。</p>
+  <div class="byline">日本デスク — カテゴリ: 官僚的レント / 行政時間 / 制度アーキテクチャ</div>
+
+  <div class="columns">
+<p class="lead"><strong>分析基準日:</strong> 2026年9月1日。対象: 日本の官僚制における「時間」を権力・参入障壁・制度的レントとして扱う構造。</p>
+<p>本稿の中心命題は、行政手続の遅さを単なる非効率としてではなく、<strong>市場参入を選別し、既存主体を保護し、仲介者の需要を生み、官僚組織の裁量を維持する制度的資源</strong>として読むことである。原文は企業登録、経営・管理ビザ、金融ライセンス、医薬品承認、行政指導、天下りを横断しながら、日本の「時間の粘性」を分析している。</p>
+<div class="subhead">1. 時間配分のアーキテクチャ</div>
+<p>本節の原文上の確信度は高い。世界銀行、JETRO、日本の各省庁・規制機関、法律・コンサルティング資料を重ね、公開された標準処理期間と、実際に事業主体が負担する総時間コストの差を検証する。</p>
+<p>原文の基本仮説は、法定・公表時間と実際の所要時間の乖離が単なる事故ではなく、非公式な統制を生む構造的要素だというものである。</p>
+<div class="subhead">1.1. 規範時間と実時間</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>世界銀行 Doing Business 2020 の方法論では、日本で標準化された企業を設立するには8つの手続と11日が必要とされた。当時、日本は総合的な事業環境では29位だった一方、「起業のしやすさ」では106位だった。手続には商号確認、会社印の作成・登録、法務局登記、税務・年金関連の段階的届出などが含まれる。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は11日という数字を理論上の最短値と位置づける。Doing Business は申請者が制度を完全に理解し、誤りがなく、当局が即時に反応し、最大都市の100%国内資本企業であることを前提にするため、実際の市場参入時間ではなく『理想化された書類フロー』を測っているという解釈である。</div>
+<p>外国人起業家ではこの差がさらに大きい。経営・管理ビザでは、申請前に会社設立、独立した事務所の確保、一定の雇用・資本要件などを満たす必要があり、在留資格が認められるまでは本人が事業活動を自由に開始できない。</p>
+<div class="stamp-note pr"><span class="k">■ PR版</span>出入国在留管理庁（ISA）が公表する経営・管理ビザの平均審査期間は、2025年7月時点で87.5日、約3か月と説明されている。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>原文によれば、経営・管理ビザの法的・実務的準備では、申請前に法人を設立し、物理的な事務所を借り、必要な体制を整える必要がある。一方、在留資格が最終承認される前に外国人起業家本人が国内で商業活動を自由に行えるわけではない。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は実際の市場参入サイクルを6〜12か月と評価する。適格性確認、事業計画作成、2025/2026年の新ルールで求められる専門家検証、法人設立・オフィス確保、基礎ライセンス、最後にISA審査が連続するためである。87.5日という数値は最終区間だけを示し、それ以前の固定費・資本拘束・準備時間を見えにくくするという分析だ。</div>
+<p>同様の乖離は金融と医薬品でも確認される。2021年11月に始まった Financial Service Intermediary Business の横断型ライセンスは、銀行・保険・証券ごとの個別許可を減らし fintech を促進する制度として導入された。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>制度開始から約8か月後にライセンスを取得できた企業は3社にとどまり、調整を担う自主規制組織JFIMにも当時、準備段階の登録候補がいなかったと原文は記す。</div>
+<div class="stamp-note nodata"><span class="k">■ データなし</span>FSAへの正式申請前に行われる fintech 企業の非公式事前相談の正確な所要時間は公開されていないため、公開統計から完全な準備期間を再構成できない。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>1999〜2007年の新薬承認比較では、398品目のうち最初に承認した件数は米国202、EU139、日本52とされ、最初の世界承認から国内承認までの中央値は米国0か月、EU2.7か月、日本41.0か月だった。</div>
+
+<table>
+<thead><tr><th>分野 / 手続</th><th>公表・規範時間</th><th>実際の全サイクル</th><th>遅延を生む主な仕組み</th></tr></thead>
+<tbody>
+<tr><td>標準的な法人設立（居住者）</td><td>11日</td><td>3〜5週間</td><td>実印・会社印の登録、税務・社会保険届出の逐次処理。</td></tr>
+<tr><td>経営・管理ビザ</td><td>87.5日（ISA審査）</td><td>6〜12か月</td><td>審査中の事業活動制約、事前のオフィス賃借・資本拘束・体制整備。</td></tr>
+<tr><td>新薬承認（歴史的比較）</td><td>正式申請後 約12か月</td><td>世界初承認から41か月超</td><td>国際データがあっても日本人集団での追加臨床データを求めた歴史的慣行。</td></tr>
+<tr><td>横断型 fintech ライセンス</td><td>事業計画の複雑性による</td><td>数か月〜数年</td><td>正式申請前のFSAとの非公式事前相談。</td></tr>
+</tbody></table>
+
+<div class="subhead">1.2. 時間アーキテクチャの三つの型</div>
+<p>原文は、日本の官僚制を単純な技術的過負荷としてではなく、<strong>選別遅延・裁量遅延・レント遅延</strong>が重なるハイブリッドとして整理する。</p>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>第一の型は『選別遅延』である。原文によれば、官僚制は競争を直接禁止する代わりに『時間税』を課す。経営・管理ビザで先にオフィス・人員・資本を固定し、売上を生めない待機期間を負担させることで、十分な流動性を持たない初期スタートアップや小規模外国資本を入口で脱落させるという分析である。</div>
+<p>第二の型は、行政指導（行政指導 / Gyosei Shido）に根ざす裁量遅延である。正式申請前に、法的拘束力のない『助言』や事前説明を求める実務が、公式時計の開始時点そのものを行政側に握らせる。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>行政指導に従わないこと自体は形式上ただちに罰則を生まないが、原文が参照する大型小売店の事例では、地方当局が地元商工会等との事前調整がない申請を事実上受理しない運用があり、競合参入を事前説明の段階で遅らせる余地があった。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>正式受理前であれば法定処理期限は始まらない。そのため行政機関は統計上の期限を守りながら、事業者を非公式協議に長期間とどめることができるというのが原文の結論だ。裁量は『何日で処理するか』ではなく『いつ時計を動かし始めるか』に存在する。</div>
+<p>第三の型はレント遅延である。原文は、日本では手続短縮のための直接賄賂より、複雑性そのものが行政書士・司法書士などの専門仲介市場を生む点を重視する。制度を理解するコストが高いほど、制度の『翻訳者』への需要が持続する。</p>
+<div class="subhead">1.3. 行列と fast-track</div>
+<p>恒常的な行政待ち行列は、国家が誰に『速い時間』を与えるかを選別する装置にもなる。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>PMDAは薬事の長期的な Drug Lag 批判を受け、Sakigake（先駆け）制度を導入した。この指定では革新的医薬品の標準審査期間を12か月から6か月へ短縮できる一方、日本での申請を米国FDAまたは欧州EMAより先行または同時に行うことが条件の一つとされる。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文はこの仕組みを『時間を使った地政学的交渉』と読む。日本市場の fast-track を与える代わりに、世界的製薬企業へ日本を初期申請市場として優先させる。待ち時間がグローバル開発戦略を調整させる政策通貨になるという分析である。</div>
+<div class="stamp-note insight"><span class="k">■ 内部情報 / 未確認</span>外国人起業家やコンサルティング業界では、本人申請は暗黙に『slow track』に入り、有力な行政書士を通すと処理が速いという認識が流通している。しかし主な発信者は仲介業者自身であり、高額報酬を正当化する利益もある。行政書士が一次コンプライアンスを担うため当局の再確認が減るという説明はあるが、公式な『優先レーン』の存在は文書で確認されず、政府も認めていない。</div>
+<div class="subhead">2. 誰が時間を支配するのか</div>
+<p>形式上の時間管理者は、法務省・ISA、厚生労働省・PMDA、FSA、METIなどである。しかし原文は、実際の裁量が現場の審査官と仲介者のネットワークにも分散している点を強調する。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>ビザや金融ライセンスの審査では、担当審査官が追加資料を要求できる。原文が参照する2025年9月の在留審査動向では、追加資料請求が発生した案件は長期化カテゴリーへ移り、処理時間が大幅に伸びる傾向が示されている。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>この構造は個人責任を避ける合理的な行動を生む。審査官は企業の半年待機による損失には個人責任を負わない一方、後に問題を起こす申請者を承認した場合にはキャリアリスクを負う。そのため追加書類と追加確認が最も安全な選択となり、行政のリスクが申請者の失われた時間へ外部化されるというのが原文の分析である。</div>
+<p>官と民の間には行政書士（Gyoseishoshi）や司法書士（Shihoshoshi）など、大規模な『時間のオペレーター』が存在する。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>兵庫県行政書士会だけでも多数の専門家を抱え、全国の行政書士数は4万人を超えると原文は示す。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は彼らを『官僚時間の民間化者』と位置づける。価値の中心は法律条文そのものより、特定部署・審査官が実際に求める書類や手順に関する実務知識であり、その報酬は制度の複雑性と時間粘性に対する事実上の追加コストだという解釈である。</div>
+<p>TOSBECのようなワンストップ窓口や電子申請は、物理的な提出を減らしても、事業計画の専門家検証、印鑑、個別審査といったアナログ規則を自動的には消さない。原文はデジタル化によって裁量が『窓口』から『手動のデジタル審査』へ移るだけのケースを指摘する。</p>
+<div class="subhead">2.2. 遅さの制度的受益者 — 天下り</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>天下り（Amakudari）は、METIやMOFなどの高級官僚が比較的早期に退官した後、以前規制していた民間企業や特殊法人の役員・高給ポストへ移る、日本政治経済に長く根付いた慣行として説明される。官僚・大企業・与党を結ぶいわゆる『鉄の三角形』の一部とされる。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、規制が透明で処理期限が自動的に守られるなら、企業が元官僚の人脈に高い価値を付ける必要は小さくなると論じる。逆に、許認可や行政指導が不透明で長期化するほど、元官僚のネットワーク価値が上がる。そのため現役官僚には手続粘性を維持する長期的インセンティブが生じ得るというのが原文の構造分析である。</div>
+<div class="subhead">3. 誰が得をし、誰が損をするのか</div>
+<p>原文は時間を『逆進的な財政装置』として見る。流動性が少ない主体ほど、同じ1か月の行政遅延から受ける損失が大きい。</p>
+<div class="subhead">3.1. 受益者</div>
+<p><strong>大規模な国内企業集団。</strong> 長い待機期間を吸収できる資本力を持ち、参入障壁は非関税型の保護として働く。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Drug Lag が最大だった2000年代初頭、日本由来の医薬品は米国由来製品より高い承認率を示し、原文は日本由来94.5%、米国由来43.6%という比較を示す。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は長い Drug Lag を、国内製薬企業を米欧大手の競争圧力から守る隠れた保護効果として解釈する。同様に経営・管理ビザの資本金要件引上げは、小規模外国資本に対するフィルターとして働くという分析だ。</div>
+<p><strong>行政機構と官僚。</strong> 非公式な裁量、予算拡大の正当化、退官後の天下り需要を得る。</p>
+<p><strong>仲介市場。</strong> 法律事務所、行政書士、登録代行業者の収益性は、基礎手続の複雑さと密接に結びつくというのが原文の見方である。</p>
+<div class="subhead">3.2. 損失を負担する主体</div>
+<p><strong>スタートアップ、中小企業、外国の小規模資本。</strong> 収益を生めない待機期間でも家賃、人件費、資本固定費を負担する。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>経営・管理ビザの審査中、外国人事業者本人は自由に商業活動を開始できない一方、事前にオフィスや事業体制のコストを負担する必要があるという点を原文は再確認する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>6〜10か月の待機は大きな cash burn を生み、十分な資本バッファを持たない小規模イノベーション企業を市場競争に入る前に脱落させるというのが原文の結論である。</div>
+<p><strong>消費者・患者。</strong> 参入遅延は選択肢の不足や高価格として社会へ転嫁される。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>原文は、歴史的にがん領域で4〜5年規模の Drug Lag が生じ、日本の患者が海外で既に利用可能な新しい治療へ長期間アクセスできなかった現象を Drug Loss として説明する。</div>
+<p><strong>国内に資産を持つ外国投資家。</strong> 規制の強さが資産を守る一方、解放の遅さが資本を凍結することもある。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>FTX破綻時、日本法人はFSAの顧客資産分別規制に従っていたため日本顧客の資産は保全されたが、グローバルサーバー依存と米Chapter 11との法的整理に時間を要し、顧客の払い戻しは2022年11月から2023年2月末まで待つことになった。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>この事例では厳格な規制が元本を守った一方、法的衝突の処理に時間がかかり資金が数か月凍結された。原文はこれを『保護と時間損失の同時発生』として評価する。</div>
+<div class="subhead">3.3. 情報の非対称性</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>正式申請前の根回し（nemawashi）は行政法規に一律の必須手続として明記されていないが、原文が引用する大型店舗規制の事例では、地元商工会などとの事前合意がない申請を地方当局が受け付けない実務が存在した。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>公式の11日という時計は、非公式な調整が終わって初めて動き始める。したがって外国企業や外部者にとって最も高価な時間は書類作成ではなく、誰と根回しすべきか、誰の利益に触れるか、誰に事前説明すべきかを解読する時間である。原文はこの『書かれていないルールの情報独占』を時間統制の核心と見る。</div>
+<div class="subhead">4. 改革の試みとその帰結</div>
+<div class="subhead">4.1. 1993年 行政手続法</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>米国との Structural Impediments Initiative を含む対外圧力の下、日本は1993年に行政手続法を制定した。行政指導が所管権限を越えないこと、一定の場合に書面化・理由提示・担当者明示を求める方向で透明性を高めたと原文は整理する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文の評価では、改革は形式を大きく変えたが裁量の本質までは消さなかった。企業は許認可を必要とするため行政指導を無視しにくく、遅延は非公式対話から『書面適合性の確認と再修正』へ移動したという解釈である。</div>
+<div class="subhead">4.2. PMDA改革 — 実際に時間が縮んだ例</div>
+<div class="stamp-note pr"><span class="k">■ PR版</span>PMDAは国際標準化と迅速化の成果として、2019年の新薬審査中央値を304日とし、優先審査9か月、Sakigake 6か月などの制度を提示している。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>原文によれば Drug Lag は2008〜2011年の4.3年から2016〜2019年には1.3年へ大幅に縮小し、日本が世界で最初に承認する新薬の比率も20%まで上昇した。日本人だけの独立Phase Iを必須とする旧来慣行も一部見直され、国際共同治験への参加が容易になった。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文はこの改革が成功した理由を、人口高齢化による医療上の切迫性、Drug Lag 解消という明確な政治目標、PMDAの独立行政法人化と測定可能なKPIに求める。ただし fast-track を最大限利用できるのは、高い申請費用や複雑な国際共同治験を負担できる大手製薬会社に偏るという指摘も残る。</div>
+<div class="subhead">4.3. デジタル化と『アベノミクス』の限界</div>
+<div class="stamp-note pr"><span class="k">■ PR版</span>東京都と国は Tokyo One-Stop Business Establishment Center（TOSBEC）を設け、多言語・電子申請を含むワンストップ型の企業設立支援を掲げた。2019年の Digital Procedures Act も、紙・対面・押印依存の削減を目標とした。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>しかし2020年時点で日本は Doing Business の起業指標で106位にとどまった。原文は、物理的オフィス、印鑑、銀行口座、税務・年金の逐次手続といった基礎要件が残り、TOSBECが主にインターフェースをデジタル化したにすぎないと指摘する。2025/2026年の経営・管理ビザ改革では事業計画の専門家検証など新たな質的フィルターも加わる。</div>
+<div class="subhead">5. 最終評価</div>
+<p><strong>構造的ポートレート:</strong> 原文は日本の官僚時間を、多層の『膜』として捉える。基本速度を低く保ち、非公式な根回しと情報の非対称性を残すことで、外部者・小規模主体に非関税型の参入コストを課す一方、行政書士などの仲介市場と天下りの価値を維持するというモデルである。</p>
+<p><strong>主なレント抽出メカニズム:</strong> 公式時計が始まる時点をコントロールすること。正式受付前の協議、事前説明、専門家検証、待機中の資本拘束を通じて、直接的な賄賂ではなく『時間の損失』としてコストを民間に移転する。</p>
+<p><strong>基本シナリオ:</strong> デジタル化はデータ転送を速くしても、意思決定の裁量そのものは質的コンプライアンス要件へ移る可能性が高い。実際の大幅短縮は、PMDA改革のように国民の健康や国家競争力に直接的な危機が生じた分野、または強い地政学的圧力が国内抵抗を上回る分野に限定されやすい、というのが原文の結論である。</p>
+<div class="subhead">参考資料</div>
+<p>1. Why does Japan rank 29th on the ease of doing business ranking? - MailMate, https://mailmate.jp/blog/japan-is-the-29th-easiest-country-in-which-to-do-business</p>
+<p>2. Japan&#x27;s Business Environment and Foreign-Affiliated Companies, https://www.jetro.go.jp/ext_images/en/invest/reports/report2020/pdf/report2020_2.pdf</p>
+<p>3. Findings of Doing Business 2020 - The World Bank, https://thedocs.worldbank.org/en/doc/969941582081054931-0090022020/original/021920FindingsofDoingBusiness2020ValeriaPerotti.pdf</p>
+<p>4. Doing Business in Japan - World Bank Group, https://archive.doingbusiness.org/en/data/exploreeconomies/japan</p>
+<p>5. Doing Business 2020 data notes, https://archive.doingbusiness.org/en/methodology/methodology-note</p>
+<p>6. Starting a Business - Doing Business - World Bank Group, https://archive.doingbusiness.org/en/data/exploretopics/starting-a-business</p>
+<p>7. How long is the examination period for a business management visa? The timeline for obtaining a visa is also explained - リーガルエステート, https://s-legalestate.com/kaigai/en/visas/business-manager-visa-processing-time/</p>
+<p>8. Processing Time for the Japan Business Manager Visa, https://en.continental-immigration.com/business-manager-visas/processing-time-for-the-japan-business-manager-visa/</p>
+<p>9. A slow start for Japan&#x27;s Financial Service Intermediary License | by Norbert Gehrke | Tokyo FinTech | Medium, https://medium.com/tokyo-fintech/a-slow-start-for-japans-financial-service-intermediary-license-aeeafe5239e6</p>
+<p>10. (PDF) Approval of new drugs 1999-2007: Comparison of the US, the EU and Japan situations - ResearchGate, https://www.researchgate.net/publication/46303012_Approval_of_new_drugs_1999-2007_Comparison_of_the_US_the_EU_and_Japan_situations</p>
+<p>11. A perspective on the benefit-risk assessment for new and emerging pharmaceuticals in Japan - PMC, https://pmc.ncbi.nlm.nih.gov/articles/PMC4386774/</p>
+<p>12. Japan: Financial Sector Assessment Program-Technical Note on Regulation and Supervision of Fintech in - IMF eLibrary, https://www.elibrary.imf.org/view/journals/002/2024/116/article-A001-en.xml</p>
+<p>13. Business Manager Visa Japan – 2025 New Rules Officially Announced, https://japanvisaguide.jp/business-manager-visa-japan-2025-new-rules/</p>
+<p>14. Japan – Business Manager Visa Reforms Take Effect - KPMG International, https://kpmg.com/xx/en/our-insights/gms-flash-alert/flash-alert-2025-195.html</p>
+<p>15. The Politics of Economic Reform in Japan - ResearchGate, https://www.researchgate.net/publication/254401436_The_Politics_of_Economic_Reform_in_Japan</p>
+<p>16. Privatized Regulation: Japanese Regulatory Style in Comparative and International Perspective, https://ir.lawnet.fordham.edu/cgi/viewcontent.cgi?article=1520&amp;context=ilj</p>
+<p>17. Is the Japanese Distribution System Really Inefficient? - NBER, https://www.nber.org/system/files/chapters/c8663/c8663.pdf</p>
+<p>18. Globalization and Issues for Public Law - Kyoto University Research Information Repository, https://repository.kulib.kyoto-u.ac.jp/bitstreams/8d3dbebd-2459-4ddf-8efb-dcafd9cc1f5a/download</p>
+<p>19. What is Gyoseishoshi Lawyer&#x27;s Association of Hyogo, https://www.hyogokai.or.jp/en/about/</p>
+<p>20. Services | 泰毅国際行政書士事務所, https://taikigyosei.com/en/services/</p>
+<p>21. Japan&#x27;s PMDA Drug Approval: Standard &amp; Expedited Pathways - IntuitionLabs, https://intuitionlabs.ai/articles/pmda-regulatory-pathways-japan</p>
+<p>22. Japan Pharma Market Entry Guide 2026 | PMDA &amp; NHI - Vision Lifesciences, https://visionlifesciences.com/insights/japan-pharma-market-entry-guide</p>
+<p>23. My Status of Residence(Visa) Application Is Taking Too Long! — Understanding Processing Trends in Japan Based on Official Immigration Data, https://7jo.jp/en/approval-time/</p>
+<p>24. About Us | Anderson Mori &amp; Tomotsune, https://www.amt-law.com/en/aboutus/</p>
+<p>25. English-Speaking Immigration Lawyers in Japan [2026 Guide], https://japan-dev.com/blog/immigration-lawyer-japan</p>
+<p>26. Tokyo One-Stop Business Establishment Center | Our supports | Invest Tokyo - Office for Startup and Global Financial City Strategy, https://www.startup-support.metro.tokyo.lg.jp/onestop/en/</p>
+<p>27. Building trust in government : innovations in governance reform in Asia - SciSpace, https://scispace.com/pdf/building-trust-in-government-innovations-in-governance-1hleq6hpkb.pdf</p>
+<p>28. The resilience of Japan&#x27;s iron triangle - Amakudari | Request PDF - ResearchGate, https://www.researchgate.net/publication/249973974_The_resilience_of_Japan&#x27;s_iron_triangle_-_Amakudari</p>
+<p>29. THE PEOPLE&#x27;S POST OFFICE - Brill, https://brill.com/downloadpdf/display/title/57895.pdf</p>
+<p>30. Japan&#x27;s Financial Crisis : Institutional Rigidity and Reluctant Change 9781400849635, 9780691128689 - DOKUMEN.PUB, https://dokumen.pub/japans-financial-crisis-institutional-rigidity-and-reluctant-change-9781400849635-9780691128689.html</p>
+<p>31. The Economics and Politics of Financial Modernization - Federal, https://www.newyorkfed.org/medialibrary/media/research/epr/00v06n4/0010kros.pdf/1000</p>
+<p>32. Trends in oncology drug lags in Japan from 2001 to 2020: A cross‐sectional study - PMC, https://pmc.ncbi.nlm.nih.gov/articles/PMC10719463/</p>
+<p>33. Japan&#x27;s clinical trial transformation: Building a global future - ICON plc, https://www.iconplc.com/insights/blog/2026/06/05/japans-clinical-trial-transformation-building-global-future</p>
+<p>34. Administrative Information Disclosure Law in Japan - Kobe University, http://www2.kobe-u.ac.jp/~kado/sigoto/AIDL1999.pdf</p>
+<p>35. Executive Action: Its History, its Dilemmas, and its Potential Remedies - Oxford Academic, https://academic.oup.com/jla/article/8/1/1/1752324</p>
+<p>36. The Digital Disruption and Japan&#x27;s Political Economy - DOKUMEN.PUB, https://dokumen.pub/the-digital-disruption-and-japans-political-economy.html</p>
+<p>37. ADMINISTRATIVE GUIDANCE AND GENETICALLY MODIFIED FOOD - Arizona Law Review, https://arizonalawreview.org/pdf/60-3/60arizlrev539.pdf</p>
+<p>38. Public Management Reforms in Japan: With and After NPM - ResearchGate, https://www.researchgate.net/publication/383965549_Public_Management_Reforms_in_Japan_With_and_After_NPM</p>
+<p>39. Japan&#x27;s Drug Approval Process: A Guide to PMDA &amp; MHLW | IntuitionLabs, https://intuitionlabs.ai/articles/japan-drug-approval-process</p>
+<p>40. Lag Time for New Innovative, First-in-Class, Drug Approval in Japan - J-Stage, https://www.jstage.jst.go.jp/article/bpb/45/4/45_b21-00898/_article</p>
+<p>41. Implementing Structural Reforms in Abenomics: How to Reduce the Cost of Doing Business in Japan - NBER, https://www.nber.org/system/files/working_papers/w21507/w21507.pdf</p>
+<p>42. JETRO Efforts to Promote Investment in Japan, https://www.jetro.go.jp/ext_images/en/invest/reports/report2018/pdf/report2018_5_rev.pdf</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">マーカー凡例 — 原文基準</div>
+    <div class="keybox-grid">
+      <div><b>事実</b> — 原文が明示的に事実として分類した項目</div>
+      <div><b>PR版</b> — 政府・規制機関などの公式説明として原文が区別した項目</div>
+      <div><b>分析的結論</b> — 原文が構造的解釈として明示した判断</div>
+      <div><b>内部情報 / 未確認</b> — 業界で流通するが文書で確認されていない主張</div>
+      <div><b>データなし</b> — 原文が公開データ不足を明示した項目</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

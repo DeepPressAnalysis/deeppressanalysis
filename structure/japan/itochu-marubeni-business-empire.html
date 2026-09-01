@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本 — Itochu & Marubeni：総合商社の資本・物流・支配アーキテクチャ | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← ホーム</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">独立構造インテリジェンス分析 · 2026年より</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">「物語より構造。」</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>日本デスク</span>
+    <span>2026年9月1日</span>
+  </div>
+
+  <span class="section-tag">総合商社 / ネットワーク資本 / 物流 / 金融</span>
+
+  <h1 class="headline">Itochu & Marubeni：所有ではなく、世界の流れを握る帝国</h1>
+  <p class="deck">資源、食料、エネルギー、リテール、金融、物流。日本のsogo shoshaは単一の産業を独占するのではなく、複数市場をつなぐ資金・情報・契約の結節点を押さえることで支配力を作る。Itochuは非資源・消費へ、Marubeniはインフラ・資源・電力へ重心を置く。</p>
+  <div class="byline">日本デスク — カテゴリ: 企業帝国 / ITOCHU / MARUBENI / 資本アーキテクチャ</div>
+
+  <div class="columns">
+<p class="lead"><strong>分析基準日:</strong> 2026年9月1日。対象: 伊藤忠商事（Itochu）と丸紅（Marubeni）— 日本の総合商社（sogo shosha）をネットワーク資本として読む比較分析。</p>
+<p>原文は、ItochuとMarubeniを西側の創業者支配型コングロマリットや資源オリガルヒ型帝国とは異なる存在として扱う。両社は、戦前・戦後の商社史、銀行資本、世界の物流網、プロジェクトファイナンス、少数・多数持分の組み合わせを通じて、<strong>物理的な所有よりも流通・資金・情報の結節点を支配するネットワーク型資本</strong>へ進化したというのが中心フレームである。</p>
+<p>分析単位は一人の創業者ではなく、企業構造、資本配分、管理制度、投資ポートフォリオ、銀行・政府との接続である。</p>
+<div class="subhead">1. 帝国はどう作られたか</div>
+<p>主戦略はグローバル供給網におけるニッチ支配と徹底した多角化、補助戦略は負債・株式・M&Aを使う金融工学である。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Itochuは、経営陣の戦略転換によって非資源分野を重視する方向へ大きく舵を切った。象徴的な案件の一つがFamilyMartの完全子会社化であり、2020年に50億ドル超規模の公開買付けを通じて持分を集約した。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Marubeniは、インフラ、伝統的・再生可能エネルギー、穀物取引や肥料を含むアグリビジネス、産業機械を主要な事業軸としてきた。</div>
+<div class="subhead">1.2. 意思決定モデル</div>
+<p>専門経営と日本型合議制を組み合わせながら、東京本社が資本配分と危機対応を強く統括する。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>両社は制度化された取締役会と専門経営陣を持つ一方、東京本社を中心に強い戦略計画機能を維持する、日本型コーポレート・ガバナンスの枠内で運営されている。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>資本配分はRingi型の合議・承認プロセスと詳細なリスク評価を通じて行われる。2015〜2016年の商品市況悪化やCOVID-19期には、両社ともバランスシートの整理、減損処理、安定した消費関連分野への流動性再配分を進めたと原文は評価する。</div>
+<div class="subhead">1.3. リスクへの態度</div>
+<p>企業自身が大規模リスクを取る一方、コンソーシアムやnon-recourse financeを使って一部を外部へ分散する。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Itochuは2014〜2015年から中国のCITIC Limitedへ約100億ドル規模を投じた。原文はこれをsogo shosha史上最大級の海外投資として位置づける。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>大型インフラ・LNG・発電案件では、国際エネルギー企業とのコンソーシアムと、スポンサーへの遡及を限定するnon-recourse project financeを用いてリスクを分散する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、システム的な流動性ショック時に日本銀行やMETIを含む政府・金融制度の安定化機能が、sogo shoshaに対する事実上のセーフティネットとして働いてきたと分析する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>支配的な内部動機は、重要な付加価値・物流チェーンへのコントロールを確保し、株主・機関投資家への分配を支える安定キャッシュフローを生み続けることだというのが原文の結論である。</div>
+<div class="subhead">2. 資本の源泉</div>
+<p>歴史的商家と銀行資本から、現在のポートフォリオ型収益へ移行した過程を整理する。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>ItochuとMarubeniの歴史的起源は江戸期の商家へ遡り、原文は1858年に伊藤忠兵衛が始めた繊維商を重要な源流として挙げる。戦後の財閥解体後、企業は再編され、銀行資本と結びつく水平・垂直型の企業集団へ再構築された。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>この歴史は企業アーカイブ、東京証券取引所の記録、各社の公式社史などによって確認できると原文は述べる。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>現在の収益は、ポートフォリオ投資からの配当、資源・穀物・金属などのトレーディングマージン、リテール、物流を組み合わせた混合型である。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Itochuは競合他社と比べ、消費、リテール、情報技術など非資源分野が利益に占める比率が高い。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Marubeniは、資源トレーディング、金属、穀物市場、Gavilon関連資産、エネルギーなどで強いポジションを維持してきた。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>資本はオランダ、シンガポール、米国、英国などの持株・取引子会社を通じてグローバルに編成されるが、親会社自体は日本の法域と税務居住に強く結びついている。</div>
+<div class="subhead">3. 金融と接続</div>
+<p>メガバンク、Berkshire Hathaway、METI、制裁・競争政策、国際コンソーシアムが資本構造の外部ノードを形成する。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>主要債権銀行はMUFG、SMFG、Mizuho Financial Groupなど日本のメガバンクである。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>投資適格の高い信用力と日本の金融エコシステム内での長期関係により、sogo shoshaは国内で低コストの借入にアクセスでき、国際債券市場でも積極的に資金を調達する。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>近年の株式市場での大きな変化の一つは、Berkshire Hathawayが日本の大手5商社すべてに大口出資し、ItochuとMarubeniを含むsogo shoshaの株価と国際的な機関投資家としての注目度を押し上げたことである。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>ItochuとMarubeniはMETIの官民協議や経済外交の代表団などに参加し、国家の対外経済政策と制度的に接続している。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>両社は日本の対外制裁・政府間合意・JFTCの競争政策に左右される。原文は、ロシア関連エネルギープロジェクトへの参加見直しをその例として挙げる。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>G7の制裁政策など外部の地政学的条件によって、Sakhalin-1、Sakhalin-2、Arctic LNG 2などロシア関連資産・案件の扱いを再検討する必要が生じたと原文は述べる。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>事業提携ではExxonMobil、TotalEnergies、Shellなどのエネルギー企業、BHP、Rio Tintoなどの鉱山会社、さらに技術企業との国際コンソーシアムが重要な役割を果たす。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>公開された企業戦争は比較的少なく、主要な対立はアフリカ、南米、東南アジアなどでの資源獲得競争や供給契約をめぐる訴訟の形を取ることが多いというのが原文の分析である。</div>
+<div class="subhead">4. 脆弱性</div>
+<p>規制、負債、ESG、地政学、中国経済・物流への集中を別々のリスクとして評価する。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>規制リスクは中程度と評価され、制裁コンプライアンスの強化や、農産物・資源市場での国際的な独占禁止規制が主な要因とされる。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>債務リスクは低〜中程度と評価される。sogo shoshaは大規模な貿易金融を使うため負債総額は大きいが、流動性の高い資産と長期契約によって支えられているというのが原文の整理である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>相続リスクは低い。企業が株主所有と専門経営によって運営されるため、創業家の遺産分割で帝国が崩壊する典型的な問題は小さい。ただし官僚化と技術変化への反応鈍化が別のリスクとして残る。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>ESG・評判リスクは高い。石炭、石油、ガス、金属、農業関連への投資が、脱炭素を求める気候活動家や機関投資家からの圧力を受ける。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>政治・地政学リスクも高い。中国、ロシア、中東など緊張の高い地域へのエクスポージャーがあり、資産凍結やプロジェクトからの強制退出、2022年以降のロシア関連資産の減損などが具体的なリスクとして挙げられる。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>集中リスクは中程度で、特にItochuのCITIC関係を通じた中国経済へのエクスポージャーと、世界的な物流・供給網の安定性への依存が中心だというのが原文の評価である。</div>
+<div class="subhead">5. 最終評価</div>
+<p>所有者個人ではなく、分散した資産と金融・物流ネットワーク自体が『帝国』として機能する。</p>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>総括すると、ItochuとMarubeniは古典的な商社から、資源・食料・消費財の流通と資本配分を支配するグローバルなネットワーク型コングロマリットへ転換したというのが原文の最終評価である。</div>
+<div class="subhead">5.1. 安定性と潜在的な崩壊点</div>
+<p><strong>最大の安定性:</strong> 原文は、収益源の多角化、日本の強力な金融システムからの支援、東京の対外経済政策との高い統合度を挙げ、確信度を高いと評価する。</p>
+<p><strong>最大の潜在的な崩壊点:</strong> 米中対立のような世界的地政学分断が急激に深まり、国境を越える投資・決済・物流の流れが同時に切断されるシナリオである。sogo shoshaはまさにその国境横断ネットワークの仲介者であるため、ネットワークの広さが逆に集中リスクへ反転し得るというのが原文の中程度確信度の評価である。</p>
+<p><strong>Itochu:</strong> 非資源・消費・FamilyMart・CITICを組み合わせ、景気循環の異なる収益源を持つことが強み。反面、中国経済とCITICへの大型エクスポージャーが地政学的な感応度を高める。</p>
+<p><strong>Marubeni:</strong> インフラ、電力、資源、穀物、産業設備のポートフォリオが強み。反面、商品市況、エネルギー転換、ESG、地域政治リスクへの感応度がItochuより高くなりやすいというのが原文の比較的な含意である。</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">マーカー凡例 — 原文基準</div>
+    <div class="keybox-grid">
+      <div><b>事実</b> — 原文が明示的に事実として分類した項目</div>
+      <div><b>分析的結論</b> — 原文が構造的解釈として明示した判断</div>
+      <div><b>PR版</b> — この原文には明示的なPRマーカーはない</div>
+      <div><b>内部情報 / 未確認</b> — この原文には明示的な内部情報マーカーはない</div>
+      <div><b>データなし</b> — この原文には明示的なデータなしマーカーはない</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

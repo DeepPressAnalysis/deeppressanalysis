@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本 — Sumitomo Group：資本・メインバンク・keiretsu支配アーキテクチャ | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← ホーム</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">独立構造インテリジェンス分析 · 2026年より</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">「物語より構造。」</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>日本デスク</span>
+    <span>2026年9月1日</span>
+  </div>
+
+  <span class="section-tag">企業帝国 / KEIRETSU / 金融 / 資本構造</span>
+
+  <h1 class="headline">Sumitomo Group：創業家が消えても帝国が残る仕組み</h1>
+  <p class="deck">別子銅山からSMFG、Sumitomo Corporation、重化学・金属・電線産業へ。現代のSumitomoは一人の所有者ではなく、cross-shareholding、Main Bank、Hakusui-kaiと企業理念が結ぶ自己再生型ネットワークとして動く。</p>
+  <div class="byline">日本デスク — カテゴリ: 企業帝国 / SUMITOMO GROUP / 資本アーキテクチャ</div>
+
+  <div class="columns">
+<p class="lead"><strong>分析基準日:</strong> 2026年9月1日。対象: Sumitomo Group — 歴史的な住友財閥から、現在の水平型keiretsuへ転換した分散型金融・産業ネットワーク。</p>
+<p>原文はSumitomo Groupを、単一の持株会社や創業家が直接支配する『帝国』ではなく、<strong>相互持合い、メインバンク、社長会、共通の企業理念によって結ばれた多極型ネットワーク</strong>として分析する。住友家は法的所有権を失ったが、歴史的に形成された資本・取引・文化・救済メカニズムが制度として残り、自律的に再生産されているというのが中心フレームである。</p>
+<div class="subhead">1. 帝国はどう構築されているか</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>Sumitomoのアーキテクチャは、強く中央集権化された創業家の財閥から、複数の独立企業が結びつくkeiretsuへ変化した。住友家は法的な所有権を失ったが、同家が作った資本・人的関係・経営原則は独立した制度ネットワークとして存続しているというのが原文の結論である。原文の確信度は高い。</div>
+<div class="subhead">1.1. 成長の中核戦略</div>
+<p><strong>歴史的モデル:</strong> ニッチ独占。<strong>現在:</strong> 多角化 + ネットワーク統合。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>17世紀、住友家は別子銅山を中核に銅事業を拡大し、原文はこれを日本の銅輸出を支える独占的ポジションとして描く。その周囲に林業、物流、機械、金融の事業エコシステムが形成された。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>1950年代以降の成長は、法的に独立した企業をグローバルな生産・金融ネットワークへ統合することで進んだ。金融中核はSumitomo Mitsui Financial Group、商社中核はSumitomo Corporationである。</div>
+<p>支配を維持する重要な仕組みはcross-shareholdingである。グループ企業は互いの少数株式を保有し、敵対的買収への防壁を作ると同時に、長期的な取引関係を固定化する。</p>
+<div class="subhead">1.2. 意思決定モデル</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>第二次世界大戦後、GHQによる財閥解体によって住友家の権威的な家族支配モデルは制度的に解体された。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>現在はHakusui-kai（白水会）と呼ばれる、Sumitomo Group主要企業の社長で構成される閉鎖的な協議体が存在する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>Hakusui-kaiには法的な取締役会権限はないが、原文はこれをグループ全体の『非公式な取締役会』として評価する。ブランドの扱い、問題資産の救済、合併・再編戦略などで企業間の意思を調整する役割を果たすという分析である。確信度は高い。</div>
+<div class="subhead">1.3. リスクへの態度</div>
+<p><strong>基本的なリスク水準:</strong> 低い。保守的な資本管理が中心。</p>
+<div class="stamp-note pr"><span class="k">■ PR版</span>グループの公式な企業哲学は、創業者の訓戒 Monjuin Shiigaki に由来し、『安易な利益を追わない』という考え方を住友の伝統的な行動原則として掲げる。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文はこの『Sumitomo Spirit』を単なる文化標語ではなく、実質的なリスク管理アルゴリズムとして読む。歴史的に小売・軽工業・短期投機より、資本集約型B2B、重化学、金属、インフラを重視し、高い参入障壁そのものを競争防御に使ってきたという分析である。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>例外は1996年の銅取引スキャンダルである。Sumitomo CorporationのトレーダーYasuo HamanakaによるLMEでの無断投機によって、会社は約26億ドルの損失を被った。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、グループが内部準備金と関係銀行の信用供与によって損失を吸収できた点を、ネットワーク全体が局所的な破局を救済する能力の証拠とみる。確信度は高い。</div>
+<div class="subhead">1.4. 中核的な内部ドライバー</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>支配的な動機は、個別企業の短期利益最大化より、ネットワークそのものの自己保存と、日本経済におけるシステム的重要性の維持である。原文は、かつて『四大財閥』の中でも結束が強いとされた住友のクラン的連帯が、現在では外部支配を防ぐ企業間プロトコルへ変換されたと分析する。</div>
+<div class="subhead">2. 資本の源泉</div>
+<div class="subhead">2.1. 最初のレバー</div>
+<p><strong>起源:</strong> 技術 + 国家独占的な採掘権。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>17世紀の初期資本は、Nanban-bukiと呼ばれる銅精錬技術の優位性と、1690年に徳川幕府から得た別子銅山の開発権によって形成されたと原文は説明する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>先端技術と封建国家による独占的権利の結合が、約250年間にわたる連続的な資本蓄積の基盤を作ったというのが原文の分析である。</div>
+<div class="subhead">2.2. 現在の主要収益源</div>
+<p>現在の資本生成は、三つの独立しつつ相互補完的なクラスターで構成される。</p>
+<p><strong>1. 金融クラスター:</strong> Sumitomo Mitsui Financial Group（SMFG）。融資、リース、資産運用を通じて資本を生む。</p>
+<p><strong>2. 商社・投資クラスター:</strong> Sumitomo Corporation。資源、インフラ、流通へ投資し、グローバルsogo shoshaとして機能する。</p>
+<p><strong>3. 産業クラスター:</strong> Sumitomo Metal Mining、Sumitomo Chemical、Sumitomo Electric Industriesなど。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>企業報告を基に、原文はグループ内シナジーの典型として、Sumitomo Corporationが資源案件を発掘し、Sumitomo Metal Miningが採掘・加工し、SMBCが債務資金を供給するという連携を挙げる。</div>
+<div class="subhead">3. 接続と資金調達</div>
+<div class="subhead">3.1. 誰が資金を供給するのか</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>資金調達の中核は日本型のMain Bank systemである。歴史的にはThe Sumitomo Bank、現在のSMBCがグループ企業へ流動性を供給する中心的役割を担ってきた。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>グループ企業が破綻危機に直面すると、メインバンクが債務を再編する、あるいはより強いグループ企業に資産取得を促すことで、問題をネットワーク内で処理する。原文は、外部債権者への依存を抑え、支配権を内部に残す救済メカニズムとして評価する。</div>
+<div class="subhead">3.2. 政治との接続</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Sumitomo系企業はMETIとKeidanrenに深く統合され、産業政策・対外経済政策の協議ネットワークに参加する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文はこの関係を『国家との共生』と表現する。日本政府はSumitomo Corporationを含むsogo shoshaを、エネルギー・資源安全保障を実行する民間エージェントとして利用し、その見返りに海外案件での政治的支援やJBICなど政策金融へのアクセスを提供するという分析である。確信度は高い。</div>
+<div class="subhead">3.3. 事業同盟と衝突</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>2001年、日本の銀行危機の中でSumitomo BankはMitsui系のSakura Bankと合併し、SMBCを形成した。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文はこの合併を、金融中核を守るためなら歴史的keiretsuの境界さえ越える実用主義の証拠と読む。最古級の競合であったMitsui系銀行との統合は、ネットワークの存続が純粋なクラン忠誠より優先されることを示すという結論である。</div>
+<div class="subhead">4. 脆弱性</div>
+<p><strong>規制リスク — 高。</strong></p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Tokyo Stock ExchangeとFSAのCorporate Governance Codeの圧力により、日本企業はcross-shareholdingの縮小を求められている。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、相互持合い株式の強制的・継続的な売却がkeiretsuを固定してきた『セメント』を弱め、個別企業を海外activist fundや敵対的買収へ開放する可能性があると分析する。</div>
+<p><strong>集中・人口動態リスク — 中。</strong></p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>日本の人口高齢化と国内市場縮小により、Sumitomo系企業は海外M&Aをより積極的に行う必要に迫られている。海外では、国内で享受してきたMETIの政治的支援や系列銀行との近接性が同じ形では機能しない。</div>
+<p><strong>評判・ESGリスク — 中。</strong></p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>石炭、重化学、鉱業などへの歴史的関与により、Sumitomo Groupの産業部門は脱炭素・ESG規制の影響を受けやすく、資本コスト上昇の圧力にさらされる。</div>
+<p><strong>相続リスク — 低。</strong></p>
+<p>法的な支配権を持つ住友家の物理的な王朝は既に存在せず、家族内紛による帝国分裂リスクは制度的に解消されている。原文は現在のシステムを、自己再生産する企業官僚制として捉える。</p>
+<div class="subhead">5. 最終評価</div>
+<p><strong>アーキテクチャの要約:</strong> Sumitomo Groupは、相互持合い、共通メインバンク、社長会Hakusui-kai、保守的な企業理念で結ばれた、多極・制度化・資本集約型の企業ネットワークである。</p>
+<p><strong>最大の安定性:</strong> リスクは個別企業へ分散される一方、危機時の救済メカニズムはSMFGとHakusui-kaiを通じて集中されている。</p>
+<p><strong>最大の潜在的崩壊点:</strong> 日本の金融規制当局とグローバル資本市場の圧力によってcross-shareholdingが継続的に解体されること。相互持合いが失われれば、統合された一つの『帝国』は、相互防衛力を持たない独立企業の集合へ変わる可能性がある。原文の確信度は高い。</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">マーカー凡例 — 原文基準</div>
+    <div class="keybox-grid">
+      <div><b>事実</b> — 原文が明示的に事実として分類した項目</div>
+      <div><b>PR版</b> — 企業側の公式な理念・説明として原文が区別した項目</div>
+      <div><b>分析的結論</b> — 原文が構造的解釈として明示した判断</div>
+      <div><b>内部情報 / 未確認</b> — この原文には明示的な内部情報マーカーはない</div>
+      <div><b>データなし</b> — この原文には明示的なデータなしマーカーはない</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

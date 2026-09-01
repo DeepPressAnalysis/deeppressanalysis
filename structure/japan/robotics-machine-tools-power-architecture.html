@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本 — ロボティクス・工作機械：技術オリゴポリーと産業権力のアーキテクチャ | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← ホーム</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">独立構造インテリジェンス分析 · 2026年より</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">「物語より構造。」</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>日本デスク</span>
+    <span>2026年9月1日</span>
+  </div>
+
+  <span class="section-tag">ロボティクス / 工作機械 / CNC / 技術オリゴポリー</span>
+
+  <h1 class="headline">日本のロボティクス：完成品ではなく「中身」を握る者が支配する</h1>
+  <p class="deck">FanucのCNC、NabtescoとHarmonic Driveの精密減速機、SMCの空圧、Yaskawaのサーボ。完成ロボット市場は競争的に見えても、不可欠な制御・部品層では少数企業が世界の生産設備をロックインする。</p>
+  <div class="byline">日本デスク — カテゴリ: 戦略産業 / ロボティクス / 工作機械 / 権力アーキテクチャ</div>
+
+  <div class="columns">
+<p class="lead"><strong>分析基準日:</strong> 2026年9月1日。対象: 日本のロボティクス・工作機械産業 — CNC、精密減速機、サーボ、空圧、工作機械をめぐる産業権力の構造。</p>
+<p>原文は、この市場を単純な完成品メーカー同士の競争としてではなく、<strong>FanucのCNC、NabtescoとHarmonic Driveの精密減速機、SMCの空圧機器など、少数の不可欠なコンポーネント企業が世界の生産設備を下から支配する技術オリゴポリー</strong>として分析する。国家は外部から規制する主体というより、METI、業界団体、輸出管理を通じて産業構造を共同設計する『Japan Inc.』の一部として描かれる。</p>
+<div class="subhead">1. 市場構造</div>
+<div class="subhead">1.1. 市場アーキテクチャの型</div>
+<p><strong>主要タイプ:</strong> コンポーネント独占に支えられたグローバル技術オリゴポリー。<strong>副次タイプ:</strong> 企業資本と誘導型産業政策の共生、いわばkeiretsu-lite。</p>
+<p>完成ロボットや工作機械のレベルではYaskawa、Kawasaki、DMG Mori、Mazakなど複数企業が競争しているように見える。しかし原文は、実際の権力が『組立』よりも、制御装置・減速機・空圧・サーボといった代替困難な内部部品に集中しているとみる。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Fanucは世界のCNCコントローラー市場で約65〜80%を支配すると原文は記載し、確信度を高いと評価する。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Nabtescoは中・大型ロボット関節に使われるRV型精密減速機で世界市場の約60%を占めるとされる。Harmonic Drive Systemsは小型精密減速機で支配的で、SMCは産業用空圧機器で日本国内約65%、世界約30%のシェアを持つと原文は記載する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、完成機メーカーの市場は競争的に見えても、その土台となる制御・コンポーネント層が3〜4社に集中しているため、実際の産業構造は階層化されたピラミッドだと結論づける。</div>
+<div class="subhead">1.2. 参入障壁</div>
+<p><strong>技術・インフラ障壁:</strong> 極めて高い。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Fanucは工作機械本体だけでなく、独自仕様の制御エコシステムを販売している。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、新規企業が単に資本を投じるだけではこの市場へ容易に入れないと分析する。Foxconnのような大規模工場や自動車ラインが制御系ベンダーを変える場合、ITインフラ、通信プロトコル、保守体系を更新し、FanucやMitsubishiの制御装置に慣れた多数のオペレーターを再教育する必要がある。この切替コストがvendor lock-inを作るという結論である。</div>
+<p><strong>サプライチェーン障壁:</strong> 日本型の長期取引関係が依然として重要である。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>旧来のzaibatsu/keiretsuが形式上は解体・弱体化しても、長期・排他的に近い供給契約は残っている。原文は、米国や中国の新規メーカーがNabtescoの減速機を必要量確保しにくい場合があり、既存の日本企業が優先される傾向を指摘する。確信度は中程度。</div>
+<div class="subhead">1.3. 価格形成の実像</div>
+<p><strong>表向き:</strong> グローバルなB2B競争市場。</p>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、実際の価格を決めるのは完成機のブランド競争より、モーター、スピンドル、減速機など少数供給者しか存在しない重要部品の価格だと分析する。世界に1〜2社しか代替供給者がいない場合、基本コストとマージンは『中身』を作る企業側に残り、最終組立メーカーの価格自由度は小さくなるという結論である。</div>
+<div class="subhead">2. 誰が支配しているのか</div>
+<div class="subhead">2.1. 主要プレイヤーと実質的な支配</div>
+<p><strong>『知能』:</strong> Fanuc。1972年にFujitsuから分離し、CNCと工場自動化の制御層を握る。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Fanucの主要株主は機関投資家であり、原文はThe Master Trust Bank of Japan約16%、Custody Bank of Japan約9.6%、BlackRock約7.5%という比率を示す。</div>
+<p><strong>『筋肉』:</strong> NabtescoとHarmonic Drive Systemsの精密減速機。<strong>『骨格』:</strong> Yaskawaのサーボ、Kawasakiの産業ロボット、Toyota系Densoの小型ロボット、日独連合のDMG Moriなど完成システム企業。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>東京証券取引所による資本効率改善圧力の下でcross-shareholdingは徐々に縮小しているが、FanucはFuji Electricなど周辺企業との歴史的持分関係を一部維持していると原文は記載する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は実質的な支配力を、株式の過半所有よりも『技術的に代替できないこと』と、企業間・取締役会・長期取引ネットワークへの組込みによって説明する。</div>
+<div class="subhead">2.2. 国家との交点</div>
+<p><strong>METI:</strong> 原文では、規制当局というより産業の共同設計者として位置づけられる。</p>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>METIはどの技術分野へ政策資金・優遇・国家プロジェクトを集中するかを決め、Society 5.0のような政策を通じて企業の投資方向を事実上誘導する。原文はこれを『国家が市場の上に立つ』より、『国家と企業が同じ設計回路に入る』構造とみる。</div>
+<p><strong>Amakudari:</strong> 規制・戦略部門の人材が退職後に企業側へ移る日本の伝統的な人事循環。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>原文は、企業の取締役会に国家・準国家部門出身者が入る例を挙げる。Fanucの独立取締役Hiroto Uozumiについて、Hitachiの原子力エネルギー部門出身である点を、そのような制度接続の一例として示す。</div>
+<p><strong>業界団体:</strong> Japan Robot Association（JARA）とJapan Machine Tool Builders’ Association（JMTBA）。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>これらの団体はロビーだけでなく準行政的な機能も担い、原文はJMTBAが制裁・輸出管理環境で企業へ具体的な輸出管理指針を伝達する役割を果たすと記載する。</div>
+<div class="subhead">2.3. 外部の影響中心</div>
+<p><strong>中国:</strong> 原材料側からの地政学的レバー。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>中国はジスプロシウム、テルビウム、ネオジムなど希土類の精製で世界の85%以上を支配すると原文は記載する。これらはロボットのサーボモーターに使われる耐熱永久磁石の重要原料である。</div>
+<div class="subhead">3. 産業権力を維持するメカニズム</div>
+<div class="subhead">3.1. 規制の『捕獲』ではなく規制との共生</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、典型的な意味でのregulatory captureは必ずしも必要ないとする。METIと主要企業は『Japan Inc.』という同じ産業政策回路で動き、国家の役割は国内価格競争を強制することより、知的財産の保護、輸出政策、外交支援を通じて日本企業の世界市場での地位を守ることにあるという分析である。</div>
+<div class="subhead">3.2. カルテル行動と競争政策</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>JFTCは工作機械中核を直接解体するより、周辺部品で明示的な価格カルテルが確認された場合に介入してきた。原文は2012年、NSK、NTN、Nachi-Fujikoshiなどベアリングメーカーに対し、産業用ベアリングの価格カルテルを理由に刑事告発・大規模制裁が行われた事例を挙げる。</div>
+<div class="stamp-note insight"><span class="k">■ 内部情報 / 未確認</span>欧米のシステムインテグレーターの間では、日本の工作機械・ロボットメーカーが海外市場で露骨な価格戦争を避け、歴史的なニッチ分担によって暗黙に競争を抑えているという見方がある。Okuma、Makino、Brotherなどが異なる得意領域を維持する構造は公式カルテルではないが、結果としてオリゴポリー型の価格形成に近いという指摘である。原文はこれを未確認情報として区別する。</div>
+<div class="subhead">3.3. 競合排除</div>
+<div class="stamp-note pr"><span class="k">■ PR版</span>日本のメーカーが世界市場で優位なのは、卓越した品質、kaizen、長期信頼性によるものだというのが業界側の公式説明である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、それに加えて閉鎖的な制御規格と標準化が競争排除の実務手段になっていると分析する。既存ラインが日本企業のプロプライエタリ規格で統一されるほど、中国・欧州製コンポーネントを後から統合する経済合理性が低下するという結論である。確信度は中程度。</div>
+<div class="subhead">4. 脆弱性</div>
+<p><strong>地政学リスク — 重大。</strong></p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>産業は中国の希土類輸出規制に強く脆弱であり、ネオジム系永久磁石を含む供給が大幅に制約されればサーボモーター生産へ直接波及する。また米国の対中技術規制圧力は、日本のJMTBAとメーカーに高度工作機械の中国向け輸出制限を求め、中国という主要市場へのアクセスを狭める。</div>
+<p><strong>技術リスク — 高。</strong></p>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>ロボティクスの競争軸は機械、減速機、サーボだけでなく、AI、machine vision、cloud computingへ移っている。原文は、このソフトウェア層で日本の大手が米国のスタートアップやABB、KUKAなど欧州勢に対して遅れを取り、FanucとNVIDIAのような外部提携・出資を急ぐ必要が生じていると評価する。確信度は中程度。</div>
+<p><strong>集中リスク — 高。</strong></p>
+<p>原文は、Nabtescoの主要生産拠点に大規模災害が発生した場合、RV減速機の世界供給が大きく落ち込み、代替供給能力の不足から多数のロボットメーカーへ同時に波及する可能性を指摘する。これは単一工場の停止が世界の設備投資へ連鎖する『too big to fail』型の部品集中リスクとして描かれる。</p>
+<p><strong>国内規制リスク — 低。</strong></p>
+<p>原文は、日本政府とJFTCが国内競争の最大化より、グローバル市場での日本のnational championの競争力を優先しやすいと評価する。ただしこれは原文の制度解釈であり、個別の競争法執行を否定する事実ではない。</p>
+<div class="subhead">5. 最終評価</div>
+<p><strong>権力アーキテクチャ:</strong> 表面的には競争的なイノベーション市場だが、実際にはFanuc、Nabtesco、Harmonic Driveなど3〜4社の狭い部品・制御層がグローバルな価値連鎖の下部を押さえる多層型テクノロジー・オリゴポリーであり、METIなど国家機構がその国際競争力を政策面で補強するというのが原文の結論である。</p>
+<p><strong>最大の安定性:</strong> 精密機械・減速機・CNCにおける極端に高い設備・技術参入障壁と、既存工場を制御規格に縛りつけるvendor lock-in。</p>
+<p><strong>最大の潜在的再編点:</strong> generative AIとphysical AIによるsoftware-defined roboticsへの移行。もし工作機械・ロボットの『頭脳』がFanucの専用CNCからNVIDIA系チップや欧米big techのクラウド制御へ移れば、日本企業は制御レイヤーの価格決定力を失い、『高度な機械部品メーカー』へ格下げされる可能性がある。原文の確信度は中程度。</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">マーカー凡例 — 原文基準</div>
+    <div class="keybox-grid">
+      <div><b>事実</b> — 原文が明示的に事実として分類した項目</div>
+      <div><b>PR版</b> — 業界・企業側の公式説明として原文が区別した項目</div>
+      <div><b>分析的結論</b> — 原文が構造的解釈として明示した判断</div>
+      <div><b>内部情報 / 未確認</b> — 業界関係者の間で流通するが独立確認されていない主張</div>
+      <div><b>データなし</b> — この原文には明示的なデータなしマーカーはない</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

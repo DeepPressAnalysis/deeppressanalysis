@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本 — 防衛産業の構造的脆弱性：供給網・技術依存・単一障害点 | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← ホーム</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">独立構造インテリジェンス分析 · 2026年より</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">「物語より構造。」</div>
+  </div>
+
+  <div class="dateline-bar">
+    <span>日本デスク</span>
+    <span>2026年9月1日</span>
+  </div>
+
+  <span class="section-tag">防衛産業 / 供給網 / 技術依存 / システムリスク</span>
+
+  <h1 class="headline">日本の防衛産業：高技術の裏側にある単一障害点</h1>
+  <p class="deck">民間大企業中心の防衛生産、少数の専門サプライヤー、FMSとドル建て調達、米国のソフトウェア・情報基盤への依存。原文はこれらを個別の弱点ではなく、同時に圧力がかかったときに相互増幅するシステムとして分析する。</p>
+  <div class="byline">日本デスク — カテゴリ: 防衛産業 / 構造的脆弱性 / 供給網</div>
+
+  <div class="columns">
+<p class="lead"><strong>分析基準日:</strong> 2026年9月1日。対象: 日本の防衛産業基盤における生産・技術・財務・供給網の構造的脆弱性。</p>
+<p>原文は、日本の防衛産業を<strong>高度な民生技術を持ちながら、軍用ソフトウェア、特定部材、米国との情報・整備ネットワーク、少数の国内生産拠点に強く依存する分散型システム</strong>として分析する。以下では原文の『事実』『PR版』『分析的結論』『内部情報 / 未確認』の区別をそのまま維持し、特に予測・脆弱性シナリオは確認済み事実ではなく原文の分析として明示する。</p>
+<div class="subhead">1. 生産・供給アーキテクチャ</div>
+<p>民間企業中心の防衛生産、低い専業比率、下請依存と小ロット生産が出発点である。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>日本の防衛産業には、国家が直接独占する軍需産業セクターが存在せず、主要防衛請負企業はMitsubishi Heavy Industries（MHI）、Kawasaki Heavy Industries（KHI）、IHI、Mitsubishi Electric、NEC、Toshibaなどの民間・多角化型企業集団である。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>これら大企業では、防衛部門は歴史的に主力ではなく、企業全体の売上に占める比率は概ね2〜10%程度にとどまるというのが原文の整理である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>専門軍需分野の垂直統合度は低く、単一企業内で完結する閉鎖型防衛生産より、民生技術と多数の外部サプライヤーに依存する分散型構造に近いというのが原文の分析である。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>兵器生産は民生技術基盤と、二次・三次の多数の下請企業に依存しており、その多くは中小企業である。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>長年の防衛装備移転規制により輸出市場が限定され、小ロット・事実上の少量生産が常態化し、完成装備の単価を押し上げたと原文は説明する。</div>
+
+<table>
+<thead><tr><th>主要請負企業</th><th>主な防衛分野</th><th>防衛部門の売上比率</th><th>統合形態</th></tr></thead>
+<tbody>
+<tr><td>Mitsubishi Heavy Industries (MHI)</td><td>航空、ミサイル、装甲車、潜水艦</td><td>約7〜10% <strong>■ 事実</strong></td><td>民生・防衛のハイブリッド</td></tr>
+<tr><td>Kawasaki Heavy Industries (KHI)</td><td>潜水艦、軍用輸送機、エンジン</td><td>約5〜8% <strong>■ 事実</strong></td><td>多角化型</td></tr>
+<tr><td>IHI Corporation</td><td>航空ターボジェット、艦艇動力</td><td>約4〜6% <strong>■ 事実</strong></td><td>海外ライセンス依存</td></tr>
+<tr><td>NOF Corporation</td><td>固体推進薬、爆薬、点火部品</td><td>5%未満 <strong>■ 事実</strong></td><td>狭い専門領域での独占性</td></tr>
+</tbody></table>
+
+<div class="subhead">1.2. グローバル供給網での位置</div>
+<p>国内で作れるものと、米国のソフトウェア・認証・軍用電子基盤へ依存するものを分離する。</p>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>世界の防衛生産体系における日本の位置は、『ライセンス組立拠点』と『高技術部素材の供給者』を組み合わせたハイブリッド型だというのが原文の評価である。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>日本は機体・船体構造、潜水艦船体、電子素子、炭素繊維や電波吸収材などを設計・製造できる一方、戦闘管理システムのアーキテクチャ、長距離目標情報、軍用マイクロエレクトロニクス、基盤ソフトウェアの一部では米国技術への依存が大きいと原文は記載する。</div>
+<div class="stamp-note pr"><span class="k">■ PR版</span>防衛省と防衛装備庁（ATLA）の公式ナラティブは、『技術的自律性』を段階的に高め、stand-off defenseを含む国家防衛能力を自前で強化しているというものである。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>これに対し原文は、F-35、Aegis、PAC-3、Tomahawkなど主要プラットフォームの更新・認証が米国側の技術基盤に深く結びつき、日本の防衛産業を米国防衛エコシステムの周辺ノードにしていると評価する。</div>
+<div class="subhead">1.3. 防衛調達の構造</div>
+<p>5か年計画、cost-plus、単一供給者、総合商社、天下りを調達の制度構造として読む。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>日本の防衛調達は5か年のProgram Defense Buildupで予算化される一方、契約配分は少数の大手企業に集中している。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Mitsubishi Corporation、Itochu、Marubeniなど大手総合商社は、防衛省と海外市場の間で輸入取引・資金決済・物流を仲介する重要ノードである。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>国内価格形成ではcost-plus方式が使われ、実費に一定の利益を加える仕組みがコスト削減インセンティブを弱めると原文は指摘する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、退役した防衛省幹部や自衛隊高級幹部が防衛企業へ移る天下りを、調達・価格・納期に関する内部監視を弱める構造要因とみなしている。</div>
+<div class="subhead">2. システム上のボトルネック</div>
+<p>技術・生産拠点・人材・為替・FMSを別々の故障モードとして扱う。</p>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>日本には、重要システムで外部依存が極めて高く、代替が容易でない『技術的血栓』が残るというのが原文の結論である。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>AegisやF-35などの戦闘情報・機上システムでは、日本が独自に管理できる閉鎖型ソースコード体系を完全には保有していないと原文は記載する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>そのため脅威ライブラリや識別アルゴリズムの更新を日本だけで完結できず、重要機能の自律運用に制約が残るというのが原文の分析である。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>軍用・宇宙級の耐放射線・耐電磁部品や、高出力AESA向けGaN半導体の製造には、国際的な輸出管理下にある製造装置・工程への依存が残る。</div>
+
+<table>
+<thead><tr><th>外部依存</th><th>依存対象</th><th>技術的ロックイン</th></tr></thead>
+<tbody>
+<tr><td>F-35A/B</td><td>戦闘システムのソースコード、機上ソフト、脅威ライブラリ</td><td>米国側の更新・認証基盤への強い依存 <strong>■ 事実</strong></td></tr>
+<tr><td>Patriot / Aegis</td><td>RAD-hardプロセッサ、閉鎖型迎撃アルゴリズム</td><td>米国防衛請負企業への依存 <strong>■ 事実</strong></td></tr>
+<tr><td>長距離打撃兵器</td><td>衛星補正、慣性航法、目標情報</td><td>米国の宇宙・地理空間情報基盤への依存 <strong>■ 事実</strong></td></tr>
+</tbody></table>
+
+<div class="stamp-note fact"><span class="k">■ 事実</span>MHI Kobe ShipyardとKHI Kobe Plantは、リチウムイオン電池を用いる通常動力潜水艦を交互の建造サイクルで担当している。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、二つの主要潜水艦建造拠点が神戸湾岸に地理的に近接するため、地理的集中そのものが再生産・大規模修理能力の単一地域リスクになると評価する。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>MHIやIHIの防衛部門では熟練技術者・技能者の高齢化が進み、平均年齢が50歳を超えると原文は記載する。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>低収益性などを理由に過去10年で100社超が防衛サプライチェーンから離脱し、Komatsuの装甲車開発撤退やSumitomo Heavy Industriesの小火器生産撤退が例として挙げられる。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>防衛調達は円安・ドル高によって強い財政圧力を受けている。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>米国のForeign Military Sales（FMS）を通じる高技術装備の多くはドル建てで契約される。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>2023年度には円安の影響で、防衛省がFMS関連費用として当初計画を1239億円上回る支払いを迫られたと原文は記載する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>FMSへの予算流出が増えるほど、国内の研究開発・試作・サプライヤー支援へ回る資源が圧迫されるというのが原文の分析である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>ドル建て輸入の増加が国内下請企業の維持資金を奪い、その退出がさらに海外依存を深めるという循環的な財務圧力を原文は指摘する。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>米国とのFMSでは、国家安全保障上の理由から重要技術の移転が限定され、一般的なoffset取引が十分に機能しないと原文は記載する。</div>
+
+<table>
+<thead><tr><th>単一障害点（SPOF）</th><th>地域</th><th>集中機能</th><th>原文が想定するカスケードリスク</th></tr></thead>
+<tbody>
+<tr><td>NOF Corporationの関連生産拠点</td><td>愛知県</td><td>固体推進薬、爆薬、点火系部材の集中生産</td><td>関連兵器の生産・補充能力が大幅に低下 <strong>■ 分析的結論</strong></td></tr>
+<tr><td>神戸の潜水艦造船クラスター</td><td>神戸湾岸</td><td>MHI・KHIによる潜水艦建造・大規模整備</td><td>潜水艦の再生産・修理能力が長期に制約 <strong>■ 分析的結論</strong></td></tr>
+<tr><td>東西周波数変換設備</td><td>長野・静岡など</td><td>50Hz東日本と60Hz西日本の電力融通</td><td>大規模障害時に産業用電力の地域間融通が制約 <strong>■ 分析的結論</strong></td></tr>
+</tbody></table>
+
+<div class="subhead">3. 外部レバー</div>
+<p>米国技術を含む装備の再移転、整備、情報・通信依存と、国内の制度的選好を区別する。</p>
+<div class="stamp-note fact"><span class="k">■ 事実</span>米国技術を含む装備・部品の移転、改修、第三者への再移転にはEnd-User CertificateやITAR上の承認が必要となる。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>F-35の一部アビオニクス、Pratt & Whitney F135エンジン、AN/SPY-1関連装備などの大規模整備を、日本国内だけで完全に実施できないケースがある。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>そのような部品は米国または米企業が関与する認証済み地域整備拠点へ送られると原文は記載する。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>TomahawkやJASSM-ERなど長距離精密兵器の運用には、飛行任務データや地理空間情報の更新が重要であり、その一部は米国側の情報基盤に依存すると原文は説明する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、こうした外部データの供給停止が続けば長距離精密打撃能力が短期間で大きく制約されると評価する。ただし具体的な時間幅は原文のシナリオ分析であり、確定した作戦事実として扱うべきではない。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>自衛隊のC4ISRは米国の情報・通信体系と深く統合され、外部センサー・通信・目標情報が日本側の戦闘管理システムを補完する構造だというのが原文の分析である。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>日本はLink-16を含む米国主導の共同データリンク・防空ミサイル防衛アーキテクチャに統合されている。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、日本独自のELINT・光学偵察衛星だけでは300〜500km超の作戦・戦術深度で十分な独立目標情報を継続提供するには不足すると評価する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>その結果、米国の一次情報・分析済みデータへのアクセスが同盟運用の重要な交換価値になっているというのが原文の政治経済的解釈である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、自衛隊の上級指揮層が米国との統合運用を制度的に重視すること自体が、対米互換性を維持する内部ロビーとして機能すると解釈する。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>上級・高級将校の一部は、米国の指揮幕僚教育機関や軍事教育プログラムで教育・研修を受ける。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>その経験が共同作戦・互換性を優先するドクトリン的傾向を強め、独自規格の国家プロジェクトに対する組織的選好を弱める可能性があるというのが原文の分析である。</div>
+<div class="subhead">4. カスケード型の脆弱性シナリオ</div>
+<p>ここから先は、原文が複数の単一障害点を組み合わせて描く条件付きシナリオであり、確定した作戦結果ではない。</p>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>MHI–Lockheed MartinやMELCO–Raytheonのような共同・ライセンス関係は、日本企業に自前開発より低リスクな組立・統合収益を提供し、米国企業側には長期的な日本市場へのアクセスを与えるという構造的相互依存を生むと原文は評価する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、固体推進薬・爆発物・点火部品の国内生産が一部の限られた拠点に集中しており、代替設備が乏しいことを国家レベルの単一障害点として扱う。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>日本の電力系統は東日本50Hzと西日本60Hzに分かれ、相互融通には周波数変換設備が必要である。LNG在庫について原文は、海上輸送が途絶した場合の実務的な余裕をおおむね2〜3週間規模と記載する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、周波数変換能力が大きく損なわれると地域間の電力融通が難しくなり、防衛関連を含む高精度製造設備へ波及する可能性があるとする。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>米国との通信・認証・目標情報接続が大規模に失われると、自衛隊の長距離精密兵器・防空ネットワークの運用効率が低下するというのが原文のシステム分析である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文はその場合、一部センサー・迎撃システムの有効範囲が大幅に縮小し得るとするが、具体的な60〜80%という数値は条件依存のシナリオ推計として提示されている。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>防衛生産にも民需製造業由来のJust-in-Time発想が広く残り、長期遮断に耐える大量在庫を持たないことがサプライチェーン上の弱点になるというのが原文の分析である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文はMHI・KHIなどの一部材料・化学品在庫を通常運転10〜15日程度とし、長期の海上物流寸断に弱いと評価する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>重要な輸入部品・特殊合金・海外製マイクロエレクトロニクスの供給が止まれば、新造装備の組立と損傷装備の修理が短期間で制約されるというのが原文の分析である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、日本の防衛調達における腐敗リスクを個別の違法行為より、天下り、cost-plus、単一供給者、情報の閉鎖性が結びつく制度的問題として描く。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>退職後のポストと現役時代の調達・監督が近接することで、価格上昇や納期遅延に対するチェックが弱くなる可能性があるというのが原文の分析である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>防衛省出身者が企業の役員・顧問に移る構造は、部品不足や稼働率低下を外部から検証しにくくする可能性があると原文は評価する。</div>
+<div class="stamp-note insight"><span class="k">■ 内部情報 / 未確認</span>自衛隊の航空機・装甲車両の30〜40%が部品取り用の『ドナー』として使われているという主張は、一部の日本の軍事専門家や野党議員の言説で流通しているが、原文自身も未確認情報として区別している。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、日本を『非自律的な不沈空母』という地政学的比喩で表現し、急速な防衛費増額が対米依存を減らすとは限らないと分析する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>Tomahawk、JASSM-ER、F-35などの取得は打撃力を高める一方、それだけではソフトウェア、目標情報、整備、部品まで含む完全な国家自律性を作らないというのが原文の結論である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>台湾周辺などで大規模危機が発生した場合、日本の基地・自衛隊が米国との共同作戦の前方拠点になる一方、米国技術・情報への依存が日本独自の選択肢を狭める可能性があるというのが原文のシナリオ評価である。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>Lockheed Martin、Raytheon、Northrop Grumman、Boeingなど米国防衛企業は、FMSやライセンス供給を通じて日本市場への継続的アクセスを持つ。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、装備本体だけでなく長期の整備・更新・ソフトウェア支援が継続的なサービス収益を生むと評価する。</div>
+<div class="stamp-note fact"><span class="k">■ 事実</span>総合商社など日本側の輸入・物流仲介者は、ドル建て防衛取引や物流支援から手数料・仲介収益を得る。</div>
+<div class="subhead">5. 現状維持の受益者</div>
+<p>米国防衛企業、日本の仲介企業、同盟構造、国内の政治・官僚・産業エリートのインセンティブを整理する。</p>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、既存仲介網が直接調達や国産化によって役割を縮小される改革に抵抗する経済的動機を持つと分析する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>米国にとって、日本が第一列島線で大きな費用と運用負担を担いながら米国システムとの互換性を維持する現在の構造は戦略的利益が大きいというのが原文の評価である。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文はさらに、ソフトウェア・戦闘管理・情報基盤への依存が、日本の外交・軍事政策における完全な単独行動の余地を狭めると分析する。</div>
+<div class="stamp-note insight"><span class="k">■ 分析的結論</span>原文は、防衛費拡大が政治・官僚・産業エリートに新しい予算・役職・調達機会を提供し、深い構造改革より『支出増による能力強化』を選好する誘因を作ると評価する。</div>
+<div class="subhead">6. 最終評価</div>
+<p><strong>構造的ポートレート:</strong> 原文は、日本の防衛産業を『高技術だが閉鎖循環を持たない』体系として描く。民間大企業と多数の中小下請に依存し、戦闘ソフトウェア・一部軍用電子部品・同盟情報ネットワークでは米国側のインフラへの依存が大きい。</p>
+<p><strong>主要な脆弱性:</strong> 一部の生産・造船・電力インフラが地理的・企業的に集中していること、JIT型の供給慣行、円安によるFMS負担、熟練人材の高齢化、下請企業の退出が同時に進む点である。原文はこれらが単独ではなく連鎖したときにシステムリスクが急増すると評価する。</p>
+<p><strong>3〜5年の原文シナリオ:</strong> 防衛予算は9〜10兆円規模へ拡大する一方、円安とFMS支払いが国内投資余力を削り、二次・三次サプライヤーの退出が続く可能性がある。stand-off weaponの国産化が進んでも、独自の長距離ISR・ソフトウェア・軍用電子基盤をどこまで確立できるかが自律性の分岐点になる、というのが原文の結論である。</p>
+<div class="subhead">参考資料</div>
+<p>1. From Superpower to Besieged Global Power: Restoring World Order after the Failure of the Bush Doctrine [1 ed.] 9780820336350, 9780820329772 - DOKUMEN.PUB, https://dokumen.pub/from-superpower-to-besieged-global-power-restoring-world-order-after-the-failure-of-the-bush-doctrine-1nbsped-9780820336350-9780820329772.html</p>
+<p>2. Shin-Shinano Frequency Converter - Wikipedia, https://en.wikipedia.org/wiki/Shin-Shinano_Frequency_Converter</p>
+<p>3. Mitsubishi Electric Receives Order for Frequency Converter Station that Stabilizes Power Grid across Different Frequencies, https://cl.mitsubishielectric.com/global/common/pdf/global-news/pr/2023/231002-a_3631_en_g.pdf</p>
+<p>4. Who&#x27;s Who, https://www.sjac.or.jp/wp-content/uploads/2026/03/Directory_of_Japanese_Space_ProductsServices_2026-2027.pdf</p>
+<p>5. shownews - Japan: JMSDF commissions fifth TAIGEI-class submarine - FW-MAG Future Warfare Magazine, https://www.fw-mag.com/shownews/965/japan-jmsdf-commissions-fifth-taigei-class-submarine</p>
+<p>6. Japan passes record defense budget, while still playing catch-up, https://www.defensenews.com/global/asia-pacific/2025/01/16/japans-passes-record-defense-budget-while-still-playing-catch-up/</p>
+<p>7. Japan&#x27;s Cabinet approves record defense budget aiming to deter China as tensions grow, https://www.pbs.org/newshour/world/japans-cabinet-approves-record-defense-budget-aiming-to-deter-china-as-tensions-grow</p>
+<p>8. Japan eyes record $56B defense budget amid regional security concerns - Anadolu Ajansı, https://www.aa.com.tr/en/asia-pacific/japan-eyes-record-56b-defense-budget-amid-regional-security-concerns/4021660</p>
+<p>9. News Analysis: What is Japan seeking with another record defense budget request?, https://en.people.cn/n3/2026/0811/c90000-20487609.html</p>
+<p>10. Japan Launches Fifth Taigei-Class Submarine for JMSDF - Naval News, https://www.navalnews.com/naval-news/2024/10/japan-launches-fifth-taigei-class-submarine-for-jmsdf/</p>
+<p>11. From the Biosphere to Outer Space, https://www.nof.co.jp/files/csr/english/common/pdf/6-4/23all.pdf</p>
+<p>12. Integrated Report 2024, https://www.nof.co.jp/files/csr/english/common/pdf/6-4/24all-2_en.pdf</p>
+<p>13. Japan commissions fifth Taigei-class submarine - Janes, https://www.janes.com/defence-intelligence-insights/defence-news/defence/japan-commissions-fifth-taigei-class-submarine</p>
+<p>14. Japan launches new submarine Taigei at MHI Kobe Shipyard - Naval Technology, https://www.naval-technology.com/news/japan-submarine-taigei-mhi-kobe-shipyard/</p>
+<p>15. The fourth Taigei-class submarine was launched for the Japanese Maritime Self-Defense Forces - VPK.name, https://vpk.name/en/786227_the-fourth-taigei-class-submarine-was-launched-for-the-japanese-maritime-self-defense-forces.html</p>
+<p>16. KHI hands over new Taigei-class submarine to JMSDF - Naval Today, https://www.navaltoday.com/2025/03/10/khi-hands-over-new-taigei-class-submarine-to-jmsdf</p>
+<p>17. Higashi-Shimizu Frequency Converter - Wikipedia, https://en.wikipedia.org/wiki/Higashi-Shimizu_Frequency_Converter</p>
+<p>18. Why Does Japan Use Both 50Hz and 60Hz in Its Power System? - Electrical Technology, https://www.electricaltechnology.org/2025/02/japan-50hz-60hz.html</p>
+<p>19. Why Japanese electric and power tool priorities are different : r/Construction - Reddit, https://www.reddit.com/r/Construction/comments/1kvtoei/why_japanese_electric_and_power_tool_priorities/</p>
+<p>20. The Case for Japanese Land Power in the First Island Chain - War on the Rocks, https://warontherocks.com/the-case-for-japanese-land-power-in-the-first-island-chain/</p>
+<p>21. Japan is increasing defence spending - Defence24.com, https://defence24.com/defence-policy/japan-is-increasing-defence-spending</p>
+<p>22. Japan&#x27;s defense budget may reach 10 trillion yen; the Japanese are the first to panic, https://www.globaltimes.cn/page/202608/1367815.shtml</p>
+<p>23. News Analysis: What is Japan seeking with another record defense budget request?, http://www.china.org.cn/world/Off_the_Wire/2026-08/11/content_118642850.shtml</p>
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">マーカー凡例 — 原文基準</div>
+    <div class="keybox-grid">
+      <div><b>事実</b> — 原文が明示的に事実として分類した項目</div>
+      <div><b>PR版</b> — 防衛省・ATLAなどの公式説明として原文が区別した項目</div>
+      <div><b>分析的結論</b> — 原文が構造的解釈・条件付きシナリオとして明示した判断</div>
+      <div><b>内部情報 / 未確認</b> — 専門家・政治圏で流通するが独立確認されていない主張</div>
+      <div><b>データなし</b> — この原文には明示的なデータなしマーカーはない</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
