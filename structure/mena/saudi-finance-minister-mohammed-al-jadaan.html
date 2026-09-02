@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KSA — Persons | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  
+  
+  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← الموقع الرئيسي</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">استخبارات هيكلية مستقلة · تأسست ٢٠٢٦</div>
+    <div class="nameplate">التحليل الصحفي <span>العميق</span></div>
+    <div class="tagline">"الهيكل قبل السرد."</div>
+  </div>
+  <div class="dateline-bar">
+    <span>مكتب السعودية</span>
+    <span>٢ سبتمبر ٢٠٢٦</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / الشخصيات والتحكم المؤسسي</span>
+
+  <h1 class="headline">محمد الجدعان: معالج السيولة ومهندس النفوذ المالي</h1>
+  <p class="deck">تحليل لدور وزير المالية السعودي كـ "معالج مالي وقانوني" لطموحات القيادة السياسية، وكيفية إدارته للسيولة السيادية، واستراتيجيات موازنة المخاطر بين صندوق الاستثمارات العامة واستقرار الميزانية.</p>
+  <div class="byline">بواسطة مكتب السعودية — مصنف تحت: هندسة السيولة والمؤسسات</div>
+
+  <div class="columns">
+
+    <p class="lead">لا يُعد محمد بن عبدالله الجدعان فاعلاً سياسياً مستقلاً، بل هو "معالج قانوني ومالي" حيوي لطموحات ولي العهد الأمير محمد بن سلمان. تكمن وظيفته الأساسية في ترجمة القرارات السياسية إلى هياكل مالية وقانونية تضمن الاستقرار الكلي للاقتصاد وتستوعب صدمات التحول.</p>
+
+    <div class="subhead">عقلية اتخاذ القرار: المهندس الإداري</div>
+    <p>يتسم نمط تفكير الجدعان بالهندسة الإدارية؛ فهو ينظر إلى المشهد من خلال التشريعات، والامتثال، وهيكلة الديون، والآليات الضريبية. وبصفته وسيطاً بين الطموحات الراديكالية لـ "رؤية ٢٠٣٠" وأسواق رأس المال الدولية المحافظة وصندوق النقد الدولي، فإنه يبني الجسور التي تعبر عليها هذه الطموحات نحو الواقع.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ استنتاج تحليلي</span>
+      تأسيسه لشركة محاماة رائدة، ثم رئاسته لهيئة السوق المالية (CMA)، وصولاً إلى وزارة المالية، شكلت لديه هذه العقلية الهندسية التي تبرع في إدماج سوق الأسهم السعودي في المؤشرات العالمية الناشئة، وبناء سوق دين داخلي قوي.
+    </div>
+
+    <p>تستند قراراته إلى مزيج من المعطيات المؤسسية والحسابات السياسية المباشرة، مع التزامه التام بتوجهات القيادة.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      كان قرار رفع ضريبة القيمة المضافة (VAT) بمقدار ثلاثة أضعاف في عام ٢٠٢٠ ضرورة اقتصادية لموازنة الميزانية إبان انهيار أسعار النفط، ورغم تكلفته السياسية والشعبية، تم تنفيذه بضوء أخضر من أعلى المستويات.
+    </div>
+
+    <blockquote class="pull">"يتمثل الدافع الأبرز للجدعان في الحفاظ على مكانته ووصوله لدوائر القرار؛ فباعتباره تكنوقراطياً من خارج العائلة المالكة، ترتهن سلطته حصرياً بمدى كفاءته كمهندس لا غنى عنه للنظام."</blockquote>
+
+    <div class="subhead">هندسة التمويل وتحويل المخاطر</div>
+    <p>يعتمد الجدعان نهجاً حذراً في إدارة المخاطر، ويبرز ذلك في سعيه لمعايرة المشاريع الكبرى.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      في تصريحات علنية خلال عامي ٢٠٢٣ و٢٠٢٤، أشار الجدعان بوضوح إلى تمديد الأطر الزمنية لبعض مشاريع "رؤية ٢٠٣٠" العملاقة لتجنب إنهاك الاقتصاد واحتواء الضغوط التضخمية.
+    </div>
+    
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      عمل الجدعان على نقل جزء من العبء المالي عبر فرض ضرائب (القيمة المضافة) على الاستهلاك بدلاً من استنزاف احتياطيات البنك المركزي بالكامل.
+    </div>
+
+    <div class="subhead">شبكة النفوذ وصراع السيولة</div>
+    <p>لا يمتلك الجدعان قوة من ثروته الشخصية؛ بل تنبع قوته من "صلاحية التوقيع" على تدفقات السيولة السيادية (الميزانية العامة، توزيعات أرباح أرامكو، والتحويلات لصندوق الاستثمارات العامة).</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      بنى الجدعان نفوذه الأولي على خبرته القانونية العالمية، حيث أصبحت شركة المحاماة التي أسسها شريكاً لـ "كليفورد تشانس" البريطانية، مما جعله المرجع الأول للتمويل الإسلامي والهيكلة المؤسسية في المملكة قبل ترؤسه لهيئة السوق المالية.
+    </div>
+
+    <p>ضمن هذه الشبكة، يُعد ولي العهد حليفه الاستراتيجي المطلق، بينما يمثل ياسر الرميان (محافظ صندوق الاستثمارات العامة) حليفاً تشغيلياً تشوبه التقاطعات.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ استنتاج تحليلي</span>
+      يوجد توتر هيكلي كامن بين الجدعان والرميان. فالأخير يسعى لضخ سيولة هائلة لاستثمارات الصندوق الجريئة (نيوم، الرياضة، الذكاء الاصطناعي)، في حين يركز الجدعان على ضبط الميزانية، والسيطرة على التضخم، وإدارة الدين. هما حليفان في "رؤية ٢٠٣٠"، لكنهما يتنافسان على توجيه مسارات السيولة النقدية.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ معلومات داخلية / غير مؤكدة</span>
+      يواجه الجدعان معارضة خفية من الإدارات العليا لبعض "المشاريع العملاقة" (Giga-projects)، التي خضعت ميزانياتها لعمليات مراجعة وترشيد صارمة من قبل وزارة المالية خلال الفترة من ٢٠٢٣ إلى ٢٠٢٤.
+    </div>
+
+    <div class="subhead">التحولات الاستراتيجية (٢٠١٦ - ٢٠٢٤)</div>
+    <p>لعب الجدعان دوراً محورياً في إعادة تشكيل الهيكل المالي الخارجي والداخلي للمملكة، محولاً إياها من دولة بلا ديون سيادية إلى أحد أكبر مصدري السندات في الأسواق الناشئة.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      في منتدى دافوس (يناير ٢٠٢٣)، أعلن الجدعان إنهاء حقبة "المنح غير المشروطة" والودائع المجانية لحلفاء المملكة، رابطاً أي دعم مالي مستقبلي بتنفيذ المتلقين لإصلاحات اقتصادية جادة.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ استنتاج تحليلي</span>
+      بقراره رفع ضريبة القيمة المضافة وإلغاء بعض البدلات، كسر الجدعان عقداً اجتماعياً خليجياً تاريخياً يرتكز على "الولاء مقابل غياب الضرائب"، مما يُظهر استعداده لامتصاص الغضب الشعبي لحماية الاستقرار المالي الكلي، وتحييد أي استياء مباشر عن القيادة العليا.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      منذ عام ٢٠١٦، أشرف الجدعان على تأسيس المركز الوطني لإدارة الدين (NDMC)، ونجح في إطلاق إصدارات مليارية من السندات الدولية والصكوك الإسلامية، لتمويل عجز الميزانية دون استنزاف احتياطيات "ساما" (SAMA).
+    </div>
+
+    <div class="subhead">المخاطر النظامية والمكاسب الدولية</div>
+    <p>تتمثل المخاطر المحيطة بالجدعان في الهيكل الماكرو-اقتصادي للمملكة وليس في شخصه؛ إذ يتأثر أي تخطيط مالي بانخفاض أسعار خام برنت لفترات طويلة. كما أن هناك مخاطر ناتجة عن الضغط المستمر لتمويل صندوق الاستثمارات العامة (PIF) عبر الاستدانة أو بيع أصول حكومية (مثل الطرح الثانوي لأرامكو).</p>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ لا توجد بيانات</span>
+      لا تتوفر أي تقارير أو أدلة موثقة عن تورط الجدعان في قضايا فساد أو استغلال نفوذ، وهو ما يُعزى جزئياً إلى التدقيق الصارم الذي تمارسه هيئة الرقابة ومكافحة الفساد (نزاهة) على التكنوقراط رفيعي المستوى.
+    </div>
+
+    <p>على الصعيد الدولي، سجل الجدعان نجاحاً بارزاً بانتخابه رئيساً للجنة الدولية للشؤون النقدية والمالية (IMFC) التابعة لصندوق النقد الدولي.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      في يناير ٢٠٢٤، أصبح الجدعان أول شخصية من منطقة الشرق الأوسط وشمال أفريقيا تتولى رئاسة لجنة IMFC في صندوق النقد الدولي.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      أشرف الجدعان في يونيو ٢٠٢٤ على الطرح الثانوي لأسهم "أرامكو السعودية"، والذي نجح في جمع حوالي ١١,٢ مليار دولار، لتعزيز سيولة الدولة.
+    </div>
+
+    <p>في النهاية، يكمن الخطر الأكبر على الجدعان في ظاهرة "كبش الفداء" التكنوقراطي؛ ففي حال حدوث أزمة سيولة حادة نتيجة الإنفاق المفرط على المشاريع العملاقة، ستتحمل وزارة المالية — والجدعان شخصياً — وزر هذه التداعيات.</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">مفتاح الرموز — معيار التحقق</div>
+    <div class="keybox-grid">
+      <div><b>حقيقة</b> — تم التحقق منها عبر السجلات، والإقرارات، والتشريعات الرسمية</div>
+      <div><b>الرواية الرسمية</b> — الموقف المُعلن للكيان المعني</div>
+      <div><b>استنتاج تحليلي</b> — استدلال منطقي بناءً على تتبع سلاسل الأدلة والتاريخ</div>
+      <div><b>معلومات داخلية / لا توجد بيانات</b> — بيانات غير قابلة للتحقق، أو مسربة، أو محجوبة عمداً</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>ديب بريس أناليسيس</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

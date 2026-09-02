@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Egypt — Industries | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  /* ИСПРАВЛЕННАЯ ОШИБКА: Заменили <footer> на footer { */
+  footer {
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  
+  
+  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← الموقع الرئيسي</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">استخبارات هيكلية مستقلة · تأسست ٢٠٢٦</div>
+    <div class="nameplate">التحليل الصحفي <span>العميق</span></div>
+    <div class="tagline">"الهيكل قبل السرد."</div>
+  </div>
+  <div class="dateline-bar">
+    <span>مكتب مصر</span>
+    <span>٢ سبتمبر ٢٠٢٦</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / الصناعات</span>
+
+  <h1 class="headline">كيف تُبنى إمبراطورية مجموعة منصور؟</h1>
+  <p class="deck">تحليل استراتيجي لهيكل تكتل عائلة منصور: السيطرة الاحتكارية على الامتيازات، والاعتماد المتبادل مع الدولة، والتحول الاستثماري العالمي.</p>
+  <div class="byline">بواسطة مكتب مصر — مصنف تحت: هيكلة الصناعات</div>
+
+  <div class="columns">
+
+    <p class="lead">برزت مجموعة منصور كقوة اقتصادية ضخمة بعد أن فقدت العائلة ثروتها مرتين بسبب التأميم في عهد عبد الناصر. مستفيدة من الانفتاح الاقتصادي في عصر السادات، انطلقت المجموعة في مسار تصاعدي يعتمد أساساً على السيطرة الاحتكارية في قطاعات حيوية.</p>
+
+    <div class="subhead">استراتيجية النمو الأساسية</div>
+    <p>يعتمد النمو المالي للمجموعة على احتكار قنوات التوزيع من خلال الحصول على امتيازات حصرية لعلامات تجارية عالمية كبرى مثل "جنرال موتورز"، و"كاتربيلر"، و"ماكدونالدز". وتُعزز هذه الإيرادات المستقرة عبر عمليات دمج واستحواذ استراتيجية (كصفقات Crédit Agricole وMantrac) لترسيخ الهيمنة في السوق. كما يشير تأسيس "مان كابيتال" (Man Capital) في لندن إلى تحول جذري نحو تنويع الأصول عبر الاستثمار التكنولوجي والرأسمالي العالمي.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ استنتاج تحليلي</span>
+      يستند نموذج أعمال مجموعة منصور إلى الحصول على امتيازات احتكارية مستقرة واستحواذات مدروسة في قطاعات محورية، مما يُجنب المجموعة المخاطر التشغيلية البحتة ويضمن تدفقات نقدية مستدامة.
+    </div>
+
+    <div class="subhead">نموذج اتخاذ القرار ومركزية السلطة</div>
+    <p>بالرغم من الاعتماد المتزايد على كفاءات إدارية متخصصة (مثل الإدارة التنفيذية في "بالم هيلز" و"مان كابيتال")، تظل القرارات الاستراتيجية الكبرى والتوجهات الاستثمارية محصورة بشكل صارم في أيدي الإخوة منصور (محمد، ويوسف، وياسين). تعكس هذه الديناميكية مزيجاً من السلطة الأبوية المركزية والتفويض التشغيلي المحسوب.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ استنتاج تحليلي</span>
+      تُدار القرارات الاستراتيجية بشكل تفويضي حصري للعائلة المالكة، مع إيكال المهام التشغيلية اليومية لقيادات إدارية متخصصة، مما يخلق توازناً بين السيطرة العائلية والاحترافية المؤسسية.
+    </div>
+
+    <div class="subhead">إدارة المخاطر: بين المحافظة والمراهنة</div>
+    <p>تتأرجح المجموعة بين تبني استراتيجيات استثمارية عالية المخاطر (كالمغامرة في التكنولوجيا الفائقة وتصنيع السيارات محلياً)، والاعتماد على عوائد آمنة من حقوق الامتياز وتأمين الثروة من خلال التوسع الدولي.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ استنتاج تحليلي</span>
+      يمكن وصف شهية المجموعة للمخاطر بالمتوسطة؛ حيث تُوفر الامتيازات الأساسية استقراراً يُوازن المخاطر الاستثمارية الكبيرة، لكن طموحاتها في المشاريع التصنيعية المعتمدة على الدولة تُضفي طابعاً هجومياً محسوباً.
+    </div>
+
+    <blockquote class="pull">"تعظيم رأس المال على المدى الطويل وتقليل المخاطر عبر التنويع والتدويل هو المحرك الحقيقي لقرارات المجموعة، وليس الأهداف الأيديولوجية أو العوائد السريعة."</blockquote>
+
+    <div class="subhead">جذور رأس المال وتدفقات الإيرادات</div>
+    <p>بدأت ثروة العائلة من تصدير القطن، ثم أُعيد إحياؤها عبر الدخول في قطاع السيارات وتحديداً شراكتهم المحورية مع "جنرال موتورز". حالياً، تتشكل الإيرادات أساساً من تجارة السيارات والمعدات الثقيلة (حوالي ٦٠-٧٠٪ من الإيرادات)، إلى جانب قطاعات التجزئة والامتيازات (حوالي ٣٠٪).</p>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ لا توجد بيانات</span>
+      لا توجد تفاصيل دقيقة حول التمويل الأولي للمجموعة في السبعينيات، أو طبيعة القروض ومساهمات الشركاء عند التأسيس. كما تغيب الشفافية عن الهياكل الاستثمارية المعقدة (أو الأصول الخارجية) للمجموعة بخلاف ما هو معلن من خلال الكيانات الأساسية وشركة "مان كابيتال".
+    </div>
+
+    <div class="subhead">الاعتماد المتبادل والتحالفات</div>
+    <p>تتمتع المجموعة بنفاذ استثنائي إلى تمويل البنوك الحكومية (مثل بنك مصر والبنك الأهلي) لتسيير مشروعاتها الكبرى كـ "بالم هيلز". كما يرتبط نجاحها بشكل وثيق بالدعم الحكومي، كما يظهر بوضوح في التسهيلات الممنوحة لإنشاء مصنع "إم جي" (MG) للسيارات.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ معلومات غير مؤكدة</span>
+      يُعتقد أن المجموعة تستفيد من معاملة ضريبية تفضيلية للمشروعات الاستراتيجية، بفضل العلاقات الوثيقة التي تربط العائلة بصناع القرار.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ استنتاج تحليلي</span>
+      بالرغم من قوة الروابط السياسية للمجموعة مع السلطة الحالية، إلا أن تاريخها يثبت حساسيتها العالية للتقلبات السياسية (مثلما حدث إبان ثورة ٢٠١١). تعزز التحالفات التجارية موقعها، بينما تعكس النزاعات السابقة مع الدولة (كقضية بالم هيلز) مخاطر الاعتماد على التنظيمات الحكومية.
+    </div>
+
+    <p>يتمثل مكمن الضعف الرئيسي لتكتل منصور في اعتماده الشديد على البيئة السياسية والاقتصادية المحلية في قطاعات شديدة الحساسية (كالعقارات والسيارات)، ما يجعله عرضة لتأثيرات أي تغير في السياسات أو القواعد التنظيمية في مصر.</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">مفتاح الرموز — معيار التحقق</div>
+    <div class="keybox-grid">
+      <div><b>حقيقة / ثقة عالية</b> — تم التحقق منها عبر السجلات، والإقرارات، والإحصاءات الرسمية</div>
+      <div><b>الرواية الرسمية</b> — الموقف المُعلن للكيان المعني</div>
+      <div><b>استنتاج تحليلي</b> — استدلال منطقي بناءً على تتبع سلاسل الأدلة</div>
+      <div><b>لا توجد بيانات / معلومات غير مؤكدة</b> — بيانات غير قابلة للتحقق، أو مسربة، أو محجوبة</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>ديب بريس أناليسيس</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

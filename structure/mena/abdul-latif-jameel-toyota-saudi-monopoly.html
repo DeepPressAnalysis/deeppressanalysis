@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KSA — Industries | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  
+  
+  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← الموقع الرئيسي</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">استخبارات هيكلية مستقلة · تأسست ٢٠٢٦</div>
+    <div class="nameplate">التحليل الصحفي <span>العميق</span></div>
+    <div class="tagline">"الهيكل قبل السرد."</div>
+  </div>
+  <div class="dateline-bar">
+    <span>مكتب السعودية</span>
+    <span>٢ سبتمبر ٢٠٢٦</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / قطاع الصناعة والتجارة</span>
+
+  <h1 class="headline">كيف تُبنى إمبراطورية عبداللطيف جميل؟</h1>
+  <p class="deck">تحليل لهيكل إمبراطورية الأعمال: الاحتكار التاريخي، واستراتيجية التنويع العالمية، والاعتماد المتبادل مع التحالفات المالية والسياسية.</p>
+  <div class="byline">بواسطة مكتب السعودية — مصنف تحت: هيكلة الصناعات</div>
+
+  <div class="columns">
+
+    <p class="lead">تأسست إمبراطورية "عبداللطيف جميل" (ALJ) كـ "مشروع من الصفر" واعتمدت على التنويع. كان المحرك الأساسي لنموها هو العقد الحصري لتوزيع سيارات "تويوتا" في المملكة العربية السعودية منذ عام ١٩٥٥. ثانياً، توسعت الشركة من خلال عمليات الاستحواذ والاستثمار في قطاعي الطاقة والتمويل.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      في عام ٢٠١٥، استحوذت شركة "عبداللطيف جميل" (ALJ) على شركة (FRV) الإسبانية المطورة لمحطات الطاقة الشمسية. تُعد هذه الخطوة — الاستحواذ على محفظة مشاريع ضخمة بقوة ٣.٨ جيجاوات — استثماراً هجومياً وجريئاً، وقد تم تأكيدها من خلال البيانات الصحفية للشركة وتقارير وسائل الإعلام المستقلة.
+    </div>
+
+    <div class="subhead">نموذج اتخاذ القرار</div>
+    <p>تُتخذ القرارات في شركة "عبداللطيف جميل" في الغالب من قبل القيادة العائلية وفق هيكل سلطوي مركزي. يتولى ممثل العائلة، محمد عبداللطيف جميل، منصب رئيس مجلس الإدارة والمدير التنفيذي.</p>
+
+    <p>تتمتع العائلة بعلاقات رسمية مع السلطة، تجلت في تعيين محمد جميل في المجلس الاقتصادي السعودي ومجلس إدارة الغرفة التجارية الصناعية بجدة بمرسوم ملكي في عام ٢٠٠٨. يشير هذا إلى وجود تنسيق للصفقات الكبرى مع النخبة السياسية.</p>
+
+    <div class="subhead">إدارة المخاطر والتمويل</div>
+    <p>تُظهر المجموعة استعداداً لتحمل مخاطر متوسطة إلى عالية، مع وجود عنصر قوي يتمثل في "نقل المخاطر" (عدم التماثل). فمن ناحية، تُقدم الشركة على استثمارات ضخمة (كشراء FRV وتمويل مزارع طاقة شمسية عبر قروض أجنبية). ومن ناحية أخرى، تنقل جزءاً كبيراً من التكاليف إلى شركائها.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      تم تمويل مشاريع FRV من خلال قروض من بنك (ING) ومؤسسة التمويل الدولية (IFC)، مما يثبت أن شركة عبداللطيف جميل تتحمل جزءاً من المخاطر ولكنها لا تغطيها بالكامل من أموالها الخاصة.
+    </div>
+
+    <blockquote class="pull">"الدافع الحقيقي وراء تحركات المجموعة هو تعزيز تراكم رأس المال وتوسيع النفوذ التجاري، وليس الدوافع الخيرية."</blockquote>
+
+    <div class="stamp-note insight">
+      <span class="k">■ استنتاج تحليلي</span>
+      تُقاد مجموعة "عبداللطيف جميل" باستراتيجية التنويع والتدويل؛ فالهدف الأساسي هو تنمية رأس المال وتعزيز النفوذ في مختلف القطاعات.
+    </div>
+
+    <div class="subhead">جذور رأس المال وتدفقات الإيرادات</div>
+    <p>بدأت رحلة التمويل الأولية بمشروع صغير (معرض سيارات في جدة). ورغم غياب البيانات المستقلة التي تؤكد وجود مستثمرين "ملائكيين"، فمن الواضح أن رأس المال التأسيسي نبع من المبادرة الفردية وإعادة استثمار أرباح مبيعات تويوتا.</p>
+
+    <div class="stamp-note pr">
+      <span class="k">■ الرواية الرسمية</span>
+      تُركز الرواية الرسمية للشركة بشكل مكثف على "الرؤية الريادية للمؤسس"، دون الإشارة في السجلات المفتوحة إلى أي منح عائلية أو حكومية دعمت التأسيس.
+    </div>
+
+    <p>اليوم، يعمل الكيان كـ "تكتل" (Conglomerate): حيث تُدر الأعمال التشغيلية الأساسية (مبيعات السيارات، التأجير التمويلي) والخدمات المالية (مثل شركة عبداللطيف جميل للتمويل المتحدة) الجزء الأكبر من الإيرادات. وتمتلك الشركة التمويلية ترخيصاً من البنك المركزي السعودي (ساما SAMA).</p>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ لا توجد بيانات</span>
+      لا تتوافر أي معلومات معلنة حول الهياكل المالية الخارجية (الأوفشور) أو الصناديق الاستئمانية التابعة للمجموعة.
+    </div>
+
+    <div class="subhead">الاعتماد المتبادل والتحالفات السياسية</div>
+    <p>ترتبط عائلة "جميل" بعلاقات رسمية وثيقة مع صُناع القرار، كما يظهر من خلال تعييناتها في المجالس الاستشارية والتجارية بالمملكة.</p>
+
+    <p>يعتمد نجاح أعمال المجموعة بشكل حيوي على القرارات التنظيمية الحكومية، مثل: تراخيص وكالة "تويوتا"، قواعد التأجير التمويلي، الرسوم الجمركية، والعقود الحكومية. ويُعد التجديد الناجح والمستمر لعقد التوزيع لشركة "تويوتا" دليلاً واضحاً على السمعة الطيبة للمجموعة لدى السلطات.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ حقيقة</span>
+      فازت شركة عبداللطيف جميل (ALJ) بدعوى قضائية ضد صحيفة "وول ستريت جورنال" (WSJ) البريطانية بين عامي ٢٠٠٤ و ٢٠٠٦ بشأن مزاعم التشهير بتمويل الإرهاب، مما يبرز حساسية الشركة تجاه سمعتها وقدرتها على الدفاع عن نفسها.
+    </div>
+
+    <div class="subhead">نقاط الضعف والهزات الارتدادية</div>
+    <p>تتمثل نقطة الضعف الرئيسية والأكثر خطورة (مخاطر التركز) في ارتباط جزء كبير من رأس المال بسوق السيارات والتمويل داخل المملكة العربية السعودية.</p>
+
+    <p>إذا تدهورت ظروف السوق الإقليمية (كـ: تراجع مبيعات السيارات، فرض قيود على الاستيراد، أو تغييرات حادة في السياسات الضريبية)، ستتلقى المجموعة ضربة قوية. وعلى الرغم من أن استراتيجية التنويع (في قطاعات الطاقة والاستثمارات العالمية) تُخفف من هذه التبعية، إلا أن الاعتماد المكثف على سوق ضخمة واحدة يظل يمثل خطراً استراتيجياً بالغ الأهمية.</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">مفتاح الرموز — معيار التحقق</div>
+    <div class="keybox-grid">
+      <div><b>حقيقة</b> — تم التحقق منها عبر السجلات، والإقرارات، والإحصاءات الرسمية</div>
+      <div><b>الرواية الرسمية</b> — الموقف المُعلن للكيان المعني</div>
+      <div><b>استنتاج تحليلي</b> — استدلال منطقي بناءً على تتبع سلاسل الأدلة</div>
+      <div><b>لا توجد بيانات / معلومات غير مؤكدة</b> — بيانات غير قابلة للتحقق، أو مسربة، أو محجوبة</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>ديب بريس أناليسيس</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
