@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indonesia — Industries | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  
+  
+  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← SITUS UTAMA</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Intelijen Struktural Independen · Est. 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">"Struktur di atas narasi."</div>
+  </div>
+  <div class="dateline-bar">
+    <span>BIRO INDONESIA</span>
+    <span>3 SEPTEMBER 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / INDUSTRI OTOMOTIF</span>
+
+  <h1 class="headline">Siapa yang Sebenarnya Mengendalikan Industri Otomotif Indonesia?</h1>
+  <p class="deck">Analisis oligopoli Jepang, kendali konglomerasi lokal, dan pergeseran kekuatan regulasi di tengah transisi menuju kendaraan listrik (EV).</p>
+  <div class="byline">Oleh Biro Indonesia — Diarsipkan di bawah: Industri & Kekuasaan</div>
+
+  <div class="columns">
+
+    <p class="lead">Industri otomotif Indonesia bukanlah pasar bebas, melainkan sebuah duopoli kepentingan antara modal industri Jepang dan kelompok bisnis keuangan-industri lama Indonesia/Singapura. Struktur ini dilindungi oleh sistem pajak barang mewah yang kompleks dan persyaratan lokalisasi yang ketat.</p>
+
+    <div class="subhead">Arsitektur Pasar: Oligopoli Bertopeng</div>
+    <p>Pasar ini secara historis beroperasi sebagai oligopoli dengan kendali asing (Jepang) yang dominan, yang bergantung pada konglomerasi lokal sebagai integrator. Namun, saat ini terdapat pergeseran menuju pasar yang diatur negara melalui kebijakan hilirisasi, dengan peningkatan masuknya modal Tiongkok dan Korea Selatan.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Menurut Gabungan Industri Kendaraan Bermotor Indonesia (Gaikindo), merek-merek Jepang (Toyota, Daihatsu, Honda, Mitsubishi, Suzuki) secara historis menguasai lebih dari 90% penjualan kendaraan penumpang dan niaga di negara ini.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Produksi sebagian besar dilakukan melalui perusahaan patungan (Joint Venture/JV) antara korporasi Jepang dan konglomerasi lokal (terutama PT Astra International).
+    </div>
+
+    <div class="subhead">Hambatan Masuk (Barriers to Entry)</div>
+    <p>Kegagalan historis merek Amerika (Ford, GM) dan Eropa tidak semata-mata berkaitan dengan kualitas produk, melainkan ketidakmampuan mereka untuk bersaing dengan jaringan pusat layanan Astra Group yang mencakup seluruh wilayah.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KESIMPULAN ANALITIS</span>
+      Setiap pesaing yang tidak memiliki akses ke jaringan distribusi nasional ditakdirkan untuk terpinggirkan. Ini merupakan hambatan infrastruktur yang kritis.
+    </div>
+
+    <p>Selain infrastruktur, regulasi juga menjadi benteng pertahanan. Persyaratan Tingkat Komponen Dalam Negeri (TKDN) digunakan sebagai tameng.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Untuk mendapatkan insentif pajak (seperti pembebasan Pajak Penjualan atas Barang Mewah/PPnBM), kendaraan harus memiliki persentase komponen lokal yang tinggi. Hal ini melindungi pemain lama (incumbent) yang telah membangun rantai pasokan dari ancaman impor langsung.
+    </div>
+
+    <div class="subhead">Mekanisme Harga dan Penggerak Sebenarnya</div>
+    <p>Meskipun secara formal terlihat sebagai pasar yang kompetitif, harga sangat terikat pada kategori pajak (PPnBM) yang ditetapkan oleh Kementerian Keuangan dan Kementerian Perindustrian.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KESIMPULAN ANALITIS</span>
+      Perusahaan yang mampu melobi agar model mereka dimasukkan ke dalam kategori insentif (seperti program Low Cost Green Car/LCGC) mendapatkan keunggulan harga yang menentukan. Harga di segmen massal bukanlah hasil persaingan murni; harga dirancang untuk sesuai dengan kerangka pajak.
+    </div>
+
+    <div class="subhead">Siapa yang Mengendalikan: Pemain Kunci</div>
+    <p>PT Astra International Tbk mendominasi dengan menguasai sekitar 50-55% pangsa pasar melalui usaha patungan dengan Toyota, Daihatsu, Isuzu, Peugeot, dan monopoli pada sepeda motor Honda.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Saham pengendali Astra (lebih dari 50%) dimiliki oleh Jardine Cycle & Carriage yang berbasis di Singapura, yang pada gilirannya merupakan bagian dari Jardine Matheson Group Inggris (salah satu perusahaan perdagangan tertua di Asia yang berkantor pusat di Hong Kong).
+    </div>
+
+    <p>Indomobil Group bertindak sebagai mitra lokal terpenting kedua (Nissan, Suzuki, Kia, Audi, VW).</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Indomobil dikendalikan oleh Salim Group (keluarga Salim, salah satu klan paling berpengaruh sejak era Soeharto) dan Gallant Venture dari Singapura.
+    </div>
+
+    <p>Pemain baru seperti Hyundai, Wuling, dan BYD bertindak sebagai pengganggu (disruptor) oligopoli. Mereka memasuki segmen kendaraan listrik (EV) dengan dukungan insentif dari pemerintah Indonesia sebagai imbalan atas investasi pada pabrik dan baterai.</p>
+
+    <div class="subhead">Titik Temu dengan Negara & Penaklukan Regulasi</div>
+    <p>Pengaruh terhadap kebijakan negara tidak hanya dilakukan melalui lobi tradisional, tetapi melalui integrasi kelembagaan.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KESIMPULAN ANALITIS</span>
+      Gaikindo bertindak lebih dari sekadar pelobi; ia bertindak sebagai kuasi-regulator. Kementerian Perindustrian secara rutin menggunakan data dan analisis Gaikindo untuk merumuskan kebijakan pajak dan bea cukai. Kepemimpinan asosiasi secara tradisional terdiri dari eksekutif puncak Astra dan merek Jepang.
+    </div>
+
+    <p>Namun, kekuatan baru telah muncul: Kementerian Koordinator Bidang Kemaritiman dan Investasi (Kemenko Marves). Di bawah kepemimpinan Luhut Binsar Pandjaitan, kementerian ini telah mengambil alih sebagian kendali dari Kementerian Perindustrian, mendorong agenda EV dan pengolahan nikel, yang memicu konflik dengan elit industri "berbasis bensin" lama.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KESIMPULAN ANALITIS</span>
+      Program LCGC (2013), yang memberikan insentif pajak besar, dirancang sedemikian rupa sehingga pada saat penerapannya, hanya pemain Jepang (Toyota Agya, Daihatsu Ayla, Honda Brio) yang dapat memenuhi syarat (kapasitas mesin, tingkat lokalisasi).
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ VERSI PR</span>
+      Tujuan program LCGC adalah untuk memberikan akses mobil yang terjangkau bagi kelas menengah dan mengembangkan perakitan lokal.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KESIMPULAN ANALITIS (KRITIS)</span>
+      Tujuan sebenarnya dari LCGC adalah menciptakan benteng pajak legal untuk menahan laju impor mobil kecil dari Tiongkok dan India.
+    </div>
+
+    <div class="stamp-note nodata">
+      <span class="k">■ INSIDEN / BELUM TERVERIFIKASI</span>
+      Beredar rumor di kalangan bisnis Jakarta bahwa lobi Jepang (melalui Gaikindo) selama bertahun-tahun menghambat insentif untuk Battery Electric Vehicles (BEV) murni, demi mempromosikan Hybrid Electric Vehicles (HEV) di mana Toyota memiliki keunggulan teknologi.
+    </div>
+
+    <div class="subhead">Perilaku Kartel dan Penyingkiran Pesaing</div>
+    
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Pada tahun 2017, Komisi Pengawas Persaingan Usaha (KPPU) memutuskan bahwa divisi lokal Yamaha dan Honda (Astra) bersalah atas penetapan harga (kartel) skuter berkapasitas 110-125 cc. Pada tahun 2019, Mahkamah Agung menolak banding mereka dan menguatkan denda. Ini adalah bukti langka dan terdokumentasi dari kolusi langsung antara para pemimpin pasar.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Pada tahun 2014, KPPU mendenda 6 produsen ban utama (termasuk Bridgestone dan Gajah Tunggal) karena berpartisipasi dalam kartel yang mengoordinasikan harga dan volume produksi melalui asosiasi industri APBI.
+    </div>
+
+    <p>Penyingkiran pesaing tidak selalu memerlukan praktik banting harga (dumping) langsung; hal itu dicapai melalui kontrol ekosistem.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KESIMPULAN ANALITIS</span>
+      Keberhasilan Astra International tidak hanya bergantung pada perakitan, tetapi juga pada kendali sektor keuangan otomotif (Astra Sedaya Finance, Toyota Astra Financial Services). Astra dapat mensubsidi suku bunga kredit mobil untuk modelnya sendiri, membuat biaya kepemilikan tidak dapat disaingi oleh pesaing independen.
+    </div>
+
+    <blockquote class="pull">"Keberhasilan Astra International tidak hanya bertumpu pada perakitan, melainkan pada penguasaan ekosistem pembiayaan konsumen otomotif."</blockquote>
+
+    <div class="subhead">Kerentanan Sistem (Vulnerabilities)</div>
+    
+    <p><b>Risiko Teknologi (Kepercayaan: Tinggi):</b> Transisi cepat menuju kendaraan listrik murni (BEV) mengancam status quo. Oligopoli Jepang telah menginvestasikan miliaran dolar dalam rantai pasokan mesin pembakaran internal dan hibrida. Masuknya merek seperti Wuling dan BYD (dengan harga EV yang jauh lebih rendah) mendevaluasi hambatan masuk yang berbasis pada pabrik transmisi dan mesin konvensional.</p>
+    
+    <p><b>Risiko Politik / Regulasi (Kepercayaan: Menengah):</b> Terjadi pergeseran prioritas nasional. Pemerintahan Jokowi (dan penerusnya Prabowo) telah menaruh taruhan besar pada nikel dan baterai. Untuk pertama kalinya dalam beberapa dekade, negara mulai mendikte persyaratan kepada sektor otomotif, bukan sekadar mendengarkan Gaikindo. Pemerintah secara efektif memberikan ultimatum kepada perusahaan Jepang: bangun pabrik EV, atau pasar akan diserahkan kepada Tiongkok dan Korea.</p>
+    
+    <p><b>Risiko Konsentrasi (Kepercayaan: Tinggi):</b> Astra International menguasai lebih dari 50% pasar mobil dan memiliki ikatan kuat di bidang agribisnis (Astra Agro Lestari) serta alat berat (United Tractors). Masalah sistemik apa pun pada Astra (baik korporat maupun keuangan) akan memicu penurunan langsung pada Indeks Harga Saham Gabungan (IHSG) dan lonjakan pengangguran di klaster manufaktur Jawa Barat.</p>
+
+    <p>Sumber utama ketahanan sistem selama 30 tahun terakhir adalah kontrol absolut dari pemain lama (terutama Astra) atas distribusi fisik dan pembiayaan konsumen, ditambah dengan perpaduan antara asosiasi industri Gaikindo dan otoritas regulasi. Namun, titik pergeseran yang paling krusial saat ini adalah kebijakan industri hilirisasi nikel oleh negara, yang telah membuka pintu bagi modal Tiongkok dan Korea untuk mendobrak monopoli historis Jepang, mengubah medan persaingan dari jaringan diler menuju akses terhadap baterai murah.</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Kunci Simbol — Standar Verifikasi</div>
+    <div class="keybox-grid">
+      <div><b>FAKTA</b> — Diverifikasi melalui laporan regulator, catatan pengadilan, atau statistik resmi</div>
+      <div><b>VERSI PR</b> — Posisi resmi dari entitas industri atau humas</div>
+      <div><b>KESIMPULAN ANALITIS</b> — Inferensi logis yang didasarkan pada pelacakan rantai bukti</div>
+      <div><b>TIDAK ADA DATA / INSIDEN</b> — Informasi yang beredar di kalangan analis namun kurang verifikasi dokumenter</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>

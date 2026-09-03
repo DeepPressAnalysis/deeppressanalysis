@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indonesia — Infrastructure | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  
+  
+  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← SITUS UTAMA</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Intelijen Struktural Independen · Est. 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">"Struktur di atas narasi."</div>
+  </div>
+  <div class="dateline-bar">
+    <span>BIRO INDONESIA</span>
+    <span>3 SEPTEMBER 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / INFRASTRUKTUR & TELEKOMUNIKASI</span>
+
+  <h1 class="headline">Siapa yang Sebenarnya Mengendalikan Telekomunikasi Indonesia?</h1>
+  <p class="deck">Analisis institusional sektor telekomunikasi dan ekonomi digital: dari struktur kepemilikan, penangkapan regulasi (regulatory capture), hingga jaringan pengaruh triopoli negara-oligarki.</p>
+  <div class="byline">Oleh Biro Indonesia — Diarsipkan di bawah: Infrastruktur & Kekuasaan</div>
+
+  <div class="columns">
+
+    <p class="lead">Gambaran resmi tentang pasar digital Indonesia yang dinamis dan terbuka menyembunyikan realitas triopoli negara-oligarki yang dikontrol ketat di tingkat infrastruktur, serta kondominium Tiongkok-Singapura di tingkat platform. Kontrol nyata atas harga dan alokasi spektrum berada di tangan persekutuan antara Kementerian BUMN, Komdigi, modal kedaulatan Singapura (Temasek), dan tiga konglomerat besar (Djarum, Sinar Mas, Saratoga).</p>
+
+    <div class="subhead">Struktur Pasar: Triopoli yang Dikonsolidasikan</div>
+    <p>Pasar seluler Indonesia telah bertransformasi dari pasar yang sangat aktif dengan banyak pemain (lebih dari 7 operator di era 2010-an) menjadi triopoli yang kaku. Konsolidasi ini terjadi di bawah pengawasan langsung Kementerian Komunikasi dan Digitalisasi (Komdigi) dan Komisi Pengawas Persaingan Usaha (KPPU).</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Telkomsel mendominasi sebagai pilar pertama, mengendalikan sekitar 45-47% basis pelanggan dan lebih dari 50% pendapatan sektor.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Pilar kedua adalah Indosat Ooredoo Hutchison (IOH), dibentuk pada Januari 2022 dari merger PT Indosat Tbk (Ooredoo Group, Qatar) dan PT Hutchison 3 Indonesia (CK Hutchison, Hong Kong), menguasai sekitar 30-31% pasar.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Pilar ketiga, XLSmart, terbentuk pada 2024-2025 melalui merger PT XL Axiata Tbk (Axiata Group, Malaysia) dan PT Smartfren Telecom Tbk (Sinar Mas Group, Indonesia), menempati sekitar 26-27% pasar.
+    </div>
+
+    <div class="subhead">Hambatan Masuk (Barriers to Entry)</div>
+    <p>Hambatan regulasi sangat tinggi. Akses ke spektrum frekuensi radio dialokasikan secara ketat oleh Komdigi, dan biaya lisensi frekuensi (BHP Frekuensi) menciptakan hambatan fiskal permanen. Selain itu, aturan Tingkat Komponen Dalam Negeri (TKDN) mewajibkan 35-40% konten lokal, yang membebani pemain baru.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KESIMPULAN ANALITIS</span>
+      Geografi Indonesia (negara kepulauan dengan >17.000 pulau) menuntut pengeluaran modal (CapEx) kolosal untuk sistem kabel serat optik bawah laut dan BTS di daerah terpencil (3T), menciptakan hambatan kapital yang ekstrem.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Infrastruktur menara (lebih dari 100.000 menara) terkonsentrasi di tiga pemain utama: Mitratel (Telkom), Protelindo (Djarum Group), dan Tower Bersama Infrastructure/TBIG (Saratoga/Provident). Pemain baru terpaksa menyewa dari entitas yang berafiliasi dengan oligarki.
+    </div>
+
+    <div class="subhead">Dinamika Harga Sebenarnya</div>
+    <p>Meskipun secara formal harga data bebas, realitasnya berbeda. Setelah fase perang harga (dumping) usai pada 2022-2025, triopoli ini beralih ke peningkatan ARPU (Average Revenue Per User) secara sinkron dengan menghapus paket tak terbatas yang sangat murah.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KESIMPULAN ANALITIS</span>
+      Penundaan lelang 5G oleh Komdigi disebabkan oleh tekanan lobi dari operator besar yang perlu mengembalikan investasi jaringan 4G mereka di pulau-pulau luar sebelum memulai siklus CapEx baru.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Margin tinggi yang diekstraksi dari pulau Jawa (>55% populasi) digunakan untuk mensubsidi silang biaya operasional di pulau-pulau luar, di mana Telkomsel mempertahankan posisi monopolinya.
+    </div>
+
+    <blockquote class="pull">"Penundaan lelang 5G bukanlah masalah teknis, melainkan perlindungan CapEx terkoordinasi oleh para pemain lama."</blockquote>
+
+    <div class="subhead">Pemain Kunci dan Titik Temu Negara</div>
+    <p>Telkomsel secara formal dimiliki oleh Telkom Indonesia (51%) dan Singtel (49%). Benefisiari nyatanya adalah negara Indonesia (Kementerian BUMN) dan Sovereign Wealth Fund Singapura, Temasek (pemilik Singtel). Temasek memblokir setiap upaya nasionalisasi penuh atau pengusiran modal asing.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Di tingkat dewan komisaris (Board of Commissioners), posisi independen di operator secara sistematis diisi oleh mantan menteri, perwira militer, dan pejabat tinggi ("revolving door"). Contohnya, Rudiantara (Menteri Kominfo 2014-2019) menjadi komisaris independen di IOH.
+    </div>
+
+    <p>Di ranah platform digital, dominasi asing terlihat jelas. ByteDance (Tiongkok) telah mengakuisisi 75% Tokopedia dari grup GoTo seharga $1,5 miliar, mengambil kendali atas e-commerce nasional. GoTo sendiri dimiliki oleh SoftBank, Taobao/Alibaba, INA (Sovereign Wealth Fund Indonesia), dan Northstar Group. Blibli dikendalikan sepenuhnya oleh Djarum Group (keluarga Hartono), sedangkan Shopee dimiliki oleh Sea Ltd (Singapura) dengan Tencent (Tiongkok) sebagai pemegang saham institusional terbesar.</p>
+
+    <div class="subhead">Penangkapan Regulasi & Korupsi (Regulatory Capture)</div>
+    <p>Mekanisme distribusi partai-negara sangat terlihat dalam kasus Badan Aksesibilitas Telekomunikasi dan Informasi (BAKTI). Badan ini mengelola anggaran USO (Universal Service Obligation) yang bernilai miliaran.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Mantan Menteri Kominfo Johnny G. Plate (Partai NasDem) dihukum 15 tahun penjara atas korupsi proyek BTS 4G BAKTI. Dana lebih dari Rp 8 triliun dialokasikan, namun kontrak digelembungkan, spesifikasi dipangkas, dan uang suap dialihkan ke elite politik.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KESIMPULAN ANALITIS</span>
+      Proyek BAKTI, yang diposisikan untuk "menjembatani kesenjangan digital", secara de facto berfungsi sebagai donor finansial untuk jaringan partai menjelang Pemilu 2024, menunjukkan tunduknya regulator pada kepentingan partai-swasta.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKTA</span>
+      Kartel dan arbitrase: Setelah konsolidasi pasar menjadi tiga pemain, KPPU tidak mencatat adanya penetapan harga langsung. Namun, tarif dasar Telkomsel, IOH, dan XLSmart meningkat secara sinkron dari Rp10.000 menjadi Rp30.000-Rp50.000.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ KESIMPULAN ANALITIS</span>
+      Persetujuan bersyarat KPPU atas akuisisi Tokopedia oleh ByteDance memuat syarat yang lemah (larangan subsidi langsung, keharusan mendukung UMKM), yang gagal membatasi kekuatan pasar entitas gabungan tersebut dalam mengendalikan lalu lintas algoritmik (TikTok) dan infrastruktur perdagangan (Tokopedia).
+    </div>
+
+    <div class="subhead">Titik Lemah dan Risiko (Vulnerabilities)</div>
+
+    <p><b>Risiko Teknologi & Disrupsi (Kepercayaan: Tinggi):</b> Masuknya Starlink (SpaceX) dengan lisensi B2C/B2B pada 2024 mengancam monopoli infrastruktur menara (Mitratel, Protelindo) di daerah terpencil. Asosiasi Telekomunikasi (ATSI) secara aktif menekan regulator agar Starlink dibebani kewajiban pajak yang ketat dan keharusan membangun stasiun bumi (gateways) lokal untuk penyensoran dan pemerataan biaya.</p>
+
+    <p><b>Risiko Geopolitik (Kepercayaan: Tinggi):</b> Infrastruktur jaringan radio (RAN) Indonesia bergantung 60-70% pada vendor Tiongkok (Huawei, ZTE). Tekanan dari AS untuk membatasi peralatan Tiongkok di jaringan 5G menciptakan ancaman lonjakan CapEx jika operator dipaksa beralih ke vendor Eropa (Ericsson, Nokia) yang lebih mahal.</p>
+
+    <p><b>Risiko Konsentrasi / Too Big to Fail (Kepercayaan: Tinggi):</b> Gangguan besar pada jalur utama Telkom Group atau pusat datanya tidak hanya akan melumpuhkan Telkomsel, tetapi juga layanan digital pemerintah (SatuData) dan transaksi perbankan nasional, mengingat rendahnya tingkat redundansi infrastruktur di pulau-pulau luar.</p>
+
+    <p><b>Risiko Regulasi (Kepercayaan: Menengah):</b> Transisi ke pemerintahan Prabowo Subianto dapat memicu restrukturisasi pengaruh di Kementerian BUMN dan Komdigi, yang berisiko pada peninjauan ulang lisensi dan sumber daya frekuensi untuk menguntungkan faksi baru.</p>
+
+    <p><b>Risiko Sosial (Kepercayaan: Tinggi):</b> Kesenjangan harga dan kualitas internet antara Jawa dan provinsi-provinsi Timur memicu ketidakpuasan. Ekstraksi keuntungan oleh triopoli tanpa perbaikan yang sepadan di daerah pelosok menciptakan risiko protes dan tekanan parlementer (DPR).</p>
+
+    <p>Singkatnya, kemampuan bertahan sistem ini bertumpu pada tingginya biaya pembangunan infrastruktur kabel optik dan menara bawah laut, yang dikombinasikan dengan kelangkaan spektrum buatan, sehingga mencegah masuknya pesaing 4G/5G baru. Namun, konstelasi satelit LEO (seperti Starlink) memegang kunci perombakan potensial. Jika satelit terbukti dapat memberikan trafik murah ke pulau-pulau terluar dan memotong infrastruktur menara, model subsidi triopoli ini akan runtuh, memaksa negara untuk memilih antara proteksionisme ketat atau perombakan pasar demi faksi-faksi politik yang baru.</p>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Kunci Simbol — Standar Verifikasi</div>
+    <div class="keybox-grid">
+      <div><b>FAKTA</b> — Diverifikasi melalui laporan regulator, catatan pengadilan, atau statistik resmi</div>
+      <div><b>VERSI PR</b> — Posisi resmi dari entitas industri atau humas</div>
+      <div><b>KESIMPULAN ANALITIS</b> — Inferensi logis yang didasarkan pada pelacakan rantai bukti</div>
+      <div><b>TIDAK ADA DATA / INSIDEN</b> — Informasi yang tidak dapat diverifikasi secara dokumenter, beredar di kalangan analis</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
