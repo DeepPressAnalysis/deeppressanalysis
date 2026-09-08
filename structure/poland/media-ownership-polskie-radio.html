@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polska — Własność Mediów | Deep Press Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap');
+
+  :root{
+    --paper: #ece7da;
+    --paper-shadow: #d8d2c1;
+    --ink: #1c1a15;
+    --ink-soft: #3a362c;
+    --rule: #1c1a15;
+    --rule-light: #b8b09a;
+    --red: #7a1f1f;
+  }
+  *{box-sizing:border-box;}
+  html{background:#0f0e0c;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, transparent 1px, transparent 2px),
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%);
+  }
+
+  .page{max-width:980px; margin:0 auto; padding:36px 24px 100px;}
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    border-bottom:4px double var(--rule);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead .kicker{
+    font-family:'Special Elite', monospace;
+    font-size:10.5px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .nameplate{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:52px;
+    letter-spacing:0.01em;
+    line-height:1;
+    margin:8px 0 4px;
+  }
+  .nameplate span{ font-style:italic; font-weight:400; }
+  .masthead .tagline{
+    font-size:11px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  .dateline-bar{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1.5px solid var(--rule);
+    border-top:1px solid var(--rule);
+    padding:5px 0;
+    margin:8px 0 28px;
+    font-family:'Special Elite', monospace;
+    font-size:9.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* Section eyebrow / classification */
+  .section-tag{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    padding:3px 10px;
+    margin-bottom:16px;
+  }
+
+  h1.headline{
+    font-family:'Old Standard TT', serif;
+    font-weight:700;
+    font-size:46px;
+    line-height:1.04;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .deck{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.4;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:22px;
+    margin-bottom:8px;
+  }
+  .byline{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:14px 0 30px;
+    text-transform:uppercase;
+  }
+
+  /* True multi-column newsprint flow */
+  .columns{
+    columns:3;
+    column-gap:28px;
+    column-rule:1px solid var(--rule-light);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .columns p{
+    font-size:14.5px;
+    line-height:1.62;
+    margin:0 0 14px;
+    break-inside:avoid-column;
+  }
+  .columns p.lead::first-letter{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:58px;
+    line-height:0.78;
+    float:left;
+    margin:6px 8px 0 0;
+    color:var(--ink);
+  }
+
+  .subhead{
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    break-after:avoid-column;
+  }
+
+  /* Marginal annotation = the trust marker system, styled like editor stamps */
+  .stamp-note{
+    break-inside:avoid-column;
+    border:1px solid var(--ink);
+    padding:8px 10px;
+    margin:10px 0 16px;
+    background:rgba(0,0,0,0.02);
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .stamp-note .k{
+    display:block;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .stamp-note.fact .k{color:#2f5d3a;}
+  .stamp-note.pr .k{color:#4a4a6a;}
+  .stamp-note.insight .k{color:var(--red);}
+  .stamp-note.nodata .k{color:var(--ink-soft); font-style:italic;}
+
+  blockquote.pull{
+    break-inside:avoid-column;
+    font-family:'Old Standard TT',serif;
+    font-weight:700;
+    font-style:italic;
+    font-size:21px;
+    line-height:1.32;
+    margin:6px 0 18px;
+    padding:10px 0;
+    border-top:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+  }
+
+  /* Legend block styled like a newspaper "key to symbols" box */
+  .keybox{
+    border:2px solid var(--ink);
+    padding:16px 18px;
+    margin:36px 0 40px;
+    background:rgba(0,0,0,0.015);
+  }
+  .keybox .kb-title{
+    font-family:'Special Elite',monospace;
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    border-bottom:1px solid var(--rule-light);
+    padding-bottom:8px;
+  }
+  .keybox-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 24px;
+    font-size:12.5px;
+  }
+  .keybox-grid b{font-family:'Old Standard TT',serif;}
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:44px 0;
+  }
+
+  footer{
+    display:flex;
+    justify-content:space-between;
+    border-top:4px double var(--rule);
+    padding-top:12px;
+    margin-top:50px;
+    font-family:'Special Elite',monospace;
+    font-size:9.5px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:760px){
+    .columns{columns:1;}
+    h1.headline{font-size:32px;}
+    .nameplate{font-size:36px;}
+    .keybox-grid{grid-template-columns:1fr;}
+  }  
+  
+  .home-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    background:var(--red);
+    color:var(--paper);
+    font-family:'Special Elite',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 18px;
+    border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--ink);
+    transition:transform 0.12s ease;
+  }
+  .home-btn:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+
+  @media(max-width:640px){
+    .home-btn{ position:static; display:inline-block; margin-bottom:16px; box-shadow:2px 2px 0 var(--ink); }
+  }
+</style>
+</head>
+<body>
+<a href="https://deeppressanalysis.com" class="home-btn">← STRONA GŁÓWNA</a>
+<div class="page">
+
+  <div class="masthead">
+    <div class="kicker">Niezależny Wywiad Strukturalny · Est. 2026</div>
+    <div class="nameplate">DEEP PRESS <span>ANALYSIS</span></div>
+    <div class="tagline">"Struktura ponad narrację."</div>
+  </div>
+  <div class="dateline-bar">
+    <span>BIURO POLSKA</span>
+    <span>9 WRZEŚNIA 2026</span>
+  </div>
+
+  <span class="section-tag">STRUCTURE / WŁASNOŚĆ MEDIÓW</span>
+
+  <h1 class="headline">Kto tak naprawdę kontroluje Polskie Radio?</h1>
+  <p class="deck">Analiza strukturalna publicznego nadawcy w Polsce: od całkowitego uzależnienia od państwa i chaosu prawnego po instrumentalizację polityczną i walkę instytucjonalną.</p>
+  <div class="byline">Przez Biuro Polska — Kategoria: Architektura Władzy nad Mediami</div>
+
+  <div class="columns">
+
+    <p class="lead">Polskie Radio S.A. (w tym rozgłośnie regionalne) nie jest klasycznym medium komercyjnym, lecz narodowym nadawcą publicznym. Struktura własności, przepływy finansowe oraz konflikty instytucjonalne są udokumentowane w jawnych rejestrach państwowych (KRS), uchwałach KRRiT, orzeczeniach sądowych oraz budżecie państwa.</p>
+
+    <div class="subhead">1. Architektura mediów jako system decyzyjny</div>
+    <p>Głównym modelem działania nadawcy jest pełna kontrola państwowa, co czyni go bezpośrednią tubą propagandową elity rządzącej. Jako model poboczny, stacja funkcjonuje jako zakładnik głębokiego konfliktu instytucjonalnego.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      100% akcji spółki należy do Skarbu Państwa. Medium nie ma niezależności finansowej: dochody z reklam są drugorzędne, a podstawę budżetu stanowi abonament RTV i wielomiliardowe bezpośrednie dotacje z budżetu państwa (rekompensaty). Zmiana większości politycznej w parlamencie automatycznie uruchamia proces siłowej zmiany polityki redakcyjnej poprzez wymianę top-managementu.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      W teorii status „nadawcy publicznego” zakłada model „niezależnego aktywa”, jednak strukturalna zależność od finansowania państwowego czyni tę niezależność całkowitą fikcją, bez względu na to, jaka opcja sprawuje władzę.
+    </div>
+
+    <p><b>Model podejmowania decyzji redakcyjnych:</b> Decyzje o przemilczaniu lub forsowaniu tematów opierają się na kalkulacji politycznej i bezpośrednim, strukturalnym podporządkowaniu nominatom z góry.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Przypadek z lat 2015–2023 (rządy partii PiS): Według raportów z monitoringu i dochodzeń parlamentarnych, czas antenowy był rygorystycznie kwotowany. W okresie protestów w 2020 r. („Strajk Kobiet”) na 61 zaproszonych ekspertów aż 55 reprezentowało prorządową linię PiS, podczas gdy przedstawicieli opozycji systematycznie wykluczano.
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Przypadek od końca 2023 r. do chwili obecnej (koalicja D. Tuska): Przejęcie kontroli nad redakcją nie nastąpiło przez „zmianę standardów dziennikarstwa”, ale poprzez siłowe rozwiązanie prawne — postawienie spółki w stan likwidacji przez Ministerstwo Kultury i Dziedzictwa Narodowego, w celu ominięcia dotychczasowego zarządu powołanego przez RMN.
+    </div>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Realnym mechanizmem filtrowania treści w Polskim Radiu jest lojalność kierownictwa mianowanego przez aktualnego dysponenta praw korporacyjnych, a nie, jak w prywatnych stacjach, presja ze strony komercyjnych reklamodawców.
+    </div>
+
+    <p><b>Stosunek do ryzyka:</b> Poziom ryzyka jest wysoce asymetryczny i ściśle powiązany z cyklem wyborczym.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Dla samego nadawcy ryzyko pozwów o zniesławienie lub kar jest minimalne, o ile atakuje przeciwników politycznych obecnej władzy. Kary nakładane przez regulatora (KRRiT) są wybiórcze i stosowane głównie wobec prywatnej konkurencji (np. TOK FM, TVN, Radio Zet). Z kolei dla dziennikarzy stacji ryzyko jest maksymalne przy każdej zmianie władzy – powszechną praktyką są czystki personalne.
+    </div>
+
+    <blockquote class="pull">"Polskie Radio nie maksymalizuje zysku. Jego celem jest utrzymanie politycznego monopolu na interpretację faktów w zamian za gwarantowane transze z państwowego budżetu."</blockquote>
+
+    <div class="subhead">2. Sieć powiązań i struktura kapitału</div>
+    <p>Pierwszy punkt podparcia w kontroli nad tymi mediami realizowany jest wyłącznie poprzez manipulacje legislacyjne i administracyjne, a nie przez rynkowy wykup akcji.</p>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W 2016 r. partia PiS utworzyła Radę Mediów Narodowych (RMN), odbierając ustawowe uprawnienia do mianowania władz Polskiego Radia konstytucyjnemu organowi — Krajowej Radzie Radiofonii i Telewizji (KRRiT).
+    </div>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      Pod koniec 2023 r. nowy rząd, nie mając możliwości legalnej zmiany członków RMN i stojąc w obliczu prezydenckiego weta do ustawy budżetowej (tzw. ustawa okołobudżetowa), wykorzystał przepisy Kodeksu spółek handlowych, by zainicjować proces „likwidacji” Polskiego Radia. Ten ruch pozwolił Ministrowi Kultury na powołanie lojalnych likwidatorów z uprawnieniami dyrektorów generalnych.
+    </div>
+
+    <p>Rzeczywistym beneficjentem tej własności formalnie jest „naród polski”, ale w praktyce jest to praworządząca koalicja polityczna w Sejmie, która sprawuje kontrolę nad Ministerstwem Kultury. To Skarb Państwa, reprezentowany przez resortowego ministra, posiada 100% udziałów.</p>
+
+    <p><b>Kluczowi operatorzy sieci:</b></p>
+    <ul>
+      <li><b>Minister Kultury (Skarb Państwa):</b> Od 2024 r. faktycznie kontrolujący aktywa, utrzymujący medium w trybie ręcznego sterowania dzięki statusowi „w likwidacji”.</li>
+      <li><b>Maciej Świrski (Przewodniczący KRRiT):</b> Nominat poprzedniej władzy (PiS), wykorzystujący uprawnienia regulatora do blokowania finansowania.</li>
+      <li><b>Większość Parlamentarna:</b> Określa wolumen dotacji budżetowych, bez których radio stałoby się bankrutem.</li>
+    </ul>
+
+    <div class="stamp-note fact">
+      <span class="k">■ FAKT</span>
+      W 2024 r. KRRiT odmówiła przekazania Polskiemu Radiu środków pochodzących z opłat abonamentowych (rzędu setek milionów złotych), kierując je do depozytów sądowych pod pretekstem rzekomej „nielegalności” nowych, likwidacyjnych władz stacji.
+    </div>
+
+    <p><b>Mechanizm formowania agendy:</b> Kluczowym instrumentem jest blokada dostępu do anteny.</p>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Antena publiczna jest strukturyzowana w taki sposób, aby zminimalizować obecność niepożądanych podmiotów politycznych. W dobie otwartego konfliktu instytucjonalnego, stacja staje się miejscem wzajemnych oskarżeń o działania niekonstytucyjne. Lojaliści PiS nazywają przejęcie radia „wrogim przejęciem”, podczas gdy nowe kierownictwo oskarża poprzedników o budowę aparatu nachalnej propagandy.
+    </div>
+
+    <div class="stamp-note pr">
+      <span class="k">■ WERSJA PR</span>
+      Oficjalne stanowisko obecnych władz-likwidatorów brzmi: „Naszym celem jest przywrócenie standardów obiektywnego dziennikarstwa i całkowite odpolitycznienie anteny”. Z kolei oficjalne stanowisko KRRiT i opozycji to: „Mamy do czynienia z nielegalnym przejęciem mediów publicznych, uzurpacją władzy państwowej i zniszczeniem rynkowego pluralizmu”.
+    </div>
+
+    <p><b>Polityczna zależność:</b> System ten opiera się na relacji obustronnej zależności. Radio jest całkowicie uzależnione od polityków, gdyż z racji wyolbrzymionego zatrudnienia i specyfiki misyjnej ramówki, nie jest w stanie utrzymać się w warunkach rynkowych bez kroplówki z budżetu. Z drugiej strony, politycy są uzależnieni od Polskiego Radia: jego kolosalny zasięg na prowincji (wraz ze stacjami regionalnymi) oraz oddziaływanie na starsze grupy demograficzne, czyni z niego absolutnie krytyczne narzędzie mobilizacji twardego elektoratu podczas kampanii wyborczych.</p>
+
+    <div class="subhead">3. Ocena końcowa</div>
+    <p>Polskie Radio w żadnym wypadku nie jest medium w klasycznym, rynkowym i komercyjnym sensie. Jest to wysoce kosztochłonny zasób polityczny, który funkcjonuje jako trofeum instytucjonalne. Kontrola nad nim nie jest utrzymywana poprzez konkurencyjność samej treści czy sukces rynkowy, ale poprzez brutalną walkę o wpływy w kluczowych ministerstwach, organach regulacyjnych (KRRiT, RMN) oraz sądach rejestrowych (poprzez prawne zatwierdzanie statusu likwidacji).</p>
+
+    <p><b>Kluczowe słabości i usterki systemu:</b></p>
+    <ul>
+      <li><b>Toksyczna zależność finansowa:</b> Blokada wypłat z KRRiT i groźby weta prezydenckiego do ustaw okołobudżetowych czynią działalność operacyjną stacji dramatycznie niestabilną.</li>
+      <li><b>Chaos prawny:</b> Decyzje na szczeblu zarządu podejmowane są przez likwidatorów, których status jest permanentnie kwestionowany w sądach przez struktury nominowane za poprzedniej władzy. To skutecznie odstrasza komercyjnych reklamodawców od zawierania długoterminowych kontraktów.</li>
+      <li><b>Utrata zaufania odbiorców:</b> Drastyczne zmiany polityki redakcyjnej o 180 stopni w rytm każdego cyklu politycznego prowadzą do ciągłego odpływu lojalnych słuchaczy i stopniowej marginalizacji faktycznego wpływu nadawcy na społeczeństwo.</li>
+    </ul>
+
+    <div class="stamp-note insight">
+      <span class="k">■ WNIOSEK ANALITYCZNY</span>
+      Dopóki struktura własności nie ulegnie całkowitej transformacji (np. rzetelna prywatyzacja części segmentów lub stworzenie niezależnego, niepolitycznego funduszu powierniczego z ustawowo chronionym i nieodwoływalnym modelem finansowania — co w obecnych realiach politycznych jest zjawiskiem nieprawdopodobnym, gdyż żadna partia nie zrezygnuje dobrowolnie z takiego zasobu propagandy), Polskie Radio pozostanie permanentnym polem bitwy. Będzie nadal funkcjonować w stanie „ciągłej likwidacji” lub skrajnego sterowania ręcznego do momentu, w którym obóz rządzący przejmie pełną i bezsporną kontrolę legislacyjną (w tym nad prezydentem i RMN/KRRiT), by prawnie zabetonować swój monopol.
+    </div>
+
+  </div>
+
+  <div class="keybox">
+    <div class="kb-title">Legenda symboli — Standard Weryfikacji</div>
+    <div class="keybox-grid">
+      <div><b>FAKT</b> — zweryfikowane za pośrednictwem rejestrów, raportów i oficjalnych statystyk.</div>
+      <div><b>WERSJA PR</b> — oficjalne stanowisko danego podmiotu lub instytucji.</div>
+      <div><b>WNIOSEK ANALITYCZNY</b> — logiczne wnioskowanie oparte na udokumentowanym łańcuchu dowodowym.</div>
+      <div><b>BRAK DANYCH / POUFNE</b> — informacje nieweryfikowalne, niejawne lub ukryte przed opinią publiczną.</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <footer>
+    <span>DEEP PRESS ANALYSIS</span>
+    <span>deeppressanalysis.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
