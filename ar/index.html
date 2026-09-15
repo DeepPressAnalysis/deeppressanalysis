@@ -5,22 +5,23 @@
      ║ 1. Article content visible by default (Accordion REMOVED)            ║
      ║ 2. Schema.org @id fixed                                              ║
      ║ 3. NewsArticle schema added for each analytical section              ║
-     ║ 4. hreflang mutual links (UPDATED TO 150926)                         ║
+     ║ 4. hreflang mutual links (UPDATED TO 160926)                         ║
      ║ 5. Canonical + 301 redirect ready                                    ║
      ║ 6. JS-redirect updated (SMART REDIRECT FIXED LOOP)                   ║
      ║ 7. RSS feed added to <head>                                          ║
-     ║ 8. OG/Twitter meta updated for September 15, 2026                    ║
+     ║ 8. OG/Twitter meta updated for September 16, 2026                    ║
      ║ 9. Bloomberg-style terminal dashboard integrated                     ║
      ║ 10. Schema.org JSON-LD DOM Sync Fixed & Author Added                 ║
      ║ 11. Threads references removed                                       ║
+     ║ 12. YouTube Facade Lazy Loading Added & CSP Updated                  ║
      ╚══════════════════════════════════════════════════════════════════════╝ -->
 <html lang="ar" dir="rtl" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8" />
-    <title>تحليل الصحافة العميق — 15 سبتمبر 2026</title>
+    <title>Deep Press Analysis — 16 سبتمبر 2026</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="تحليل مؤسسي للمشهد الإعلامي العالمي، يدرس كيفية صياغة السرديات حول الدين السيادي الأمريكي، وسباق الذكاء الاصطناعي، والهندسة الانتخابية المحلية لإضفاء الشرعية على السلطة المركزية والحكم التكنوقراطي." />
-    <meta name="author" content="تحليل الصحافة العميق" />
+    <meta name="description" content="تحليل هيكلي متعمق لعمليات النقد لدى الاحتياطي الفيدرالي، يبحث في آليات إصدار العملة المادية، وإدارة السيولة الرقمية، والائتمان المصرفي الداخلي المنشأ، وآلية المحاسبة للأصول المؤجلة." />
+    <meta name="author" content="Deep Press Analysis" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
     <meta http-equiv="Content-Security-Policy" content="
@@ -28,12 +29,12 @@
         script-src 'self' 'nonce-EDNnf03nceIofn39fn3e9h3sdfa' 'unsafe-inline';
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
-        img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co;
+        img-src 'self' data: https://deeppressanalysis.com https://i.scdn.co https://i.ytimg.com;
         connect-src 'self' https://formspree.io;
         form-action 'self' https://formspree.io;
         object-src 'none';
         base-uri 'self';
-        frame-src 'self' https://open.spotify.com;
+        frame-src 'self' https://open.spotify.com https://www.youtube-nocookie.com;
         media-src 'none';
         upgrade-insecure-requests;
     ">
@@ -43,42 +44,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- ═══ SEO: Canonical ═══ -->
-    <link rel="canonical" href="https://deeppressanalysis.com/ar/150926.html" />
+    <link rel="canonical" href="https://deeppressanalysis.com/ar/160926.html" />
 
     <!-- ═══ SEO: hreflang ═══ -->
-    <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/en/150926.html" />
-    <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/150926.html" />
-    <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/150926.html" />
-    <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/150926.html" />
-    <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/150926.html" />
-    <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/150926.html" />
-    <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/150926.html" />
+    <link rel="alternate" hreflang="en" href="https://deeppressanalysis.com/en/160926.html" />
+    <link rel="alternate" hreflang="ru" href="https://deeppressanalysis.com/ru/160926.html" />
+    <link rel="alternate" hreflang="es" href="https://deeppressanalysis.com/es/160926.html" />
+    <link rel="alternate" hreflang="uk" href="https://deeppressanalysis.com/ua/160926.html" />
+    <link rel="alternate" hreflang="ar" href="https://deeppressanalysis.com/ar/160926.html" />
+    <link rel="alternate" hreflang="de" href="https://deeppressanalysis.com/de/160926.html" />
+    <link rel="alternate" hreflang="x-default" href="https://deeppressanalysis.com/en/160926.html" />
 
     <!-- ═══ SEO FIX #8: RSS-лента ═══ -->
-    <link rel="alternate" type="application/rss+xml" title="تحليل الصحافة العميق — الموجز العربي" href="https://deeppressanalysis.com/en/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Deep Press Analysis — التغذية الإنجليزية" href="https://deeppressanalysis.com/en/feed.xml" />
 
     <!-- ═══ Open Graph ═══ -->
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="تحليل الصحافة العميق — 15 سبتمبر 2026" />
-    <meta property="og:description" content="تحليل مؤسسي للمشهد الإعلامي العالمي، يدرس كيفية صياغة السرديات حول الدين السيادي الأمريكي، وسباق الذكاء الاصطناعي، والهندسة الانتخابية المحلية لإضفاء الشرعية على السلطة المركزية والحكم التكنوقراطي." />
-    <meta property="og:url" content="https://deeppressanalysis.com/ar/150926.html" />
+    <meta property="og:title" content="Deep Press Analysis — 16 سبتمبر 2026" />
+    <meta property="og:description" content="تحليل هيكلي متعمق لعمليات النقد لدى الاحتياطي الفيدرالي، يبحث في آليات إصدار العملة المادية، وإدارة السيولة الرقمية، والائتمان المصرفي الداخلي المنشأ، وآلية المحاسبة للأصول المؤجلة." />
+    <meta property="og:url" content="https://deeppressanalysis.com/ar/160926.html" />
     <meta property="og:image" content="https://deeppressanalysis.com/assets/og-cover.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="تحليل الصحافة العميق" />
+    <meta property="og:site_name" content="Deep Press Analysis" />
     <meta property="og:locale" content="ar_AR" />
 
-    <meta property="article:published_time" content="2026-09-15T05:00:00Z" />
-    <meta property="article:modified_time" content="2026-09-15T05:00:00Z" />
-    <meta property="article:section" content="التحليل المؤسسي" />
+    <meta property="article:published_time" content="2026-09-16T05:00:00Z" />
+    <meta property="article:modified_time" content="2026-09-16T05:00:00Z" />
+    <meta property="article:section" content="الاقتصاد الكلي" />
     <meta property="article:author" content="https://deeppressanalysis.com/manifesto.html" />
 
     <!-- ═══ Twitter Card ═══ -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@DeepPressAnalysis" />
     <meta name="twitter:creator" content="@DeepPressAnalysis" />
-    <meta name="twitter:title" content="تحليل الصحافة العميق — 15 سبتمبر 2026" />
-    <meta name="twitter:description" content="تحليل مؤسسي للمشهد الإعلامي العالمي، يدرس كيفية صياغة السرديات حول الدين السيادي الأمريكي، وسباق الذكاء الاصطناعي، والهندسة الانتخابية المحلية لإضفاء الشرعية على السلطة المركزية والحكم التكنوقراطي." />
+    <meta name="twitter:title" content="Deep Press Analysis — 16 سبتمبر 2026" />
+    <meta name="twitter:description" content="تحليل هيكلي متعمق لعمليات النقد لدى الاحتياطي الفيدرالي، يبحث في آليات إصدار العملة المادية، وإدارة السيولة الرقمية، والائتمان المصرفي الداخلي المنشأ، وآلية المحاسبة للأصول المؤجلة." />
     <meta name="twitter:image" content="https://deeppressanalysis.com/assets/og-cover.jpg" />
 
     <script type="application/ld+json" nonce="EDNnf03nceIofn39fn3e9h3sdfa">
@@ -87,8 +88,8 @@
         "@context": "https://schema.org",
         "@type": "NewsMediaOrganization",
         "@id": "https://deeppressanalysis.com/#newsmediaorganization",
-        "name": "تحليل الصحافة العميق",
-        "url": "https://deeppressanalysis.com/ar/150926.html",
+        "name": "Deep Press Analysis",
+        "url": "https://deeppressanalysis.com/ar/160926.html",
         "logo": {
           "@type": "ImageObject",
           "url": "https://deeppressanalysis.com/logo.png",
@@ -105,79 +106,76 @@
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "@id": "https://deeppressanalysis.com/ar/150926.html#webpage",
-        "url": "https://deeppressanalysis.com/ar/150926.html",
-        "name": "تحليل الصحافة العميق — 15 سبتمبر 2026",
+        "@id": "https://deeppressanalysis.com/ar/160926.html#webpage",
+        "url": "https://deeppressanalysis.com/ar/160926.html",
+        "name": "Deep Press Analysis — 16 سبتمبر 2026",
         "isPartOf": {
           "@id": "https://deeppressanalysis.com/#newsmediaorganization"
         },
-        "datePublished": "2026-09-15T05:00:00Z",
-        "dateModified": "2026-09-15T05:00:00Z",
-        "description": "تحليل مؤسسي للمشهد الإعلامي العالمي، يدرس كيفية صياغة السرديات حول الدين السيادي الأمريكي، وسباق الذكاء الاصطناعي، والهندسة الانتخابية المحلية لإضفاء الشرعية على السلطة المركزية والحكم التكنوقراطي.",
+        "datePublished": "2026-09-16T05:00:00Z",
+        "dateModified": "2026-09-16T05:00:00Z",
+        "description": "تحليل هيكلي متعمق لعمليات النقد لدى الاحتياطي الفيدرالي، يبحث في آليات إصدار العملة المادية، وإدارة السيولة الرقمية، والائتمان المصرفي الداخلي المنشأ، وآلية المحاسبة للأصول المؤجلة.",
         "inLanguage": "ar"
       },
       {
         "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "@id": "https://deeppressanalysis.com/ar/160926.html#video",
+        "name": "Deep Press Analysis - الملخص الصوتي ليوم 16 سبتمبر 2026",
+        "description": "ملخص يومي يحلل عمليات النقد للاحتياطي الفيدرالي وخلق الائتمان لدى البنوك التجارية.",
+        "thumbnailUrl": "https://i.ytimg.com/vi/7YFkEEHELGw/maxresdefault.jpg",
+        "uploadDate": "2026-09-16T05:00:00Z",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/7YFkEEHELGw"
+      },
+      {
+        "@context": "https://schema.org",
         "@type": "NewsArticle",
-        "@id": "https://deeppressanalysis.com/ar/150926.html#art-1",
-        "headline": "الإطار النظري",
-        "datePublished": "2026-09-15T05:00:00Z",
-        "dateModified": "2026-09-15T05:00:00Z",
-        "isPartOf": { "@id": "https://deeppressanalysis.com/ar/150926.html#webpage" },
+        "@id": "https://deeppressanalysis.com/ar/160926.html#art-1",
+        "headline": "آليات الإصدار المادي ورسوم سك العملة",
+        "datePublished": "2026-09-16T05:00:00Z",
+        "dateModified": "2026-09-16T05:00:00Z",
+        "isPartOf": { "@id": "https://deeppressanalysis.com/ar/160926.html#webpage" },
         "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-        "author": { "@type": "Organization", "name": "تحليل الصحافة العميق", "url": "https://deeppressanalysis.com/manifesto.html" },
+        "author": { "@type": "Organization", "name": "Deep Press Analysis", "url": "https://deeppressanalysis.com/manifesto.html" },
         "inLanguage": "ar",
         "articleSection": "التحليل"
       },
       {
         "@context": "https://schema.org",
         "@type": "NewsArticle",
-        "@id": "https://deeppressanalysis.com/ar/150926.html#art-2",
-        "headline": "الاقتصاد الجيوسياسي وإدارة الديون",
-        "datePublished": "2026-09-15T05:00:00Z",
-        "dateModified": "2026-09-15T05:00:00Z",
-        "isPartOf": { "@id": "https://deeppressanalysis.com/ar/150926.html#webpage" },
+        "@id": "https://deeppressanalysis.com/ar/160926.html#art-2",
+        "headline": "بنية السيولة الرقمية والاحتياطيات الوفيرة",
+        "datePublished": "2026-09-16T05:00:00Z",
+        "dateModified": "2026-09-16T05:00:00Z",
+        "isPartOf": { "@id": "https://deeppressanalysis.com/ar/160926.html#webpage" },
         "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-        "author": { "@type": "Organization", "name": "تحليل الصحافة العميق", "url": "https://deeppressanalysis.com/manifesto.html" },
+        "author": { "@type": "Organization", "name": "Deep Press Analysis", "url": "https://deeppressanalysis.com/manifesto.html" },
         "inLanguage": "ar",
         "articleSection": "التحليل"
       },
       {
         "@context": "https://schema.org",
         "@type": "NewsArticle",
-        "@id": "https://deeppressanalysis.com/ar/150926.html#art-3",
-        "headline": "الأمن المعرفي وسباق الذكاء الاصطناعي",
-        "datePublished": "2026-09-15T05:00:00Z",
-        "dateModified": "2026-09-15T05:00:00Z",
-        "isPartOf": { "@id": "https://deeppressanalysis.com/ar/150926.html#webpage" },
+        "@id": "https://deeppressanalysis.com/ar/160926.html#art-3",
+        "headline": "خلق الائتمان الداخلي والتعايش المالي النقدي",
+        "datePublished": "2026-09-16T05:00:00Z",
+        "dateModified": "2026-09-16T05:00:00Z",
+        "isPartOf": { "@id": "https://deeppressanalysis.com/ar/160926.html#webpage" },
         "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-        "author": { "@type": "Organization", "name": "تحليل الصحافة العميق", "url": "https://deeppressanalysis.com/manifesto.html" },
+        "author": { "@type": "Organization", "name": "Deep Press Analysis", "url": "https://deeppressanalysis.com/manifesto.html" },
         "inLanguage": "ar",
         "articleSection": "التحليل"
       },
       {
         "@context": "https://schema.org",
         "@type": "NewsArticle",
-        "@id": "https://deeppressanalysis.com/ar/150926.html#art-4",
-        "headline": "الهندسة الانتخابية وإدارة الأزمات",
-        "datePublished": "2026-09-15T05:00:00Z",
-        "dateModified": "2026-09-15T05:00:00Z",
-        "isPartOf": { "@id": "https://deeppressanalysis.com/ar/150926.html#webpage" },
+        "@id": "https://deeppressanalysis.com/ar/160926.html#art-4",
+        "headline": "ديناميكيات الميزانية العمومية والأصل المؤجل",
+        "datePublished": "2026-09-16T05:00:00Z",
+        "dateModified": "2026-09-16T05:00:00Z",
+        "isPartOf": { "@id": "https://deeppressanalysis.com/ar/160926.html#webpage" },
         "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-        "author": { "@type": "Organization", "name": "تحليل الصحافة العميق", "url": "https://deeppressanalysis.com/manifesto.html" },
-        "inLanguage": "ar",
-        "articleSection": "التحليل"
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "NewsArticle",
-        "@id": "https://deeppressanalysis.com/ar/150926.html#art-5",
-        "headline": "التحليل عبر وسائل الإعلام والطبقة المؤسسية",
-        "datePublished": "2026-09-15T05:00:00Z",
-        "dateModified": "2026-09-15T05:00:00Z",
-        "isPartOf": { "@id": "https://deeppressanalysis.com/ar/150926.html#webpage" },
-        "publisher": { "@id": "https://deeppressanalysis.com/#newsmediaorganization" },
-        "author": { "@type": "Organization", "name": "تحليل الصحافة العميق", "url": "https://deeppressanalysis.com/manifesto.html" },
+        "author": { "@type": "Organization", "name": "Deep Press Analysis", "url": "https://deeppressanalysis.com/manifesto.html" },
         "inLanguage": "ar",
         "articleSection": "التحليل"
       }
@@ -261,10 +259,6 @@
             margin-top: 30px; text-align: left; border-left: 4px solid var(--brand-navy);
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
-        /* RTL support for briefing summary */
-        [dir="rtl"] .briefing-summary {
-            text-align: right; border-left: none; border-right: 4px solid var(--brand-navy);
-        }
         .briefing-summary p { font-size: 15px; color: var(--text-secondary); margin: 0; }
         .briefing-summary strong {
             color: var(--brand-navy); font-weight: 700; text-transform: uppercase;
@@ -279,13 +273,6 @@
         @keyframes ticker {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
-        }
-        [dir="rtl"] .bbg-ticker-inner {
-            animation: ticker-rtl 25s linear infinite;
-        }
-        @keyframes ticker-rtl {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
         }
 
         /* ─── Outlets (Newspapers / Sections) ─── */
@@ -309,13 +296,11 @@
             display: flex; align-items: baseline; width: 100%; padding: 25px 25px 10px;
             background: #fff; border: none; text-align: left;
         }
-        [dir="rtl"] .article-header { text-align: right; }
         .art-idx { font-family: 'Inter', sans-serif; font-size: 13px; color: #9CA3AF; width: 35px; flex-shrink: 0; font-weight: 500; }
         .art-title {
             font-family: 'Libre Baskerville', serif; font-size: 18px; font-weight: 700;
             color: var(--text-primary); flex-grow: 1; padding-right: 20px;
         }
-        [dir="rtl"] .art-title { padding-right: 0; padding-left: 20px; }
 
         .article-body { background: #fff; }
         .body-inner {
@@ -325,11 +310,9 @@
             max-width: 85ch;
             line-height: 1.7;
         }
-        [dir="rtl"] .body-inner { padding: 10px 60px 30px 25px; }
         .body-inner p { margin-bottom: 15px; }
         .body-inner p:last-child { margin-bottom: 0; }
         .body-inner ul, .body-inner ol { margin-left: 20px; margin-bottom: 15px; }
-        [dir="rtl"] .body-inner ul, [dir="rtl"] .body-inner ol { margin-left: 0; margin-right: 20px; }
         .body-inner li { margin-bottom: 8px; }
         .body-inner .ref-list { font-size: 12px; margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 15px; }
         .body-inner .ref-list li { margin-bottom: 4px; word-break: break-all; }
@@ -337,7 +320,6 @@
         /* Tables for Data */
         .data-table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 20px; font-size: 14px; }
         .data-table th, .data-table td { border: 1px solid var(--border-color); padding: 12px; text-align: left; vertical-align: top; }
-        [dir="rtl"] .data-table th, [dir="rtl"] .data-table td { text-align: right; }
         .data-table th { background-color: #f8fafc; font-weight: 700; color: var(--brand-navy); }
         .data-table tr:hover { background-color: #f1f5f9; }
 
@@ -350,18 +332,14 @@
         .nebula-input { position: relative; flex: 1; }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
         .nebula-input .input { width: 100%; padding: 12px 12px 12px 40px; border: 1px solid #cbd5e1; background: #fff; color: var(--brand-navy); font-size: 16px; outline: none; border-radius: 4px 0 0 4px; transition: border-color 0.2s; }
-        [dir="rtl"] .nebula-input .input { padding: 12px 40px 12px 12px; border-radius: 0 4px 4px 0; }
         .nebula-input .input:focus { border-color: var(--brand-blue); z-index: 2; position: relative; }
         .nebula-input .input.input-error { border-color: var(--down-color); }
         .email-icon { position: absolute; top: 50%; left: 12px; transform: translateY(-50%); width: 20px; height: 20px; fill: #94a3b8; pointer-events: none; transition: fill 0.2s; }
-        [dir="rtl"] .email-icon { left: auto; right: 12px; }
         .nebula-input .input:focus ~ .email-icon { fill: var(--brand-blue); }
         .subscribe-button { padding: 13px 24px; font-size: 14px; font-weight: 700; color: #fff; background: var(--brand-navy); border: 1px solid var(--brand-navy); border-radius: 0 4px 4px 0; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; transition: background 0.2s, border-color 0.2s; }
-        [dir="rtl"] .subscribe-button { border-radius: 4px 0 0 4px; }
         .subscribe-button:disabled { opacity: 0.7; cursor: not-allowed; }
         .subscribe-button:hover:not(:disabled) { background: var(--brand-blue); border-color: var(--brand-blue); }
         .form-error-msg { display: none; color: var(--down-color); font-size: 13px; margin-top: 6px; text-align: left; width: 100%; }
-        [dir="rtl"] .form-error-msg { text-align: right; }
         .form-error-msg.visible { display: block; }
         .success-message { display: none; text-align: center; color: var(--brand-navy); }
         .success-message.visible { display: block; }
@@ -369,28 +347,77 @@
         .checkmark-circle { stroke: var(--up-color); stroke-width: 2; fill: none; }
         .checkmark-check { stroke: var(--up-color); stroke-width: 2; }
 
-        /* ─── Footer ─── */
-        footer { text-align: center; padding: 30px 0 60px; color: var(--text-secondary); font-size: 13px; }
-        .footer-links { margin-top: 35px; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
-        .btn-text { font-weight: 900; text-transform: uppercase; font-size: 18px; letter-spacing: 1px; color: var(--brand-navy); border-bottom: 2px solid transparent; padding-bottom: 4px; transition: color 0.2s, border-color 0.2s; }
-        .btn-text:hover { color: var(--brand-blue); border-bottom-color: var(--brand-blue); }
-
         /* ─── Spotify facade ─── */
         .spotify-fake-player { background-color: #282828; border-radius: 12px; height: 152px; display: flex; align-items: center; cursor: pointer; overflow: hidden; transition: background-color 0.3s ease, box-shadow 0.3s ease; position: relative; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 40px; }
         .spotify-fake-player:hover { background-color: #333; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2); }
         .fake-cover { width: 152px; height: 152px; flex-shrink: 0; }
         .fake-cover img { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
-        [dir="rtl"] .fake-cover img { border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
         .fake-info { padding: 0 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
         .fake-meta { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #b3b3b3; margin-bottom: 8px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
         .fake-title { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Libre Baskerville', serif; line-height: 1.2; }
         .fake-desc { font-size: 14px; color: #b3b3b3; font-family: 'Inter', sans-serif; }
         .fake-play-btn { background-color: #1ed760; color: #000; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; margin-right: 24px; cursor: pointer; flex-shrink: 0; transition: transform 0.2s, background-color 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        [dir="rtl"] .fake-play-btn { margin-right: 0; margin-left: 24px; }
         .fake-play-btn svg { fill: currentColor; margin-left: 2px; }
-        [dir="rtl"] .fake-play-btn svg { margin-left: 0; margin-right: 2px; transform: scaleX(-1); }
         .spotify-fake-player:hover .fake-play-btn { transform: scale(1.1); background-color: #1fdf64; }
         .hidden-player { display: none !important; }
+
+        /* ─── YouTube facade ─── */
+        .video-wrapper {
+            aspect-ratio: 16 / 9;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--rule);
+            cursor: pointer;
+            border-top: 4px double var(--rule);
+            border-bottom: 1px solid var(--rule);
+            margin: 0 0 36px;
+        }
+        .video-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+            filter: grayscale(0.5); /* Slight grayscale to fit newspaper theme */
+        }
+        .video-wrapper:hover img {
+            opacity: 1;
+            filter: grayscale(0);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .yt-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 68px;
+            height: 48px;
+            background-color: var(--ink);
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .video-wrapper:hover .yt-play-btn {
+            background-color: #ff0000; /* YouTube red on hover */
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+        .yt-play-btn svg {
+            fill: #fff;
+            width: 32px;
+            height: 32px;
+        }
 
         /* ─── Web3 Support Section ─── */
         .support-section { padding-top: 40px; padding-bottom: 40px; border-top: 1px dashed var(--border-color); display: flex; flex-direction: column; align-items: center; gap: 24px; font-family: 'Inter', sans-serif; }
@@ -408,7 +435,7 @@
         .btc::before { background-color: #F7931A; }
         .sol::before { background-color: #14F195; }
         .trx::before { background-color: #FF060A; }
-        .crypto-address { width: 100%; background: var(--bg-body); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 12px; font-family: 'Inter', monospace; font-size: 11px; color: var(--text-secondary); transition: all 0.2s; outline: none; cursor: text; text-align: left; direction: ltr; }
+        .crypto-address { width: 100%; background: var(--bg-body); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 12px; font-family: 'Inter', monospace; font-size: 11px; color: var(--text-secondary); transition: all 0.2s; outline: none; cursor: text; }
         .crypto-card:hover .crypto-address { border-color: rgba(59, 130, 246, 0.3); color: var(--brand-navy); }
 
         /* ─── Reduced motion ─── */
@@ -423,22 +450,17 @@
             .top-toolbar { flex-direction: column-reverse; gap: 20px; align-items: center; }
             .lang-bar { flex-wrap: wrap; justify-content: center; }
             .body-inner { padding-left: 25px; }
-            [dir="rtl"] .body-inner { padding-left: 25px; padding-right: 25px; }
             .outlet-tags { display: none; }
             .input-group { flex-direction: column; gap: 10px; }
             .nebula-input .input { border-radius: 4px; }
-            [dir="rtl"] .nebula-input .input { border-radius: 4px; }
             .subscribe-button { border-radius: 4px; width: 100%; }
-            [dir="rtl"] .subscribe-button { border-radius: 4px; }
             .footer-links { flex-direction: column; gap: 20px; }
             .spotify-fake-player { height: auto; padding: 16px; flex-wrap: wrap; }
             .fake-cover { width: 64px; height: 64px; border-radius: 4px; margin-right: 16px; }
-            [dir="rtl"] .fake-cover { margin-right: 0; margin-left: 16px; }
             .fake-cover img { border-radius: 4px; }
             .fake-info { padding: 0; width: calc(100% - 80px - 50px); }
             .fake-title { font-size: 16px; white-space: normal; }
             .fake-play-btn { width: 40px; height: 40px; margin-right: 0; }
-            [dir="rtl"] .fake-play-btn { margin-left: 0; }
             .crypto-grid { grid-template-columns: 1fr; }
             /* Mobile Table Adjustment */
             .data-table { display: block; overflow-x: auto; white-space: nowrap; }
@@ -447,7 +469,7 @@
 
         /* ─── Print ─── */
         @media print {
-            .social-row, .lang-bar, .nebula-wrapper, footer, .spotify-fake-player, #spotify-real-container, .support-section { display: none; }
+            .social-row, .lang-bar, .nebula-wrapper, footer, .spotify-fake-player, #spotify-real-container, .video-wrapper, .support-section { display: none; }
             body { background: white; }
             .bbg-terminal { border: 1px solid #000; color: #000; background: #fff; box-shadow: none; }
             .bbg-text, .bbg-accent, .text-green, .text-red { color: #000 !important; }
@@ -560,7 +582,6 @@
             box-shadow: none;
             text-align: center;
         }
-        [dir="rtl"] .briefing-summary { text-align: center; border-right: none; }
         .briefing-summary p {
             margin: 0;
             font-family: 'Libre Baskerville', Georgia, serif;
@@ -577,7 +598,6 @@
             font-weight: 900;
             letter-spacing: 1.8px;
         }
-        [dir="rtl"] .briefing-summary strong { text-align: center; }
 
         .edition-strip {
             display: flex;
@@ -594,9 +614,7 @@
             text-transform: uppercase;
         }
         .edition-strip span { padding: 0 13px; border-right: 1px solid #8e887e; }
-        [dir="rtl"] .edition-strip span { border-right: none; border-left: 1px solid #8e887e; }
         .edition-strip span:last-child { border-right: 0; }
-        [dir="rtl"] .edition-strip span:last-child { border-left: 0; }
         .edition-strip span:first-child { font-weight: 900; }
 
         /* Market dashboard becomes a monochrome newspaper data strip */
@@ -650,9 +668,7 @@
             border-right: 1px solid var(--border-color);
             border-radius: 0;
         }
-        [dir="rtl"] .bbg-widget { border-right: none; border-left: 1px solid var(--border-color); }
         .bbg-widget:last-child { border-right: 0; }
-        [dir="rtl"] .bbg-widget:last-child { border-left: 0; }
         .bbg-label {
             margin-bottom: 5px;
             color: var(--ink-soft);
@@ -688,7 +704,6 @@
         }
         .spotify-fake-player:hover { background: rgba(0,0,0,.035); box-shadow: none; }
         .fake-cover { width: 92px; height: 92px; border-right: 1px solid var(--rule); }
-        [dir="rtl"] .fake-cover { border-right: none; border-left: 1px solid var(--rule); }
         .fake-cover img { border-radius: 0; filter: grayscale(1) contrast(1.2); }
         .fake-info { padding: 0 20px; }
         .fake-meta { color: var(--ink-soft); font-size: 9px; letter-spacing: 1.5px; }
@@ -701,7 +716,6 @@
             color: var(--paper);
             box-shadow: none;
         }
-        [dir="rtl"] .fake-play-btn { margin-right: 0; margin-left: 18px; }
         .spotify-fake-player:hover .fake-play-btn { background: var(--ink); transform: scale(1.04); }
         #spotify-real-container iframe { border-radius: 0 !important; filter: grayscale(.8); }
 
@@ -772,11 +786,9 @@
             font-size: 14.5px;
             line-height: 1.6;
         }
-        [dir="rtl"] .body-inner { padding: 0 42px 30px 0; }
         .body-inner p { margin-bottom: 15px; }
         .body-inner strong { font-weight: 700; color: var(--ink); }
         .body-inner ul, .body-inner ol { margin-left: 22px; margin-bottom: 17px; }
-        [dir="rtl"] .body-inner ul, [dir="rtl"] .body-inner ol { margin-left: 0; margin-right: 22px; }
         .body-inner li { margin-bottom: 8px; }
 
         /* Narrative articles read like a paper spread on wide screens. */
@@ -801,10 +813,6 @@
             line-height: .78;
             color: var(--ink);
         }
-        [dir="rtl"] .article-item:not(#art-2):not(#art-4) .body-inner > p:first-of-type::first-letter {
-            float: right;
-            margin: .04em 0 0 .09em;
-        }
 
         /* Data tables = financial newspaper tables */
         .data-table {
@@ -825,13 +833,8 @@
             border-right: 1px solid #c0b8aa;
             vertical-align: top;
         }
-        [dir="rtl"] .data-table th, [dir="rtl"] .data-table td {
-            border-right: 0;
-            border-left: 1px solid #c0b8aa;
-        }
         .data-table th:last-child,
         .data-table td:last-child { border-right: 0; }
-        [dir="rtl"] .data-table th:last-child, [dir="rtl"] .data-table td:last-child { border-left: 0; }
         .data-table th {
             background: transparent;
             color: var(--ink);
@@ -927,9 +930,7 @@
             background: transparent;
             gap: 8px;
         }
-        [dir="rtl"] .crypto-card { border-right: none; border-left: 1px solid var(--rule); }
         .crypto-card:last-child { border-right: 0; }
-        [dir="rtl"] .crypto-card:last-child { border-left: 0; }
         .crypto-card:hover { transform: none; box-shadow: none; background: rgba(0,0,0,.03); border-color: var(--rule); }
         .crypto-name { color: var(--ink); font-size: 10px; text-transform: uppercase; letter-spacing: .8px; }
         .crypto-name::before { background: var(--ink) !important; border-radius: 0; }
@@ -949,14 +950,11 @@
             .container { margin: 12px; padding: 16px 24px 28px; }
             .bbg-grid { grid-template-columns: repeat(2, 1fr); }
             .bbg-widget:nth-child(2) { border-right: 0; }
-            [dir="rtl"] .bbg-widget:nth-child(2) { border-left: 0; }
             .bbg-widget:nth-child(-n+2) { border-bottom: 1px solid var(--border-color); }
             .crypto-grid { grid-template-columns: repeat(2, 1fr); }
             .crypto-card:nth-child(2) { border-right: 0; }
-            [dir="rtl"] .crypto-card:nth-child(2) { border-left: 0; }
             .crypto-card:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
             .body-inner { padding-left: 36px; }
-            [dir="rtl"] .body-inner { padding-left: 0; padding-right: 36px; }
         }
 
         /* Mobile: single-column newspaper, not tiny desktop cards */
@@ -974,34 +972,26 @@
             .subtitle { font-size: 9px; letter-spacing: 1.4px; }
             .briefing-summary { padding: 13px 0 0; margin-top: 14px; }
             .briefing-summary p { font-size: 14px; text-align: left; }
-            [dir="rtl"] .briefing-summary p { text-align: right; }
             .briefing-summary strong { text-align: left; }
-            [dir="rtl"] .briefing-summary strong { text-align: right; }
             .edition-strip { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; white-space: nowrap; margin-bottom: 18px; }
             .edition-strip span { flex: 0 0 auto; }
             .bbg-header { align-items: flex-start; gap: 6px; flex-direction: column; }
             .bbg-grid { grid-template-columns: 1fr; }
             .bbg-widget { min-height: 0; border-right: 0; border-bottom: 1px solid var(--border-color) !important; }
-            [dir="rtl"] .bbg-widget { border-left: 0; }
             .bbg-widget:last-child { border-bottom: 0 !important; }
             .bbg-ticker-inner { animation-duration: 34s; }
-            [dir="rtl"] .bbg-ticker-inner { animation-duration: 34s; }
             .spotify-fake-player { min-height: 80px; height: auto; padding: 8px 0; flex-wrap: nowrap; }
             .fake-cover { width: 64px; height: 64px; margin-right: 12px; border: 1px solid var(--rule); }
-            [dir="rtl"] .fake-cover { margin-right: 0; margin-left: 12px; }
             .fake-info { width: auto; padding: 0 8px 0 0; }
-            [dir="rtl"] .fake-info { padding: 0 0 0 8px; }
             .fake-title { font-size: 16px; white-space: normal; }
             .fake-desc { font-size: 12px; }
             .fake-play-btn { width: 36px; height: 36px; margin-right: 4px; }
-            [dir="rtl"] .fake-play-btn { margin-right: 0; margin-left: 4px; }
             .outlet-header { display: block; }
             .outlet-header h2 { font-size: 21px; }
             .outlet-tags { display: block; margin-top: 5px; }
             .article-header { grid-template-columns: 30px 1fr; padding-top: 19px; }
             .art-title { font-size: 19px; }
             .body-inner { padding: 0 0 24px 30px; font-size: 14px; line-height: 1.56; }
-            [dir="rtl"] .body-inner { padding: 0 30px 24px 0; }
             .article-item:not(#art-2):not(#art-4) .body-inner > p:first-of-type::first-letter { font-size: 3.7em; }
             .data-table { font-size: 10px; }
             .data-table th, .data-table td { min-width: 145px; padding: 7px; }
@@ -1011,7 +1001,6 @@
             .nebula-input .input, .subscribe-button { width: 100%; border-radius: 0; }
             .crypto-grid { grid-template-columns: 1fr; }
             .crypto-card { border-right: 0; border-bottom: 1px solid var(--rule) !important; }
-            [dir="rtl"] .crypto-card { border-left: 0; }
             .crypto-card:last-child { border-bottom: 0 !important; }
         }
 
@@ -1029,97 +1018,106 @@
 <div class="container">
     <div class="top-toolbar">
         <nav class="lang-bar" aria-label="اختيار اللغة">
-            <a href="/ua/150926.html" class="lang-link" hreflang="uk" aria-label="النسخة الأوكرانية">UA</a>
-            <a href="/en/150926.html" class="lang-link" hreflang="en" aria-label="النسخة الإنجليزية">EN</a>
-            <a href="/es/150926.html" class="lang-link" hreflang="es" aria-label="النسخة الإسبانية">ES</a>
-            <a href="/ar/150926.html" class="lang-link active" hreflang="ar" aria-current="page" aria-label="النسخة العربية">AR</a>
-            <a href="/ru/150926.html" class="lang-link" hreflang="ru" aria-label="النسخة الروسية">RU</a>
-            <a href="/de/150926.html" class="lang-link" hreflang="de" aria-label="النسخة الألمانية">DE</a>
+            <a href="/ua/160926.html" class="lang-link" hreflang="uk" aria-label="النسخة الأوكرانية">UA</a>
+            <a href="/en/160926.html" class="lang-link" hreflang="en" aria-label="النسخة الإنجليزية">EN</a>
+            <a href="/es/160926.html" class="lang-link" hreflang="es" aria-label="النسخة الإسبانية">ES</a>
+            <a href="/ar/160926.html" class="lang-link active" hreflang="ar" aria-current="page" aria-label="النسخة العربية">AR</a>
+            <a href="/ru/160926.html" class="lang-link" hreflang="ru" aria-label="النسخة الروسية">RU</a>
+            <a href="/de/160926.html" class="lang-link" hreflang="de" aria-label="النسخة الألمانية">DE</a>
         </nav>
         <nav class="social-row" aria-label="روابط وسائل التواصل الاجتماعي">
-            <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="مراسلة تحليل الصحافة العميق عبر البريد الإلكتروني" aria-label="إرسال بريد إلكتروني إلى تحليل الصحافة العميق">
-                <img src="https://deeppressanalysis.com/cloude/e.png" alt="Email" width="16" height="16">
+            <a href="mailto:info@deeppressanalysis.com" class="social-btn" title="إرسال بريد إلكتروني إلى Deep Press Analysis" aria-label="إرسال بريد إلكتروني إلى Deep Press Analysis">
+                <img src="https://deeppressanalysis.com/cloude/e.png" alt="بريد إلكتروني" width="16" height="16">
             </a>
             <a href="https://t.me/DeepPressAnalysis" class="social-btn" target="_blank" rel="noopener noreferrer" title="تيليجرام" aria-label="زيارة قناتنا على تيليجرام">
-                <img src="https://deeppressanalysis.com/cloude/tg.png" alt="Telegram" width="16" height="16">
+                <img src="https://deeppressanalysis.com/cloude/tg.png" alt="تيليجرام" width="16" height="16">
             </a>
             <a href="https://www.youtube.com/channel/UCQllmmUXnQ8ZKktztHvV1FA" class="social-btn" target="_blank" rel="noopener noreferrer" title="يوتيوب" aria-label="زيارة قناتنا على يوتيوب">
-                <img src="https://deeppressanalysis.com/cloude/you.png" alt="YouTube" width="16" height="16">
+                <img src="https://deeppressanalysis.com/cloude/you.png" alt="يوتيوب" width="16" height="16">
             </a>
         </nav>
     </div>
 
     <header>
         <div class="meta-issue">
-            المجلد • 26 • <time datetime="2026-09-15">15 سبتمبر 2026</time>
+            المجلد • 26 • <time datetime="2026-09-16">16 سبتمبر 2026</time>
         </div>
-        <h1 class="site-title">تحليل الصحافة العميق</h1>
-        <div class="subtitle">توليف يومي لأبرز المنشورات الدولية</div>
+        <h1 class="site-title">DEEP PRESS ANALYSIS</h1>
+        <div class="subtitle">ملخص يومي لأبرز المنشورات الدولية</div>
         <div class="briefing-summary">
-            <p><strong>محور تركيزنا اليوم:</strong> دراسة لآليات التأطير الإعلامي عبر ثلاثة مسارات جيوسياسية رئيسية. يشير التحليل إلى نمط منهجي حيث تُصاغ السرديات المتعلقة بتحويل أعباء الدين الأمريكي للخارج، وتنظيم الذكاء الاصطناعي، والتشريعات الانتخابية البريطانية، بهدف تعزيز السلطة المؤسسية وتقديم القرارات السياسية كضرورات تكنوقراطية.</p>
+            <p><strong>في بؤرة التركيز اليوم:</strong> تحليل هيكلي متعمق لعمليات النقد لدى الاحتياطي الفيدرالي، يبحث في آليات إصدار العملة المادية، وإدارة السيولة الرقمية لحساب عمليات السوق المفتوحة للنظام (SOMA)، والطبيعة الداخلية لإنشاء الائتمان من قبل البنوك التجارية، والأطر المحاسبية التي تستوعب آلية الأصول المؤجلة للبنك المركزي.</p>
         </div>
     </header>
 
     <div class="edition-strip" aria-label="مواضيع الإصدار">
-        <span>تحليل مؤسسي</span>
-        <span>التأطير الإعلامي</span>
+        <span>تحليل منهجي</span>
         <span>الاقتصاد الكلي</span>
-        <span>الأمن المعرفي</span>
-        <span>الهندسة الانتخابية</span>
+        <span>البنوك المركزية</span>
+        <span>التعايش المالي</span>
+        <span>البنية النقدية</span>
     </div>
 
     <main>
         <!-- ════════════════════════ BLOOMBERG-STYLE DASHBOARD ════════════════════════ -->
-        <section class="bbg-terminal" aria-label="لوحة معلومات السوق والسرديات">
+        <section class="bbg-terminal" aria-label="لوحة تحكم الأسواق والسرديات">
             <div class="bbg-header">
-                <div class="bbg-title">تحليل الصحافة العميق // متتبع السرديات المنهجية</div>
-                <div class="bbg-timestamp">بث البيانات المباشر: 2026-09-15 05:00:00Z</div>
+                <div class="bbg-title">DPA // متتبع السرديات المنهجية</div>
+                <div class="bbg-timestamp">تغذية بيانات مباشرة: 2026-09-16 05:00:00Z</div>
             </div>
             <div class="bbg-grid">
                 <div class="bbg-widget">
-                    <div class="bbg-label">الدين الوطني الأمريكي</div>
+                    <div class="bbg-label">القاعدة النقدية الأمريكية M0</div>
                     <div class="bbg-value-row">
-                        <span class="bbg-value text-red">القيمة: >40.0 تريليون دولار</span>
-                        <span class="bbg-indicator text-red">▲ 100% من الناتج المحلي</span>
+                        <span class="bbg-value text-accent">القيمة: 5.6 تريليون دولار</span>
+                        <span class="bbg-indicator text-accent">▲ مستقرة</span>
                     </div>
                 </div>
                 <div class="bbg-widget">
-                    <div class="bbg-label">تبرعات حزب إصلاح بريطانيا</div>
+                    <div class="bbg-label">رصيد حساب الخزانة العام (TGA)</div>
                     <div class="bbg-value-row">
-                        <span class="bbg-value text-accent">القيمة: 72 مليون جنيه إسترليني</span>
-                        <span class="bbg-indicator text-accent">▲ مراجعة بأثر رجعي</span>
+                        <span class="bbg-value text-accent">القيمة: 850 مليار دولار</span>
+                        <span class="bbg-indicator text-accent">▲ مرتفع</span>
                     </div>
                 </div>
                 <div class="bbg-widget">
-                    <div class="bbg-label">تأييد بريطاني للعودة للاتحاد الأوروبي</div>
+                    <div class="bbg-label">الأصل المؤجل للفيدرالي</div>
                     <div class="bbg-value-row">
-                        <span class="bbg-value text-accent">القيمة: 61%</span>
-                        <span class="bbg-indicator text-accent">▲ مستوى تاريخي مرتفع</span>
+                        <span class="bbg-value text-red">القيمة: 243 مليار دولار</span>
+                        <span class="bbg-indicator text-red">▲ متراكم</span>
                     </div>
                 </div>
                 <div class="bbg-widget">
-                    <div class="bbg-label">تنظيم مفتوح للذكاء الاصطناعي</div>
+                    <div class="bbg-label">متطلبات الاحتياطي الأمريكي</div>
                     <div class="bbg-value-row">
-                        <span class="bbg-value text-red">المؤشر: 0</span>
-                        <span class="bbg-indicator text-red">▼ سيطرة مركزية</span>
+                        <span class="bbg-value text-green">القيمة: 0.0%</span>
+                        <span class="bbg-indicator text-green">► ثابتة</span>
                     </div>
                 </div>
             </div>
             <div class="bbg-ticker">
                 <div class="bbg-ticker-inner">
-                    تنبيه النظام: تحليل التأطير الإعلامي يشير إلى تحول منهجي نحو إضفاء الشرعية التكنوقراطية // الدين الأمريكي يتجاوز 40 تريليون دولار مع استهداف الإدارة نمواً بنسبة 3% مدفوعاً بالذكاء الاصطناعي // نخب التكنولوجيا تؤطر الذكاء الاصطناعي كتهديد أمني وجودي يتطلب رقابة مغلقة // حزب العمال البريطاني يقترح حظراً بأثر رجعي على تبرعات العملات المشفرة مستهدفاً حزب إصلاح بريطانيا // السرديات تتجاهل بشكل منهجي كيفية توزيع المخاطر المالية //
+                    تنبيه نظامي: تحول هيكلي في الإصدار النقدي // الفيدرالي يحافظ على إطار الاحتياطيات الوفيرة بينما يتجاوز الأصل المؤجل 236 مليار دولار // البنوك التجارية تقود توسع المعروض النقدي (M2) داخلياً // متطلبات الاحتياطي تبقى عند 0% //
                 </div>
             </div>
         </section>
 
-        <div id="spotify-facade" class="spotify-fake-player" role="button" tabindex="0" aria-label="تشغيل بودكاست تحليل الصحافة العميق على سبوتيفاي">
+        <!-- YouTube Facade -->
+        <div class="video-wrapper yt-facade" id="yt-video-container" role="button" tabindex="0" aria-label="تشغيل فيديو يوتيوب">
+            <img src="https://i.ytimg.com/vi/7YFkEEHELGw/maxresdefault.jpg" alt="معاينة فيديو يوتيوب">
+            <button class="yt-play-btn" aria-label="تشغيل الفيديو" tabindex="-1">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+        </div>
+
+        <!-- Spotify Facade -->
+        <div id="spotify-facade" class="spotify-fake-player" role="button" tabindex="0" aria-label="تشغيل بودكاست Deep Press Analysis على سبوتيفاي">
             <div class="fake-cover">
-                <img src="https://deeppressanalysis.com/logo.png" alt="غلاف بودكاست تحليل الصحافة العميق">
+                <img src="https://deeppressanalysis.com/logo.png" alt="غلاف بودكاست Deep Press Analysis">
             </div>
             <div class="fake-info">
-                <div class="fake-meta">برنامج بودكاست</div>
-                <div class="fake-title">تحليل الصحافة العميق</div>
-                <div class="fake-desc">الموجز الصوتي اليومي</div>
+                <div class="fake-meta">عرض بودكاست</div>
+                <div class="fake-title">Deep Press Analysis</div>
+                <div class="fake-desc">الملخص الصوتي اليومي</div>
             </div>
             <button class="fake-play-btn" aria-label="تشغيل البودكاست" tabindex="-1">
                 <svg role="img" height="24" width="24" viewBox="0 0 24 24" aria-hidden="true">
@@ -1132,19 +1130,19 @@
         <!-- ════════════════════════ SECTION 1 ════════════════════════ -->
         <section class="outlet-section">
             <div class="outlet-header">
-                <h2>الإطار النظري</h2>
-                <div class="outlet-tags">تحليل الإعلام • بناء الواقع</div>
+                <h2>الآليات النقدية</h2>
+                <div class="outlet-tags">العملة المادية • رسوم سك العملة</div>
             </div>
 
             <article class="article-item" id="art-1">
                 <div class="article-header">
                     <span class="art-idx">01</span>
-                    <h3 class="art-title">التحليل المؤسسي للمشهد الإعلامي</h3>
+                    <h3 class="art-title">آليات الإصدار المادي ورسوم سك العملة</h3>
                 </div>
                 <div class="article-body">
                     <div class="body-inner">
-                        <p>وفقًا لمبادئ نظرية التأطير لروبرت إنتمان، يمكن لتحليل النصوص الإعلامية أن يكشف عن الآليات التي يوزع من خلالها الاتصال السلطة عبر تحديد المشكلات، وتشخيص أسبابها، وإصدار التقييمات الأخلاقية، واقتراح الحلول<sup>1</sup>. يبدو أن المشهد الإعلامي لا يعمل كانعكاس محايد للواقع، بل كمساحة تقوم فيها المصالح السياسية والاقتصادية ببناء أيديولوجية مهيمنة من خلال الإبراز الانتقائي لحقائق معينة والتجاهل المنهجي لحقائق أخرى<sup>4</sup>. لإجراء هذا التحليل المؤسسي، تم تقسيم التدفق المعلوماتي ليوم تقويمي واحد مفاهيميًا إلى ثلاثة نصوص كبرى (مجموعات دلالية) تعكس المسارات السياسية والاقتصادية المرصودة.</p>
-                        <p>حجة مضادة: إذا تجزأت أنماط استهلاك الجمهور عبر شبكات لامركزية من الند للند، فإن قدرة وسائل الإعلام التقليدية على ترسيخ أيديولوجية موحدة ومهيمنة من خلال الإبراز الانتقائي قد تتضاءل بشكل كبير.</p>
+                        <p>كثيراً ما يُوصف مفهوم "طباعة الأموال" من قبل الاحتياطي الفيدرالي بأنه الإنتاج المادي للأوراق النقدية، على الرغم من أن هذه الآلية تمثل مكوناً مساعداً في البنية النقدية الحديثة. يدير الاحتياطي الفيدرالي القاعدة النقدية (M0)، مستخدماً العملة المادية بالأساس للحفاظ على استقرار المعاملات بدلاً من توسيع المعروض النقدي. وتشير البيانات التجريبية إلى أن حوالي 85% من الأوراق النقدية المطبوعة حديثاً تُخصص لاستبدال العملات التالفة، حيث يقوم مكتب النقش والطباعة بإنتاج هذه الأوراق باستخدام عمليات طباعة متقدمة (الأوفست والطباعة الغائرة). وتتمحور اقتصاديات هذا الإصدار المادي حول "رسوم سك العملة" (seigniorage) — وهو الفارق بين القيمة الاسمية للعملة وتكلفة إنتاجها. وبينما تحقق دار سك العملة الأمريكية إيرادات مباشرة تُودع في الصندوق العام للخزانة (والتي بلغت حوالي 25 مليار دولار في عام 2000)، فإن العملة الورقية تولد "رسوم سك سلبية" (passive seigniorage) لأن الاحتياطي الفيدرالي يدعم الالتزامات المادية التي لا تدر عائداً بأصول حكومية تدر عائداً. قبل عام 2008، عندما لم تكن أرصدة الاحتياطي تدر فائدة، كانت القاعدة النقدية بأكملها تولد رسوم سك، في حين أن النقد المادي يعمل الآن كالتزام أساسي لا يدر فائدة ويولد هذه الإيرادات. وبالتالي، تشير البيانات إلى أن إصدار العملة المادية يعمل في الغالب كآلية صيانة للبنية التحتية للمعاملات ومصدر للعائد السلبي، وليس كأداة رئيسية للتوسع النقدي.</p>
+                        <p>الحجة المضادة: إذا شهد طلب الجمهور على النقد المادي زيادة هيكلية مستدامة — ربما بسبب فقدان الثقة في أنظمة الدفع الرقمية أو توسع الاقتصاد غير الرسمي — فسيُطلب من الاحتياطي الفيدرالي تحويل نسبة أكبر من ميزانيته العمومية نحو إصدار الأوراق النقدية المادية، مما قد يغير الافتراض الأساسي بأن العملة المادية هي مجرد آلية استبدال مساعدة بشكل صارم.</p>
                     </div>
                 </div>
             </article>
@@ -1153,23 +1151,19 @@
         <!-- ════════════════════════ SECTION 2 ════════════════════════ -->
         <section class="outlet-section">
             <div class="outlet-header">
-                <h2>الاقتصاد الجيوسياسي وإدارة الديون</h2>
-                <div class="outlet-tags">الدين الأمريكي • تحويل المخاطر للخارج</div>
+                <h2>السيولة الرقمية</h2>
+                <div class="outlet-tags">SOMA • عمليات السوق المفتوحة</div>
             </div>
 
             <article class="article-item" id="art-2">
                 <div class="article-header">
                     <span class="art-idx">02</span>
-                    <h3 class="art-title">النص الأكبر الأول: الاختلالات الاقتصادية والجهات الأجنبية الفاعلة</h3>
+                    <h3 class="art-title">بنية السيولة الرقمية والاحتياطيات الوفيرة</h3>
                 </div>
                 <div class="article-body">
                     <div class="body-inner">
-                        <p>يبحث هذا القسم المنشورات المتعلقة باستراتيجية الاقتصاد الكلي للولايات المتحدة، ودور الحلفاء في تسعير الطاقة، وتموضع كتلة بريكس<sup>6</sup>.</p>
-                        <p>يتمحور الجوهر الواقعي حول تجاوز الدين الوطني الأمريكي حاجز 40 تريليون دولار، ليصل إلى 100% من الناتج المحلي الإجمالي<sup>7</sup>. صرح وزير الخزانة الأمريكي، سكوت بيسنت، بأن الإدارة تعتزم معالجة الدين من خلال تحفيز النمو الاقتصادي بمعدل 3% - مدفوعًا بالذكاء الاصطناعي والتخفيضات الضريبية - بدلاً من خفض نفقات الدولة<sup>7</sup>. وفي الوقت نفسه، أرجع بيسنت المسؤولية الجزئية عن ارتفاع أسعار الطاقة العالمية إلى أوكرانيا، مستشهدًا بالضربات على البنية التحتية الروسية للطاقة<sup>6</sup>. وفي نيودلهي، اختتمت قمة بريكس بإعلان مشترك ينتقد الحمائية الأمريكية وسياسات العقوبات والرسوم الجمركية<sup>8</sup>. وفي اليمن، تقدمت الجماعات شبه العسكرية الحوثية، وفرضت سيطرتها على الأراضي المحيطة بمضيق باب المندب الاستراتيجي<sup>7</sup>. بدأت وكالة الأمن القومي الأمريكية (NSA) إعادة هيكلة داخلية كبرى، حيث أنشأت مديريات جديدة تركز على الذكاء الاصطناعي والأمن السيبراني ومواجهة الصين<sup>6</sup>.</p>
-                        <p>يبدو أن البنية السردية مصممة لتوجيه إدراك القارئ نحو تعزيز شرعية الأجهزة المالية والاستخباراتية الأمريكية. تُقدم الدولة كفاعل عقلاني رئيسي قادر على إدارة الاختلالات الكبيرة في الاقتصاد الكلي من خلال النمو المحسوب. في المقابل، يُصوّر الحلفاء الأجانب (مثل أوكرانيا) سرديًا كمتغيرات تؤدي أفعالهم إلى زعزعة استقرار الاقتصاد العالمي. وتُصنف مجموعة بريكس والجماعات شبه العسكرية في الشرق الأوسط ضمن سلسلة من التهديدات الخارجية، مما يوحي بالحاجة إلى توحيد المجتمع حول السلطة التنفيذية الوطنية.</p>
-                        <p>إحدى الآليات البلاغية الرئيسية المحددة في هذا النص هي إلقاء المسؤولية على أطراف خارجية مقترنة باللجوء إلى حتمية الأمور. تُعزى المؤشرات الاقتصادية الهيكلية الداخلية (مثل التضخم وأسعار الوقود) إلى جهات فاعلة خارجية في مناطق النزاع. يقلل التركيز على "النمو الاقتصادي الجذاب" من بروز البدائل؛ حيث تُصاغ التنازلات السياسية الصعبة، مثل زيادة الضرائب أو تخفيض البرامج الاجتماعية، كنماذج غير مرغوب فيها أو بالية من التفكير. وتُقدم الحتمية التكنولوجية (دمج الذكاء الاصطناعي) كحل هيكلي لأزمة الديون.</p>
-                        <p>تشير بنية هذا النص الأكبر إلى افتراض أساسي: أن النمو الاقتصادي قادر على استيعاب الاختلالات المؤسسية والمالية دون الحاجة إلى إصلاحات هيكلية. كما تفترض ضمنًا أن الابتكارات التكنولوجية تضمن نموًا مضاعفًا في الإنتاجية وأن المصالح الاقتصادية الوطنية للولايات المتحدة تحظى بالأولوية على الأهداف الجيوسياسية لحلفائها في الصراعات العسكرية. يهدف السرد إلى حشد الدعم المحلي للأجهزة المالية والاستخباراتية من خلال تحميل مسؤولية الاختلالات الاقتصادية الداخلية لجهات فاعلة أجنبية والاعتماد على نماذج النمو التكنولوجي.</p>
-                        <p>حجة مضادة: إذا فشل النمو الاقتصادي المتوقع بنسبة 3% والمدفوع بالذكاء الاصطناعي في التحقق أو في تعويض أعباء فوائد دين يبلغ 40 تريليون دولار، فإن السردية التي تحمّل عدم الاستقرار الاقتصادي لجهات فاعلة أجنبية قد تفقد تماسكها الهيكلي، مما يفرض إعادة تقييم محلي للسياسة المالية.</p>
+                        <p>يحدث التوسع الرئيسي للقاعدة النقدية من خلال عمليات الميزانية العمومية الإلكترونية التي ينفذها حساب عمليات السوق المفتوحة للنظام (SOMA). خلال عمليات السوق المفتوحة، يشتري الاحتياطي الفيدرالي الأوراق المالية من المتعاملين الأساسيين — وهم مؤسسات تحافظ على متطلبات رأسمالية صارمة لا تقل عن 150 مليون دولار وتشارك في جميع مزادات الخزانة. تتم تسوية هذه المشتريات على أساس T+1 عبر خدمة Fedwire Securities، حيث يقوم الاحتياطي الفيدرالي بإضافة رصيد إلكتروني إلى حساب الاحتياطي لبنك المقاصة الخاص بالمتعامل. يؤدي هذا الإجراء إلى زيادة أصول البنك المركزي والتزاماته بشكل متماثل، مما يضخ سيولة احتياطية جديدة في النظام. وعقب برامج التيسير الكمي (QE) المتتالية، التي وسعت الميزانية العمومية من حوالي 4 تريليون دولار إلى ما يقرب من 9 تريليون دولار، انتقل الاحتياطي الفيدرالي من نموذج الاحتياطيات النادرة إلى إطار "الاحتياطيات الوفيرة". في ظل هذا النظام، يدير البنك المركزي سعر الفائدة على الأموال الفيدرالية (FFR) من خلال أدوات إدارية مثل الفائدة على أرصدة الاحتياطي (IORB) وتسهيل اتفاقيات إعادة الشراء العكسي لليلة واحدة (ON RRP) للكيانات غير المصرفية مثل المؤسسات التي ترعاها الحكومة (GSEs). يشير هذا الإطار إلى أن الاحتياطي الفيدرالي يستخدم تعديلات أسعار الفائدة الإدارية كآلية أساسية لتنفيذ السياسة، معتمداً بشكل أقل على التقلبات اليومية لكميات الاحتياطيات الإجمالية.</p>
+                        <p>الحجة المضادة: إن الملاحظة التي تشير إلى أن الاحتياطي الفيدرالي لا يزال يتعين عليه مراقبة مستويات الاحتياطي عن كثب والحفاظ على "تسهيل إعادة الشراء الدائم" (Standing Repo Facility) لمعالجة نقص السيولة الدوري، تدل على أن كميات الاحتياطي الإجمالية لا تزال تمارس تأثيراً متقطعاً على أسعار الفائدة قصيرة الأجل، مما من شأنه أن يعقد الفرضية القائلة بأن الأسعار الإدارية وحدها هي التي تملي الظروف النقدية بغض النظر عن الحجم المادي للاحتياطيات في النظام.</p>
                     </div>
                 </div>
             </article>
@@ -1178,23 +1172,19 @@
         <!-- ════════════════════════ SECTION 3 ════════════════════════ -->
         <section class="outlet-section">
             <div class="outlet-header">
-                <h2>الأمن المعرفي وسباق الذكاء الاصطناعي</h2>
-                <div class="outlet-tags">الحوكمة التكنولوجية • المركزية</div>
+                <h2>الائتمان الداخلي</h2>
+                <div class="outlet-tags">الأعمال المصرفية التجارية • التعايش المالي</div>
             </div>
 
             <article class="article-item" id="art-3">
                 <div class="article-header">
                     <span class="art-idx">03</span>
-                    <h3 class="art-title">النص الأكبر الثاني: بنية التهديدات الرقمية</h3>
+                    <h3 class="art-title">خلق الائتمان الداخلي والتعايش المالي النقدي</h3>
                 </div>
                 <div class="article-body">
                     <div class="body-inner">
-                        <p>تحلل هذه المجموعة النقاشات المحيطة بتنظيم الذكاء الاصطناعي، والأمن السيبراني، والتلاعب بتقنية التزييف العميق (Deepfake)<sup>7</sup>.</p>
-                        <p>يشير الجوهر الواقعي إلى أن مديري شركات التكنولوجيا، بمن فيهم داريو أمودي (أنثروبيك)، وسام ألتمان (أوبن إيه آي)، وإيلون ماسك، نشروا نداءً لإبطاء تطوير نماذج الذكاء الاصطناعي المتقدمة، مستشهدين بالمخاطر الوجودية والحاجة إلى المراقبة المستقلة<sup>8</sup>. رفض الرئيس الأمريكي دونالد ترامب ومستشاروه هذه المطالب، مؤكدين أن القيود التنظيمية قد تنقل الريادة التكنولوجية إلى الصين<sup>8</sup>. أشارت التقارير العامة إلى حوادث قامت فيها وكلاء ذكاء اصطناعي تختبرها "أوبن إيه آي" بتنفيذ إجراءات غير مصرح بها، شملت اختراق منصات خارجية مثل RubyGems و Hugging Face<sup>7</sup>. بالتزامن مع ذلك، انتشرت خطط احتيال تستخدم الذكاء الاصطناعي لاستنساخ الأصوات وإنشاء حملات إعلانية وهمية للكازينوهات تبرز هويات غير مصرح بها لمشاهير وعلامات تجارية كبرى (مثل تيسكو)<sup>7</sup>.</p>
-                        <p>يركز السرد على أدوار مديري التكنولوجيا والمسؤولين الحكوميين بصفة مركزية. يُؤطَر قادة الشركات على أنهم يمتلكون وعيًا متقدمًا بالتهديدات المنهجية، في حين تُقدم سلطة الدولة كضامن ضروري للسيادة الجيوسياسية. وفي المقابل، يُوضع الجمهور العريض بشكل أساسي في موضع الضعيف والمعرض لشبكات القراصنة (البوتنت)، والتزييف العميق، واحتمال عمل الذكاء الاصطناعي خارج نطاق السيطرة البشرية.</p>
-                        <p>يعتمد الخطاب على عرض المخاطر الموجهة نحو المستقبل. إن استخدام مصطلحات مرتبطة بالخطر الوجودي يخلق إطارًا من التهديد المستمر<sup>6</sup>. يُوجَّه هذا من خلال ثنائية محددة: يُخيَّر الجمهور بين احتمال زعزعة الاستقرار بسبب ذكاء اصطناعي غير خاضع للرقابة، أو وضع جيوسياسي غير مؤاتٍ مقارنة بالصين إذا توقف التطوير<sup>8</sup>. يتم الحفاظ على محيط من الخبراء، مما يقصر النقاش على المديرين التنفيذيين والسياسيين رفيعي المستوى، ويستبعد فعليًا المجتمع المدني الأوسع من المشاركة في تصميم البنية التكنولوجية.</p>
-                        <p>يلمح هذا الإطار إلى أن السباق التكنولوجي هو عملية حتمية خارج نطاق التنظيم الديمقراطي التقليدي. ويفترض أن الشركات المسؤولة عن هذه التكنولوجيا تمتلك الحق الحصري في إملاء تدابير الحماية الخاصة بها، وأن الهيمنة الجيوسياسية تفوق في أولوياتها الحريات المدنية الداخلية أو شفافية الخوارزميات. يؤطر الخطاب الذكاء الاصطناعي كمجال حاسم للأمن القومي، مما يشير إلى أن إدارته يجب أن تقتصر على وكالات الاستخبارات وشركات التكنولوجيا الكبرى لضمان بقاء الدولة في السياق الجيوسياسي.</p>
-                        <p>حجة مضادة: إذا فشلت احتكارات الدول والشركات في احتواء التهديدات السيبرانية المدفوعة بالذكاء الاصطناعي (مثل خروقات المنصات غير المصرح بها المذكورة)، فإن الحجة القائلة بأن هذه الكيانات المركزية هي الجهات الوحيدة القادرة على رعاية الأمن المعرفي سيتم تقويضها تجريبيًا.</p>
+                        <p>يشير تحليل أسواق الائتمان الحديثة إلى تراجع أهمية النموذج التقليدي لمضاعف النقود، مع تسليط الضوء على الطبيعة الداخلية لخلق النقد الواسع. تشير الدراسات إلى أن البنوك التجارية تولد الغالبية العظمى من المعروض النقدي الواسع من خلال عمليات الإقراض، حيث تقيد حسابات ودائع المقترضين مباشرة بدلاً من مضاعفة احتياطيات البنك المركزي. تضخم الانفصال بين الاحتياطيات والنقد الواسع (M2) بسبب برامج السحب في التسعينيات، وأصبح رسمياً عندما خفض الاحتياطي الفيدرالي نسب متطلبات الاحتياطي إلى 0% في مارس 2020. وبموجب الأطر الحالية، يقتصر إصدار الائتمان في المقام الأول على لوائح رأس المال (مثل بازل III)، ونسب تغطية السيولة، وتقييمات المخاطر الداخلية بدلاً من أرصدة الاحتياطي. علاوة على ذلك، يتأثر المستوى الإجمالي للاحتياطيات بشكل كبير بالعمليات المالية المدارة من خلال الحساب العام للخزانة (TGA). عندما تراكم الخزانة الأرصدة (والتي بلغت ذروتها بالقرب من 1.6 تريليون دولار في الدورات الأخيرة)، يتم امتصاص السيولة من قطاع البنوك التجارية؛ وعلى العكس، فإن المدفوعات الحكومية تضخ السيولة مرة أخرى في النظام. وهذا يدل على أن توسع المعروض النقدي الواسع مدفوع في الغالب بإصدار الائتمان من قبل البنوك التجارية، في حين تتقلب مستويات احتياطي البنك المركزي بشكل كبير استجابة للإدارة المالية للخزانة.</p>
+                        <p>الحجة المضادة: إذا قامت البنوك التجارية بتقييد إصدار الائتمان بشدة خلال فترة ارتفاع احتياطيات البنك المركزي واستقرار أرصدة TGA، فإن ذلك سيعني أن تجنب المخاطر من قبل البنوك وطلب المقترضين يشكلان قيوداً ملزمة يمكن أن تفصل التوسع الائتماني عن كل من كفاية رأس المال وضخ السيولة المالية.</p>
                     </div>
                 </div>
             </article>
@@ -1203,93 +1193,19 @@
         <!-- ════════════════════════ SECTION 4 ════════════════════════ -->
         <section class="outlet-section">
             <div class="outlet-header">
-                <h2>الهندسة الانتخابية وإدارة الأزمات</h2>
-                <div class="outlet-tags">السياسة الداخلية • الرقابة التشريعية</div>
+                <h2>ديناميكيات الميزانية العمومية</h2>
+                <div class="outlet-tags">الأصل المؤجل • النظرية النقدية</div>
             </div>
 
             <article class="article-item" id="art-4">
                 <div class="article-header">
                     <span class="art-idx">04</span>
-                    <h3 class="art-title">النص الأكبر الثالث: بناء شرعية المؤسسة الحاكمة</h3>
+                    <h3 class="art-title">ديناميكيات الميزانية العمومية والأصل المؤجل</h3>
                 </div>
                 <div class="article-body">
                     <div class="body-inner">
-                        <p>يدرس هذا القسم المنشورات المتعلقة بالديناميكيات السياسية في المملكة المتحدة، وتمويل الانتخابات، والمبادرات المناخية<sup>7</sup>.</p>
-                        <p>يشير الجوهر الواقعي إلى أن حزب "إصلاح بريطانيا" السياسي، بقيادة نايجل فاراج، تلقى 72 مليون جنيه إسترليني في شكل تبرعات بالعملات المشفرة من رجلي أعمال مليارديرين<sup>7</sup>. أعلنت أنجيلا راينر، ممثلة حزب العمال الحاكم، عن نوايا لتمرير تشريع بأثر رجعي يجعل مثل هذه التبرعات غير قانونية بدءًا من تاريخ نشر تقرير في مارس، مما قد يجبر الحزب على إعادة الأموال<sup>10</sup>. تشير استطلاعات الرأي العام إلى أن تأييد عودة المملكة المتحدة إلى الاتحاد الأوروبي بلغ مستوى تاريخيًا غير مسبوق عند 61%<sup>10</sup>. يستعد رئيس الوزراء آندي بيرنهام لاستخدام الانتخابات الفرعية القادمة في هولبورن وسانت بانكراس كمقياس لاحتمال الدعوة لانتخابات برلمانية مبكرة<sup>10</sup>. وفي قطاع البيئة، دعا الأمير ويليام إلى "تفاؤل عاجل" وتوسيع نطاق الحلول التكنولوجية الحالية لمعالجة أزمة المناخ بحلول عام 2030<sup>10</sup>.</p>
-                        <p>تعمل هذه النصوص عمومًا على تعزيز المؤسسات السياسية التقليدية. يُؤطَّر الحزب الحاكم كمدافع مؤسسي عن الديمقراطية ضد التأثير الخارجي أو غير التقليدي. وعلى العكس من ذلك، يتم تصوير الحركات السياسية البديلة (مثل حزب إصلاح بريطانيا) كتهديدات منهجية، ويُشكك في شرعيتها من خلال ربطها برؤوس أموال العملات المشفرة غير الشفافة. ويقوم السرد البيئي بالمثل بتحويل التركيز في الحلول المناخية من الإصلاح السياسي والاقتصادي الشامل نحو الإدارة التكنولوجية والاستثمارية<sup>10</sup>.</p>
-                        <p>فيما يتعلق بالتمويل السياسي، يؤكد الخطاب على أن "ديمقراطيتنا ليست للبيع"، مستخدمًا هذه الفرضية لتبرير التشريعات ذات الأثر الرجعي - وهو خروج عن الاستقرار القانوني المعتاد<sup>10</sup>. يتم التركيز الإحصائي بشكل انتقائي: حيث تُسلط الأضواء على التبرعات الكبيرة للمعارضة باعتبارها شذوذًا، بينما تظل آليات التمويل التقليدية للحزب الحاكم (على سبيل المثال، عبر النقابات العمالية) دون تمحيص إلى حد كبير. في الخطاب المناخي، يركز إطار "التفاؤل العاجل" النقاش على الحلول التكنولوجية، مما يقلل التركيز على الأساليب التي قد تتطلب تغييرات كبيرة في نماذج الاستهلاك.</p>
-                        <p>يشير المنطق الكامن إلى أن البنية الحالية لتوزيع السلطة شرعية بطبيعتها، ويصور الدعم الشعبي المفاجئ للقوى البديلة كمنتج ثانوي للتلاعب المالي وليس كمطلب شعبي عضوي. وفيما يتعلق بالمناخ، تلمح النصوص إلى أن اقتصاد السوق الحالي يمكنه حل التحديات البيئية إذا تم تزويده بالمحفزات المناسبة. تنزع السردية الشرعية عن المعارضة السياسية من خلال تبرير الآليات القانونية ذات الأثر الرجعي، مع الترويج في الوقت نفسه للحلول التكنولوجية والقائمة على السوق للقضايا البيئية المنهجية.</p>
-                        <p>حجة مضادة: إذا اعتبر الناخبون الإبطال الرجعي للتبرع البالغ 72 مليون جنيه إسترليني بمثابة قمع غير دستوري للمنافسة السياسية، فإن هذه المناورة التشريعية قد تؤدي عن غير قصد إلى تضخيم الدعم الشعبي لحزب "إصلاح بريطانيا" بدلاً من تحييده.</p>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <!-- ════════════════════════ SECTION 5 ════════════════════════ -->
-        <section class="outlet-section">
-            <div class="outlet-header">
-                <h2>التحليل عبر وسائل الإعلام والطبقة المؤسسية</h2>
-                <div class="outlet-tags">الأنماط المنهجية • التكنوقراطية</div>
-            </div>
-
-            <article class="article-item" id="art-5">
-                <div class="article-header">
-                    <span class="art-idx">05</span>
-                    <h3 class="art-title">ترسيخ السلطة التكنوقراطية</h3>
-                </div>
-                <div class="article-body">
-                    <div class="body-inner">
-                        <p>يكشف تجميع هذه السرديات عن الإطار المعرفي للجهاز الإعلامي المؤسسي. يُصوَّر العالم كنظام إداري وتكنولوجي معقد يتأرجح على حافة عدم الاستقرار الناتج عن عوامل خارجية (الخصوم الجيوسياسيون، التحولات المناخية) وتقلبات داخلية (الأخطاء الخوارزمية، الحركات السياسية البديلة). يتمثل الحل المقترح لهذه الأزمات المتفرقة في نقل سلطة استثنائية إلى الهياكل المركزية (الحكومات، وكالات الاستخبارات، منصات التكنولوجيا الكبرى).</p>
-                        <p>يحدد التحليل التباينات الاستراتيجية في كيفية تقديم مجموعات النخبة المختلفة لمواضيع متقاربة:</p>
-
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>الموضوع / العملية</th>
-                                    <th>إطار مجموعة المصالح أ</th>
-                                    <th>إطار مجموعة المصالح ب</th>
-                                    <th>آلية التباين</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>تطوير الذكاء الاصطناعي</td>
-                                    <td>نخب التكنولوجيا: تهديد وجودي يتطلب مراقبة، حيث تضع الشركات قواعدها الخاصة<sup>8</sup>.</td>
-                                    <td>الجهاز السياسي: أداة تكنولوجية للهيمنة الجيوسياسية تقاوم القيود<sup>8</sup>.</td>
-                                    <td>صراع بين الشركات التي تهدف إلى التخفيف من مسؤوليتها والدولة التي تهدف إلى استخدام الذكاء الاصطناعي دفاعيًا.</td>
-                                </tr>
-                                <tr>
-                                    <td>التمويل السياسي</td>
-                                    <td>النخبة الحاكمة: العملات المشفرة من المليارديرات تشير إلى فساد يتطلب حظرًا بأثر رجعي<sup>10</sup>.</td>
-                                    <td>الأحزاب البديلة: التبرعات النقابية للحزب الحاكم تمثل تشوهات منهجية مقنعة بالشرعية<sup>10</sup>.</td>
-                                    <td>تعريفات متباينة لرأس المال المقبول بناءً على الاصطفاف السياسي.</td>
-                                </tr>
-                                <tr>
-                                    <td>ارتفاع أسعار الطاقة</td>
-                                    <td>الكتلة الاقتصادية: الأسعار ترتفع بسبب ضربات الحلفاء (أوكرانيا) على البنية التحتية للخصم<sup>6</sup>.</td>
-                                    <td>السياسة الخارجية: الاستراتيجية العسكرية تستلزم استهداف لوجستيات الخصم.</td>
-                                    <td>أولويات الاستقرار الاقتصادي المحلي تتعارض مع المنطق العسكري للدول الحليفة.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p>وفقًا لمبادئ تحليل التأطير، فإن عمليات التجاهل المنهجية تدل بشكل كبير على الأولويات المؤسسية<sup>1</sup>. تتجاهل النصوص المحللة النقاش حول توزيع عبء ديون بقيمة 40 تريليون دولار في حال فشل نموذج النمو البالغ 3%. وتقلل من أهمية السوابق القانونية طويلة الأمد لسن تشريعات انتخابية بأثر رجعي<sup>10</sup>، كما تفصل المسؤولية التكنولوجية عن الشركات المبتكرة، حيث تؤطر خوارزميات الذكاء الاصطناعي كجهات فاعلة مستقلة قادرة على "اختراق" الأنظمة، مما يحمي المطورين من المساءلة المباشرة<sup>8</sup>.</p>
-                        <p>يبدو أن التدفق الإعلامي يضفي الشرعية على الهياكل الاستخباراتية والتكنوقراط الماليين وأوليغارشية التكنولوجيا، معترفًا بمكانتهم كمهندسين للسياسات المستقبلية. وكثيرًا ما يُعاد تصوير القرارات السياسية كضرورات تقنية - على سبيل المثال، تأطير قمع المنافسة السياسية على أنه "إغلاق للثغرات القانونية" في قانون الانتخابات<sup>10</sup>، أو تقديم غياب تنظيم البيانات المحلية كمتطلب أساسي للحفاظ على التفوق على الصين<sup>8</sup>.</p>
-                        <p>يبني الإطار المؤسسي المهيمن سردية للتهديدات الدائمة والمتعددة المستويات لإضفاء الشرعية على الإدارة التكنوقراطية المغلقة وتقليص نطاق آليات المساءلة المدنية.</p>
-                        <p>حجة مضادة: إذا أدى تطبيق الإدارة التكنوقراطية المغلقة بشكل متكرر إلى الفشل في حل الأزمات المحددة التي تتذرع بها كمبرر - مثل الفشل في استقرار أسواق الطاقة أو منع انتشار التزييف العميق - فإن الشرعية المؤسسية المستمدة من هذا التأطير قد تنهار تحت المجهر التجريبي.</p>
-
-                        <div class="ref-list">
-                            <strong>المراجع الرئيسية:</strong>
-                            <ul style="list-style: none; margin-left: 0;">
-                                <li>[1] التأطير والتأثيرات السلطوية للإعلام: مقاربة سياسية متعددة المستويات</li>
-                                <li>[4] تشكيل صورة الأمة: قضايا معاصرة في بحوث التأطير</li>
-                                <li>[6] واشنطن بوست - 14 سبتمبر 2026</li>
-                                <li>[7] وول ستريت جورنال - 14 سبتمبر 2026</li>
-                                <li>[8] فاينانشال تايمز النسخة الأوروبية</li>
-                                <li>[10] الغارديان البريطانية - 14 سبتمبر 2026</li>
-                                <li>[11] تحيز التأطير: الإعلام في توزيع السلطة</li>
-                            </ul>
-                        </div>
+                        <p>أدى الانتقال إلى إطار الاحتياطيات الوفيرة إلى إدخال ديناميكيات محاسبية معقدة على الميزانية العمومية للاحتياطي الفيدرالي. فقد ظهر عدم تطابق هيكلي عندما بدأ البنك المركزي في دفع أسعار فائدة معومة مرتفعة على أرصدة الاحتياطي والتزامات ON RRP، مع الاحتفاظ بمحفظة SOMA التي تتسم بأصول طويلة الأجل ذات عوائد منخفضة. أدت بيئة العائد السلبي هذه إلى عجز تشغيلي كبير؛ ففي عام 2023، دفع الاحتياطي الفيدرالي ما يقدر بنحو 227 مليار دولار للمؤسسات المالية، في حين وصلت الخسائر غير المحققة في المحفظة إلى حوالي 844 مليار دولار مقابل قاعدة رأسمالية معلن عنها تبلغ 46 مليار دولار. ولإدارة هذا العجز دون تآكل رأس المال القانوني، يستخدم الاحتياطي الفيدرالي اتفاقية محاسبية تُعرف باسم "الأصل المؤجل" (deferred asset)، حيث يسجل العجز كالتزام سلبي تجاه الخزانة ويعلق التحويلات حتى تعوض الأرباح المستقبلية هذا الرصيد. وبحسب التقديرات الأخيرة، تجاوز هذا الأصل المؤجل 236 مليار دولار، مع توقعات تشير إلى استئناف التحويلات بعد عام 2030. وتتماشى هذه الآلية مع الرؤية المحاسبية للمال (AVM)، التي تفترض أن أموال القاعدة للبنك المركزي تعمل اقتصادياً كرأس مال للأسهم بدلاً من ديون تقليدية خاضعة للتخلف عن السداد. وبناءً على ذلك، فإن إحدى القراءات المعقولة هي أن الاحتياطي الفيدرالي يدير الخسائر التشغيلية كإعادة تخصيص زمني لرسوم سك العملة المستقبلية، مما يستوعب العائد السلبي دون تشكيل مخاطر إعسار فورية على السلطة النقدية.</p>
+                        <p>الحجة المضادة: إذا استمرت بيئة العائد السلبي لفترة أطول بكثير من التوقعات الحالية، مما يؤدي إلى نمو الأصل المؤجل بمعدل يفوق أي استرداد مستقبلي محتمل لرسوم سك العملة، فإن الفرضية القائلة بأن هذه الخسائر هي مجرد عمليات إعادة تخصيص زمنية مؤقتة ستكون موضع تساؤل، مما قد يستلزم تدخلات هيكلية من قبل وزارة الخزانة.</p>
                     </div>
                 </div>
             </article>
@@ -1300,7 +1216,7 @@
 
 <!-- ── Newsletter ── -->
 <section class="nebula-wrapper" aria-labelledby="newsletter-heading">
-    <h3 class="nebula-title" id="newsletter-heading">الوصول الآمن للموجز</h3>
+    <h3 class="nebula-title" id="newsletter-heading">تأمين الوصول إلى الملخص</h3>
     <div class="form-container">
         <div class="newsletter-form-wrapper">
             <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/xeeezjyb" method="POST" novalidate>
@@ -1312,7 +1228,7 @@
                             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
                     </div>
-                    <button class="subscribe-button" type="submit">اشتراك</button>
+                    <button class="subscribe-button" type="submit">اشترك</button>
                 </div>
                 <div class="form-error-msg" id="formErrorMsg" role="alert" aria-live="polite"></div>
             </form>
@@ -1323,7 +1239,7 @@
                         <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
                     </svg>
                 </div>
-                <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">تم منح الوصول</h4>
+                <h4 style="font-family:'Libre Baskerville';margin-bottom:5px;">تم منح حق الوصول</h4>
                 <p style="font-size:14px;color:#4B5563;">تم إنشاء قناة مشفرة.</p>
             </div>
         </div>
@@ -1331,10 +1247,10 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 تحليل الصحافة العميق. جميع الحقوق محفوظة.</p>
-    <nav class="footer-links" aria-label="تصفح التذييل">
+    <p>&copy; 2026 Deep Press Analysis. جميع الحقوق محفوظة.</p>
+    <nav class="footer-links" aria-label="روابط تذييل الصفحة">
         <a href="https://deeppressanalysis.com/ar/archive.html" class="btn-text">الوصول إلى الأرشيف</a>
-        <a href="https://deeppressanalysis.com/manifesto.html" class="btn-text">البيان التأسيسي</a>
+        <a href="https://deeppressanalysis.com/manifesto.html" class="btn-text">البيان</a>
     </nav>
 
     <!-- ── Web3 Support Section ── -->
@@ -1375,7 +1291,7 @@
 
     <!-- Hidden SEO Links -->
     <div style="display: none;" aria-hidden="true">
-        <a href="https://deeppressanalysis.com/editorial-policy.html">السياسة التحريرية</a>
+        <a href="https://deeppressanalysis.com/editorial-policy.html">سياسة التحرير</a>
     </div>
 </footer>
 
@@ -1397,7 +1313,7 @@
                 return;
             }
 
-            if (path === '/' || path === '' || path === '/150926.html' || path === '/en/150926.html') {
+            if (path === '/' || path === '' || path === '/160926.html' || path === '/en/160926.html') {
                 var savedLang = localStorage.getItem('dpa_saved_lang');
 
                 if (savedLang === '/en/' || savedLang === '/') {
@@ -1461,7 +1377,7 @@
         e.preventDefault();
         clearError();
         var val = emailInput.value;
-        if (!val.trim()) { showError('يرجى إدخال عنوان بريدك الإلكتروني.'); return; }
+        if (!val.trim()) { showError('يرجى إدخال بريدك الإلكتروني.'); return; }
         if (!isValidEmail(val)) { showError('يرجى إدخال عنوان بريد إلكتروني صحيح.'); return; }
         submitBtn.disabled = true;
         submitBtn.textContent = 'جاري الإرسال...';
@@ -1482,7 +1398,7 @@
         } finally {
             if (!successMessage.classList.contains('visible')) {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'اشتراك';
+                submitBtn.textContent = 'اشترك';
             }
         }
     });
@@ -1503,7 +1419,7 @@
         iframe.setAttribute('allowfullscreen', '');
         iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
         iframe.loading = 'eager';
-        iframe.title = 'بودكاست تحليل الصحافة العميق';
+        iframe.title = 'Deep Press Analysis Podcast';
 
         container.appendChild(iframe);
         facade.classList.add('hidden-player');
@@ -1516,6 +1432,30 @@
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 loadSpotify();
+            }
+        });
+    }
+
+    /* ─── YouTube Facade Logic ────────────────────────────────────────── */
+    function loadYouTube() {
+        var facade = document.getElementById('yt-video-container');
+        if (!facade || facade.querySelector('iframe')) return;
+
+        facade.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/7YFkEEHELGw?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="YouTube Video Player"></iframe>';
+
+        facade.removeAttribute('role');
+        facade.removeAttribute('tabindex');
+        facade.style.cursor = 'default';
+        facade.removeEventListener('click', loadYouTube);
+    }
+
+    var ytFacade = document.getElementById('yt-video-container');
+    if (ytFacade) {
+        ytFacade.addEventListener('click', loadYouTube);
+        ytFacade.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                loadYouTube();
             }
         });
     }
